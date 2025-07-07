@@ -22,16 +22,19 @@ def main():
                             'part': 'position_total',
                             'baseName': 'preparation',
                             'title': "1. Koszty przygotowania i zarządzania - RAZEM",
+                            'afterName': 'Pr1',
                         },
                         {
                             'part': 'position_single',
                             'baseName': 'festivalDirector',
-                            'title': 'Koszty dyrektora festiwalu'
+                            'title': 'Koszty dyrektora festiwalu',
+                            'afterName': 'Pr1',
                         },
                         {
                             'part': 'position_single',
                             'baseName': 'artisticDirector',
-                            'title': 'Koszty dyrektora artystycznego'
+                            'title': 'Koszty dyrektora artystycznego',
+                            'afterName': 'Pr1',
                         }
                     ]
                 },
@@ -44,16 +47,19 @@ def main():
                             'part': 'position_total',
                             'baseName': 'management',
                             'title': "2. Koszty zarządzania - RAZEM",
+                            'afterName': 'Pr1',
                         },
                         {
                             'part': 'position_single',
                             'baseName': 'prefestivalDirector',
-                            'title': 'Koszty dyrektora festiwalu'
+                            'title': 'Koszty dyrektora festiwalu',
+                            'afterName': 'Pr1',
                         },
                         {
                             'part': 'position_single',
                             'baseName': 'preartisticDirector',
-                            'title': 'Koszty dyrektora artystycznego'
+                            'title': 'Koszty dyrektora artystycznego',
+                            'afterName': 'Pr1',
                         }
                     ]
                 },
@@ -65,12 +71,12 @@ def main():
                             'isSum': True,
                             'part': 'position_single',
                             'baseName': 'other',
-                            'title': '3. Koszty inne'
+                            'title': '3. Koszty inne',
                         }
                     ]
                 },
                 {
-                    'part': 'total',
+                    'part': 'total'
                 }
             ]
         },
