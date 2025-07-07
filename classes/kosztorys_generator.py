@@ -15,62 +15,92 @@ class KosztorysGenerator:
 
     def build_component(self, node: dict, prefix: str = "") -> dict:
         """
-        Rekurencyjnie buduje fragment kosztorysu zgodnie z definicją `node`.
-        prefix: dotychczasowy skumulowany baseName od rodziców.
+        Rekurencyjnie buduje fragment kosztorysu według node.
+        prefix: skumulowany baseName od rodziców.
         """
         part_key = node['part']
         template = self.loaded_parts.get(part_key)
         if template is None:
             raise ValueError(f"Nie znaleziono części '{part_key}'.")
-        # deep copy szablonu
+        # 1) Deep copy szablonu
         comp = json.loads(json.dumps(template))
 
-        # 1) nowy prefix = przekazany + własny baseName (jeśli jest)
+        # 2) Rozszerz prefix o własny baseName (jeśli jest)
         current_prefix = prefix + node.get('baseName', "")
 
-        # 2) nadpisz title, jeśli jest
+        # 3) Nadpisz title
         if 'title' in node:
             comp['title'] = node['title']
 
-        # 3) jeśli szablon ma pole 'name', prefixuj je i dataBDD
+        # 4) Jeśli szablon ma własne pole name, prefixuj je
         if 'name' in comp:
             orig = comp['name']
             new_name = current_prefix + orig
             comp['name']    = new_name
             comp['dataBDD'] = new_name
 
-        # 4A) jeśli struktura node ma children, buduj po node['components']
+        # 5) Obsługa dzieci zdefiniowanych w strukturze
         if 'components' in node:
-            comp['components'] = [
+            # Budujemy rekurencyjnie każdy child
+            built_children = [
                 self.build_component(child, current_prefix)
                 for child in node['components']
             ]
+            comp['components'] = built_children
 
-        # 4B) w przeciwnym razie – prefixuj template’owe komponenty
+            # Jeżeli to rozdział position_layout, wstrzyknij sumowanie
+            if part_key == 'position_layout':
+                # przejrzyj każdy node+jego built_child
+                for idx, child_node in enumerate(node['components']):
+                    if child_node.get('isSum', False):
+                        summary = built_children[idx]
+                        # zbierz wszystkie rodzeństwa bez isSum
+                        siblings = [
+                            built_children[j]
+                            for j, sib_node in enumerate(node['components'])
+                            if not sib_node.get('isSum', False)
+                        ]
+                        # jeśli jest co najmniej dwóch, to sumujemy
+                        if len(siblings) > 1:
+                            # dla każdego pola w podsumowaniu
+                            for f_idx, field_comp in enumerate(summary.get('components', [])):
+                                # pola do sumowania
+                                fields_list = [
+                                    sib['components'][f_idx]['name']
+                                    for sib in siblings
+                                ]
+                                # 5.1) uzupełnij calculationRules
+                                if 'calculationRules' in field_comp and field_comp['calculationRules']:
+                                    field_comp['calculationRules'][0]['kwargs']['fields'] = fields_list
+                                # 5.2) uzupełnij validators(RelatedSumValidator)
+                                for v in field_comp.get('validators', []):
+                                    if v['name'] == 'RelatedSumValidator':
+                                        v['kwargs']['field_names'] = fields_list
+            return comp
+
+        # 6) Gdy node nie definiuje sub-komponentów, ale template je ma,
+        #    prefixujemy te template’owe dzieci
         elif 'components' in comp:
-            def prefix_children(children_list):
-                new_list = []
-                for child in children_list:
-                    # deep copy each child fragment
-                    c = json.loads(json.dumps(child))
-                    if 'name' in c:
-                        orig2 = c['name']
-                        nn = current_prefix + orig2
-                        c['name']    = nn
-                        c['dataBDD'] = nn
-                    # jeśli są głębsze podkomponenty, idziemy rekurencyjnie
-                    if 'components' in c:
-                        c['components'] = prefix_children(c['components'])
-                    new_list.append(c)
-                return new_list
+            def _prefix_list(lst):
+                out = []
+                for c in lst:
+                    sub = json.loads(json.dumps(c))
+                    if 'name' in sub:
+                        nn = current_prefix + sub['name']
+                        sub['name']    = nn
+                        sub['dataBDD'] = nn
+                    if 'components' in sub:
+                        sub['components'] = _prefix_list(sub['components'])
+                    out.append(sub)
+                return out
+            comp['components'] = _prefix_list(comp['components'])
+            return comp
 
-            comp['components'] = prefix_children(comp['components'])
-
+        # 7) Liść – zwróć po modyfikacji nazwy
         return comp
 
     def generate(self) -> None:
         self.load_parts()
-        # start bez prefixu
         self.result = self.build_component(self.structure, "")
 
     def save_output(self) -> None:

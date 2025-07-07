@@ -58,7 +58,10 @@
                 {
                   "name": "sumInputs",
                   "kwargs": {
-                    "fields": []
+                    "fields": [
+                      "festivalDirectorTotalPlanned",
+                      "artisticDirectorTotalPlanned"
+                    ]
                   }
                 }
               ],
@@ -66,7 +69,10 @@
                 {
                   "name": "RelatedSumValidator",
                   "kwargs": {
-                    "field_names": []
+                    "field_names": [
+                      "festivalDirectorTotalPlanned",
+                      "artisticDirectorTotalPlanned"
+                    ]
                   }
                 },
                 {
@@ -93,7 +99,10 @@
                 {
                   "name": "sumInputs",
                   "kwargs": {
-                    "fields": []
+                    "fields": [
+                      "festivalDirectorRequestedPlanned",
+                      "artisticDirectorRequestedPlanned"
+                    ]
                   }
                 }
               ],
@@ -101,7 +110,10 @@
                 {
                   "name": "RelatedSumValidator",
                   "kwargs": {
-                    "field_names": []
+                    "field_names": [
+                      "festivalDirectorRequestedPlanned",
+                      "artisticDirectorRequestedPlanned"
+                    ]
                   }
                 },
                 {
@@ -127,7 +139,10 @@
                 {
                   "name": "sumInputs",
                   "kwargs": {
-                    "fields": []
+                    "fields": [
+                      "festivalDirectorTotalActual",
+                      "artisticDirectorTotalActual"
+                    ]
                   }
                 }
               ],
@@ -135,7 +150,10 @@
                 {
                   "name": "RelatedSumValidator",
                   "kwargs": {
-                    "field_names": []
+                    "field_names": [
+                      "festivalDirectorTotalActual",
+                      "artisticDirectorTotalActual"
+                    ]
                   }
                 },
                 {
@@ -161,7 +179,10 @@
                 {
                   "name": "sumInputs",
                   "kwargs": {
-                    "fields": []
+                    "fields": [
+                      "festivalDirectorSupportPisfActual",
+                      "artisticDirectorSupportPisfActual"
+                    ]
                   }
                 }
               ],
@@ -169,7 +190,10 @@
                 {
                   "name": "RelatedSumValidator",
                   "kwargs": {
-                    "field_names": []
+                    "field_names": [
+                      "festivalDirectorSupportPisfActual",
+                      "artisticDirectorSupportPisfActual"
+                    ]
                   }
                 },
                 {
@@ -482,7 +506,10 @@
                 {
                   "name": "sumInputs",
                   "kwargs": {
-                    "fields": []
+                    "fields": [
+                      "prefestivalDirectorTotalPlanned",
+                      "preartisticDirectorTotalPlanned"
+                    ]
                   }
                 }
               ],
@@ -490,7 +517,10 @@
                 {
                   "name": "RelatedSumValidator",
                   "kwargs": {
-                    "field_names": []
+                    "field_names": [
+                      "prefestivalDirectorTotalPlanned",
+                      "preartisticDirectorTotalPlanned"
+                    ]
                   }
                 },
                 {
@@ -517,7 +547,10 @@
                 {
                   "name": "sumInputs",
                   "kwargs": {
-                    "fields": []
+                    "fields": [
+                      "prefestivalDirectorRequestedPlanned",
+                      "preartisticDirectorRequestedPlanned"
+                    ]
                   }
                 }
               ],
@@ -525,7 +558,10 @@
                 {
                   "name": "RelatedSumValidator",
                   "kwargs": {
-                    "field_names": []
+                    "field_names": [
+                      "prefestivalDirectorRequestedPlanned",
+                      "preartisticDirectorRequestedPlanned"
+                    ]
                   }
                 },
                 {
@@ -551,7 +587,10 @@
                 {
                   "name": "sumInputs",
                   "kwargs": {
-                    "fields": []
+                    "fields": [
+                      "prefestivalDirectorTotalActual",
+                      "preartisticDirectorTotalActual"
+                    ]
                   }
                 }
               ],
@@ -559,7 +598,10 @@
                 {
                   "name": "RelatedSumValidator",
                   "kwargs": {
-                    "field_names": []
+                    "field_names": [
+                      "prefestivalDirectorTotalActual",
+                      "preartisticDirectorTotalActual"
+                    ]
                   }
                 },
                 {
@@ -585,7 +627,10 @@
                 {
                   "name": "sumInputs",
                   "kwargs": {
-                    "fields": []
+                    "fields": [
+                      "prefestivalDirectorSupportPisfActual",
+                      "preartisticDirectorSupportPisfActual"
+                    ]
                   }
                 }
               ],
@@ -593,7 +638,10 @@
                 {
                   "name": "RelatedSumValidator",
                   "kwargs": {
-                    "field_names": []
+                    "field_names": [
+                      "prefestivalDirectorSupportPisfActual",
+                      "preartisticDirectorSupportPisfActual"
+                    ]
                   }
                 },
                 {
@@ -850,6 +898,138 @@
               "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
               "unit": "PLN",
               "dataBDD": "preartisticDirectorSupportPisfActual",
+              "classList": [
+                "displayNonePDF"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "3. Koszty inne",
+      "classList": [
+        "no-title"
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "3. Koszty inne",
+          "classList": {
+            "main": [
+              "table-5",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-5__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Rodzaj kosztów",
+              "name": "otherDesc",
+              "value": "",
+              "readOnly": true,
+              "dataBDD": "otherDesc",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowany koszt całkowity",
+              "name": "otherTotalPlanned",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "otherTotalPlanned",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowana dotacja PISF",
+              "name": "otherRequestedPlanned",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "unit": "PLN",
+              "dataBDD": "otherRequestedPlanned",
+              "readOnly": true,
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Poniesiony koszt całkowity",
+              "name": "otherTotalActual",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
+              "unit": "PLN",
+              "dataBDD": "otherTotalActual",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "W tym dotacja PISF",
+              "name": "otherSupportPisfActual",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
+              "unit": "PLN",
+              "dataBDD": "otherSupportPisfActual",
               "classList": [
                 "displayNonePDF"
               ]

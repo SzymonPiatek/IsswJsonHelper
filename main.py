@@ -18,6 +18,7 @@ def main():
                     'title': "1. Koszty przygotowania",
                     'components': [
                         {
+                            'isSum': True,
                             'part': 'position_total',
                             'baseName': 'preparation',
                             'title': "1. Koszty przygotowania i zarządzania - RAZEM",
@@ -39,6 +40,7 @@ def main():
                     'title': "2. Koszty zarządzania",
                     'components': [
                         {
+                            'isSum': True,
                             'part': 'position_total',
                             'baseName': 'management',
                             'title': "2. Koszty zarządzania - RAZEM",
@@ -52,6 +54,18 @@ def main():
                             'part': 'position_single',
                             'baseName': 'preartisticDirector',
                             'title': 'Koszty dyrektora artystycznego'
+                        }
+                    ]
+                },
+                {
+                    'part': 'position_layout',
+                    'title': '3. Koszty inne',
+                    'components': [
+                        {
+                            'isSum': True,
+                            'part': 'position_single',
+                            'baseName': 'other',
+                            'title': '3. Koszty inne'
                         }
                     ]
                 },
