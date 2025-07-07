@@ -36,10 +36,10 @@
               "kind": "component",
               "type": "textarea",
               "label": "Rodzaj kosztów",
-              "name": "",
+              "name": "preparationDesc",
               "value": "",
               "readOnly": true,
-              "dataBDD": "",
+              "dataBDD": "preparationDesc",
               "classList": [
                 "col-span-2",
                 "text-left",
@@ -51,7 +51,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowany koszt całkowity",
-              "name": "",
+              "name": "preparationTotalPlanned",
               "value": 0,
               "copyFrom": "",
               "calculationRules": [
@@ -79,14 +79,14 @@
               ],
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": ""
+              "dataBDD": "preparationTotalPlanned"
             },
             {
               "kind": "component",
               "type": "text",
               "mask": "fund",
               "label": "Planowana dotacja PISF",
-              "name": "",
+              "name": "preparationRequestedPlanned",
               "value": 0,
               "copyFrom": "",
               "calculationRules": [
@@ -114,14 +114,14 @@
               ],
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": ""
+              "dataBDD": "preparationRequestedPlanned"
             },
             {
               "kind": "component",
               "type": "text",
               "mask": "fund",
               "label": "Poniesiony koszt całkowity",
-              "name": "",
+              "name": "preparationTotalActual",
               "value": 0,
               "calculationRules": [
                 {
@@ -148,14 +148,14 @@
               ],
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": ""
+              "dataBDD": "preparationTotalActual"
             },
             {
               "kind": "component",
               "type": "text",
               "mask": "fund",
               "label": "W tym dotacja PISF",
-              "name": "",
+              "name": "preparationSupportPisfActual",
               "value": 0,
               "calculationRules": [
                 {
@@ -182,10 +182,9 @@
               ],
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": ""
+              "dataBDD": "preparationSupportPisfActual"
             }
-          ],
-          "baseName": "preparation"
+          ]
         },
         {
           "kind": "chapter",
@@ -206,10 +205,10 @@
               "kind": "component",
               "type": "textarea",
               "label": "Rodzaj kosztów",
-              "name": "",
+              "name": "festivalDirectorDesc",
               "value": "",
               "readOnly": true,
-              "dataBDD": "",
+              "dataBDD": "festivalDirectorDesc",
               "classList": [
                 "displayNonePDF"
               ]
@@ -219,7 +218,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowany koszt całkowity",
-              "name": "",
+              "name": "festivalDirectorTotalPlanned",
               "value": 0,
               "validators": [
                 {
@@ -233,7 +232,7 @@
               "copyFrom": "",
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "",
+              "dataBDD": "festivalDirectorTotalPlanned",
               "classList": [
                 "displayNonePDF"
               ]
@@ -243,7 +242,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowana dotacja PISF",
-              "name": "",
+              "name": "festivalDirectorRequestedPlanned",
               "value": 0,
               "validators": [
                 {
@@ -256,7 +255,7 @@
               ],
               "copyFrom": "",
               "unit": "PLN",
-              "dataBDD": "",
+              "dataBDD": "festivalDirectorRequestedPlanned",
               "readOnly": true,
               "classList": [
                 "displayNonePDF"
@@ -267,7 +266,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Poniesiony koszt całkowity",
-              "name": "",
+              "name": "festivalDirectorTotalActual",
               "value": 0,
               "validators": [
                 {
@@ -280,7 +279,7 @@
               ],
               "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
               "unit": "PLN",
-              "dataBDD": "",
+              "dataBDD": "festivalDirectorTotalActual",
               "classList": [
                 "displayNonePDF"
               ]
@@ -290,7 +289,7 @@
               "type": "text",
               "mask": "fund",
               "label": "W tym dotacja PISF",
-              "name": "",
+              "name": "festivalDirectorSupportPisfActual",
               "value": 0,
               "validators": [
                 {
@@ -303,13 +302,12 @@
               ],
               "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
               "unit": "PLN",
-              "dataBDD": "",
+              "dataBDD": "festivalDirectorSupportPisfActual",
               "classList": [
                 "displayNonePDF"
               ]
             }
-          ],
-          "baseName": "festivalDirector"
+          ]
         },
         {
           "kind": "chapter",
@@ -330,10 +328,10 @@
               "kind": "component",
               "type": "textarea",
               "label": "Rodzaj kosztów",
-              "name": "",
+              "name": "artisticDirectorDesc",
               "value": "",
               "readOnly": true,
-              "dataBDD": "",
+              "dataBDD": "artisticDirectorDesc",
               "classList": [
                 "displayNonePDF"
               ]
@@ -343,7 +341,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowany koszt całkowity",
-              "name": "",
+              "name": "artisticDirectorTotalPlanned",
               "value": 0,
               "validators": [
                 {
@@ -357,7 +355,7 @@
               "copyFrom": "",
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "",
+              "dataBDD": "artisticDirectorTotalPlanned",
               "classList": [
                 "displayNonePDF"
               ]
@@ -367,7 +365,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowana dotacja PISF",
-              "name": "",
+              "name": "artisticDirectorRequestedPlanned",
               "value": 0,
               "validators": [
                 {
@@ -380,7 +378,7 @@
               ],
               "copyFrom": "",
               "unit": "PLN",
-              "dataBDD": "",
+              "dataBDD": "artisticDirectorRequestedPlanned",
               "readOnly": true,
               "classList": [
                 "displayNonePDF"
@@ -391,7 +389,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Poniesiony koszt całkowity",
-              "name": "",
+              "name": "artisticDirectorTotalActual",
               "value": 0,
               "validators": [
                 {
@@ -404,7 +402,7 @@
               ],
               "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
               "unit": "PLN",
-              "dataBDD": "",
+              "dataBDD": "artisticDirectorTotalActual",
               "classList": [
                 "displayNonePDF"
               ]
@@ -414,7 +412,7 @@
               "type": "text",
               "mask": "fund",
               "label": "W tym dotacja PISF",
-              "name": "",
+              "name": "artisticDirectorSupportPisfActual",
               "value": 0,
               "validators": [
                 {
@@ -427,13 +425,12 @@
               ],
               "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
               "unit": "PLN",
-              "dataBDD": "",
+              "dataBDD": "artisticDirectorSupportPisfActual",
               "classList": [
                 "displayNonePDF"
               ]
             }
-          ],
-          "baseName": "artisticDirector"
+          ]
         }
       ]
     },
@@ -463,10 +460,10 @@
               "kind": "component",
               "type": "textarea",
               "label": "Rodzaj kosztów",
-              "name": "",
+              "name": "managementDesc",
               "value": "",
               "readOnly": true,
-              "dataBDD": "",
+              "dataBDD": "managementDesc",
               "classList": [
                 "col-span-2",
                 "text-left",
@@ -478,7 +475,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowany koszt całkowity",
-              "name": "",
+              "name": "managementTotalPlanned",
               "value": 0,
               "copyFrom": "",
               "calculationRules": [
@@ -506,14 +503,14 @@
               ],
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": ""
+              "dataBDD": "managementTotalPlanned"
             },
             {
               "kind": "component",
               "type": "text",
               "mask": "fund",
               "label": "Planowana dotacja PISF",
-              "name": "",
+              "name": "managementRequestedPlanned",
               "value": 0,
               "copyFrom": "",
               "calculationRules": [
@@ -541,14 +538,14 @@
               ],
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": ""
+              "dataBDD": "managementRequestedPlanned"
             },
             {
               "kind": "component",
               "type": "text",
               "mask": "fund",
               "label": "Poniesiony koszt całkowity",
-              "name": "",
+              "name": "managementTotalActual",
               "value": 0,
               "calculationRules": [
                 {
@@ -575,14 +572,14 @@
               ],
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": ""
+              "dataBDD": "managementTotalActual"
             },
             {
               "kind": "component",
               "type": "text",
               "mask": "fund",
               "label": "W tym dotacja PISF",
-              "name": "",
+              "name": "managementSupportPisfActual",
               "value": 0,
               "calculationRules": [
                 {
@@ -609,10 +606,9 @@
               ],
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": ""
+              "dataBDD": "managementSupportPisfActual"
             }
-          ],
-          "baseName": "management"
+          ]
         },
         {
           "kind": "chapter",
@@ -633,10 +629,10 @@
               "kind": "component",
               "type": "textarea",
               "label": "Rodzaj kosztów",
-              "name": "",
+              "name": "prefestivalDirectorDesc",
               "value": "",
               "readOnly": true,
-              "dataBDD": "",
+              "dataBDD": "prefestivalDirectorDesc",
               "classList": [
                 "displayNonePDF"
               ]
@@ -646,7 +642,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowany koszt całkowity",
-              "name": "",
+              "name": "prefestivalDirectorTotalPlanned",
               "value": 0,
               "validators": [
                 {
@@ -660,7 +656,7 @@
               "copyFrom": "",
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "",
+              "dataBDD": "prefestivalDirectorTotalPlanned",
               "classList": [
                 "displayNonePDF"
               ]
@@ -670,7 +666,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowana dotacja PISF",
-              "name": "",
+              "name": "prefestivalDirectorRequestedPlanned",
               "value": 0,
               "validators": [
                 {
@@ -683,7 +679,7 @@
               ],
               "copyFrom": "",
               "unit": "PLN",
-              "dataBDD": "",
+              "dataBDD": "prefestivalDirectorRequestedPlanned",
               "readOnly": true,
               "classList": [
                 "displayNonePDF"
@@ -694,7 +690,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Poniesiony koszt całkowity",
-              "name": "",
+              "name": "prefestivalDirectorTotalActual",
               "value": 0,
               "validators": [
                 {
@@ -707,7 +703,7 @@
               ],
               "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
               "unit": "PLN",
-              "dataBDD": "",
+              "dataBDD": "prefestivalDirectorTotalActual",
               "classList": [
                 "displayNonePDF"
               ]
@@ -717,7 +713,7 @@
               "type": "text",
               "mask": "fund",
               "label": "W tym dotacja PISF",
-              "name": "",
+              "name": "prefestivalDirectorSupportPisfActual",
               "value": 0,
               "validators": [
                 {
@@ -730,13 +726,12 @@
               ],
               "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
               "unit": "PLN",
-              "dataBDD": "",
+              "dataBDD": "prefestivalDirectorSupportPisfActual",
               "classList": [
                 "displayNonePDF"
               ]
             }
-          ],
-          "baseName": "prefestivalDirector"
+          ]
         },
         {
           "kind": "chapter",
@@ -757,10 +752,10 @@
               "kind": "component",
               "type": "textarea",
               "label": "Rodzaj kosztów",
-              "name": "",
+              "name": "preartisticDirectorDesc",
               "value": "",
               "readOnly": true,
-              "dataBDD": "",
+              "dataBDD": "preartisticDirectorDesc",
               "classList": [
                 "displayNonePDF"
               ]
@@ -770,7 +765,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowany koszt całkowity",
-              "name": "",
+              "name": "preartisticDirectorTotalPlanned",
               "value": 0,
               "validators": [
                 {
@@ -784,7 +779,7 @@
               "copyFrom": "",
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "",
+              "dataBDD": "preartisticDirectorTotalPlanned",
               "classList": [
                 "displayNonePDF"
               ]
@@ -794,7 +789,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowana dotacja PISF",
-              "name": "",
+              "name": "preartisticDirectorRequestedPlanned",
               "value": 0,
               "validators": [
                 {
@@ -807,7 +802,7 @@
               ],
               "copyFrom": "",
               "unit": "PLN",
-              "dataBDD": "",
+              "dataBDD": "preartisticDirectorRequestedPlanned",
               "readOnly": true,
               "classList": [
                 "displayNonePDF"
@@ -818,7 +813,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Poniesiony koszt całkowity",
-              "name": "",
+              "name": "preartisticDirectorTotalActual",
               "value": 0,
               "validators": [
                 {
@@ -831,7 +826,7 @@
               ],
               "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
               "unit": "PLN",
-              "dataBDD": "",
+              "dataBDD": "preartisticDirectorTotalActual",
               "classList": [
                 "displayNonePDF"
               ]
@@ -841,7 +836,7 @@
               "type": "text",
               "mask": "fund",
               "label": "W tym dotacja PISF",
-              "name": "",
+              "name": "preartisticDirectorSupportPisfActual",
               "value": 0,
               "validators": [
                 {
@@ -854,13 +849,12 @@
               ],
               "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
               "unit": "PLN",
-              "dataBDD": "",
+              "dataBDD": "preartisticDirectorSupportPisfActual",
               "classList": [
                 "displayNonePDF"
               ]
             }
-          ],
-          "baseName": "preartisticDirector"
+          ]
         }
       ]
     },
@@ -928,7 +922,7 @@
             }
           ],
           "unit": "PLN",
-          "dataBDD": "cost-total-sum",
+          "dataBDD": "costTotalSum",
           "classList": [
             "col-start-3"
           ]
@@ -966,7 +960,7 @@
             }
           ],
           "unit": "PLN",
-          "dataBDD": "cost-request-pisf-sum"
+          "dataBDD": "costRequestPisfSum"
         },
         {
           "kind": "component",
@@ -1000,7 +994,7 @@
             }
           ],
           "unit": "PLN",
-          "dataBDD": "cost-actual-total-sum"
+          "dataBDD": "costActualTotalSum"
         },
         {
           "kind": "component",
@@ -1034,7 +1028,7 @@
             }
           ],
           "unit": "PLN",
-          "dataBDD": "cost-actual-support-pisf-sum"
+          "dataBDD": "costActualSupportPisfSum"
         }
       ]
     }
