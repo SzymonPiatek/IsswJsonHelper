@@ -14,89 +14,108 @@ class KosztorysGenerator:
                 self.loaded_parts[key] = json.load(f)
 
     def build_component(self, node: dict, prefix: str = "") -> dict:
-        """
-        Rekurencyjnie buduje fragment kosztorysu według node.
-        prefix: skumulowany baseName od rodziców.
-        """
         part_key = node['part']
-        template = self.loaded_parts.get(part_key)
-        if template is None:
+        tpl = self.loaded_parts.get(part_key)
+        if tpl is None:
             raise ValueError(f"Nie znaleziono części '{part_key}'.")
-        # 1) Deep copy szablonu
-        comp = json.loads(json.dumps(template))
+        comp = json.loads(json.dumps(tpl))
 
-        # 2) Rozszerz prefix o własny baseName (jeśli jest)
+        # 1) rozbuduj prefix o własne baseName
         current_prefix = prefix + node.get('baseName', "")
 
-        # 3) Nadpisz title
+        # 2) tytuł
         if 'title' in node:
             comp['title'] = node['title']
 
-        # 4) Jeśli szablon ma własne pole name, prefixuj je
+        # 3) prefiksuj własną nazwę
         if 'name' in comp:
             orig = comp['name']
             new_name = current_prefix + orig
             comp['name']    = new_name
             comp['dataBDD'] = new_name
 
-        # 5) Obsługa dzieci zdefiniowanych w strukturze
+        # 4) buduj dzieci z struktury
         if 'components' in node:
-            # Budujemy rekurencyjnie każdy child
-            built_children = [
-                self.build_component(child, current_prefix)
-                for child in node['components']
-            ]
-            comp['components'] = built_children
+            built = [ self.build_component(ch, current_prefix)
+                      for ch in node['components'] ]
+            comp['components'] = built
 
-            # Jeżeli to rozdział position_layout, wstrzyknij sumowanie
+            # 4a) lokalne sumy dla position_layout
             if part_key == 'position_layout':
-                # przejrzyj każdy node+jego built_child
                 for idx, child_node in enumerate(node['components']):
                     if child_node.get('isSum', False):
-                        summary = built_children[idx]
-                        # zbierz wszystkie rodzeństwa bez isSum
-                        siblings = [
-                            built_children[j]
-                            for j, sib_node in enumerate(node['components'])
-                            if not sib_node.get('isSum', False)
-                        ]
-                        # jeśli jest co najmniej dwóch, to sumujemy
+                        summary = built[idx]
+                        siblings = [ built[j]
+                                     for j,ch in enumerate(node['components'])
+                                     if not ch.get('isSum', False) ]
                         if len(siblings) > 1:
-                            # dla każdego pola w podsumowaniu
-                            for f_idx, field_comp in enumerate(summary.get('components', [])):
-                                # pola do sumowania
-                                fields_list = [
-                                    sib['components'][f_idx]['name']
+                            for f_i, fld in enumerate(summary.get('components', [])):
+                                # pola do sumowania z każdego sibling
+                                fields = [
+                                    sib['components'][f_i]['name']
                                     for sib in siblings
                                 ]
-                                # 5.1) uzupełnij calculationRules
-                                if 'calculationRules' in field_comp and field_comp['calculationRules']:
-                                    field_comp['calculationRules'][0]['kwargs']['fields'] = fields_list
-                                # 5.2) uzupełnij validators(RelatedSumValidator)
-                                for v in field_comp.get('validators', []):
+                                # uzupełnij calculationRules i validators
+                                if 'calculationRules' in fld and fld['calculationRules']:
+                                    fld['calculationRules'][0]['kwargs']['fields'] = fields
+                                for v in fld.get('validators', []):
                                     if v['name'] == 'RelatedSumValidator':
-                                        v['kwargs']['field_names'] = fields_list
+                                        v['kwargs']['field_names'] = fields
+
+            # 4b) globalne sumy dla part 'layout'
+            if part_key == 'layout':
+                # 1) zbierz listy czterech pól z każdego position_layout->isSum
+                lists = [ [], [], [], [] ]  # idx: 0->Planned,1->Requested,2->Actual,3->Support
+                for node_child, comp_child in zip(node['components'], built):
+                    if node_child['part'] == 'position_layout':
+                        # znajdź summary index
+                        for j, sub in enumerate(node_child['components']):
+                            if sub.get('isSum', False):
+                                summ = comp_child['components'][j]
+                                num_fields = summ.get('components', [])[1:]
+                                for k, nf in enumerate(num_fields):
+                                    lists[k].append(nf['name'])
+                                break
+
+                # 2) znajdź globalny total
+                total_comp = None
+                for node_child, comp_child in zip(node['components'], built):
+                    if node_child['part'] == 'total':
+                        total_comp = comp_child
+                        break
+
+                # 3) wstrzyknięcie
+                if total_comp:
+                    cnt = 0
+                    for fld in total_comp.get('components', []):
+                        if fld.get('mask') == 'fund':
+                            # sumInputs
+                            if 'calculationRules' in fld and fld['calculationRules']:
+                                fld['calculationRules'][0]['kwargs']['fields'] = lists[cnt]
+                            # RelatedSumValidator
+                            for v in fld.get('validators', []):
+                                if v['name'] == 'RelatedSumValidator':
+                                    v['kwargs']['field_names'] = lists[cnt]
+                            cnt += 1
+
             return comp
 
-        # 6) Gdy node nie definiuje sub-komponentów, ale template je ma,
-        #    prefixujemy te template’owe dzieci
-        elif 'components' in comp:
-            def _prefix_list(lst):
+        # 5) gdy template ma własne komponenty bez defs w strukturze
+        if 'components' in comp:
+            def _pref(lst):
                 out = []
                 for c in lst:
                     sub = json.loads(json.dumps(c))
                     if 'name' in sub:
-                        nn = current_prefix + sub['name']
-                        sub['name']    = nn
-                        sub['dataBDD'] = nn
+                        nm = current_prefix + sub['name']
+                        sub['name']    = nm
+                        sub['dataBDD'] = nm
                     if 'components' in sub:
-                        sub['components'] = _prefix_list(sub['components'])
+                        sub['components'] = _pref(sub['components'])
                     out.append(sub)
                 return out
-            comp['components'] = _prefix_list(comp['components'])
-            return comp
+            comp['components'] = _pref(comp['components'])
 
-        # 7) Liść – zwróć po modyfikacji nazwy
         return comp
 
     def generate(self) -> None:

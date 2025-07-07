@@ -1081,7 +1081,11 @@
             {
               "name": "sumInputs",
               "kwargs": {
-                "fields": []
+                "fields": [
+                  "preparationTotalPlanned",
+                  "managementTotalPlanned",
+                  "otherTotalPlanned"
+                ]
               }
             }
           ],
@@ -1090,7 +1094,11 @@
             {
               "name": "RelatedSumValidator",
               "kwargs": {
-                "field_names": []
+                "field_names": [
+                  "preparationTotalPlanned",
+                  "managementTotalPlanned",
+                  "otherTotalPlanned"
+                ]
               }
             },
             {
@@ -1119,7 +1127,11 @@
             {
               "name": "sumInputs",
               "kwargs": {
-                "fields": []
+                "fields": [
+                  "preparationRequestedPlanned",
+                  "managementRequestedPlanned",
+                  "otherRequestedPlanned"
+                ]
               }
             }
           ],
@@ -1128,7 +1140,11 @@
             {
               "name": "RelatedSumValidator",
               "kwargs": {
-                "field_names": []
+                "field_names": [
+                  "preparationRequestedPlanned",
+                  "managementRequestedPlanned",
+                  "otherRequestedPlanned"
+                ]
               }
             },
             {
@@ -1154,7 +1170,11 @@
             {
               "name": "sumInputs",
               "kwargs": {
-                "fields": []
+                "fields": [
+                  "preparationTotalActual",
+                  "managementTotalActual",
+                  "otherTotalActual"
+                ]
               }
             }
           ],
@@ -1162,7 +1182,11 @@
             {
               "name": "RelatedSumValidator",
               "kwargs": {
-                "field_names": []
+                "field_names": [
+                  "preparationTotalActual",
+                  "managementTotalActual",
+                  "otherTotalActual"
+                ]
               }
             },
             {
@@ -1188,7 +1212,11 @@
             {
               "name": "sumInputs",
               "kwargs": {
-                "fields": []
+                "fields": [
+                  "preparationSupportPisfActual",
+                  "managementSupportPisfActual",
+                  "otherSupportPisfActual"
+                ]
               }
             }
           ],
@@ -1196,7 +1224,11 @@
             {
               "name": "RelatedSumValidator",
               "kwargs": {
-                "field_names": []
+                "field_names": [
+                  "preparationSupportPisfActual",
+                  "managementSupportPisfActual",
+                  "otherSupportPisfActual"
+                ]
               }
             },
             {
