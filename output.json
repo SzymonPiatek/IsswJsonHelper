@@ -63,7 +63,6 @@
                       "speakersTotalPlannedPr4",
                       "curatorTotalPlannedPr4",
                       "organizersTotalPlannedPr4",
-                      "organizersTotalPlannedPr4",
                       "eventHostsTotalPlannedPr4"
                     ]
                   }
@@ -77,7 +76,6 @@
                       "artistsTotalPlannedPr4",
                       "speakersTotalPlannedPr4",
                       "curatorTotalPlannedPr4",
-                      "organizersTotalPlannedPr4",
                       "organizersTotalPlannedPr4",
                       "eventHostsTotalPlannedPr4"
                     ]
@@ -112,7 +110,6 @@
                       "speakersRequestedPlannedPr4",
                       "curatorRequestedPlannedPr4",
                       "organizersRequestedPlannedPr4",
-                      "organizersRequestedPlannedPr4",
                       "eventHostsRequestedPlannedPr4"
                     ]
                   }
@@ -126,7 +123,6 @@
                       "artistsRequestedPlannedPr4",
                       "speakersRequestedPlannedPr4",
                       "curatorRequestedPlannedPr4",
-                      "organizersRequestedPlannedPr4",
                       "organizersRequestedPlannedPr4",
                       "eventHostsRequestedPlannedPr4"
                     ]
@@ -160,7 +156,6 @@
                       "speakersTotalActualPr4",
                       "curatorTotalActualPr4",
                       "organizersTotalActualPr4",
-                      "organizersTotalActualPr4",
                       "eventHostsTotalActualPr4"
                     ]
                   }
@@ -174,7 +169,6 @@
                       "artistsTotalActualPr4",
                       "speakersTotalActualPr4",
                       "curatorTotalActualPr4",
-                      "organizersTotalActualPr4",
                       "organizersTotalActualPr4",
                       "eventHostsTotalActualPr4"
                     ]
@@ -208,7 +202,6 @@
                       "speakersSupportPisfActualPr4",
                       "curatorSupportPisfActualPr4",
                       "organizersSupportPisfActualPr4",
-                      "organizersSupportPisfActualPr4",
                       "eventHostsSupportPisfActualPr4"
                     ]
                   }
@@ -222,7 +215,6 @@
                       "artistsSupportPisfActualPr4",
                       "speakersSupportPisfActualPr4",
                       "curatorSupportPisfActualPr4",
-                      "organizersSupportPisfActualPr4",
                       "organizersSupportPisfActualPr4",
                       "eventHostsSupportPisfActualPr4"
                     ]
@@ -605,129 +597,6 @@
               "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
               "unit": "PLN",
               "dataBDD": "curatorSupportPisfActualPr4",
-              "classList": [
-                "displayNonePDF"
-              ]
-            }
-          ]
-        },
-        {
-          "kind": "chapter",
-          "title": "Koszty koordynatorów",
-          "classList": {
-            "main": [
-              "table-5",
-              "grid",
-              "grid-cols-6",
-              "no-title"
-            ],
-            "sub": [
-              "table-5__col"
-            ]
-          },
-          "components": [
-            {
-              "kind": "component",
-              "type": "textarea",
-              "label": "Rodzaj kosztów",
-              "name": "organizersDescPr4",
-              "value": "Koszty koordynatorów",
-              "readOnly": true,
-              "dataBDD": "organizersDescPr4",
-              "classList": [
-                "displayNonePDF"
-              ]
-            },
-            {
-              "kind": "component",
-              "type": "text",
-              "mask": "fund",
-              "label": "Planowany koszt całkowity",
-              "name": "organizersTotalPlannedPr4",
-              "value": 0,
-              "validators": [
-                {
-                  "name": "RangeValidator",
-                  "kwargs": {
-                    "min": 0
-                  },
-                  "validationMsg": "Wartość musi być większa lub równa zero."
-                }
-              ],
-              "copyFrom": "organizersSumAmountPr4",
-              "readOnly": true,
-              "unit": "PLN",
-              "dataBDD": "organizersTotalPlannedPr4",
-              "classList": [
-                "displayNonePDF"
-              ]
-            },
-            {
-              "kind": "component",
-              "type": "text",
-              "mask": "fund",
-              "label": "Planowana dotacja PISF",
-              "name": "organizersRequestedPlannedPr4",
-              "value": 0,
-              "validators": [
-                {
-                  "name": "RangeValidator",
-                  "kwargs": {
-                    "min": 0
-                  },
-                  "validationMsg": "Wartość musi być większa lub równa zero."
-                }
-              ],
-              "copyFrom": "organizersRequestedAmountPr4",
-              "unit": "PLN",
-              "dataBDD": "organizersRequestedPlannedPr4",
-              "readOnly": true,
-              "classList": [
-                "displayNonePDF"
-              ]
-            },
-            {
-              "kind": "component",
-              "type": "text",
-              "mask": "fund",
-              "label": "Poniesiony koszt całkowity",
-              "name": "organizersTotalActualPr4",
-              "value": 0,
-              "validators": [
-                {
-                  "name": "RangeValidator",
-                  "kwargs": {
-                    "min": 0
-                  },
-                  "validationMsg": "Wartość musi być większa lub równa zero."
-                }
-              ],
-              "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
-              "unit": "PLN",
-              "dataBDD": "organizersTotalActualPr4",
-              "classList": [
-                "displayNonePDF"
-              ]
-            },
-            {
-              "kind": "component",
-              "type": "text",
-              "mask": "fund",
-              "label": "W tym dotacja PISF",
-              "name": "organizersSupportPisfActualPr4",
-              "value": 0,
-              "validators": [
-                {
-                  "name": "RangeValidator",
-                  "kwargs": {
-                    "min": 0
-                  },
-                  "validationMsg": "Wartość musi być większa lub równa zero."
-                }
-              ],
-              "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
-              "unit": "PLN",
-              "dataBDD": "organizersSupportPisfActualPr4",
               "classList": [
                 "displayNonePDF"
               ]
@@ -2695,10 +2564,10 @@
               "kind": "component",
               "type": "textarea",
               "label": "Rodzaj kosztów",
-              "name": "copyrightDescPr4",
+              "name": "financialServiceDescPr4",
               "value": "9. Koszty pozyskania praw autorskich lub licencji",
               "readOnly": true,
-              "dataBDD": "copyrightDescPr4",
+              "dataBDD": "financialServiceDescPr4",
               "classList": [
                 "displayNonePDF"
               ]
@@ -2708,7 +2577,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowany koszt całkowity",
-              "name": "copyrightTotalPlannedPr4",
+              "name": "financialServiceTotalPlannedPr4",
               "value": 0,
               "validators": [
                 {
@@ -2719,10 +2588,10 @@
                   "validationMsg": "Wartość musi być większa lub równa zero."
                 }
               ],
-              "copyFrom": "copyrightCostSumAmountPr4",
+              "copyFrom": "financialServiceSumAmountPr4",
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "copyrightTotalPlannedPr4",
+              "dataBDD": "financialServiceTotalPlannedPr4",
               "classList": [
                 "displayNonePDF"
               ]
@@ -2732,7 +2601,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowana dotacja PISF",
-              "name": "copyrightRequestedPlannedPr4",
+              "name": "financialServiceRequestedPlannedPr4",
               "value": 0,
               "validators": [
                 {
@@ -2743,9 +2612,9 @@
                   "validationMsg": "Wartość musi być większa lub równa zero."
                 }
               ],
-              "copyFrom": "copyrightCostRequestedAmountPr4",
+              "copyFrom": "financialServiceRequestedAmountPr4",
               "unit": "PLN",
-              "dataBDD": "copyrightRequestedPlannedPr4",
+              "dataBDD": "financialServiceRequestedPlannedPr4",
               "readOnly": true,
               "classList": [
                 "displayNonePDF"
@@ -2756,7 +2625,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Poniesiony koszt całkowity",
-              "name": "copyrightTotalActualPr4",
+              "name": "financialServiceTotalActualPr4",
               "value": 0,
               "validators": [
                 {
@@ -2769,7 +2638,7 @@
               ],
               "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
               "unit": "PLN",
-              "dataBDD": "copyrightTotalActualPr4",
+              "dataBDD": "financialServiceTotalActualPr4",
               "classList": [
                 "displayNonePDF"
               ]
@@ -2779,7 +2648,7 @@
               "type": "text",
               "mask": "fund",
               "label": "W tym dotacja PISF",
-              "name": "copyrightSupportPisfActualPr4",
+              "name": "financialServiceSupportPisfActualPr4",
               "value": 0,
               "validators": [
                 {
@@ -2792,7 +2661,7 @@
               ],
               "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
               "unit": "PLN",
-              "dataBDD": "copyrightSupportPisfActualPr4",
+              "dataBDD": "financialServiceSupportPisfActualPr4",
               "classList": [
                 "displayNonePDF"
               ]
@@ -4144,7 +4013,7 @@
                     "fields": [
                       "hostsTripTotalPlannedPr4",
                       "participantsTripTotalPlannedPr4",
-                      "equipmentRentalTotalPlannedPr4"
+                      "questsTripTotalPlannedPr4"
                     ]
                   }
                 }
@@ -4156,7 +4025,7 @@
                     "field_names": [
                       "hostsTripTotalPlannedPr4",
                       "participantsTripTotalPlannedPr4",
-                      "equipmentRentalTotalPlannedPr4"
+                      "questsTripTotalPlannedPr4"
                     ]
                   }
                 },
@@ -4187,7 +4056,7 @@
                     "fields": [
                       "hostsTripRequestedPlannedPr4",
                       "participantsTripRequestedPlannedPr4",
-                      "equipmentRentalRequestedPlannedPr4"
+                      "questsTripRequestedPlannedPr4"
                     ]
                   }
                 }
@@ -4199,7 +4068,7 @@
                     "field_names": [
                       "hostsTripRequestedPlannedPr4",
                       "participantsTripRequestedPlannedPr4",
-                      "equipmentRentalRequestedPlannedPr4"
+                      "questsTripRequestedPlannedPr4"
                     ]
                   }
                 },
@@ -4229,7 +4098,7 @@
                     "fields": [
                       "hostsTripTotalActualPr4",
                       "participantsTripTotalActualPr4",
-                      "equipmentRentalTotalActualPr4"
+                      "questsTripTotalActualPr4"
                     ]
                   }
                 }
@@ -4241,7 +4110,7 @@
                     "field_names": [
                       "hostsTripTotalActualPr4",
                       "participantsTripTotalActualPr4",
-                      "equipmentRentalTotalActualPr4"
+                      "questsTripTotalActualPr4"
                     ]
                   }
                 },
@@ -4271,7 +4140,7 @@
                     "fields": [
                       "hostsTripSupportPisfActualPr4",
                       "participantsTripSupportPisfActualPr4",
-                      "equipmentRentalSupportPisfActualPr4"
+                      "questsTripSupportPisfActualPr4"
                     ]
                   }
                 }
@@ -4283,7 +4152,7 @@
                     "field_names": [
                       "hostsTripSupportPisfActualPr4",
                       "participantsTripSupportPisfActualPr4",
-                      "equipmentRentalSupportPisfActualPr4"
+                      "questsTripSupportPisfActualPr4"
                     ]
                   }
                 },
@@ -4566,10 +4435,10 @@
               "kind": "component",
               "type": "textarea",
               "label": "Rodzaj kosztów",
-              "name": "equipmentRentalDescPr4",
+              "name": "questsTripDescPr4",
               "value": "Zaproszonych gości",
               "readOnly": true,
-              "dataBDD": "equipmentRentalDescPr4",
+              "dataBDD": "questsTripDescPr4",
               "classList": [
                 "displayNonePDF"
               ]
@@ -4579,7 +4448,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowany koszt całkowity",
-              "name": "equipmentRentalTotalPlannedPr4",
+              "name": "questsTripTotalPlannedPr4",
               "value": 0,
               "validators": [
                 {
@@ -4593,7 +4462,7 @@
               "copyFrom": "guestsTripCostsSumAmountPr4",
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "equipmentRentalTotalPlannedPr4",
+              "dataBDD": "questsTripTotalPlannedPr4",
               "classList": [
                 "displayNonePDF"
               ]
@@ -4603,7 +4472,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowana dotacja PISF",
-              "name": "equipmentRentalRequestedPlannedPr4",
+              "name": "questsTripRequestedPlannedPr4",
               "value": 0,
               "validators": [
                 {
@@ -4616,7 +4485,7 @@
               ],
               "copyFrom": "guestsTripCostsRequestedAmountPr4",
               "unit": "PLN",
-              "dataBDD": "equipmentRentalRequestedPlannedPr4",
+              "dataBDD": "questsTripRequestedPlannedPr4",
               "readOnly": true,
               "classList": [
                 "displayNonePDF"
@@ -4627,7 +4496,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Poniesiony koszt całkowity",
-              "name": "equipmentRentalTotalActualPr4",
+              "name": "questsTripTotalActualPr4",
               "value": 0,
               "validators": [
                 {
@@ -4640,7 +4509,7 @@
               ],
               "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
               "unit": "PLN",
-              "dataBDD": "equipmentRentalTotalActualPr4",
+              "dataBDD": "questsTripTotalActualPr4",
               "classList": [
                 "displayNonePDF"
               ]
@@ -4650,7 +4519,7 @@
               "type": "text",
               "mask": "fund",
               "label": "W tym dotacja PISF",
-              "name": "equipmentRentalSupportPisfActualPr4",
+              "name": "questsTripSupportPisfActualPr4",
               "value": 0,
               "validators": [
                 {
@@ -4663,7 +4532,7 @@
               ],
               "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
               "unit": "PLN",
-              "dataBDD": "equipmentRentalSupportPisfActualPr4",
+              "dataBDD": "questsTripSupportPisfActualPr4",
               "classList": [
                 "displayNonePDF"
               ]
@@ -4723,7 +4592,7 @@
                     "fields": [
                       "hostsAccommodationTotalPlannedPr4",
                       "participantsAccommodationTotalPlannedPr4",
-                      "equipmentRentalTotalPlannedPr4"
+                      "questsAccommodationTotalPlannedPr4"
                     ]
                   }
                 }
@@ -4735,7 +4604,7 @@
                     "field_names": [
                       "hostsAccommodationTotalPlannedPr4",
                       "participantsAccommodationTotalPlannedPr4",
-                      "equipmentRentalTotalPlannedPr4"
+                      "questsAccommodationTotalPlannedPr4"
                     ]
                   }
                 },
@@ -4766,7 +4635,7 @@
                     "fields": [
                       "hostsAccommodationRequestedPlannedPr4",
                       "participantsAccommodationRequestedPlannedPr4",
-                      "equipmentRentalRequestedPlannedPr4"
+                      "questsAccommodationRequestedPlannedPr4"
                     ]
                   }
                 }
@@ -4778,7 +4647,7 @@
                     "field_names": [
                       "hostsAccommodationRequestedPlannedPr4",
                       "participantsAccommodationRequestedPlannedPr4",
-                      "equipmentRentalRequestedPlannedPr4"
+                      "questsAccommodationRequestedPlannedPr4"
                     ]
                   }
                 },
@@ -4808,7 +4677,7 @@
                     "fields": [
                       "hostsAccommodationTotalActualPr4",
                       "participantsAccommodationTotalActualPr4",
-                      "equipmentRentalTotalActualPr4"
+                      "questsAccommodationTotalActualPr4"
                     ]
                   }
                 }
@@ -4820,7 +4689,7 @@
                     "field_names": [
                       "hostsAccommodationTotalActualPr4",
                       "participantsAccommodationTotalActualPr4",
-                      "equipmentRentalTotalActualPr4"
+                      "questsAccommodationTotalActualPr4"
                     ]
                   }
                 },
@@ -4850,7 +4719,7 @@
                     "fields": [
                       "hostsAccommodationSupportPisfActualPr4",
                       "participantsAccommodationSupportPisfActualPr4",
-                      "equipmentRentalSupportPisfActualPr4"
+                      "questsAccommodationSupportPisfActualPr4"
                     ]
                   }
                 }
@@ -4862,7 +4731,7 @@
                     "field_names": [
                       "hostsAccommodationSupportPisfActualPr4",
                       "participantsAccommodationSupportPisfActualPr4",
-                      "equipmentRentalSupportPisfActualPr4"
+                      "questsAccommodationSupportPisfActualPr4"
                     ]
                   }
                 },
@@ -5145,10 +5014,10 @@
               "kind": "component",
               "type": "textarea",
               "label": "Rodzaj kosztów",
-              "name": "equipmentRentalDescPr4",
+              "name": "questsAccommodationDescPr4",
               "value": "Zaproszonych gości",
               "readOnly": true,
-              "dataBDD": "equipmentRentalDescPr4",
+              "dataBDD": "questsAccommodationDescPr4",
               "classList": [
                 "displayNonePDF"
               ]
@@ -5158,7 +5027,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowany koszt całkowity",
-              "name": "equipmentRentalTotalPlannedPr4",
+              "name": "questsAccommodationTotalPlannedPr4",
               "value": 0,
               "validators": [
                 {
@@ -5169,10 +5038,10 @@
                   "validationMsg": "Wartość musi być większa lub równa zero."
                 }
               ],
-              "copyFrom": "guestsTripCostsSumAmountPr4",
+              "copyFrom": "guestsAccommodationCostsSumAmountPr4",
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "equipmentRentalTotalPlannedPr4",
+              "dataBDD": "questsAccommodationTotalPlannedPr4",
               "classList": [
                 "displayNonePDF"
               ]
@@ -5182,7 +5051,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowana dotacja PISF",
-              "name": "equipmentRentalRequestedPlannedPr4",
+              "name": "questsAccommodationRequestedPlannedPr4",
               "value": 0,
               "validators": [
                 {
@@ -5193,9 +5062,9 @@
                   "validationMsg": "Wartość musi być większa lub równa zero."
                 }
               ],
-              "copyFrom": "guestsTripCostsRequestedAmountPr4",
+              "copyFrom": "guestsAccommodationCostsRequestedAmountPr4",
               "unit": "PLN",
-              "dataBDD": "equipmentRentalRequestedPlannedPr4",
+              "dataBDD": "questsAccommodationRequestedPlannedPr4",
               "readOnly": true,
               "classList": [
                 "displayNonePDF"
@@ -5206,7 +5075,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Poniesiony koszt całkowity",
-              "name": "equipmentRentalTotalActualPr4",
+              "name": "questsAccommodationTotalActualPr4",
               "value": 0,
               "validators": [
                 {
@@ -5219,7 +5088,7 @@
               ],
               "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
               "unit": "PLN",
-              "dataBDD": "equipmentRentalTotalActualPr4",
+              "dataBDD": "questsAccommodationTotalActualPr4",
               "classList": [
                 "displayNonePDF"
               ]
@@ -5229,7 +5098,7 @@
               "type": "text",
               "mask": "fund",
               "label": "W tym dotacja PISF",
-              "name": "equipmentRentalSupportPisfActualPr4",
+              "name": "questsAccommodationSupportPisfActualPr4",
               "value": 0,
               "validators": [
                 {
@@ -5242,7 +5111,7 @@
               ],
               "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
               "unit": "PLN",
-              "dataBDD": "equipmentRentalSupportPisfActualPr4",
+              "dataBDD": "questsAccommodationSupportPisfActualPr4",
               "classList": [
                 "displayNonePDF"
               ]
@@ -6253,10 +6122,10 @@
               "kind": "component",
               "type": "textarea",
               "label": "Rodzaj kosztów",
-              "name": "evaluationDescPr4",
+              "name": "onlineManagementDescPr4",
               "value": "22. Koszty obsługi projektów online",
               "readOnly": true,
-              "dataBDD": "evaluationDescPr4",
+              "dataBDD": "onlineManagementDescPr4",
               "classList": [
                 "displayNonePDF"
               ]
@@ -6266,7 +6135,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowany koszt całkowity",
-              "name": "evaluationTotalPlannedPr4",
+              "name": "onlineManagementTotalPlannedPr4",
               "value": 0,
               "validators": [
                 {
@@ -6280,7 +6149,7 @@
               "copyFrom": "onlineManagementCostsSumAmountPr4",
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "evaluationTotalPlannedPr4",
+              "dataBDD": "onlineManagementTotalPlannedPr4",
               "classList": [
                 "displayNonePDF"
               ]
@@ -6290,7 +6159,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowana dotacja PISF",
-              "name": "evaluationRequestedPlannedPr4",
+              "name": "onlineManagementRequestedPlannedPr4",
               "value": 0,
               "validators": [
                 {
@@ -6303,7 +6172,7 @@
               ],
               "copyFrom": "onlineManagementCostsRequestedAmountPr4",
               "unit": "PLN",
-              "dataBDD": "evaluationRequestedPlannedPr4",
+              "dataBDD": "onlineManagementRequestedPlannedPr4",
               "readOnly": true,
               "classList": [
                 "displayNonePDF"
@@ -6314,7 +6183,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Poniesiony koszt całkowity",
-              "name": "evaluationTotalActualPr4",
+              "name": "onlineManagementTotalActualPr4",
               "value": 0,
               "validators": [
                 {
@@ -6327,7 +6196,7 @@
               ],
               "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
               "unit": "PLN",
-              "dataBDD": "evaluationTotalActualPr4",
+              "dataBDD": "onlineManagementTotalActualPr4",
               "classList": [
                 "displayNonePDF"
               ]
@@ -6337,7 +6206,7 @@
               "type": "text",
               "mask": "fund",
               "label": "W tym dotacja PISF",
-              "name": "evaluationSupportPisfActualPr4",
+              "name": "onlineManagementSupportPisfActualPr4",
               "value": 0,
               "validators": [
                 {
@@ -6350,7 +6219,7 @@
               ],
               "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
               "unit": "PLN",
-              "dataBDD": "evaluationSupportPisfActualPr4",
+              "dataBDD": "onlineManagementSupportPisfActualPr4",
               "classList": [
                 "displayNonePDF"
               ]
@@ -6543,7 +6412,7 @@
                   "printingTotalPlannedPr4",
                   "multimediaMaterialsTotalPlannedPr4",
                   "consultingExpertsTotalPlannedPr4",
-                  "copyrightTotalPlannedPr4",
+                  "financialServiceTotalPlannedPr4",
                   "copyrightTotalPlannedPr4",
                   "lawAdviceTotalPlannedPr4",
                   "locationTotalPlannedPr4",
@@ -6556,7 +6425,7 @@
                   "awardsTotalPlannedPr4",
                   "cateringTotalPlannedPr4",
                   "evaluationTotalPlannedPr4",
-                  "evaluationTotalPlannedPr4",
+                  "onlineManagementTotalPlannedPr4",
                   "accessibilityTotalPlannedPr4"
                 ]
               }
@@ -6576,7 +6445,7 @@
                   "printingTotalPlannedPr4",
                   "multimediaMaterialsTotalPlannedPr4",
                   "consultingExpertsTotalPlannedPr4",
-                  "copyrightTotalPlannedPr4",
+                  "financialServiceTotalPlannedPr4",
                   "copyrightTotalPlannedPr4",
                   "lawAdviceTotalPlannedPr4",
                   "locationTotalPlannedPr4",
@@ -6589,7 +6458,7 @@
                   "awardsTotalPlannedPr4",
                   "cateringTotalPlannedPr4",
                   "evaluationTotalPlannedPr4",
-                  "evaluationTotalPlannedPr4",
+                  "onlineManagementTotalPlannedPr4",
                   "accessibilityTotalPlannedPr4"
                 ]
               }
@@ -6629,7 +6498,7 @@
                   "printingRequestedPlannedPr4",
                   "multimediaMaterialsRequestedPlannedPr4",
                   "consultingExpertsRequestedPlannedPr4",
-                  "copyrightRequestedPlannedPr4",
+                  "financialServiceRequestedPlannedPr4",
                   "copyrightRequestedPlannedPr4",
                   "lawAdviceRequestedPlannedPr4",
                   "locationRequestedPlannedPr4",
@@ -6642,7 +6511,7 @@
                   "awardsRequestedPlannedPr4",
                   "cateringRequestedPlannedPr4",
                   "evaluationRequestedPlannedPr4",
-                  "evaluationRequestedPlannedPr4",
+                  "onlineManagementRequestedPlannedPr4",
                   "accessibilityRequestedPlannedPr4"
                 ]
               }
@@ -6662,7 +6531,7 @@
                   "printingRequestedPlannedPr4",
                   "multimediaMaterialsRequestedPlannedPr4",
                   "consultingExpertsRequestedPlannedPr4",
-                  "copyrightRequestedPlannedPr4",
+                  "financialServiceRequestedPlannedPr4",
                   "copyrightRequestedPlannedPr4",
                   "lawAdviceRequestedPlannedPr4",
                   "locationRequestedPlannedPr4",
@@ -6675,7 +6544,7 @@
                   "awardsRequestedPlannedPr4",
                   "cateringRequestedPlannedPr4",
                   "evaluationRequestedPlannedPr4",
-                  "evaluationRequestedPlannedPr4",
+                  "onlineManagementRequestedPlannedPr4",
                   "accessibilityRequestedPlannedPr4"
                 ]
               }
@@ -6712,7 +6581,7 @@
                   "printingTotalActualPr4",
                   "multimediaMaterialsTotalActualPr4",
                   "consultingExpertsTotalActualPr4",
-                  "copyrightTotalActualPr4",
+                  "financialServiceTotalActualPr4",
                   "copyrightTotalActualPr4",
                   "lawAdviceTotalActualPr4",
                   "locationTotalActualPr4",
@@ -6725,7 +6594,7 @@
                   "awardsTotalActualPr4",
                   "cateringTotalActualPr4",
                   "evaluationTotalActualPr4",
-                  "evaluationTotalActualPr4",
+                  "onlineManagementTotalActualPr4",
                   "accessibilityTotalActualPr4"
                 ]
               }
@@ -6744,7 +6613,7 @@
                   "printingTotalActualPr4",
                   "multimediaMaterialsTotalActualPr4",
                   "consultingExpertsTotalActualPr4",
-                  "copyrightTotalActualPr4",
+                  "financialServiceTotalActualPr4",
                   "copyrightTotalActualPr4",
                   "lawAdviceTotalActualPr4",
                   "locationTotalActualPr4",
@@ -6757,7 +6626,7 @@
                   "awardsTotalActualPr4",
                   "cateringTotalActualPr4",
                   "evaluationTotalActualPr4",
-                  "evaluationTotalActualPr4",
+                  "onlineManagementTotalActualPr4",
                   "accessibilityTotalActualPr4"
                 ]
               }
@@ -6794,7 +6663,7 @@
                   "printingSupportPisfActualPr4",
                   "multimediaMaterialsSupportPisfActualPr4",
                   "consultingExpertsSupportPisfActualPr4",
-                  "copyrightSupportPisfActualPr4",
+                  "financialServiceSupportPisfActualPr4",
                   "copyrightSupportPisfActualPr4",
                   "lawAdviceSupportPisfActualPr4",
                   "locationSupportPisfActualPr4",
@@ -6807,7 +6676,7 @@
                   "awardsSupportPisfActualPr4",
                   "cateringSupportPisfActualPr4",
                   "evaluationSupportPisfActualPr4",
-                  "evaluationSupportPisfActualPr4",
+                  "onlineManagementSupportPisfActualPr4",
                   "accessibilitySupportPisfActualPr4"
                 ]
               }
@@ -6826,7 +6695,7 @@
                   "printingSupportPisfActualPr4",
                   "multimediaMaterialsSupportPisfActualPr4",
                   "consultingExpertsSupportPisfActualPr4",
-                  "copyrightSupportPisfActualPr4",
+                  "financialServiceSupportPisfActualPr4",
                   "copyrightSupportPisfActualPr4",
                   "lawAdviceSupportPisfActualPr4",
                   "locationSupportPisfActualPr4",
@@ -6839,7 +6708,7 @@
                   "awardsSupportPisfActualPr4",
                   "cateringSupportPisfActualPr4",
                   "evaluationSupportPisfActualPr4",
-                  "evaluationSupportPisfActualPr4",
+                  "onlineManagementSupportPisfActualPr4",
                   "accessibilitySupportPisfActualPr4"
                 ]
               }
