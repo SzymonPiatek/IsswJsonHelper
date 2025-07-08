@@ -1,9 +1,11 @@
+# kosztorys_generator.py
 import json
 
 class KosztorysGenerator:
     """
     Klasa odpowiedzialna za generowanie kosztorysu na podstawie definicji parts i structure.
     Obsługuje baseName, afterName, lokalne sumy (isSum) oraz globalne sumy.
+    Dodatkowo podmienia pola zgodnie z copyFrom w node.
     """
     def __init__(self, parts: dict, structure: dict, output_path: str):
         self.parts = parts
@@ -30,7 +32,7 @@ class KosztorysGenerator:
         comp = json.loads(json.dumps(tpl))  # deep copy
 
         # Rozbijanie atrybutów własnych
-        base  = node.get('baseName', "")
+        base = node.get('baseName', "")
         after = node.get('afterName', "")
         current_prefix = prefix + base
 
@@ -111,6 +113,13 @@ class KosztorysGenerator:
                     out.append(sub)
                 return out
             comp['components']=_pref(comp['components'])
+
+            # Obsługa copyFrom dla node: aktualizuje pola zgodnie z mapowaniem
+            if 'copyFrom' in node:
+                for orig_field, mapped_name in node['copyFrom'].items():
+                    for fld in comp['components']:
+                        if orig_field.lower() in fld.get('name', '').lower():
+                            fld['copyFrom'] = mapped_name
 
             # Dodatkowa obsługa dla total: suffix, update field_names, field_name oraz copyFrom
             if part_key=='total' and after:
