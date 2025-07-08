@@ -12,14 +12,14 @@
   "components": [
     {
       "kind": "chapter",
-      "title": "1. Koszty przygotowania",
+      "title": "1. Koszty przygotowania i zarządzania przedsięwzięciem (konieczne jest wyszczególnienie funkcji oraz podanie honorarium lub wynagrodzenia). <br /><normal><small>Wyłącznie koszty finansowane w oparciu o umowy wraz z fakturami lub rachunkami i umowy zlecenia lub o dzieło wraz z rachunkami</small></normal>",
       "classList": [
         "no-title"
       ],
       "components": [
         {
           "kind": "chapter",
-          "title": "1. Koszty przygotowania i zarządzania - RAZEM",
+          "title": "1. Koszty przygotowania i zarządzania przedsięwzięciem - RAZEM",
           "classList": {
             "main": [
               "table-5",
@@ -36,10 +36,10 @@
               "kind": "component",
               "type": "textarea",
               "label": "Rodzaj kosztów",
-              "name": "preparationDescPr1",
+              "name": "costManagementDescPr3",
               "value": "",
               "readOnly": true,
-              "dataBDD": "preparationDescPr1",
+              "dataBDD": "costManagementDescPr3",
               "classList": [
                 "col-span-2",
                 "text-left",
@@ -51,7 +51,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowany koszt całkowity",
-              "name": "preparationTotalPlannedPr1",
+              "name": "costManagementTotalPlannedPr3",
               "value": 0,
               "copyFrom": "",
               "calculationRules": [
@@ -59,8 +59,10 @@
                   "name": "sumInputs",
                   "kwargs": {
                     "fields": [
-                      "festivalDirectorTotalPlannedPr1",
-                      "artisticDirectorTotalPlannedPr1"
+                      "creatorsArtistsTotalPlannedPr3",
+                      "speakersTotalPlannedPr3",
+                      "eventHostsTotalPlannedPr3",
+                      "coordinatorsTotalPlannedPr3"
                     ]
                   }
                 }
@@ -70,8 +72,10 @@
                   "name": "RelatedSumValidator",
                   "kwargs": {
                     "field_names": [
-                      "festivalDirectorTotalPlannedPr1",
-                      "artisticDirectorTotalPlannedPr1"
+                      "creatorsArtistsTotalPlannedPr3",
+                      "speakersTotalPlannedPr3",
+                      "eventHostsTotalPlannedPr3",
+                      "coordinatorsTotalPlannedPr3"
                     ]
                   }
                 },
@@ -85,14 +89,14 @@
               ],
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "preparationTotalPlannedPr1"
+              "dataBDD": "costManagementTotalPlannedPr3"
             },
             {
               "kind": "component",
               "type": "text",
               "mask": "fund",
               "label": "Planowana dotacja PISF",
-              "name": "preparationRequestedPlannedPr1",
+              "name": "costManagementRequestedPlannedPr3",
               "value": 0,
               "copyFrom": "",
               "calculationRules": [
@@ -100,8 +104,10 @@
                   "name": "sumInputs",
                   "kwargs": {
                     "fields": [
-                      "festivalDirectorRequestedPlannedPr1",
-                      "artisticDirectorRequestedPlannedPr1"
+                      "creatorsArtistsRequestedPlannedPr3",
+                      "speakersRequestedPlannedPr3",
+                      "eventHostsRequestedPlannedPr3",
+                      "coordinatorsRequestedPlannedPr3"
                     ]
                   }
                 }
@@ -111,8 +117,10 @@
                   "name": "RelatedSumValidator",
                   "kwargs": {
                     "field_names": [
-                      "festivalDirectorRequestedPlannedPr1",
-                      "artisticDirectorRequestedPlannedPr1"
+                      "creatorsArtistsRequestedPlannedPr3",
+                      "speakersRequestedPlannedPr3",
+                      "eventHostsRequestedPlannedPr3",
+                      "coordinatorsRequestedPlannedPr3"
                     ]
                   }
                 },
@@ -126,22 +134,24 @@
               ],
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "preparationRequestedPlannedPr1"
+              "dataBDD": "costManagementRequestedPlannedPr3"
             },
             {
               "kind": "component",
               "type": "text",
               "mask": "fund",
               "label": "Poniesiony koszt całkowity",
-              "name": "preparationTotalActualPr1",
+              "name": "costManagementTotalActualPr3",
               "value": 0,
               "calculationRules": [
                 {
                   "name": "sumInputs",
                   "kwargs": {
                     "fields": [
-                      "festivalDirectorTotalActualPr1",
-                      "artisticDirectorTotalActualPr1"
+                      "creatorsArtistsTotalActualPr3",
+                      "speakersTotalActualPr3",
+                      "eventHostsTotalActualPr3",
+                      "coordinatorsTotalActualPr3"
                     ]
                   }
                 }
@@ -151,8 +161,10 @@
                   "name": "RelatedSumValidator",
                   "kwargs": {
                     "field_names": [
-                      "festivalDirectorTotalActualPr1",
-                      "artisticDirectorTotalActualPr1"
+                      "creatorsArtistsTotalActualPr3",
+                      "speakersTotalActualPr3",
+                      "eventHostsTotalActualPr3",
+                      "coordinatorsTotalActualPr3"
                     ]
                   }
                 },
@@ -166,22 +178,24 @@
               ],
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "preparationTotalActualPr1"
+              "dataBDD": "costManagementTotalActualPr3"
             },
             {
               "kind": "component",
               "type": "text",
               "mask": "fund",
               "label": "W tym dotacja PISF",
-              "name": "preparationSupportPisfActualPr1",
+              "name": "costManagementSupportPisfActualPr3",
               "value": 0,
               "calculationRules": [
                 {
                   "name": "sumInputs",
                   "kwargs": {
                     "fields": [
-                      "festivalDirectorSupportPisfActualPr1",
-                      "artisticDirectorSupportPisfActualPr1"
+                      "creatorsArtistsSupportPisfActualPr3",
+                      "speakersSupportPisfActualPr3",
+                      "eventHostsSupportPisfActualPr3",
+                      "coordinatorsSupportPisfActualPr3"
                     ]
                   }
                 }
@@ -191,8 +205,10 @@
                   "name": "RelatedSumValidator",
                   "kwargs": {
                     "field_names": [
-                      "festivalDirectorSupportPisfActualPr1",
-                      "artisticDirectorSupportPisfActualPr1"
+                      "creatorsArtistsSupportPisfActualPr3",
+                      "speakersSupportPisfActualPr3",
+                      "eventHostsSupportPisfActualPr3",
+                      "coordinatorsSupportPisfActualPr3"
                     ]
                   }
                 },
@@ -206,13 +222,13 @@
               ],
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "preparationSupportPisfActualPr1"
+              "dataBDD": "costManagementSupportPisfActualPr3"
             }
           ]
         },
         {
           "kind": "chapter",
-          "title": "Koszty dyrektora festiwalu",
+          "title": "Koszty twórców i artystów",
           "classList": {
             "main": [
               "table-5",
@@ -229,10 +245,10 @@
               "kind": "component",
               "type": "textarea",
               "label": "Rodzaj kosztów",
-              "name": "festivalDirectorDescPr1",
-              "value": "",
+              "name": "creatorsArtistsDescPr3",
+              "value": "Koszty twórców i artystów",
               "readOnly": true,
-              "dataBDD": "festivalDirectorDescPr1",
+              "dataBDD": "creatorsArtistsDescPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -242,7 +258,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowany koszt całkowity",
-              "name": "festivalDirectorTotalPlannedPr1",
+              "name": "creatorsArtistsTotalPlannedPr3",
               "value": 0,
               "validators": [
                 {
@@ -256,7 +272,7 @@
               "copyFrom": "",
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "festivalDirectorTotalPlannedPr1",
+              "dataBDD": "creatorsArtistsTotalPlannedPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -266,7 +282,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowana dotacja PISF",
-              "name": "festivalDirectorRequestedPlannedPr1",
+              "name": "creatorsArtistsRequestedPlannedPr3",
               "value": 0,
               "validators": [
                 {
@@ -279,7 +295,7 @@
               ],
               "copyFrom": "",
               "unit": "PLN",
-              "dataBDD": "festivalDirectorRequestedPlannedPr1",
+              "dataBDD": "creatorsArtistsRequestedPlannedPr3",
               "readOnly": true,
               "classList": [
                 "displayNonePDF"
@@ -290,7 +306,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Poniesiony koszt całkowity",
-              "name": "festivalDirectorTotalActualPr1",
+              "name": "creatorsArtistsTotalActualPr3",
               "value": 0,
               "validators": [
                 {
@@ -303,7 +319,7 @@
               ],
               "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
               "unit": "PLN",
-              "dataBDD": "festivalDirectorTotalActualPr1",
+              "dataBDD": "creatorsArtistsTotalActualPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -313,7 +329,7 @@
               "type": "text",
               "mask": "fund",
               "label": "W tym dotacja PISF",
-              "name": "festivalDirectorSupportPisfActualPr1",
+              "name": "creatorsArtistsSupportPisfActualPr3",
               "value": 0,
               "validators": [
                 {
@@ -326,7 +342,7 @@
               ],
               "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
               "unit": "PLN",
-              "dataBDD": "festivalDirectorSupportPisfActualPr1",
+              "dataBDD": "creatorsArtistsSupportPisfActualPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -335,7 +351,7 @@
         },
         {
           "kind": "chapter",
-          "title": "Koszty dyrektora artystycznego",
+          "title": "Koszty prelegentów",
           "classList": {
             "main": [
               "table-5",
@@ -352,10 +368,10 @@
               "kind": "component",
               "type": "textarea",
               "label": "Rodzaj kosztów",
-              "name": "artisticDirectorDescPr1",
-              "value": "",
+              "name": "speakersDescPr3",
+              "value": "Koszty prelegentów",
               "readOnly": true,
-              "dataBDD": "artisticDirectorDescPr1",
+              "dataBDD": "speakersDescPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -365,7 +381,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowany koszt całkowity",
-              "name": "artisticDirectorTotalPlannedPr1",
+              "name": "speakersTotalPlannedPr3",
               "value": 0,
               "validators": [
                 {
@@ -379,7 +395,7 @@
               "copyFrom": "",
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "artisticDirectorTotalPlannedPr1",
+              "dataBDD": "speakersTotalPlannedPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -389,7 +405,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowana dotacja PISF",
-              "name": "artisticDirectorRequestedPlannedPr1",
+              "name": "speakersRequestedPlannedPr3",
               "value": 0,
               "validators": [
                 {
@@ -402,7 +418,7 @@
               ],
               "copyFrom": "",
               "unit": "PLN",
-              "dataBDD": "artisticDirectorRequestedPlannedPr1",
+              "dataBDD": "speakersRequestedPlannedPr3",
               "readOnly": true,
               "classList": [
                 "displayNonePDF"
@@ -413,7 +429,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Poniesiony koszt całkowity",
-              "name": "artisticDirectorTotalActualPr1",
+              "name": "speakersTotalActualPr3",
               "value": 0,
               "validators": [
                 {
@@ -426,7 +442,7 @@
               ],
               "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
               "unit": "PLN",
-              "dataBDD": "artisticDirectorTotalActualPr1",
+              "dataBDD": "speakersTotalActualPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -436,7 +452,7 @@
               "type": "text",
               "mask": "fund",
               "label": "W tym dotacja PISF",
-              "name": "artisticDirectorSupportPisfActualPr1",
+              "name": "speakersSupportPisfActualPr3",
               "value": 0,
               "validators": [
                 {
@@ -449,7 +465,253 @@
               ],
               "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
               "unit": "PLN",
-              "dataBDD": "artisticDirectorSupportPisfActualPr1",
+              "dataBDD": "speakersSupportPisfActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Koszty osób prowadzących",
+          "classList": {
+            "main": [
+              "table-5",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-5__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Rodzaj kosztów",
+              "name": "eventHostsDescPr3",
+              "value": "Koszty osób prowadzących",
+              "readOnly": true,
+              "dataBDD": "eventHostsDescPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowany koszt całkowity",
+              "name": "eventHostsTotalPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "eventHostsTotalPlannedPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowana dotacja PISF",
+              "name": "eventHostsRequestedPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "unit": "PLN",
+              "dataBDD": "eventHostsRequestedPlannedPr3",
+              "readOnly": true,
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Poniesiony koszt całkowity",
+              "name": "eventHostsTotalActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
+              "unit": "PLN",
+              "dataBDD": "eventHostsTotalActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "W tym dotacja PISF",
+              "name": "eventHostsSupportPisfActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
+              "unit": "PLN",
+              "dataBDD": "eventHostsSupportPisfActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Koszty koordynatorów",
+          "classList": {
+            "main": [
+              "table-5",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-5__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Rodzaj kosztów",
+              "name": "coordinatorsDescPr3",
+              "value": "Koszty koordynatorów",
+              "readOnly": true,
+              "dataBDD": "coordinatorsDescPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowany koszt całkowity",
+              "name": "coordinatorsTotalPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "coordinatorsTotalPlannedPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowana dotacja PISF",
+              "name": "coordinatorsRequestedPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "unit": "PLN",
+              "dataBDD": "coordinatorsRequestedPlannedPr3",
+              "readOnly": true,
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Poniesiony koszt całkowity",
+              "name": "coordinatorsTotalActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
+              "unit": "PLN",
+              "dataBDD": "coordinatorsTotalActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "W tym dotacja PISF",
+              "name": "coordinatorsSupportPisfActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
+              "unit": "PLN",
+              "dataBDD": "coordinatorsSupportPisfActualPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -460,14 +722,14 @@
     },
     {
       "kind": "chapter",
-      "title": "2. Koszty zarządzania",
+      "title": "2. Koszty promocji i reklamy",
       "classList": [
         "no-title"
       ],
       "components": [
         {
           "kind": "chapter",
-          "title": "2. Koszty zarządzania - RAZEM",
+          "title": "2. Koszty promocji i reklamy",
           "classList": {
             "main": [
               "table-5",
@@ -484,10 +746,274 @@
               "kind": "component",
               "type": "textarea",
               "label": "Rodzaj kosztów",
-              "name": "managementDescPr1",
+              "name": "commercialsDescPr3",
+              "value": "2. Koszty promocji i reklamy",
+              "readOnly": true,
+              "dataBDD": "commercialsDescPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowany koszt całkowity",
+              "name": "commercialsTotalPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "commercialsTotalPlannedPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowana dotacja PISF",
+              "name": "commercialsRequestedPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "unit": "PLN",
+              "dataBDD": "commercialsRequestedPlannedPr3",
+              "readOnly": true,
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Poniesiony koszt całkowity",
+              "name": "commercialsTotalActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
+              "unit": "PLN",
+              "dataBDD": "commercialsTotalActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "W tym dotacja PISF",
+              "name": "commercialsSupportPisfActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
+              "unit": "PLN",
+              "dataBDD": "commercialsSupportPisfActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "3. Koszty związane z miejscem realizacji przedsięwzięcia <br /><normal><small>np. koszty najmu sali lub powierzchni na potrzeby przedsięwzięcia (z wyłączeniem zakupu środków trwałych) </small></normal>",
+      "classList": [
+        "no-title"
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "3. Koszty związane z miejscem realizacji przedsięwzięcia",
+          "classList": {
+            "main": [
+              "table-5",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-5__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Rodzaj kosztów",
+              "name": "locationDescPr3",
+              "value": "3. Koszty związane z miejscem realizacji przedsięwzięcia",
+              "readOnly": true,
+              "dataBDD": "locationDescPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowany koszt całkowity",
+              "name": "locationTotalPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "locationTotalPlannedPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowana dotacja PISF",
+              "name": "locationRequestedPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "unit": "PLN",
+              "dataBDD": "locationRequestedPlannedPr3",
+              "readOnly": true,
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Poniesiony koszt całkowity",
+              "name": "locationTotalActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
+              "unit": "PLN",
+              "dataBDD": "locationTotalActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "W tym dotacja PISF",
+              "name": "locationSupportPisfActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
+              "unit": "PLN",
+              "dataBDD": "locationSupportPisfActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "4. Koszty obsługi przedsięwzięcia",
+      "classList": [
+        "no-title"
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "4. Koszty obsługi przedsięwzięcia - RAZEM",
+          "classList": {
+            "main": [
+              "table-5",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-5__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Rodzaj kosztów",
+              "name": "eventHostingDescPr3",
               "value": "",
               "readOnly": true,
-              "dataBDD": "managementDescPr1",
+              "dataBDD": "eventHostingDescPr3",
               "classList": [
                 "col-span-2",
                 "text-left",
@@ -499,7 +1025,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowany koszt całkowity",
-              "name": "managementTotalPlannedPr1",
+              "name": "eventHostingTotalPlannedPr3",
               "value": 0,
               "copyFrom": "",
               "calculationRules": [
@@ -507,8 +1033,8 @@
                   "name": "sumInputs",
                   "kwargs": {
                     "fields": [
-                      "prefestivalDirectorTotalPlannedPr1",
-                      "preartisticDirectorTotalPlannedPr1"
+                      "personalTotalPlannedPr3",
+                      "equipmentRentalTotalPlannedPr3"
                     ]
                   }
                 }
@@ -518,8 +1044,8 @@
                   "name": "RelatedSumValidator",
                   "kwargs": {
                     "field_names": [
-                      "prefestivalDirectorTotalPlannedPr1",
-                      "preartisticDirectorTotalPlannedPr1"
+                      "personalTotalPlannedPr3",
+                      "equipmentRentalTotalPlannedPr3"
                     ]
                   }
                 },
@@ -533,14 +1059,14 @@
               ],
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "managementTotalPlannedPr1"
+              "dataBDD": "eventHostingTotalPlannedPr3"
             },
             {
               "kind": "component",
               "type": "text",
               "mask": "fund",
               "label": "Planowana dotacja PISF",
-              "name": "managementRequestedPlannedPr1",
+              "name": "eventHostingRequestedPlannedPr3",
               "value": 0,
               "copyFrom": "",
               "calculationRules": [
@@ -548,8 +1074,8 @@
                   "name": "sumInputs",
                   "kwargs": {
                     "fields": [
-                      "prefestivalDirectorRequestedPlannedPr1",
-                      "preartisticDirectorRequestedPlannedPr1"
+                      "personalRequestedPlannedPr3",
+                      "equipmentRentalRequestedPlannedPr3"
                     ]
                   }
                 }
@@ -559,8 +1085,8 @@
                   "name": "RelatedSumValidator",
                   "kwargs": {
                     "field_names": [
-                      "prefestivalDirectorRequestedPlannedPr1",
-                      "preartisticDirectorRequestedPlannedPr1"
+                      "personalRequestedPlannedPr3",
+                      "equipmentRentalRequestedPlannedPr3"
                     ]
                   }
                 },
@@ -574,22 +1100,22 @@
               ],
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "managementRequestedPlannedPr1"
+              "dataBDD": "eventHostingRequestedPlannedPr3"
             },
             {
               "kind": "component",
               "type": "text",
               "mask": "fund",
               "label": "Poniesiony koszt całkowity",
-              "name": "managementTotalActualPr1",
+              "name": "eventHostingTotalActualPr3",
               "value": 0,
               "calculationRules": [
                 {
                   "name": "sumInputs",
                   "kwargs": {
                     "fields": [
-                      "prefestivalDirectorTotalActualPr1",
-                      "preartisticDirectorTotalActualPr1"
+                      "personalTotalActualPr3",
+                      "equipmentRentalTotalActualPr3"
                     ]
                   }
                 }
@@ -599,8 +1125,8 @@
                   "name": "RelatedSumValidator",
                   "kwargs": {
                     "field_names": [
-                      "prefestivalDirectorTotalActualPr1",
-                      "preartisticDirectorTotalActualPr1"
+                      "personalTotalActualPr3",
+                      "equipmentRentalTotalActualPr3"
                     ]
                   }
                 },
@@ -614,22 +1140,22 @@
               ],
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "managementTotalActualPr1"
+              "dataBDD": "eventHostingTotalActualPr3"
             },
             {
               "kind": "component",
               "type": "text",
               "mask": "fund",
               "label": "W tym dotacja PISF",
-              "name": "managementSupportPisfActualPr1",
+              "name": "eventHostingSupportPisfActualPr3",
               "value": 0,
               "calculationRules": [
                 {
                   "name": "sumInputs",
                   "kwargs": {
                     "fields": [
-                      "prefestivalDirectorSupportPisfActualPr1",
-                      "preartisticDirectorSupportPisfActualPr1"
+                      "personalSupportPisfActualPr3",
+                      "equipmentRentalSupportPisfActualPr3"
                     ]
                   }
                 }
@@ -639,8 +1165,8 @@
                   "name": "RelatedSumValidator",
                   "kwargs": {
                     "field_names": [
-                      "prefestivalDirectorSupportPisfActualPr1",
-                      "preartisticDirectorSupportPisfActualPr1"
+                      "personalSupportPisfActualPr3",
+                      "equipmentRentalSupportPisfActualPr3"
                     ]
                   }
                 },
@@ -654,13 +1180,13 @@
               ],
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "managementSupportPisfActualPr1"
+              "dataBDD": "eventHostingSupportPisfActualPr3"
             }
           ]
         },
         {
           "kind": "chapter",
-          "title": "Koszty dyrektora festiwalu",
+          "title": "Koszty osobowe",
           "classList": {
             "main": [
               "table-5",
@@ -677,10 +1203,10 @@
               "kind": "component",
               "type": "textarea",
               "label": "Rodzaj kosztów",
-              "name": "prefestivalDirectorDescPr1",
-              "value": "",
+              "name": "personalDescPr3",
+              "value": "Koszty osobowe",
               "readOnly": true,
-              "dataBDD": "prefestivalDirectorDescPr1",
+              "dataBDD": "personalDescPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -690,7 +1216,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowany koszt całkowity",
-              "name": "prefestivalDirectorTotalPlannedPr1",
+              "name": "personalTotalPlannedPr3",
               "value": 0,
               "validators": [
                 {
@@ -704,7 +1230,7 @@
               "copyFrom": "",
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "prefestivalDirectorTotalPlannedPr1",
+              "dataBDD": "personalTotalPlannedPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -714,7 +1240,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowana dotacja PISF",
-              "name": "prefestivalDirectorRequestedPlannedPr1",
+              "name": "personalRequestedPlannedPr3",
               "value": 0,
               "validators": [
                 {
@@ -727,7 +1253,7 @@
               ],
               "copyFrom": "",
               "unit": "PLN",
-              "dataBDD": "prefestivalDirectorRequestedPlannedPr1",
+              "dataBDD": "personalRequestedPlannedPr3",
               "readOnly": true,
               "classList": [
                 "displayNonePDF"
@@ -738,7 +1264,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Poniesiony koszt całkowity",
-              "name": "prefestivalDirectorTotalActualPr1",
+              "name": "personalTotalActualPr3",
               "value": 0,
               "validators": [
                 {
@@ -751,7 +1277,7 @@
               ],
               "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
               "unit": "PLN",
-              "dataBDD": "prefestivalDirectorTotalActualPr1",
+              "dataBDD": "personalTotalActualPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -761,7 +1287,7 @@
               "type": "text",
               "mask": "fund",
               "label": "W tym dotacja PISF",
-              "name": "prefestivalDirectorSupportPisfActualPr1",
+              "name": "personalSupportPisfActualPr3",
               "value": 0,
               "validators": [
                 {
@@ -774,7 +1300,7 @@
               ],
               "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
               "unit": "PLN",
-              "dataBDD": "prefestivalDirectorSupportPisfActualPr1",
+              "dataBDD": "personalSupportPisfActualPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -783,7 +1309,7 @@
         },
         {
           "kind": "chapter",
-          "title": "Koszty dyrektora artystycznego",
+          "title": "Koszty najmu sprzętu",
           "classList": {
             "main": [
               "table-5",
@@ -800,10 +1326,10 @@
               "kind": "component",
               "type": "textarea",
               "label": "Rodzaj kosztów",
-              "name": "preartisticDirectorDescPr1",
-              "value": "",
+              "name": "equipmentRentalDescPr3",
+              "value": "Koszty najmu sprzętu",
               "readOnly": true,
-              "dataBDD": "preartisticDirectorDescPr1",
+              "dataBDD": "equipmentRentalDescPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -813,7 +1339,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowany koszt całkowity",
-              "name": "preartisticDirectorTotalPlannedPr1",
+              "name": "equipmentRentalTotalPlannedPr3",
               "value": 0,
               "validators": [
                 {
@@ -827,7 +1353,7 @@
               "copyFrom": "",
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "preartisticDirectorTotalPlannedPr1",
+              "dataBDD": "equipmentRentalTotalPlannedPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -837,7 +1363,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowana dotacja PISF",
-              "name": "preartisticDirectorRequestedPlannedPr1",
+              "name": "equipmentRentalRequestedPlannedPr3",
               "value": 0,
               "validators": [
                 {
@@ -850,7 +1376,7 @@
               ],
               "copyFrom": "",
               "unit": "PLN",
-              "dataBDD": "preartisticDirectorRequestedPlannedPr1",
+              "dataBDD": "equipmentRentalRequestedPlannedPr3",
               "readOnly": true,
               "classList": [
                 "displayNonePDF"
@@ -861,7 +1387,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Poniesiony koszt całkowity",
-              "name": "preartisticDirectorTotalActualPr1",
+              "name": "equipmentRentalTotalActualPr3",
               "value": 0,
               "validators": [
                 {
@@ -874,7 +1400,7 @@
               ],
               "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
               "unit": "PLN",
-              "dataBDD": "preartisticDirectorTotalActualPr1",
+              "dataBDD": "equipmentRentalTotalActualPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -884,7 +1410,7 @@
               "type": "text",
               "mask": "fund",
               "label": "W tym dotacja PISF",
-              "name": "preartisticDirectorSupportPisfActualPr1",
+              "name": "equipmentRentalSupportPisfActualPr3",
               "value": 0,
               "validators": [
                 {
@@ -897,7 +1423,7 @@
               ],
               "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
               "unit": "PLN",
-              "dataBDD": "preartisticDirectorSupportPisfActualPr1",
+              "dataBDD": "equipmentRentalSupportPisfActualPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -908,14 +1434,14 @@
     },
     {
       "kind": "chapter",
-      "title": "3. Koszty inne",
+      "title": "5. Koszty dotyczące podróży <br /><normal><small>Koszty przejazdu udokumentowane wyłącznie fakturami lub biletami; w przypadku podróży lotniczych pokrywa się z dotacji tylko koszt biletów w klasie ekonomicznej (z wyłączeniem diet, ryczałtów i innych kosztów udokumentowanych w inny sposób, niż rachunkiem lub fakturą). </small></normal>",
       "classList": [
         "no-title"
       ],
       "components": [
         {
           "kind": "chapter",
-          "title": "3. Koszty inne",
+          "title": "5. Koszty dotyczące podróży - RAZEM",
           "classList": {
             "main": [
               "table-5",
@@ -932,10 +1458,211 @@
               "kind": "component",
               "type": "textarea",
               "label": "Rodzaj kosztów",
-              "name": "otherDesc",
+              "name": "tripDescPr3",
               "value": "",
               "readOnly": true,
-              "dataBDD": "otherDesc",
+              "dataBDD": "tripDescPr3",
+              "classList": [
+                "col-span-2",
+                "text-left",
+                "userInput-bg-grey"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowany koszt całkowity",
+              "name": "tripTotalPlannedPr3",
+              "value": 0,
+              "copyFrom": "",
+              "calculationRules": [
+                {
+                  "name": "sumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "hostsTripTotalPlannedPr3",
+                      "participantsTripTotalPlannedPr3",
+                      "questsTripTotalPlannedPr3"
+                    ]
+                  }
+                }
+              ],
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "hostsTripTotalPlannedPr3",
+                      "participantsTripTotalPlannedPr3",
+                      "questsTripTotalPlannedPr3"
+                    ]
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "tripTotalPlannedPr3"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowana dotacja PISF",
+              "name": "tripRequestedPlannedPr3",
+              "value": 0,
+              "copyFrom": "",
+              "calculationRules": [
+                {
+                  "name": "sumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "hostsTripRequestedPlannedPr3",
+                      "participantsTripRequestedPlannedPr3",
+                      "questsTripRequestedPlannedPr3"
+                    ]
+                  }
+                }
+              ],
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "hostsTripRequestedPlannedPr3",
+                      "participantsTripRequestedPlannedPr3",
+                      "questsTripRequestedPlannedPr3"
+                    ]
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "tripRequestedPlannedPr3"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Poniesiony koszt całkowity",
+              "name": "tripTotalActualPr3",
+              "value": 0,
+              "calculationRules": [
+                {
+                  "name": "sumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "hostsTripTotalActualPr3",
+                      "participantsTripTotalActualPr3",
+                      "questsTripTotalActualPr3"
+                    ]
+                  }
+                }
+              ],
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "hostsTripTotalActualPr3",
+                      "participantsTripTotalActualPr3",
+                      "questsTripTotalActualPr3"
+                    ]
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "tripTotalActualPr3"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "W tym dotacja PISF",
+              "name": "tripSupportPisfActualPr3",
+              "value": 0,
+              "calculationRules": [
+                {
+                  "name": "sumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "hostsTripSupportPisfActualPr3",
+                      "participantsTripSupportPisfActualPr3",
+                      "questsTripSupportPisfActualPr3"
+                    ]
+                  }
+                }
+              ],
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "hostsTripSupportPisfActualPr3",
+                      "participantsTripSupportPisfActualPr3",
+                      "questsTripSupportPisfActualPr3"
+                    ]
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "tripSupportPisfActualPr3"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Organizatorów przedsięwzięcia",
+          "classList": {
+            "main": [
+              "table-5",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-5__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Rodzaj kosztów",
+              "name": "hostsTripDescPr3",
+              "value": "Organizatorów przedsięwzięcia",
+              "readOnly": true,
+              "dataBDD": "hostsTripDescPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -945,7 +1672,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowany koszt całkowity",
-              "name": "otherTotalPlanned",
+              "name": "hostsTripTotalPlannedPr3",
               "value": 0,
               "validators": [
                 {
@@ -959,7 +1686,7 @@
               "copyFrom": "",
               "readOnly": true,
               "unit": "PLN",
-              "dataBDD": "otherTotalPlanned",
+              "dataBDD": "hostsTripTotalPlannedPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -969,7 +1696,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Planowana dotacja PISF",
-              "name": "otherRequestedPlanned",
+              "name": "hostsTripRequestedPlannedPr3",
               "value": 0,
               "validators": [
                 {
@@ -982,7 +1709,7 @@
               ],
               "copyFrom": "",
               "unit": "PLN",
-              "dataBDD": "otherRequestedPlanned",
+              "dataBDD": "hostsTripRequestedPlannedPr3",
               "readOnly": true,
               "classList": [
                 "displayNonePDF"
@@ -993,7 +1720,7 @@
               "type": "text",
               "mask": "fund",
               "label": "Poniesiony koszt całkowity",
-              "name": "otherTotalActual",
+              "name": "hostsTripTotalActualPr3",
               "value": 0,
               "validators": [
                 {
@@ -1006,7 +1733,7 @@
               ],
               "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
               "unit": "PLN",
-              "dataBDD": "otherTotalActual",
+              "dataBDD": "hostsTripTotalActualPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -1016,7 +1743,7 @@
               "type": "text",
               "mask": "fund",
               "label": "W tym dotacja PISF",
-              "name": "otherSupportPisfActual",
+              "name": "hostsTripSupportPisfActualPr3",
               "value": 0,
               "validators": [
                 {
@@ -1029,7 +1756,1492 @@
               ],
               "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
               "unit": "PLN",
-              "dataBDD": "otherSupportPisfActual",
+              "dataBDD": "hostsTripSupportPisfActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Twórców, artystów, prelegentów",
+          "classList": {
+            "main": [
+              "table-5",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-5__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Rodzaj kosztów",
+              "name": "participantsTripDescPr3",
+              "value": "Twórców, artystów, prelegentów",
+              "readOnly": true,
+              "dataBDD": "participantsTripDescPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowany koszt całkowity",
+              "name": "participantsTripTotalPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "participantsTripTotalPlannedPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowana dotacja PISF",
+              "name": "participantsTripRequestedPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "unit": "PLN",
+              "dataBDD": "participantsTripRequestedPlannedPr3",
+              "readOnly": true,
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Poniesiony koszt całkowity",
+              "name": "participantsTripTotalActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
+              "unit": "PLN",
+              "dataBDD": "participantsTripTotalActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "W tym dotacja PISF",
+              "name": "participantsTripSupportPisfActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
+              "unit": "PLN",
+              "dataBDD": "participantsTripSupportPisfActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Zaproszonych gości",
+          "classList": {
+            "main": [
+              "table-5",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-5__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Rodzaj kosztów",
+              "name": "questsTripDescPr3",
+              "value": "Zaproszonych gości",
+              "readOnly": true,
+              "dataBDD": "questsTripDescPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowany koszt całkowity",
+              "name": "questsTripTotalPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "questsTripTotalPlannedPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowana dotacja PISF",
+              "name": "questsTripRequestedPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "unit": "PLN",
+              "dataBDD": "questsTripRequestedPlannedPr3",
+              "readOnly": true,
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Poniesiony koszt całkowity",
+              "name": "questsTripTotalActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
+              "unit": "PLN",
+              "dataBDD": "questsTripTotalActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "W tym dotacja PISF",
+              "name": "questsTripSupportPisfActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
+              "unit": "PLN",
+              "dataBDD": "questsTripSupportPisfActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "6. Koszty dotyczące noclegów <br /><normal><small>Koszty zakwaterowania udokumentowane wyłącznie fakturami (z wyłączeniem diet, ryczałtów i innych kosztów udokumentowanych w inny sposób, niż rachunkiem lub fakturą). </normal></small> ",
+      "classList": [
+        "no-title"
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "6. Koszty dotyczące noclegów - RAZEM",
+          "classList": {
+            "main": [
+              "table-5",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-5__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Rodzaj kosztów",
+              "name": "accommodationDescPr3",
+              "value": "",
+              "readOnly": true,
+              "dataBDD": "accommodationDescPr3",
+              "classList": [
+                "col-span-2",
+                "text-left",
+                "userInput-bg-grey"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowany koszt całkowity",
+              "name": "accommodationTotalPlannedPr3",
+              "value": 0,
+              "copyFrom": "",
+              "calculationRules": [
+                {
+                  "name": "sumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "hostsAccommodationTotalPlannedPr3",
+                      "participantsAccommodationTotalPlannedPr3",
+                      "questsAccommodationTotalPlannedPr3"
+                    ]
+                  }
+                }
+              ],
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "hostsAccommodationTotalPlannedPr3",
+                      "participantsAccommodationTotalPlannedPr3",
+                      "questsAccommodationTotalPlannedPr3"
+                    ]
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "accommodationTotalPlannedPr3"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowana dotacja PISF",
+              "name": "accommodationRequestedPlannedPr3",
+              "value": 0,
+              "copyFrom": "",
+              "calculationRules": [
+                {
+                  "name": "sumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "hostsAccommodationRequestedPlannedPr3",
+                      "participantsAccommodationRequestedPlannedPr3",
+                      "questsAccommodationRequestedPlannedPr3"
+                    ]
+                  }
+                }
+              ],
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "hostsAccommodationRequestedPlannedPr3",
+                      "participantsAccommodationRequestedPlannedPr3",
+                      "questsAccommodationRequestedPlannedPr3"
+                    ]
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "accommodationRequestedPlannedPr3"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Poniesiony koszt całkowity",
+              "name": "accommodationTotalActualPr3",
+              "value": 0,
+              "calculationRules": [
+                {
+                  "name": "sumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "hostsAccommodationTotalActualPr3",
+                      "participantsAccommodationTotalActualPr3",
+                      "questsAccommodationTotalActualPr3"
+                    ]
+                  }
+                }
+              ],
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "hostsAccommodationTotalActualPr3",
+                      "participantsAccommodationTotalActualPr3",
+                      "questsAccommodationTotalActualPr3"
+                    ]
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "accommodationTotalActualPr3"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "W tym dotacja PISF",
+              "name": "accommodationSupportPisfActualPr3",
+              "value": 0,
+              "calculationRules": [
+                {
+                  "name": "sumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "hostsAccommodationSupportPisfActualPr3",
+                      "participantsAccommodationSupportPisfActualPr3",
+                      "questsAccommodationSupportPisfActualPr3"
+                    ]
+                  }
+                }
+              ],
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "hostsAccommodationSupportPisfActualPr3",
+                      "participantsAccommodationSupportPisfActualPr3",
+                      "questsAccommodationSupportPisfActualPr3"
+                    ]
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "accommodationSupportPisfActualPr3"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Organizatorów przedsięwzięcia",
+          "classList": {
+            "main": [
+              "table-5",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-5__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Rodzaj kosztów",
+              "name": "hostsAccommodationDescPr3",
+              "value": "Organizatorów przedsięwzięcia",
+              "readOnly": true,
+              "dataBDD": "hostsAccommodationDescPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowany koszt całkowity",
+              "name": "hostsAccommodationTotalPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "hostsAccommodationTotalPlannedPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowana dotacja PISF",
+              "name": "hostsAccommodationRequestedPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "unit": "PLN",
+              "dataBDD": "hostsAccommodationRequestedPlannedPr3",
+              "readOnly": true,
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Poniesiony koszt całkowity",
+              "name": "hostsAccommodationTotalActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
+              "unit": "PLN",
+              "dataBDD": "hostsAccommodationTotalActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "W tym dotacja PISF",
+              "name": "hostsAccommodationSupportPisfActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
+              "unit": "PLN",
+              "dataBDD": "hostsAccommodationSupportPisfActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Twórców, artystów, prelegentów",
+          "classList": {
+            "main": [
+              "table-5",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-5__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Rodzaj kosztów",
+              "name": "participantsAccommodationDescPr3",
+              "value": "Twórców, artystów, prelegentów",
+              "readOnly": true,
+              "dataBDD": "participantsAccommodationDescPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowany koszt całkowity",
+              "name": "participantsAccommodationTotalPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "participantsAccommodationTotalPlannedPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowana dotacja PISF",
+              "name": "participantsAccommodationRequestedPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "unit": "PLN",
+              "dataBDD": "participantsAccommodationRequestedPlannedPr3",
+              "readOnly": true,
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Poniesiony koszt całkowity",
+              "name": "participantsAccommodationTotalActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
+              "unit": "PLN",
+              "dataBDD": "participantsAccommodationTotalActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "W tym dotacja PISF",
+              "name": "participantsAccommodationSupportPisfActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
+              "unit": "PLN",
+              "dataBDD": "participantsAccommodationSupportPisfActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Zaproszonych gości",
+          "classList": {
+            "main": [
+              "table-5",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-5__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Rodzaj kosztów",
+              "name": "questsAccommodationDescPr3",
+              "value": "Zaproszonych gości",
+              "readOnly": true,
+              "dataBDD": "questsAccommodationDescPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowany koszt całkowity",
+              "name": "questsAccommodationTotalPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "questsAccommodationTotalPlannedPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowana dotacja PISF",
+              "name": "questsAccommodationRequestedPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "unit": "PLN",
+              "dataBDD": "questsAccommodationRequestedPlannedPr3",
+              "readOnly": true,
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Poniesiony koszt całkowity",
+              "name": "questsAccommodationTotalActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
+              "unit": "PLN",
+              "dataBDD": "questsAccommodationTotalActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "W tym dotacja PISF",
+              "name": "questsAccommodationSupportPisfActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
+              "unit": "PLN",
+              "dataBDD": "questsAccommodationSupportPisfActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "7. Koszty składki Polskiej Federacji Dyskusyjnych Klubów Filmowych <br /><normal><small>(pokrywane tylko ze środków wnioskodawcy) </small></normal>",
+      "classList": [
+        "no-title"
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "7. Koszty składki PFDKF",
+          "classList": {
+            "main": [
+              "table-5",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-5__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Rodzaj kosztów",
+              "name": "polishDkfFederationFeeDescPr3",
+              "value": "7. Koszty składki PFDKF",
+              "readOnly": true,
+              "dataBDD": "polishDkfFederationFeeDescPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowany koszt całkowity",
+              "name": "polishDkfFederationFeeTotalPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "polishDkfFederationFeeTotalPlannedPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowana dotacja PISF",
+              "name": "polishDkfFederationFeeRequestedPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "unit": "PLN",
+              "dataBDD": "polishDkfFederationFeeRequestedPlannedPr3",
+              "readOnly": true,
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Poniesiony koszt całkowity",
+              "name": "polishDkfFederationFeeTotalActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
+              "unit": "PLN",
+              "dataBDD": "polishDkfFederationFeeTotalActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "W tym dotacja PISF",
+              "name": "polishDkfFederationFeeSupportPisfActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
+              "unit": "PLN",
+              "dataBDD": "polishDkfFederationFeeSupportPisfActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "8. Koszty praw autorskich",
+      "classList": [
+        "no-title"
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "8. Koszty praw autorskich",
+          "classList": {
+            "main": [
+              "table-5",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-5__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Rodzaj kosztów",
+              "name": "copyrightDescPr3",
+              "value": "8. Koszty praw autorskich",
+              "readOnly": true,
+              "dataBDD": "copyrightDescPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowany koszt całkowity",
+              "name": "copyrightTotalPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "copyrightTotalPlannedPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowana dotacja PISF",
+              "name": "copyrightRequestedPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "unit": "PLN",
+              "dataBDD": "copyrightRequestedPlannedPr3",
+              "readOnly": true,
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Poniesiony koszt całkowity",
+              "name": "copyrightTotalActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
+              "unit": "PLN",
+              "dataBDD": "copyrightTotalActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "W tym dotacja PISF",
+              "name": "copyrightSupportPisfActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
+              "unit": "PLN",
+              "dataBDD": "copyrightSupportPisfActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "9. Koszty najmu kopii filmowych",
+      "classList": [
+        "no-title"
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "9. Koszty najmu kopii filmowych",
+          "classList": {
+            "main": [
+              "table-5",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-5__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Rodzaj kosztów",
+              "name": "copyRentalDescPr3",
+              "value": "9. Koszty najmu kopii filmowych",
+              "readOnly": true,
+              "dataBDD": "copyRentalDescPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowany koszt całkowity",
+              "name": "copyRentalTotalPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "copyRentalTotalPlannedPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowana dotacja PISF",
+              "name": "copyRentalRequestedPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "unit": "PLN",
+              "dataBDD": "copyRentalRequestedPlannedPr3",
+              "readOnly": true,
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Poniesiony koszt całkowity",
+              "name": "copyRentalTotalActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
+              "unit": "PLN",
+              "dataBDD": "copyRentalTotalActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "W tym dotacja PISF",
+              "name": "copyRentalSupportPisfActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
+              "unit": "PLN",
+              "dataBDD": "copyRentalSupportPisfActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "10. Koszty obsługi projektów online",
+      "classList": [
+        "no-title"
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "10. Koszty obsługi projektów online",
+          "classList": {
+            "main": [
+              "table-5",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-5__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Rodzaj kosztów",
+              "name": "onlineManagementDescPr3",
+              "value": "10. Koszty obsługi projektów online",
+              "readOnly": true,
+              "dataBDD": "onlineManagementDescPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowany koszt całkowity",
+              "name": "onlineManagementTotalPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "onlineManagementTotalPlannedPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowana dotacja PISF",
+              "name": "onlineManagementRequestedPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "unit": "PLN",
+              "dataBDD": "onlineManagementRequestedPlannedPr3",
+              "readOnly": true,
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Poniesiony koszt całkowity",
+              "name": "onlineManagementTotalActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
+              "unit": "PLN",
+              "dataBDD": "onlineManagementTotalActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "W tym dotacja PISF",
+              "name": "onlineManagementSupportPisfActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
+              "unit": "PLN",
+              "dataBDD": "onlineManagementSupportPisfActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "11. Koszty związane z dostosowaniem działań i formy przekazu do osób ze szczególnymi potrzebami, w tym osób z niepełnosprawnościami",
+      "classList": [
+        "no-title"
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "11. Koszty związane z dostosowaniem działań i formy przekazu do osób ze szczególnymi potrzebami, w tym osób z niepełnosprawnościami",
+          "classList": {
+            "main": [
+              "table-5",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-5__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Rodzaj kosztów",
+              "name": "accessibilityDescPr3",
+              "value": "11. Koszty związane z dostosowaniem działań i formy przekazu do osób ze szczególnymi potrzebami, w tym osób z niepełnosprawnościami",
+              "readOnly": true,
+              "dataBDD": "accessibilityDescPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowany koszt całkowity",
+              "name": "accessibilityTotalPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "readOnly": true,
+              "unit": "PLN",
+              "dataBDD": "accessibilityTotalPlannedPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Planowana dotacja PISF",
+              "name": "accessibilityRequestedPlannedPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "copyFrom": "",
+              "unit": "PLN",
+              "dataBDD": "accessibilityRequestedPlannedPr3",
+              "readOnly": true,
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Poniesiony koszt całkowity",
+              "name": "accessibilityTotalActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
+              "unit": "PLN",
+              "dataBDD": "accessibilityTotalActualPr3",
+              "classList": [
+                "displayNonePDF"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "W tym dotacja PISF",
+              "name": "accessibilitySupportPisfActualPr3",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa zero."
+                }
+              ],
+              "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
+              "unit": "PLN",
+              "dataBDD": "accessibilitySupportPisfActualPr3",
               "classList": [
                 "displayNonePDF"
               ]
@@ -1059,10 +3271,10 @@
           "kind": "component",
           "type": "header",
           "label": "",
-          "name": "header-overallCosts",
+          "name": "header-overallCostsPr3",
           "value": "Łącznie",
           "readOnly": true,
-          "dataBDD": "header-overallCosts",
+          "dataBDD": "header-overallCostsPr3",
           "classList": [
             "col-span-2",
             "text-right",
@@ -1074,17 +3286,25 @@
           "type": "text",
           "mask": "fund",
           "label": "Planowany koszt całkowity",
-          "name": "costTotalSum",
+          "name": "costTotalSumPr3",
           "value": 0,
-          "copyFrom": "totalSumAmount",
+          "copyFrom": "totalSumAmountPr3",
           "calculationRules": [
             {
               "name": "sumInputs",
               "kwargs": {
                 "fields": [
-                  "preparationTotalPlannedPr1",
-                  "managementTotalPlannedPr1",
-                  "otherTotalPlanned"
+                  "costManagementTotalPlannedPr3",
+                  "commercialsTotalPlannedPr3",
+                  "locationTotalPlannedPr3",
+                  "eventHostingTotalPlannedPr3",
+                  "tripTotalPlannedPr3",
+                  "accommodationTotalPlannedPr3",
+                  "polishDkfFederationFeeTotalPlannedPr3",
+                  "copyrightTotalPlannedPr3",
+                  "copyRentalTotalPlannedPr3",
+                  "onlineManagementTotalPlannedPr3",
+                  "accessibilityTotalPlannedPr3"
                 ]
               }
             }
@@ -1095,22 +3315,30 @@
               "name": "RelatedSumValidator",
               "kwargs": {
                 "field_names": [
-                  "preparationTotalPlannedPr1",
-                  "managementTotalPlannedPr1",
-                  "otherTotalPlanned"
+                  "costManagementTotalPlannedPr3",
+                  "commercialsTotalPlannedPr3",
+                  "locationTotalPlannedPr3",
+                  "eventHostingTotalPlannedPr3",
+                  "tripTotalPlannedPr3",
+                  "accommodationTotalPlannedPr3",
+                  "polishDkfFederationFeeTotalPlannedPr3",
+                  "copyrightTotalPlannedPr3",
+                  "copyRentalTotalPlannedPr3",
+                  "onlineManagementTotalPlannedPr3",
+                  "accessibilityTotalPlannedPr3"
                 ]
               }
             },
             {
               "name": "RelatedNumericEqualityValidator",
               "kwargs": {
-                "field_name": "budgetTotalSumAmount"
+                "field_name": "budgetTotalSumAmountPr3"
               },
               "validationMsg": "Wartość musi być równa tej z kosztorysu ze względu na źródło finansowania"
             }
           ],
           "unit": "PLN",
-          "dataBDD": "costTotalSum",
+          "dataBDD": "costTotalSumPr3",
           "classList": [
             "col-start-3"
           ]
@@ -1120,17 +3348,25 @@
           "type": "text",
           "mask": "fund",
           "label": "Planowana dotacja PISF",
-          "name": "costRequestPisfSum",
+          "name": "costRequestPisfSumPr3",
           "value": 0,
-          "copyFrom": "totalRequestedAmount",
+          "copyFrom": "totalRequestedAmountPr3",
           "calculationRules": [
             {
               "name": "sumInputs",
               "kwargs": {
                 "fields": [
-                  "preparationRequestedPlannedPr1",
-                  "managementRequestedPlannedPr1",
-                  "otherRequestedPlanned"
+                  "costManagementRequestedPlannedPr3",
+                  "commercialsRequestedPlannedPr3",
+                  "locationRequestedPlannedPr3",
+                  "eventHostingRequestedPlannedPr3",
+                  "tripRequestedPlannedPr3",
+                  "accommodationRequestedPlannedPr3",
+                  "polishDkfFederationFeeRequestedPlannedPr3",
+                  "copyrightRequestedPlannedPr3",
+                  "copyRentalRequestedPlannedPr3",
+                  "onlineManagementRequestedPlannedPr3",
+                  "accessibilityRequestedPlannedPr3"
                 ]
               }
             }
@@ -1141,29 +3377,37 @@
               "name": "RelatedSumValidator",
               "kwargs": {
                 "field_names": [
-                  "preparationRequestedPlannedPr1",
-                  "managementRequestedPlannedPr1",
-                  "otherRequestedPlanned"
+                  "costManagementRequestedPlannedPr3",
+                  "commercialsRequestedPlannedPr3",
+                  "locationRequestedPlannedPr3",
+                  "eventHostingRequestedPlannedPr3",
+                  "tripRequestedPlannedPr3",
+                  "accommodationRequestedPlannedPr3",
+                  "polishDkfFederationFeeRequestedPlannedPr3",
+                  "copyrightRequestedPlannedPr3",
+                  "copyRentalRequestedPlannedPr3",
+                  "onlineManagementRequestedPlannedPr3",
+                  "accessibilityRequestedPlannedPr3"
                 ]
               }
             },
             {
               "name": "RelatedNumericEqualityValidator",
               "kwargs": {
-                "field_name": "budgetInputPisfSupportAmount"
+                "field_name": "budgetInputPisfSupportAmountPr3"
               },
               "validationMsg": "Wartość musi być równa tej z kosztorysu ze względu na źródło finansowania"
             }
           ],
           "unit": "PLN",
-          "dataBDD": "costRequestPisfSum"
+          "dataBDD": "costRequestPisfSumPr3"
         },
         {
           "kind": "component",
           "type": "text",
           "mask": "fund",
           "label": "Poniesiony koszt całkowity",
-          "name": "costActualTotalSum",
+          "name": "costActualTotalSumPr3",
           "value": 0,
           "readOnly": true,
           "calculationRules": [
@@ -1171,9 +3415,17 @@
               "name": "sumInputs",
               "kwargs": {
                 "fields": [
-                  "preparationTotalActualPr1",
-                  "managementTotalActualPr1",
-                  "otherTotalActual"
+                  "costManagementTotalActualPr3",
+                  "commercialsTotalActualPr3",
+                  "locationTotalActualPr3",
+                  "eventHostingTotalActualPr3",
+                  "tripTotalActualPr3",
+                  "accommodationTotalActualPr3",
+                  "polishDkfFederationFeeTotalActualPr3",
+                  "copyrightTotalActualPr3",
+                  "copyRentalTotalActualPr3",
+                  "onlineManagementTotalActualPr3",
+                  "accessibilityTotalActualPr3"
                 ]
               }
             }
@@ -1183,29 +3435,37 @@
               "name": "RelatedSumValidator",
               "kwargs": {
                 "field_names": [
-                  "preparationTotalActualPr1",
-                  "managementTotalActualPr1",
-                  "otherTotalActual"
+                  "costManagementTotalActualPr3",
+                  "commercialsTotalActualPr3",
+                  "locationTotalActualPr3",
+                  "eventHostingTotalActualPr3",
+                  "tripTotalActualPr3",
+                  "accommodationTotalActualPr3",
+                  "polishDkfFederationFeeTotalActualPr3",
+                  "copyrightTotalActualPr3",
+                  "copyRentalTotalActualPr3",
+                  "onlineManagementTotalActualPr3",
+                  "accessibilityTotalActualPr3"
                 ]
               }
             },
             {
               "name": "RelatedNumericEqualityValidator",
               "kwargs": {
-                "field_name": "budgetTotalCurrentSumAmount"
+                "field_name": "budgetTotalCurrentSumAmountPr3"
               },
               "validationMsg": "Wartość musi być równa tej z kosztorysu ze względu na źródło finansowania"
             }
           ],
           "unit": "PLN",
-          "dataBDD": "costActualTotalSum"
+          "dataBDD": "costActualTotalSumPr3"
         },
         {
           "kind": "component",
           "type": "text",
           "mask": "fund",
           "label": "W tym dotacja PISF",
-          "name": "costActualSupportPisfSum",
+          "name": "costActualSupportPisfSumPr3",
           "value": 0,
           "readOnly": true,
           "calculationRules": [
@@ -1213,9 +3473,17 @@
               "name": "sumInputs",
               "kwargs": {
                 "fields": [
-                  "preparationSupportPisfActualPr1",
-                  "managementSupportPisfActualPr1",
-                  "otherSupportPisfActual"
+                  "costManagementSupportPisfActualPr3",
+                  "commercialsSupportPisfActualPr3",
+                  "locationSupportPisfActualPr3",
+                  "eventHostingSupportPisfActualPr3",
+                  "tripSupportPisfActualPr3",
+                  "accommodationSupportPisfActualPr3",
+                  "polishDkfFederationFeeSupportPisfActualPr3",
+                  "copyrightSupportPisfActualPr3",
+                  "copyRentalSupportPisfActualPr3",
+                  "onlineManagementSupportPisfActualPr3",
+                  "accessibilitySupportPisfActualPr3"
                 ]
               }
             }
@@ -1225,22 +3493,30 @@
               "name": "RelatedSumValidator",
               "kwargs": {
                 "field_names": [
-                  "preparationSupportPisfActualPr1",
-                  "managementSupportPisfActualPr1",
-                  "otherSupportPisfActual"
+                  "costManagementSupportPisfActualPr3",
+                  "commercialsSupportPisfActualPr3",
+                  "locationSupportPisfActualPr3",
+                  "eventHostingSupportPisfActualPr3",
+                  "tripSupportPisfActualPr3",
+                  "accommodationSupportPisfActualPr3",
+                  "polishDkfFederationFeeSupportPisfActualPr3",
+                  "copyrightSupportPisfActualPr3",
+                  "copyRentalSupportPisfActualPr3",
+                  "onlineManagementSupportPisfActualPr3",
+                  "accessibilitySupportPisfActualPr3"
                 ]
               }
             },
             {
               "name": "RelatedNumericEqualityValidator",
               "kwargs": {
-                "field_name": "budgetInputPisfSupportCurrentAmount"
+                "field_name": "budgetInputPisfSupportCurrentAmountPr3"
               },
               "validationMsg": "Wartość musi być równa tej z kosztorysu ze względu na źródło finansowania"
             }
           ],
           "unit": "PLN",
-          "dataBDD": "costActualSupportPisfSum"
+          "dataBDD": "costActualSupportPisfSumPr3"
         }
       ]
     }
