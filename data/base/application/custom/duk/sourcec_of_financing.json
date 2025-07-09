@@ -263,7 +263,6 @@
                     }
                   ],
                   "required": true,
-                  "calculationRules": [],
                   "unit": "PLN",
                   "dataBDD": "pisfSupportAmount"
                 },
@@ -314,7 +313,6 @@
               "label": "Czy występują środki z budżetów jednostek samorządu terytorialnego lub innych środków publicznych za wyjątkiem MKiDN?",
               "name": "isLocalGovernmentFunding",
               "value": false,
-              "validators": [],
               "dataBDD": "isLocalGovernmentFunding"
             }
           ]
@@ -371,9 +369,7 @@
                           "label": "kwota",
                           "name": "localGovernmentFundingAmount",
                           "value": 0,
-                          "validators": [],
                           "required": true,
-                          "calculationRules": [],
                           "unit": "PLN",
                           "dataBDD": "localGovernmentFundingAmount"
                         },
@@ -393,7 +389,6 @@
                             }
                           ],
                           "readOnly": true,
-                          "validators": [],
                           "required": true,
                           "unit": "%",
                           "dataBDD": "localGovernmentFundingShare"
@@ -426,7 +421,6 @@
                         }
                       ],
                       "readOnly": true,
-                      "validators": [],
                       "required": true,
                       "unit": "PLN",
                       "dataBDD": "localGovernmentsFundsSumAmount"
@@ -447,7 +441,6 @@
                         }
                       ],
                       "readOnly": true,
-                      "validators": [],
                       "required": true,
                       "unit": "%",
                       "dataBDD": "localGovernmentsFundsShare"
@@ -472,7 +465,6 @@
               "label": "Czy występują środki MKiDN w ramach Programów Ministra?",
               "name": "isMinisterialFunding",
               "value": false,
-              "validators": [],
               "dataBDD": "isMinisterialFunding"
             }
           ]
@@ -529,9 +521,7 @@
                           "label": "kwota",
                           "name": "ministerialEntityFundingAmount",
                           "value": 0,
-                          "validators": [],
                           "required": true,
-                          "calculationRules": [],
                           "unit": "PLN",
                           "dataBDD": "ministerialEntityFundingAmount"
                         },
@@ -551,7 +541,6 @@
                             }
                           ],
                           "readOnly": true,
-                          "validators": [],
                           "required": true,
                           "unit": "%",
                           "dataBDD": "ministerialEntityFundingShare"
@@ -584,7 +573,6 @@
                         }
                       ],
                       "readOnly": true,
-                      "validators": [],
                       "required": true,
                       "unit": "PLN",
                       "dataBDD": "ministryFundsSumAmount"
@@ -605,7 +593,6 @@
                         }
                       ],
                       "readOnly": true,
-                      "validators": [],
                       "required": true,
                       "unit": "%",
                       "dataBDD": "ministryFundingShare"
@@ -630,7 +617,6 @@
               "label": "Czy występują środki od sponsorów lub innych podmiotów niezaliczanych do sektora finansów publicznych?",
               "name": "isSponsorFunding",
               "value": false,
-              "validators": [],
               "dataBDD": "isSponsorFunding"
             }
           ]
@@ -687,9 +673,7 @@
                           "label": "kwota",
                           "name": "otherSponsorFundingAmount",
                           "value": 0,
-                          "validators": [],
                           "required": true,
-                          "calculationRules": [],
                           "unit": "PLN",
                           "dataBDD": "otherSponsorFundingAmount"
                         },
@@ -709,7 +693,6 @@
                             }
                           ],
                           "readOnly": true,
-                          "validators": [],
                           "required": true,
                           "unit": "%",
                           "dataBDD": "otherSponsorFundingShare"
@@ -742,7 +725,6 @@
                         }
                       ],
                       "readOnly": true,
-                      "validators": [],
                       "required": true,
                       "unit": "PLN",
                       "dataBDD": "sponsorsSumAmount"
@@ -763,7 +745,6 @@
                         }
                       ],
                       "readOnly": true,
-                      "validators": [],
                       "required": true,
                       "unit": "%",
                       "dataBDD": "sponsorsFundingShare"
@@ -788,7 +769,6 @@
               "label": "Czy występują środki zagraniczne, w tym europejskie?",
               "name": "isForeignFunding",
               "value": false,
-              "validators": [],
               "dataBDD": "isForeignFunding"
             }
           ]
@@ -845,9 +825,7 @@
                           "label": "kwota",
                           "name": "foreignEntityFundingAmount",
                           "value": 0,
-                          "validators": [],
                           "required": true,
-                          "calculationRules": [],
                           "unit": "PLN",
                           "dataBDD": "foreignEntityFundingAmount"
                         },
@@ -867,7 +845,6 @@
                             }
                           ],
                           "readOnly": true,
-                          "validators": [],
                           "required": true,
                           "unit": "%",
                           "dataBDD": "foreignEntityFundingShare"
@@ -900,7 +877,6 @@
                         }
                       ],
                       "readOnly": true,
-                      "validators": [],
                       "required": true,
                       "unit": "PLN",
                       "dataBDD": "foreignFundsSumAmount"
@@ -921,7 +897,6 @@
                         }
                       ],
                       "readOnly": true,
-                      "validators": [],
                       "required": true,
                       "unit": "%",
                       "dataBDD": "foreignFundsFundingShare"
@@ -948,8 +923,7 @@
           "name": "headerBudgetWarning",
           "label": "LABEL",
           "value": "Uwaga: W przypadku innych kosztów niż ujętych w wykazie kosztów kwalifikowanych powyżej, PISF może wskazać konkretne pozycje w budżecie przedsięwzięcia, które mogą zostać pokryte z przyznanego dofinansowania.",
-          "dataBDD": "headerBudgetWarning",
-          "classList": []
+          "dataBDD": "headerBudgetWarning"
         }
       ]
     }

@@ -11,8 +11,7 @@
   "title": "",
   "introText": [
     {
-      "text": "Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej",
-      "classList": []
+      "text": "Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"
     }
   ],
   "blanks": [],
@@ -33,7 +32,6 @@
               "name": "sessionYear",
               "value": "Sesja I/2025",
               "readOnly": true,
-              "validators": [],
               "dataBDD": "sessionYear"
             }
           ]
@@ -49,7 +47,6 @@
               "name": "programName",
               "value": "II. Edukacja filmowa",
               "readOnly": true,
-              "validators": [],
               "dataBDD": "programName"
             }
           ]
@@ -65,7 +62,6 @@
               "name": "priorityName",
               "value": "I. Szkoły wyższe i podyplomowe",
               "readOnly": true,
-              "validators": [],
               "dataBDD": "priorityName"
             }
           ]
@@ -88,12 +84,8 @@
               "label": "Program",
               "value": "Edukacja filmowa",
               "readOnly": true,
-              "validators": [],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "programNamePartTwo",
-              "errorMsgs": []
+              "dataBDD": "programNamePartTwo"
             },
             {
               "kind": "component",
@@ -102,12 +94,8 @@
               "name": "priorityNamePartTwo",
               "value": "I. Szkoły wyższe i podyplomowe",
               "readOnly": true,
-              "validators": [],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "priorityNamePartTwo",
-              "errorMsgs": []
+              "dataBDD": "priorityNamePartTwo"
             }
           ],
           "classList": [
@@ -138,10 +126,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "applicationTaskName",
-              "errorMsgs": []
+              "dataBDD": "applicationTaskName"
             }
           ]
         },
@@ -175,10 +160,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "projectType",
-              "errorMsgs": []
+              "dataBDD": "projectType"
             }
           ]
         },
@@ -212,10 +194,7 @@
                     }
                   ],
                   "required": true,
-                  "calculationRules": [],
-                  "classList": [],
-                  "dataBDD": "previousApplicationForProject",
-                  "errorMsgs": []
+                  "dataBDD": "previousApplicationForProject"
                 }
               ]
             },
@@ -240,12 +219,8 @@
                   "label": "Proszę podać numer wniosku, nadany przez PISF",
                   "name": "fiveDigitNumberOfApplication",
                   "value": "",
-                  "validators": [],
                   "required": true,
-                  "calculationRules": [],
-                  "classList": [],
-                  "dataBDD": "fiveDigitNumberOfApplication",
-                  "errorMsgs": []
+                  "dataBDD": "fiveDigitNumberOfApplication"
                 }
               ]
             }
@@ -427,7 +402,6 @@
                       "name": "RequiredValidator"
                     }
                   ],
-                  "classList": [],
                   "dataBDD": "authPersonFirstName"
                 },
                 {
@@ -442,7 +416,6 @@
                     }
                   ],
                   "required": true,
-                  "classList": [],
                   "dataBDD": "authPersonLastName"
                 },
                 {
@@ -453,8 +426,6 @@
                   "mask": "landline",
                   "value": "",
                   "helpText": "Wprowadź numer telefonu w formie: numer kierunkowy miasta oraz pozostałe cyfry numeru. Przykładowo 22 123 12 12",
-                  "validators": [],
-                  "classList": [],
                   "dataBDD": "authPersonPhoneNum"
                 },
                 {
@@ -475,7 +446,6 @@
                     }
                   ],
                   "required": true,
-                  "classList": [],
                   "dataBDD": "authPersonMobileNum"
                 },
                 {
@@ -704,7 +674,6 @@
                   "name": "applicantPostOffice",
                   "value": "",
                   "required": true,
-                  "validators": [],
                   "dataBDD": "applicantPostOffice"
                 },
                 {
@@ -724,7 +693,6 @@
                     }
                   ],
                   "required": true,
-                  "classList": [],
                   "dataBDD": "applicantPhoneNum"
                 },
                 {
@@ -743,7 +711,6 @@
                     }
                   ],
                   "required": true,
-                  "classList": [],
                   "dataBDD": "applicantEmail"
                 }
               ],
@@ -1013,7 +980,6 @@
                     }
                   ],
                   "required": true,
-                  "classList": [],
                   "dataBDD": "applicantContactPhoneNum"
                 },
                 {
@@ -1036,7 +1002,6 @@
                     }
                   ],
                   "required": true,
-                  "classList": [],
                   "dataBDD": "applicantContactEmail"
                 }
               ],
@@ -1875,7 +1840,6 @@
       "classList": [
         "full-width-grid"
       ],
-      "visibilityRules": [],
       "chapters": [
         {
           "kind": "chapter",
@@ -1900,10 +1864,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "projectLocation",
-              "errorMsgs": []
+              "dataBDD": "projectLocation"
             }
           ]
         },
@@ -1930,10 +1891,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "projectGeneralDescription",
-              "errorMsgs": []
+              "dataBDD": "projectGeneralDescription"
             }
           ]
         },
@@ -1965,10 +1923,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "scopeAndValueOfContent",
-              "errorMsgs": []
+              "dataBDD": "scopeAndValueOfContent"
             }
           ]
         },
@@ -1995,10 +1950,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "originalityOfProject",
-              "errorMsgs": []
+              "dataBDD": "originalityOfProject"
             }
           ]
         },
@@ -2025,10 +1977,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "diversificationOfAudience",
-              "errorMsgs": []
+              "dataBDD": "diversificationOfAudience"
             }
           ]
         },
@@ -2055,10 +2004,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "diversityOfInvolvedCommunities",
-              "errorMsgs": []
+              "dataBDD": "diversityOfInvolvedCommunities"
             }
           ]
         },
@@ -2085,10 +2031,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "plannedResultsOfProject",
-              "errorMsgs": []
+              "dataBDD": "plannedResultsOfProject"
             }
           ]
         },
@@ -2115,10 +2058,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "applicantsPastExperience",
-              "errorMsgs": []
+              "dataBDD": "applicantsPastExperience"
             }
           ]
         },
@@ -2145,10 +2085,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "involvedPartnersAndSpecialist",
-              "errorMsgs": []
+              "dataBDD": "involvedPartnersAndSpecialist"
             }
           ]
         },
@@ -2175,10 +2112,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "practicalSkillsAcquiredByParticipants",
-              "errorMsgs": []
+              "dataBDD": "practicalSkillsAcquiredByParticipants"
             }
           ]
         },
@@ -2227,11 +2161,8 @@
                   "label": "Studia stacjonarne/Rok poprzedni",
                   "name": "fullTimeStudiesPreviousYearStudentsCount",
                   "value": 0,
-                  "validators": [],
                   "unit": "osoby",
-                  "classList": [],
-                  "dataBDD": "fullTimeStudiesPreviousYearStudentsCount",
-                  "errorMsgs": []
+                  "dataBDD": "fullTimeStudiesPreviousYearStudentsCount"
                 },
                 {
                   "kind": "component",
@@ -2245,11 +2176,8 @@
                     }
                   ],
                   "required": true,
-                  "calculationRules": [],
                   "unit": "osoby",
-                  "classList": [],
-                  "dataBDD": "fullTimeStudiesCurrentYearStudentsCount",
-                  "errorMsgs": []
+                  "dataBDD": "fullTimeStudiesCurrentYearStudentsCount"
                 },
                 {
                   "kind": "component",
@@ -2257,12 +2185,8 @@
                   "label": "Studia niestacjonarne/Rok poprzedni",
                   "name": "partTimeStudiesPreviousYearStudentsCount",
                   "value": 0,
-                  "validators": [],
-                  "calculationRules": [],
                   "unit": "osoby",
-                  "classList": [],
-                  "dataBDD": "partTimeStudiesPreviousYearStudentsCount",
-                  "errorMsgs": []
+                  "dataBDD": "partTimeStudiesPreviousYearStudentsCount"
                 },
                 {
                   "kind": "component",
@@ -2276,11 +2200,8 @@
                     }
                   ],
                   "required": true,
-                  "calculationRules": [],
                   "unit": "osoby",
-                  "classList": [],
-                  "dataBDD": "partTimeStudiesCurrentYearStudentsCount",
-                  "errorMsgs": []
+                  "dataBDD": "partTimeStudiesCurrentYearStudentsCount"
                 }
               ]
             },
@@ -2304,12 +2225,9 @@
                   "label": "Studia stacjonarne/Rok poprzedni",
                   "name": "fullTimeStudiesPreviousYearAverageTuition",
                   "value": "0",
-                  "validators": [],
                   "mask": "fund",
                   "unit": "PLN",
-                  "classList": [],
-                  "dataBDD": "fullTimeStudiesPreviousYearAverageTuition",
-                  "errorMsgs": []
+                  "dataBDD": "fullTimeStudiesPreviousYearAverageTuition"
                 },
                 {
                   "kind": "component",
@@ -2323,12 +2241,9 @@
                     }
                   ],
                   "required": true,
-                  "calculationRules": [],
                   "mask": "fund",
                   "unit": "PLN",
-                  "classList": [],
-                  "dataBDD": "fullTimeStudiesCurrentYearAverageTuition",
-                  "errorMsgs": []
+                  "dataBDD": "fullTimeStudiesCurrentYearAverageTuition"
                 },
                 {
                   "kind": "component",
@@ -2336,13 +2251,9 @@
                   "label": "Studia niestacjonarne/Rok poprzedni",
                   "name": "partTimeStudiesPreviousYearAverageTuition",
                   "value": "0",
-                  "validators": [],
-                  "calculationRules": [],
                   "mask": "fund",
                   "unit": "PLN",
-                  "classList": [],
-                  "dataBDD": "partTimeStudiesPreviousYearAverageTuition",
-                  "errorMsgs": []
+                  "dataBDD": "partTimeStudiesPreviousYearAverageTuition"
                 },
                 {
                   "kind": "component",
@@ -2356,12 +2267,9 @@
                     }
                   ],
                   "required": true,
-                  "calculationRules": [],
                   "mask": "fund",
                   "unit": "PLN",
-                  "classList": [],
-                  "dataBDD": "partTimeStudiesCurrentYearAverageTuition",
-                  "errorMsgs": []
+                  "dataBDD": "partTimeStudiesCurrentYearAverageTuition"
                 }
               ]
             },
@@ -2396,9 +2304,7 @@
                   ],
                   "mask": "fund",
                   "unit": "tys. PLN",
-                  "classList": [],
-                  "dataBDD": "fullTimeStudiesPreviousYearAverageEducationCostPerStudent",
-                  "errorMsgs": []
+                  "dataBDD": "fullTimeStudiesPreviousYearAverageEducationCostPerStudent"
                 },
                 {
                   "kind": "component",
@@ -2419,12 +2325,9 @@
                     }
                   ],
                   "required": true,
-                  "calculationRules": [],
                   "mask": "fund",
                   "unit": "tys. PLN",
-                  "classList": [],
-                  "dataBDD": "fullTimeStudiesCurrentYearAverageEducationCostPerStudent",
-                  "errorMsgs": []
+                  "dataBDD": "fullTimeStudiesCurrentYearAverageEducationCostPerStudent"
                 },
                 {
                   "kind": "component",
@@ -2441,12 +2344,9 @@
                       "validationMsg": "Wartość nie może być mniejsza od zera."
                     }
                   ],
-                  "calculationRules": [],
                   "mask": "fund",
                   "unit": "tys. PLN",
-                  "classList": [],
-                  "dataBDD": "partTimeStudiesPreviousYearAverageEducationCostPerStudent",
-                  "errorMsgs": []
+                  "dataBDD": "partTimeStudiesPreviousYearAverageEducationCostPerStudent"
                 },
                 {
                   "kind": "component",
@@ -2467,12 +2367,9 @@
                     }
                   ],
                   "required": true,
-                  "calculationRules": [],
                   "mask": "fund",
                   "unit": "tys. PLN",
-                  "classList": [],
-                  "dataBDD": "partTimeStudiesCurrentYearAverageEducationCostPerStudent",
-                  "errorMsgs": []
+                  "dataBDD": "partTimeStudiesCurrentYearAverageEducationCostPerStudent"
                 }
               ]
             },
@@ -2505,11 +2402,8 @@
                       "label": "Studia stacjonarne/Rok poprzedni",
                       "name": "fullTimeStudiesPreviousEditionFeatureFilmCount",
                       "value": 0,
-                      "validators": [],
                       "unit": "szt.",
-                      "classList": [],
-                      "dataBDD": "fullTimeStudiesPreviousEditionFeatureFilmCount",
-                      "errorMsgs": []
+                      "dataBDD": "fullTimeStudiesPreviousEditionFeatureFilmCount"
                     },
                     {
                       "kind": "component",
@@ -2523,11 +2417,8 @@
                         }
                       ],
                       "required": true,
-                      "calculationRules": [],
                       "unit": "szt.",
-                      "classList": [],
-                      "dataBDD": "fullTimeStudiesCurrentEditionFeatureFilmCount",
-                      "errorMsgs": []
+                      "dataBDD": "fullTimeStudiesCurrentEditionFeatureFilmCount"
                     },
                     {
                       "kind": "component",
@@ -2535,12 +2426,8 @@
                       "label": "Studia niestacjonarne/Rok poprzedni",
                       "name": "partTimeStudiesPreviousEditionFeatureFilmCount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "szt.",
-                      "classList": [],
-                      "dataBDD": "partTimeStudiesPreviousEditionFeatureFilmCount",
-                      "errorMsgs": []
+                      "dataBDD": "partTimeStudiesPreviousEditionFeatureFilmCount"
                     },
                     {
                       "kind": "component",
@@ -2554,11 +2441,8 @@
                         }
                       ],
                       "required": true,
-                      "calculationRules": [],
                       "unit": "szt.",
-                      "classList": [],
-                      "dataBDD": "partTimeStudiesCurrentEditionFeatureFilmCount",
-                      "errorMsgs": []
+                      "dataBDD": "partTimeStudiesCurrentEditionFeatureFilmCount"
                     }
                   ]
                 },
@@ -2582,11 +2466,8 @@
                       "label": "Studia stacjonarne/Rok poprzedni",
                       "name": "fullTimeStudiesPreviousEditionFeatureFilmMinutes",
                       "value": 0,
-                      "validators": [],
                       "unit": "min.",
-                      "classList": [],
-                      "dataBDD": "fullTimeStudiesPreviousEditionFeatureFilmMinutes",
-                      "errorMsgs": []
+                      "dataBDD": "fullTimeStudiesPreviousEditionFeatureFilmMinutes"
                     },
                     {
                       "kind": "component",
@@ -2600,11 +2481,8 @@
                         }
                       ],
                       "required": true,
-                      "calculationRules": [],
                       "unit": "min.",
-                      "classList": [],
-                      "dataBDD": "fullTimeStudiesCurrentEditionFeatureFilmMinutes",
-                      "errorMsgs": []
+                      "dataBDD": "fullTimeStudiesCurrentEditionFeatureFilmMinutes"
                     },
                     {
                       "kind": "component",
@@ -2612,12 +2490,8 @@
                       "label": "Studia niestacjonarne/Rok poprzedni",
                       "name": "partTimeStudiesPreviousEditionFeatureFilmMinutes",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "min.",
-                      "classList": [],
-                      "dataBDD": "partTimeStudiesPreviousEditionFeatureFilmMinutes",
-                      "errorMsgs": []
+                      "dataBDD": "partTimeStudiesPreviousEditionFeatureFilmMinutes"
                     },
                     {
                       "kind": "component",
@@ -2631,11 +2505,8 @@
                         }
                       ],
                       "required": true,
-                      "calculationRules": [],
                       "unit": "min.",
-                      "classList": [],
-                      "dataBDD": "partTimeStudiesCurrentEditionFeatureFilmMinutes",
-                      "errorMsgs": []
+                      "dataBDD": "partTimeStudiesCurrentEditionFeatureFilmMinutes"
                     }
                   ]
                 }
@@ -2665,11 +2536,8 @@
                       "label": "Studia stacjonarne/Rok poprzedni",
                       "name": "fullTimeStudiesPreviousEditionDocumentaryFilmCount",
                       "value": 0,
-                      "validators": [],
                       "unit": "szt.",
-                      "classList": [],
-                      "dataBDD": "fullTimeStudiesPreviousEditionDocumentaryFilmCount",
-                      "errorMsgs": []
+                      "dataBDD": "fullTimeStudiesPreviousEditionDocumentaryFilmCount"
                     },
                     {
                       "kind": "component",
@@ -2683,11 +2551,8 @@
                         }
                       ],
                       "required": true,
-                      "calculationRules": [],
                       "unit": "szt.",
-                      "classList": [],
-                      "dataBDD": "fullTimeStudiesCurrentEditionDocumentaryFilmCount",
-                      "errorMsgs": []
+                      "dataBDD": "fullTimeStudiesCurrentEditionDocumentaryFilmCount"
                     },
                     {
                       "kind": "component",
@@ -2695,12 +2560,8 @@
                       "label": "Studia niestacjonarne/Rok poprzedni",
                       "name": "partTimeStudiesPreviousDocumentaryFeatureFilmCount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "szt.",
-                      "classList": [],
-                      "dataBDD": "partTimeStudiesPreviousDocumentaryFeatureFilmCount",
-                      "errorMsgs": []
+                      "dataBDD": "partTimeStudiesPreviousDocumentaryFeatureFilmCount"
                     },
                     {
                       "kind": "component",
@@ -2714,11 +2575,8 @@
                         }
                       ],
                       "required": true,
-                      "calculationRules": [],
                       "unit": "szt.",
-                      "classList": [],
-                      "dataBDD": "partTimeStudiesCurrentEditionDocumentaryFilmCount",
-                      "errorMsgs": []
+                      "dataBDD": "partTimeStudiesCurrentEditionDocumentaryFilmCount"
                     }
                   ]
                 },
@@ -2742,11 +2600,8 @@
                       "label": "Studia stacjonarne/Rok poprzedni",
                       "name": "fullTimeStudiesPreviousEditionDocumentaryFilmMinutes",
                       "value": 0,
-                      "validators": [],
                       "unit": "min.",
-                      "classList": [],
-                      "dataBDD": "fullTimeStudiesPreviousEditionDocumentaryFilmMinutes",
-                      "errorMsgs": []
+                      "dataBDD": "fullTimeStudiesPreviousEditionDocumentaryFilmMinutes"
                     },
                     {
                       "kind": "component",
@@ -2760,11 +2615,8 @@
                         }
                       ],
                       "required": true,
-                      "calculationRules": [],
                       "unit": "min.",
-                      "classList": [],
-                      "dataBDD": "fullTimeStudiesCurrentEditionDocumentaryFilmMinutes",
-                      "errorMsgs": []
+                      "dataBDD": "fullTimeStudiesCurrentEditionDocumentaryFilmMinutes"
                     },
                     {
                       "kind": "component",
@@ -2772,12 +2624,8 @@
                       "label": "Studia niestacjonarne/Rok poprzedni",
                       "name": "partTimeStudiesPreviousEditionDocumentaryFilmMinutes",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "min.",
-                      "classList": [],
-                      "dataBDD": "partTimeStudiesPreviousEditionDocumentaryFilmMinutes",
-                      "errorMsgs": []
+                      "dataBDD": "partTimeStudiesPreviousEditionDocumentaryFilmMinutes"
                     },
                     {
                       "kind": "component",
@@ -2791,11 +2639,8 @@
                         }
                       ],
                       "required": true,
-                      "calculationRules": [],
                       "unit": "min.",
-                      "classList": [],
-                      "dataBDD": "partTimeStudiesCurrentEditionDocumentaryFilmMinutes",
-                      "errorMsgs": []
+                      "dataBDD": "partTimeStudiesCurrentEditionDocumentaryFilmMinutes"
                     }
                   ]
                 }
@@ -2825,11 +2670,8 @@
                       "label": "Studia stacjonarne/Rok poprzedni",
                       "name": "fullTimeStudiesPreviousEditionAnimatedFilmCount",
                       "value": 0,
-                      "validators": [],
                       "unit": "szt.",
-                      "classList": [],
-                      "dataBDD": "fullTimeStudiesPreviousEditionAnimatedFilmCount",
-                      "errorMsgs": []
+                      "dataBDD": "fullTimeStudiesPreviousEditionAnimatedFilmCount"
                     },
                     {
                       "kind": "component",
@@ -2843,11 +2685,8 @@
                         }
                       ],
                       "required": true,
-                      "calculationRules": [],
                       "unit": "szt.",
-                      "classList": [],
-                      "dataBDD": "fullTimeStudiesCurrentEditionAnimatedFilmCount",
-                      "errorMsgs": []
+                      "dataBDD": "fullTimeStudiesCurrentEditionAnimatedFilmCount"
                     },
                     {
                       "kind": "component",
@@ -2855,12 +2694,8 @@
                       "label": "Studia niestacjonarne/Rok poprzedni",
                       "name": "partTimeStudiesPreviousEditionAnimatedFilmCount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "szt.",
-                      "classList": [],
-                      "dataBDD": "partTimeStudiesPreviousEditionAnimatedFilmCount",
-                      "errorMsgs": []
+                      "dataBDD": "partTimeStudiesPreviousEditionAnimatedFilmCount"
                     },
                     {
                       "kind": "component",
@@ -2874,11 +2709,8 @@
                         }
                       ],
                       "required": true,
-                      "calculationRules": [],
                       "unit": "szt.",
-                      "classList": [],
-                      "dataBDD": "partTimeStudiesCurrentEditionAnimatedFilmCount",
-                      "errorMsgs": []
+                      "dataBDD": "partTimeStudiesCurrentEditionAnimatedFilmCount"
                     }
                   ]
                 },
@@ -2902,11 +2734,8 @@
                       "label": "Studia stacjonarne/Rok poprzedni",
                       "name": "fullTimeStudiesPreviousEditionAnimatedFilmMinutes",
                       "value": 0,
-                      "validators": [],
                       "unit": "min.",
-                      "classList": [],
-                      "dataBDD": "fullTimeStudiesPreviousEditionAnimatedFilmMinutes",
-                      "errorMsgs": []
+                      "dataBDD": "fullTimeStudiesPreviousEditionAnimatedFilmMinutes"
                     },
                     {
                       "kind": "component",
@@ -2920,11 +2749,8 @@
                         }
                       ],
                       "required": true,
-                      "calculationRules": [],
                       "unit": "min.",
-                      "classList": [],
-                      "dataBDD": "fullTimeStudiesCurrentEditionAnimatedFilmMinutes",
-                      "errorMsgs": []
+                      "dataBDD": "fullTimeStudiesCurrentEditionAnimatedFilmMinutes"
                     },
                     {
                       "kind": "component",
@@ -2932,12 +2758,8 @@
                       "label": "Studia niestacjonarne/Rok poprzedni",
                       "name": "partTimeStudiesPreviousAnimatedFilmMinutes",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "min.",
-                      "classList": [],
-                      "dataBDD": "partTimeStudiesPreviousAnimatedFilmMinutes",
-                      "errorMsgs": []
+                      "dataBDD": "partTimeStudiesPreviousAnimatedFilmMinutes"
                     },
                     {
                       "kind": "component",
@@ -2951,11 +2773,8 @@
                         }
                       ],
                       "required": true,
-                      "calculationRules": [],
                       "unit": "min.",
-                      "classList": [],
-                      "dataBDD": "partTimeStudiesCurrentEditionAnimatedFilmMinutes",
-                      "errorMsgs": []
+                      "dataBDD": "partTimeStudiesCurrentEditionAnimatedFilmMinutes"
                     }
                   ]
                 }
@@ -2993,10 +2812,7 @@
                               "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 100."
                             }
                           ],
-                          "calculationRules": [],
-                          "classList": [],
-                          "dataBDD": "otherFilmsKind",
-                          "errorMsgs": []
+                          "dataBDD": "otherFilmsKind"
                         }
                       ]
                     },
@@ -3020,11 +2836,8 @@
                           "label": "Studia stacjonarne/Rok poprzedni",
                           "name": "fullTimeStudiesPreviousEditionOtherFilmCount",
                           "value": 0,
-                          "validators": [],
                           "unit": "szt.",
-                          "classList": [],
-                          "dataBDD": "fullTimeStudiesPreviousEditionOtherFilmCount",
-                          "errorMsgs": []
+                          "dataBDD": "fullTimeStudiesPreviousEditionOtherFilmCount"
                         },
                         {
                           "kind": "component",
@@ -3032,12 +2845,8 @@
                           "label": "Studia stacjonarne/Rok bieżący",
                           "name": "fullTimeStudiesCurrentEditionOtherFilmCount",
                           "value": 0,
-                          "validators": [],
-                          "calculationRules": [],
                           "unit": "szt.",
-                          "classList": [],
-                          "dataBDD": "fullTimeStudiesCurrentEditionOtherFilmCount",
-                          "errorMsgs": []
+                          "dataBDD": "fullTimeStudiesCurrentEditionOtherFilmCount"
                         },
                         {
                           "kind": "component",
@@ -3045,12 +2854,8 @@
                           "label": "Studia niestacjonarne/Rok poprzedni",
                           "name": "partTimeStudiesPreviousEditionOtherFilmCount",
                           "value": 0,
-                          "validators": [],
-                          "calculationRules": [],
                           "unit": "szt.",
-                          "classList": [],
-                          "dataBDD": "partTimeStudiesPreviousEditionOtherFilmCount",
-                          "errorMsgs": []
+                          "dataBDD": "partTimeStudiesPreviousEditionOtherFilmCount"
                         },
                         {
                           "kind": "component",
@@ -3064,11 +2869,8 @@
                             }
                           ],
                           "required": true,
-                          "calculationRules": [],
                           "unit": "szt.",
-                          "classList": [],
-                          "dataBDD": "partTimeStudiesCurrentEditionOtherFilmCount",
-                          "errorMsgs": []
+                          "dataBDD": "partTimeStudiesCurrentEditionOtherFilmCount"
                         }
                       ]
                     },
@@ -3092,11 +2894,8 @@
                           "label": "Studia stacjonarne/Rok poprzedni",
                           "name": "fullTimeStudiesPreviousEditionOtherFilmMinutes",
                           "value": 0,
-                          "validators": [],
                           "unit": "min.",
-                          "classList": [],
-                          "dataBDD": "fullTimeStudiesPreviousEditionOtherFilmMinutes",
-                          "errorMsgs": []
+                          "dataBDD": "fullTimeStudiesPreviousEditionOtherFilmMinutes"
                         },
                         {
                           "kind": "component",
@@ -3104,12 +2903,8 @@
                           "label": "Studia stacjonarne/Rok bieżący",
                           "name": "fullTimeStudiesCurrentEditionOtherFilmMinutes",
                           "value": 0,
-                          "validators": [],
-                          "calculationRules": [],
                           "unit": "min.",
-                          "classList": [],
-                          "dataBDD": "fullTimeStudiesCurrentEditionOtherFilmMinutes",
-                          "errorMsgs": []
+                          "dataBDD": "fullTimeStudiesCurrentEditionOtherFilmMinutes"
                         },
                         {
                           "kind": "component",
@@ -3117,12 +2912,8 @@
                           "label": "Studia niestacjonarne/Rok poprzedni",
                           "name": "partTimeStudiesPreviousOtherFeatureFilmMinutes",
                           "value": 0,
-                          "validators": [],
-                          "calculationRules": [],
                           "unit": "min.",
-                          "classList": [],
-                          "dataBDD": "partTimeStudiesPreviousOtherFeatureFilmMinutes",
-                          "errorMsgs": []
+                          "dataBDD": "partTimeStudiesPreviousOtherFeatureFilmMinutes"
                         },
                         {
                           "kind": "component",
@@ -3130,13 +2921,9 @@
                           "label": "Studia niestacjonarne Rok bieżący",
                           "name": "partTimeStudiesCurrentEditionOtherFilmMinutes",
                           "value": 0,
-                          "validators": [],
                           "required": true,
-                          "calculationRules": [],
                           "unit": "min.",
-                          "classList": [],
-                          "dataBDD": "partTimeStudiesCurrentEditionOtherFilmMinutes",
-                          "errorMsgs": []
+                          "dataBDD": "partTimeStudiesCurrentEditionOtherFilmMinutes"
                         }
                       ]
                     }
@@ -3196,9 +2983,7 @@
                         }
                       ],
                       "unit": "szt.",
-                      "classList": [],
-                      "dataBDD": "fullTimeStudiesPreviousEditionFilmsCountSum",
-                      "errorMsgs": []
+                      "dataBDD": "fullTimeStudiesPreviousEditionFilmsCountSum"
                     },
                     {
                       "kind": "component",
@@ -3234,9 +3019,7 @@
                         }
                       ],
                       "unit": "szt.",
-                      "classList": [],
-                      "dataBDD": "fullTimeStudiesCurrentEditionFilmsCountSum",
-                      "errorMsgs": []
+                      "dataBDD": "fullTimeStudiesCurrentEditionFilmsCountSum"
                     },
                     {
                       "kind": "component",
@@ -3272,9 +3055,7 @@
                         }
                       ],
                       "unit": "szt.",
-                      "classList": [],
-                      "dataBDD": "partTimeStudiesPreviousEditionFilmsCountSum",
-                      "errorMsgs": []
+                      "dataBDD": "partTimeStudiesPreviousEditionFilmsCountSum"
                     },
                     {
                       "kind": "component",
@@ -3310,9 +3091,7 @@
                         }
                       ],
                       "unit": "szt.",
-                      "classList": [],
-                      "dataBDD": "partTimeStudiesCurrentEditionFilmsCountSum",
-                      "errorMsgs": []
+                      "dataBDD": "partTimeStudiesCurrentEditionFilmsCountSum"
                     }
                   ]
                 },
@@ -3364,9 +3143,7 @@
                         }
                       ],
                       "unit": "min.",
-                      "classList": [],
-                      "dataBDD": "fullTimeStudiesPreviousEditionFilmsMinutesSum",
-                      "errorMsgs": []
+                      "dataBDD": "fullTimeStudiesPreviousEditionFilmsMinutesSum"
                     },
                     {
                       "kind": "component",
@@ -3402,9 +3179,7 @@
                         }
                       ],
                       "unit": "min.",
-                      "classList": [],
-                      "dataBDD": "fullTimeStudiesCurrentEditionFilmsMinutesSum",
-                      "errorMsgs": []
+                      "dataBDD": "fullTimeStudiesCurrentEditionFilmsMinutesSum"
                     },
                     {
                       "kind": "component",
@@ -3440,9 +3215,7 @@
                         }
                       ],
                       "unit": "min.",
-                      "classList": [],
-                      "dataBDD": "partTimeStudiesPreviousOtherFilmsMinutesSum",
-                      "errorMsgs": []
+                      "dataBDD": "partTimeStudiesPreviousOtherFilmsMinutesSum"
                     },
                     {
                       "kind": "component",
@@ -3451,7 +3224,6 @@
                       "name": "partTimeStudiesCurrentEditionFilmsMinutesSum",
                       "value": 0,
                       "readOnly": true,
-                      "validators": [],
                       "calculationRules": [
                         {
                           "name": "dynamicSumInputs",
@@ -3466,9 +3238,7 @@
                         }
                       ],
                       "unit": "min.",
-                      "classList": [],
-                      "dataBDD": "partTimeStudiesCurrentEditionFilmsMinutesSum",
-                      "errorMsgs": []
+                      "dataBDD": "partTimeStudiesCurrentEditionFilmsMinutesSum"
                     }
                   ]
                 }
@@ -3524,7 +3294,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "szt.",
                       "dataBDD": "trainingsPastEditionPkt4"
                     },
@@ -3543,7 +3312,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "szt.",
                       "dataBDD": "trainingsCurrentEditionPkt4"
                     }
@@ -3578,7 +3346,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "szt.",
                       "dataBDD": "workshopsPastEditionPkt4"
                     },
@@ -3597,7 +3364,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "szt.",
                       "dataBDD": "workshopsCurrentEditionPkt4"
                     }
@@ -3632,7 +3398,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "szt.",
                       "dataBDD": "coursesPastEditionPkt4"
                     },
@@ -3651,7 +3416,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "szt.",
                       "dataBDD": "coursesCurrentEditionPkt4"
                     }
@@ -3695,7 +3459,6 @@
                               "validationMsg": "Wartość nie może być ujemna"
                             }
                           ],
-                          "calculationRules": [],
                           "unit": "szt.",
                           "dataBDD": "otherPastEditionPkt4"
                         },
@@ -3714,7 +3477,6 @@
                               "validationMsg": "Wartość nie może być ujemna"
                             }
                           ],
-                          "calculationRules": [],
                           "unit": "szt.",
                           "dataBDD": "otherCurrentEditionPkt4"
                         }
@@ -3859,7 +3621,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "os.",
                       "dataBDD": "trainingsParticipantsPastEditionPkt4"
                     },
@@ -3878,7 +3639,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "os.",
                       "dataBDD": "trainingsParticipantsCurrentEditionPkt4"
                     }
@@ -3913,7 +3673,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "os.",
                       "dataBDD": "workshopsParticipantsPastEditionPkt4"
                     },
@@ -3932,7 +3691,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "os.",
                       "dataBDD": "workshopsParticipantsCurrentEditionPkt4"
                     }
@@ -3967,7 +3725,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "os.",
                       "dataBDD": "coursesParticipantsPastEditionPkt4"
                     },
@@ -3986,7 +3743,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "os.",
                       "dataBDD": "coursesParticipantsCurrentEditionPkt4"
                     }
@@ -4030,7 +3786,6 @@
                               "validationMsg": "Wartość nie może być ujemna"
                             }
                           ],
-                          "calculationRules": [],
                           "unit": "os.",
                           "dataBDD": "otherParticipantsPastEditionPkt4"
                         },
@@ -4049,7 +3804,6 @@
                               "validationMsg": "Wartość nie może być ujemna"
                             }
                           ],
-                          "calculationRules": [],
                           "unit": "os.",
                           "dataBDD": "otherParticipantsCurrentEditionPkt4"
                         }
@@ -4204,7 +3958,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "trainingsIncomePastEditionPkt4"
                     },
@@ -4224,7 +3977,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "trainingsCostPastEditionPkt4"
                     },
@@ -4244,7 +3996,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "trainingsIncomeCurrentEditionPkt4"
                     },
@@ -4264,7 +4015,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "trainingsCostCurrentEditionPkt4"
                     }
@@ -4300,7 +4050,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "workshopsIncomePastEditionPkt4"
                     },
@@ -4320,7 +4069,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "workshopsCostPastEditionPkt4"
                     },
@@ -4340,7 +4088,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "workshopsIncomeCurrentEditionPkt4"
                     },
@@ -4360,7 +4107,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "workshopsCostCurrentEditionPkt4"
                     }
@@ -4396,7 +4142,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "coursesIncomePastEditionPkt4"
                     },
@@ -4416,7 +4161,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "coursesCostPastEditionPkt4"
                     },
@@ -4436,7 +4180,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "coursesIncomeCurrentEditionPkt4"
                     },
@@ -4456,7 +4199,6 @@
                           "validationMsg": "Wartość nie może być ujemna"
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "coursesCostCurrentEditionPkt4"
                     }
@@ -4501,7 +4243,6 @@
                               "validationMsg": "Wartość nie może być ujemna"
                             }
                           ],
-                          "calculationRules": [],
                           "unit": "PLN",
                           "dataBDD": "otherIncomePastEditionPkt4"
                         },
@@ -4521,7 +4262,6 @@
                               "validationMsg": "Wartość nie może być ujemna"
                             }
                           ],
-                          "calculationRules": [],
                           "unit": "PLN",
                           "dataBDD": "otherCostPastEditionPkt4"
                         },
@@ -4541,7 +4281,6 @@
                               "validationMsg": "Wartość nie może być ujemna"
                             }
                           ],
-                          "calculationRules": [],
                           "unit": "PLN",
                           "dataBDD": "otherIncomeCurrentEditionPkt4"
                         },
@@ -4561,7 +4300,6 @@
                               "validationMsg": "Wartość nie może być ujemna"
                             }
                           ],
-                          "calculationRules": [],
                           "unit": "PLN",
                           "dataBDD": "otherCostCurrentEditionPkt4"
                         }
@@ -4847,8 +4585,6 @@
                       "label": "Wnioskowana kwota",
                       "name": "otherProjectFundingAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "otherProjectFundingAmount"
                     }
@@ -4896,7 +4632,6 @@
               ],
               "value": 0,
               "readOnly": true,
-              "validators": [],
               "unit": "PLN",
               "dataBDD": "totalProjectCost"
             },
@@ -4958,9 +4693,7 @@
                       "label": "kwota",
                       "name": "ownFinancialFundsAmount",
                       "value": 0,
-                      "validators": [],
                       "required": true,
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "ownFinancialFundsAmount"
                     },
@@ -5010,9 +4743,7 @@
                       "label": "kwota",
                       "name": "ownInKindFundsAmount",
                       "value": 0,
-                      "validators": [],
                       "required": true,
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "ownInKindFundsAmount"
                     },
@@ -5118,7 +4849,6 @@
                         }
                       ],
                       "required": true,
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "pisfSupportAmount"
                     },
@@ -5169,7 +4899,6 @@
                   "label": "Czy występują środki z budżetów jednostek samorządu terytorialnego lub innych środków publicznych za wyjątkiem MKiDN?",
                   "name": "isLocalGovernmentFunding",
                   "value": false,
-                  "validators": [],
                   "dataBDD": "isLocalGovernmentFunding"
                 }
               ]
@@ -5226,9 +4955,7 @@
                               "label": "kwota",
                               "name": "localGovernmentFundingAmount",
                               "value": 0,
-                              "validators": [],
                               "required": true,
-                              "calculationRules": [],
                               "unit": "PLN",
                               "dataBDD": "localGovernmentFundingAmount"
                             },
@@ -5248,7 +4975,6 @@
                                 }
                               ],
                               "readOnly": true,
-                              "validators": [],
                               "required": true,
                               "unit": "%",
                               "dataBDD": "localGovernmentFundingShare"
@@ -5281,7 +5007,6 @@
                             }
                           ],
                           "readOnly": true,
-                          "validators": [],
                           "required": true,
                           "unit": "PLN",
                           "dataBDD": "localGovernmentsFundsSumAmount"
@@ -5302,7 +5027,6 @@
                             }
                           ],
                           "readOnly": true,
-                          "validators": [],
                           "required": true,
                           "unit": "%",
                           "dataBDD": "localGovernmentsFundsShare"
@@ -5327,7 +5051,6 @@
                   "label": "Czy występują środki MKiDN w ramach Programów Ministra?",
                   "name": "isMinisterialFunding",
                   "value": false,
-                  "validators": [],
                   "dataBDD": "isMinisterialFunding"
                 }
               ]
@@ -5384,9 +5107,7 @@
                               "label": "kwota",
                               "name": "ministerialEntityFundingAmount",
                               "value": 0,
-                              "validators": [],
                               "required": true,
-                              "calculationRules": [],
                               "unit": "PLN",
                               "dataBDD": "ministerialEntityFundingAmount"
                             },
@@ -5406,7 +5127,6 @@
                                 }
                               ],
                               "readOnly": true,
-                              "validators": [],
                               "required": true,
                               "unit": "%",
                               "dataBDD": "ministerialEntityFundingShare"
@@ -5439,7 +5159,6 @@
                             }
                           ],
                           "readOnly": true,
-                          "validators": [],
                           "required": true,
                           "unit": "PLN",
                           "dataBDD": "ministryFundsSumAmount"
@@ -5460,7 +5179,6 @@
                             }
                           ],
                           "readOnly": true,
-                          "validators": [],
                           "required": true,
                           "unit": "%",
                           "dataBDD": "ministryFundingShare"
@@ -5485,7 +5203,6 @@
                   "label": "Czy występują środki od sponsorów lub innych podmiotów niezaliczanych do sektora finansów publicznych?",
                   "name": "isSponsorFunding",
                   "value": false,
-                  "validators": [],
                   "dataBDD": "isSponsorFunding"
                 }
               ]
@@ -5542,9 +5259,7 @@
                               "label": "kwota",
                               "name": "otherSponsorFundingAmount",
                               "value": 0,
-                              "validators": [],
                               "required": true,
-                              "calculationRules": [],
                               "unit": "PLN",
                               "dataBDD": "otherSponsorFundingAmount"
                             },
@@ -5564,7 +5279,6 @@
                                 }
                               ],
                               "readOnly": true,
-                              "validators": [],
                               "required": true,
                               "unit": "%",
                               "dataBDD": "otherSponsorFundingShare"
@@ -5597,7 +5311,6 @@
                             }
                           ],
                           "readOnly": true,
-                          "validators": [],
                           "required": true,
                           "unit": "PLN",
                           "dataBDD": "sponsorsSumAmount"
@@ -5618,7 +5331,6 @@
                             }
                           ],
                           "readOnly": true,
-                          "validators": [],
                           "required": true,
                           "unit": "%",
                           "dataBDD": "sponsorsFundingShare"
@@ -5643,7 +5355,6 @@
                   "label": "Czy występują środki zagraniczne, w tym europejskie?",
                   "name": "isForeignFunding",
                   "value": false,
-                  "validators": [],
                   "dataBDD": "isForeignFunding"
                 }
               ]
@@ -5700,9 +5411,7 @@
                               "label": "kwota",
                               "name": "foreignEntityFundingAmount",
                               "value": 0,
-                              "validators": [],
                               "required": true,
-                              "calculationRules": [],
                               "unit": "PLN",
                               "dataBDD": "foreignEntityFundingAmount"
                             },
@@ -5722,7 +5431,6 @@
                                 }
                               ],
                               "readOnly": true,
-                              "validators": [],
                               "required": true,
                               "unit": "%",
                               "dataBDD": "foreignEntityFundingShare"
@@ -5755,7 +5463,6 @@
                             }
                           ],
                           "readOnly": true,
-                          "validators": [],
                           "required": true,
                           "unit": "PLN",
                           "dataBDD": "foreignFundsSumAmount"
@@ -5776,7 +5483,6 @@
                             }
                           ],
                           "readOnly": true,
-                          "validators": [],
                           "required": true,
                           "unit": "%",
                           "dataBDD": "foreignFundsFundingShare"
@@ -5803,8 +5509,7 @@
               "name": "headerBudgetWarning",
               "label": "LABEL",
               "value": "Uwaga: W przypadku innych kosztów niż ujętych w wykazie kosztów kwalifikowanych powyżej, PISF może wskazać konkretne pozycje w budżecie przedsięwzięcia, które mogą zostać pokryte z przyznanego dofinansowania.",
-              "dataBDD": "headerBudgetWarning",
-              "classList": []
+              "dataBDD": "headerBudgetWarning"
             }
           ]
         }
@@ -5814,7 +5519,6 @@
       "kind": "part",
       "title": "V. Oświadczenia",
       "shortName": "V. Oświadczenia",
-      "visibilityRules": [],
       "chapters": [
         {
           "kind": "chapter",
@@ -5831,10 +5535,7 @@
               "label": "krajowy",
               "name": "natureOfProjectDomestic",
               "value": false,
-              "validators": [],
-              "classList": [],
-              "dataBDD": "natureOfProjectDomestic",
-              "errorMsgs": []
+              "dataBDD": "natureOfProjectDomestic"
             },
             {
               "kind": "component",
@@ -5842,10 +5543,7 @@
               "label": "międzynarodowy",
               "name": "natureOfProjectInternational",
               "value": false,
-              "validators": [],
-              "classList": [],
-              "dataBDD": "natureOfProjectInternational",
-              "errorMsgs": []
+              "dataBDD": "natureOfProjectInternational"
             },
             {
               "kind": "component",
@@ -5853,10 +5551,7 @@
               "label": "ograniczony krąg odbiorców",
               "name": "natureOfProjectLimitedAudience",
               "value": false,
-              "validators": [],
-              "classList": [],
-              "dataBDD": "natureOfProjectLimitedAudience",
-              "errorMsgs": []
+              "dataBDD": "natureOfProjectLimitedAudience"
             },
             {
               "kind": "component",
@@ -5864,10 +5559,7 @@
               "label": "ze względu na niską wartość komercyjną nie mogłoby się odbyć bez dofinansowania przez PISF",
               "name": "natureOfProjectLowCommercialValue",
               "value": false,
-              "validators": [],
-              "classList": [],
-              "dataBDD": "natureOfProjectLowCommercialValue",
-              "errorMsgs": []
+              "dataBDD": "natureOfProjectLowCommercialValue"
             },
             {
               "kind": "component",
@@ -5875,10 +5567,7 @@
               "label": "lokalny",
               "name": "natureOfProjectLocal",
               "value": false,
-              "validators": [],
-              "classList": [],
-              "dataBDD": "natureOfProjectLocal",
-              "errorMsgs": []
+              "dataBDD": "natureOfProjectLocal"
             }
           ]
         },
@@ -5898,10 +5587,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "statementNecessaryResource",
-              "errorMsgs": []
+              "dataBDD": "statementNecessaryResource"
             },
             {
               "kind": "component",
@@ -5915,10 +5601,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "statementNotInArrears",
-              "errorMsgs": []
+              "dataBDD": "statementNotInArrears"
             },
             {
               "kind": "component",
@@ -5932,10 +5615,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "statementArticleTwentyTwo",
-              "errorMsgs": []
+              "dataBDD": "statementArticleTwentyTwo"
             },
             {
               "kind": "component",
@@ -5949,10 +5629,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "statementAllNecessaryDocuments",
-              "errorMsgs": []
+              "dataBDD": "statementAllNecessaryDocuments"
             },
             {
               "kind": "component",
@@ -5966,10 +5643,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "applicantsStatementOfNoTies",
-              "errorMsgs": []
+              "dataBDD": "applicantsStatementOfNoTies"
             }
           ]
         },
@@ -5993,10 +5667,7 @@
                 }
               ],
               "required": true,
-              "calculationRules": [],
-              "classList": [],
-              "dataBDD": "otherImportantInformations",
-              "errorMsgs": []
+              "dataBDD": "otherImportantInformations"
             }
           ]
         }
@@ -6006,7 +5677,6 @@
       "kind": "part",
       "title": "VI. Załączniki",
       "shortName": "VI. Załączniki",
-      "visibilityRules": [],
       "chapters": [
         {
           "kind": "chapter",
@@ -6348,7 +6018,6 @@
                           "validationMsg": "Kwota dofinansowania dla kosztów honorariów koordynatorów nie może przekroczyć 10% kwoty wnioskowanej."
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "coordinatorsRequestedAmount"
                     },
@@ -6359,8 +6028,6 @@
                       "label": "Pozostałe środki",
                       "name": "coordinatorsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "coordinatorsOtherFundsAmount"
                     }
@@ -6430,7 +6097,6 @@
                           "validationMsg": "Kwota dofinansowania dla kosztów honorariów dyrektorów nie może przekroczyć 10% kwoty wnioskowanej."
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "directorsRequestedAmount"
                     },
@@ -6441,8 +6107,6 @@
                       "label": "Pozostałe środki",
                       "name": "directorsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "directorsOtherFundsAmount"
                     }
@@ -6640,8 +6304,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "creatorsArtistsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "creatorsArtistsRequestedAmount"
                     },
@@ -6652,8 +6314,6 @@
                       "label": "Pozostałe środki",
                       "name": "creatorsArtistsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "creatorsArtistsOtherFundsAmount"
                     }
@@ -6713,8 +6373,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "lecturersRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "lecturersRequestedAmount"
                     },
@@ -6725,8 +6383,6 @@
                       "label": "Pozostałe środki",
                       "name": "lecturersOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "lecturersOtherFundsAmount"
                     }
@@ -6786,8 +6442,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "partnersRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "partnersRequestedAmount"
                     },
@@ -6798,8 +6452,6 @@
                       "label": "Pozostałe środki",
                       "name": "partnersOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "partnersOtherFundsAmount"
                     }
@@ -6859,8 +6511,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "eventHostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "eventHostsRequestedAmount"
                     },
@@ -6871,8 +6521,6 @@
                       "label": "Pozostałe środki",
                       "name": "eventHostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "eventHostsOtherFundsAmount"
                     }
@@ -6943,8 +6591,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "expertConsultationRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "expertConsultationRequestedAmount"
                     },
@@ -6955,8 +6601,6 @@
                       "label": "Pozostałe środki",
                       "name": "expertConsultationOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "expertConsultationOtherFundsAmount"
                     }
@@ -7027,8 +6671,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "translationCostRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "translationCostRequestedAmount"
                     },
@@ -7039,8 +6681,6 @@
                       "label": "Pozostałe środki",
                       "name": "translationCostOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "translationCostOtherFundsAmount"
                     }
@@ -7111,8 +6751,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "prServiceCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "prServiceCostsRequestedAmount"
                     },
@@ -7123,8 +6761,6 @@
                       "label": "Pozostałe środki",
                       "name": "prServiceCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "prServiceCostsOtherFundsAmount"
                     }
@@ -7310,8 +6946,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "outdoorCommercialsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "outdoorCommercialsRequestedAmount"
                     },
@@ -7322,8 +6956,6 @@
                       "label": "Pozostałe środki",
                       "name": "outdoorCommercialsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "outdoorCommercialsOtherFundsAmount"
                     }
@@ -7383,8 +7015,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "mediaCommercialsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "mediaCommercialsRequestedAmount"
                     },
@@ -7395,8 +7025,6 @@
                       "label": "Pozostałe środki",
                       "name": "mediaCommercialsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "mediaCommercialsOtherFundsAmount"
                     }
@@ -7467,8 +7095,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "graphicServiceRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "graphicServiceRequestedAmount"
                     },
@@ -7479,8 +7105,6 @@
                       "label": "Pozostałe środki",
                       "name": "graphicServiceOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "graphicServiceOtherFundsAmount"
                     }
@@ -7672,8 +7296,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "printingCostsProjectRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "printingCostsProjectRequestedAmount"
                     },
@@ -7684,8 +7306,6 @@
                       "label": "Pozostałe środki",
                       "name": "printingCostsProjectOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "printingCostsProjectOtherFundsAmount"
                     }
@@ -7745,8 +7365,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "printingCostsTypesettingRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "printingCostsTypesettingRequestedAmount"
                     },
@@ -7757,8 +7375,6 @@
                       "label": "Pozostałe środki",
                       "name": "printingCostsTypesettingOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "printingCostsTypesettingOtherFundsAmount"
                     }
@@ -7818,8 +7434,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "printingCostsPrintRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "printingCostsPrintRequestedAmount"
                     },
@@ -7830,8 +7444,6 @@
                       "label": "Pozostałe środki",
                       "name": "printingCostsPrintOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "printingCostsPrintOtherFundsAmount"
                     }
@@ -7902,8 +7514,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "equipmentPurchaseCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "equipmentPurchaseCostsRequestedAmount"
                     },
@@ -7914,8 +7524,6 @@
                       "label": "Pozostałe środki",
                       "name": "equipmentPurchaseCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "equipmentPurchaseCostsOtherFundsAmount"
                     }
@@ -7986,8 +7594,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "financialServiceRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "financialServiceRequestedAmount"
                     },
@@ -7998,8 +7604,6 @@
                       "label": "Pozostałe środki",
                       "name": "financialServiceOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "financialServiceOtherFundsAmount"
                     }
@@ -8185,8 +7789,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "rentalCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "rentalCostsRequestedAmount"
                     },
@@ -8197,8 +7799,6 @@
                       "label": "Pozostałe środki",
                       "name": "rentalCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "rentalCostsOtherFundsAmount"
                     }
@@ -8258,8 +7858,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "spaceArrangementCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "spaceArrangementCostsRequestedAmount"
                     },
@@ -8270,8 +7868,6 @@
                       "label": "Pozostałe środki",
                       "name": "spaceArrangementCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "spaceArrangementCostsOtherFundsAmount"
                     }
@@ -8457,8 +8053,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "personalCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "personalCostsRequestedAmount"
                     },
@@ -8469,8 +8063,6 @@
                       "label": "Pozostałe środki",
                       "name": "personalCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "personalCostsOtherFundsAmount"
                     }
@@ -8530,8 +8122,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "equipmentRentalCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "equipmentRentalCostsRequestedAmount"
                     },
@@ -8542,8 +8132,6 @@
                       "label": "Pozostałe środki",
                       "name": "equipmentRentalCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "equipmentRentalCostsOtherFundsAmount"
                     }
@@ -8614,8 +8202,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "transportationServiceRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "transportationServiceRequestedAmount"
                     },
@@ -8626,8 +8212,6 @@
                       "label": "Pozostałe środki",
                       "name": "transportationServiceOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "transportationServiceOtherFundsAmount"
                     }
@@ -8819,8 +8403,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "hostsTripCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "hostsTripCostsRequestedAmount"
                     },
@@ -8831,8 +8413,6 @@
                       "label": "Pozostałe środki",
                       "name": "hostsTripCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "hostsTripCostsOtherFundsAmount"
                     }
@@ -8892,8 +8472,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "participantsTripCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "participantsTripCostsRequestedAmount"
                     },
@@ -8904,8 +8482,6 @@
                       "label": "Pozostałe środki",
                       "name": "participantsTripCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "participantsTripCostsOtherFundsAmount"
                     }
@@ -8965,8 +8541,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "guestsTripCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "guestsTripCostsRequestedAmount"
                     },
@@ -8977,8 +8551,6 @@
                       "label": "Pozostałe środki",
                       "name": "guestsTripCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "guestsTripCostsOtherFundsAmount"
                     }
@@ -9170,8 +8742,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "hostsAccommodationCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "hostsAccommodationCostsRequestedAmount"
                     },
@@ -9182,8 +8752,6 @@
                       "label": "Pozostałe środki",
                       "name": "hostsAccommodationCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "hostsAccommodationCostsOtherFundsAmount"
                     }
@@ -9243,8 +8811,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "participantsAccommodationCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "participantsAccommodationCostsRequestedAmount"
                     },
@@ -9255,8 +8821,6 @@
                       "label": "Pozostałe środki",
                       "name": "participantsAccommodationCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "participantsAccommodationCostsOtherFundsAmount"
                     }
@@ -9316,8 +8880,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "guestsAccommodationCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "guestsAccommodationCostsRequestedAmount"
                     },
@@ -9328,8 +8890,6 @@
                       "label": "Pozostałe środki",
                       "name": "guestsAccommodationCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "guestsAccommodationCostsOtherFundsAmount"
                     }
@@ -9400,8 +8960,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "recordingCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "recordingCostsRequestedAmount"
                     },
@@ -9412,8 +8970,6 @@
                       "label": "Pozostałe środki",
                       "name": "recordingCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "recordingCostsOtherFundsAmount"
                     }
@@ -9484,8 +9040,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "insuranceCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "insuranceCostsRequestedAmount"
                     },
@@ -9496,8 +9050,6 @@
                       "label": "Pozostałe środki",
                       "name": "insuranceCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "insuranceCostsOtherFundsAmount"
                     }
@@ -9683,8 +9235,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "copyrightsAcquisitionCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "copyrightsAcquisitionCostsRequestedAmount"
                     },
@@ -9695,8 +9245,6 @@
                       "label": "Pozostałe środki",
                       "name": "copyrightsAcquisitionCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "copyrightsAcquisitionCostsOtherFundsAmount"
                     }
@@ -9756,8 +9304,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "copyRentalCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "copyRentalCostsRequestedAmount"
                     },
@@ -9768,8 +9314,6 @@
                       "label": "Pozostałe środki",
                       "name": "copyRentalCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "copyRentalCostsOtherFundsAmount"
                     }
@@ -9840,8 +9384,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "disabledAdaptationCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "disabledAdaptationCostsRequestedAmount"
                     },
@@ -9852,8 +9394,6 @@
                       "label": "Pozostałe środki",
                       "name": "disabledAdaptationCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "disabledAdaptationCostsOtherFundsAmount"
                     }
@@ -9924,8 +9464,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "otherDirectCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "otherDirectCostsRequestedAmount"
                     },
@@ -9936,8 +9474,6 @@
                       "label": "Pozostałe środki",
                       "name": "otherDirectCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "otherDirectCostsOtherFundsAmount"
                     }
@@ -10018,7 +9554,6 @@
                           "validationMsg": "Kwota dofinansowania dla kosztów cateringu nie może przekroczyć 10% kwoty wnioskowanej."
                         }
                       ],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "cateringCostsRequestedAmount"
                     },
@@ -10029,8 +9564,6 @@
                       "label": "Pozostałe środki",
                       "name": "cateringCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "cateringCostsOtherFundsAmount"
                     }
@@ -10101,8 +9634,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "evaluationCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "evaluationCostsRequestedAmount"
                     },
@@ -10113,8 +9644,6 @@
                       "label": "Pozostałe środki",
                       "name": "evaluationCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "evaluationCostsOtherFundsAmount"
                     }
@@ -10185,8 +9714,6 @@
                       "label": "Wnioskowana dotacja PISF",
                       "name": "onlineManagementCostsRequestedAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "onlineManagementCostsRequestedAmount"
                     },
@@ -10197,8 +9724,6 @@
                       "label": "Pozostałe środki",
                       "name": "onlineManagementCostsOtherFundsAmount",
                       "value": 0,
-                      "validators": [],
-                      "calculationRules": [],
                       "unit": "PLN",
                       "dataBDD": "onlineManagementCostsOtherFundsAmount"
                     }

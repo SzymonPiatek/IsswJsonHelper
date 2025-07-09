@@ -9,15 +9,16 @@ def delete_unused_args_in_file(path: Path):
     def traverse(obj):
         nonlocal changed
         if isinstance(obj, dict):
-            kind = obj.get("kind")
-            if kind == "chapter" and obj.get("visibilityRules") == []:
-                obj.pop("visibilityRules", None)
-                changed = True
-            if kind == "component":
-                for key, bad_val in (("required", False), ("readOnly", False), ("helpText", "")):
-                    if obj.get(key) == bad_val:
-                        obj.pop(key, None)
-                        changed = True
+            for key, bad_val in (("required", False), ("readOnly", False), ("helpText", ""), ("isMultipleForms", False), ("isPaginated", False)):
+                if obj.get(key) == bad_val:
+                    obj.pop(key, None)
+                    changed = True
+
+            for drop_key in ['visibilityRules', 'classList', 'validators', 'calculationRules', 'errorMsgs']:
+                if obj.get(drop_key) == []:
+                    obj.pop(drop_key, None)
+                    changed = True
+
             for v in list(obj.values()):
                 traverse(v)
         elif isinstance(obj, list):

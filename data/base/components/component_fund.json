@@ -6,9 +6,5 @@
   "value": 0,
   "dataBDD": "",
   "mask": "fund",
-  "unit": "PLN",
-  "classList": [],
-  "validators": [],
-  "calculationRules": [],
-  "errorMsgs": []
+  "unit": "PLN"
 }

@@ -171,7 +171,6 @@
                   "name": "RequiredValidator"
                 }
               ],
-              "classList": [],
               "dataBDD": "authPersonFirstName"
             },
             {
@@ -186,7 +185,6 @@
                 }
               ],
               "required": true,
-              "classList": [],
               "dataBDD": "authPersonLastName"
             },
             {
