@@ -36,4 +36,5 @@ class PostgraduateSchoolsApplicationBuilder2025Session01(PostgraduateSchoolsAppl
         })
         self.create_application_applicant_data()
         self.create_application_scope_of_project()
+        self.create_application_sources_of_financing()
         self.save_output()
