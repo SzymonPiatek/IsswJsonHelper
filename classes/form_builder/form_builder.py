@@ -1,9 +1,9 @@
 from typing import Literal, ClassVar
+from pathlib import Path
+import json
 
 JSONType = Literal['application', 'report']
-
 DepartmentType = Literal['DPF', 'DUK', 'DWM']
-
 SessionType = Literal['I', 'II', 'III', 'IV']
 
 class FormBuilder:
@@ -22,6 +22,20 @@ class FormBuilder:
         self.year = self.YEAR
         self.session = self.SESSION
 
+        # DIRS
+        self.output_dir = Path(__file__).resolve().parents[2]
+        self.output_file_name = 'output.json'
+        self.output_file = self.output_dir / 'output' / self.output_file_name
+
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+
+        # JSONS
+        self.json_paths = {
+            'base': self.output_dir / 'data' / 'base' / 'base.json',
+        }
+
+        self.jsons = {}
+
     def info(self):
         return f'''
         Type: {'Wniosek' if self.json_type == 'application' else 'Raport'}
@@ -32,5 +46,26 @@ class FormBuilder:
         Session: {self.session}
         '''
 
+    @staticmethod
+    def load_json(path):
+        with path.open('r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def save_output(self) -> None:
+        with self.output_file.open('w', encoding='utf-8') as f:
+            json.dump(self.jsons, f, ensure_ascii=False, indent=2)
+        print(f'Zapisano output do {self.output_file}')
+
+    def create_base(self, intro_text: str):
+        self.jsons['base'] = self.load_json(self.json_paths['base'])
+
+        try:
+            intro_list = self.jsons['base']['introText']
+            if not intro_list:
+                raise KeyError("introText jest puste")
+            intro_list[0]['text'] = intro_text
+        except KeyError as e:
+            raise RuntimeError(f"Nie znalazłem miejsca na introText w JSONie: {e!s}")
+
     def generate(self):
-        print('generate')
+        pass

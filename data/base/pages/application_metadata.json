@@ -1,0 +1,52 @@
+{
+	"kind": "part",
+	"title": "Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej",
+	"shortName": "Metadane wniosku",
+	"chapters": [
+		{
+			"kind": "chapter",
+			"title": "1. Tryb naboru",
+			"components": [
+				{
+					"kind": "component",
+					"type": "text",
+					"label": "Nr sesji i rok",
+					"name": "sessionYear",
+					"value": "",
+					"readOnly": true,
+					"dataBDD": "session-year"
+				}
+			]
+		},
+		{
+			"kind": "chapter",
+			"title": "2. Program operacyjny",
+			"components": [
+				{
+					"kind": "component",
+					"type": "text",
+					"label": "Program",
+					"name": "programName",
+					"value": "",
+					"readOnly": true,
+					"dataBDD": "program-name"
+				}
+			]
+		},
+		{
+			"kind": "chapter",
+			"title": "3. Priorytet",
+			"components": [
+				{
+					"kind": "component",
+					"type": "text",
+					"label": "Priorytet",
+					"name": "priorityName",
+					"value": "",
+					"readOnly": true,
+					"dataBDD": "priority-name"
+				}
+			]
+		}
+	]
+}

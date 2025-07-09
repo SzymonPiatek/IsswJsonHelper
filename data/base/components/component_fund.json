@@ -1,0 +1,17 @@
+{
+	"kind": "component",
+	"type": "text",
+	"label": "",
+	"name": "",
+	"value": 0,
+	"helpText": "",
+	"dataBDD": "",
+	"mask": "fund",
+	"unit": "PLN",
+	"readOnly": false,
+	"required": false,
+	"classList": [],
+	"validators": [],
+	"calculationRules": [],
+	"errorMsgs": []
+}

@@ -3,8 +3,8 @@ from classes.form_builder.duk.education.application_builder import PostgraduateS
 
 def main():
     application = PostgraduateSchoolsApplicationBuilder2025Session01()
-    print(application.info())
-
+    application.generate()
+    application.save_output()
 
 if __name__ == '__main__':
     main()

@@ -1,0 +1,16 @@
+{
+	"kind": "component",
+	"type": "select",
+	"label": "",
+	"name": "",
+	"value": "",
+	"helpText": "",
+	"dataBDD": "",
+	"readOnly": false,
+	"required": false,
+	"options": [],
+	"classList": [],
+	"validators": [],
+	"calculationRules": [],
+	"errorMsgs": []
+}
