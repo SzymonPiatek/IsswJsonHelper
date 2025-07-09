@@ -1,0 +1,2769 @@
+{
+	"kind": "part",
+	"title": "III. Zakres przedsięwzięcia",
+	"shortName": "III. Zakres przedsięwzięcia",
+	"classList": ["full-width-grid"],
+	"chapters": [
+		{
+			"kind": "chapter",
+			"title": "1. Miejsce realizacji przedsięwzięcia",
+			"components": [
+				{
+					"kind": "component",
+					"type": "text",
+					"label": "",
+					"name": "projectLocation",
+					"value": "",
+					"validators": [
+						{
+							"name": "LengthValidator",
+							"kwargs": {
+								"max": 1001
+							},
+							"validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+						},
+						{
+							"name": "RequiredValidator"
+						}
+					],
+					"required": true,
+					"dataBDD": "project-location"
+				}
+			]
+		},
+		{
+			"kind": "chapter",
+			"title": "2. Opis ogólny przedsięwzięcia (cel i zakres merytoryczny, zastosowane technologie, sposób realizacji przedsięwzięcia, promocja)",
+			"components": [
+				{
+					"kind": "component",
+					"type": "textarea",
+					"label": "",
+					"name": "projectGeneralDescription",
+					"value": "",
+					"validators": [
+						{
+							"name": "LengthValidator",
+							"kwargs": {
+								"max": 1001
+							},
+							"validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+						},
+						{
+							"name": "RequiredValidator"
+						}
+					],
+					"required": true,
+					"dataBDD": "project-general-description"
+				}
+			]
+		},
+		{
+			"kind": "chapter",
+			"title": "3. Opis szczegółowy przedsięwzięcia",
+			"components": [
+						{
+					"kind": "chapter",
+					"title": "<normal>Wartość merytoryczna przedsięwzięcia, w tym ciągłość realizacji przedsięwzięcia oraz wartość edukacyjna</normal>",
+					"components": [
+						{
+							"kind": "component",
+							"type": "textarea",
+							"label": "",
+							"name": "scopeAndValueOfContent",
+							"value": "",
+							"validators": [
+								{
+									"name": "LengthValidator",
+									"kwargs": {
+										"max": 1001
+									},
+									"validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+								},
+								{
+									"name": "RequiredValidator"
+								}
+							],
+							"required": true,
+							"dataBDD": "scope-and-value-of-content"
+						}
+					]
+				},
+				{
+					"kind": "chapter",
+					"title": "<normal>Spójność, oryginalność i unikalność koncepcji przedsięwzięcia, atrakcyjność przekazu dla odbiorcy i specyfika przedsięwzięcia</normal>",
+					"components": [
+						{
+							"kind": "component",
+							"type": "textarea",
+							"label": "",
+							"name": "originalityOfProject",
+							"value": "",
+							"validators": [
+								{
+									"name": "LengthValidator",
+									"kwargs": {
+										"max": 1001
+									},
+									"validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+								},
+								{
+									"name": "RequiredValidator"
+								}
+							],
+							"required": true,
+							"dataBDD": "originality-of-project"
+						}
+					]
+				},
+				{
+					"kind": "chapter",
+					"title": "<normal>Zróżnicowanie struktury odbiorców lub uczestników oraz liczba uczestników</normal>",
+					"components": [
+						{
+							"kind": "component",
+							"type": "textarea",
+							"label": "",
+							"name": "diversificationOfAudience",
+							"value": "",
+							"validators": [
+								{
+									"name": "LengthValidator",
+									"kwargs": {
+										"max": 1001
+									},
+									"validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+								},
+								{
+									"name": "RequiredValidator"
+								}
+							],
+							"required": true,
+							"dataBDD": "diversification-of-audience"
+						}
+					]
+				},
+				{
+					"kind": "chapter",
+					"title": "<normal>Różnorodność środowisk zaangażowanych w realizację przedsięwzięcia</normal>",
+					"components": [
+						{
+							"kind": "component",
+							"type": "textarea",
+							"label": "",
+							"name": "diversityOfInvolvedCommunities",
+							"value": "",
+							"validators": [
+								{
+									"name": "LengthValidator",
+									"kwargs": {
+										"max": 1001
+									},
+									"validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+								},
+								{
+									"name": "RequiredValidator"
+								}
+							],
+							"required": true,
+							"dataBDD": "diversity-of-involved-communities"
+						}
+					]
+				},
+				{
+					"kind": "chapter",
+					"title": "<normal>Planowane efekty realizacji przedsięwzięcia oraz jego ewaluacja</normal>",
+					"components": [
+						{
+							"kind": "component",
+							"type": "textarea",
+							"label": "",
+							"name": "plannedResultsOfProject",
+							"value": "",
+							"validators": [
+								{
+									"name": "LengthValidator",
+									"kwargs": {
+										"max": 1001
+									},
+									"validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+								},
+								{
+									"name": "RequiredValidator"
+								}
+							],
+							"required": true,
+							"dataBDD": "planned-results-of-project"
+						}
+					]
+				}
+			]
+		},
+		{
+			"kind": "chapter",
+			"title": "4. Dotychczasowe doświadczenia wnioskodawcy w działaniach będących przedmiotem przedsięwzięcia</br><normal>Proszę o wyszczególnienie przedsięwzięć z zakresu kinematografii realizowanych przez wnioskodawcę w ostatnich 2 latach</normal>",
+			"components": [
+				{
+					"kind": "component",
+					"type": "textarea",
+					"label": "",
+					"name": "applicantsPastExperience",
+					"value": "",
+					"validators": [
+						{
+							"name": "LengthValidator",
+							"kwargs": {
+								"max": 1001
+							},
+							"validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+						},
+						{
+							"name": "RequiredValidator"
+						}
+					],
+					"required": true,
+					"dataBDD": "applicants-past-experience"
+				}
+			]
+		},
+		{
+			"kind": "chapter",
+			"title": "5. Partnerzy, eksperci i specjaliści zaangażowani w przedsięwzięcie i ich dotychczasowy dorobek w tym zakresie",
+			"components": [
+				{
+					"kind": "component",
+					"type": "textarea",
+					"label": "",
+					"name": "involvedPartnersAndSpecialist",
+					"value": "",
+					"validators": [
+						{
+							"name": "LengthValidator",
+							"kwargs": {
+								"max": 1001
+							},
+							"validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+						},
+						{
+							"name": "RequiredValidator"
+						}
+					],
+					"required": true,
+					"dataBDD": "involved-partners-and-specialist"
+				}
+			]
+		},
+		{
+			"kind": "chapter",
+			"title": "6. Informacje o praktycznych umiejętnościach nabywanych przez uczestników przedsięwzięcia",
+			"components": [
+				{
+					"kind": "component",
+					"type": "textarea",
+					"label": "",
+					"name": "practicalSkillsAcquiredByParticipants",
+					"value": "",
+					"validators": [
+						{
+							"name": "LengthValidator",
+							"kwargs": {
+								"max": 1001
+							},
+							"validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+						},
+						{
+							"name": "RequiredValidator"
+						}
+					],
+					"required": true,
+					"dataBDD": "practical-skills-acquired-by-participants"
+				}
+			]
+		},
+		{
+			"kind": "chapter",
+			"title": "7. Podstawowe dane liczbowe na temat bieżącej i poprzedniej edycji",
+			"visibilityRules": [
+				{
+					"name": "dependsOnValue",
+					"kwargs": {
+						"fieldName": "projectType",
+						"values": [
+							"programy edukacyjne wchodzące w skład edukacji ciągłej",
+							"realizacja szkolnych i pozaszkolnych filmów krótko- i średniometrażowych",
+							"kształcenie zawodowe i podnoszenie kompetencji poprzez organizację studiów podyplomowych"
+						]
+					}
+				}
+			],
+			"classList": {
+				"main": [
+					"w-full"
+				],
+				"sub": [
+					"table-4-top"
+				]
+			},
+			"components": [
+				{
+					"kind": "chapter",
+					"title": "<normal>1. Liczba studentów </normal>",
+					"classList": {
+						"main": [
+							"table-4",
+							"grid",
+							"grid-cols-4"
+						],
+						"sub": [
+							"table-4__col"
+						]
+					},
+					"components": [
+						{
+							"kind": "component",
+							"type": "number",
+							"label": "Studia stacjonarne/Rok poprzedni",
+							"name": "fullTimeStudiesPreviousYearStudentsCount",
+							"value": 0,
+							"unit": "osoby",
+							"dataBDD": "full-time-studies-previous-year-students-count"
+						},
+						{
+							"kind": "component",
+							"type": "number",
+							"label": "Studia stacjonarne/Rok bieżący",
+							"name": "fullTimeStudiesCurrentYearStudentsCount",
+							"value": 0,
+							"validators": [
+								{
+									"name": "RequiredValidator"
+								}
+							],
+							"required": true,
+							"unit": "osoby",
+							"dataBDD": "full-time-studies-current-year-students-count"
+						},
+						{
+							"kind": "component",
+							"type": "number",
+							"label": "Studia niestacjonarne/Rok poprzedni",
+							"name": "partTimeStudiesPreviousYearStudentsCount",
+							"value": 0,
+							"unit": "osoby",
+							"dataBDD": "part-time-studies-previous-year-students-count"
+						},
+						{
+							"kind": "component",
+							"type": "number",
+							"label": "Studia niestacjonarne Rok bieżący",
+							"name": "partTimeStudiesCurrentYearStudentsCount",
+							"value": 0,
+							"validators": [
+								{
+									"name": "RequiredValidator"
+								}
+							],
+							"required": true,
+							"unit": "osoby",
+							"dataBDD": "part-time-studies-current-year-students-count"
+						}
+					]
+				},
+				{
+					"kind": "chapter",
+					"title": "<normal>2. Średnia wysokość czesnego (w rozrachunku rocznym) </normal>",
+					"classList": {
+						"main": [
+							"table-4",
+							"grid",
+							"grid-cols-4"
+						],
+						"sub": [
+							"table-4__col"
+						]
+					},
+					"components": [
+						{
+							"kind": "component",
+							"type": "text",
+							"label": "Studia stacjonarne/Rok poprzedni",
+							"name": "fullTimeStudiesPreviousYearAverageTuition",
+							"value": "0",
+							"mask": "fund",
+							"unit": "PLN",
+							"dataBDD": "full-time-studies-previous-year-average-tuition"
+						},
+						{
+							"kind": "component",
+							"type": "text",
+							"label": "Studia stacjonarne/Rok bieżący",
+							"name": "fullTimeStudiesCurrentYearAverageTuition",
+							"value": "0",
+							"validators": [
+								{
+									"name": "RequiredValidator"
+								}
+							],
+							"required": true,
+							"mask": "fund",
+							"unit": "PLN",
+							"dataBDD": "full-time-studies-current-year-average-tuition"
+						},
+						{
+							"kind": "component",
+							"type": "text",
+							"label": "Studia niestacjonarne/Rok poprzedni",
+							"name": "partTimeStudiesPreviousYearAverageTuition",
+							"value": "0",
+							"helpText": "",
+							"mask": "fund",
+							"unit": "PLN",
+							"dataBDD": "part-time-studies-previous-year-average-tuition"
+						},
+						{
+							"kind": "component",
+							"type": "text",
+							"label": "Studia niestacjonarne/Rok bieżący",
+							"name": "partTimeStudiesCurrentYearAverageTuition",
+							"value": "0",
+							"validators": [
+								{
+									"name": "RequiredValidator"
+								}
+							],
+							"required": true,
+							"mask": "fund",
+							"unit": "PLN",
+							"dataBDD": "part-time-studies-current-year-average-tuition"
+						}
+					]
+				},
+				{
+					"kind": "chapter",
+					"title": "<normal>3. Średni koszt kształcenia studenta (w roku i w tys. zł) </normal>",
+					"classList": {
+						"main": [
+							"table-4",
+							"grid",
+							"grid-cols-4"
+						],
+						"sub": [
+							"table-4__col"
+						]
+					},
+					"components": [
+						{
+							"kind": "component",
+							"type": "text",
+							"label": "Studia stacjonarne/Rok poprzedni",
+							"name": "fullTimeStudiesPreviousYearAverageEducationCostPerStudent",
+							"value": "0",
+							"validators": [
+								{
+									"name": "RangeValidator",
+									"kwargs": {
+										"min": 0
+									},
+									"validationMsg": "Wartość nie może być mniejsza od zera."
+								}
+							],
+							"mask": "fund",
+							"unit": "tys. PLN",
+							"dataBDD": "full-time-studies-previous-year-average-education-cost-per-student"
+						},
+						{
+							"kind": "component",
+							"type": "text",
+							"label": "Studia stacjonarne/Rok bieżący",
+							"name": "fullTimeStudiesCurrentYearAverageEducationCostPerStudent",
+							"value": "0",
+							"validators": [
+								{
+									"name": "RequiredValidator"
+								},
+								{
+									"name": "RangeValidator",
+									"kwargs": {
+										"min": 0
+									},
+									"validationMsg": "Wartość nie może być mniejsza od zera."
+								}
+							],
+							"required": true,
+							"mask": "fund",
+							"unit": "tys. PLN",
+							"dataBDD": "full-time-studies-current-year-average-education-cost-per-student"
+						},
+						{
+							"kind": "component",
+							"type": "text",
+							"label": "Studia niestacjonarne/Rok poprzedni",
+							"name": "partTimeStudiesPreviousYearAverageEducationCostPerStudent",
+							"value": "0",
+							"validators": [
+								{
+									"name": "RangeValidator",
+									"kwargs": {
+										"min": 0
+									},
+									"validationMsg": "Wartość nie może być mniejsza od zera."
+								}
+							],
+							"mask": "fund",
+							"unit": "tys. PLN",
+							"dataBDD": "part-time-studies-previous-year-average-education-cost-per-student"
+						},
+						{
+							"kind": "component",
+							"type": "text",
+							"label": "Studia niestacjonarne/Rok bieżący",
+							"name": "partTimeStudiesCurrentYearAverageEducationCostPerStudent",
+							"value": "0",
+							"validators": [
+								{
+									"name": "RequiredValidator"
+								},
+								{
+									"name": "RangeValidator",
+									"kwargs": {
+										"min": 0
+									},
+									"validationMsg": "Wartość nie może być mniejsza od zera."
+								}
+							],
+							"required": true,
+							"mask": "fund",
+							"unit": "tys. PLN",
+							"dataBDD": "part-time-studies-current-year-average-education-cost-per-student"
+						}
+					]
+				},
+				{
+					"kind": "chapter",
+					"title": "<normal>4. Liczba wyprodukowanych filmów: </normal>",
+					"components": [
+						{
+							"kind": "chapter",
+							"title": "",
+							"components": [
+								{
+									"kind": "chapter",
+									"title": "<small>- liczba filmów fabularnych</small>",
+									"classList": {
+										"main": [
+											"table-4",
+											"grid",
+											"grid-cols-4"
+										],
+										"sub": [
+											"table-4__col"
+										]
+									},
+									"components": [
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia stacjonarne/Rok poprzedni",
+											"name": "fullTimeStudiesPreviousEditionFeatureFilmCount",
+											"value": 0,
+											"unit": "szt.",
+											"dataBDD": "full-time-studies-previous-edition-feature-film-count"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia stacjonarne/Rok bieżący",
+											"name": "fullTimeStudiesCurrentEditionFeatureFilmCount",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RequiredValidator"
+												}
+											],
+											"required": true,
+											"unit": "szt.",
+											"dataBDD": "full-time-studies-currrent-edition-feature-film-count"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia niestacjonarne/Rok poprzedni",
+											"name": "partTimeStudiesPreviousEditionFeatureFilmCount",
+											"value": 0,
+											"unit": "szt.",
+											"dataBDD": "part-time-studies-previous-edition-feature-film-count"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia niestacjonarne Rok bieżący",
+											"name": "partTimeStudiesCurrentEditionFeatureFilmCount",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RequiredValidator"
+												}
+											],
+											"required": true,
+											"unit": "szt.",
+											"dataBDD": "part-time-studies-current-edition-feature-film-count"
+										}
+									]
+								},
+								{
+									"kind": "chapter",
+									"title": "<small>- liczba minut filmów fabularnych</small>",
+									"classList": {
+										"main": [
+											"table-4",
+											"grid",
+											"grid-cols-4"
+										],
+										"sub": [
+											"table-4__col"
+										]
+									},
+									"components": [
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia stacjonarne/Rok poprzedni",
+											"name": "fullTimeStudiesPreviousEditionFeatureFilmMinutes",
+											"value": 0,
+											"unit": "min.",
+											"dataBDD": "full-time-studies-previous-edition-feature-film-minutes"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia stacjonarne/Rok bieżący",
+											"name": "fullTimeStudiesCurrentEditionFeatureFilmMinutes",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RequiredValidator"
+												}
+											],
+											"required": true,
+											"unit": "min.",
+											"dataBDD": "full-time-studies-current-edition-feature-film-minutes"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia niestacjonarne/Rok poprzedni",
+											"name": "partTimeStudiesPreviousEditionFeatureFilmMinutes",
+											"value": 0,
+											"unit": "min.",
+											"dataBDD": "part-time-studies-previous-edition-feature-film-minutes"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia niestacjonarne Rok bieżący",
+											"name": "partTimeStudiesCurrentEditionFeatureFilmMinutes",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RequiredValidator"
+												}
+											],
+											"required": true,
+											"unit": "min.",
+											"dataBDD": "part-time-studies-current-edition-feature-film-minutes"
+										}
+									]
+								}
+							]
+						},
+						{
+							"kind": "chapter",
+							"title": "",
+							"components": [
+								{
+									"kind": "chapter",
+									"title": "<small>- liczba filmów dokumentalnych</small>",
+									"classList": {
+										"main": [
+											"table-4",
+											"grid",
+											"grid-cols-4"
+										],
+										"sub": [
+											"table-4__col"
+										]
+									},
+									"components": [
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia stacjonarne/Rok poprzedni",
+											"name": "fullTimeStudiesPreviousEditionDocumentaryFilmCount",
+											"value": 0,
+											"unit": "szt.",
+											"dataBDD": "full-time-studies-previous-edition-documentary-film-count"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia stacjonarne/Rok bieżący",
+											"name": "fullTimeStudiesCurrentEditionDocumentaryFilmCount",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RequiredValidator"
+												}
+											],
+											"required": true,
+											"unit": "szt.",
+											"dataBDD": "full-time-studies-current-edition-documentary-film-count"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia niestacjonarne/Rok poprzedni",
+											"name": "partTimeStudiesPreviousDocumentaryFeatureFilmCount",
+											"value": 0,
+											"unit": "szt.",
+											"dataBDD": "part-time-studies-previous-documentary-feature-film-count"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia niestacjonarne Rok bieżący",
+											"name": "partTimeStudiesCurrentEditionDocumentaryFilmCount",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RequiredValidator"
+												}
+											],
+											"required": true,
+											"unit": "szt.",
+											"dataBDD": "part-time-studies-current-edition-documentary-film-count"
+										}
+									]
+								},
+								{
+									"kind": "chapter",
+									"title": "<small>- liczba minut filmów dokumentalnych</small>",
+									"classList": {
+										"main": [
+											"table-4",
+											"grid",
+											"grid-cols-4"
+										],
+										"sub": [
+											"table-4__col"
+										]
+									},
+									"components": [
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia stacjonarne/Rok poprzedni",
+											"name": "fullTimeStudiesPreviousEditionDocumentaryFilmMinutes",
+											"value": 0,
+											"unit": "min.",
+											"dataBDD": "full-time-studies-previous-edition-documentary-film-minutes"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia stacjonarne/Rok bieżący",
+											"name": "fullTimeStudiesCurrentEditionDocumentaryFilmMinutes",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RequiredValidator"
+												}
+											],
+											"required": true,
+											"unit": "min.",
+											"dataBDD": "full-time-studies-current-edition-documentary-film-minutes"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia niestacjonarne/Rok poprzedni",
+											"name": "partTimeStudiesPreviousEditionDocumentaryFilmMinutes",
+											"value": 0,
+											"unit": "min.",
+											"dataBDD": "part-time-studies-previous-edition-documentary-film-minutes"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia niestacjonarne Rok bieżący",
+											"name": "partTimeStudiesCurrentEditionDocumentaryFilmMinutes",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RequiredValidator"
+												}
+											],
+											"required": true,
+											"unit": "min.",
+											"dataBDD": "part-time-studies-current-edition-documentary-film-minutes"
+										}
+									]
+								}
+							]
+						},
+						{
+							"kind": "chapter",
+							"title": "",
+							"components": [
+								{
+									"kind": "chapter",
+									"title": "<small>- liczba filmów animowanych</small>",
+									"classList": {
+										"main": [
+											"table-4",
+											"grid",
+											"grid-cols-4"
+										],
+										"sub": [
+											"table-4__col"
+										]
+									},
+									"components": [
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia stacjonarne/Rok poprzedni",
+											"name": "fullTimeStudiesPreviousEditionAnimatedFilmCount",
+											"value": 0,
+											"unit": "szt.",
+											"dataBDD": "full-time-studies-previous-edition-animated-film-count"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia stacjonarne/Rok bieżący",
+											"name": "fullTimeStudiesCurrentEditionAnimatedFilmCount",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RequiredValidator"
+												}
+											],
+											"required": true,
+											"unit": "szt.",
+											"dataBDD": "full-time-studies-current-edition-animated-film-count"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia niestacjonarne/Rok poprzedni",
+											"name": "partTimeStudiesPreviousEditionAnimatedFilmCount",
+											"value": 0,
+											"unit": "szt.",
+											"dataBDD": "part-time-studies-previous-edition-animated-film-count"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia niestacjonarne Rok bieżący",
+											"name": "partTimeStudiesCurrentEditionAnimatedFilmCount",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RequiredValidator"
+												}
+											],
+											"required": true,
+											"unit": "szt.",
+											"dataBDD": "part-time-studies-current-edition-animated-film-count"
+										}
+									]
+								},
+								{
+									"kind": "chapter",
+									"title": "<small>- liczba minut filmów animowanych</small>",
+									"classList": {
+										"main": [
+											"table-4",
+											"grid",
+											"grid-cols-4"
+										],
+										"sub": [
+											"table-4__col"
+										]
+									},
+									"components": [
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia stacjonarne/Rok poprzedni",
+											"name": "fullTimeStudiesPreviousEditionAnimatedFilmMinutes",
+											"value": 0,
+											"unit": "min.",
+											"dataBDD": "full-time-studies-previous-edition-animated-film-minutes"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia stacjonarne/Rok bieżący",
+											"name": "fullTimeStudiesCurrentEditionAnimatedFilmMinutes",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RequiredValidator"
+												}
+											],
+											"required": true,
+											"unit": "min.",
+											"dataBDD": "full-time-studies-current-edition-animated-film-minutes"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia niestacjonarne/Rok poprzedni",
+											"name": "partTimeStudiesPreviousAnimatedFilmMinutes",
+											"value": 0,
+											"unit": "min.",
+											"dataBDD": "part-time-studies-previous-animated-film-minutes"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia niestacjonarne Rok bieżący",
+											"name": "partTimeStudiesCurrentEditionAnimatedFilmMinutes",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RequiredValidator"
+												}
+											],
+											"required": true,
+											"unit": "min.",
+											"dataBDD": "part-time-studies-current-edition-animated-film-minutes"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "chapter",
+					"title": "<normal>Inne </normal>",
+					"isMultipleForms": true,
+					"multipleFormsRules": {
+						"minCount": 1,
+						"maxCount": 20
+					},
+					"components": [
+						{
+							"kind": "chapter",
+							"title": "",
+							"components": [
+								{
+									"kind": "chapter",
+									"title": "",
+									"components": [
+										{
+											"kind": "component",
+											"type": "text",
+											"label": "Rodzaj",
+											"name": "otherFilmsKind",
+											"value": "",
+											"validators": [
+												{
+													"name": "LengthValidator",
+													"kwargs": {
+														"max": 101
+													},
+													"validationMsg": "Maksymalna ilość znaków nie może przekroczyć 100."
+												}
+											],
+											"dataBDD": "other-films-kind"
+										}
+									]
+								},
+								{
+									"kind": "chapter",
+									"title": "<small>- liczba filmów</small>",
+									"classList": {
+										"main": [
+											"table-4",
+											"grid",
+											"grid-cols-4"
+										],
+										"sub": [
+											"table-4__col"
+										]
+									},
+									"components": [
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia stacjonarne/Rok poprzedni",
+											"name": "fullTimeStudiesPreviousEditionOtherFilmCount",
+											"value": 0,
+											"unit": "szt.",
+											"dataBDD": "full-time-studies-previous-edition-other-film-count"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia stacjonarne/Rok bieżący",
+											"name": "fullTimeStudiesCurrentEditionOtherFilmCount",
+											"value": 0,
+											"unit": "szt.",
+											"dataBDD": "full-time-studies-current-edition-other-film-count"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia niestacjonarne/Rok poprzedni",
+											"name": "partTimeStudiesPreviousEditionOtherFilmCount",
+											"value": 0,
+											"unit": "szt.",
+											"dataBDD": "part-time-studies-previous-edition-other-film-count"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia niestacjonarne Rok bieżący",
+											"name": "partTimeStudiesCurrentEditionOtherFilmCount",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RequiredValidator"
+												}
+											],
+											"required": true,
+											"unit": "szt.",
+											"dataBDD": "part-time-studies-current-edition-other-film-count"
+										}
+									]
+								},
+								{
+									"kind": "chapter",
+									"title": "<small>- liczba minut</small>",
+									"classList": {
+										"main": [
+											"table-4",
+											"grid",
+											"grid-cols-4"
+										],
+										"sub": [
+											"table-4__col"
+										]
+									},
+									"components": [
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia stacjonarne/Rok poprzedni",
+											"name": "fullTimeStudiesPreviousEditionOtherFilmMinutes",
+											"value": 0,
+											"unit": "min.",
+											"dataBDD": "full-time-studies-previous-edition-other-film-minutes"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia stacjonarne/Rok bieżący",
+											"name": "fullTimeStudiesCurrentEditionOtherFilmMinutes",
+											"value": 0,
+											"unit": "min.",
+											"dataBDD": "full-time-studies-current-edition-other-film-minutes"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia niestacjonarne/Rok poprzedni",
+											"name": "partTimeStudiesPreviousOtherFeatureFilmMinutes",
+											"value": 0,
+											"unit": "min.",
+											"dataBDD": "part-time-studies-previous-other-feature-film-minutes"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Studia niestacjonarne Rok bieżący",
+											"name": "partTimeStudiesCurrentEditionOtherFilmMinutes",
+											"value": 0,
+											"required": true,
+											"unit": "min.",
+											"dataBDD": "part-time-studies-current-edition-other-film-minutes"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "chapter",
+					"title": "SUMA",
+					"components": [
+						{
+							"kind": "chapter",
+							"title": "<small>- suma filmów</small>",
+							"classList": {
+								"main": [
+									"table-4",
+									"grid",
+									"grid-cols-4"
+								],
+								"sub": [
+									"table-4__col"
+								]
+							},
+							"components": [
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Studia stacjonarne/Rok poprzedni",
+									"name": "fullTimeStudiesPreviousEditionFilmsCountSum",
+									"value": 0,
+									"readOnly": true,
+									"calculationRules": [
+										{
+											"name": "dynamicSumInputs",
+											"kwargs": {
+												"fields": [
+													"fullTimeStudiesPreviousEditionFeatureFilmCount",
+													"fullTimeStudiesPreviousEditionDocumentaryFilmCount",
+													"fullTimeStudiesPreviousEditionAnimatedFilmCount",
+													"fullTimeStudiesPreviousEditionOtherFilmCount"
+												]
+											}
+										}
+									],
+									"validators": [
+										{
+											"name": "RelatedSumValidator",
+											"kwargs": {
+												"field_names": [
+													"fullTimeStudiesPreviousEditionFeatureFilmCount",
+													"fullTimeStudiesPreviousEditionDocumentaryFilmCount",
+													"fullTimeStudiesPreviousEditionAnimatedFilmCount",
+													"fullTimeStudiesPreviousEditionOtherFilmCount"
+												]
+											}
+										}
+									],
+									"unit": "szt.",
+									"dataBDD": "full-time-studies-previous-edition-films-count-sum"
+								},
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Studia stacjonarne/Rok bieżący",
+									"name": "fullTimeStudiesCurrentEditionFilmsCountSum",
+									"value": 0,
+									"readOnly": true,
+									"validators": [
+										{
+											"name": "RelatedSumValidator",
+											"kwargs": {
+												"field_names": [
+													"fullTimeStudiesCurrentEditionFeatureFilmCount",
+													"fullTimeStudiesCurrentEditionDocumentaryFilmCount",
+													"fullTimeStudiesCurrentEditionAnimatedFilmCount",
+													"fullTimeStudiesCurrentEditionOtherFilmCount"
+												]
+											}
+										}
+									],
+									"calculationRules": [
+										{
+											"name": "dynamicSumInputs",
+											"kwargs": {
+												"fields": [
+													"fullTimeStudiesCurrentEditionFeatureFilmCount",
+													"fullTimeStudiesCurrentEditionDocumentaryFilmCount",
+													"fullTimeStudiesCurrentEditionAnimatedFilmCount",
+													"fullTimeStudiesCurrentEditionOtherFilmCount"
+												]
+											}
+										}
+									],
+									"unit": "szt.",
+									"dataBDD": "full-time-studies-current-edition-films-count-sum"
+								},
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Studia niestacjonarne/Rok poprzedni",
+									"name": "partTimeStudiesPreviousEditionFilmsCountSum",
+									"value": 0,
+									"readOnly": true,
+									"validators": [
+										{
+											"name": "RelatedSumValidator",
+											"kwargs": {
+												"field_names": [
+													"partTimeStudiesPreviousEditionFeatureFilmCount",
+													"partTimeStudiesPreviousDocumentaryFeatureFilmCount",
+													"partTimeStudiesPreviousEditionAnimatedFilmCount",
+													"partTimeStudiesPreviousEditionOtherFilmCount"
+												]
+											}
+										}
+									],
+									"calculationRules": [
+										{
+											"name": "dynamicSumInputs",
+											"kwargs": {
+												"fields": [
+													"partTimeStudiesPreviousEditionFeatureFilmCount",
+													"partTimeStudiesPreviousDocumentaryFeatureFilmCount",
+													"partTimeStudiesPreviousEditionAnimatedFilmCount",
+													"partTimeStudiesPreviousEditionOtherFilmCount"
+												]
+											}
+										}
+									],
+									"unit": "szt.",
+									"dataBDD": "part-time-studies-previous-edition-films-count-sum"
+								},
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Studia niestacjonarne Rok bieżący",
+									"name": "partTimeStudiesCurrentEditionFilmsCountSum",
+									"value": 0,
+									"readOnly": true,
+									"validators": [
+										{
+											"name": "RelatedSumValidator",
+											"kwargs": {
+												"field_names": [
+													"partTimeStudiesCurrentEditionFeatureFilmCount",
+													"partTimeStudiesCurrentEditionDocumentaryFilmCount",
+													"partTimeStudiesCurrentEditionAnimatedFilmCount",
+													"partTimeStudiesCurrentEditionOtherFilmCount"
+												]
+											}
+										}
+									],
+									"calculationRules": [
+										{
+											"name": "dynamicSumInputs",
+											"kwargs": {
+												"fields": [
+													"partTimeStudiesCurrentEditionFeatureFilmCount",
+													"partTimeStudiesCurrentEditionDocumentaryFilmCount",
+													"partTimeStudiesCurrentEditionAnimatedFilmCount",
+													"partTimeStudiesCurrentEditionOtherFilmCount"
+												]
+											}
+										}
+									],
+									"unit": "szt.",
+									"dataBDD": "part-time-studies-current-edition-films-count-sum"
+								}
+							]
+						},
+						{
+							"kind": "chapter",
+							"title": "<small>- suma minut</small>",
+							"classList": {
+								"main": [
+									"table-4",
+									"grid",
+									"grid-cols-4"
+								],
+								"sub": [
+									"table-4__col"
+								]
+							},
+							"components": [
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Studia stacjonarne/Rok poprzedni",
+									"name": "fullTimeStudiesPreviousEditionFilmsMinutesSum",
+									"value": 0,
+									"readOnly": true,
+									"calculationRules": [
+										{
+											"name": "dynamicSumInputs",
+											"kwargs": {
+												"fields": [
+													"fullTimeStudiesPreviousEditionFeatureFilmMinutes",
+													"fullTimeStudiesPreviousEditionDocumentaryFilmMinutes",
+													"fullTimeStudiesPreviousEditionAnimatedFilmMinutes",
+													"fullTimeStudiesPreviousEditionOtherFilmMinutes"
+												]
+											}
+										}
+									],
+									"validators": [
+										{
+											"name": "RelatedSumValidator",
+											"kwargs": {
+												"field_names": [
+													"fullTimeStudiesPreviousEditionFeatureFilmMinutes",
+													"fullTimeStudiesPreviousEditionDocumentaryFilmMinutes",
+													"fullTimeStudiesPreviousEditionAnimatedFilmMinutes",
+													"fullTimeStudiesPreviousEditionOtherFilmMinutes"
+												]
+											}
+										}
+									],
+									"unit": "min.",
+									"dataBDD": "full-time-studies-previous-edition-films-minutes-sum"
+								},
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Studia stacjonarne/Rok bieżący",
+									"name": "fullTimeStudiesCurrentEditionFilmsMinutesSum",
+									"value": 0,
+									"readOnly": true,
+									"validators": [
+										{
+											"name": "RelatedSumValidator",
+											"kwargs": {
+												"field_names": [
+													"fullTimeStudiesCurrentEditionFeatureFilmMinutes",
+													"fullTimeStudiesCurrentEditionDocumentaryFilmMinutes",
+													"fullTimeStudiesCurrentEditionAnimatedFilmMinutes",
+													"fullTimeStudiesCurrentEditionOtherFilmMinutes"
+												]
+											}
+										}
+									],
+									"calculationRules": [
+										{
+											"name": "dynamicSumInputs",
+											"kwargs": {
+												"fields": [
+													"fullTimeStudiesCurrentEditionFeatureFilmMinutes",
+													"fullTimeStudiesCurrentEditionDocumentaryFilmMinutes",
+													"fullTimeStudiesCurrentEditionAnimatedFilmMinutes",
+													"fullTimeStudiesCurrentEditionOtherFilmMinutes"
+												]
+											}
+										}
+									],
+									"unit": "min.",
+									"dataBDD": "full-time-studies-current-edition-films-minutes-sum"
+								},
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Studia niestacjonarne/Rok poprzedni",
+									"name": "partTimeStudiesPreviousOtherFilmsMinutesSum",
+									"value": 0,
+									"readOnly": true,
+									"validators": [
+										{
+											"name": "RelatedSumValidator",
+											"kwargs": {
+												"field_names": [
+													"partTimeStudiesPreviousEditionFeatureFilmMinutes",
+													"partTimeStudiesPreviousEditionDocumentaryFilmMinutes",
+													"partTimeStudiesPreviousAnimatedFilmMinutes",
+													"partTimeStudiesPreviousOtherFeatureFilmMinutes"
+												]
+											}
+										}
+									],
+									"calculationRules": [
+										{
+											"name": "dynamicSumInputs",
+											"kwargs": {
+												"fields": [
+													"partTimeStudiesPreviousEditionFeatureFilmMinutes",
+													"partTimeStudiesPreviousEditionDocumentaryFilmMinutes",
+													"partTimeStudiesPreviousAnimatedFilmMinutes",
+													"partTimeStudiesPreviousOtherFeatureFilmMinutes"
+												]
+											}
+										}
+									],
+									"unit": "min.",
+									"dataBDD": "part-time-studies-previous-other-films-minutes-sum"
+								},
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Studia niestacjonarne Rok bieżący",
+									"name": "partTimeStudiesCurrentEditionFilmsMinutesSum",
+									"value": 0,
+									"readOnly": true,
+									"calculationRules": [
+										{
+											"name": "dynamicSumInputs",
+											"kwargs": {
+												"fields": [
+													"partTimeStudiesCurrentEditionFeatureFilmMinutes",
+													"partTimeStudiesCurrentEditionDocumentaryFilmMinutes",
+													"partTimeStudiesCurrentEditionAnimatedFilmMinutes",
+													"partTimeStudiesCurrentEditionOtherFilmMinutes"
+												]
+											}
+										}
+									],
+									"unit": "min.",
+									"dataBDD": "part-time-studies-current-edition-films-minutes-sum"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"kind": "chapter",
+			"title": "7. Podstawowe dane liczbowe na temat bieżącej i poprzedniej edycji",
+			"visibilityRules": [
+				{
+					"name": "dependsOnValue",
+					"kwargs": {
+						"fieldName": "projectType",
+						"values": [
+							"inne działania realizujące cele Priorytetu I"
+						]
+					}
+				}
+			],
+			"components": [
+				{
+					"kind": "chapter",
+					"title": "<normal>1. Liczba wydarzeń w ramach realizowanego przedsięwzięcia</normal>",
+					"components": [
+						{
+							"kind": "chapter",
+							"title": "<normal>- szkoleń </normal>",
+							"classList": {
+								"main": [
+									"table-1-2",
+									"grid",
+									"grid-cols-2"
+								],
+								"sub": [
+									"table-1-2__col"
+								]
+							},
+							"components": [
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Poprzednia edycja",
+									"name": "trainingsPastEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "szt.",
+									"dataBDD": "training-past-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Bieżąca edycja (planowane wielkości)",
+									"name": "trainingsCurrentEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "szt.",
+									"dataBDD": "training-past-edition-pkt4"
+								}
+							]
+						},
+						{
+							"kind": "chapter",
+							"title": "<normal>- warsztatów </normal>",
+							"classList": {
+								"main": [
+									"table-1-2",
+									"grid",
+									"grid-cols-2"
+								],
+								"sub": [
+									"table-1-2__col"
+								]
+							},
+							"components": [
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Poprzednia edycja",
+									"name": "workshopsPastEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "szt.",
+									"dataBDD": "workshops-past-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Bieżąca edycja (planowane wielkości)",
+									"name": "workshopsCurrentEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "szt.",
+									"dataBDD": "workshops-past-edition-pkt4"
+								}
+							]
+						},
+						{
+							"kind": "chapter",
+							"title": "<normal>- kursów </normal>",
+							"classList": {
+								"main": [
+									"table-1-2",
+									"grid",
+									"grid-cols-2"
+								],
+								"sub": [
+									"table-1-2__col"
+								]
+							},
+							"components": [
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Poprzednia edycja",
+									"name": "coursesPastEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "szt.",
+									"dataBDD": "courses-past-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Bieżąca edycja (planowane wielkości)",
+									"name": "coursesCurrentEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "szt.",
+									"dataBDD": "courses-past-edition-pkt4"
+								}
+							]
+						},
+						{
+							"kind": "chapter",
+							"title": "<normal>- innych </normal>",
+							"isMultipleForms": true,
+							"multipleFormsRules": {
+								"minCount": 1,
+								"maxCount": 25
+							},
+							"components": [
+								{
+									"kind": "chapter",
+									"title": "",
+									"classList": {
+										"main": [
+											"table-1-2",
+											"grid",
+											"grid-cols-2"
+										],
+										"sub": [
+											"table-1-2__col"
+										]
+									},
+									"components": [
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Poprzednia edycja",
+											"name": "otherPastEditionPkt4",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RangeValidator",
+													"kwargs": {
+														"min": 0
+													},
+													"validationMsg": "Wartość nie może być ujemna"
+												}
+											],
+											"unit": "szt.",
+											"dataBDD": "other-past-edition-pkt4"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Bieżąca edycja (planowane wielkości)",
+											"name": "otherCurrentEditionPkt4",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RangeValidator",
+													"kwargs": {
+														"min": 0
+													},
+													"validationMsg": "Wartość nie może być ujemna"
+												}
+											],
+											"unit": "szt.",
+											"dataBDD": "other-past-edition-pkt4"
+										}
+									]
+								}
+							]
+						},
+						{
+							"kind": "chapter",
+							"title": "<normal>SUMA</normal>",
+							"classList": {
+								"main": [
+									"table-1-2",
+									"grid",
+									"grid-cols-2"
+								],
+								"sub": [
+									"table-1-2__col"
+								]
+							},
+							"components": [
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Poprzednia edycja",
+									"name": "eventsSumPastEditionPkt4",
+									"value": 0,
+									"readOnly": true,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										},
+										{
+											"name": "RelatedSumValidator",
+											"kwargs": {
+												"field_names": [
+													"trainingsPastEditionPkt4",
+													"workshopsPastEditionPkt4",
+													"coursesPastEditionPkt4",
+													"otherPastEditionPkt4"
+												]
+											}
+										}
+									],
+									"calculationRules": [
+										{
+											"name": "sumInputs",
+											"kwargs": {
+												"fields": [
+													"trainingsPastEditionPkt4",
+													"workshopsPastEditionPkt4",
+													"coursesPastEditionPkt4",
+													"otherPastEditionPkt4"
+												]
+											}
+										}
+									],
+									"unit": "szt.",
+									"dataBDD": "events-sum-past-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Bieżąca edycja (planowane wielkości)",
+									"name": "eventsSumCurrentEditionPkt4",
+									"value": 0,
+									"readOnly": true,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										},
+										{
+											"name": "RelatedSumValidator",
+											"kwargs": {
+												"field_names": [
+													"trainingsCurrentEditionPkt4",
+													"workshopsCurrentEditionPkt4",
+													"coursesCurrentEditionPkt4",
+													"otherCurrentEditionPkt4"
+												]
+											}
+										}
+									],
+									"calculationRules": [
+										{
+											"name": "sumInputs",
+											"kwargs": {
+												"fields": [
+													"trainingsCurrentEditionPkt4",
+													"workshopsCurrentEditionPkt4",
+													"coursesCurrentEditionPkt4",
+													"otherCurrentEditionPkt4"
+												]
+											}
+										}
+									],
+									"unit": "szt.",
+									"dataBDD": "events-sum-past-edition-pkt4"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "chapter",
+					"title": "<normal>2. Liczba uczestników w ramach realizowanego przedsięwzięcia</normal>",
+					"components": [
+						{
+							"kind": "chapter",
+							"title": "<normal>- szkoleń </normal>",
+							"classList": {
+								"main": [
+									"table-1-2",
+									"grid",
+									"grid-cols-2"
+								],
+								"sub": [
+									"table-1-2__col"
+								]
+							},
+							"components": [
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Poprzednia edycja",
+									"name": "trainingsParticipantsPastEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "os.",
+									"dataBDD": "trainings-participants-past-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Bieżąca edycja (planowane wielkości)",
+									"name": "trainingsParticipantsCurrentEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "os.",
+									"dataBDD": "trainings-participants-past-edition-pkt4"
+								}
+							]
+						},
+						{
+							"kind": "chapter",
+							"title": "<normal>- warsztatów </normal>",
+							"classList": {
+								"main": [
+									"table-1-2",
+									"grid",
+									"grid-cols-2"
+								],
+								"sub": [
+									"table-1-2__col"
+								]
+							},
+							"components": [
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Poprzednia edycja",
+									"name": "workshopsParticipantsPastEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "os.",
+									"dataBDD": "workshops-participants-past-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Bieżąca edycja (planowane wielkości)",
+									"name": "workshopsParticipantsCurrentEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "os.",
+									"dataBDD": "workshops-participants-past-edition-pkt4"
+								}
+							]
+						},
+						{
+							"kind": "chapter",
+							"title": "<normal>- kursów </normal>",
+							"classList": {
+								"main": [
+									"table-1-2",
+									"grid",
+									"grid-cols-2"
+								],
+								"sub": [
+									"table-1-2__col"
+								]
+							},
+							"components": [
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Poprzednia edycja",
+									"name": "coursesParticipantsPastEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "os.",
+									"dataBDD": "courses-participants-past-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Bieżąca edycja (planowane wielkości)",
+									"name": "coursesParticipantsCurrentEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "os.",
+									"dataBDD": "courses-participants-past-edition-pkt4"
+								}
+							]
+						},
+						{
+							"kind": "chapter",
+							"title": "<normal>- innych </normal>",
+							"isMultipleForms": true,
+							"multipleFormsRules": {
+								"minCount": 1,
+								"maxCount": 25
+							},
+							"components": [
+								{
+									"kind": "chapter",
+									"title": "",
+									"classList": {
+										"main": [
+											"table-1-2",
+											"grid",
+											"grid-cols-2"
+										],
+										"sub": [
+											"table-1-2__col"
+										]
+									},
+									"components": [
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Poprzednia edycja",
+											"name": "otherParticipantsPastEditionPkt4",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RangeValidator",
+													"kwargs": {
+														"min": 0
+													},
+													"validationMsg": "Wartość nie może być ujemna"
+												}
+											],
+											"unit": "os.",
+											"dataBDD": "other-participants-past-edition-pkt4"
+										},
+										{
+											"kind": "component",
+											"type": "number",
+											"label": "Bieżąca edycja (planowane wielkości)",
+											"name": "otherParticipantsCurrentEditionPkt4",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RangeValidator",
+													"kwargs": {
+														"min": 0
+													},
+													"validationMsg": "Wartość nie może być ujemna"
+												}
+											],
+											"unit": "os.",
+											"dataBDD": "other-participants-past-edition-pkt4"
+										}
+									]
+								}
+							]
+						},
+						{
+							"kind": "chapter",
+							"title": "<normal>SUMA</normal>",
+							"classList": {
+								"main": [
+									"table-1-2",
+									"grid",
+									"grid-cols-2"
+								],
+								"sub": [
+									"table-1-2__col"
+								]
+							},
+							"components": [
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Poprzednia edycja",
+									"name": "participantsSumPastEditionPkt4",
+									"value": 0,
+									"readOnly": true,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										},
+										{
+											"name": "RelatedSumValidator",
+											"kwargs": {
+												"field_names": [
+													"trainingsParticipantsPastEditionPkt4",
+													"workshopsParticipantsPastEditionPkt4",
+													"coursesParticipantsPastEditionPkt4",
+													"otherParticipantsPastEditionPkt4"
+												]
+											}
+										}
+									],
+									"calculationRules": [
+										{
+											"name": "sumInputs",
+											"kwargs": {
+												"fields": [
+													"trainingsParticipantsPastEditionPkt4",
+													"workshopsParticipantsPastEditionPkt4",
+													"coursesParticipantsPastEditionPkt4",
+													"otherParticipantsPastEditionPkt4"
+												]
+											}
+										}
+									],
+									"unit": "os.",
+									"dataBDD": "participants-sum-past-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "number",
+									"label": "Bieżąca edycja (planowane wielkości)",
+									"name": "participantsSumCurrentEditionPkt4",
+									"value": 0,
+									"readOnly": true,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										},
+										{
+											"name": "RelatedSumValidator",
+											"kwargs": {
+												"field_names": [
+													"trainingsParticipantsCurrentEditionPkt4",
+													"workshopsParticipantsCurrentEditionPkt4",
+													"coursesParticipantsCurrentEditionPkt4",
+													"otherParticipantsCurrentEditionPkt4"
+												]
+											}
+										}
+									],
+									"calculationRules": [
+										{
+											"name": "sumInputs",
+											"kwargs": {
+												"fields": [
+													"trainingsParticipantsCurrentEditionPkt4",
+													"workshopsParticipantsCurrentEditionPkt4",
+													"coursesParticipantsCurrentEditionPkt4",
+													"otherParticipantsCurrentEditionPkt4"
+												]
+											}
+										}
+									],
+									"unit": "os.",
+									"dataBDD": "participants-sum-past-edition-pkt4"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "chapter",
+					"title": "<normal>3. Wpływy ze sprzedaży</normal>",
+					"classList": {
+						"main": [
+							"w-full"
+						],
+						"sub": [
+							"table-4-top",
+							"w-full-sub"
+						]
+					},
+					"components": [
+						{
+							"kind": "chapter",
+							"title": "<normal>- szkoleń </normal>",
+							"classList": {
+								"main": [
+									"table-4",
+									"grid",
+									"grid-cols-4"
+								],
+								"sub": [
+									"table-4__col"
+								]
+							},
+							"components": [
+								{
+									"kind": "component",
+									"type": "text",
+									"mask": "fund",
+									"label": "Suma: poprzednia edycja",
+									"name": "trainingsIncomePastEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "PLN",
+									"dataBDD": "trainings-income-past-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "text",
+									"mask": "fund",
+									"label": "Koszt jednostkowy: poprzednia edycja",
+									"name": "trainingsCostPastEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "PLN",
+									"dataBDD": "trainings-cost-past-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "text",
+									"mask": "fund",
+									"label": "Suma: bieżąca edycja (planowane wielkości)",
+									"name": "trainingsIncomeCurrentEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "PLN",
+									"dataBDD": "trainings-income-current-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "text",
+									"mask": "fund",
+									"label": "Koszt jednostkowy: bieżąca edycja (planowane wielkości)",
+									"name": "trainingsCostCurrentEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "PLN",
+									"dataBDD": "trainings-cost-current-edition-pkt4"
+								}
+							]
+						},
+						{
+							"kind": "chapter",
+							"title": "<normal>- warsztatów </normal>",
+							"classList": {
+								"main": [
+									"table-4",
+									"grid",
+									"grid-cols-4"
+								],
+								"sub": [
+									"table-4__col"
+								]
+							},
+							"components": [
+								{
+									"kind": "component",
+									"type": "text",
+									"mask": "fund",
+									"label": "Suma: poprzednia edycja",
+									"name": "workshopsIncomePastEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "PLN",
+									"dataBDD": "workshops-income-past-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "text",
+									"mask": "fund",
+									"label": "Koszt jednostkowy: poprzednia edycja",
+									"name": "workshopsCostPastEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "PLN",
+									"dataBDD": "workshops-cost-past-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "text",
+									"mask": "fund",
+									"label": "Suma: bieżąca edycja (planowane wielkości)",
+									"name": "workshopsIncomeCurrentEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "PLN",
+									"dataBDD": "workshops-income-current-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "text",
+									"mask": "fund",
+									"label": "Koszt jednostkowy: bieżąca edycja (planowane wielkości)",
+									"name": "workshopsCostCurrentEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "PLN",
+									"dataBDD": "workshops-cost-current-edition-pkt4"
+								}
+							]
+						},
+						{
+							"kind": "chapter",
+							"title": "<normal>- kursów </normal>",
+							"classList": {
+								"main": [
+									"table-4",
+									"grid",
+									"grid-cols-4"
+								],
+								"sub": [
+									"table-4__col"
+								]
+							},
+							"components": [
+								{
+									"kind": "component",
+									"type": "text",
+									"mask": "fund",
+									"label": "Suma: poprzednia edycja",
+									"name": "coursesIncomePastEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "PLN",
+									"dataBDD": "courses-income-past-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "text",
+									"mask": "fund",
+									"label": "Koszt jednostkowy: poprzednia edycja",
+									"name": "coursesCostPastEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "PLN",
+									"dataBDD": "courses-cost-past-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "text",
+									"mask": "fund",
+									"label": "Suma: bieżąca edycja (planowane wielkości)",
+									"name": "coursesIncomeCurrentEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "PLN",
+									"dataBDD": "courses-income-current-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "text",
+									"mask": "fund",
+									"label": "Koszt jednostkowy: bieżąca edycja (planowane wielkości)",
+									"name": "coursesCostCurrentEditionPkt4",
+									"value": 0,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										}
+									],
+									"unit": "PLN",
+									"dataBDD": "courses-cost-current-edition-pkt4"
+								}
+							]
+						},
+						{
+							"kind": "chapter",
+							"title": "<normal>- innych </normal>",
+							"isMultipleForms": true,
+							"multipleFormsRules": {
+								"minCount": 1,
+								"maxCount": 25
+							},
+							"components": [
+								{
+									"kind": "chapter",
+									"title": "",
+									"classList": {
+										"main": [
+											"table-4",
+											"grid",
+											"grid-cols-4"
+										],
+										"sub": [
+											"table-4__col"
+										]
+									},
+									"components": [
+										{
+											"kind": "component",
+											"type": "text",
+											"mask": "fund",
+											"label": "Suma: poprzednia edycja",
+											"name": "otherIncomePastEditionPkt4",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RangeValidator",
+													"kwargs": {
+														"min": 0
+													},
+													"validationMsg": "Wartość nie może być ujemna"
+												}
+											],
+											"unit": "PLN",
+											"dataBDD": "other-income-past-edition-pkt4"
+										},
+										{
+											"kind": "component",
+											"type": "text",
+											"mask": "fund",
+											"label": "Koszt jednostkowy: poprzednia edycja",
+											"name": "otherCostPastEditionPkt4",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RangeValidator",
+													"kwargs": {
+														"min": 0
+													},
+													"validationMsg": "Wartość nie może być ujemna"
+												}
+											],
+											"unit": "PLN",
+											"dataBDD": "other-cost-past-edition-pkt4"
+										},
+										{
+											"kind": "component",
+											"type": "text",
+											"mask": "fund",
+											"label": "Suma: bieżąca edycja (planowane wielkości)",
+											"name": "otherIncomeCurrentEditionPkt4",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RangeValidator",
+													"kwargs": {
+														"min": 0
+													},
+													"validationMsg": "Wartość nie może być ujemna"
+												}
+											],
+											"unit": "PLN",
+											"dataBDD": "other-income-current-edition-pkt4"
+										},
+										{
+											"kind": "component",
+											"type": "text",
+											"mask": "fund",
+											"label": "Koszt jednostkowy: bieżąca edycja (planowane wielkości)",
+											"name": "otherCostCurrentEditionPkt4",
+											"value": 0,
+											"validators": [
+												{
+													"name": "RangeValidator",
+													"kwargs": {
+														"min": 0
+													},
+													"validationMsg": "Wartość nie może być ujemna"
+												}
+											],
+											"unit": "PLN",
+											"dataBDD": "other-cost-current-edition-pkt4"
+										}
+									]
+								}
+							]
+						},
+						{
+							"kind": "chapter",
+							"title": "<normal>SUMA</normal>",
+							"classList": {
+								"main": [
+									"table-4",
+									"grid",
+									"grid-cols-4"
+								],
+								"sub": [
+									"table-4__col"
+								]
+							},
+							"components": [
+								{
+									"kind": "component",
+									"type": "text",
+									"mask": "fund",
+									"label": "Suma: poprzednia edycja",
+									"name": "sumIncomePastEditionPkt4",
+									"value": 0,
+									"readOnly": true,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										},
+										{
+											"name": "RelatedSumValidator",
+											"kwargs": {
+												"field_names": [
+													"trainingsIncomePastEditionPkt4",
+													"workshopsIncomePastEditionPkt4",
+													"coursesIncomePastEditionPkt4",
+													"otherIncomePastEditionPkt4"
+												]
+											}
+										}
+									],
+									"calculationRules": [
+										{
+											"name": "sumInputs",
+											"kwargs": {
+												"fields": [
+													"trainingsIncomePastEditionPkt4",
+													"workshopsIncomePastEditionPkt4",
+													"coursesIncomePastEditionPkt4",
+													"otherIncomePastEditionPkt4"
+												]
+											}
+										}
+									],
+									"unit": "PLN",
+									"dataBDD": "sum-income-past-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "text",
+									"mask": "fund",
+									"label": "Koszt jednostkowy: poprzednia edycja",
+									"name": "sumCostPastEditionPkt4",
+									"value": 0,
+									"readOnly": true,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										},
+										{
+											"name": "RelatedSumValidator",
+											"kwargs": {
+												"field_names": [
+													"trainingsCostPastEditionPkt4",
+													"workshopsCostPastEditionPkt4",
+													"coursesCostPastEditionPkt4",
+													"otherCostPastEditionPkt4"
+												]
+											}
+										}
+									],
+									"calculationRules": [
+										{
+											"name": "sumInputs",
+											"kwargs": {
+												"fields": [
+													"trainingsCostPastEditionPkt4",
+													"workshopsCostPastEditionPkt4",
+													"coursesCostPastEditionPkt4",
+													"otherCostPastEditionPkt4"
+												]
+											}
+										}
+									],
+									"unit": "PLN",
+									"dataBDD": "sum-cost-past-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "text",
+									"mask": "fund",
+									"label": "Suma: bieżąca edycja (planowane wielkości)",
+									"name": "sumIncomeCurrentEditionPkt4",
+									"value": 0,
+									"readOnly": true,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										},
+										{
+											"name": "RelatedSumValidator",
+											"kwargs": {
+												"field_names": [
+													"trainingsIncomeCurrentEditionPkt4",
+													"workshopsIncomeCurrentEditionPkt4",
+													"coursesIncomeCurrentEditionPkt4",
+													"otherIncomeCurrentEditionPkt4"
+												]
+											}
+										}
+									],
+									"calculationRules": [
+										{
+											"name": "sumInputs",
+											"kwargs": {
+												"fields": [
+													"trainingsIncomeCurrentEditionPkt4",
+													"workshopsIncomeCurrentEditionPkt4",
+													"coursesIncomeCurrentEditionPkt4",
+													"otherIncomeCurrentEditionPkt4"
+												]
+											}
+										}
+									],
+									"unit": "PLN",
+									"dataBDD": "sum-income-current-edition-pkt4"
+								},
+								{
+									"kind": "component",
+									"type": "text",
+									"mask": "fund",
+									"label": "Koszt jednostkowy: bieżąca edycja (planowane wielkości)",
+									"name": "sumCostCurrentEditionPkt4",
+									"value": 0,
+									"readOnly": true,
+									"validators": [
+										{
+											"name": "RangeValidator",
+											"kwargs": {
+												"min": 0
+											},
+											"validationMsg": "Wartość nie może być ujemna"
+										},
+										{
+											"name": "RelatedSumValidator",
+											"kwargs": {
+												"field_names": [
+													"trainingsCostCurrentEditionPkt4",
+													"workshopsCostCurrentEditionPkt4",
+													"coursesCostCurrentEditionPkt4",
+													"otherCostCurrentEditionPkt4"
+												]
+											}
+										}
+									],
+									"calculationRules": [
+										{
+											"name": "sumInputs",
+											"kwargs": {
+												"fields": [
+													"trainingsCostCurrentEditionPkt4",
+													"workshopsCostCurrentEditionPkt4",
+													"coursesCostCurrentEditionPkt4",
+													"otherCostCurrentEditionPkt4"
+												]
+											}
+										}
+									],
+									"unit": "PLN",
+									"dataBDD": "sum-cost-current-edition-pkt4"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"kind": "chapter",
+			"title": "Czy przedsięwzięcie, na które składany jest wniosek jest powiązane z innymi przedsięwzięciami, o dofinansowanie których ubiega się wnioskodawca w bieżącym roku z innych programów operacyjnych PISF? Jeżeli tak, proszę podać nazwę przedsięwzięcia, program oraz wnioskowaną kwotę dofinansowania",
+			"components": [
+				{
+					"kind": "chapter",
+					"title": "",
+					"components": [
+						{
+							"kind": "component",
+							"type": "radio",
+							"label": "",
+							"name": "wasSubmittedBefore",
+							"value": "Nie",
+							"options": [
+								"Tak",
+								"Nie"
+							],
+							"helpText": "",
+							"validators": [
+								{
+									"name": "ExactValidator",
+									"kwargs": {
+										"values": [
+											"Tak",
+											"Nie"
+										]
+									}
+								}
+							],
+							"dataBDD": "was-submitted-before"
+						}
+					]
+				},
+				{
+					"kind": "chapter",
+					"title": " ",
+					"visibilityRules": [
+						{
+							"name": "dependsOnValue",
+							"kwargs": {
+								"fieldName": "wasSubmittedBefore",
+								"values": [
+									"Tak"
+								]
+							}
+						}
+					],
+					"isMultipleForms": true,
+					"multipleFormsRules": {
+						"minCount": 1,
+						"maxCount": 20
+					},
+					"components": [
+						{
+							"kind": "chapter",
+							"title": " 1",
+							"components": [
+								{
+									"kind": "component",
+									"type": "text",
+									"label": "Nazwa przedsięwzięcia",
+									"name": "otherProjectName",
+									"value": "",
+									"helpText": "Podaj nazwę przedsięwzięcia",
+									"dataBDD": "other-project-name"
+								},
+								{
+									"kind": "component",
+									"type": "text",
+									"label": "Program operacyjny",
+									"name": "programmeName",
+									"value": "",
+									"helpText": "Podaj nazwę programu operacyjnego",
+									"dataBDD": "programme-name"
+								},
+								{
+									"kind": "component",
+									"type": "text",
+									"mask": "fund",
+									"label": "Wnioskowana kwota",
+									"name": "otherProjectFundingAmount",
+									"value": 0,
+									"unit": "PLN",
+									"dataBDD": "other-project-funding-amount"
+								}
+							],
+							"classList": [
+								"grid",
+								"grid-cols-3"
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -67,6 +67,7 @@
 				{
 					"kind": "component",
 					"type": "radio",
+					"label": "",
 					"name": "projectType",
 					"value": "",
 					"options": [],
