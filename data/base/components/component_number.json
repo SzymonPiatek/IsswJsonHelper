@@ -1,16 +1,13 @@
 {
-	"kind": "component",
-	"type": "number",
-	"label": "",
-	"name": "",
-	"value": 0,
-	"helpText": "",
-	"dataBDD": "",
-	"unit": "",
-	"readOnly": false,
-	"required": false,
-	"classList": [],
-	"validators": [],
-	"calculationRules": [],
-	"errorMsgs": []
+  "kind": "component",
+  "type": "number",
+  "label": "",
+  "name": "",
+  "value": 0,
+  "dataBDD": "",
+  "unit": "",
+  "classList": [],
+  "validators": [],
+  "calculationRules": [],
+  "errorMsgs": []
 }

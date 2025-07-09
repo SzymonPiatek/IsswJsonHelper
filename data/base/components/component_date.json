@@ -1,15 +1,12 @@
 {
-	"kind": "component",
-	"type": "date",
-	"label": "",
-	"name": "",
-	"value": false,
-	"helpText": "",
-	"dataBDD": "",
-	"readOnly": false,
-	"required": false,
-	"classList": [],
-	"validators": [],
-	"calculationRules": [],
-	"errorMsgs": []
+  "kind": "component",
+  "type": "date",
+  "label": "",
+  "name": "",
+  "value": false,
+  "dataBDD": "",
+  "classList": [],
+  "validators": [],
+  "calculationRules": [],
+  "errorMsgs": []
 }

@@ -417,7 +417,6 @@
               "label": "Studia niestacjonarne/Rok poprzedni",
               "name": "partTimeStudiesPreviousYearAverageTuition",
               "value": "0",
-              "helpText": "",
               "mask": "fund",
               "unit": "PLN",
               "dataBDD": "partTimeStudiesPreviousYearAverageTuition"
@@ -2689,7 +2688,6 @@
                 "Tak",
                 "Nie"
               ],
-              "helpText": "",
               "validators": [
                 {
                   "name": "ExactValidator",

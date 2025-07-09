@@ -1,986 +1,957 @@
 {
-	"kind": "part",
-	"title": "IV. Źródła finansowania",
-	"shortName": "IV. Źródła finansowania",
-	"chapters": [
-		{
-			"kind": "chapter",
-			"title": "1. Całkowity przewidywany koszt realizacji przedsięwzięcia",
-			"components": [
-				{
-					"kind": "component",
-					"type": "text",
-					"mask": "fund",
-					"label": "kwota kosztu całkowitego",
-					"name": "totalProjectCost",
-					"calculationRules": [
-						{
-							"name": "sumInputs",
-							"kwargs": {
-								"fields": [
-									"ownFundsSumAmount",
-									"pisfSupportAmount",
-									"localGovernmentsFundsSumAmount",
-									"ministryFundsSumAmount",
-									"sponsorsSumAmount",
-									"foreignFundsSumAmount"
-								]
-							}
-						}
-					],
-					"value": 0,
-					"readOnly": true,
-					"unit": "PLN",
-					"dataBDD": "totalProjectCost"
-				},
-				{
-					"kind": "component",
-					"type": "text",
-					"mask": "fund",
-					"label": "finansowanie ze źródeł publicznych razem",
-					"name": "publicSupportAltogether",
-					"calculationRules": [
-						{
-							"name": "sumInputs",
-							"kwargs": {
-								"fields": [
-									"pisfSupportAmount",
-									"localGovernmentsFundsSumAmount",
-									"ministryFundsSumAmount"
-								]
-							}
-						}
-					],
-					"value": 0,
-					"readOnly": true,
-					"validators": [
-						{
-							"name": "RelatedFractionGTEValidator",
-							"kwargs": {
-								"field_name": "totalProjectCost",
-								"ratio": 0.9
-							},
-							"validationMsg": "Suma środków publicznych nie może przekroczyć 90% kosztu realizacji przedsięwzięcia."
-						}
-					],
-					"unit": "PLN",
-					"dataBDD": "publicSupportAltogether"
-				}
-			],
-			"classList": [
-				"grid",
-				"grid-cols-2"
-			]
-		},
-		{
-			"kind": "chapter",
-			"title": "2. Wyszczególnienie źródeł finansowania",
-			"components": [
-				{
-					"kind": "chapter",
-					"title": "<normal>a) środki własne z podziałem na: wkład finansowy (np.: wpływy z biletów, ze sprzedaży publikacji, akredytacji, opłat uczestników itp.) i ewentualnie wyceniony wkład rzeczowy </normal>",
-					"components": [
-						{
-							"kind": "chapter",
-							"title": "<normal>- wkład finansowy </normal>",
-							"components": [
-								{
-									"kind": "component",
-									"type": "text",
-									"mask": "fund",
-									"label": "kwota",
-									"name": "ownFinancialFundsAmount",
-									"value": 0,
-									"required": true,
-									"validators": [
-										{
-											"name": "RequiredValidator"
-										}
-									],
-									"unit": "PLN",
-									"dataBDD": "ownFinancialFundsAmount"
-								},
-								{
-									"kind": "component",
-									"type": "number",
-									"label": "udział w koszcie całkowitym",
-									"name": "ownFinancialFundsShare",
-									"value": 0,
-									"calculationRules": [
-										{
-											"name": "shareCalculator",
-											"kwargs": {
-												"dividendField": "ownFinancialFundsAmount",
-												"divisorField": "totalProjectCost"
-											}
-										}
-									],
-									"readOnly": true,
-									"validators": [
-										{
-											"name": "RequiredValidator"
-										},
-										{
-											"name": "RelatedShareValidator",
-											"kwargs": {
-												"dividend": "ownFinancialFundsAmount",
-												"divisor": "totalProjectCost"
-											}
-										}
-									],
-									"required": true,
-									"unit": "%",
-									"dataBDD": "ownFinancialFundsShare"
-								}
-							],
-							"classList": [
-								"grid",
-								"grid-cols-2"
-							]
-						},
-						{
-							"kind": "chapter",
-							"title": "<normal>- wkład rzeczowy </normal>",
-							"components": [
-								{
-									"kind": "component",
-									"type": "text",
-									"mask": "fund",
-									"label": "kwota",
-									"name": "ownInKindFundsAmount",
-									"value": 0,
-									"required": true,
-									"validators": [
-										{
-											"name": "RequiredValidator"
-										}
-									],
-									"unit": "PLN",
-									"dataBDD": "ownInKindFundsAmount"
-								},
-								{
-									"kind": "component",
-									"type": "number",
-									"label": "udział w koszcie całkowitym",
-									"name": "ownInKindFundsShare",
-									"value": 0,
-									"calculationRules": [
-										{
-											"name": "shareCalculator",
-											"kwargs": {
-												"dividendField": "ownInKindFundsAmount",
-												"divisorField": "totalProjectCost"
-											}
-										}
-									],
-									"readOnly": true,
-									"validators": [
-										{
-											"name": "RelatedShareValidator",
-											"kwargs": {
-												"dividend": "ownInKindFundsAmount",
-												"divisor": "totalProjectCost"
-											}
-										},
-										{
-											"name": "RequiredValidator"
-										}
-									],
-									"required": true,
-									"unit": "%",
-									"dataBDD": "ownInKindFundsShare"
-								}
-							],
-							"classList": [
-								"grid",
-								"grid-cols-2"
-							]
-						},
-						{
-							"kind": "chapter",
-							"title": "<normal>Suma środków własnych </normal>",
-							"components": [
-								{
-									"kind": "component",
-									"type": "text",
-									"mask": "fund",
-									"label": "kwota",
-									"name": "ownFundsSumAmount",
-									"value": 0,
-									"calculationRules": [
-										{
-											"name": "sumInputs",
-											"kwargs": {
-												"fields": [
-													"ownFinancialFundsAmount",
-													"ownInKindFundsAmount"
-												]
-											}
-										}
-									],
-									"helpText": "",
-									"readOnly": true,
-									"validators": [
-										{
-											"name": "RelatedSumValidator",
-											"kwargs": {
-												"field_names": [
-													"ownFinancialFundsAmount",
-													"ownInKindFundsAmount"
-												]
-											}
-										}
-									],
-									"required": false,
-									"unit": "PLN",
-									"dataBDD": "ownFundsSumAmount"
-								}
-							]
-						}
-					]
-				},
-				{
-					"kind": "chapter",
-					"title": "<normal>b) ze środków PISF </normal>",
-					"components": [
-						{
-							"kind": "chapter",
-							"title": "<normal>- dotacja PISF </normal>",
-							"components": [
-								{
-									"kind": "component",
-									"type": "text",
-									"mask": "fund",
-									"label": "kwota",
-									"name": "pisfSupportAmount",
-									"value": 0,
-									"helpText": "",
-									"readOnly": false,
-									"validators": [
-										{
-											"name": "RelatedFractionGTEValidator",
-											"kwargs": {
-												"field_name": "totalProjectCost",
-												"ratio": 0.9
-											},
-											"validationMsg": "Dotacja PISF nie może przekroczyć 90% kosztu realizacji przedsięwzięcia."
-										}
-									],
-									"required": true,
-									"calculationRules": [],
-									"unit": "PLN",
-									"dataBDD": "pisfSupportAmount"
-								},
-								{
-									"kind": "component",
-									"type": "number",
-									"label": "udział w koszcie całkowitym",
-									"name": "pisfSupportShare",
-									"value": 0,
-									"calculationRules": [
-										{
-											"name": "shareCalculator",
-											"kwargs": {
-												"dividendField": "pisfSupportAmount",
-												"divisorField": "totalProjectCost"
-											}
-										}
-									],
-									"helpText": "",
-									"readOnly": true,
-									"validators": [
-										{
-											"name": "RelatedShareValidator",
-											"kwargs": {
-												"dividend": "pisfSupportAmount",
-												"divisor": "totalProjectCost"
-											}
-										}
-									],
-									"required": true,
-									"unit": "%",
-									"dataBDD": "pisfSupportShare"
-								}
-							],
-							"classList": [
-								"grid",
-								"grid-cols-2"
-							]
-						}
-					]
-				},
-				{
-					"kind": "chapter",
-					"title": "",
-					"components": [
-						{
-							"kind": "component",
-							"type": "checkbox",
-							"label": "Czy występują środki z budżetów jednostek samorządu terytorialnego lub innych środków publicznych za wyjątkiem MKiDN?",
-							"name": "isLocalGovernmentFunding",
-							"value": false,
-							"validators": [],
-							"dataBDD": "isLocalGovernmentFunding"
-						}
-					]
-				},
-				{
-					"kind": "chapter",
-					"title": "",
-					"visibilityRules": [
-						{
-							"name": "dependsOnValue",
-							"kwargs": {
-								"fieldName": "isLocalGovernmentFunding",
-								"values": [
-									"true",
-									true
-								]
-							}
-						}
-					],
-					"components": [
-						{
-							"kind": "chapter",
-							"title": "<normal>c) z budżetów jednostek samorządu terytorialnego lub innych środków publicznych za wyjątkiem MKiDN </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
-							"components": [
-								{
-									"kind": "chapter",
-									"title": "",
-									"isMultipleForms": true,
-									"multipleFormsRules": {
-										"minCount": 1,
-										"maxCount": 20
-									},
-									"components": [
-										{
-											"kind": "chapter",
-											"title": " 1",
-											"components": [
-												{
-													"kind": "component",
-													"type": "text",
-													"label": "Nazwa podmiotu",
-													"name": "localGovernmentName",
-													"value": "",
-													"helpText": "Podaj nazwę podmiotu finansującego",
-													"readOnly": false,
-													"dataBDD": "localGovernmentName",
-													"classList": [
-														"col-span-2"
-													]
-												},
-												{
-													"kind": "component",
-													"type": "text",
-													"mask": "fund",
-													"label": "kwota",
-													"name": "localGovernmentFundingAmount",
-													"value": 0,
-													"helpText": "",
-													"readOnly": false,
-													"validators": [],
-													"required": true,
-													"calculationRules": [],
-													"unit": "PLN",
-													"dataBDD": "localGovernmentFundingAmount"
-												},
-												{
-													"kind": "component",
-													"type": "number",
-													"label": "udział w koszcie całkowitym",
-													"name": "localGovernmentFundingShare",
-													"value": 0,
-													"calculationRules": [
-														{
-															"name": "singlePositionShareCalculator",
-															"kwargs": {
-																"dividendField": "localGovernmentFundingAmount",
-																"divisorField": "totalProjectCost"
-															}
-														}
-													],
-													"helpText": "",
-													"readOnly": true,
-													"validators": [],
-													"required": true,
-													"unit": "%",
-													"dataBDD": "localGovernmentFundingShare"
-												}
-											],
-											"classList": [
-												"grid",
-												"grid-cols-2"
-											]
-										}
-									]
-								},
-								{
-									"kind": "chapter",
-									"title": "<normal>Łącznie </normal>",
-									"components": [
-										{
-											"kind": "component",
-											"type": "text",
-											"mask": "fund",
-											"label": "kwota",
-											"name": "localGovernmentsFundsSumAmount",
-											"value": 0,
-											"calculationRules": [
-												{
-													"name": "dynamicSumInputs",
-													"kwargs": {
-														"fields": "localGovernmentFundingAmount"
-													}
-												}
-											],
-											"helpText": "",
-											"readOnly": true,
-											"validators": [],
-											"required": true,
-											"unit": "PLN",
-											"dataBDD": "localGovernmentsFundsSumAmount"
-										},
-										{
-											"kind": "component",
-											"type": "number",
-											"label": "udział w koszcie całkowitym",
-											"name": "localGovernmentsFundsShare",
-											"value": 0,
-											"calculationRules": [
-												{
-													"name": "singlePositionShareCalculator",
-													"kwargs": {
-														"dividendField": "localGovernmentsFundsSumAmount",
-														"divisorField": "totalProjectCost"
-													}
-												}
-											],
-											"helpText": "",
-											"readOnly": true,
-											"validators": [],
-											"required": true,
-											"unit": "%",
-											"dataBDD": "localGovernmentsFundsShare"
-										}
-									],
-									"classList": [
-										"grid",
-										"grid-cols-2"
-									]
-								}
-							]
-						}
-					]
-				},
-				{
-					"kind": "chapter",
-					"title": "",
-					"components": [
-						{
-							"kind": "component",
-							"type": "checkbox",
-							"label": "Czy występują środki MKiDN w ramach Programów Ministra?",
-							"name": "isMinisterialFunding",
-							"value": false,
-							"validators": [],
-							"dataBDD": "isMinisterialFunding"
-						}
-					]
-				},
-				{
-					"kind": "chapter",
-					"title": "",
-					"visibilityRules": [
-						{
-							"name": "dependsOnValue",
-							"kwargs": {
-								"fieldName": "isMinisterialFunding",
-								"values": [
-									"true",
-									true
-								]
-							}
-						}
-					],
-					"components": [
-						{
-							"kind": "chapter",
-							"title": "<normal>d) ze środków MKiDN w ramach Programów Ministra </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
-							"components": [
-								{
-									"kind": "chapter",
-									"title": "",
-									"isMultipleForms": true,
-									"multipleFormsRules": {
-										"minCount": 1,
-										"maxCount": 20
-									},
-									"components": [
-										{
-											"kind": "chapter",
-											"title": " ",
-											"components": [
-												{
-													"kind": "component",
-													"type": "text",
-													"label": "Nazwa podmiotu",
-													"name": "ministerialEntityName",
-													"value": "",
-													"helpText": "Podaj nazwę podmiotu finansującego lub Programu Ministra",
-													"readOnly": false,
-													"dataBDD": "ministerialEntityName",
-													"classList": [
-														"col-span-2"
-													]
-												},
-												{
-													"kind": "component",
-													"type": "text",
-													"mask": "fund",
-													"label": "kwota",
-													"name": "ministerialEntityFundingAmount",
-													"value": 0,
-													"helpText": "",
-													"readOnly": false,
-													"validators": [],
-													"required": true,
-													"calculationRules": [],
-													"unit": "PLN",
-													"dataBDD": "ministerialEntityFundingAmount"
-												},
-												{
-													"kind": "component",
-													"type": "number",
-													"label": "udział w koszcie całkowitym",
-													"name": "ministerialEntityFundingShare",
-													"value": 0,
-													"calculationRules": [
-														{
-															"name": "singlePositionShareCalculator",
-															"kwargs": {
-																"dividendField": "ministerialEntityFundingAmount",
-																"divisorField": "totalProjectCost"
-															}
-														}
-													],
-													"helpText": "",
-													"readOnly": true,
-													"validators": [],
-													"required": true,
-													"unit": "%",
-													"dataBDD": "ministerialEntityFundingShare"
-												}
-											],
-											"classList": [
-												"grid",
-												"grid-cols-2"
-											]
-										}
-									]
-								},
-								{
-									"kind": "chapter",
-									"title": "<normal>Łącznie </normal>",
-									"components": [
-										{
-											"kind": "component",
-											"type": "text",
-											"mask": "fund",
-											"label": "kwota",
-											"name": "ministryFundsSumAmount",
-											"value": 0,
-											"calculationRules": [
-												{
-													"name": "dynamicSumInputs",
-													"kwargs": {
-														"fields": "ministerialEntityFundingAmount"
-													}
-												}
-											],
-											"helpText": "",
-											"readOnly": true,
-											"validators": [],
-											"required": true,
-											"unit": "PLN",
-											"dataBDD": "ministryFundsSumAmount"
-										},
-										{
-											"kind": "component",
-											"type": "number",
-											"label": "udział w koszcie całkowitym",
-											"name": "ministryFundingShare",
-											"value": 0,
-											"calculationRules": [
-												{
-													"name": "singlePositionShareCalculator",
-													"kwargs": {
-														"dividendField": "ministryFundsSumAmount",
-														"divisorField": "totalProjectCost"
-													}
-												}
-											],
-											"helpText": "",
-											"readOnly": true,
-											"validators": [],
-											"required": true,
-											"unit": "%",
-											"dataBDD": "ministryFundingShare"
-										}
-									],
-									"classList": [
-										"grid",
-										"grid-cols-2"
-									]
-								}
-							]
-						}
-					]
-				},
-				{
-					"kind": "chapter",
-					"title": "",
-					"components": [
-						{
-							"kind": "component",
-							"type": "checkbox",
-							"label": "Czy występują środki od sponsorów lub innych podmiotów niezaliczanych do sektora finansów publicznych?",
-							"name": "isSponsorFunding",
-							"value": false,
-							"validators": [],
-							"dataBDD": "isSponsorFunding"
-						}
-					]
-				},
-				{
-					"kind": "chapter",
-					"title": "",
-					"visibilityRules": [
-						{
-							"name": "dependsOnValue",
-							"kwargs": {
-								"fieldName": "isSponsorFunding",
-								"values": [
-									"true",
-									true
-								]
-							}
-						}
-					],
-					"components": [
-						{
-							"kind": "chapter",
-							"title": "<normal>e) od sponsorów lub innych podmiotów niezaliczanych do sektora finansów publicznych </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
-							"components": [
-								{
-									"kind": "chapter",
-									"title": "",
-									"isMultipleForms": true,
-									"multipleFormsRules": {
-										"minCount": 1,
-										"maxCount": 20
-									},
-									"components": [
-										{
-											"kind": "chapter",
-											"title": " 1",
-											"components": [
-												{
-													"kind": "component",
-													"type": "text",
-													"label": "Nazwa podmiotu",
-													"name": "otherSponsorName",
-													"value": "",
-													"helpText": "Podaj nazwę podmiotu finansującego",
-													"readOnly": false,
-													"dataBDD": "otherSponsorName",
-													"classList": [
-														"col-span-2"
-													]
-												},
-												{
-													"kind": "component",
-													"type": "text",
-													"mask": "fund",
-													"label": "kwota",
-													"name": "otherSponsorFundingAmount",
-													"value": 0,
-													"helpText": "",
-													"readOnly": false,
-													"validators": [],
-													"required": true,
-													"calculationRules": [],
-													"unit": "PLN",
-													"dataBDD": "otherSponsorFundingAmount"
-												},
-												{
-													"kind": "component",
-													"type": "number",
-													"label": "udział w koszcie całkowitym",
-													"name": "otherSponsorFundingShare",
-													"value": 0,
-													"calculationRules": [
-														{
-															"name": "singlePositionShareCalculator",
-															"kwargs": {
-																"dividendField": "otherSponsorFundingAmount",
-																"divisorField": "totalProjectCost"
-															}
-														}
-													],
-													"helpText": "",
-													"readOnly": true,
-													"validators": [],
-													"required": true,
-													"unit": "%",
-													"dataBDD": "otherSponsorFundingShare"
-												}
-											],
-											"classList": [
-												"grid",
-												"grid-cols-2"
-											]
-										}
-									]
-								},
-								{
-									"kind": "chapter",
-									"title": "<normal>Łącznie </normal>",
-									"components": [
-										{
-											"kind": "component",
-											"type": "text",
-											"mask": "fund",
-											"label": "kwota",
-											"name": "sponsorsSumAmount",
-											"value": 0,
-											"calculationRules": [
-												{
-													"name": "dynamicSumInputs",
-													"kwargs": {
-														"fields": "otherSponsorFundingAmount"
-													}
-												}
-											],
-											"helpText": "",
-											"readOnly": true,
-											"validators": [],
-											"required": true,
-											"unit": "PLN",
-											"dataBDD": "sponsorsSumAmount"
-										},
-										{
-											"kind": "component",
-											"type": "number",
-											"label": "udział w koszcie całkowitym",
-											"name": "sponsorsFundingShare",
-											"value": 0,
-											"calculationRules": [
-												{
-													"name": "singlePositionShareCalculator",
-													"kwargs": {
-														"dividendField": "sponsorsSumAmount",
-														"divisorField": "totalProjectCost"
-													}
-												}
-											],
-											"helpText": "",
-											"readOnly": true,
-											"validators": [],
-											"required": true,
-											"unit": "%",
-											"dataBDD": "sponsorsFundingShare"
-										}
-									],
-									"classList": [
-										"grid",
-										"grid-cols-2"
-									]
-								}
-							]
-						}
-					]
-				},
-				{
-					"kind": "chapter",
-					"title": "",
-					"components": [
-						{
-							"kind": "component",
-							"type": "checkbox",
-							"label": "Czy występują środki zagraniczne, w tym europejskie?",
-							"name": "isForeignFunding",
-							"value": false,
-							"validators": [],
-							"dataBDD": "isForeignFunding"
-						}
-					]
-				},
-				{
-					"kind": "chapter",
-					"title": "",
-					"visibilityRules": [
-						{
-							"name": "dependsOnValue",
-							"kwargs": {
-								"fieldName": "isForeignFunding",
-								"values": [
-									"true",
-									true
-								]
-							}
-						}
-					],
-					"components": [
-						{
-							"kind": "chapter",
-							"title": "<normal>f) ze środków zagranicznych, w tym europejskich </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
-							"components": [
-								{
-									"kind": "chapter",
-									"title": "",
-									"isMultipleForms": true,
-									"multipleFormsRules": {
-										"minCount": 1,
-										"maxCount": 20
-									},
-									"components": [
-										{
-											"kind": "chapter",
-											"title": " 1",
-											"components": [
-												{
-													"kind": "component",
-													"type": "text",
-													"label": "Nazwa podmiotu",
-													"name": "foreignEntityName",
-													"value": "",
-													"helpText": "Podaj nazwę podmiotu finansującego",
-													"readOnly": false,
-													"dataBDD": "foreignEntityName",
-													"classList": [
-														"col-span-2"
-													]
-												},
-												{
-													"kind": "component",
-													"type": "text",
-													"mask": "fund",
-													"label": "kwota",
-													"name": "foreignEntityFundingAmount",
-													"value": 0,
-													"helpText": "",
-													"readOnly": false,
-													"validators": [],
-													"required": true,
-													"calculationRules": [],
-													"unit": "PLN",
-													"dataBDD": "foreignEntityFundingAmount"
-												},
-												{
-													"kind": "component",
-													"type": "number",
-													"label": "udział w koszcie całkowitym",
-													"name": "foreignEntityFundingShare",
-													"value": 0,
-													"calculationRules": [
-														{
-															"name": "singlePositionShareCalculator",
-															"kwargs": {
-																"dividendField": "foreignEntityFundingAmount",
-																"divisorField": "totalProjectCost"
-															}
-														}
-													],
-													"helpText": "",
-													"readOnly": true,
-													"validators": [],
-													"required": true,
-													"unit": "%",
-													"dataBDD": "foreignEntityFundingShare"
-												}
-											],
-											"classList": [
-												"grid",
-												"grid-cols-2"
-											]
-										}
-									]
-								},
-								{
-									"kind": "chapter",
-									"title": "<normal>Łącznie </normal>",
-									"components": [
-										{
-											"kind": "component",
-											"type": "text",
-											"mask": "fund",
-											"label": "kwota",
-											"name": "foreignFundsSumAmount",
-											"value": 0,
-											"calculationRules": [
-												{
-													"name": "dynamicSumInputs",
-													"kwargs": {
-														"fields": "foreignEntityFundingAmount"
-													}
-												}
-											],
-											"helpText": "",
-											"readOnly": true,
-											"validators": [],
-											"required": true,
-											"unit": "PLN",
-											"dataBDD": "foreignFundsSumAmount"
-										},
-										{
-											"kind": "component",
-											"type": "number",
-											"label": "udział w koszcie całkowitym",
-											"name": "foreignFundsFundingShare",
-											"value": 0,
-											"calculationRules": [
-												{
-													"name": "singlePositionShareCalculator",
-													"kwargs": {
-														"dividendField": "foreignFundsSumAmount",
-														"divisorField": "totalProjectCost"
-													}
-												}
-											],
-											"helpText": "",
-											"readOnly": true,
-											"validators": [],
-											"required": true,
-											"unit": "%",
-											"dataBDD": "foreignFundsFundingShare"
-										}
-									],
-									"classList": [
-										"grid",
-										"grid-cols-2"
-									]
-								}
-							]
-						}
-					]
-				}
-			]
-		},
-		{
-			"kind": "chapter",
-			"title": "",
-			"components": [
-				{
-					"kind": "component",
-					"type": "header",
-					"name": "headerBudgetWarning",
-					"label": "LABEL",
-					"value": "Uwaga: W przypadku innych kosztów niż ujętych w wykazie kosztów kwalifikowanych powyżej, PISF może wskazać konkretne pozycje w budżecie przedsięwzięcia, które mogą zostać pokryte z przyznanego dofinansowania.",
-					"dataBDD": "headerBudgetWarning",
-					"classList": []
-				}
-			]
-		}
-	]
+  "kind": "part",
+  "title": "IV. Źródła finansowania",
+  "shortName": "IV. Źródła finansowania",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "1. Całkowity przewidywany koszt realizacji przedsięwzięcia",
+      "components": [
+        {
+          "kind": "component",
+          "type": "text",
+          "mask": "fund",
+          "label": "kwota kosztu całkowitego",
+          "name": "totalProjectCost",
+          "calculationRules": [
+            {
+              "name": "sumInputs",
+              "kwargs": {
+                "fields": [
+                  "ownFundsSumAmount",
+                  "pisfSupportAmount",
+                  "localGovernmentsFundsSumAmount",
+                  "ministryFundsSumAmount",
+                  "sponsorsSumAmount",
+                  "foreignFundsSumAmount"
+                ]
+              }
+            }
+          ],
+          "value": 0,
+          "readOnly": true,
+          "unit": "PLN",
+          "dataBDD": "totalProjectCost"
+        },
+        {
+          "kind": "component",
+          "type": "text",
+          "mask": "fund",
+          "label": "finansowanie ze źródeł publicznych razem",
+          "name": "publicSupportAltogether",
+          "calculationRules": [
+            {
+              "name": "sumInputs",
+              "kwargs": {
+                "fields": [
+                  "pisfSupportAmount",
+                  "localGovernmentsFundsSumAmount",
+                  "ministryFundsSumAmount"
+                ]
+              }
+            }
+          ],
+          "value": 0,
+          "readOnly": true,
+          "validators": [
+            {
+              "name": "RelatedFractionGTEValidator",
+              "kwargs": {
+                "field_name": "totalProjectCost",
+                "ratio": 0.9
+              },
+              "validationMsg": "Suma środków publicznych nie może przekroczyć 90% kosztu realizacji przedsięwzięcia."
+            }
+          ],
+          "unit": "PLN",
+          "dataBDD": "publicSupportAltogether"
+        }
+      ],
+      "classList": [
+        "grid",
+        "grid-cols-2"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "2. Wyszczególnienie źródeł finansowania",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "<normal>a) środki własne z podziałem na: wkład finansowy (np.: wpływy z biletów, ze sprzedaży publikacji, akredytacji, opłat uczestników itp.) i ewentualnie wyceniony wkład rzeczowy </normal>",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>- wkład finansowy </normal>",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "kwota",
+                  "name": "ownFinancialFundsAmount",
+                  "value": 0,
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "ownFinancialFundsAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "udział w koszcie całkowitym",
+                  "name": "ownFinancialFundsShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "ownFinancialFundsAmount",
+                        "divisorField": "totalProjectCost"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "RelatedShareValidator",
+                      "kwargs": {
+                        "dividend": "ownFinancialFundsAmount",
+                        "divisor": "totalProjectCost"
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "unit": "%",
+                  "dataBDD": "ownFinancialFundsShare"
+                }
+              ],
+              "classList": [
+                "grid",
+                "grid-cols-2"
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- wkład rzeczowy </normal>",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "kwota",
+                  "name": "ownInKindFundsAmount",
+                  "value": 0,
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "ownInKindFundsAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "udział w koszcie całkowitym",
+                  "name": "ownInKindFundsShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "ownInKindFundsAmount",
+                        "divisorField": "totalProjectCost"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedShareValidator",
+                      "kwargs": {
+                        "dividend": "ownInKindFundsAmount",
+                        "divisor": "totalProjectCost"
+                      }
+                    },
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "required": true,
+                  "unit": "%",
+                  "dataBDD": "ownInKindFundsShare"
+                }
+              ],
+              "classList": [
+                "grid",
+                "grid-cols-2"
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>Suma środków własnych </normal>",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "kwota",
+                  "name": "ownFundsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "ownFinancialFundsAmount",
+                          "ownInKindFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "ownFinancialFundsAmount",
+                          "ownInKindFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "ownFundsSumAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>b) ze środków PISF </normal>",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>- dotacja PISF </normal>",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "kwota",
+                  "name": "pisfSupportAmount",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RelatedFractionGTEValidator",
+                      "kwargs": {
+                        "field_name": "totalProjectCost",
+                        "ratio": 0.9
+                      },
+                      "validationMsg": "Dotacja PISF nie może przekroczyć 90% kosztu realizacji przedsięwzięcia."
+                    }
+                  ],
+                  "required": true,
+                  "calculationRules": [],
+                  "unit": "PLN",
+                  "dataBDD": "pisfSupportAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "udział w koszcie całkowitym",
+                  "name": "pisfSupportShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "pisfSupportAmount",
+                        "divisorField": "totalProjectCost"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedShareValidator",
+                      "kwargs": {
+                        "dividend": "pisfSupportAmount",
+                        "divisor": "totalProjectCost"
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "unit": "%",
+                  "dataBDD": "pisfSupportShare"
+                }
+              ],
+              "classList": [
+                "grid",
+                "grid-cols-2"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Czy występują środki z budżetów jednostek samorządu terytorialnego lub innych środków publicznych za wyjątkiem MKiDN?",
+              "name": "isLocalGovernmentFunding",
+              "value": false,
+              "validators": [],
+              "dataBDD": "isLocalGovernmentFunding"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "isLocalGovernmentFunding",
+                "values": [
+                  "true",
+                  true
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>c) z budżetów jednostek samorządu terytorialnego lub innych środków publicznych za wyjątkiem MKiDN </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "isMultipleForms": true,
+                  "multipleFormsRules": {
+                    "minCount": 1,
+                    "maxCount": 20
+                  },
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": " 1",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Nazwa podmiotu",
+                          "name": "localGovernmentName",
+                          "value": "",
+                          "helpText": "Podaj nazwę podmiotu finansującego",
+                          "dataBDD": "localGovernmentName",
+                          "classList": [
+                            "col-span-2"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "mask": "fund",
+                          "label": "kwota",
+                          "name": "localGovernmentFundingAmount",
+                          "value": 0,
+                          "validators": [],
+                          "required": true,
+                          "calculationRules": [],
+                          "unit": "PLN",
+                          "dataBDD": "localGovernmentFundingAmount"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "number",
+                          "label": "udział w koszcie całkowitym",
+                          "name": "localGovernmentFundingShare",
+                          "value": 0,
+                          "calculationRules": [
+                            {
+                              "name": "singlePositionShareCalculator",
+                              "kwargs": {
+                                "dividendField": "localGovernmentFundingAmount",
+                                "divisorField": "totalProjectCost"
+                              }
+                            }
+                          ],
+                          "readOnly": true,
+                          "validators": [],
+                          "required": true,
+                          "unit": "%",
+                          "dataBDD": "localGovernmentFundingShare"
+                        }
+                      ],
+                      "classList": [
+                        "grid",
+                        "grid-cols-2"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "<normal>Łącznie </normal>",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "kwota",
+                      "name": "localGovernmentsFundsSumAmount",
+                      "value": 0,
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": "localGovernmentFundingAmount"
+                          }
+                        }
+                      ],
+                      "readOnly": true,
+                      "validators": [],
+                      "required": true,
+                      "unit": "PLN",
+                      "dataBDD": "localGovernmentsFundsSumAmount"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "udział w koszcie całkowitym",
+                      "name": "localGovernmentsFundsShare",
+                      "value": 0,
+                      "calculationRules": [
+                        {
+                          "name": "singlePositionShareCalculator",
+                          "kwargs": {
+                            "dividendField": "localGovernmentsFundsSumAmount",
+                            "divisorField": "totalProjectCost"
+                          }
+                        }
+                      ],
+                      "readOnly": true,
+                      "validators": [],
+                      "required": true,
+                      "unit": "%",
+                      "dataBDD": "localGovernmentsFundsShare"
+                    }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-2"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Czy występują środki MKiDN w ramach Programów Ministra?",
+              "name": "isMinisterialFunding",
+              "value": false,
+              "validators": [],
+              "dataBDD": "isMinisterialFunding"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "isMinisterialFunding",
+                "values": [
+                  "true",
+                  true
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>d) ze środków MKiDN w ramach Programów Ministra </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "isMultipleForms": true,
+                  "multipleFormsRules": {
+                    "minCount": 1,
+                    "maxCount": 20
+                  },
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": " ",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Nazwa podmiotu",
+                          "name": "ministerialEntityName",
+                          "value": "",
+                          "helpText": "Podaj nazwę podmiotu finansującego lub Programu Ministra",
+                          "dataBDD": "ministerialEntityName",
+                          "classList": [
+                            "col-span-2"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "mask": "fund",
+                          "label": "kwota",
+                          "name": "ministerialEntityFundingAmount",
+                          "value": 0,
+                          "validators": [],
+                          "required": true,
+                          "calculationRules": [],
+                          "unit": "PLN",
+                          "dataBDD": "ministerialEntityFundingAmount"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "number",
+                          "label": "udział w koszcie całkowitym",
+                          "name": "ministerialEntityFundingShare",
+                          "value": 0,
+                          "calculationRules": [
+                            {
+                              "name": "singlePositionShareCalculator",
+                              "kwargs": {
+                                "dividendField": "ministerialEntityFundingAmount",
+                                "divisorField": "totalProjectCost"
+                              }
+                            }
+                          ],
+                          "readOnly": true,
+                          "validators": [],
+                          "required": true,
+                          "unit": "%",
+                          "dataBDD": "ministerialEntityFundingShare"
+                        }
+                      ],
+                      "classList": [
+                        "grid",
+                        "grid-cols-2"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "<normal>Łącznie </normal>",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "kwota",
+                      "name": "ministryFundsSumAmount",
+                      "value": 0,
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": "ministerialEntityFundingAmount"
+                          }
+                        }
+                      ],
+                      "readOnly": true,
+                      "validators": [],
+                      "required": true,
+                      "unit": "PLN",
+                      "dataBDD": "ministryFundsSumAmount"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "udział w koszcie całkowitym",
+                      "name": "ministryFundingShare",
+                      "value": 0,
+                      "calculationRules": [
+                        {
+                          "name": "singlePositionShareCalculator",
+                          "kwargs": {
+                            "dividendField": "ministryFundsSumAmount",
+                            "divisorField": "totalProjectCost"
+                          }
+                        }
+                      ],
+                      "readOnly": true,
+                      "validators": [],
+                      "required": true,
+                      "unit": "%",
+                      "dataBDD": "ministryFundingShare"
+                    }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-2"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Czy występują środki od sponsorów lub innych podmiotów niezaliczanych do sektora finansów publicznych?",
+              "name": "isSponsorFunding",
+              "value": false,
+              "validators": [],
+              "dataBDD": "isSponsorFunding"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "isSponsorFunding",
+                "values": [
+                  "true",
+                  true
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>e) od sponsorów lub innych podmiotów niezaliczanych do sektora finansów publicznych </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "isMultipleForms": true,
+                  "multipleFormsRules": {
+                    "minCount": 1,
+                    "maxCount": 20
+                  },
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": " 1",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Nazwa podmiotu",
+                          "name": "otherSponsorName",
+                          "value": "",
+                          "helpText": "Podaj nazwę podmiotu finansującego",
+                          "dataBDD": "otherSponsorName",
+                          "classList": [
+                            "col-span-2"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "mask": "fund",
+                          "label": "kwota",
+                          "name": "otherSponsorFundingAmount",
+                          "value": 0,
+                          "validators": [],
+                          "required": true,
+                          "calculationRules": [],
+                          "unit": "PLN",
+                          "dataBDD": "otherSponsorFundingAmount"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "number",
+                          "label": "udział w koszcie całkowitym",
+                          "name": "otherSponsorFundingShare",
+                          "value": 0,
+                          "calculationRules": [
+                            {
+                              "name": "singlePositionShareCalculator",
+                              "kwargs": {
+                                "dividendField": "otherSponsorFundingAmount",
+                                "divisorField": "totalProjectCost"
+                              }
+                            }
+                          ],
+                          "readOnly": true,
+                          "validators": [],
+                          "required": true,
+                          "unit": "%",
+                          "dataBDD": "otherSponsorFundingShare"
+                        }
+                      ],
+                      "classList": [
+                        "grid",
+                        "grid-cols-2"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "<normal>Łącznie </normal>",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "kwota",
+                      "name": "sponsorsSumAmount",
+                      "value": 0,
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": "otherSponsorFundingAmount"
+                          }
+                        }
+                      ],
+                      "readOnly": true,
+                      "validators": [],
+                      "required": true,
+                      "unit": "PLN",
+                      "dataBDD": "sponsorsSumAmount"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "udział w koszcie całkowitym",
+                      "name": "sponsorsFundingShare",
+                      "value": 0,
+                      "calculationRules": [
+                        {
+                          "name": "singlePositionShareCalculator",
+                          "kwargs": {
+                            "dividendField": "sponsorsSumAmount",
+                            "divisorField": "totalProjectCost"
+                          }
+                        }
+                      ],
+                      "readOnly": true,
+                      "validators": [],
+                      "required": true,
+                      "unit": "%",
+                      "dataBDD": "sponsorsFundingShare"
+                    }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-2"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Czy występują środki zagraniczne, w tym europejskie?",
+              "name": "isForeignFunding",
+              "value": false,
+              "validators": [],
+              "dataBDD": "isForeignFunding"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "isForeignFunding",
+                "values": [
+                  "true",
+                  true
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>f) ze środków zagranicznych, w tym europejskich </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "isMultipleForms": true,
+                  "multipleFormsRules": {
+                    "minCount": 1,
+                    "maxCount": 20
+                  },
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": " 1",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Nazwa podmiotu",
+                          "name": "foreignEntityName",
+                          "value": "",
+                          "helpText": "Podaj nazwę podmiotu finansującego",
+                          "dataBDD": "foreignEntityName",
+                          "classList": [
+                            "col-span-2"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "mask": "fund",
+                          "label": "kwota",
+                          "name": "foreignEntityFundingAmount",
+                          "value": 0,
+                          "validators": [],
+                          "required": true,
+                          "calculationRules": [],
+                          "unit": "PLN",
+                          "dataBDD": "foreignEntityFundingAmount"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "number",
+                          "label": "udział w koszcie całkowitym",
+                          "name": "foreignEntityFundingShare",
+                          "value": 0,
+                          "calculationRules": [
+                            {
+                              "name": "singlePositionShareCalculator",
+                              "kwargs": {
+                                "dividendField": "foreignEntityFundingAmount",
+                                "divisorField": "totalProjectCost"
+                              }
+                            }
+                          ],
+                          "readOnly": true,
+                          "validators": [],
+                          "required": true,
+                          "unit": "%",
+                          "dataBDD": "foreignEntityFundingShare"
+                        }
+                      ],
+                      "classList": [
+                        "grid",
+                        "grid-cols-2"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "<normal>Łącznie </normal>",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "kwota",
+                      "name": "foreignFundsSumAmount",
+                      "value": 0,
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": "foreignEntityFundingAmount"
+                          }
+                        }
+                      ],
+                      "readOnly": true,
+                      "validators": [],
+                      "required": true,
+                      "unit": "PLN",
+                      "dataBDD": "foreignFundsSumAmount"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "udział w koszcie całkowitym",
+                      "name": "foreignFundsFundingShare",
+                      "value": 0,
+                      "calculationRules": [
+                        {
+                          "name": "singlePositionShareCalculator",
+                          "kwargs": {
+                            "dividendField": "foreignFundsSumAmount",
+                            "divisorField": "totalProjectCost"
+                          }
+                        }
+                      ],
+                      "readOnly": true,
+                      "validators": [],
+                      "required": true,
+                      "unit": "%",
+                      "dataBDD": "foreignFundsFundingShare"
+                    }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-2"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "header",
+          "name": "headerBudgetWarning",
+          "label": "LABEL",
+          "value": "Uwaga: W przypadku innych kosztów niż ujętych w wykazie kosztów kwalifikowanych powyżej, PISF może wskazać konkretne pozycje w budżecie przedsięwzięcia, które mogą zostać pokryte z przyznanego dofinansowania.",
+          "dataBDD": "headerBudgetWarning",
+          "classList": []
+        }
+      ]
+    }
+  ]
 }

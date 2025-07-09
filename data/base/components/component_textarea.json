@@ -1,15 +1,12 @@
 {
-	"kind": "component",
-	"type": "textarea",
-	"label": "",
-	"name": "",
-	"value": "",
-	"helpText": "",
-	"dataBDD": "",
-	"readOnly": false,
-	"required": false,
-	"classList": [],
-	"validators": [],
-	"calculationRules": [],
-	"errorMsgs": []
+  "kind": "component",
+  "type": "textarea",
+  "label": "",
+  "name": "",
+  "value": "",
+  "dataBDD": "",
+  "classList": [],
+  "validators": [],
+  "calculationRules": [],
+  "errorMsgs": []
 }
