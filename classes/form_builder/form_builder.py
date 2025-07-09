@@ -23,17 +23,14 @@ class FormBuilder:
         self.session = self.SESSION
 
         # DIRS
-        self.output_dir = Path(__file__).resolve().parents[2]
+        self.main_dir = Path(__file__).resolve().parents[2]
         self.output_file_name = 'output.json'
-        self.output_file = self.output_dir / 'output' / self.output_file_name
+        self.output_file = self.main_dir / 'output' / self.output_file_name
 
-        self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.main_dir.mkdir(parents=True, exist_ok=True)
 
         # JSONS
-        self.json_paths = {
-            'base': self.output_dir / 'data' / 'base' / 'base.json',
-        }
-
+        self.json_paths = {}
         self.jsons = {}
 
     def info(self):
@@ -46,18 +43,19 @@ class FormBuilder:
         Session: {self.session}
         '''
 
-    @staticmethod
-    def load_json(path):
+    def load_json(self, name, path):
+        self.json_paths[name] = path
+
         with path.open('r', encoding='utf-8') as f:
-            return json.load(f)
+            self.jsons[name] = json.load(f)
 
     def save_output(self) -> None:
         with self.output_file.open('w', encoding='utf-8') as f:
-            json.dump(self.jsons, f, ensure_ascii=False, indent=2)
+            json.dump(self.jsons.get('base'), f, ensure_ascii=False, indent=2)
         print(f'Zapisano output do {self.output_file}')
 
     def create_base(self, intro_text: str):
-        self.jsons['base'] = self.load_json(self.json_paths['base'])
+        self.load_json(name='base', path=self.main_dir / 'data' / 'base' / 'base.json')
 
         try:
             intro_list = self.jsons['base']['introText']
@@ -68,4 +66,4 @@ class FormBuilder:
             raise RuntimeError(f"Nie znalazłem miejsca na introText w JSONie: {e!s}")
 
     def generate(self):
-        pass
+        raise NotImplementedError("Podklasa musi nadpisać `generate`")

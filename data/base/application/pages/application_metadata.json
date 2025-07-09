@@ -12,7 +12,7 @@
 					"type": "text",
 					"label": "Nr sesji i rok",
 					"name": "sessionYear",
-					"value": "",
+					"value": "5",
 					"readOnly": true,
 					"dataBDD": "session-year"
 				}
