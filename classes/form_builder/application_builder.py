@@ -16,8 +16,9 @@ class ApplicationBuilder(FormBuilder):
 
     def create_application_metadata(self):
         part = self.jsons['application_metadata']
+        chapters = part.get('chapters', [])
 
-        for chapter in part.get('chapters', []):
+        for chapter in chapters:
             for comp in chapter.get('components', []):
                 name = comp.get('name')
                 if name == 'sessionYear':

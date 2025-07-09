@@ -14,7 +14,7 @@
 					"name": "sessionYear",
 					"value": "5",
 					"readOnly": true,
-					"dataBDD": "session-year"
+					"dataBDD": "sessionYear"
 				}
 			]
 		},
@@ -29,7 +29,7 @@
 					"name": "programName",
 					"value": "",
 					"readOnly": true,
-					"dataBDD": "program-name"
+					"dataBDD": "programName"
 				}
 			]
 		},
@@ -44,7 +44,7 @@
 					"name": "priorityName",
 					"value": "",
 					"readOnly": true,
-					"dataBDD": "priority-name"
+					"dataBDD": "priorityName"
 				}
 			]
 		}
