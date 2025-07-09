@@ -4,8 +4,19 @@ from classes.form_builder.duk.application_builder import DUKApplicationBuilder20
 class EducationApplicationBuilder2025(DUKApplicationBuilder2025):
     OPERATION_NAME = 'II. Edukacja filmowa'
 
+
 class PostgraduateSchoolsApplicationBuilder2025(EducationApplicationBuilder2025):
     PRIORITY_NAME = 'I. Szkoły wyższe i podyplomowe'
+
+    def __init__(self):
+        super().__init__()
+
+        self.custom_priority_data_dir = self.main_dir / 'data' / 'base' / 'application' / 'custom' / 'duk' / 'education' / 'postgraduateSchools'
+
+    def create_application_scope_of_project(self):
+        part = self.load_json(path=self.custom_priority_data_dir / 'scope_of_the_project.json')
+        self.save_part(part)
+
 
 class PostgraduateSchoolsApplicationBuilder2025Session01(PostgraduateSchoolsApplicationBuilder2025):
     SESSION = 'I'
@@ -24,4 +35,5 @@ class PostgraduateSchoolsApplicationBuilder2025Session01(PostgraduateSchoolsAppl
             }
         })
         self.create_application_applicant_data()
+        self.create_application_scope_of_project()
         self.save_output()
