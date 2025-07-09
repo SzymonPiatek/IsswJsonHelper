@@ -4,6 +4,10 @@ from classes.form_builder.duk.application_builder import DUKApplicationBuilder20
 class EducationApplicationBuilder2025(DUKApplicationBuilder2025):
     OPERATION_NAME = 'II. Edukacja filmowa'
 
+    def create_application_statements(self):
+        part = self.load_json(path=self.main_dir / 'data' / 'base' / 'application' / 'custom'/ 'duk'/ 'education' / 'statements.json')
+        self.save_part(part)
+
 
 class PostgraduateSchoolsApplicationBuilder2025(EducationApplicationBuilder2025):
     PRIORITY_NAME = 'I. Szkoły wyższe i podyplomowe'
@@ -37,4 +41,5 @@ class PostgraduateSchoolsApplicationBuilder2025Session01(PostgraduateSchoolsAppl
         self.create_application_applicant_data()
         self.create_application_scope_of_project()
         self.create_application_sources_of_financing()
+        self.create_application_statements()
         self.save_output()
