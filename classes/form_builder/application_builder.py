@@ -7,15 +7,13 @@ class ApplicationBuilder(FormBuilder):
     def __init__(self):
         super().__init__()
 
-        self.load_json(name='application_metadata', path=self.main_dir / 'data' / 'base' / 'application' / 'pages' / 'application_metadata.json')
-
     def create_application_base(self):
         self.create_base(
             intro_text="Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"
         )
 
     def create_application_metadata(self):
-        part = self.jsons['application_metadata']
+        part = self.load_json(path=self.main_dir / 'data' / 'base' / 'application' / 'pages' / 'application_metadata.json')
         chapters = part.get('chapters', [])
 
         for chapter in chapters:
@@ -28,6 +26,4 @@ class ApplicationBuilder(FormBuilder):
                 elif name == 'priorityName':
                     comp['value'] = self.priority_name
 
-        base = self.jsons.get('base')
-        parts = base.setdefault('parts', [])
-        parts.append(part)
+        self.save_part(part)

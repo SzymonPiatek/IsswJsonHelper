@@ -23,4 +23,5 @@ class PostgraduateSchoolsApplicationBuilder2025Session01(PostgraduateSchoolsAppl
                 ]
             }
         })
+        self.create_application_applicant_data()
         self.save_output()

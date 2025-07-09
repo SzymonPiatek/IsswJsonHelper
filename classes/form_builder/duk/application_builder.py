@@ -6,11 +6,8 @@ class DUKApplicationBuilder(ApplicationBuilder):
     def __init__(self):
         super().__init__()
 
-        self.load_json(name='application_basic_data',
-                       path=self.main_dir / 'data' / 'base' / 'application' / 'pages' / 'application_basic_data.json')
-
     def create_application_basic_data(self, data):
-        part = self.jsons['application_basic_data']
+        part = self.load_json(path=self.main_dir / 'data' / 'base' / 'application' / 'pages' / 'application_basic_data.json')
         chapters = part.get('chapters', [])
 
         for chapter in chapters:
@@ -28,9 +25,11 @@ class DUKApplicationBuilder(ApplicationBuilder):
                         if validator.get('name') == 'ExactValidator':
                             validator['kwargs']['values'] = data['projectType']['options']
 
-        base = self.jsons.get('base')
-        parts = base.setdefault('parts', [])
-        parts.append(part)
+        self.save_part(part)
+
+    def create_application_applicant_data(self):
+        part = self.load_json(path=self.main_dir / 'data' / 'base' / 'application' / 'pages' / 'application_applicant_data.json')
+        self.save_part(part)
 
 class DUKApplicationBuilder2025(DUKApplicationBuilder):
     YEAR = 2025

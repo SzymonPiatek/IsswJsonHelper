@@ -29,9 +29,7 @@ class FormBuilder:
 
         self.main_dir.mkdir(parents=True, exist_ok=True)
 
-        # JSONS
-        self.json_paths = {}
-        self.jsons = {}
+        self.output_json = None
 
     def info(self):
         return f'''
@@ -43,22 +41,25 @@ class FormBuilder:
         Session: {self.session}
         '''
 
-    def load_json(self, name, path):
-        self.json_paths[name] = path
-
+    @staticmethod
+    def load_json(path):
         with path.open('r', encoding='utf-8') as f:
-            self.jsons[name] = json.load(f)
+            return json.load(f)
+
+    def save_part(self, part):
+        parts = self.output_json.setdefault('parts', [])
+        parts.append(part)
 
     def save_output(self) -> None:
         with self.output_file.open('w', encoding='utf-8') as f:
-            json.dump(self.jsons.get('base'), f, ensure_ascii=False, indent=2)
+            json.dump(self.output_json, f, ensure_ascii=False, indent=2)
         print(f'Zapisano output do {self.output_file}')
 
     def create_base(self, intro_text: str):
-        self.load_json(name='base', path=self.main_dir / 'data' / 'base' / 'base.json')
+        self.output_json = self.load_json(path=self.main_dir / 'data' / 'base' / 'base.json')
 
         try:
-            intro_list = self.jsons['base']['introText']
+            intro_list = self.output_json['introText']
             if not intro_list:
                 raise KeyError("introText jest puste")
             intro_list[0]['text'] = intro_text
