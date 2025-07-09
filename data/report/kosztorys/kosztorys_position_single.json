@@ -1,123 +1,123 @@
 {
-	"kind": "chapter",
-	"title": "",
-	"classList": {
-		"main": [
-			"table-5",
-			"grid",
-			"grid-cols-6",
-			"no-title"
-		],
-		"sub": [
-			"table-5__col"
-		]
-	},
-	"components": [
-		{
-			"kind": "component",
-			"type": "textarea",
-			"label": "Rodzaj kosztów",
-			"name": "Desc",
-			"value": "",
-			"readOnly": true,
-			"dataBDD": "",
-			"classList": [
-				"displayNonePDF"
-			]
-		},
-		{
-			"kind": "component",
-			"type": "text",
-			"mask": "fund",
-			"label": "Planowany koszt całkowity",
-			"name": "TotalPlanned",
-			"value": 0,
-			"validators": [
-				{
-					"name": "RangeValidator",
-					"kwargs": {
-						"min": 0
-					},
-					"validationMsg": "Wartość musi być większa lub równa zero."
-				}
-			],
-			"copyFrom": "",
-			"readOnly": true,
-			"unit": "PLN",
-			"dataBDD": "",
-			"classList": [
-				"displayNonePDF"
-			]
-		},
-		{
-			"kind": "component",
-			"type": "text",
-			"mask": "fund",
-			"label": "Planowana dotacja PISF",
-			"name": "RequestedPlanned",
-			"value": 0,
-			"validators": [
-				{
-					"name": "RangeValidator",
-					"kwargs": {
-						"min": 0
-					},
-					"validationMsg": "Wartość musi być większa lub równa zero."
-				}
-			],
-			"copyFrom": "",
-			"unit": "PLN",
-			"dataBDD": "",
-			"readOnly": true,
-			"classList": [
-				"displayNonePDF"
-			]
-		},
-		{
-			"kind": "component",
-			"type": "text",
-			"mask": "fund",
-			"label": "Poniesiony koszt całkowity",
-			"name": "TotalActual",
-			"value": 0,
-			"validators": [
-				{
-					"name": "RangeValidator",
-					"kwargs": {
-						"min": 0
-					},
-					"validationMsg": "Wartość musi być większa lub równa zero."
-				}
-			],
-			"helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
-			"unit": "PLN",
-			"dataBDD": "",
-			"classList": [
-				"displayNonePDF"
-			]
-		},
-		{
-			"kind": "component",
-			"type": "text",
-			"mask": "fund",
-			"label": "W tym dotacja PISF",
-			"name": "SupportPisfActual",
-			"value": 0,
-			"validators": [
-				{
-					"name": "RangeValidator",
-					"kwargs": {
-						"min": 0
-					},
-					"validationMsg": "Wartość musi być większa lub równa zero."
-				}
-			],
-			"helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
-			"unit": "PLN",
-			"dataBDD": "",
-			"classList": [
-				"displayNonePDF"
-			]
-		}
-	]
+  "kind": "chapter",
+  "title": "",
+  "classList": {
+    "main": [
+      "table-5",
+      "grid",
+      "grid-cols-6",
+      "no-title"
+    ],
+    "sub": [
+      "table-5__col"
+    ]
+  },
+  "components": [
+    {
+      "kind": "component",
+      "type": "textarea",
+      "label": "Rodzaj kosztów",
+      "name": "Desc",
+      "value": "",
+      "readOnly": true,
+      "dataBDD": "Desc",
+      "classList": [
+        "displayNonePDF"
+      ]
+    },
+    {
+      "kind": "component",
+      "type": "text",
+      "mask": "fund",
+      "label": "Planowany koszt całkowity",
+      "name": "TotalPlanned",
+      "value": 0,
+      "validators": [
+        {
+          "name": "RangeValidator",
+          "kwargs": {
+            "min": 0
+          },
+          "validationMsg": "Wartość musi być większa lub równa zero."
+        }
+      ],
+      "copyFrom": "",
+      "readOnly": true,
+      "unit": "PLN",
+      "dataBDD": "TotalPlanned",
+      "classList": [
+        "displayNonePDF"
+      ]
+    },
+    {
+      "kind": "component",
+      "type": "text",
+      "mask": "fund",
+      "label": "Planowana dotacja PISF",
+      "name": "RequestedPlanned",
+      "value": 0,
+      "validators": [
+        {
+          "name": "RangeValidator",
+          "kwargs": {
+            "min": 0
+          },
+          "validationMsg": "Wartość musi być większa lub równa zero."
+        }
+      ],
+      "copyFrom": "",
+      "unit": "PLN",
+      "dataBDD": "RequestedPlanned",
+      "readOnly": true,
+      "classList": [
+        "displayNonePDF"
+      ]
+    },
+    {
+      "kind": "component",
+      "type": "text",
+      "mask": "fund",
+      "label": "Poniesiony koszt całkowity",
+      "name": "TotalActual",
+      "value": 0,
+      "validators": [
+        {
+          "name": "RangeValidator",
+          "kwargs": {
+            "min": 0
+          },
+          "validationMsg": "Wartość musi być większa lub równa zero."
+        }
+      ],
+      "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków",
+      "unit": "PLN",
+      "dataBDD": "TotalActual",
+      "classList": [
+        "displayNonePDF"
+      ]
+    },
+    {
+      "kind": "component",
+      "type": "text",
+      "mask": "fund",
+      "label": "W tym dotacja PISF",
+      "name": "SupportPisfActual",
+      "value": 0,
+      "validators": [
+        {
+          "name": "RangeValidator",
+          "kwargs": {
+            "min": 0
+          },
+          "validationMsg": "Wartość musi być większa lub równa zero."
+        }
+      ],
+      "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku",
+      "unit": "PLN",
+      "dataBDD": "SupportPisfActual",
+      "classList": [
+        "displayNonePDF"
+      ]
+    }
+  ]
 }
