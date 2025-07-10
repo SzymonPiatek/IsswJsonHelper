@@ -28,3 +28,12 @@ class DUKApplicationBuilder(ApplicationBuilder):
     def create_application_sources_of_financing(self):
         part = self.load_json(path=self.duk_data_path / 'pages' / 'sources_of_financing.json')
         self.save_part(part)
+
+    def create_application_attachments(self):
+        part = self.load_json(path=self.duk_data_path / 'pages' / 'application_attachments.json')
+        self.save_part(part)
+
+    def create_application_schedule(self):
+        part = self.load_json(path=self.duk_data_path / 'pages' / 'application_schedule.json')
+        self.save_part(part)
+

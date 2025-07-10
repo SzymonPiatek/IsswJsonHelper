@@ -1,0 +1,200 @@
+{
+  "kind": "part",
+  "title": "VIII. Harmonogram realizacji przedsięwzięcia",
+  "shortName": "VIII. Harmonogram",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "text",
+          "label": "Nazwa przedsięwzięcia",
+          "name": "projectNameRepeatSchedule",
+          "value": "",
+          "calculationRules": [
+            {
+              "name": "copyValue",
+              "from": "applicationTaskName"
+            }
+          ],
+          "readOnly": true,
+          "required": true,
+          "validators": [
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "dataBDD": "projectNameRepeatSchedule"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "isMultipleForms": true,
+      "multipleFormsRules": {
+        "minCount": 1,
+        "maxCount": 20
+      },
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "classList": {
+            "main": [
+              "dates"
+            ],
+            "sub": [
+              "dates-item"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Termin od",
+              "name": "taskActionDateStart",
+              "value": false,
+              "validators": [
+                {
+                  "name": "RelatedLocalDateLTEValidator",
+                  "kwargs": {
+                    "field_name": "taskActionDateEnd"
+                  },
+                  "validationMsg": "Termin rozpoczęcia działania musi być wcześniejszy niż termin jego zakończenia"
+                }
+              ],
+              "dataBDD": "taskActionDateStart"
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Termin do",
+              "name": "taskActionDateEnd",
+              "value": false,
+              "validators": [
+                {
+                  "name": "RelatedLocalDateGTEValidator",
+                  "kwargs": {
+                    "field_name": "taskActionDateStart"
+                  },
+                  "validationMsg": "Termin zakończenia działania musi być późniejszy niż termin jego rozpoczęcia"
+                }
+              ],
+              "dataBDD": "taskActionDateEnd"
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Działanie",
+              "name": "taskActionDesc",
+              "value": "",
+              "helpText": "Krótki opis działania",
+              "classList": [
+                "full-width",
+                "col-span-2"
+              ],
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 251
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 250."
+                }
+              ],
+              "dataBDD": "taskActionDesc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "date",
+          "label": "Rozpoczęcie realizacji przedsięwzięcia",
+          "name": "projectCommencement",
+          "value": false,
+          "readOnly": true,
+          "calculationRules": [
+            {
+              "name": "firstDate",
+              "kwargs": {
+                "field": "taskActionDateStart"
+              }
+            }
+          ],
+          "required": true,
+          "validators": [
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "dataBDD": "projectCommencement"
+        },
+        {
+          "kind": "component",
+          "type": "date",
+          "label": "Zakończenie realizacji przedsięwzięcia",
+          "name": "projectCompletion",
+          "value": false,
+          "readOnly": true,
+          "calculationRules": [
+            {
+              "name": "lastDate",
+              "kwargs": {
+                "field": "taskActionDateEnd"
+              }
+            }
+          ],
+          "required": true,
+          "validators": [
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "dataBDD": "projectCompletion"
+        },
+        {
+          "kind": "component",
+          "type": "date",
+          "label": "Termin rozliczenia z PISF",
+          "name": "settlementDeadline",
+          "value": false,
+          "readOnly": true,
+          "calculationRules": [
+            {
+              "name": "relateToLastDate",
+              "kwargs": {
+                "field": "projectCompletion",
+                "parameter": 30
+              }
+            }
+          ],
+          "required": true,
+          "validators": [
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "dataBDD": "settlementDeadline"
+        }
+      ],
+      "classList": [
+        "grid",
+        "grid-cols-3"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Uwaga! <br /><small>Harmonogram przedsięwzięcia powinien uwzględniać etapy: <normal><br />1. przygotowawczy (np. zaproszenie uczestników, rekrutacja, rezerwacja noclegów itp.), <br />2. realizacji przedsięwzięcia (np. przeprowadzenie warsztatów, festiwal itp.), <br />3. zakończenie przedsięwzięcia (data zakończenia realizacji przedsięwzięcia (dzień, miesiąc, rok). <br />Prosimy o chronologiczne ułożenie wszystkich pozycji harmonogramu. </normal></small>",
+      "components": []
+    }
+  ]
+}

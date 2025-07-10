@@ -42,7 +42,11 @@ class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
         self.create_application_statements()
 
         # VI. Załączniki
+        self.create_application_attachments()
+
         # VII. Kosztorys przedsięwzięcia
+
         # VIII. Harmonogram
+        self.create_application_schedule()
 
         self.save_output()
