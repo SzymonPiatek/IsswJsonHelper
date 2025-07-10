@@ -12,7 +12,7 @@
 					"type": "text",
 					"label": "Nr sesji i rok",
 					"name": "sessionYear",
-					"value": "5",
+					"value": "{sessionYear}",
 					"readOnly": true,
 					"dataBDD": "sessionYear"
 				}
@@ -27,7 +27,7 @@
 					"type": "text",
 					"label": "Program",
 					"name": "programName",
-					"value": "",
+					"value": "{programName}",
 					"readOnly": true,
 					"dataBDD": "programName"
 				}
@@ -42,7 +42,7 @@
 					"type": "text",
 					"label": "Priorytet",
 					"name": "priorityName",
-					"value": "",
+					"value": "{priorityName}",
 					"readOnly": true,
 					"dataBDD": "priorityName"
 				}

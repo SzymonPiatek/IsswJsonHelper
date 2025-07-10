@@ -2,9 +2,11 @@ from typing import Literal, ClassVar
 from pathlib import Path
 import json
 
+
 JSONType = Literal['application', 'report']
 DepartmentType = Literal['DPF', 'DUK', 'DWM']
 SessionType = Literal['I', 'II', 'III', 'IV']
+
 
 class FormBuilder:
     JSON_TYPE: ClassVar[JSONType]
@@ -24,6 +26,7 @@ class FormBuilder:
 
         # DIRS
         self.main_dir = Path(__file__).resolve().parents[2]
+        self.data_path = self.main_dir / 'data'
         self.output_file_name = 'output.json'
         self.output_file = self.main_dir / 'output' / self.output_file_name
 
@@ -45,6 +48,19 @@ class FormBuilder:
     def load_json(path):
         with path.open('r', encoding='utf-8') as f:
             return json.load(f)
+
+    def replace_placeholders(self, obj, values: dict):
+        if isinstance(obj, dict):
+            return {k: self.replace_placeholders(v, values) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [self.replace_placeholders(item, values) for item in obj]
+        elif isinstance(obj, str):
+            try:
+                return obj.format(**values)
+            except KeyError:
+                return obj
+        else:
+            return obj
 
     def save_part(self, part):
         parts = self.output_json.setdefault('parts', [])

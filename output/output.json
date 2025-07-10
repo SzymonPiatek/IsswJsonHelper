@@ -82,7 +82,7 @@
               "type": "text",
               "name": "programNamePartTwo",
               "label": "Program",
-              "value": "II. Edukacja filmowa",
+              "value": "",
               "readOnly": true,
               "required": true,
               "dataBDD": "programNamePartTwo"
@@ -92,7 +92,7 @@
               "type": "text",
               "label": "Priorytet",
               "name": "priorityNamePartTwo",
-              "value": "I. Szkoły wyższe i podyplomowe",
+              "value": "",
               "readOnly": true,
               "required": true,
               "dataBDD": "priorityNamePartTwo"
@@ -140,22 +140,12 @@
               "label": "",
               "name": "projectType",
               "value": "",
-              "options": [
-                "programy edukacyjne wchodzące w skład edukacji ciągłej",
-                "realizacja szkolnych i pozaszkolnych filmów krótko- i średniometrażowych",
-                "kształcenie zawodowe i podnoszenie kompetencji poprzez organizację studiów podyplomowych",
-                "inne działania realizujące cele Priorytetu I"
-              ],
+              "options": [],
               "validators": [
                 {
                   "name": "ExactValidator",
                   "kwargs": {
-                    "values": [
-                      "programy edukacyjne wchodzące w skład edukacji ciągłej",
-                      "realizacja szkolnych i pozaszkolnych filmów krótko- i średniometrażowych",
-                      "kształcenie zawodowe i podnoszenie kompetencji poprzez organizację studiów podyplomowych",
-                      "inne działania realizujące cele Priorytetu I"
-                    ]
+                    "values": []
                   }
                 }
               ],

@@ -3,36 +3,30 @@ from classes.form_builder.application_builder import ApplicationBuilder
 
 class DUKApplicationBuilder(ApplicationBuilder):
     DEPARTMENT_NAME = 'DUK'
+
     def __init__(self):
         super().__init__()
 
-    def create_application_basic_data(self, data):
-        part = self.load_json(path=self.main_dir / 'data' / 'base' / 'application' / 'pages' / 'application_basic_data.json')
-        chapters = part.get('chapters', [])
+        self.duk_data_path = self.application_data_path / 'duk'
 
-        for chapter in chapters:
-            for comp in chapter.get('components', []):
-                name = comp.get('name')
-                if name == 'programNamePartTwo':
-                    comp['value'] = self.operation_name
-                elif name == 'priorityNamePartTwo':
-                    comp['value'] = self.priority_name
-                elif name == 'projectType':
-                    comp['options'] = data['projectType']['options']
+    def create_application_metadata(self):
+        part = self.load_json(path=self.duk_data_path / 'pages' / 'application_metadata.json')
 
-                    validators = comp.get('validators', [])
-                    for validator in validators:
-                        if validator.get('name') == 'ExactValidator':
-                            validator['kwargs']['values'] = data['projectType']['options']
+        values = {
+            "sessionYear": f"Sesja {self.session}/{self.year}",
+            "programName": self.operation_name,
+            "priorityName": self.priority_name
+        }
 
-        self.save_part(part)
+        final_part = self.replace_placeholders(part, values)
+        self.save_part(final_part)
 
     def create_application_applicant_data(self):
-        part = self.load_json(path=self.main_dir / 'data' / 'base' / 'application' / 'pages' / 'application_applicant_data.json')
+        part = self.load_json(path=self.duk_data_path / 'pages' / 'application_applicant_data.json')
         self.save_part(part)
 
     def create_application_sources_of_financing(self):
-        part = self.load_json(path=self.main_dir / 'data' / 'base' / 'application' / 'custom' / 'duk' / 'sources_of_financing.json')
+        part = self.load_json(path=self.duk_data_path / 'pages' / 'sources_of_financing.json')
         self.save_part(part)
 
 
