@@ -26,7 +26,7 @@ class DUKApplicationBuilder(ApplicationBuilder):
         self.save_part(part)
 
     def create_application_sources_of_financing(self):
-        part = self.load_json(path=self.duk_data_path / 'pages' / 'sources_of_financing.json')
+        part = self.load_json(path=self.duk_data_path / 'pages' / 'application_sources_of_financing.json')
         self.save_part(part)
 
     def create_application_attachments(self):
@@ -37,3 +37,20 @@ class DUKApplicationBuilder(ApplicationBuilder):
         part = self.load_json(path=self.duk_data_path / 'pages' / 'application_schedule.json')
         self.save_part(part)
 
+    def create_application_statements(self):
+        part = self.load_json(path=self.duk_data_path / 'pages' / 'application_statements.json')
+        self.save_part(part)
+
+    def create_application_basic_data(self, data):
+        part = self.load_json(path=self.duk_data_path / 'pages' / 'application_basic_data.json')
+        values = {
+            "programNamePartTwo": self.operation_name,
+            "priorityNamePartTwo": self.priority_name,
+            "projectType": {
+                "options": data["projectType"]["options"],
+                "value": data['projectType']['options'][0] if len(data['projectType']['options']) == 1 else "",
+                "readOnly": True if len(data['projectType']['options']) == 1 else False
+            }
+        }
+        final_part = self.replace_placeholders(part, values)
+        self.save_part(final_part)

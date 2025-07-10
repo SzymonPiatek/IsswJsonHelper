@@ -14,6 +14,8 @@ class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
         self.save_part(part)
 
     def generate(self):
+        self.create_application_base()
+
         # Metadane wniosku
         self.create_application_metadata()
 

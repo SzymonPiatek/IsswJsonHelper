@@ -1,6 +1,7 @@
 from typing import Literal, ClassVar
 from pathlib import Path
 import json
+import ast
 
 
 JSONType = Literal['application', 'report']
@@ -56,7 +57,11 @@ class FormBuilder:
             return [self.replace_placeholders(item, values) for item in obj]
         elif isinstance(obj, str):
             try:
-                return obj.format(**values)
+                result = obj.format(**values)
+                try:
+                    return ast.literal_eval(result)
+                except (ValueError, SyntaxError):
+                    return result
             except KeyError:
                 return obj
         else:

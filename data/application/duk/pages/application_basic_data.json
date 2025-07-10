@@ -69,16 +69,17 @@
 					"type": "radio",
 					"label": "",
 					"name": "projectType",
-					"value": "",
-					"options": [],
+					"value": "{projectType[value]}",
+					"options": "{projectType[options]}",
 					"validators": [
 						{
 							"name": "ExactValidator",
 							"kwargs": {
-								"values": []
+								"values": "{projectType[options]}"
 							}
 						}
 					],
+					"readOnly": "{projectType[readOnly]}",
 					"required": true,
 					"dataBDD": "projectType"
 				}

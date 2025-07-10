@@ -10,6 +10,8 @@ class CinemasApplicationBuilder(EducationApplicationBuilder):
         self.cinemas_data_path = self.education_data_path / 'cinemas'
 
     def generate(self):
+        self.create_application_base()
+
         # Metadane wniosku
         self.create_application_metadata()
 
@@ -27,10 +29,19 @@ class CinemasApplicationBuilder(EducationApplicationBuilder):
         self.create_application_applicant_data()
 
         # III. Zakres przedsięwzięcia
+
         # IV. Źródła finansowania
+        self.create_application_sources_of_financing()
+
         # V. Oświadczenia
+        self.create_application_statements()
+
         # VI. Załączniki
+        self.create_application_attachments()
+
         # VII. Kosztorys przedsięwzięcia
+
         # VIII. Harmonogram
+        self.create_application_schedule()
 
         self.save_output()

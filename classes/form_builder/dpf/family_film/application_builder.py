@@ -10,6 +10,8 @@ class FamilyFilmApplicationBuilder(DPFApplicationBuilder):
         self.family_data_path = self.dpf_data_path / 'family_film'
 
     def generate(self):
+        self.create_application_base()
+
         # Metadane wniosku
         self.create_application_metadata(task_type='Produkcja filmowa')
 

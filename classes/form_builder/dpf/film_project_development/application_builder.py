@@ -10,6 +10,8 @@ class FilmProjectDevelopmentApplicationBuilder(DPFApplicationBuilder):
         self.development_data_path = self.dpf_data_path / 'film_project_development'
 
     def generate(self):
+        self.create_application_base()
+
         # Metadane wniosku
         self.create_application_metadata(task_type='Przygotowanie projektów filmowych')
 

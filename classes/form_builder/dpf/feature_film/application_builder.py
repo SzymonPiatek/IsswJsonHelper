@@ -10,6 +10,8 @@ class FeatureFilmApplicationBuilder(DPFApplicationBuilder):
         self.feature_data_path = self.dpf_data_path / 'feature_film'
 
     def generate(self):
+        self.create_application_base()
+
         # Metadane wniosku
         self.create_application_metadata(task_type='Produkcja filmowa')
 

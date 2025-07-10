@@ -10,6 +10,8 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         self.screenplay_data_path = self.dpf_data_path / 'screenplay_scholarship'
 
     def generate(self):
+        self.create_application_base()
+
         # Metadane wniosku
         self.create_application_metadata(task_type='Stypendium scenariuszowe')
 
