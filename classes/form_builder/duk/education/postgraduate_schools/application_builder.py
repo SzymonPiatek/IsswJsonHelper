@@ -1,0 +1,48 @@
+from classes.form_builder.duk.education.application_builder import EducationApplicationBuilder
+
+
+class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
+    PRIORITY_NAME = 'I. Szkoły wyższe i podyplomowe'
+
+    def __init__(self):
+        super().__init__()
+
+        self.postgraduate_data_path = self.education_data_path / 'postgraduate_schools'
+
+    def create_application_scope_of_project(self):
+        part = self.load_json(path=self.postgraduate_data_path / 'pages' / 'scope_of_the_project.json')
+        self.save_part(part)
+
+    def generate(self):
+        # Metadane wniosku
+        self.create_application_metadata()
+
+        # I. Dane podstawowe
+        self.create_application_basic_data(data={
+            'projectType': {
+                'options': [
+                    "programy edukacyjne wchodzące w skład edukacji ciągłej",
+                    "realizacja szkolnych i pozaszkolnych filmów krótko- i średniometrażowych",
+                    "kształcenie zawodowe i podnoszenie kompetencji poprzez organizację studiów podyplomowych",
+                    "inne działania realizujące cele Priorytetu I"
+                ]
+            }
+        })
+
+        # II. Dane wnioskodawcy
+        self.create_application_applicant_data()
+
+        # III. Zakres przedsięwzięcia
+        self.create_application_scope_of_project()
+
+        # IV. Źródła finansowania
+        self.create_application_sources_of_financing()
+
+        # V. Oświadczenia
+        self.create_application_statements()
+
+        # VI. Załączniki
+        # VII. Kosztorys przedsięwzięcia
+        # VIII. Harmonogram
+
+        self.save_output()

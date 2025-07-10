@@ -1,13 +1,10 @@
-from classes.form_builder.duk.application_builder import DUKApplicationBuilder2025
+from classes.form_builder.duk.application_builder import DUKApplicationBuilder
 
 
-class DissemintaionApplicationBuilder2025(DUKApplicationBuilder2025):
+class DissemintaionApplicationBuilder(DUKApplicationBuilder):
     OPERATION_NAME = 'III. Upowszechnianie kultury filmowej'
 
 
-class DissemintaionApplicationBuilder2025Session01(DUKApplicationBuilder2025):
-    SESSION = 'I'
-
-
+class DissemintaionApplicationBuilder2025Session01(DissemintaionApplicationBuilder):
     def generate(self):
         pass

@@ -1,9 +1,10 @@
-from classes.form_builder.duk.education.application_builder import PostgraduateSchoolsApplicationBuilder2025Session01
+from classes.form_builder.duk.education.postgraduate_schools.application_builder import PostgraduateSchoolsApplicationBuilder
 
 
 def main():
-    application = PostgraduateSchoolsApplicationBuilder2025Session01()
+    application = PostgraduateSchoolsApplicationBuilder()
     application.generate()
+
 
 if __name__ == '__main__':
     main()

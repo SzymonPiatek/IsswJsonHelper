@@ -1,6 +1,7 @@
 from pathlib import Path
 import json
 
+
 def update_databdd_in_file(path: Path):
     with path.open('r', encoding='utf-8') as f:
         data = json.load(f)
@@ -29,10 +30,12 @@ def update_databdd_in_file(path: Path):
     else:
         print(f"No changes in {path}")
 
+
 def main():
     data_dir = Path('data')
     for json_file in data_dir.rglob('*.json'):
         update_databdd_in_file(json_file)
+
 
 if __name__ == "__main__":
     main()

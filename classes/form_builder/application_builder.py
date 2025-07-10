@@ -3,6 +3,8 @@ from classes.form_builder.form_builder import FormBuilder
 
 class ApplicationBuilder(FormBuilder):
     JSON_TYPE = 'application'
+    YEAR = 2025
+    SESSION = 'I'
 
     def __init__(self):
         super().__init__()

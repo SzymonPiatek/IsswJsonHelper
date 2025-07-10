@@ -28,7 +28,3 @@ class DUKApplicationBuilder(ApplicationBuilder):
     def create_application_sources_of_financing(self):
         part = self.load_json(path=self.duk_data_path / 'pages' / 'sources_of_financing.json')
         self.save_part(part)
-
-
-class DUKApplicationBuilder2025(DUKApplicationBuilder):
-    YEAR = 2025

@@ -1,0 +1,4373 @@
+{
+  "kind": "form",
+  "jrwa": "",
+  "expert": {
+    "name": "",
+    "email": "",
+    "avatar": ""
+  },
+  "status": "",
+  "applicant": {},
+  "title": "",
+  "introText": [
+    {
+      "text": "Promocja polskiej twórczości filmowej za granicą"
+    },
+    {
+      "text": "Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach programów operacyjnych Polskiego Instytutu Sztuki Filmowej"
+    }
+  ],
+  "blanks": [],
+  "parts": [
+    {
+      "kind": "part",
+      "title": "I. Nazwa programu operacyjnego/priorytetu",
+      "shortName": "I. Nazwa programu i priorytetu",
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "1. Program",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "",
+              "name": "programName",
+              "value": "Promocja polskiej twórczości filmowej za granicą",
+              "readOnly": true,
+              "dataBDD": "programName"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "2. Priorytet",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "",
+              "name": "priorityName",
+              "value": "Stypendia zagraniczne",
+              "readOnly": true,
+              "dataBDD": "priorityName"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "3. Czy przedsięwzięcie jest związane z udziałem w targach branżowych, pitchingach lub prezentacjach Work in Progress?",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "",
+                  "name": "wasRelatedToParticipation",
+                  "value": "",
+                  "options": [
+                    "Tak",
+                    "Nie"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Tak",
+                          "Nie"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "wasRelatedToParticipation"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "II. Nazwa przedsięwzięcia, którego dotyczy wniosek",
+      "shortName": "II. Nazwa przedsięwzięcia",
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Nazwa przedsięwzięcia",
+              "name": "applicationTaskName",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                },
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 601
+                  },
+                  "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 600."
+                }
+              ],
+              "dataBDD": "applicationTaskName"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "1.  Nazwa i termin docelowego wydarzenia",
+          "isMultipleForms": true,
+          "multipleFormsRules": {
+            "minCount": 1,
+            "maxCount": 10
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Nazwa wydarzenia",
+                      "name": "eventName",
+                      "value": "",
+                      "helpText": "Podaj nazwę wydarzenia",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "eventName",
+                      "classList": [
+                        "col-span-2"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "classList": {
+                    "main": [
+                      "table-1-2",
+                      "grid",
+                      "grid-cols-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  },
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Termin od",
+                      "name": "eventDateStart",
+                      "value": false,
+                      "helpText": "Podaj datę rozpoczęcia wydarzenia.",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "eventDateStart"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Termin do",
+                      "name": "eventDateEnd",
+                      "value": false,
+                      "helpText": "Podaj datę zakończenia wydarzenia.",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "eventDateEnd"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "2. Miasto i kraj, w którym odbywa się wydarzenie",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Miasto",
+                  "name": "eventLocation",
+                  "value": "",
+                  "helpText": "Podaj miasto, w którym odbywa się wydarzenie",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "dataBDD": "eventLocation"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Kraj",
+                  "name": "eventCountry",
+                  "value": "",
+                  "helpText": "Podaj kraj, w którym odbywa się wydarzenie",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "dataBDD": "eventCountry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "3. Forma udziału wnioskodawcy w wydarzeniu",
+          "components": [
+            {
+              "kind": "component",
+              "type": "radio",
+              "label": "",
+              "name": "eventParticipationType",
+              "value": "",
+              "options": [
+                "online",
+                "stacjonarnie/hybrydowo"
+              ],
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                },
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "online",
+                      "stacjonarnie/hybrydowo"
+                    ]
+                  }
+                }
+              ],
+              "dataBDD": "eventParticipationType"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "4. Czy wniosek jest składany przynajmniej 30 dni przed rozpoczęciem wydarzenia?",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "",
+                  "name": "isApplicationSubmittedEarly",
+                  "options": [
+                    "Tak",
+                    "Nie"
+                  ],
+                  "value": false,
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Tak",
+                          "Nie"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "isApplicationSubmittedEarly"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "isApplicationSubmittedEarly",
+                    "values": [
+                      "Nie"
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "Proszę o wskazanie powodów (zgodnie z trybem naboru i wyboru wniosków dla Priorytetu II: Stypendia zagraniczne, ust. 1 pkt 4). Brak wskazania uzasadnionych przyczyn opóźnienia może skutkować formalnym odrzuceniem wniosku",
+                  "name": "lateApplicationExplanation",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 501
+                      },
+                      "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 500."
+                    }
+                  ],
+                  "helpText": "Podaj powód późnego złożenia wniosku.",
+                  "dataBDD": "lateApplicationExplanation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "5. Główny cel udziału wnioskodawcy w wydarzeniu",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "",
+                  "name": "participationGoal",
+                  "options": [
+                    "Festiwal",
+                    "Market",
+                    "Co-production market/pitching",
+                    "Warsztaty/szkolenia",
+                    "Inne wydarzenie branżowe"
+                  ],
+                  "value": false,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Festiwal",
+                          "Market",
+                          "Co-production market/pitching",
+                          "Warsztaty/szkolenia",
+                          "Inne wydarzenie branżowe"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "participationGoal"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "participationGoal",
+                    "values": [
+                      "Inne wydarzenie branżowe"
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "Jakie?",
+                  "name": "otherEventDesc",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 101
+                      },
+                      "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 100."
+                    }
+                  ],
+                  "helpText": "Wskaż wydarzenie.",
+                  "dataBDD": "otherEventDesc"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "6. Projekt/film z którym wnioskodawca bierze udział w wydarzeniu",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Tytuł filmu",
+              "name": "movieTitle",
+              "value": "",
+              "helpText": "Podaj tytuł filmu.",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "movieTitle",
+              "classList": [
+                "col-span-2",
+                "table-full"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Imię i nazwisko reżysera",
+              "name": "movieDirector",
+              "value": "",
+              "helpText": "Podaj imię i nazwisko reżysera filmu.",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "movieDirector"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Metraż filmu (w minutach)",
+              "name": "movieDuration",
+              "value": "",
+              "helpText": "Podaj metraż filmu.",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "movieDuration"
+            },
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "Rodzaj filmu",
+              "name": "movieType",
+              "value": "",
+              "options": [
+                "fabularny",
+                "dokumentalny",
+                "animowany"
+              ],
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                },
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "fabularny",
+                      "dokumentalny",
+                      "animowany"
+                    ]
+                  }
+                }
+              ],
+              "dataBDD": "movieType"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Sekcja na festiwalu",
+              "name": "movieEventSession",
+              "value": "",
+              "helpText": "Wskaż sekcję na festiwalu, w której film będzie prezentowany.",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "movieEventSession"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Rodzaj premiery",
+              "name": "moviePremiereType",
+              "value": "",
+              "helpText": "Podaj rodzaj premiery.",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "moviePremiereType"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Rok produkcji",
+              "name": "movieProdYear",
+              "value": "",
+              "helpText": "Podaj rok produkcji filmu.",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "movieProdYear"
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "7. Czy projekt/film został wsparty przez PISF?",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "",
+                  "name": "wasMovieProjectSupportedByPisf",
+                  "value": "",
+                  "options": [
+                    "Tak",
+                    "Nie"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Tak",
+                          "Nie"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "wasMovieProjectSupportedByPisf"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              },
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "wasMovieProjectSupportedByPisf",
+                    "values": [
+                      "Tak"
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Program Operacyjny",
+                  "name": "movieProjectSupportedByPisfProgram",
+                  "value": "",
+                  "helpText": "Wskaż Program Operacyjny, z którego uzyskano wsparcie.",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "wasMovieProjectSupportedByPisf",
+                        "value": "Tak"
+                      }
+                    }
+                  ],
+                  "dataBDD": "movieProjectSupportedByPisfProgram",
+                  "classList": [
+                    "col-span-2",
+                    "table-full"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Priorytet",
+                  "name": "movieProjectSupportedByPisfPriority",
+                  "value": "",
+                  "helpText": "Wskaż Priorytet, z którego uzyskano wsparcie.",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "wasMovieProjectSupportedByPisf",
+                        "value": "Tak"
+                      }
+                    }
+                  ],
+                  "dataBDD": "movieProjectSupportedByPisfPriority",
+                  "classList": [
+                    "col-span-2",
+                    "table-full"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Rok przyznania dofinansowania",
+                  "name": "movieProjectSupportedPisfYear",
+                  "value": 0,
+                  "helpText": "Podaj datę przyznania dofinansowania",
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "wasMovieProjectSupportedByPisf",
+                        "value": "Tak"
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "movieProjectSupportedPisfYear"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Kwota dofinansowania",
+                  "name": "movieProjectSupportedPisfAmount",
+                  "value": 0,
+                  "helpText": "Podaj uzyskaną kwotę dofinansowania",
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa od zera."
+                    },
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "wasMovieProjectSupportedByPisf",
+                        "value": "Tak"
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "unit": "PLN",
+                  "dataBDD": "movieProjectSupportedPisfAmount"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "III. Informacje o wnioskodawcy",
+      "shortName": "III. Informacja o wnioskodawcy",
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "1. Imię i nazwisko wnioskodawcy",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "",
+              "name": "applicantFullname",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "applicantFullname"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "2. Funkcja pełniona przy projekcie",
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "",
+              "name": "applicantRole",
+              "value": "",
+              "options": [
+                "reżyser",
+                "producent",
+                "producent liniowy",
+                "dystrybutor",
+                "agent sprzedaży",
+                "operator",
+                "scenarzysta",
+                "scenograf",
+                "aktor/aktorka",
+                "kompozytor",
+                "montażysta",
+                "kierownik produkcji",
+                "inna"
+              ],
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                },
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "reżyser",
+                      "producent",
+                      "producent liniowy",
+                      "dystrybutor",
+                      "agent sprzedaży",
+                      "operator",
+                      "scenarzysta",
+                      "scenograf",
+                      "aktor/aktorka",
+                      "kompozytor",
+                      "montażysta",
+                      "kierownik produkcji",
+                      "inna"
+                    ]
+                  }
+                }
+              ],
+              "dataBDD": "applicantRole"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "applicantRole",
+                "values": [
+                  "inna"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Nazwa pełnionej funkcji przy projekcie",
+              "name": "applicantRoleOther",
+              "value": "",
+              "helpText": "Podaj nazwę pełnionej funkcji przy projekcie.",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RelatedRequiredIfEqualValidator",
+                  "kwargs": {
+                    "field_name": "applicantRole",
+                    "value": "inna"
+                  }
+                }
+              ],
+              "dataBDD": "applicantRoleOther"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "3. Osoba odpowiedzialna za przygotowanie wniosku i kontakty z PISF",
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Imię",
+              "name": "responPersonFirstName",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "responPersonFirstName"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Nazwisko",
+              "name": "responPersonLastName",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "responPersonLastName"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Numer telefonu",
+              "name": "responPersonPhoneNum",
+              "value": "",
+              "validators": [
+                {
+                  "name": "PhoneNumberValidator",
+                  "validationMsg": "Wprowadź numer telefonu w formie: +kod kraju oraz pozostałe cyfry numeru. Dla numeru polskiego przykładowo +48123456789"
+                }
+              ],
+              "dataBDD": "responPersonPhoneNum"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Numer telefonu komórkowego",
+              "name": "responPersonMobileNum",
+              "value": "",
+              "validators": [
+                {
+                  "name": "PhoneNumberValidator",
+                  "validationMsg": "Wprowadź numer telefonu w formie: +kod kraju oraz pozostałe cyfry numeru. Dla numeru polskiego przykładowo +48123456789"
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "responPersonMobileNum"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Email kontaktowy",
+              "name": "responPersonEmail",
+              "value": "",
+              "validators": [
+                {
+                  "name": "EmailValidator",
+                  "validationMsg": "Podaj prawidłowy adres email."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "classList": [
+                "col-span-2"
+              ],
+              "dataBDD": "responPersonEmail"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "4. Adres i dane wnioskodawcy",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "Adres zamieszkania",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "",
+                  "name": "applicantResidence",
+                  "value": "",
+                  "options": [
+                    "w Polsce",
+                    "za granicą"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "w Polsce",
+                          "za granicą"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantResidence"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "applicantResidence",
+                    "values": [
+                      "w Polsce"
+                    ]
+                  }
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Województwo",
+                  "name": "applicantVoivodeship",
+                  "value": "",
+                  "options": [
+                    "dolnośląskie",
+                    "kujawsko-pomorskie",
+                    "lubelskie",
+                    "lubuskie",
+                    "łódzkie",
+                    "małopolskie",
+                    "mazowieckie",
+                    "opolskie",
+                    "podkarpackie",
+                    "podlaskie",
+                    "pomorskie",
+                    "śląskie",
+                    "świętokrzyskie",
+                    "warmińsko-mazurskie",
+                    "wielkopolskie",
+                    "zachodniopomorskie"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "w Polsce"
+                      }
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "dolnośląskie",
+                          "kujawsko-pomorskie",
+                          "lubelskie",
+                          "lubuskie",
+                          "łódzkie",
+                          "małopolskie",
+                          "mazowieckie",
+                          "opolskie",
+                          "podkarpackie",
+                          "podlaskie",
+                          "pomorskie",
+                          "śląskie",
+                          "świętokrzyskie",
+                          "warmińsko-mazurskie",
+                          "wielkopolskie",
+                          "zachodniopomorskie"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantVoivodeship"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Powiat",
+                  "name": "applicantCounty",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantCounty"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Miejscowość",
+                  "name": "applicantLocation",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantLocation"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Gmina",
+                  "name": "applicantMunicipality",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantMunicipality"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Ulica",
+                  "name": "applicantStreet",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantStreet"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Numer domu",
+                  "name": "applicantHouseNum",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantHouseNum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Numer lokalu",
+                  "name": "applicantApartmentNum",
+                  "value": "",
+                  "dataBDD": "applicantApartmentNum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Kod pocztowy",
+                  "name": "applicantZipcode",
+                  "validators": [
+                    {
+                      "name": "ZipCodeValidator",
+                      "validationMsg": "Podaj kod pocztowy we właściwym formacie."
+                    },
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "value": "",
+                  "required": true,
+                  "dataBDD": "applicantZipcode"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Poczta",
+                  "name": "applicantPostOffice",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantPostOffice"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Numer telefonu",
+                  "name": "applicantPhoneNum",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "PhoneNumberValidator",
+                      "validationMsg": "Wprowadź numer telefonu w formie: +kod kraju oraz pozostałe cyfry numeru. Dla numeru polskiego przykładowo +48123456789"
+                    },
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "applicantPhoneNum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Email kontaktowy",
+                  "name": "applicantEmail",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "EmailValidator",
+                      "validationMsg": "Podaj prawidłowy adres email."
+                    },
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "classList": [
+                    "col-span-2"
+                  ],
+                  "dataBDD": "applicantEmail"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "applicantResidence",
+                    "values": [
+                      "za granicą"
+                    ]
+                  }
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Kraj",
+                  "name": "applicantCountry",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "za granicą"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantCountry"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Miejscowość",
+                  "name": "applicantForeignLocation",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "za granicą"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantForeignLocation"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Ulica",
+                  "name": "applicantForeignStreet",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "za granicą"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantForeignStreet"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Numer domu",
+                  "name": "applicantForeignHouseNum",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "za granicą"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantForeignHouseNum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Numer lokalu",
+                  "name": "applicantForeignApartmentNum",
+                  "value": "",
+                  "dataBDD": "applicantForeignApartmentNum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Kod pocztowy",
+                  "name": "applicantForeignZipcode",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "za granicą"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantForeignZipcode"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Poczta",
+                  "name": "applicantForeignPostOffice",
+                  "value": "",
+                  "dataBDD": "applicantForeignPostOffice"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Numer telefonu",
+                  "name": "applicantForeignPhoneNum",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "PhoneNumberValidator",
+                      "validationMsg": "Wprowadź numer telefonu w formie: +kod kraju oraz pozostałe cyfry numeru. Dla numeru polskiego przykładowo +48123456789"
+                    },
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "za granicą"
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "applicantForeignPhoneNum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Email kontaktowy",
+                  "name": "applicantForeignEmail",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "EmailValidator",
+                      "validationMsg": "Podaj prawidłowy adres email."
+                    },
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "za granicą"
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "classList": [
+                    "col-span-2"
+                  ],
+                  "dataBDD": "applicantForeignEmail"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "5. Adres korespondencyjny",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "",
+                  "name": "applicantContactResidence",
+                  "value": "",
+                  "options": [
+                    "w Polsce",
+                    "za granicą"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "w Polsce",
+                          "za granicą"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantContactResidence"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "applicantContactResidence",
+                    "values": [
+                      "w Polsce"
+                    ]
+                  }
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Województwo",
+                  "name": "applicantContactVoivodeship",
+                  "value": "",
+                  "options": [
+                    "dolnośląskie",
+                    "kujawsko-pomorskie",
+                    "lubelskie",
+                    "lubuskie",
+                    "łódzkie",
+                    "małopolskie",
+                    "mazowieckie",
+                    "opolskie",
+                    "podkarpackie",
+                    "podlaskie",
+                    "pomorskie",
+                    "śląskie",
+                    "świętokrzyskie",
+                    "warmińsko-mazurskie",
+                    "wielkopolskie",
+                    "zachodniopomorskie"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantContactResidence",
+                        "value": "w Polsce"
+                      }
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "dolnośląskie",
+                          "kujawsko-pomorskie",
+                          "lubelskie",
+                          "lubuskie",
+                          "łódzkie",
+                          "małopolskie",
+                          "mazowieckie",
+                          "opolskie",
+                          "podkarpackie",
+                          "podlaskie",
+                          "pomorskie",
+                          "śląskie",
+                          "świętokrzyskie",
+                          "warmińsko-mazurskie",
+                          "wielkopolskie",
+                          "zachodniopomorskie"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantContactVoivodeship"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Powiat",
+                  "name": "applicantContactCounty",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantContactResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantContactCounty"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Miejscowość",
+                  "name": "applicantContactLocation",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantContactResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantContactLocation"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Gmina",
+                  "name": "applicantContactMunicipality",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantContactResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantContactMunicipality"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Ulica",
+                  "name": "applicantContactStreet",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantContactResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantContactStreet"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Numer domu",
+                  "name": "applicantContactHouseNum",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantContactResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantContactHouseNum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Numer lokalu",
+                  "name": "applicantContactApartmentNum",
+                  "value": "",
+                  "dataBDD": "applicantContactApartmentNum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Kod pocztowy",
+                  "name": "applicantContactZipcode",
+                  "validators": [
+                    {
+                      "name": "ZipCodeValidator",
+                      "validationMsg": "Podaj kod pocztowy we właściwym formacie."
+                    },
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantContactResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "value": "",
+                  "required": true,
+                  "dataBDD": "applicantContactZipcode"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Poczta",
+                  "name": "applicantContactPostOffice",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantContactResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantContactPostOffice"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Numer telefonu",
+                  "name": "applicantContactPhoneNum",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "PhoneNumberValidator",
+                      "validationMsg": "Wprowadź numer telefonu w formie: +kod kraju oraz pozostałe cyfry numeru. Dla numeru polskiego przykładowo +48123456789"
+                    },
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantContactResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "applicantContactPhoneNum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Email kontaktowy",
+                  "name": "applicantContactEmail",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "EmailValidator",
+                      "validationMsg": "Podaj prawidłowy adres email."
+                    },
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantContactResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "classList": [
+                    "col-span-2"
+                  ],
+                  "dataBDD": "applicantContactEmail"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "applicantContactResidence",
+                    "values": [
+                      "za granicą"
+                    ]
+                  }
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Kraj",
+                  "name": "applicantContactCountry",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantContactResidence",
+                        "value": "za granicą"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantContactCountry"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Miejscowość",
+                  "name": "applicantContactForeignLocation",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantContactResidence",
+                        "value": "za granicą"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantContactForeignLocation"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Ulica",
+                  "name": "applicantContactForeignStreet",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantContactResidence",
+                        "value": "za granicą"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantContactForeignStreet"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Numer domu",
+                  "name": "applicantContactForeignHouseNum",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantContactResidence",
+                        "value": "za granicą"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantContactForeignHouseNum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Numer lokalu",
+                  "name": "applicantContactForeignApartmentNum",
+                  "value": "",
+                  "dataBDD": "applicantContactForeignApartmentNum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Kod pocztowy",
+                  "name": "applicantContactForeignZipcode",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantContactResidence",
+                        "value": "za granicą"
+                      }
+                    }
+                  ],
+                  "dataBDD": "applicantContactForeignZipcode"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Poczta",
+                  "name": "applicantContactForeignPostOffice",
+                  "value": "",
+                  "dataBDD": "applicantContactForeignPostOffice"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Numer telefonu",
+                  "name": "applicantContactForeignPhoneNum",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "PhoneNumberValidator",
+                      "validationMsg": "Wprowadź numer telefonu w formie: +kod kraju oraz pozostałe cyfry numeru. Dla numeru polskiego przykładowo +48123456789"
+                    },
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantContactResidence",
+                        "value": "za granicą"
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "applicantContactForeignPhoneNum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Email kontaktowy",
+                  "name": "applicantContactForeignEmail",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "EmailValidator",
+                      "validationMsg": "Podaj prawidłowy adres email."
+                    },
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantContactResidence",
+                        "value": "za granicą"
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "classList": [
+                    "col-span-2"
+                  ],
+                  "dataBDD": "applicantContactForeignEmail"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "6. Numery identyfikacyjne",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "applicantResidence",
+                "values": [
+                  "w Polsce"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Numer PESEL",
+              "name": "applicantPesel",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "PeselValidator"
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "applicantPesel"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Właściwy urząd skarbowy",
+              "name": "applicantTaxOffice",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RelatedRequiredIfEqualValidator",
+                  "kwargs": {
+                    "field_name": "applicantResidence",
+                    "value": "w Polsce"
+                  }
+                }
+              ],
+              "dataBDD": "applicantTaxOffice"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "7. Nazwa i numer rachunku bankowego",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "applicantResidence",
+                "values": [
+                  "w Polsce"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Nazwa banku",
+              "name": "applicantBank",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RelatedRequiredIfEqualValidator",
+                  "kwargs": {
+                    "field_name": "applicantResidence",
+                    "value": "w Polsce"
+                  }
+                }
+              ],
+              "dataBDD": "applicantBank"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "bankAccount",
+              "label": "Numer konta bankowego",
+              "name": "applicantBankAccountNum",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "min": 26,
+                    "max": 27
+                  },
+                  "validationMsg": "Numer konta bankowego musi liczyć 26 cyfr."
+                },
+                {
+                  "name": "RelatedRequiredIfEqualValidator",
+                  "kwargs": {
+                    "field_name": "applicantResidence",
+                    "value": "w Polsce"
+                  }
+                }
+              ],
+              "required": true,
+              "dataBDD": "applicantBankAccountNum"
+            }
+          ],
+          "classList": [
+            "grid",
+            "grid-cols-2"
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "6. Numery identyfikacyjne",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "applicantResidence",
+                "values": [
+                  "za granicą"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Numer PESEL",
+              "name": "applicantForeignPesel",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "PeselValidator"
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "applicantForeignPesel"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Właściwy urząd skarbowy",
+              "name": "applicantForeignTaxOffice",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RelatedRequiredIfEqualValidator",
+                  "kwargs": {
+                    "field_name": "applicantResidence",
+                    "value": "za granicą"
+                  }
+                }
+              ],
+              "dataBDD": "applicantForeignTaxOffice"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "7. Nazwa i numer rachunku bankowego",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "applicantResidence",
+                "values": [
+                  "za granicą"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Nazwa banku",
+              "name": "applicantForeignBank",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RelatedRequiredIfEqualValidator",
+                  "kwargs": {
+                    "field_name": "applicantResidence",
+                    "value": "w Polsce"
+                  }
+                }
+              ],
+              "dataBDD": "applicantForeignBank"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Numer IBAN",
+              "name": "applicantIban",
+              "value": "",
+              "validators": [
+                {
+                  "name": "IBANValidator"
+                },
+                {
+                  "name": "RelatedRequiredIfEqualValidator",
+                  "kwargs": {
+                    "field_name": "applicantResidence",
+                    "value": "w Polsce"
+                  }
+                }
+              ],
+              "required": true,
+              "dataBDD": "applicantIban"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Kod SWIFT banku",
+              "name": "applicantForeignBankSwift",
+              "value": "",
+              "validators": [
+                {
+                  "name": "SwiftValidator"
+                },
+                {
+                  "name": "RelatedRequiredIfEqualValidator",
+                  "kwargs": {
+                    "field_name": "applicantResidence",
+                    "value": "w Polsce"
+                  }
+                }
+              ],
+              "required": true,
+              "dataBDD": "applicantForeignBankSwift"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "IV. Dotychczasowy dorobek i doświadczenie wnioskodawcy w dziedzinie, której wniosek dotyczy",
+      "shortName": "IV. Dorobek wnioskodawcy",
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "CV wnioskodawcy (należy podać filmografię z informacją o pełnionej funkcji w projekcie oraz ew. nagrody filmu lub/i nagrody dla wnioskodawcy)",
+              "name": "applicantCv",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 10001
+                  },
+                  "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 10000."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "applicantCv"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "V. Opis zaplanowanego przedsięwzięcia",
+      "shortName": "V. Opis przedsięwzięcia",
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Należy podać opis, charakter wydarzenia oraz cel uczestnictwa wnioskodawcy.",
+              "name": "plannedTaskDesc",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 20001
+                  },
+                  "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "plannedTaskDesc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "VI. Wskazanie sposobu wykorzystania logotypu PISF / Informacja o dofinansowaniu ze środków PISF w kampanii promocyjnej",
+      "shortName": "VI. Logotyp PISF",
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Opis wykorzystania logotypu lub informacji o dofinansowaniu",
+              "name": "logotypePromotionDesc",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 20001
+                  },
+                  "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "helpText": "Opisz w jaki sposób wykorzystasz logotyp PISF i/lub zamieścisz informację o dofinansowaniu ze środków PISF.",
+              "required": true,
+              "dataBDD": "logotypePromotionDesc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "VII. Planowane efekty realizacji przedsięwzięcia",
+      "shortName": "VII. Efekty realizacji",
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "<normal>Należy podać konkretny efekt np. nawiązanie innej współpracy, zaproszenie na inny festiwal, itp. Po zakończeniu przedsięwzięcia beneficjent jest zobowiązany przedstawić w raporcie efekty swojego udziału w przedsięwzięciu.</normal>",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Planowane efekty",
+              "name": "expectedTaskEffects",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 20001
+                  },
+                  "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "helpText": "Opisz planowane efekty wykonania przedsięwzięcia",
+              "required": true,
+              "dataBDD": "expectedTaskEffects"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "VIII. Inne informacje",
+      "shortName": "VIII. Inne informacje",
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "1. Synopsis filmu/opis projektu",
+              "name": "movieProjectSynopsis",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 20001
+                  },
+                  "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000"
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "helpText": "Podaj synopsis filmu lub opis projektu.",
+              "required": true,
+              "dataBDD": "movieProjectSynopsis"
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "2. Link do filmu",
+              "name": "movieLink",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 1801
+                  },
+                  "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1800"
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "helpText": "Podaj link do filmu.",
+              "required": true,
+              "dataBDD": "movieLink"
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "3. Plan promocji",
+              "name": "moviePromotionPlan",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 20001
+                  },
+                  "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000"
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "helpText": "Podaj opis planowanych działań promocyjnych.",
+              "required": true,
+              "dataBDD": "moviePromotionPlan"
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "4. Festiwale, warsztaty, pitchingi w których film/projekt dotychczas wziął udział",
+              "name": "movieFestivalsShown",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 20001
+                  },
+                  "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "helpText": "Podaj informacje na temat wydarzeń, w których film już wziął udział.",
+              "dataBDD": "movieFestivalsShown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "IX. Koszty planowanego przedsięwzięcia",
+      "shortName": "IX. Koszty przedsięwzięcia",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Waluta, w której dotacja PISF ma zostać przelana na w/w konto",
+              "name": "grantCurrency",
+              "value": "",
+              "dataBDD": "grantCurrency"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Nazwa przedsięwzięcia",
+              "name": "applicationTaskNameRepeat",
+              "value": "",
+              "calculationRules": [
+                {
+                  "name": "copyValue",
+                  "from": "applicationTaskName"
+                }
+              ],
+              "readOnly": true,
+              "dataBDD": "applicationTaskNameRepeat"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Uwaga! W przypadku braku automatycznego przeliczenia wartości finansowych prosimy o użycie przycisku „Przelicz i waliduj”, który znajduje się w prawym, dolnym rogu ekranu. Wymusi to dokonanie niezbędnych przeliczeń oraz podświetli nieuzupełnione pola formularza.</normal>",
+          "components": []
+        },
+        {
+          "kind": "chapter",
+          "title": "1. Koszty wg źródeł finansowania",
+          "classList": {
+            "main": [
+              "table-6-top"
+            ],
+            "sub": [
+              "table-6-top__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "Koszty akredytacji",
+              "classList": {
+                "main": [
+                  "table-6",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-6__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "Rodzaj kosztów",
+                  "helpText": "Rodzaj kosztów",
+                  "name": "accreditationCosts",
+                  "value": "Akredytacja",
+                  "readOnly": true,
+                  "dataBDD": "accreditationCosts"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Koszt całkowity",
+                  "helpText": "Koszt całkowity",
+                  "name": "accreditationCostTotal",
+                  "value": 0,
+                  "readOnly": true,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "accreditationCostRequestPisf",
+                          "accreditationCostOwnFunds",
+                          "accreditationCostPartnersSponsors",
+                          "accreditationCostOtherSources"
+                        ]
+                      }
+                    }
+                  ],
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "accreditationCostRequestPisf",
+                          "accreditationCostOwnFunds",
+                          "accreditationCostPartnersSponsors",
+                          "accreditationCostOtherSources"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "accreditationCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wniosek o dotację PISF",
+                  "helpText": "Wniosek o dotację PISF",
+                  "name": "accreditationCostRequestPisf",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa od zera."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "accreditationCostRequestPisf"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Środki własne",
+                  "helpText": "Środki własne",
+                  "name": "accreditationCostOwnFunds",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa od zera."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "accreditationCostOwnFunds"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Środki innych partnerów/sponsorów",
+                  "helpText": "Środki innych partnerów/sponsorów",
+                  "name": "accreditationCostPartnersSponsors",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa od zera."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "accreditationCostPartnersSponsors"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe źródła publiczne",
+                  "helpText": "Pozostałe źródła publiczne",
+                  "name": "accreditationCostOtherSources",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa od zera."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "accreditationCostOtherSources"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział wnioskowanej dotacji PISF we wskazanym rodzaju kosztów",
+                  "helpText": "Udział wnioskowanej dotacji PISF we wskazanym rodzaju kosztów",
+                  "name": "accreditationCostRequestPisfShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "accreditationCostRequestPisf",
+                        "divisorField": "accreditationCostTotal"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "accreditationCostRequestPisfShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział środków własnych  we wskazanym rodzaju kosztów",
+                  "helpText": "Udział środków własnych we wskazanym rodzaju kosztów",
+                  "name": "accreditationCostOwnFundsShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "accreditationCostOwnFunds",
+                        "divisorField": "accreditationCostTotal"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "accreditationCostOwnFundsShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział środków od partnerów/sponsorów we wskazanym rodzaju kosztów",
+                  "helpText": "Udział środków od partnerów/sponsorów we wskazanym rodzaju kosztów",
+                  "name": "accreditationCostPartnersSponsorsShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "accreditationCostPartnersSponsors",
+                        "divisorField": "accreditationCostTotal"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "accreditationCostPartnersSponsorsShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział innych środków publicznych we wskazanym rodzaju kosztów",
+                  "helpText": "Udział innych środków publicznych we wskazanym rodzaju kosztów",
+                  "name": "accreditationCostOtherSourcesShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "accreditationCostOtherSources",
+                        "divisorField": "accreditationCostTotal"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "accreditationCostOtherSourcesShare"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "Koszty noclegu",
+              "classList": {
+                "main": [
+                  "table-6",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-6__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "Rodzaj kosztów",
+                  "helpText": "Rodzaj kosztów",
+                  "name": "accommodationCosts",
+                  "value": "Nocleg",
+                  "readOnly": true,
+                  "dataBDD": "accommodationCosts"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt całkowity",
+                  "helpText": "Koszt całkowity",
+                  "name": "accommodationCostTotal",
+                  "value": 0,
+                  "readOnly": true,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "accommodationCostRequestPisf",
+                          "accommodationCostOwnFunds",
+                          "accommodationCostPartnersSponsors",
+                          "accommodationCostOtherSources"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "accommodationCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wniosek o dotację PISF",
+                  "helpText": "Wniosek o dotację PISF",
+                  "name": "accommodationCostRequestPisf",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa od zera."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "accommodationCostRequestPisf"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Środki własne",
+                  "helpText": "Środki własne",
+                  "name": "accommodationCostOwnFunds",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa od zera."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "accommodationCostOwnFunds"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Środki innych partnerów/sponsorów",
+                  "helpText": "Środki innych partnerów/sponsorów",
+                  "name": "accommodationCostPartnersSponsors",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa od zera."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "accommodationCostPartnersSponsors"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe źródła publiczne",
+                  "helpText": "Pozostałe źródła publiczne",
+                  "name": "accommodationCostOtherSources",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa od zera."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "accommodationCostOtherSources"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział wnioskowanej dotacji PISF we wskazanym rodzaju kosztów",
+                  "helpText": "Udział wnioskowanej dotacji PISF we wskazanym rodzaju kosztów",
+                  "name": "accommodationCostRequestPisfShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "accommodationCostRequestPisf",
+                        "divisorField": "accommodationCostTotal"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "accommodationCostRequestPisfShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział środków własnych  we wskazanym rodzaju kosztów",
+                  "helpText": "Udział środków własnych  we wskazanym rodzaju kosztów",
+                  "name": "accommodationCostOwnFundsShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "accommodationCostOwnFunds",
+                        "divisorField": "accommodationCostTotal"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "accommodationCostOwnFundsShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział środków od partnerów/sponsorów  we wskazanym rodzaju kosztów",
+                  "helpText": "Udział środków od partnerów/sponsorów  we wskazanym rodzaju kosztów",
+                  "name": "accommodationCostPartnersSponsorsShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "accommodationCostPartnersSponsors",
+                        "divisorField": "accommodationCostTotal"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "accommodationCostPartnersSponsorsShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział innych środków publicznych  we wskazanym rodzaju kosztów",
+                  "helpText": "Udział innych środków publicznych  we wskazanym rodzaju kosztów",
+                  "name": "accommodationCostOtherSourcesShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "accommodationCostOtherSources",
+                        "divisorField": "accommodationCostTotal"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "accommodationCostOtherSourcesShare"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "Koszty transportu",
+              "classList": {
+                "main": [
+                  "table-6",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-6__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "Rodzaj kosztów",
+                  "helpText": "Rodzaj kosztów",
+                  "name": "transportationCosts",
+                  "value": "Transport",
+                  "readOnly": true,
+                  "dataBDD": "transportationCosts"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt całkowity",
+                  "helpText": "Koszt całkowity",
+                  "name": "transportationCostTotal",
+                  "value": 0,
+                  "readOnly": true,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "transportationCostRequestPisf",
+                          "transportationCostOwnFunds",
+                          "transportationCostPartnersSponsors",
+                          "transportationCostOtherSources"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "transportationCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wniosek o dotację PISF",
+                  "helpText": "Wniosek o dotację PISF",
+                  "name": "transportationCostRequestPisf",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa od zera."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "transportationCostRequestPisf"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Środki własne",
+                  "helpText": "Środki własne",
+                  "name": "transportationCostOwnFunds",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa od zera."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "transportationCostOwnFunds"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Środki innych partnerów/sponsorów",
+                  "helpText": "Środki innych partnerów/sponsorów",
+                  "name": "transportationCostPartnersSponsors",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa od zera."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "transportationCostPartnersSponsors"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe źródła publiczne",
+                  "helpText": "Pozostałe źródła publiczne",
+                  "name": "transportationCostOtherSources",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa od zera."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "transportationCostOtherSources"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział wnioskowanej dotacji PISF we wskazanym rodzaju kosztów",
+                  "helpText": "Udział wnioskowanej dotacji PISF we wskazanym rodzaju kosztów",
+                  "name": "transportationCostRequestPisfShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "transportationCostRequestPisf",
+                        "divisorField": "transportationCostTotal"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "transportationCostRequestPisfShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział środków własnych  we wskazanym rodzaju kosztów",
+                  "helpText": "Udział środków własnych  we wskazanym rodzaju kosztów",
+                  "name": "transportationCostOwnFundsShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "transportationCostOwnFunds",
+                        "divisorField": "transportationCostTotal"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "transportationCostOwnFundsShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział środków od partnerów/sponsorów  we wskazanym rodzaju kosztów",
+                  "helpText": "Udział środków od partnerów/sponsorów  we wskazanym rodzaju kosztów",
+                  "name": "transportationCostPartnersSponsorsShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "transportationCostPartnersSponsors",
+                        "divisorField": "transportationCostTotal"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "transportationCostPartnersSponsorsShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział innych środków publicznych  we wskazanym rodzaju kosztów",
+                  "helpText": "Udział innych środków publicznych  we wskazanym rodzaju kosztów",
+                  "name": "transportationCostOtherSourcesShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "transportationCostOtherSources",
+                        "divisorField": "transportationCostTotal"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "transportationCostOtherSourcesShare"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "Koszty uczestnictwa w warsztatach (jeśli dotyczy)",
+              "classList": {
+                "main": [
+                  "table-6",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-6__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "Rodzaj kosztów",
+                  "helpText": "Rodzaj kosztów",
+                  "name": "participationCosts",
+                  "value": "Koszty uczestnictwa",
+                  "readOnly": true,
+                  "dataBDD": "participationCosts"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt całkowity",
+                  "helpText": "Koszt całkowity",
+                  "name": "participationCostTotal",
+                  "value": 0,
+                  "readOnly": true,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "participationCostRequestPisf",
+                          "participationCostOwnFunds",
+                          "participationCostPartnersSponsors",
+                          "participationCostOtherSources"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "participationCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wniosek o dotację PISF",
+                  "helpText": "Wniosek o dotację PISF",
+                  "name": "participationCostRequestPisf",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa od zera."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "participationCostRequestPisf"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Środki własne",
+                  "helpText": "Środki własne",
+                  "name": "participationCostOwnFunds",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa od zera."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "participationCostOwnFunds"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Środki innych partnerów/sponsorów",
+                  "helpText": "Środki innych partnerów/sponsorów",
+                  "name": "participationCostPartnersSponsors",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa od zera."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "participationCostPartnersSponsors"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe źródła publiczne",
+                  "helpText": "Pozostałe źródła publiczne",
+                  "name": "participationCostOtherSources",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa od zera."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "participationCostOtherSources"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział wnioskowanej dotacji PISF we wskazanym rodzaju kosztów",
+                  "helpText": "Udział wnioskowanej dotacji PISF we wskazanym rodzaju kosztów",
+                  "name": "participationCostRequestPisfShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "participationCostRequestPisf",
+                        "divisorField": "participationCostTotal"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "participationCostRequestPisfShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział środków własnych we wskazanym rodzaju kosztów",
+                  "helpText": "Udział środków własnych we wskazanym rodzaju kosztów",
+                  "name": "participationCostOwnFundsShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "participationCostOwnFunds",
+                        "divisorField": "participationCostTotal"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "participationCostOwnFundsShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział środków od partnerów/sponsorów we wskazanym rodzaju kosztów",
+                  "helpText": "Udział środków od partnerów/sponsorów we wskazanym rodzaju kosztów",
+                  "name": "participationCostPartnersSponsorsShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "participationCostPartnersSponsors",
+                        "divisorField": "participationCostTotal"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "participationCostPartnersSponsorsShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział innych środków publicznych  we wskazanym rodzaju kosztów",
+                  "helpText": "Udział innych środków publicznych  we wskazanym rodzaju kosztów",
+                  "name": "participationCostOtherSourcesShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "participationCostOtherSources",
+                        "divisorField": "participationCostTotal"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "participationCostOtherSourcesShare"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Źródła finansowania łącznie",
+          "classList": {
+            "main": [
+              "table-6-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-6-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-6-2__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt całkowity razem",
+                  "helpText": "Koszt całkowity razem",
+                  "name": "costTotalSum",
+                  "value": 0,
+                  "readOnly": true,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "accreditationCostTotal",
+                          "accommodationCostTotal",
+                          "transportationCostTotal",
+                          "participationCostTotal"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "costTotalSum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wniosek o dotację PISF razem",
+                  "helpText": "Wniosek o dotację PISF razem",
+                  "name": "costRequestPisfSum",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "accreditationCostRequestPisf",
+                          "accommodationCostRequestPisf",
+                          "transportationCostRequestPisf",
+                          "participationCostRequestPisf"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "PLN",
+                  "dataBDD": "costRequestPisfSum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Środki własne razem",
+                  "helpText": "Środki własne razem",
+                  "name": "costOwnFundsSum",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "accreditationCostOwnFunds",
+                          "accommodationCostOwnFunds",
+                          "transportationCostOwnFunds",
+                          "participationCostOwnFunds"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "PLN",
+                  "dataBDD": "costOwnFundsSum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Środki innych partnerów/sponsorów razem",
+                  "helpText": "Środki innych partnerów/sponsorów razem",
+                  "name": "costPartnersSponsorsSum",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "accreditationCostPartnersSponsors",
+                          "accommodationCostPartnersSponsors",
+                          "transportationCostPartnersSponsors",
+                          "participationCostPartnersSponsors"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "PLN",
+                  "dataBDD": "costPartnersSponsorsSum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe źródła publiczne razem",
+                  "helpText": "Pozostałe źródła publiczne razem",
+                  "name": "costOtherSourcesSum",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "accreditationCostOtherSources",
+                          "accommodationCostOtherSources",
+                          "transportationCostOtherSources",
+                          "participationCostOtherSources"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "PLN",
+                  "dataBDD": "costOtherSourcesSum"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział wnioskowanej dotacji PISF w kosztach razem",
+                  "helpText": "Udział wnioskowanej dotacji PISF w kosztach razem",
+                  "name": "costRequestPisfSumShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "costRequestPisfSum",
+                        "divisorField": "costTotalSum"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedShareValidator",
+                      "kwargs": {
+                        "dividend": "costRequestPisfSum",
+                        "divisor": "costTotalSum"
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "max": 90.01
+                      },
+                      "validationMsg": "Łączny udział dotacji PISF w kosztach przedsięwzięcia nie może przekraczać 90%."
+                    }
+                  ],
+                  "unit": "%",
+                  "dataBDD": "costRequestPisfSumShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział środków własnych w kosztach razem",
+                  "helpText": "Udział środków własnych w kosztach razem",
+                  "name": "costOwnFundsSumShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "costOwnFundsSum",
+                        "divisorField": "costTotalSum"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedShareValidator",
+                      "kwargs": {
+                        "dividend": "costOwnFundsSum",
+                        "divisor": "costTotalSum"
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 10.0
+                      },
+                      "validationMsg": "Łączny udział środków własnych w kosztach przedsięwzięcia nie może być niższy niż 10%."
+                    }
+                  ],
+                  "unit": "%",
+                  "dataBDD": "costOwnFundsSumShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział środków od partnerów/sponsorów w kosztach razem",
+                  "helpText": "Udział środków od partnerów/sponsorów w kosztach razem",
+                  "name": "costPartnersSponsorsSumShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "costPartnersSponsorsSum",
+                        "divisorField": "costTotalSum"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "costPartnersSponsorsSumShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział innych środków publicznych w kosztach razem",
+                  "helpText": "Udział innych środków publicznych w kosztach razem",
+                  "name": "costOtherSourcesSumShare",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "costOtherSourcesSum",
+                        "divisorField": "costTotalSum"
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "costOtherSourcesSumShare",
+                  "classList": [
+                    "col-span-2"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "mask": "fund",
+                  "label": "Udział dotacji PISF oraz innych środków publicznych w kosztach razem",
+                  "helpText": "Udział dotacji PISF oraz innych środków publicznych w kosztach razem",
+                  "name": "costPisfPublicShareInTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "costRequestPisfSumShare",
+                          "costOtherSourcesSumShare"
+                        ]
+                      }
+                    }
+                  ],
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "costRequestPisfSumShare",
+                          "costOtherSourcesSumShare"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "costPisfPublicShareInTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "mask": "fund",
+                  "label": "Udział środków własnych oraz środków od partnerów/sponsorów w kosztach razem",
+                  "helpText": "Udział środków własnych oraz środków od partnerów/sponsorów w kosztach razem",
+                  "name": "costOwnPartnersSponsorsShareInTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "costOwnFundsSumShare",
+                          "costPartnersSponsorsSumShare"
+                        ]
+                      }
+                    }
+                  ],
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "costOwnFundsSumShare",
+                          "costPartnersSponsorsSumShare"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "unit": "%",
+                  "dataBDD": "costOwnPartnersSponsorsShareInTotal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "2. Środki innych partnerów/sponsorów (wyłącznie udokumentowane deklaracjami i listami intencyjnymi)",
+          "classList": {
+            "main": [
+              "table-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 20
+              },
+              "classList": {
+                "main": [
+                  "table-2-multiple"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "classList": {
+                    "main": [
+                      "table-2",
+                      "grid",
+                      "grid-cols-2"
+                    ],
+                    "sub": [
+                      "table-2__col"
+                    ]
+                  },
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "textarea",
+                      "label": "Nazwa podmiotu/-ów finansującego/-ych",
+                      "name": "otherPartnersSponsorsName",
+                      "value": "",
+                      "classList": [
+                        "table-2__col--textarea"
+                      ],
+                      "helpText": "Podaj nazwę podmiotu finansującego.",
+                      "validators": [
+                        {
+                          "name": "LengthValidator",
+                          "kwargs": {
+                            "max": 201
+                          },
+                          "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 200."
+                        }
+                      ],
+                      "dataBDD": "otherPartnersSponsorsName"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Kwota",
+                      "name": "otherPartnersSponsorsAmount",
+                      "value": 0,
+                      "classList": [
+                        "table-2__col--text"
+                      ],
+                      "helpText": "Podaj wartość środków.",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa od zera."
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "otherPartnersSponsorsAmount"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "Razem",
+              "classList": {
+                "main": [
+                  "summary"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Razem",
+                  "name": "otherPartnersSponsorsAmountSum",
+                  "value": 0,
+                  "readOnly": true,
+                  "calculationRules": [
+                    {
+                      "name": "dynamicSumInputs",
+                      "kwargs": {
+                        "fields": "otherPartnersSponsorsAmount"
+                      }
+                    }
+                  ],
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "otherPartnersSponsorsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "otherPartnersSponsorsAmountSum"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "3. Pozostałe źródła publiczne (wyłącznie udokumentowane deklaracjami i listami intencyjnymi)",
+          "classList": {
+            "main": [
+              "table-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 20
+              },
+              "classList": {
+                "main": [
+                  "table-2-multiple"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "classList": {
+                    "main": [
+                      "table-2",
+                      "grid",
+                      "grid-cols-2"
+                    ],
+                    "sub": [
+                      "table-2__col"
+                    ]
+                  },
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "textarea",
+                      "label": "Nazwa podmiotu publicznego",
+                      "name": "otherSourcesName",
+                      "value": "",
+                      "classList": [
+                        "table-2__col--textarea"
+                      ],
+                      "helpText": "Podaj nazwę podmiotu finansującego.",
+                      "validators": [
+                        {
+                          "name": "LengthValidator",
+                          "kwargs": {
+                            "max": 201
+                          },
+                          "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 200."
+                        }
+                      ],
+                      "dataBDD": "otherSourcesName"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Kwota",
+                      "name": "otherSourcesAmount",
+                      "value": 0,
+                      "classList": [
+                        "table-2__col--text"
+                      ],
+                      "helpText": "Podaj wartość środków.",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa od zera."
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "otherSourcesAmount"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "Razem",
+              "classList": {
+                "main": [
+                  "summary"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Razem",
+                  "name": "otherSourcesAmountSum",
+                  "value": 0,
+                  "readOnly": true,
+                  "calculationRules": [
+                    {
+                      "name": "dynamicSumInputs",
+                      "kwargs": {
+                        "fields": "otherSourcesAmount"
+                      }
+                    }
+                  ],
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "otherSourcesAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "otherSourcesAmountSum"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "X. Oświadczenia wnioskodawcy",
+      "shortName": "X. Oświadczenia",
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "1. Oświadczam, iż nie zalegam z płatnościami na rzecz podmiotów publiczno-prawnych.",
+              "name": "statementNoPublicLiabilities",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "statementNoPublicLiabilities"
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "2. Oświadczam, iż nie zachodzą przesłanki określone w art. 22 ust. 2 Ustawy u kinematografii, które uniemożliwiają udzielenie dofinansowania przez Polski Instytut Sztuki Filmowej.",
+              "name": "statementEligibleForFunding",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "statementEligibleForFunding"
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "3. Oświadczam, iż spełniam warunki do otrzymania dofinansowania określone w Ustawie o kinematografii, Rozporządzeniu Ministra Kultury w sprawie udzielenia przez PISF dofinansowania przedsięwzięć z zakresu kinematografii oraz Programie Operacyjnym V - Promocja polskiej twórczości filmowej za granicą",
+              "name": "statementMeetConditions",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "statementMeetConditions"
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "4. Oświadczam, że zapoznałem się z treścią i zasadami dofinansowania w ramach <a href='https://pisf.pl/wp-content/uploads/2024/12/Programy-Operacyjne-PISF-na-rok-2025.pdf' target=\"_blank\">V Programu Operacyjnego, Priorytet II: Stypendia zagraniczne Polskiego Instytutu Sztuki Filmowej na rok 2025</a>",
+              "name": "applicantsStatementOfDeclareRead",
+              "value": false,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "applicantsStatementOfDeclareRead"
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "5. Oświadczenie Wnioskodawcy o braku powiązań z podmiotami sankcjonowanymi:\n\nW związku z wejściem w życie dnia 16 kwietnia 2022 roku ustawy z dnia 13 kwietnia 2022 roku o szczególnych rozwiązaniach w zakresie przeciwdziałania wspieraniu agresji na Ukrainę oraz służących ochronie bezpieczeństwa narodowego (Dz.U. z 2022 r. poz. 835) (dalej „Ustawa o przeciwdziałaniu wspieraniu agresji”), która uzupełnia pakiet wiążących Polskę środków ograniczających (sankcji) przyjętych na poziomie Unii Europejskiej oraz międzynarodowym, celem egzekwowania tychże sankcji,</br>\nWnioskodawca składa oświadczenia jak poniżej.</br>\n</br>\n§ 1</br>\n1. Beneficjent oświadcza, że, bezpośrednio lub pośrednio:</br>\na) nie wspiera agresji Federacji Rosyjskiej na Ukrainę rozpoczętą w dniu 24 lutego 2022 r.,</br>\nb) nie wspiera naruszeń praw człowieka lub represji wobec społeczeństwa obywatelskiego i opozycji demokratycznej lub których działalność stanowi inne poważne zagrożenie dla demokracji lub praworządności w Federacji Rosyjskiej lub na Białorusi,</br>\nc) nie jest bezpośrednio związany z osobami lub podmiotami, które nie spełniają kryteriów o których mowa w lit. a i b powyżej, w szczególności ze względu na powiązania o charakterze osobistym, organizacyjnym, gospodarczym lub finansowym, lub wobec których istnieje prawdopodobieństwo wykorzystania w tym celu dysponowanych przez nie takich środków finansowych, funduszy lub zasobów gospodarczych,</br>\nd) nie uchyla się od jakichkolwiek środków ograniczających (sankcji), nie narusza przepisów nakładających sankcje ani nie ułatwia innym podmiotom uchylania się od sankcji.</br>\n</br>\n2. Beneficjent oświadcza, że nie znajduje się na liście osób i podmiotów, wobec których są stosowane środki ograniczające (sankcje), o których mowa w art. 2 ustawy o przeciwdziałaniu wspieraniu agresji, a w szczególności:</br>\na) nie jest wymieniony w wykazach określonych w rozporządzeniu Rady (WE) nr 765/2006 z dnia 18 maja 2006 r. dotyczącego środków ograniczających w związku z sytuacją na Białorusi i udziałem Białorusi w agresji Rosji wobec Ukrainy (dalej jako „Rozporządzenie 765/2006”),</br>\nb) nie jest wymieniony w wykazach określonych w rozporządzeniu Rady (UE) nr 269/2014 z dnia 17 marca 2014 r. w sprawie środków ograniczających w odniesieniu do działań podważających integralność terytorialną, suwerenność i niezależność Ukrainy lub im zagrażających (dalej jako „Rozporządzenie 269/2014”),</br>\nc) wobec Beneficjenta nie została wydana decyzja w sprawie wpisu na listę osób i podmiotów, wobec których są stosowane środki w celu przeciwdziałania wspieraniu agresji Federacji Rosyjskiej na Ukrainę, z zastosowaniem środka w postaci wykluczenia z postępowania o udzielenie zamówienia publicznego lub konkursu prowadzonego na podstawie ustawy z dnia 11 września 2019 r. - Prawo zamówień publicznych,</br>\nd) Beneficjent nie jest umieszczony w wykazie cudzoziemców, których pobyt na terytorium Rzeczypospolitej Polskiej jest niepożądany, o którym mowa w art. 434 ustawy z dnia 12 grudnia 2013 r. o cudzoziemcach (dalej jako „Ustawa o cudzoziemcach”),</br>\ne) w stosunku do Beneficjenta członkiem organów, pracownikiem szczebla kierowniczego lub beneficjentem rzeczywistym, w rozumieniu ustawy z dnia 1 marca 2018 r. o przeciwdziałaniu praniu pieniędzy oraz finansowaniu terroryzmu, ani ich krewnym (przy czym na potrzeby niniejszego oświadczenia krewny, w odniesieniu do osoby fizycznej, oznacza jej małżonka, rodzeństwo, zstępnych i wstępnych) nie jest osoba znajdująca się na liście osób i podmiotów, wobec których są stosowane środki ograniczające, o której mowa w art. 2 ustawy o przeciwdziałaniu wspierania agresji, w szczególności nie znajduje się w wykazach określonych w Rozporządzeniu 765/2006, Rozporządzeniu 269/2014 lub art. 434 Ustawy o cudzoziemcach,</br>\nf) w stosunku do Beneficjenta jednostką dominującą w rozumieniu art. 3 ust. 1 pkt 37 ustawy z dnia 29 września 1994 r. o rachunkowości nie jest podmiot wymieniony w wykazach określonych w Rozporządzeniu 765/2006 i Rozporządzeniu 269/2014;</br>\ng) żaden z udziałów w kapitale zakładowym Beneficjenta nie jest własnością bezpośrednio lub pośrednio, ani nie został na nim ustanowiony zastaw ani użytkowanie na rzecz podmiotów wobec których są stosowane środki ograniczające (sankcje), o których mowa w niniejszym § 2, lub jakiegokolwiek podmiotu lub osoby, która korzysta z kapitału lub finansowania zapewnionego przez taki podmiot ani władz rosyjskich; przy czym na potrzeby niniejszego oświadczenia przez władze rosyjskie należy rozumieć Federację Rosyjską (i jej kraje związkowe), federalne i lokalne władze państwowe, państwowe jednostki organizacyjne i przedsiębiorstwa państwowe, instytucje publiczne, wszelkie spółki i podmioty bezpośrednio lub pośrednio kontrolowane przez wyżej wymienione oraz wszelkie podmioty powiązane z wyżej wymienionymi.</br>\n</br>\n3. Ponadto Beneficjent oświadcza, że nie znajduje się na liście osób i podmiotów, wobec których są stosowane środki ograniczające (sankcje) nałożone przez Organizację Narodów Zjednoczonych, państwo członkowskie Organizacji Narodów Zjednoczonych lub każdą inną organizację międzyrządową wprowadzone w związku z naruszeniem integralności terytorialnej Ukrainy i inwazją na Ukrainę (w tym również aneksją Krymu i konfliktem w regionie Donbasu) przeciwko Federacji Rosyjskiej, Białorusi, wskazanym osobom fizycznym i podmiotom.</br>\n</br>\n§ 2</br>\n1. Beneficjent przyjmuje do wiadomości, że oświadczenia Beneficjenta, o których mowa w § 1 powyżej, dotyczą środków ograniczających (sankcji), które obowiązują w dniu zawarcia Umowy i powinny pozostać prawdziwe przez cały okres obowiązywania Umowy.</br>\n2. Beneficjent zobowiązuje się monitorować swoje inwestycje, relacje biznesowe i działalność gospodarczą/zawodową w celu zapewnienia zgodności z wyżej wymienionymi oświadczeniami, przy jednoczesnym dochowaniu należytej staranności ogólnie wymaganej w relacjach biznesowych.</br>\n3. Beneficjent zobowiązuje się niezwłocznie poinformować Polski Instytut Sztuki Filmowej o każdej zmianie okoliczności, o których mowa w § 1 powyżej, które wystąpiły, powstały lub istniały przed dniem zawarcia Umowy, a których nie był świadomy, lub które wystąpiły, powstały lub zaistniały po zawarciu Umowy.</br>\n</br>\n§ 3</br>\n1. W przypadku nieprawdziwości któregokolwiek ze złożonych oświadczeń, o których mowa w § 1 powyżej, Polski Instytut Sztuki Filmowej jest uprawniony do wypowiedzenia Umowy w trybie natychmiastowym i żądania zwrotu przekazanych środków finansowych wraz z odsetkami ustawowymi za opóźnienie liczonymi od dnia przekazania środków, w terminie wskazanym przez Polski Instytut Sztuki Filmowej, jednak nie dłuższym niż 14 dni od dnia doręczenia wezwania zwrotu.</br>\n2. Bez uszczerbku dla postanowień ust. 1, w przypadku, w którym na skutek niepełnych, nierzetelnych lub nieprawdziwych oświadczeń Beneficjenta na Polski Instytut Sztuki Filmowej nałożona zostanie jakakolwiek kara administracyjna, Beneficjent zobowiązuje się do zwrotu - regresowo na wezwanie Polskiego Instytutu Sztuki Filmowej - całości pokrytych kar oraz wszelkich związanych z tym wydatków, włączając koszty postępowania sądowego, arbitrażowego, administracyjnego lub ugodowego oraz koszty pomocy prawnej.</br>",
+              "name": "applicantsStatementOfNoTies",
+              "value": false,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "applicantsStatementOfNoTies"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XI. Obowiązkowe załączniki zgodnie z rodzajem przedsięwzięcia",
+      "shortName": "XI. Załączniki",
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "wasRelatedToParticipation",
+                "values": [
+                  "Tak",
+                  "Nie"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "A. Oficjalne zaproszenie filmu/twórcy na festiwal",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "isMultipleForms": true,
+                  "multipleFormsRules": {
+                    "minCount": 1,
+                    "maxCount": 20
+                  },
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "file",
+                          "label": "Plik",
+                          "name": "invitationAttachment",
+                          "value": "",
+                          "validators": [
+                            {
+                              "name": "RelatedRequiredIfEqualValidator",
+                              "kwargs": {
+                                "field_name": "wasRelatedToParticipation",
+                                "value": "Nie"
+                              }
+                            }
+                          ],
+                          "dataBDD": "invitationAttachment"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "B. Lista gości zagranicznych",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "isMultipleForms": true,
+                  "multipleFormsRules": {
+                    "minCount": 1,
+                    "maxCount": 20
+                  },
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "file",
+                          "label": "Plik",
+                          "name": "foreignersListAttachment",
+                          "value": "",
+                          "validators": [
+                            {
+                              "name": "RelatedRequiredIfEqualValidator",
+                              "kwargs": {
+                                "field_name": "wasRelatedToParticipation",
+                                "value": "Nie"
+                              }
+                            }
+                          ],
+                          "dataBDD": "foreignersListAttachment"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "C. Zaświadczenie o zakwalifikowaniu się do udziału w przedsięwzięciu",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "isMultipleForms": true,
+                  "multipleFormsRules": {
+                    "minCount": 1,
+                    "maxCount": 20
+                  },
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "file",
+                          "label": "Plik",
+                          "name": "qualifyConfirmAttachment",
+                          "value": "",
+                          "validators": [
+                            {
+                              "name": "RelatedRequiredIfEqualValidator",
+                              "kwargs": {
+                                "field_name": "wasRelatedToParticipation",
+                                "value": "Nie"
+                              }
+                            }
+                          ],
+                          "dataBDD": "qualifyConfirmAttachment"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Uwaga",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Zapoznałem/łam się z poniższymi zasadami.<br/>- Wnioskodawca jest zobowiązany do przedstawienia rozliczenia dofinansowania zgodnie z warunkami określonymi w umowie o dofinansowanie, w tym w szczególności do przedłożenia raportu końcowego, który zawiera finansowe rozliczenie przedsięwzięcia, ocenę jakościową jego realizacji (WAŻNE: W przypadku dokumentów wystawionych w walucie obcej, należy przyjąć średni kurs NBP z dnia roboczego poprzedzającego wystawienie dokumentu księgowego).<br/>- Do raportu końcowego należy załączyć dokumenty finansowo-księgowe potwierdzające\nwydatkowanie kosztów poniesionych z udzielonego dofinansowania w postaci faktur (WAŻNE: faktury muszą być wystawione na Beneficjenta jako osobę fizyczną) oraz biletów (jeśli z przyczyn obiektywnie niezależnych od Beneficjenta niemożliwe jest otrzymanie faktury) wraz z potwierdzeniem wykonania przelewów z rachunku bankowego Beneficjenta.<br/>- Procentowy wkład dofinansowania PISF w finalnym budżecie przedsięwzięcia nie może przekroczyć wkładu zakładanego, określonego w umowie o dofinansowanie. Jeżeli faktycznie poniesiony koszt całkowity przedsięwzięcia okazał się niższy od planowanego lub beneficjent nie wykorzystał całego dofinansowania, należy dokonać zwrotu na rachunek PISF i dostarczyć wraz z raportem potwierdzenie przelewu.<br/>- Jedynie koszty poniesione od daty złożenia wniosku o dofinansowanie w ISSW do daty zakończenia przedsięwzięcia określonej w harmonogramie, mogą zostać uznane za koszty kwalifikowalne i opłacone z dofinasowania PISF (koszty poniesione przed datą złożenia wniosku o dofinansowanie nie będą uznane za koszty kwalifikowalne).<br/>- Wniosek o dofinansowanie wraz z załącznikami należy podpisać przy użyciu kwalifikowanego podpisu elektronicznego lub profilu zaufanego platformy E-PUAP.<br/>- Wszelkie załączniki do wniosku o dofinansowanie (w tym listy intencyjne, umowy z partnerami, itp.) wymagają poświadczenia za zgodność z oryginałem. Podpisanie wniosku o dofinansowanie przez wnioskodawcę kwalifikowanym podpisem elektronicznym lub profilem zaufanym platformy E-PUAP jest równoznaczne z poświadczeniem przez wnioskodawcę załączników do wniosku o dofinansowanie za zgodne z oryginałem.<br/>- Linki do zasobów zewnętrznych umieszczane we wniosku o dofinansowanie powinny zachować ważność co najmniej do czasu wydania decyzji przez Dyrektora PISF.<br/>- Do dokumentów przedkładanych do wniosku o dofinansowanie sporządzonych w językach obcych należy obligatoryjnie dołączyć tłumaczenie na język polski. wnioskodawca, na wniosek PISF, ma obowiązek przedstawić tłumaczenie przysięgłe wskazanego dokumentu.",
+              "name": "acknowledgeRules",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "acknowledgeRules"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XII. Harmonogram realizacji przedsięwzięcia",
+      "shortName": "XII. Harmonogram",
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Nazwa przedsięwzięcia",
+              "name": "applicationTaskNameRepeats",
+              "value": "",
+              "calculationRules": [
+                {
+                  "name": "copyValue",
+                  "from": "applicationTaskName"
+                }
+              ],
+              "readOnly": true,
+              "dataBDD": "applicationTaskNameRepeats"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Uwaga!\n\n- Harmonogram przedsięwzięcia powinien uwzględniać wszystkie działania wymienione w kosztorysie przedsięwzięcia.\n- Prosimy o chronologiczne ułożenie wszystkich pozycji harmonogramu.</normal>\n\nWymagane jest uwzględnienie przynajmniej 3 etapów realizacji przedsięwzięcia.",
+          "components": []
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "isMultipleForms": true,
+          "multipleFormsRules": {
+            "minCount": 3,
+            "maxCount": 20
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Termin od",
+                      "name": "taskActionDateStart",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "value": false,
+                      "dataBDD": "taskActionDateStart"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Termin do",
+                      "name": "taskActionDateEnd",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "value": false,
+                      "dataBDD": "taskActionDateEnd"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "textarea",
+                      "label": "Działanie",
+                      "name": "taskActionDesc",
+                      "value": "",
+                      "helpText": "Krótki opis działania",
+                      "validators": [
+                        {
+                          "name": "LengthValidator",
+                          "kwargs": {
+                            "max": 501
+                          },
+                          "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 500."
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "taskActionDesc",
+                      "classList": [
+                        "col-span-2",
+                        "table-full"
+                      ]
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2",
+                      "grid",
+                      "grid-cols-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Zakończenie realizacji przedsięwzięcia",
+              "name": "taskActionCompletionDate",
+              "value": false,
+              "readOnly": true,
+              "calculationRules": [
+                {
+                  "name": "lastDate",
+                  "kwargs": {
+                    "field": "taskActionDateEnd"
+                  }
+                }
+              ],
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "taskActionCompletionDate"
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Maksymalny termin złożenia raportu końcowego do PISF",
+              "name": "taskActionSettlingDate",
+              "value": false,
+              "readOnly": true,
+              "calculationRules": [
+                {
+                  "name": "relateToLastDate",
+                  "kwargs": {
+                    "field": "taskActionDateEnd",
+                    "parameter": 30
+                  }
+                }
+              ],
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "taskActionSettlingDate"
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
