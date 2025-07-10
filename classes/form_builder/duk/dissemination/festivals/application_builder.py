@@ -7,7 +7,7 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder):
     def __init__(self):
         super().__init__()
 
-        self.postgraduate_data_path = self.education_data_path / 'festivals'
+        self.festivals_data_path = self.education_data_path / 'festivals'
 
     def generate(self):
         # Metadane wniosku

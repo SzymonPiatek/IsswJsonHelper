@@ -7,7 +7,7 @@ class DigitalizationApplicationBuilder(DevelopmentApplicationBuilder):
     def __init__(self):
         super().__init__()
 
-        self.postgraduate_data_path = self.education_data_path / 'digitalization'
+        self.digitalization_data_path = self.education_data_path / 'digitalization'
 
     def generate(self):
         # Metadane wniosku

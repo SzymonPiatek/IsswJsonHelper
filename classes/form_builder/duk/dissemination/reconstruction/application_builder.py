@@ -7,7 +7,7 @@ class ReconstructionApplicationBuilder(DisseminationApplicationBuilder):
     def __init__(self):
         super().__init__()
 
-        self.postgraduate_data_path = self.education_data_path / 'reconstruction'
+        self.reconstruction_data_path = self.education_data_path / 'reconstruction'
 
     def generate(self):
         # Metadane wniosku

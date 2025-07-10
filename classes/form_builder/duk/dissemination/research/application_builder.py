@@ -7,7 +7,7 @@ class ResearchApplicationBuilder(DisseminationApplicationBuilder):
     def __init__(self):
         super().__init__()
 
-        self.postgraduate_data_path = self.education_data_path / 'research'
+        self.research_data_path = self.education_data_path / 'research'
 
     def generate(self):
         # Metadane wniosku

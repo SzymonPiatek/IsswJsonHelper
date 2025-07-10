@@ -7,7 +7,7 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder):
     def __init__(self):
         super().__init__()
 
-        self.postgraduate_data_path = self.education_data_path / 'professional_training'
+        self.secondary_data_path = self.education_data_path / 'professional_training'
 
     def generate(self):
         # Metadane wniosku

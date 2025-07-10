@@ -7,7 +7,7 @@ class DocumentaryDistributionApplicationBuilder(DisseminationApplicationBuilder)
     def __init__(self):
         super().__init__()
 
-        self.postgraduate_data_path = self.education_data_path / 'documentary_distribution'
+        self.documentary_data_path = self.education_data_path / 'documentary_distribution'
 
     def generate(self):
         # Metadane wniosku

@@ -7,7 +7,7 @@ class CoproductionFilmApplicationBuilder(DPFApplicationBuilder):
     def __init__(self):
         super().__init__()
 
-        self.screenplay_data_path = self.dpf_data_path / 'coproduction_film'
+        self.coproduction_data_path = self.dpf_data_path / 'coproduction_film'
 
     def generate(self):
         # Metadane wniosku

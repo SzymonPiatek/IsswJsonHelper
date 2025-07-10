@@ -7,7 +7,7 @@ class CinemasApplicationBuilder(EducationApplicationBuilder):
     def __init__(self):
         super().__init__()
 
-        self.postgraduate_data_path = self.education_data_path / 'cinemas'
+        self.cinemas_data_path = self.education_data_path / 'cinemas'
 
     def generate(self):
         # Metadane wniosku
