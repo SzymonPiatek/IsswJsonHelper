@@ -1,0 +1,370 @@
+{
+  "kind": "chapter",
+  "title": "",
+  "components": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "checkbox",
+          "label": "Należy zaznaczyć jeśli adres korespondencyjny jest inny",
+          "name": "applicantHasDifferentContactAddress",
+          "value": false,
+          "helpText": "Zaznacz, jeśli chcesz podać inny adres korespondencyjny.",
+          "dataBDD": "applicantHasDifferentContactAddress"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "{number}. Adres korespondencyjny",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "applicantHasDifferentContactAddress",
+            "values": [
+              true
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "Siedziba",
+          "components": [
+            {
+              "kind": "component",
+              "type": "radio",
+              "label": "Siedziba",
+              "name": "applicantContactResidence",
+              "value": "{applicantContactResidence[value]}",
+              "options": "{applicantContactResidence[options]}",
+              "readOnly": "{applicantContactResidence[readOnly]}",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                },
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": "{applicantContactResidence[options]}"
+                  }
+                }
+              ],
+              "dataBDD": "applicantContactResidence"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "Województwo",
+              "name": "applicantContactVoivodeship",
+              "value": "",
+              "options": [
+                "dolnośląskie",
+                "kujawsko-pomorskie",
+                "lubelskie",
+                "lubuskie",
+                "łódzkie",
+                "małopolskie",
+                "mazowieckie",
+                "opolskie",
+                "podkarpackie",
+                "podlaskie",
+                "pomorskie",
+                "śląskie",
+                "świętokrzyskie",
+                "warmińsko-mazurskie",
+                "wielkopolskie",
+                "zachodniopomorskie"
+              ],
+              "required": true,
+              "validators": [
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "dolnośląskie",
+                      "kujawsko-pomorskie",
+                      "lubelskie",
+                      "lubuskie",
+                      "łódzkie",
+                      "małopolskie",
+                      "mazowieckie",
+                      "opolskie",
+                      "podkarpackie",
+                      "podlaskie",
+                      "pomorskie",
+                      "śląskie",
+                      "świętokrzyskie",
+                      "warmińsko-mazurskie",
+                      "wielkopolskie",
+                      "zachodniopomorskie"
+                    ]
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "applicantContactVoivodeship"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Powiat",
+              "name": "applicantContactCounty",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "applicantContactCounty"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Miejscowość",
+              "name": "applicantContactLocation",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "applicantContactLocation"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Gmina",
+              "name": "applicantContactMunicipality",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "applicantContactMunicipality"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Ulica",
+              "name": "applicantContactStreet",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "applicantContactStreet",
+              "classList": [
+                "col-span-2"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Numer domu",
+              "name": "applicantContactHouseNum",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "applicantContactHouseNum"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Numer lokalu",
+              "name": "applicantContactApartmentNum",
+              "value": "",
+              "dataBDD": "applicantContactApartmentNum"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Kod pocztowy",
+              "mask": "polishPostalCode",
+              "name": "applicantContactZipcode",
+              "validators": [
+                {
+                  "name": "ZipCodeValidator",
+                  "validationMsg": "Podaj kod pocztowy we właściwym formacie."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "value": "",
+              "required": true,
+              "dataBDD": "applicantContactZipcode"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Poczta",
+              "name": "applicantContactPostOffice",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RelatedRequiredIfEqualValidator",
+                  "kwargs": {
+                    "field_name": "applicantContactResidence",
+                    "value": "w Polsce"
+                  }
+                }
+              ],
+              "dataBDD": "applicantContactPostOffice"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Numer telefonu",
+              "mask": "phoneNumber",
+              "name": "applicantContactPhoneNum",
+              "value": "",
+              "validators": [
+                {
+                  "name": "PhoneNumberValidator",
+                  "validationMsg": "Wprowadź numer telefonu w formie: +kod kraju oraz pozostałe cyfry numeru. Dla numeru polskiego przykładowo +48123456789"
+                },
+                {
+                  "name": "RelatedRequiredIfEqualValidator",
+                  "kwargs": {
+                    "field_name": "applicantContactResidence",
+                    "value": "w Polsce"
+                  }
+                }
+              ],
+              "required": true,
+              "dataBDD": "applicantContactPhoneNum"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Email kontaktowy",
+              "name": "applicantContactEmail",
+              "value": "",
+              "validators": [
+                {
+                  "name": "EmailValidator",
+                  "validationMsg": "Podaj prawidłowy adres email."
+                },
+                {
+                  "name": "RelatedRequiredIfEqualValidator",
+                  "kwargs": {
+                    "field_name": "applicantContactResidence",
+                    "value": "w Polsce"
+                  }
+                }
+              ],
+              "required": true,
+              "dataBDD": "applicantContactEmail"
+            }
+          ],
+          "classList": [
+            "grid",
+            "grid-cols-2"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Dane identyfikacyjne podmiotu",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Numer NIP",
+              "name": "applicantNip",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "min": 9,
+                    "max": 11
+                  },
+                  "validationMsg": "Niepoprawny numer NIP"
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "applicantNip"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Numer REGON",
+              "name": "applicantRegon",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RegonValidator",
+                  "validationMsg": "Niepoprawny numer REGON"
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "applicantRegon"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Identyfikator gminy (Kod JST)",
+              "name": "applicantJst",
+              "value": "",
+              "mask": "jst",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                },
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "min": 7,
+                    "max": 8
+                  },
+                  "validationMsg": "Wymagana liczba znaków wynosi 7."
+                }
+              ],
+              "helpText": "Kod JST gminy można znaleźć w wyszukiwarce pod adresem https://eteryt.stat.gov.pl/",
+              "dataBDD": "applicantJst"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

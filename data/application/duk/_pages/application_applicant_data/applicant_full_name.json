@@ -1,0 +1,20 @@
+{
+  "kind": "chapter",
+  "title": "{number}. Pełna nazwa wnioskodawcy",
+  "components": [
+    {
+      "kind": "component",
+      "type": "text",
+      "label": "Pełna nazwa wnioskodawcy",
+      "name": "applicantName",
+      "value": "",
+      "validators": [
+        {
+          "name": "RequiredValidator"
+        }
+      ],
+      "required": true,
+      "dataBDD": "applicantName"
+    }
+  ]
+}

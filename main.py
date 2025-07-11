@@ -1,7 +1,10 @@
 from classes.form_builder.dpf.screenplay_scholarship.application_builder import ScreenplayScholarshipApplicationBuilder
+from classes.form_builder.duk.education.postgraduate_schools.application_builder import PostgraduateSchoolsApplicationBuilder
+
 
 def main():
-    application = ScreenplayScholarshipApplicationBuilder()
+    # application = ScreenplayScholarshipApplicationBuilder()
+    application = PostgraduateSchoolsApplicationBuilder()
     application.generate()
 
 

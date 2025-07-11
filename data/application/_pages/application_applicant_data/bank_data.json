@@ -1,0 +1,135 @@
+{
+  "kind": "chapter",
+  "title": "{number}. Numer rachunku bankowego",
+  "components": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "text",
+          "label": "Nazwa banku",
+          "name": "applicantBank",
+          "value": "",
+          "required": true,
+          "validators": [
+            {
+              "name": "RelatedRequiredIfEqualValidator",
+              "kwargs": {
+                "field_name": "applicantResidence",
+                "value": "w Polsce"
+              }
+            }
+          ],
+          "dataBDD": "applicantBank"
+        },
+        {
+          "kind": "component",
+          "type": "text",
+          "mask": "bankAccount",
+          "label": "Numer konta bankowego",
+          "name": "applicantBankAccountNum",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "min": 26,
+                "max": 27
+              },
+              "validationMsg": "Numer konta bankowego musi liczyć 26 cyfr."
+            },
+            {
+              "name": "RelatedRequiredIfEqualValidator",
+              "kwargs": {
+                "field_name": "applicantResidence",
+                "value": "w Polsce"
+              }
+            }
+          ],
+          "required": true,
+          "dataBDD": "applicantBankAccountNum"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "applicantResidence",
+            "values": [
+              "za granicą"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "component",
+          "type": "text",
+          "label": "Nazwa banku",
+          "name": "applicantForeignBank",
+          "value": "",
+          "required": true,
+          "validators": [
+            {
+              "name": "RelatedRequiredIfEqualValidator",
+              "kwargs": {
+                "field_name": "applicantResidence",
+                "value": "za granicą"
+              }
+            }
+          ],
+          "dataBDD": "applicantForeignBank"
+        },
+        {
+          "kind": "component",
+          "type": "text",
+          "label": "Międzynarodowy Numer Rachunku Bankowego (IBAN)",
+          "name": "applicantIban",
+          "value": "",
+          "mask": "ibanAccount",
+          "validators": [
+            {
+              "name": "IBANValidator"
+            },
+            {
+              "name": "RelatedRequiredIfEqualValidator",
+              "kwargs": {
+                "field_name": "applicantResidence",
+                "value": "za granicą"
+              }
+            }
+          ],
+          "required": true,
+          "dataBDD": "applicantIban"
+        },
+        {
+          "kind": "component",
+          "type": "text",
+          "label": "Kod SWIFT banku",
+          "name": "applicantForeignBankSwift",
+          "value": "",
+          "validators": [
+            {
+              "name": "SwiftValidator"
+            },
+            {
+              "name": "RelatedRequiredIfEqualValidator",
+              "kwargs": {
+                "field_name": "applicantResidence",
+                "value": "za granicą"
+              }
+            }
+          ],
+          "required": true,
+          "dataBDD": "applicantForeignBankSwift"
+        }
+      ]
+    }
+  ]
+}

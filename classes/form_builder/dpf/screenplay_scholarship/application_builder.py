@@ -9,11 +9,6 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
 
         self.screenplay_data_path = self.dpf_data_path / 'screenplay_scholarship'
 
-    def create_application_applicant_data(self, sections):
-        layout_path = self.application_data_path / '_pages' / 'application_applicant_data' / 'layout.json'
-
-        self.create_part_by_sections(layout_path=layout_path, sections=sections)
-
     def generate(self):
         self.create_application_base()
 
@@ -145,7 +140,12 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         )
 
         # III. Informacje
+
         # IV. Termin realizacji
+        self.create_application_completion_date_data(
+            sections=[]
+        )
+
         # V. Dane finansowe
         # VI. Dane dodatkowe
         # VII. Załączniki

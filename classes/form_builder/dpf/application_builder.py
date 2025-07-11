@@ -24,6 +24,21 @@ class DPFApplicationBuilder(ApplicationBuilder):
         self.save_part(final_part)
 
     def create_application_basic_data(self, sections):
-        layout_path = self.dpf_data_path / '_pages' / 'application_basic_data' / 'layout.json'
+        part = self.load_json(path=self.application_data_path / '_pages' / 'layout.json')
+        values = {
+            "title": "I. Dane podstawowe",
+            "shortName": "I. Dane podstawowe"
+        }
+        part = self.replace_placeholders(part, values)
 
-        self.create_part_by_sections(layout_path=layout_path, sections=sections)
+        self.create_part_by_sections(part=part, sections=sections)
+
+    def create_application_completion_date_data(self, sections):
+        part = self.load_json(path=self.application_data_path / '_pages' / 'layout.json')
+        values = {
+            "title": "IV. Termin realizacji",
+            "shortName": "IV. Termin realizacji"
+        }
+        part = self.replace_placeholders(part, values)
+
+        self.create_part_by_sections(part=part, sections=sections)

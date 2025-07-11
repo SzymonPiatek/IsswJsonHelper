@@ -76,8 +76,11 @@ class FormBuilder:
             json.dump(self.output_json, f, ensure_ascii=False, indent=2)
         print(f'Zapisano output do {self.output_file}')
 
-    def create_base(self, intro_text: str):
-        self.output_json = self.load_json(path=self.main_dir / 'data' / 'base' / 'base.json')
+    def create_base(self, intro_text: str, layout_path=None):
+        if layout_path is None:
+            layout_path = self.main_dir / 'data' / 'base' / 'base.json'
+
+        self.output_json = self.load_json(path=layout_path)
 
         try:
             intro_list = self.output_json['introText']
@@ -87,8 +90,18 @@ class FormBuilder:
         except KeyError as e:
             raise RuntimeError(f"Nie znalazłem miejsca na introText w JSONie: {e!s}")
 
-    def create_part_by_sections(self, layout_path, sections):
+    def create_part(self, title, short_name, layout_path=None):
+        if layout_path is None:
+            layout_path = self.application_data_path / '_pages' / 'layout.json'
+
         part = self.load_json(path=layout_path)
+        values = {
+            "title": title,
+            "shortName": short_name
+        }
+        return self.replace_placeholders(part, values)
+
+    def create_part_by_sections(self, part, sections):
         layout_chapters = []
 
         for section in sections:
