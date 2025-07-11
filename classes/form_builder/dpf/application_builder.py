@@ -23,3 +23,26 @@ class DPFApplicationBuilder(ApplicationBuilder):
         final_part = self.replace_placeholders(part, values)
         self.save_part(final_part)
 
+    def create_application_base_data(self, sections):
+        file_path = self.dpf_data_path / 'pages' / 'application_basic_data'
+
+        part = self.load_json(path=file_path / 'layout.json')
+        layout_chapters = []
+
+        for section in sections:
+            data = section['data']
+
+            for key, value in data.items():
+                if isinstance(value, dict) and 'options' in value:
+                    options = value['options']
+                    data[key]['value'] = options[0] if len(options) == 1 else ""
+                    data[key]['readOnly'] = True if len(options) == 1 else False
+
+            section_path = file_path / section['path']
+            section_json = self.load_json(path=section_path)
+            filled_section = self.replace_placeholders(section_json, data)
+
+            layout_chapters.append(filled_section)
+
+        part['chapters'] = layout_chapters
+        self.save_part(part)

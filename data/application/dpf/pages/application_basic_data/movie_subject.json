@@ -1,0 +1,29 @@
+{
+  "kind": "chapter",
+  "title": "{number}. Tematyka",
+  "components": [
+    {
+      "kind": "component",
+      "type": "select",
+      "label": "Tematyka",
+      "name": "movieSubject",
+      "value": "{movieSubject[value]}",
+      "options": "{movieSubject[options]}",
+      "validators": [
+        {
+          "name": "RelatedAllowedOptionsValidator",
+          "kwargs": {
+            "field_name": "movieKind",
+            "mapping": "{movieSubject[mapping]}"
+          }
+        },
+        {
+          "name": "RequiredValidator"
+        }
+      ],
+      "readOnly": "{movieSubject[readOnly]}",
+      "required": true,
+      "dataBDD": "movieSubjectAll"
+    }
+  ]
+}

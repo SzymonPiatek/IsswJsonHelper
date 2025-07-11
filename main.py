@@ -1,8 +1,7 @@
-from classes.form_builder.duk.education.postgraduate_schools.application_builder import PostgraduateSchoolsApplicationBuilder
-
+from classes.form_builder.dpf.screenplay_scholarship.application_builder import ScreenplayScholarshipApplicationBuilder
 
 def main():
-    application = PostgraduateSchoolsApplicationBuilder()
+    application = ScreenplayScholarshipApplicationBuilder()
     application.generate()
 
 

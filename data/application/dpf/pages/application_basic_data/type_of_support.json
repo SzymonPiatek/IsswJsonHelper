@@ -1,0 +1,34 @@
+{
+  "kind": "chapter",
+  "title": "{number}. Rodzaj pomocy",
+  "components": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "select",
+          "label": "Rodzaj pomocy",
+          "name": "typeOfSupport",
+          "value": "{typeOfSupport[value]}",
+          "options": "{typeOfSupport[options]}",
+          "validators": [
+            {
+              "name": "ExactValidator",
+              "kwargs": {
+                "values": "{typeOfSupport[options]}"
+              }
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "readOnly": "{typeOfSupport[readOnly]}",
+          "required": true,
+          "dataBDD": "typeOfSupport"
+        }
+      ]
+    }
+  ]
+}
