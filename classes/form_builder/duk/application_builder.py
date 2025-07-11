@@ -68,8 +68,7 @@ class DUKApplicationBuilder(ApplicationBuilder):
                         "number": "4",
                         "applicantResidence": {
                             "options": [
-                                "w Polsce",
-                                "za granicą"
+                                "w Polsce"
                             ]
                         }
                     }
@@ -80,28 +79,33 @@ class DUKApplicationBuilder(ApplicationBuilder):
                         "number": "5",
                         "applicantContactResidence": {
                             "options": [
-                                "w Polsce",
-                                "za granicą"
+                                "w Polsce"
                             ]
                         }
                     }
                 },
                 {
-                    "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'bank_data.json',
+                    "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'applicant_identification_data.json',
                     "data": {
                         "number": "6"
                     }
                 },
                 {
-                    "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'legal_information.json',
+                    "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'bank_data.json',
                     "data": {
                         "number": "7"
                     }
                 },
                 {
-                    "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'statistical_data.json',
+                    "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'legal_information.json',
                     "data": {
                         "number": "8"
+                    }
+                },
+                {
+                    "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'statistical_data.json',
+                    "data": {
+                        "number": "9"
                     }
                 },
             ]

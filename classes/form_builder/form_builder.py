@@ -41,12 +41,12 @@ class FormBuilder:
 
     def info(self):
         return f'''
-        Type: {'Wniosek' if self.json_type == 'application' else 'Raport'}
-        Department: {self.department_name}
-        Operation: {self.operation_name}
-        Priority: {self.priority_name}
-        Year: {self.year}
-        Session: {self.session}
+        Typ formularza: {'Wniosek' if self.json_type == 'application' else 'Raport'}
+        Dział: {self.department_name}
+        Program oparacyjny: {self.operation_name}
+        Priorytet: {self.priority_name}
+        Rok: {self.year}
+        Sesja: {self.session}
         '''
 
     @staticmethod
@@ -97,14 +97,17 @@ class FormBuilder:
         except KeyError as e:
             raise RuntimeError(f"Nie znalazłem miejsca na introText w JSONie: {e!s}")
 
-    def create_part(self, title, short_name, layout_path=None):
+    def create_part(self, title, short_name, layout_path=None, class_list=None):
+        if class_list is None:
+            class_list = []
         if layout_path is None:
             layout_path = self.application_data_path / '_pages' / 'layout.json'
 
         part = self.load_json(path=layout_path)
         values = {
             "title": title,
-            "shortName": short_name
+            "shortName": short_name,
+            "classList": class_list
         }
         return self.replace_placeholders(part, values)
 
