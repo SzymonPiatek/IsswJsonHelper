@@ -3,11 +3,12 @@ from classes.form_builder.dpf.application_builder import DPFApplicationBuilder
 
 class AnimatedFilmApplicationBuilder(DPFApplicationBuilder):
     PRIORITY_NAME = 'V. Produkcja filmów animowanych'
+    PRIORITY_NUM = 5
 
     def __init__(self):
         super().__init__()
 
-        self.animated_data_path = self.dpf_data_path / 'animated_film'
+        self.priority_data_path = self.department_data_path / 'animated_film'
 
     def generate(self):
         self.create_application_base()

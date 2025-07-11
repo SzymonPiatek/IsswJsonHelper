@@ -3,11 +3,12 @@ from classes.form_builder.duk.dissemination.application_builder import Dissemina
 
 class DocumentaryDistributionApplicationBuilder(DisseminationApplicationBuilder):
     PRIORITY_NAME = 'VI. Dystrybucja filmów dokumentalnych'
+    PRIORITY_NUM = 6
 
     def __init__(self):
         super().__init__()
 
-        self.documentary_data_path = self.education_data_path / 'documentary_distribution'
+        self.priority_data_path = self.program_data_path / 'documentary_distribution'
 
     def generate(self):
         self.create_application_base()

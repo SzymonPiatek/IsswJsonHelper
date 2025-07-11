@@ -13,7 +13,9 @@ class FormBuilder:
     JSON_TYPE: ClassVar[JSONType]
     DEPARTMENT_NAME: ClassVar[DepartmentType]
     OPERATION_NAME: str
+    OPERATION_NUM: int
     PRIORITY_NAME: str
+    PRIORITY_NUM: int
     YEAR: int
     SESSION: ClassVar[SessionType]
 
@@ -21,15 +23,17 @@ class FormBuilder:
         self.json_type = self.JSON_TYPE
         self.department_name = self.DEPARTMENT_NAME
         self.operation_name = self.OPERATION_NAME
+        self.operation_num = self.OPERATION_NUM
         self.priority_name = self.PRIORITY_NAME
+        self.priority_num = self.PRIORITY_NUM
         self.year = self.YEAR
         self.session = self.SESSION
 
         # DIRS
         self.main_dir = Path(__file__).resolve().parents[2]
         self.data_path = self.main_dir / 'data'
-        self.output_file_name = 'output.json'
-        self.output_file = self.main_dir / 'output' / self.output_file_name
+        self.output_file_name = f'po{self.operation_num}_pr{self.priority_num}_{self.json_type}_{self.year}.json'
+        self.output_file = self.main_dir / 'output' / self.department_name / self.json_type / self.output_file_name
 
         self.main_dir.mkdir(parents=True, exist_ok=True)
 
@@ -72,8 +76,11 @@ class FormBuilder:
         parts.append(part)
 
     def save_output(self) -> None:
+        self.output_file.parent.mkdir(parents=True, exist_ok=True)
+
         with self.output_file.open('w', encoding='utf-8') as f:
             json.dump(self.output_json, f, ensure_ascii=False, indent=2)
+
         print(f'Zapisano output do {self.output_file}')
 
     def create_base(self, intro_text: str, layout_path=None):

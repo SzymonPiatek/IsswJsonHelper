@@ -3,11 +3,12 @@ from classes.form_builder.duk.education.application_builder import EducationAppl
 
 class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder):
     PRIORITY_NAME = 'II. Edukacja w szkołach średnich i zawodowych'
+    PRIORITY_NUM = 2
 
     def __init__(self):
         super().__init__()
 
-        self.secondary_data_path = self.education_data_path / 'professional_training'
+        self.priority_data_path = self.program_data_path / 'professional_training'
 
     def generate(self):
         self.create_application_base()

@@ -3,11 +3,12 @@ from classes.form_builder.dpf.application_builder import DPFApplicationBuilder
 
 class FeatureFilmApplicationBuilder(DPFApplicationBuilder):
     PRIORITY_NAME = 'III. Produkcja filmów fabularnych'
+    PRIORITY_NUM = 3
 
     def __init__(self):
         super().__init__()
 
-        self.feature_data_path = self.dpf_data_path / 'feature_film'
+        self.feature_data_path = self.department_data_path / 'feature_film'
 
     def generate(self):
         self.create_application_base()

@@ -4,14 +4,15 @@ from classes.form_builder.application_builder import ApplicationBuilder
 class DPFApplicationBuilder(ApplicationBuilder):
     DEPARTMENT_NAME = 'DPF'
     OPERATION_NAME = 'I. Produkcja filmowa'
+    OPERATION_NUM = 1
 
     def __init__(self):
         super().__init__()
 
-        self.dpf_data_path = self.application_data_path / 'dpf'
+        self.department_data_path = self.application_data_path / 'dpf'
 
     def create_application_metadata(self, task_type: str):
-        part = self.load_json(path=self.dpf_data_path / '_pages' / 'application_metadata.json')
+        part = self.load_json(path=self.department_data_path / '_pages' / 'application_metadata.json')
 
         values = {
             "sessionYear": f"Sesja {self.session}/{self.year}",
@@ -32,6 +33,17 @@ class DPFApplicationBuilder(ApplicationBuilder):
         part = self.replace_placeholders(part, values)
 
         self.create_part_by_sections(part=part, sections=sections)
+
+    def create_application_applicant_data(self, sections):
+        part = self.create_part(
+            title="II. Dane wnioskodawcy",
+            short_name="II. Dane wnioskodawcy"
+        )
+
+        self.create_part_by_sections(
+            part=part,
+            sections=sections
+        )
 
     def create_application_completion_date_data(self, sections):
         part = self.load_json(path=self.application_data_path / '_pages' / 'layout.json')

@@ -3,11 +3,12 @@ from classes.form_builder.duk.dissemination.application_builder import Dissemina
 
 class LiteratueApplicationBuilder(DisseminationApplicationBuilder):
     PRIORITY_NAME = 'III. Literatura i czasopisma o filmie'
+    PRIORITY_NUM = 3
 
     def __init__(self):
         super().__init__()
 
-        self.literature_data_path = self.education_data_path / 'literature'
+        self.priority_data_path = self.program_data_path / 'literature'
 
     def generate(self):
         self.create_application_base()

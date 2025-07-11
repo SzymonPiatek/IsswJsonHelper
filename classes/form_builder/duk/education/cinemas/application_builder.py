@@ -3,11 +3,12 @@ from classes.form_builder.duk.education.application_builder import EducationAppl
 
 class CinemasApplicationBuilder(EducationApplicationBuilder):
     PRIORITY_NAME = 'IV. Edukacja w kinach'
+    PRIORITY_NUM = 4
 
     def __init__(self):
         super().__init__()
 
-        self.cinemas_data_path = self.education_data_path / 'cinemas'
+        self.priority_data_path = self.program_data_path / 'cinemas'
 
     def generate(self):
         self.create_application_base()

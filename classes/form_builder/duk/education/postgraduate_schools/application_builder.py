@@ -3,14 +3,15 @@ from classes.form_builder.duk.education.application_builder import EducationAppl
 
 class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
     PRIORITY_NAME = 'I. Szkoły wyższe i podyplomowe'
+    PRIORITY_NUM = 1
 
     def __init__(self):
         super().__init__()
 
-        self.postgraduate_data_path = self.education_data_path / 'postgraduate_schools'
+        self.priority_data_path = self.program_data_path / 'postgraduate_schools'
 
     def create_application_scope_of_project(self):
-        part = self.load_json(path=self.postgraduate_data_path / '_pages' / 'scope_of_the_project.json')
+        part = self.load_json(path=self.priority_data_path / '_pages' / 'scope_of_the_project.json')
         self.save_part(part)
 
     def generate(self):

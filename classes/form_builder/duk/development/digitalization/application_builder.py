@@ -3,11 +3,12 @@ from classes.form_builder.duk.development.application_builder import Development
 
 class DigitalizationApplicationBuilder(DevelopmentApplicationBuilder):
     PRIORITY_NAME = 'II. Cyfryzacja kin'
+    PRIORITY_NUM = 2
 
     def __init__(self):
         super().__init__()
 
-        self.digitalization_data_path = self.education_data_path / 'digitalization'
+        self.priority_data_path = self.program_data_path / 'digitalization'
 
     def generate(self):
         self.create_application_base()

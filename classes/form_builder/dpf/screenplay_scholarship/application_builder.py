@@ -3,11 +3,12 @@ from classes.form_builder.dpf.application_builder import DPFApplicationBuilder
 
 class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
     PRIORITY_NAME = 'I. Stypendia scenariuszowe'
+    PRIORITY_NUM = 1
 
     def __init__(self):
         super().__init__()
 
-        self.screenplay_data_path = self.dpf_data_path / 'screenplay_scholarship'
+        self.priority_data_path = self.department_data_path / 'screenplay_scholarship'
 
     def generate(self):
         self.create_application_base()
@@ -16,7 +17,7 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         self.create_application_metadata(task_type='Stypendium scenariuszowe')
 
         # I. Dane podstawowe
-        section_path = self.dpf_data_path / '_pages' / 'application_basic_data'
+        section_path = self.department_data_path / '_pages' / 'application_basic_data'
 
         self.create_application_basic_data(
             sections=[
@@ -119,13 +120,13 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         self.create_application_applicant_data(
             sections=[
                 {
-                    "path": self.dpf_data_path / '_pages' / 'application_applicant_data' / 'applicant_full_name.json',
+                    "path": self.department_data_path / '_pages' / 'application_applicant_data' / 'applicant_full_name.json',
                     "data": {
                         "number": "1"
                     }
                 },
                 {
-                    "path": self.screenplay_data_path / '_pages' / 'application_applicant_data' / 'applicant_data.json',
+                    "path": self.priority_data_path / '_pages' / 'application_applicant_data' / 'applicant_data.json',
                     "data": {
                         "number": "2"
                     }

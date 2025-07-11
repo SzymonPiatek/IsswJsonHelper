@@ -3,11 +3,12 @@ from classes.form_builder.duk.dissemination.application_builder import Dissemina
 
 class ResearchApplicationBuilder(DisseminationApplicationBuilder):
     PRIORITY_NAME = 'V. Badania rynku audiowizualnego'
+    PRIORITY_NUM = 5
 
     def __init__(self):
         super().__init__()
 
-        self.research_data_path = self.education_data_path / 'research'
+        self.priority_data_path = self.program_data_path / 'research'
 
     def generate(self):
         self.create_application_base()
