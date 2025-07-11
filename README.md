@@ -4,7 +4,7 @@
 
 ### Stan prac:
 
-### DUK
+### DUK - Wnioski
 | Program operacyjny                    | Priorytet                                     | Metedane wniosku | I. Dane podstawowe | II. Dane wnioskodawcy | III. Zakres przedsięwzięcia | IV. Źródła finansowania | V. Oświadczenia | VI. Załączniki | VII. Kosztorys przedsięwzięcia | VIII. Harmonogram | 
 |---------------------------------------|-----------------------------------------------|------------------|--------------------|-----------------------|-----------------------------|-------------------------|-----------------|----------------|--------------------------------|-------------------|
 | II. Edukacja filmowa                  | I. Szkoły wyższe i podyplomowe                | [x]              | [x]                | [x]                   | [x]                         | [x]                     | [x]             | [x]            |                                | [x]               |
@@ -19,3 +19,32 @@
 |                                       | VI. Dystrybucja filmów dokumentalnych         | [x]              | [x]                | [x]                   |                             | [x]                     | [x]             |                |                                | [x]               |
 | IV. Rozwój kin                        | I. Modernizacja kin                           | [x]              | [x]                | [x]                   |                             | [x]                     | [x]             |                |                                | [x]               |
 |                                       | II. Cyfryzacja kin                            | [x]              | [x]                | [x]                   |                             | [x]                     | [x]             |                |                                | [x]               |
+
+---
+
+### DPF - Wnioski
+
+| Program operacyjny   | Priorytet                                        | Metadane wniosku | I. Dane podstawowe | II. Dane wnioskodawcy | III. Informacje | IV. Termin realizacji | V. Dane finansowe | VI. Dane dodatkowe | VII. Załączniki | VIII. Oświadczenia |
+|----------------------|--------------------------------------------------|------------------|--------------------|-----------------------|-----------------|-----------------------|-------------------|--------------------|-----------------|--------------------|
+| I. Produkcja filmowa | I. Stypendia scenriuszowe                        |                  |                    |                       |                 |                       |                   |                    |                 |                    |    
+|                      | II. Rozwój projektów filmowych                   |                  |                    |                       |                 |                       |                   |                    |                 |                    |    
+|                      | III. Produkcja filmów fabularnych                |                  |                    |                       |                 |                       |                   |                    |                 |                    |    
+|                      | IV. Produkcja filmów dokumentalnych              |                  |                    |                       |                 |                       |                   |                    |                 |                    |    
+|                      | V. Produkcja filmów animowanych                  |                  |                    |                       |                 |                       |                   |                    |                 |                    |    
+|                      | VI. Produkcja koprodukcji mniejszościowych       |                  |                    |                       |                 |                       |                   |                    |                 |                    |    
+|                      | VII. Produkcja filmów kina familijnego           |                  |                    |                       |                 |                       |                   |                    |                 |                    |    
+| List intencyjny      | X. Produkcja filmów fabularnych                  |                  |                    |                       |                 |                       |                   |                    |                 |                    |    
+|                      | X. Produkcja filmów dokumentalnych               |                  |                    |                       |                 |                       |                   |                    |                 |                    |    
+|                      | X. Produkcja filmów animowanych                  |                  |                    |                       |                 |                       |                   |                    |                 |                    |    
+|                      | X. Koprodukcja międzynarodowa miejszościowa      |                  |                    |                       |                 |                       |                   |                    |                 |                    |    
+|                      | X. Produkcja filmów kina familijnego             |                  |                    |                       |                 |                       |                   |                    |                 |                    |    
+|                      | X. Produkcja filmów fabularnych pełnometrażowych |                  |                    |                       |                 |                       |                   |                    |                 |                    |    
+
+---
+
+### DWM - Wnioski
+
+| Program operacyjny                                  | Priorytet                                            | I. Nazwa programu i priorytetu | II. Nazwa przedsięwzięcia | III. Informacje o wnioskodawcy | IV. Dorobek wnioskodawcy | V. Opis przedsięwzięcia | VI. Logotyp PISF | VII. Efekty realizacji | VIII. Inne informacje | IX. Koszty przedsięwzięcia | X. Oświadczenia | XI. Załączniki | XII. Harmonogram |
+|-----------------------------------------------------|------------------------------------------------------|--------------------------------|---------------------------|--------------------------------|--------------------------|-------------------------|------------------|------------------------|-----------------------|----------------------------|-----------------|----------------|------------------|    
+| I. Promocja polskiej twórczości filmowej za granicą | I. Stypendia zagraniczne                             |                                |                           |                                |                          |                         |                  |                        |                       |                            |                 |                |                  |
+|                                                     | II. Promocja polskiej twórczości filmowej za granicą |                                |                           |                                |                          |                         |                  |                        |                       |                            |                 |                |                  |
