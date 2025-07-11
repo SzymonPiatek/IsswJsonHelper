@@ -1,8 +1,14 @@
-## ISSW JSON Helper
+# ISSW JSON Helper
 
----
+### Opis:
+
+Jest to program do generowania formularzy wniosków/raportów JSON dla systemu ISSW.
+Formularze są generowane na podstawie template'ów JSON dostosowanych dla konkretnych działów, programów operacyjnych lub priorytetów.
 
 ### Stan prac:
+
+<details>
+<summary>DUK - Wnioski</summary>
 
 ### DUK - Wnioski
 | Program operacyjny                    | Priorytet                                     | Metedane wniosku | I. Dane podstawowe | II. Dane wnioskodawcy | III. Zakres przedsięwzięcia | IV. Źródła finansowania | V. Oświadczenia | VI. Załączniki | VII. Kosztorys przedsięwzięcia | VIII. Harmonogram | 
@@ -20,7 +26,10 @@
 | IV. Rozwój kin                        | I. Modernizacja kin                           | [x]              | [x]                | [x]                   |                             | [x]                     | [x]             |                |                                | [x]               |
 |                                       | II. Cyfryzacja kin                            | [x]              | [x]                | [x]                   |                             | [x]                     | [x]             |                |                                | [x]               |
 
----
+</details>
+
+<details>
+<summary>DPF - Wnioski</summary>
 
 ### DPF - Wnioski
 
@@ -40,7 +49,10 @@
 |                      | X. Produkcja filmów kina familijnego             |                  |                    |                       |                 |                       |                   |                    |                 |                    |    
 |                      | X. Produkcja filmów fabularnych pełnometrażowych |                  |                    |                       |                 |                       |                   |                    |                 |                    |    
 
----
+</details>
+
+<details>
+<summary>DWM - Wnioski</summary>
 
 ### DWM - Wnioski
 
@@ -48,3 +60,5 @@
 |-----------------------------------------------------|------------------------------------------------------|--------------------------------|---------------------------|--------------------------------|--------------------------|-------------------------|------------------|------------------------|-----------------------|----------------------------|-----------------|----------------|------------------|    
 | I. Promocja polskiej twórczości filmowej za granicą | I. Stypendia zagraniczne                             |                                |                           |                                |                          |                         |                  |                        |                       |                            |                 |                |                  |
 |                                                     | II. Promocja polskiej twórczości filmowej za granicą |                                |                           |                                |                          |                         |                  |                        |                       |                            |                 |                |                  |
+
+</details>
