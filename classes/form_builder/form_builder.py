@@ -87,5 +87,27 @@ class FormBuilder:
         except KeyError as e:
             raise RuntimeError(f"Nie znalazłem miejsca na introText w JSONie: {e!s}")
 
+    def create_part_by_sections(self, path, sections):
+        part = self.load_json(path=path / 'layout.json')
+        layout_chapters = []
+
+        for section in sections:
+            data = section['data']
+
+            for key, value in data.items():
+                if isinstance(value, dict) and 'options' in value:
+                    options = value['options']
+                    data[key]['value'] = options[0] if len(options) == 1 else ""
+                    data[key]['readOnly'] = True if len(options) == 1 else False
+
+            section_path = path / section['path']
+            section_json = self.load_json(path=section_path)
+            filled_section = self.replace_placeholders(section_json, data)
+
+            layout_chapters.append(filled_section)
+
+        part['chapters'] = layout_chapters
+        self.save_part(part)
+
     def generate(self):
         raise NotImplementedError("Podklasa musi nadpisać `generate`")
