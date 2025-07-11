@@ -8,7 +8,11 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
     def __init__(self):
         super().__init__()
 
-        self.priorty_data_path = self.program_data_path / 'initiatives'
+        self.priority_data_path = self.program_data_path / 'initiatives'
+
+    def create_application_scope_of_project(self):
+        part = self.load_json(path=self.priority_data_path / '_pages' / 'scope_of_the_project.json')
+        self.save_part(part)
 
     def generate(self):
         self.create_application_base()
@@ -34,6 +38,7 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
         self.create_application_applicant_data()
 
         # III. Zakres przedsięwzięcia
+        self.create_application_scope_of_project()
 
         # IV. Źródła finansowania
         self.create_application_sources_of_financing()

@@ -23,7 +23,7 @@
       ],
       "readOnly": "{movieSubject[readOnly]}",
       "required": true,
-      "dataBDD": "movieSubjectAll"
+      "dataBDD": "movieSubject"
     }
   ]
 }

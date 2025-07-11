@@ -1,0 +1,480 @@
+{
+  "kind": "part",
+  "title": "III. Zakres przedsięwzięcia",
+  "shortName": "III. Zakres przedsięwzięcia",
+  "classList": [
+    "full-width-grid"
+  ],
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "1. Miejsce realizacji przedsięwzięcia",
+      "components": [
+        {
+          "kind": "component",
+          "type": "text",
+          "label": "",
+          "name": "projectLocation",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "projectLocation"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "2. Opis ogólny przedsięwzięcia (cel i zakres merytoryczny, zastosowane technologie, sposób realizacji przedsięwzięcia, promocja)",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "projectGeneralDescription",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "projectGeneralDescription"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "3. Opis szczegółowy przedsięwzięcia",
+      "components": []
+    },
+    {
+      "kind": "chapter",
+      "title": "<normal>Wartość merytoryczna przedsięwzięcia, w tym ciągłość realizacji przedsięwzięcia oraz wartość edukacyjna</normal>",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "scopeAndValueOfContent",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "scopeAndValueOfContent"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "<normal>Planowane efekty realizacji przedsięwzięcia oraz jego ewaluacja</normal>",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "plannedResultsOfProject",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "plannedResultsOfProject"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "4. Dotychczasowe doświadczenia wnioskodawcy w działaniach będących przedmiotem przedsięwzięcia</br><normal>Proszę o wyszczególnienie przedsięwzięć z zakresu kinematografii realizowanych przez wnioskodawcę w ostatnich 2 latach</normal>",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "applicantsPastExperience",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "applicantsPastExperience"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "5. Partnerzy, eksperci i specjaliści zaangażowani w przedsięwzięcie i ich dotychczasowy dorobek w tym zakresie",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "involvedPartnersAndSpecialist",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "involvedPartnersAndSpecialist"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "6. Informacje o praktycznych umiejętnościach nabywanych przez uczestników przedsięwzięcia",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "practicalSkillsAcquiredByParticipants",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "practicalSkillsAcquiredByParticipants"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "7. Podstawowe dane liczbowe na temat bieżącej i poprzedniej edycji",
+      "classList": {
+        "sub": [
+          "table-1-2-top"
+        ]
+      },
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "<normal>1. Liczba zajęć edukacyjnych</normal>",
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Poprzednia edycja przedsięwzięcia",
+              "name": "educationalActivitiesCountPreviousEdition",
+              "value": 0,
+              "unit": "szt.",
+              "dataBDD": "educationalActivitiesCountPreviousEdition"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Bieżąca edycja przedsięwzięcia (przewidywane wielkości)",
+              "name": "educationalActivitiesCountCurrentEdition",
+              "value": 0,
+              "unit": "szt.",
+              "dataBDD": "educationalActivitiesCountCurrentEdition"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>2. Liczba uczestników (uczniów szkół podstawowych)</normal>",
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Poprzednia edycja przedsięwzięcia",
+              "name": "primarySchoolPupilsCountPreviousEdition",
+              "value": 0,
+              "unit": "osoby",
+              "dataBDD": "primarySchoolPupilsCountPreviousEdition"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Bieżąca edycja przedsięwzięcia (przewidywane wielkości)",
+              "name": "primarySchoolPupilsCountCurrentEdition",
+              "value": 0,
+              "unit": "osoby",
+              "dataBDD": "primarySchoolPupilsCountCurrentEdition"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>3. Liczba uczestników (uczniów szkół ponadpodstawowych)</normal>",
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Poprzednia edycja przedsięwzięcia",
+              "name": "secondarySchoolPupilsCountPreviousEdition",
+              "value": 0,
+              "unit": "osoby",
+              "dataBDD": "secondarySchoolPupilsCountPreviousEdition"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Bieżąca edycja przedsięwzięcia (przewidywane wielkości)",
+              "name": "secondarySchoolPupilsCountCurrentEdition",
+              "value": 0,
+              "unit": "osoby",
+              "dataBDD": "secondarySchoolPupilsCountCurrentEdition"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>4. Liczba szkół podstawowych uczestniczących w przedsięwzięciu</normal>",
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Poprzednia edycja przedsięwzięcia",
+              "name": "primarySchoolsCountPreviousEdition",
+              "value": 0,
+              "unit": "szt.",
+              "dataBDD": "primarySchoolsCountPreviousEdition"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Bieżąca edycja przedsięwzięcia (przewidywane wielkości)",
+              "name": "primarySchoolsPupilsCountCurrentEdition",
+              "value": 0,
+              "unit": "szt.",
+              "dataBDD": "primarySchoolsPupilsCountCurrentEdition"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>5. Liczba szkół ponadpodstawowych uczestniczących w przedsięwzięciu</normal>",
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Poprzednia edycja przedsięwzięcia",
+              "name": "secondarySchoolsCountPreviousEdition",
+              "value": 0,
+              "unit": "szt.",
+              "dataBDD": "secondarySchoolsCountPreviousEdition"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Bieżąca edycja przedsięwzięcia (przewidywane wielkości)",
+              "name": "secondarySchoolsCountCurrentEdition",
+              "value": 0,
+              "unit": "szt.",
+              "dataBDD": "secondarySchoolsCountCurrentEdition"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Czy przedsięwzięcie, na które składany jest wniosek jest powiązane z innymi przedsięwzięciami, o dofinansowanie których ubiega się wnioskodawca w bieżącym roku z innych programów operacyjnych PISF? Jeżeli tak, proszę podać nazwę przedsięwzięcia, program oraz wnioskowaną kwotę dofinansowania",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "radio",
+              "label": "",
+              "name": "wasSubmittedBefore",
+              "value": "Nie",
+              "options": [
+                "Tak",
+                "Nie"
+              ],
+              "validators": [
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Tak",
+                      "Nie"
+                    ]
+                  }
+                }
+              ],
+              "dataBDD": "wasSubmittedBefore"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": " ",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "wasSubmittedBefore",
+                "values": [
+                  "Tak"
+                ]
+              }
+            }
+          ],
+          "isMultipleForms": true,
+          "multipleFormsRules": {
+            "minCount": 1,
+            "maxCount": 20
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": " 1",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Nazwa przedsięwzięcia",
+                  "name": "otherProjectName",
+                  "value": "",
+                  "helpText": "Podaj nazwę przedsięwzięcia",
+                  "dataBDD": "otherProjectName"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Program operacyjny",
+                  "name": "programmeName",
+                  "value": "",
+                  "helpText": "Podaj nazwę programu operacyjnego",
+                  "dataBDD": "programmeName"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana kwota",
+                  "name": "otherProjectFundingAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "otherProjectFundingAmount"
+                }
+              ],
+              "classList": [
+                "grid",
+                "grid-cols-3"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

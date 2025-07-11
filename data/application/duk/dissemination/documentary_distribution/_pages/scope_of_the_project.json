@@ -1,0 +1,858 @@
+{
+  "kind": "part",
+  "title": "III. Zakres przedsięwzięcia i jego charakterystyka",
+  "shortName": "III. Zakres przedsięwzięcia",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "1. Informacje o filmie przeznaczonym do dystrybucji",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Tytuł filmu",
+              "name": "filmName",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 101
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 100."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "filmName"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Rok produkcji",
+              "name": "productionYear",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 5
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 4."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "productionYear"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Metraż filmu w minutach",
+              "name": "filmFullLength",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 70
+                  },
+                  "validationMsg": "Długość filmu musi wynosić co najmniej 70 minut"
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "filmFullLength"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Klasyfikacja filmu jako filmu polskiego",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal><small><b>a) Film jest filmem polskim w rozumieniu art. 4, ust. 2, pkt. 1 Ustawy:</b><br>Autor scenariusza lub adaptowanego utworu literackiego, reżyser oraz wykonawca jednej z głównych ról są obywatelami polskimi, udział środków finansowych producenta mającego siedzibę na terytorium Rzeczypospolitej Polskiej w kosztach produkcji filmu stanowi 100%, przy czym środki te, do wysokości 80% kosztów produkcji filmu, muszą być wydatkowane na terytorium Rzeczypospolitej Polskiej, a ponadto kopia wzorcowa jest wykonana w języku polskim.<br><br><b>b) Film jest filmem polskim w rozumieniu art. 4, ust. 2, pkt. 2 Ustawy:</b><br>Autor scenariusza lub adaptowanego utworu literackiego lub reżyser, lub wykonawca jednej z głównych ról są obywatelami polskimi, udział środków finansowych koproducenta mającego siedzibę na terytorium Rzeczypospolitej Polskiej w kosztach produkcji filmu stanowi co najmniej 20% przy filmie będącym koprodukcją dwustronną oraz co najmniej 10% przy filmie będącym koprodukcją wielostronną, przy czym środki te, do wysokości 80% kosztów produkcji filmu, muszą być wydatkowane na terytorium Rzeczypospolitej Polskiej, a ponadto główna wersja językowa wykonana jest w języku polskim.</normal></small>",
+              "components": []
+            },
+            {
+              "kind": "chapter",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "Klasyfikacja filmu",
+                  "name": "filmClassification",
+                  "value": false,
+                  "required": true,
+                  "options": [
+                    "a) Film jest filmem polskim w rozumieniu art. 4, ust. 2, pkt. 1 Ustawy",
+                    "b) Film jest filmem polskim w rozumieniu art. 4, ust. 2, pkt. 2 Ustawy"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "a) Film jest filmem polskim w rozumieniu art. 4, ust. 2, pkt. 1 Ustawy",
+                          "b) Film jest filmem polskim w rozumieniu art. 4, ust. 2, pkt. 2 Ustawy"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "dataBDD": "filmClassification"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Reżyser",
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Imię",
+              "name": "directorFirstName",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "directorFirstName"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Nazwisko",
+              "name": "directorLastName",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "directorLastName"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Producent",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Nazwa",
+              "name": "producerName",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "producerName"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Koproducenci</br><normal><small>Należy wymienić koproducentów, jeśli dotyczy</small></normal>",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Nie dotyczy",
+                  "name": "notCoproducer",
+                  "value": false,
+                  "dataBDD": "notCoproducer"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "notCoproducer",
+                    "values": [
+                      false
+                    ]
+                  }
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 10
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Koproducent",
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Nazwa",
+                          "name": "coproducerName",
+                          "value": "",
+                          "required": true,
+                          "validators": [
+                            {
+                              "name": "RelatedRequiredIfEqualValidator",
+                              "kwargs": {
+                                "field_name": "notCoproducer",
+                                "value": false
+                              }
+                            }
+                          ],
+                          "dataBDD": "coproducerName"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "visibilityRules": [
+                        {
+                          "name": "dependsOnValue",
+                          "kwargs": {
+                            "fieldName": "filmClassification",
+                            "values": [
+                              "b) Film jest filmem polskim w rozumieniu art. 4, ust. 2, pkt. 2 Ustawy"
+                            ]
+                          }
+                        }
+                      ],
+                      "classList": {
+                        "main": [
+                          "table-1-2",
+                          "grid",
+                          "grid-cols-2"
+                        ],
+                        "sub": [
+                          "table-1-2__col"
+                        ]
+                      },
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Kraj koproducenta",
+                          "name": "coproducerCountry",
+                          "value": "",
+                          "required": true,
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            }
+                          ],
+                          "dataBDD": "coproducerCountry"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "number",
+                          "label": "Udział w kosztach produkcji",
+                          "name": "coproducerCountryShare",
+                          "value": 0,
+                          "validators": [
+                            {
+                              "name": "RelatedMappedLimitValidator",
+                              "kwargs": {
+                                "options": [],
+                                "default_limit": 100.0
+                              }
+                            }
+                          ],
+                          "unit": "%",
+                          "dataBDD": "coproducerCountryShare"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Czy dystrybuowany film został wsparty przez PISF",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "Czy dystrybuowany film został wsparty przez PISF",
+                  "name": "isDistributedFilmPISF",
+                  "value": "",
+                  "options": [
+                    "Tak",
+                    "Nie"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Tak",
+                          "Nie"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "isDistributedFilmPISF"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "isDistributedFilmPISF",
+                    "values": [
+                      "Tak"
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Program Operacyjny",
+                  "name": "distributedOperationalProgram",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "isDistributedFilmPISF",
+                        "value": "Tak"
+                      }
+                    }
+                  ],
+                  "dataBDD": "distributedOperationalProgram"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Priorytet",
+                  "name": "distributedPriority",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "isDistributedFilmPISF",
+                        "value": "Tak"
+                      }
+                    }
+                  ],
+                  "dataBDD": "distributedPriority"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Kwota",
+                  "name": "distirbutedCost",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0.01
+                      },
+                      "validationMsg": "Kwota wsparcia musi być większa od 0."
+                    }
+                  ],
+                  "required": true,
+                  "unit": "PLN",
+                  "dataBDD": "distirbutedCost"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Czy dystrybuowany film jest filmem trudnym w rozumieniu art. 23, ust. 2 Ustawy?</br><normal><small>Treść i forma filmu mają charakter ambitny artystycznie i  mają ograniczone walory komercyjne lub film jest debiutem reżyserskim.</small></normal>",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "Czy dystrybuowany film jest filmem trudnym",
+                  "name": "isDifficultPiece",
+                  "value": "",
+                  "options": [
+                    "Tak",
+                    "Nie"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Tak",
+                          "Nie"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "isDifficultPiece"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "isDifficultPiece",
+                    "values": [
+                      "Tak"
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "Uzasadnienie kwalifikacji filmu jako trudnego",
+                  "name": "descDifficultPiece",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 1801
+                      },
+                      "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 1800."
+                    }
+                  ],
+                  "helpText": "Liczba znaków nie może przekroczyć 1800",
+                  "classList": [
+                    "full-width"
+                  ],
+                  "required": true,
+                  "dataBDD": "descDifficultPiece"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Opis filmu",
+              "name": "movieDescription",
+              "value": "",
+              "helpText": "Maksymalna liczba znaków nie może przekroczyć 5400",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 5401
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 5400."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "movieDescription"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Link do filmu lub kopia DVD",
+              "name": "movieLink",
+              "value": "",
+              "dataBDD": "movieLink"
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Zdobyte nagrody, obecność na festiwalach w Polsce i za granicą",
+              "name": "movieRewards",
+              "value": "",
+              "helpText": "Maksymalna liczba znaków nie może przekroczyć 1800",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 1801
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 1800."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "movieRewards"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "2. Opis i zakres przedsięwzięcia",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "<normal>Opis i zakres przedsięwzięcia z uwzględnieniem spodziewanych efektów jego realizacji, w tym zakładanej liczby widzów w kinach</normal>",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Opis i zakres przedsięwzięcia",
+              "name": "scopeOfProjectDesc",
+              "value": "",
+              "helpText": "Maksymalna liczba znaków nie może przekroczyć 1500",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 1501
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 1500."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "scopeOfProjectDesc"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Liczba kin i ekranów przeznaczonych do dystrybucji</normal>",
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Liczba kin",
+              "name": "cinemasNum",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 20
+                  },
+                  "validationMsg": "Liczba kin musi być większa lub równa 20."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "cinemasNum"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Liczba ekranów",
+              "name": "cinemaScreensNum",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 20
+                  },
+                  "validationMsg": "Liczba ekranów musi być większa lub równa 20."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "cinemaScreensNum"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Opis planowanych działań promocyjnych dystrybutora",
+              "name": "descDistributorPlannedActivities",
+              "value": "",
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                },
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 1801
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 1800."
+                }
+              ],
+              "helpText": "Liczba znaków nie może przekroczyć 1800",
+              "required": true,
+              "dataBDD": "descDistributorPlannedActivities"
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Minimalne i maksymalne koszty P&A",
+              "name": "maxMinPAndACost",
+              "value": "",
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                },
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 101
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 100."
+                }
+              ],
+              "helpText": "Liczba znaków nie może przekroczyć 100",
+              "required": true,
+              "dataBDD": "maxMinPAndACost"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "3. Opis dotychczasowej działalności Wnioskodawcy",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "<normal>Opis dotychczasowej działalności Wnioskodawcy, w tym przedsięwzięcia z zakresu dystrybucji filmów dokumentalnych</normal>",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "",
+              "name": "descApplicantCurrentActivities",
+              "value": "",
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                },
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 1801
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 1800."
+                }
+              ],
+              "helpText": "Liczba znaków nie może przekroczyć 1800",
+              "required": true,
+              "dataBDD": "descApplicantCurrentActivities"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Wykaz aktualnie dystrybuowanych filmów</normal>",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "",
+              "name": "listCurrentlyDistributedFilms",
+              "value": "",
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                },
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 1801
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 1800."
+                }
+              ],
+              "helpText": "Liczba znaków nie może przekroczyć 1800",
+              "required": true,
+              "dataBDD": "listCurrentlyDistributedFilms"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Wykaz dotychczasowych wniosków złożonych do PISF w ostatnich dwóch latach</normal>",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Nie dotyczy",
+                  "name": "notListApplicationSubmittedLastTwoYears",
+                  "value": false,
+                  "dataBDD": "notListApplicationSubmittedLastTwoYears"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "notListApplicationSubmittedLastTwoYears",
+                    "values": [
+                      "false",
+                      false
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "",
+                  "name": "listApplicationSubmittedLastTwoYears",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "notListApplicationSubmittedLastTwoYears",
+                        "value": false
+                      }
+                    },
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 1801
+                      },
+                      "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 1800."
+                    }
+                  ],
+                  "helpText": "Liczba znaków nie może przekroczyć 1800",
+                  "required": true,
+                  "dataBDD": "listApplicationSubmittedLastTwoYears"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

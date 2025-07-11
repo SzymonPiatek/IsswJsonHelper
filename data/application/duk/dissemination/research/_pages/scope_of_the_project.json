@@ -1,0 +1,1113 @@
+{
+  "kind": "part",
+  "title": "III. Zakres przedsięwzięcia i jego charakterystyka",
+  "shortName": "III. Zakres przedsięwzięcia",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "1. Miejsce realizacji przedsięwzięcia",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "projectCity",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "projectCity"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "2. Opis przedsięwzięcia",
+      "components": []
+    },
+    {
+      "kind": "chapter",
+      "title": "<normal>Cel przedsięwzięcia </normal>",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "projectGoal",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "projectGoal"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "<normal>Charakter przedsięwzięcia</normal>",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "projectType",
+            "values": [
+              "Badania i analizy zjawiska piractwa w sferze kinematografii oraz wdrażanie przedsięwzięć, których celem jest zwalczanie piractwa i zapobieganie łamaniu praw autorskich"
+            ]
+          }
+        }
+      ],
+      "classList": [
+        "grid",
+        "grid-cols-2"
+      ],
+      "components": [
+        {
+          "kind": "component",
+          "type": "checkbox",
+          "label": "Edukacyjny",
+          "name": "isEducationalProject",
+          "value": false,
+          "dataBDD": "isEducationalProject"
+        },
+        {
+          "kind": "component",
+          "type": "checkbox",
+          "label": "Informacyjny",
+          "name": "isInformativeProject",
+          "value": false,
+          "dataBDD": "isInformativeProject"
+        },
+        {
+          "kind": "component",
+          "type": "checkbox",
+          "label": "Legislacyjny",
+          "name": "isLegislativeProject",
+          "value": false,
+          "dataBDD": "isLegislativeProject"
+        },
+        {
+          "kind": "component",
+          "type": "checkbox",
+          "label": "Badawczy",
+          "name": "isResearchProject",
+          "value": false,
+          "dataBDD": "isResearchProject"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "<normal>Zakres merytoryczny przedsięwzięcia </normal>",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "projectScope",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "projectScope"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "<normal>Zastosowane technologie</normal>",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "utilizedTechnologies",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "utilizedTechnologies"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "<normal>Sposób realizacji przedsięwzięcia</normal>",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "implementationMethod",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "implementationMethod"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "<normal>Promocja przedsięwzięcia</normal>",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "projectPromotion",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "projectPromotion"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "projectType",
+            "values": [
+              "Badania ilościowe i jakościowe o charakterze cyklicznym, dotyczące widza kinowego oraz bilansu kompetencji",
+              "Badania rynkowe w sferze kinematografii",
+              "Przygotowanie analiz w zakresie organizacji i finansowania rynku kinematograficznego w Polsce, a także przedsięwzięć wspierających jego systemowy rozwój",
+              "Przygotowanie innowacyjnych przedsięwzięć o szczególnym znaczeniu dla rozwoju rynku audiowizualnego",
+              "Inne działania realizujące cele Priorytetu V"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "<normal>Celowość, innowacyjność i wieloaspektowość podjętej tematyki na tle dostępnych wyników badań polskich i światowych</normal>",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "",
+              "name": "projectInnovativeness",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 1001
+                  },
+                  "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "projectInnovativeness"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Jakie aktualne trendy w projektach badawczych i ewaluacyjnych w Polsce i na świecie uwzględnia przedsięwzięcie</normal>",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "",
+              "name": "currentResearchTrends",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 1001
+                  },
+                  "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "currentResearchTrends"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Udział autorytetów międzynarodowych i specjalistów w danej dziedzinie</normal>",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "",
+              "name": "expertsParticipation",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 1001
+                  },
+                  "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "expertsParticipation"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Jaki obszar wiedzy o filmie diagnozuje przedsięwzięcie</normal>",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "",
+              "name": "movieResearchField",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 1001
+                  },
+                  "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "movieResearchField"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Charakterystyka respondentów podlegających badaniu",
+          "components": []
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Wiek </normal>",
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Wiek od",
+              "name": "ageFrom",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0,
+                    "max": 100
+                  },
+                  "validationMsg": "Wartość nie może być ujemna"
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "ageFrom"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Wiek do",
+              "name": "ageTo",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0,
+                    "max": 100
+                  },
+                  "validationMsg": "Wartość nie może być ujemna"
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "ageTo"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Płeć </normal>",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "kobiety",
+              "name": "sexFemale",
+              "value": false,
+              "required": true,
+              "dataBDD": "sexFemale"
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "mężczyźni",
+              "name": "sexMale",
+              "value": false,
+              "required": true,
+              "dataBDD": "sexMale"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Wykształcenie</normal>",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "",
+              "name": "respondentEducationLevel",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 1001
+                  },
+                  "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "respondentEducationLevel"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Miejsce zamieszkania</normal>",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "",
+              "name": "respondentAddress",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 1001
+                  },
+                  "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "respondentAddress"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Inne</normal>",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "",
+              "name": "respondentOtherInfo",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 1001
+                  },
+                  "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "respondentOtherInfo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "projectType",
+            "values": [
+              "Badania i analizy zjawiska piractwa w sferze kinematografii oraz wdrażanie przedsięwzięć, których celem jest zwalczanie piractwa i zapobieganie łamaniu praw autorskich"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "<normal>Innowacyjność podejmowanych działań na tle dostępnej wiedzy na temat piractwa w sferze kinematografii</normal>",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "",
+              "name": "projectPiracyInnovativeness",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 1001
+                  },
+                  "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "projectPiracyInnovativeness"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Jaki obszar wiedzy o filmie diagnozuje projekt</normal>",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "",
+              "name": "projectPiracyDiagnosis",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 1001
+                  },
+                  "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "projectPiracyDiagnosis"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "<normal>Dla jakiej grupy odbiorców przeznaczone jest przedsięwzięcie</normal>",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "recipientsGroupKind",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "recipientsGroupKind"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "3. Planowane efekty realizacji przedsięwzięcia i sposób ich prezentacji",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "expectedResults",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "expectedResults"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "4. Dotychczasowe doświadczenia Wnioskodawcy w działaniach będących przedmiotem przedsięwzięcia.</br><normal>Proszę o wyszczególnienie przedsięwzięć z zakresu kinematografii realizowanych przez Wnioskodawcę w ostatnich 2 latach, o budżecie przekraczającym 50000 zł.</normal>",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "granteeExperience",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "granteeExperience"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "5. Partnerzy, eksperci i specjaliści zaangażowani w przedsięwzięcie i ich dotychczasowy dorobek w tym zakresie (z wyszczególnieniem stopni i tytułów naukowych oraz afiliacji instytucjonalnych)",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "projectPartners",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "projectPartners"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "projectType",
+            "values": [
+              "Badania ilościowe i jakościowe o charakterze cyklicznym, dotyczące widza kinowego oraz bilansu kompetencji",
+              "Badania rynkowe w sferze kinematografii",
+              "Przygotowanie analiz w zakresie organizacji i finansowania rynku kinematograficznego w Polsce, a także przedsięwzięć wspierających jego systemowy rozwój",
+              "Przygotowanie innowacyjnych przedsięwzięć o szczególnym znaczeniu dla rozwoju rynku audiowizualnego",
+              "Inne działania realizujące cele Priorytetu V"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "6. Podstawowe dane liczbowe na temat przedsięwzięcia",
+          "components": []
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Próba </normal>",
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Poprzednia edycja (jeśli dotyczy)",
+              "name": "previousResearchSample",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość nie może być ujemna"
+                }
+              ],
+              "unit": "os.",
+              "dataBDD": "previousResearchSample"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Planowana",
+              "name": "currentResearchSample",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość nie może być ujemna"
+                }
+              ],
+              "unit": "os.",
+              "dataBDD": "currentResearchSample"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Liczba osób prowadzących wywiady </normal>",
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Poprzednia edycja (jeśli dotyczy)",
+              "name": "previousNumInterviewers",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość nie może być ujemna"
+                }
+              ],
+              "unit": "os.",
+              "dataBDD": "previousNumInterviewers"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Planowana",
+              "name": "currentNumInterviewers",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość nie może być ujemna"
+                }
+              ],
+              "unit": "os.",
+              "dataBDD": "currentNumInterviewers"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Liczba ekspertów zaangażowanych w przedsięwzięcie </normal>",
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Poprzednia edycja (jeśli dotyczy)",
+              "name": "previousNumExperts",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość nie może być ujemna"
+                }
+              ],
+              "unit": "os.",
+              "dataBDD": "previousNumExperts"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Planowana",
+              "name": "currentNumExperts",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość nie może być ujemna"
+                }
+              ],
+              "unit": "os.",
+              "dataBDD": "currentNumExperts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "projectType",
+            "values": [
+              "Badania i analizy zjawiska piractwa w sferze kinematografii oraz wdrażanie przedsięwzięć, których celem jest zwalczanie piractwa i zapobieganie łamaniu praw autorskich"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "6. Podstawowe dane liczbowe na temat przedsięwzięcia (planowane)",
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Liczba warsztatów/kursów/szkoleń",
+              "name": "numWorkshops",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość nie może być ujemna"
+                }
+              ],
+              "unit": "szt.",
+              "dataBDD": "numWorkshops"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Liczba uczestników",
+              "name": "numParticipants",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość nie może być ujemna"
+                }
+              ],
+              "unit": "os.",
+              "dataBDD": "numParticipants"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Liczba inicjatyw legislacyjnych",
+              "name": "numLegalInitiatives",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość nie może być ujemna"
+                }
+              ],
+              "unit": "szt.",
+              "dataBDD": "numLegalInitiatives"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Liczba odbiorców",
+              "name": "numRecipients",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość nie może być ujemna"
+                }
+              ],
+              "unit": "os.",
+              "dataBDD": "numRecipients"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Liczba działań medialno-marketingowych",
+              "name": "numMediaActions",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość nie może być ujemna"
+                }
+              ],
+              "unit": "szt.",
+              "dataBDD": "numMediaActions"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Liczba publikacji",
+              "name": "numPublications",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość nie może być ujemna"
+                }
+              ],
+              "unit": "szt.",
+              "dataBDD": "numPublications"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Czy przedsięwzięcie, na które składany jest wniosek jest powiązane z innymi przedsięwzięciami, o dofinansowanie których ubiega się Wnioskodawca w bieżącym roku z innych programów operacyjnych PISF? Jeżeli tak, proszę podać nazwę przedsięwzięcia, program oraz wnioskowaną kwotę dofinansowania",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "radio",
+              "label": "",
+              "name": "wasSubmittedBefore",
+              "value": "Nie",
+              "options": [
+                "Tak",
+                "Nie"
+              ],
+              "validators": [
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Tak",
+                      "Nie"
+                    ]
+                  }
+                }
+              ],
+              "dataBDD": "wasSubmittedBefore"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": " ",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "wasSubmittedBefore",
+                "values": [
+                  "Tak"
+                ]
+              }
+            }
+          ],
+          "isMultipleForms": true,
+          "multipleFormsRules": {
+            "minCount": 1,
+            "maxCount": 20
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": " 1",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Nazwa przedsięwzięcia",
+                  "name": "otherProjectName",
+                  "value": "",
+                  "helpText": "Podaj nazwę przedsięwzięcia",
+                  "dataBDD": "otherProjectName"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Program operacyjny",
+                  "name": "programmeName",
+                  "value": "",
+                  "helpText": "Podaj nazwę programu operacyjnego",
+                  "dataBDD": "programmeName"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana kwota",
+                  "name": "otherProjectFundingAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "otherProjectFundingAmount"
+                }
+              ],
+              "classList": [
+                "grid",
+                "grid-cols-3"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
