@@ -1,4 +1,4 @@
-from typing import Literal, ClassVar
+from typing import Literal, ClassVar, Optional
 from pathlib import Path
 import json
 import ast
@@ -110,6 +110,46 @@ class FormBuilder:
             "classList": class_list
         }
         return self.replace_placeholders(part, values)
+
+    def create_chapter(self, title, layout_path=None, class_list=None, visibility_rules=None):
+        if class_list is None:
+            class_list = []
+        if visibility_rules is None:
+            visibility_rules = []
+        if layout_path is None:
+            layout_path = self.main_dir / 'data' / 'base' / 'chapter.json'
+
+        part = self.load_json(path=layout_path)
+        values = {
+            "title": title,
+            "classList": class_list,
+            "visibilityRules": visibility_rules
+        }
+        return self.replace_placeholders(part, values)
+
+    def create_component(
+            self,
+            component_type: Literal['date', 'fund', 'number', 'select', 'text', 'textarea', 'file'],
+            label: str = '',
+            name: str = '',
+            value: str = '',
+            validators: Optional[list] = None,
+            required: bool = False,
+            read_only: bool = False
+    ):
+        if validators is None:
+            validators = []
+
+        component = self.load_json(path=self.main_dir / 'data' / 'base' / 'components' / f'component_{component_type}.json')
+        values = {
+            "label": label,
+            "name": name,
+            "value": value,
+            "validators": validators,
+            "required": required,
+            "readOnly": read_only
+        }
+        return self.replace_placeholders(component, values)
 
     def create_part_by_sections(self, part, sections):
         layout_chapters = []

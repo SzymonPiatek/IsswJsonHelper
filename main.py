@@ -1,3 +1,5 @@
+import subprocess
+
 # DPF
 from classes.form_builder.dpf.animated_film.application_builder import AnimatedFilmApplicationBuilder
 from classes.form_builder.dpf.screenplay_scholarship.application_builder import ScreenplayScholarshipApplicationBuilder
@@ -55,6 +57,8 @@ def main():
 
     for application in applications:
         application.generate()
+
+    subprocess.run(["python", "scripts/delete_unused_args.py"], check=True)
 
 
 if __name__ == '__main__':

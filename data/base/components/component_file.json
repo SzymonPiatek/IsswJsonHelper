@@ -1,0 +1,11 @@
+{
+  "kind": "component",
+  "type": "file",
+  "label": "{label}",
+  "name": "{name}",
+  "value": "{value}",
+  "validators": "{validators}",
+  "required": "{required}",
+  "readOnly": "{readOnly}",
+  "dataBDD": "{name}"
+}

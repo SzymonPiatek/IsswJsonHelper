@@ -47,6 +47,7 @@ class ResearchApplicationBuilder(DisseminationApplicationBuilder):
         self.create_application_statements()
 
         # VI. Załączniki
+        self.create_application_attachments()
 
         # VII. Kosztorys przedsięwzięcia
 
