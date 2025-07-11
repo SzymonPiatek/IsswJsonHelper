@@ -10,7 +10,7 @@ class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
         self.postgraduate_data_path = self.education_data_path / 'postgraduate_schools'
 
     def create_application_scope_of_project(self):
-        part = self.load_json(path=self.postgraduate_data_path / 'pages' / 'scope_of_the_project.json')
+        part = self.load_json(path=self.postgraduate_data_path / '_pages' / 'scope_of_the_project.json')
         self.save_part(part)
 
     def generate(self):

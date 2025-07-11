@@ -9,6 +9,11 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
 
         self.screenplay_data_path = self.dpf_data_path / 'screenplay_scholarship'
 
+    def create_application_applicant_data(self, sections):
+        layout_path = self.application_data_path / '_pages' / 'application_applicant_data' / 'layout.json'
+
+        self.create_part_by_sections(layout_path=layout_path, sections=sections)
+
     def generate(self):
         self.create_application_base()
 
@@ -16,10 +21,12 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         self.create_application_metadata(task_type='Stypendium scenariuszowe')
 
         # I. Dane podstawowe
-        self.create_application_base_data(
+        section_path = self.dpf_data_path / '_pages' / 'application_basic_data'
+
+        self.create_application_basic_data(
             sections=[
                 {
-                    "path": "scope_of_project.json",
+                    "path": section_path / "scope_of_project.json",
                     "data": {
                         "number": "1",
                         "scopeOfProject": {
@@ -30,7 +37,7 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
                     }
                 },
                 {
-                    "path": "movie_kind.json",
+                    "path": section_path / "movie_kind.json",
                     "data": {
                         "number": "2",
                         "movieKind": {
@@ -48,7 +55,7 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
                     }
                 },
                 {
-                    "path": "movie_subject.json",
+                    "path": section_path / "movie_subject.json",
                     "data": {
                         "number": "3",
                         "movieSubject": {
@@ -77,19 +84,19 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
                     }
                 },
                 {
-                    "path": "piece_title.json",
+                    "path": section_path / "piece_title.json",
                     "data": {
                         "number": "4"
                     }
                 },
                 {
-                    "path": "short_movie_description.json",
+                    "path": section_path / "short_movie_description.json",
                     "data": {
                         "number": "5"
                     }
                 },
                 {
-                    "path": "application_relates.json",
+                    "path": section_path / "application_relates.json",
                     "data": {
                         "number": "6",
                         "applicationRelates": {
@@ -100,7 +107,7 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
                     }
                 },
                 {
-                    "path": "type_of_support.json",
+                    "path": section_path / "type_of_support.json",
                     "data": {
                         "number": "7",
                         "typeOfSupport": {
@@ -114,6 +121,29 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         )
 
         # II. Dane wnioskodawcy
+        self.create_application_applicant_data(
+            sections=[
+                {
+                    "path": self.dpf_data_path / '_pages' / 'application_applicant_data' / 'applicant_full_name.json',
+                    "data": {
+                        "number": "1"
+                    }
+                },
+                {
+                    "path": self.screenplay_data_path / '_pages' / 'application_applicant_data' / 'applicant_data.json',
+                    "data": {
+                        "number": "2"
+                    }
+                },
+                {
+                    "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'responsible_person.json',
+                    "data": {
+                        "number": "3"
+                    }
+                }
+            ]
+        )
+
         # III. Informacje
         # IV. Termin realizacji
         # V. Dane finansowe

@@ -16,6 +16,7 @@ class FilmProjectDevelopmentApplicationBuilder(DPFApplicationBuilder):
         self.create_application_metadata(task_type='Przygotowanie projektów filmowych')
 
         # I. Dane podstawowe
+
         # II. Dane wnioskodawcy
         # III. Informacje
         # IV. Termin realizacji

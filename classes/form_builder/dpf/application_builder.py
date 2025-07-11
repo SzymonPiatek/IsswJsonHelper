@@ -11,7 +11,7 @@ class DPFApplicationBuilder(ApplicationBuilder):
         self.dpf_data_path = self.application_data_path / 'dpf'
 
     def create_application_metadata(self, task_type: str):
-        part = self.load_json(path=self.dpf_data_path / 'pages' / 'application_metadata.json')
+        part = self.load_json(path=self.dpf_data_path / '_pages' / 'application_metadata.json')
 
         values = {
             "sessionYear": f"Sesja {self.session}/{self.year}",
@@ -23,7 +23,7 @@ class DPFApplicationBuilder(ApplicationBuilder):
         final_part = self.replace_placeholders(part, values)
         self.save_part(final_part)
 
-    def create_application_base_data(self, sections):
-        file_path = self.dpf_data_path / 'pages' / 'application_basic_data'
+    def create_application_basic_data(self, sections):
+        layout_path = self.dpf_data_path / '_pages' / 'application_basic_data' / 'layout.json'
 
-        self.create_part_by_sections(path=file_path, sections=sections)
+        self.create_part_by_sections(layout_path=layout_path, sections=sections)
