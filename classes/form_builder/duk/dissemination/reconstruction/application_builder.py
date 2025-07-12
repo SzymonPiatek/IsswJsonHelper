@@ -25,9 +25,11 @@ class ReconstructionApplicationBuilder(DisseminationApplicationBuilder):
         chapter_01 = self.create_chapter(
             title="Obowiązkowe załączniki"
         )
-        chapter_01['components'] = [
-            self.load_json(path=attachments_data_path / 'document_confirming_represent_applicant.json'),
-            self.load_json(path=attachments_data_path / 'schedule_information.json'),
+        chapter_02 = self.create_chapter(
+            title=""
+        )
+
+        chapter_02['components'] = [
             self.create_component(
                 component_type='file',
                 label="Dokument zaświadczający o posiadaniu praw do digitalizacji/rekonstrukcji filmu",
@@ -65,6 +67,9 @@ class ReconstructionApplicationBuilder(DisseminationApplicationBuilder):
 
         part['chapters'] = [
             chapter_01,
+            self.load_json(path=attachments_data_path / 'document_confirming_represent_applicant.json'),
+            self.load_json(path=attachments_data_path / 'schedule_information.json'),
+            chapter_02,
             self.load_json(path=attachments_data_path / 'other_attachments.json'),
             self.load_json(path=attachments_data_path / 'storage_of_blanks.json'),
         ]
