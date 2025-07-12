@@ -1,0 +1,10 @@
+{
+  "kind": "component",
+  "type": "text",
+  "label": "",
+  "name": "",
+  "value": 0,
+  "dataBDD": "",
+  "mask": "fund",
+  "unit": "PLN"
+}

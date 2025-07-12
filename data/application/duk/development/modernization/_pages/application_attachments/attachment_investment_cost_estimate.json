@@ -1,0 +1,53 @@
+{
+  "kind": "chapter",
+  "title": "",
+  "components": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "checkbox",
+          "label": "Kosztorys prac inwestycyjnych, z uwzględnieniem kosztów zakupu materiałów (dot. budowy, modernizacji i adaptacji obiektów)",
+          "name": "isInvestmentCostEstimate",
+          "value": false,
+          "dataBDD": "isInvestmentCostEstimate"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "isInvestmentCostEstimate",
+            "values": [
+              "true",
+              true
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "component",
+          "type": "file",
+          "label": "",
+          "name": "attachmentInvestmentCostEstimate",
+          "value": "",
+          "helpText": "Plik PDF (należy podpisać elektronicznie). Maksymalny rozmiar pliku to 50 MB",
+          "required": true,
+          "validators": [
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "dataBDD": "attachmentInvestmentCostEstimate"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "kind": "chapter",
+  "title": "{title}",
+  "classList": "{classList}",
+  "visibilityRules": "{visibilityRules}",
+  "components": []
+}

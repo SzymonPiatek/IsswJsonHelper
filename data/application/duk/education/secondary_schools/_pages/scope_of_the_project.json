@@ -1,0 +1,1712 @@
+{
+  "kind": "part",
+  "title": "III. Zakres przedsięwzięcia",
+  "shortName": "III. Zakres przedsięwzięcia",
+  "classList": [
+    "full-width-grid"
+  ],
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "1. Miejsce realizacji przedsięwzięcia",
+      "components": [
+        {
+          "kind": "component",
+          "type": "text",
+          "label": "",
+          "name": "projectLocation",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "projectLocation"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "2. Opis ogólny przedsięwzięcia (cel i zakres merytoryczny, zastosowane technologie, sposób realizacji przedsięwzięcia, promocja)",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "projectGeneralDescription",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "projectGeneralDescription"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "3. Opis szczegółowy przedsięwzięcia",
+      "components": []
+    },
+    {
+      "kind": "chapter",
+      "title": "<normal>Wartość merytoryczna przedsięwzięcia, w tym ciągłość realizacji przedsięwzięcia oraz wartość edukacyjna</normal>",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "scopeAndValueOfContent",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "scopeAndValueOfContent"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "<normal>Spójność, oryginalność i unikalność koncepcji przedsięwzięcia, atrakcyjność przekazu dla odbiorcy i specyfika przedsięwzięcia</normal>",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "originalityOfProject",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "originalityOfProject"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "<normal>Zróżnicowanie struktury odbiorców lub uczestników oraz liczba uczestników</normal>",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "diversificationOfAudience",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "diversificationOfAudience"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "<normal>Różnorodność środowisk zaangażowanych w realizację przedsięwzięcia</normal>",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "diversityOfInvolvedCommunities",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "diversityOfInvolvedCommunities"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "<normal>Planowane efekty realizacji przedsięwzięcia oraz jego ewaluacja</normal>",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "plannedResultsOfProject",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1000
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "plannedResultsOfProject"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "4. Dotychczasowe doświadczenia wnioskodawcy w działaniach będących przedmiotem przedsięwzięcia</br><normal>Proszę o wyszczególnienie przedsięwzięć z zakresu kinematografii realizowanych przez wnioskodawcę w ostatnich 2 latach</normal>",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "applicantsPastExperience",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "applicantsPastExperience"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "5. Partnerzy, eksperci i specjaliści zaangażowani w przedsięwzięcie i ich dotychczasowy dorobek w tym zakresie",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "involvedPartnersAndSpecialist",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "involvedPartnersAndSpecialist"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "6. Informacje o praktycznych umiejętnościach nabywanych przez uczestników przedsięwzięcia",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "practicalSkillsAcquiredByParticipants",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "practicalSkillsAcquiredByParticipants"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "7. Podstawowe dane liczbowe na temat bieżącej i poprzedniej edycji",
+      "classList": {},
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "projectType",
+            "values": [
+              "programy edukacyjne wchodzące w skład edukacji ciągłej",
+              "kształcenie w kierunku zdobycia zawodów związanych z potrzebami współczesnego rynku audiowizualnego"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "<normal>1. Liczba studentów (studia stacjonarne) </normal>",
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Liczba uczniów",
+              "name": "studentsCount",
+              "value": 0,
+              "unit": "osoby",
+              "dataBDD": "studentsCount"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>2. Średnia wysokość czesnego (w rozrachunku rocznym, studia stacjonarne) </normal>",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Studia stacjonarne",
+              "name": "averageTuitionFeesPerAnnum",
+              "value": "0",
+              "mask": "fund",
+              "unit": "PLN",
+              "dataBDD": "averageTuitionFeesPerAnnum"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>3. Średni koszt kształcenia ucznia (w roku i w tys. zł, studia stacjonarne) </normal>",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Studia stacjonarne",
+              "name": "averagePupilCostOfEducationPerYear",
+              "value": "0",
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 1000
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 1000."
+                }
+              ],
+              "mask": "fund",
+              "unit": "PLN",
+              "dataBDD": "averagePupilCostOfEducationPerYear"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "7. Podstawowe dane liczbowe na temat bieżącej i poprzedniej edycji",
+      "classList": {},
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "projectType",
+            "values": [
+              "inne działania realizujące cele Priorytetu II"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "<normal>1. Liczba wydarzeń w ramach realizowanego przedsięwzięcia</normal>",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>- szkoleń </normal>",
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Poprzednia edycja",
+                  "name": "trainingsPastEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "szt.",
+                  "dataBDD": "trainingsPastEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Bieżąca edycja (planowane wielkości)",
+                  "name": "trainingsCurrentEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "szt.",
+                  "dataBDD": "trainingsCurrentEditionPkt4"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- warsztatów </normal>",
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Poprzednia edycja",
+                  "name": "workshopsPastEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "szt.",
+                  "dataBDD": "workshopsPastEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Bieżąca edycja (planowane wielkości)",
+                  "name": "workshopsCurrentEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "szt.",
+                  "dataBDD": "workshopsCurrentEditionPkt4"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- kursów </normal>",
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Poprzednia edycja",
+                  "name": "coursesPastEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "szt.",
+                  "dataBDD": "coursesPastEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Bieżąca edycja (planowane wielkości)",
+                  "name": "coursesCurrentEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "szt.",
+                  "dataBDD": "coursesCurrentEditionPkt4"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- innych </normal>",
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 25
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "classList": {
+                    "main": [
+                      "table-1-2",
+                      "grid",
+                      "grid-cols-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  },
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Poprzednia edycja",
+                      "name": "otherPastEditionPkt4",
+                      "value": 0,
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość nie może być ujemna"
+                        }
+                      ],
+                      "unit": "szt.",
+                      "dataBDD": "otherPastEditionPkt4"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Bieżąca edycja (planowane wielkości)",
+                      "name": "otherCurrentEditionPkt4",
+                      "value": 0,
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość nie może być ujemna"
+                        }
+                      ],
+                      "unit": "szt.",
+                      "dataBDD": "otherCurrentEditionPkt4"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>SUMA</normal>",
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Poprzednia edycja",
+                  "name": "eventsSumPastEditionPkt4",
+                  "value": 0,
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "trainingsPastEditionPkt4",
+                          "workshopsPastEditionPkt4",
+                          "coursesPastEditionPkt4",
+                          "otherPastEditionPkt4"
+                        ]
+                      }
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "trainingsPastEditionPkt4",
+                          "workshopsPastEditionPkt4",
+                          "coursesPastEditionPkt4",
+                          "otherPastEditionPkt4"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "szt.",
+                  "dataBDD": "eventsSumPastEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Bieżąca edycja (planowane wielkości)",
+                  "name": "eventsSumCurrentEditionPkt4",
+                  "value": 0,
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "trainingsCurrentEditionPkt4",
+                          "workshopsCurrentEditionPkt4",
+                          "coursesCurrentEditionPkt4",
+                          "otherCurrentEditionPkt4"
+                        ]
+                      }
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "trainingsCurrentEditionPkt4",
+                          "workshopsCurrentEditionPkt4",
+                          "coursesCurrentEditionPkt4",
+                          "otherCurrentEditionPkt4"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "szt.",
+                  "dataBDD": "eventsSumCurrentEditionPkt4"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>2. Liczba uczestników w ramach realizowanego przedsięwzięcia</normal>",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>- szkoleń </normal>",
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Poprzednia edycja",
+                  "name": "trainingsParticipantsPastEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "os.",
+                  "dataBDD": "trainingsParticipantsPastEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Bieżąca edycja (planowane wielkości)",
+                  "name": "trainingsParticipantsCurrentEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "os.",
+                  "dataBDD": "trainingsParticipantsCurrentEditionPkt4"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- warsztatów </normal>",
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Poprzednia edycja",
+                  "name": "workshopsParticipantsPastEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "os.",
+                  "dataBDD": "workshopsParticipantsPastEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Bieżąca edycja (planowane wielkości)",
+                  "name": "workshopsParticipantsCurrentEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "os.",
+                  "dataBDD": "workshopsParticipantsCurrentEditionPkt4"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- kursów </normal>",
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Poprzednia edycja",
+                  "name": "coursesParticipantsPastEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "os.",
+                  "dataBDD": "coursesParticipantsPastEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Bieżąca edycja (planowane wielkości)",
+                  "name": "coursesParticipantsCurrentEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "os.",
+                  "dataBDD": "coursesParticipantsCurrentEditionPkt4"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- innych </normal>",
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 25
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "classList": {
+                    "main": [
+                      "table-1-2",
+                      "grid",
+                      "grid-cols-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  },
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Poprzednia edycja",
+                      "name": "otherParticipantsPastEditionPkt4",
+                      "value": 0,
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość nie może być ujemna"
+                        }
+                      ],
+                      "unit": "os.",
+                      "dataBDD": "otherParticipantsPastEditionPkt4"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Bieżąca edycja (planowane wielkości)",
+                      "name": "otherParticipantsCurrentEditionPkt4",
+                      "value": 0,
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość nie może być ujemna"
+                        }
+                      ],
+                      "unit": "os.",
+                      "dataBDD": "otherParticipantsCurrentEditionPkt4"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>SUMA</normal>",
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Poprzednia edycja",
+                  "name": "participantsSumPastEditionPkt4",
+                  "value": 0,
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "trainingsParticipantsPastEditionPkt4",
+                          "workshopsParticipantsPastEditionPkt4",
+                          "coursesParticipantsPastEditionPkt4",
+                          "otherParticipantsPastEditionPkt4"
+                        ]
+                      }
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "trainingsParticipantsPastEditionPkt4",
+                          "workshopsParticipantsPastEditionPkt4",
+                          "coursesParticipantsPastEditionPkt4",
+                          "otherParticipantsPastEditionPkt4"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "os.",
+                  "dataBDD": "participantsSumPastEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Bieżąca edycja (planowane wielkości)",
+                  "name": "participantsSumCurrentEditionPkt4",
+                  "value": 0,
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "trainingsParticipantsCurrentEditionPkt4",
+                          "workshopsParticipantsCurrentEditionPkt4",
+                          "coursesParticipantsCurrentEditionPkt4",
+                          "otherParticipantsCurrentEditionPkt4"
+                        ]
+                      }
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "trainingsParticipantsCurrentEditionPkt4",
+                          "workshopsParticipantsCurrentEditionPkt4",
+                          "coursesParticipantsCurrentEditionPkt4",
+                          "otherParticipantsCurrentEditionPkt4"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "os.",
+                  "dataBDD": "participantsSumCurrentEditionPkt4"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>3. Wpływy ze sprzedaży</normal>",
+          "classList": {
+            "main": [
+              "w-full"
+            ],
+            "sub": [
+              "table-4-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>- szkoleń </normal>",
+              "classList": {
+                "main": [
+                  "table-4",
+                  "grid",
+                  "grid-cols-4"
+                ],
+                "sub": [
+                  "table-4__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Suma: poprzednia edycja",
+                  "name": "trainingsIncomePastEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "trainingsIncomePastEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy: poprzednia edycja",
+                  "name": "trainingsCostPastEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "trainingsCostPastEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Suma: bieżąca edycja (planowane wielkości)",
+                  "name": "trainingsIncomeCurrentEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "trainingsIncomeCurrentEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy: bieżąca edycja (planowane wielkości)",
+                  "name": "trainingsCostCurrentEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "trainingsCostCurrentEditionPkt4"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- warsztatów </normal>",
+              "classList": {
+                "main": [
+                  "table-4",
+                  "grid",
+                  "grid-cols-4"
+                ],
+                "sub": [
+                  "table-4__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Suma: poprzednia edycja",
+                  "name": "workshopsIncomePastEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "workshopsIncomePastEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy: poprzednia edycja",
+                  "name": "workshopsCostPastEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "workshopsCostPastEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Suma: bieżąca edycja (planowane wielkości)",
+                  "name": "workshopsIncomeCurrentEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "workshopsIncomeCurrentEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy: bieżąca edycja (planowane wielkości)",
+                  "name": "workshopsCostCurrentEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "workshopsCostCurrentEditionPkt4"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- kursów </normal>",
+              "classList": {
+                "main": [
+                  "table-4",
+                  "grid",
+                  "grid-cols-4"
+                ],
+                "sub": [
+                  "table-4__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Suma: poprzednia edycja",
+                  "name": "coursesIncomePastEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "coursesIncomePastEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy: poprzednia edycja",
+                  "name": "coursesCostPastEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "coursesCostPastEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Suma: bieżąca edycja (planowane wielkości)",
+                  "name": "coursesIncomeCurrentEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "coursesIncomeCurrentEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy: bieżąca edycja (planowane wielkości)",
+                  "name": "coursesCostCurrentEditionPkt4",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "coursesCostCurrentEditionPkt4"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- innych </normal>",
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 25
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "classList": {
+                    "main": [
+                      "table-4",
+                      "grid",
+                      "grid-cols-4"
+                    ],
+                    "sub": [
+                      "table-4__col"
+                    ]
+                  },
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Suma: poprzednia edycja",
+                      "name": "otherIncomePastEditionPkt4",
+                      "value": 0,
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość nie może być ujemna"
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "otherIncomePastEditionPkt4"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Koszt jednostkowy: poprzednia edycja",
+                      "name": "otherCostPastEditionPkt4",
+                      "value": 0,
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość nie może być ujemna"
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "otherCostPastEditionPkt4"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Suma: bieżąca edycja (planowane wielkości)",
+                      "name": "otherIncomeCurrentEditionPkt4",
+                      "value": 0,
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość nie może być ujemna"
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "otherIncomeCurrentEditionPkt4"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Koszt jednostkowy: bieżąca edycja (planowane wielkości)",
+                      "name": "otherCostCurrentEditionPkt4",
+                      "value": 0,
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość nie może być ujemna"
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "otherCostCurrentEditionPkt4"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>SUMA</normal>",
+              "classList": {
+                "main": [
+                  "table-4",
+                  "grid",
+                  "grid-cols-4"
+                ],
+                "sub": [
+                  "table-4__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Suma: poprzednia edycja",
+                  "name": "sumIncomePastEditionPkt4",
+                  "value": 0,
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "trainingsIncomePastEditionPkt4",
+                          "workshopsIncomePastEditionPkt4",
+                          "coursesIncomePastEditionPkt4",
+                          "otherIncomePastEditionPkt4"
+                        ]
+                      }
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "trainingsIncomePastEditionPkt4",
+                          "workshopsIncomePastEditionPkt4",
+                          "coursesIncomePastEditionPkt4",
+                          "otherIncomePastEditionPkt4"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "sumIncomePastEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy: poprzednia edycja",
+                  "name": "sumCostPastEditionPkt4",
+                  "value": 0,
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "trainingsCostPastEditionPkt4",
+                          "workshopsCostPastEditionPkt4",
+                          "coursesCostPastEditionPkt4",
+                          "otherCostPastEditionPkt4"
+                        ]
+                      }
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "trainingsCostPastEditionPkt4",
+                          "workshopsCostPastEditionPkt4",
+                          "coursesCostPastEditionPkt4",
+                          "otherCostPastEditionPkt4"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "sumCostPastEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Suma: bieżąca edycja (planowane wielkości)",
+                  "name": "sumIncomeCurrentEditionPkt4",
+                  "value": 0,
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "trainingsIncomeCurrentEditionPkt4",
+                          "workshopsIncomeCurrentEditionPkt4",
+                          "coursesIncomeCurrentEditionPkt4",
+                          "otherIncomeCurrentEditionPkt4"
+                        ]
+                      }
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "trainingsIncomeCurrentEditionPkt4",
+                          "workshopsIncomeCurrentEditionPkt4",
+                          "coursesIncomeCurrentEditionPkt4",
+                          "otherIncomeCurrentEditionPkt4"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "sumIncomeCurrentEditionPkt4"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy: bieżąca edycja (planowane wielkości)",
+                  "name": "sumCostCurrentEditionPkt4",
+                  "value": 0,
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość nie może być ujemna"
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "trainingsCostCurrentEditionPkt4",
+                          "workshopsCostCurrentEditionPkt4",
+                          "coursesCostCurrentEditionPkt4",
+                          "otherCostCurrentEditionPkt4"
+                        ]
+                      }
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "trainingsCostCurrentEditionPkt4",
+                          "workshopsCostCurrentEditionPkt4",
+                          "coursesCostCurrentEditionPkt4",
+                          "otherCostCurrentEditionPkt4"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "sumCostCurrentEditionPkt4"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Czy przedsięwzięcie, na które składany jest wniosek jest powiązane z innymi przedsięwzięciami, o dofinansowanie których ubiega się wnioskodawca w bieżącym roku z innych programów operacyjnych PISF? Jeżeli tak, proszę podać nazwę przedsięwzięcia, program oraz wnioskowaną kwotę dofinansowania",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "radio",
+              "label": "",
+              "name": "wasSubmittedBefore",
+              "value": "Nie",
+              "options": [
+                "Tak",
+                "Nie"
+              ],
+              "validators": [
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Tak",
+                      "Nie"
+                    ]
+                  }
+                }
+              ],
+              "dataBDD": "wasSubmittedBefore"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": " ",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "wasSubmittedBefore",
+                "values": [
+                  "Tak"
+                ]
+              }
+            }
+          ],
+          "isMultipleForms": true,
+          "multipleFormsRules": {
+            "minCount": 1,
+            "maxCount": 20
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": " 1",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Nazwa przedsięwzięcia",
+                  "name": "otherProjectName",
+                  "value": "",
+                  "helpText": "Podaj nazwę przedsięwzięcia",
+                  "dataBDD": "otherProjectName"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Program operacyjny",
+                  "name": "programmeName",
+                  "value": "",
+                  "helpText": "Podaj nazwę programu operacyjnego",
+                  "dataBDD": "programmeName"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana kwota",
+                  "name": "otherProjectFundingAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "otherProjectFundingAmount"
+                }
+              ],
+              "classList": [
+                "grid",
+                "grid-cols-3"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

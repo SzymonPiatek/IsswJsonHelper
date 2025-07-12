@@ -1,169 +1,169 @@
 {
-	"kind": "chapter",
-	"title": "",
-	"classList": {
-		"main": [
-			"table-5",
-			"grid",
-			"grid-cols-6",
-			"no-title"
-		],
-		"sub": [
-			"table-5__col"
-		]
-	},
-	"components": [
-		{
-			"kind": "component",
-			"type": "textarea",
-			"label": "Rodzaj kosztów",
-			"name": "Desc",
-			"value": "",
-			"readOnly": true,
-			"dataBDD": "",
-			"classList": [
-				"col-span-2",
-				"text-left",
-				"userInput-bg-grey"
-			]
-		},
-		{
-			"kind": "component",
-			"type": "text",
-			"mask": "fund",
-			"label": "Planowany koszt całkowity",
-			"name": "TotalPlanned",
-			"value": 0,
-			"copyFrom": "",
-			"calculationRules": [
-				{
-					"name": "sumInputs",
-					"kwargs": {
-						"fields": []
-					}
-				}
-			],
-			"validators": [
-				{
-					"name": "RelatedSumValidator",
-					"kwargs": {
-						"field_names": []
-					}
-				},
-				{
-					"name": "RangeValidator",
-					"kwargs": {
-						"min": 0
-					},
-					"validationMsg": "Wartość musi być większa lub równa zero."
-				}
-			],
-			"readOnly": true,
-			"unit": "PLN",
-			"dataBDD": ""
-		},
-		{
-			"kind": "component",
-			"type": "text",
-			"mask": "fund",
-			"label": "Planowana dotacja PISF",
-			"name": "RequestedPlanned",
-			"value": 0,
-			"copyFrom": "",
-			"calculationRules": [
-				{
-					"name": "sumInputs",
-					"kwargs": {
-						"fields": []
-					}
-				}
-			],
-			"validators": [
-				{
-					"name": "RelatedSumValidator",
-					"kwargs": {
-						"field_names": []
-					}
-				},
-				{
-					"name": "RangeValidator",
-					"kwargs": {
-						"min": 0
-					},
-					"validationMsg": "Wartość musi być większa lub równa zero."
-				}
-			],
-			"readOnly": true,
-			"unit": "PLN",
-			"dataBDD": ""
-		},
-		{
-			"kind": "component",
-			"type": "text",
-			"mask": "fund",
-			"label": "Poniesiony koszt całkowity",
-			"name": "TotalActual",
-			"value": 0,
-			"calculationRules": [
-				{
-					"name": "sumInputs",
-					"kwargs": {
-						"fields": []
-					}
-				}
-			],
-			"validators": [
-				{
-					"name": "RelatedSumValidator",
-					"kwargs": {
-						"field_names": []
-					}
-				},
-				{
-					"name": "RangeValidator",
-					"kwargs": {
-						"min": 0
-					},
-					"validationMsg": "Wartość musi być większa lub równa zero."
-				}
-			],
-			"readOnly": true,
-			"unit": "PLN",
-			"dataBDD": ""
-		},
-		{
-			"kind": "component",
-			"type": "text",
-			"mask": "fund",
-			"label": "W tym dotacja PISF",
-			"name": "SupportPisfActual",
-			"value": 0,
-			"calculationRules": [
-				{
-					"name": "sumInputs",
-					"kwargs": {
-						"fields": []
-					}
-				}
-			],
-			"validators": [
-				{
-					"name": "RelatedSumValidator",
-					"kwargs": {
-						"field_names": []
-					}
-				},
-				{
-					"name": "RangeValidator",
-					"kwargs": {
-						"min": 0
-					},
-					"validationMsg": "Wartość musi być większa lub równa zero."
-				}
-			],
-			"readOnly": true,
-			"unit": "PLN",
-			"dataBDD": ""
-		}
-	]
+  "kind": "chapter",
+  "title": "",
+  "classList": {
+    "main": [
+      "table-5",
+      "grid",
+      "grid-cols-6",
+      "no-title"
+    ],
+    "sub": [
+      "table-5__col"
+    ]
+  },
+  "components": [
+    {
+      "kind": "component",
+      "type": "textarea",
+      "label": "Rodzaj kosztów",
+      "name": "Desc",
+      "value": "",
+      "readOnly": true,
+      "dataBDD": "Desc",
+      "classList": [
+        "col-span-2",
+        "text-left",
+        "userInput-bg-grey"
+      ]
+    },
+    {
+      "kind": "component",
+      "type": "text",
+      "mask": "fund",
+      "label": "Planowany koszt całkowity",
+      "name": "TotalPlanned",
+      "value": 0,
+      "copyFrom": "",
+      "calculationRules": [
+        {
+          "name": "sumInputs",
+          "kwargs": {
+            "fields": []
+          }
+        }
+      ],
+      "validators": [
+        {
+          "name": "RelatedSumValidator",
+          "kwargs": {
+            "field_names": []
+          }
+        },
+        {
+          "name": "RangeValidator",
+          "kwargs": {
+            "min": 0
+          },
+          "validationMsg": "Wartość musi być większa lub równa zero."
+        }
+      ],
+      "readOnly": true,
+      "unit": "PLN",
+      "dataBDD": "TotalPlanned"
+    },
+    {
+      "kind": "component",
+      "type": "text",
+      "mask": "fund",
+      "label": "Planowana dotacja PISF",
+      "name": "RequestedPlanned",
+      "value": 0,
+      "copyFrom": "",
+      "calculationRules": [
+        {
+          "name": "sumInputs",
+          "kwargs": {
+            "fields": []
+          }
+        }
+      ],
+      "validators": [
+        {
+          "name": "RelatedSumValidator",
+          "kwargs": {
+            "field_names": []
+          }
+        },
+        {
+          "name": "RangeValidator",
+          "kwargs": {
+            "min": 0
+          },
+          "validationMsg": "Wartość musi być większa lub równa zero."
+        }
+      ],
+      "readOnly": true,
+      "unit": "PLN",
+      "dataBDD": "RequestedPlanned"
+    },
+    {
+      "kind": "component",
+      "type": "text",
+      "mask": "fund",
+      "label": "Poniesiony koszt całkowity",
+      "name": "TotalActual",
+      "value": 0,
+      "calculationRules": [
+        {
+          "name": "sumInputs",
+          "kwargs": {
+            "fields": []
+          }
+        }
+      ],
+      "validators": [
+        {
+          "name": "RelatedSumValidator",
+          "kwargs": {
+            "field_names": []
+          }
+        },
+        {
+          "name": "RangeValidator",
+          "kwargs": {
+            "min": 0
+          },
+          "validationMsg": "Wartość musi być większa lub równa zero."
+        }
+      ],
+      "readOnly": true,
+      "unit": "PLN",
+      "dataBDD": "TotalActual"
+    },
+    {
+      "kind": "component",
+      "type": "text",
+      "mask": "fund",
+      "label": "W tym dotacja PISF",
+      "name": "SupportPisfActual",
+      "value": 0,
+      "calculationRules": [
+        {
+          "name": "sumInputs",
+          "kwargs": {
+            "fields": []
+          }
+        }
+      ],
+      "validators": [
+        {
+          "name": "RelatedSumValidator",
+          "kwargs": {
+            "field_names": []
+          }
+        },
+        {
+          "name": "RangeValidator",
+          "kwargs": {
+            "min": 0
+          },
+          "validationMsg": "Wartość musi być większa lub równa zero."
+        }
+      ],
+      "readOnly": true,
+      "unit": "PLN",
+      "dataBDD": "SupportPisfActual"
+    }
+  ]
 }

@@ -1,0 +1,334 @@
+{
+  "kind": "part",
+  "title": "III. Zakres przedsięwzięcia i jego charakterystyka",
+  "shortName": "III. Zakres przedsięwzięcia",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "1. Miejsce realizacji przedsięwzięcia",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "projectCity",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "projectCity"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "2. Cel i zakres merytoryczny przedsięwzięcia",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "projectGoalAndScope",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "projectGoalAndScope"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "3. Innowacyjność w zakresie treści i formy publikacji",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "projectInnovativeness",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 401
+              },
+              "validationMsg": "Liczba znaków nie może przekroczyć 400."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "projectInnovativeness"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "4. Sposób realizacji, zastosowane technologie graficzne i edytorskie",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "projectExecution",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "projectExecution"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "5. Planowane efekty realizacji przedsięwzięcia",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "projectOutcomes",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1001
+              },
+              "validationMsg": "Liczba znaków nie może przekroczyć 1000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "projectOutcomes"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "6. Dotychczasowe doświadczenia Wnioskodawcy w działaniach będących przedmiotem przedsięwzięcia. </br><normal>Proszę o wyszczególnienie przedsięwzięć z zakresu kinematografii realizowanych przez Wnioskodawcę w ostatnich 2 latach, o budżecie przekraczającym 50 000 zł</normal>",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "granteeExperience",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 501
+              },
+              "validationMsg": "Liczba znaków nie może przekroczyć 500."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "granteeExperience"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "7. Partnerzy, eksperci i specjaliści zaangażowani w przedsięwzięcie i ich dotychczasowy dorobek w tym zakresie (z wyszczególnieniem stopni i tytułów naukowych oraz afiliacji instytucjonalnych)",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "",
+          "name": "projectCooperators",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 401
+              },
+              "validationMsg": "Liczba znaków nie może przekroczyć 400."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "projectCooperators"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "8. Podstawowe dane liczbowe na temat przedsięwzięcia",
+      "classList": [
+        "grid",
+        "grid-cols-2"
+      ],
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "projectType",
+            "values": [
+              "Publikacja opracowań naukowych, książek, czasopism z dziedziny kinematografii, w formatach takich jak: książka drukowana, e-book, audiobook, książka dla niewidomych i słabowidzących",
+              "Publikacja opracowań naukowych, książek, czasopism z dziedziny kinematografii, w formatach takich jak: albumy",
+              "Publikacja opracowań naukowych, książek, czasopism z dziedziny kinematografii, w formatach takich jak: publikacje popularno-naukowe",
+              "Publikacja opracowań naukowych, książek, czasopism z dziedziny kinematografii, w formatach takich jak: czasopisma - w ramach Priorytetu III można finansować wyłącznie czasopisma funkcjonujące na rynku wydawniczym lub w formie publikacji elektronicznej"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "component",
+          "type": "number",
+          "label": "Przewidywany nakład",
+          "name": "plannedCirculationAmount",
+          "value": 0,
+          "unit": "szt.",
+          "dataBDD": "plannedCirculationAmount"
+        },
+        {
+          "kind": "component",
+          "type": "text",
+          "mask": "fund",
+          "label": "Planowane wpływy ze sprzedaży",
+          "name": "plannedSalesIncome",
+          "value": 0,
+          "unit": "PLN",
+          "dataBDD": "plannedSalesIncome"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Czy przedsięwzięcie, na które składany jest wniosek jest powiązane z innymi przedsięwzięciami, o dofinansowanie których ubiega się Wnioskodawca w bieżącym roku z innych programów operacyjnych PISF? Jeżeli tak, proszę podać nazwę przedsięwzięcia, program oraz wnioskowaną kwotę dofinansowania",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "radio",
+              "label": "",
+              "name": "wasSubmittedBefore",
+              "value": "Nie",
+              "options": [
+                "Tak",
+                "Nie"
+              ],
+              "validators": [
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Tak",
+                      "Nie"
+                    ]
+                  }
+                }
+              ],
+              "dataBDD": "wasSubmittedBefore"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": " ",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "wasSubmittedBefore",
+                "values": [
+                  "Tak"
+                ]
+              }
+            }
+          ],
+          "isMultipleForms": true,
+          "multipleFormsRules": {
+            "minCount": 1,
+            "maxCount": 20
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": " 1",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Nazwa przedsięwzięcia",
+                  "name": "otherProjectName",
+                  "value": "",
+                  "helpText": "Podaj nazwę przedsięwzięcia",
+                  "dataBDD": "otherProjectName"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Program operacyjny",
+                  "name": "programmeName",
+                  "value": "",
+                  "helpText": "Podaj nazwę programu operacyjnego",
+                  "dataBDD": "programmeName"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana kwota",
+                  "name": "otherProjectFundingAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "otherProjectFundingAmount"
+                }
+              ],
+              "classList": [
+                "grid",
+                "grid-cols-3"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
