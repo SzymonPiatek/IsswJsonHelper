@@ -94,7 +94,13 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
                         "typeOfProject": {
                             "options": [
                                 "stypendium scenariuszowe"
-                            ]
+                            ],
+                            "validators": [
+                                {
+                                    "name": "RequiredValidator"
+                                },
+                            ],
+                            "calculationRules": []
                         }
                     }
                 },
@@ -197,7 +203,9 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         self.create_application_financial_data()
 
         # VI. Dane dodatkowe
+
         # VII. Załączniki
+
         # VIII. Oświadczenia
 
         self.save_output()

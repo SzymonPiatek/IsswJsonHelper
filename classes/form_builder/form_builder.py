@@ -101,7 +101,7 @@ class FormBuilder:
         if class_list is None:
             class_list = []
         if layout_path is None:
-            layout_path = self.application_data_path / '_pages' / 'layout.json'
+            layout_path = self.main_dir / 'data' / 'base' / 'part.json'
         if chapters is None:
             chapters = []
 
@@ -187,7 +187,8 @@ class FormBuilder:
                 if isinstance(value, dict) and 'options' in value:
                     options = value['options']
                     data[key]['value'] = options[0] if len(options) == 1 else ""
-                    data[key]['readOnly'] = True if len(options) == 1 else False
+                    read_only = value.get('readOnly', False)
+                    data[key]['readOnly'] = read_only if read_only else True if len(options) == 1 else False
 
             section_path = section['path']
             section_json = self.load_json(path=section_path)
