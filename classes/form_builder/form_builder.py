@@ -110,8 +110,8 @@ class FormBuilder:
             "title": title,
             "shortName": short_name,
             "classList": class_list,
+            "chapters": chapters
         }
-        part['chapters'] = chapters
 
         return self.replace_placeholders(part, values)
 
