@@ -1,4 +1,5 @@
 from classes.form_builder.duk.dissemination.application_builder import DisseminationApplicationBuilder
+from classes.form_builder.duk.application_builder import DUKApplicationBuilder
 
 
 class ResearchApplicationBuilder(DisseminationApplicationBuilder):
@@ -10,18 +11,8 @@ class ResearchApplicationBuilder(DisseminationApplicationBuilder):
 
         self.priority_data_path = self.program_data_path / 'research'
 
-    def create_application_scope_of_project(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'scope_of_the_project.json')
-        self.save_part(part)
-
-    def generate(self):
-        self.create_application_base()
-
-        # Metadane wniosku
-        self.create_application_metadata()
-
-        # I. Dane podstawowe
-        self.create_application_basic_data(data={
+    def create_application_basic_data(self, **kwargs):
+        data = {
             'projectType': {
                 'options': [
                     "Badania ilościowe i jakościowe o charakterze cyklicznym, dotyczące widza kinowego oraz bilansu kompetencji",
@@ -32,27 +23,5 @@ class ResearchApplicationBuilder(DisseminationApplicationBuilder):
                     "Inne działania realizujące cele Priorytetu V"
                 ]
             }
-        })
-
-        # II. Dane wnioskodawcy
-        self.create_application_applicant_data()
-
-        # III. Zakres przedsięwzięcia
-        self.create_application_scope_of_project()
-
-        # IV. Źródła finansowania
-        self.create_application_sources_of_financing()
-
-        # V. Oświadczenia
-        self.create_application_statements()
-
-        # VI. Załączniki
-        self.create_application_attachments()
-
-        # VII. Kosztorys przedsięwzięcia
-        self.create_application_project_costs()
-
-        # VIII. Harmonogram
-        self.create_application_schedule()
-
-        self.save_output()
+        }
+        DUKApplicationBuilder.create_application_basic_data(self=self, data=data)

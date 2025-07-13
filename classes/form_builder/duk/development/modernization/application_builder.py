@@ -1,4 +1,5 @@
 from classes.form_builder.duk.development.application_builder import DevelopmentApplicationBuilder
+from classes.form_builder.duk.application_builder import DUKApplicationBuilder
 
 
 class ModernizationApplicationBuilder(DevelopmentApplicationBuilder):
@@ -10,9 +11,16 @@ class ModernizationApplicationBuilder(DevelopmentApplicationBuilder):
 
         self.priority_data_path = self.program_data_path / 'modernization'
 
-    def create_application_scope_of_project(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'scope_of_the_project.json')
-        self.save_part(part)
+    def create_application_basic_data(self, **kwargs):
+        data = {
+            'projectType': {
+                'options': [
+                    "Współfinansowanie zakupu i modernizacji wyposażenia do prowadzenia lub rozpoczęcia działalności kinowej, w tym sprzętu umożliwiającego odbiór filmów przez osoby ze szczególnymi potrzebami",
+                    "Inne działania realizujące cele Priorytetu I"
+                ]
+            }
+        }
+        DUKApplicationBuilder.create_application_basic_data(self=self, data=data)
 
     def create_application_attachments(self):
         part = self.create_part(
@@ -38,42 +46,3 @@ class ModernizationApplicationBuilder(DevelopmentApplicationBuilder):
             self.load_json(path=attachments_data_path / 'storage_of_blanks.json'),
         ]
         self.save_part(part)
-
-    def generate(self):
-        self.create_application_base()
-
-        # Metadane wniosku
-        self.create_application_metadata()
-
-        # I. Dane podstawowe
-        self.create_application_basic_data(data={
-            'projectType': {
-                'options': [
-                    "Współfinansowanie zakupu i modernizacji wyposażenia do prowadzenia lub rozpoczęcia działalności kinowej, w tym sprzętu umożliwiającego odbiór filmów przez osoby ze szczególnymi potrzebami",
-                    "Inne działania realizujące cele Priorytetu I"
-                ]
-            }
-        })
-
-        # II. Dane wnioskodawcy
-        self.create_application_applicant_data()
-
-        # III. Zakres przedsięwzięcia
-        self.create_application_scope_of_project()
-
-        # IV. Źródła finansowania
-        self.create_application_sources_of_financing()
-
-        # V. Oświadczenia
-        self.create_application_statements()
-
-        # VI. Załączniki
-        self.create_application_attachments()
-
-        # VII. Kosztorys przedsięwzięcia
-        self.create_application_project_costs()
-
-        # VIII. Harmonogram
-        self.create_application_schedule()
-
-        self.save_output()

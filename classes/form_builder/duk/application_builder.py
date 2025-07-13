@@ -117,6 +117,10 @@ class DUKApplicationBuilder(ApplicationBuilder):
         part = self.load_json(path=self.department_data_path / '_pages' / 'application_sources_of_financing.json')
         self.save_part(part)
 
+    def create_application_scope_of_project(self):
+        part = self.load_json(path=self.priority_data_path / '_pages' / 'scope_of_the_project.json')
+        self.save_part(part)
+
     def create_application_statements(self):
         part = self.load_json(path=self.department_data_path / '_pages' / 'application_statements.json')
         self.save_part(part)
@@ -149,3 +153,37 @@ class DUKApplicationBuilder(ApplicationBuilder):
     def create_application_project_costs(self):
         part = self.load_json(path=self.priority_data_path / '_pages' / 'application_project_costs.json')
         self.save_part(part=part)
+
+    def generate(self):
+        # Base
+        self.create_application_base()
+
+        # Metadane wniosku
+        self.create_application_metadata()
+
+        # I. Dane podstawowe
+        self.create_application_basic_data()
+
+        # II. Dane wnioskodawcy
+        self.create_application_applicant_data()
+
+        # III. Zakres przedsięwzięcia
+        self.create_application_scope_of_project()
+
+        # IV. Źródła finansowania
+        self.create_application_sources_of_financing()
+
+        # V. Oświaczenia
+        self.create_application_statements()
+
+        # VI. Załączniki
+        self.create_application_attachments()
+
+        # VII. Kosztorys przedsięwzięcia
+        self.create_application_project_costs()
+
+        # VIII. Harmonogram
+        self.create_application_schedule()
+
+        # Zapis
+        self.save_output()
