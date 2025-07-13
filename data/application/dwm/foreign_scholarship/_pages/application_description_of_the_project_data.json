@@ -1,0 +1,138 @@
+{
+  "kind": "part",
+  "title": "V. Opis zaplanowanego przedsięwzięcia",
+  "shortName": "V. Opis przedsięwzięcia",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "<normal>Należy podać opis, charakter wydarzenia oraz cel uczestnictwa wnioskodawcy</normal>",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "requestedSupportType",
+            "values": [
+              "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 1",
+              "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 2"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "Opis zaplanowanego przedsięwzięcia",
+          "name": "plannedTaskDesc",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 20000
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000."
+            }
+          ],
+          "helpText": "Podaj opis innych przedsięwzięć z zakresu kinematografii, podejmowanych w przeszłości (z uwzględnieniem ich miejsca, zasięgu i partnerów)",
+          "required": true,
+          "dataBDD": "plannedTaskDesc"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Należy podać opis, charakter wydarzenia oraz cel uczestnictwa wnioskodawcy",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "requestedSupportType",
+            "values": [
+              "Organizowanie albo współorganizowanie poza granicami Polski wydarzeń promujących dorobek polskich twórców filmowych oraz polską twórczość filmową, w tym przeglądów, retrospektyw, wystaw, konferencji zgodnie z ust. 2 pkt 3",
+              "Organizowanie albo współorganizowanie w Polsce wizyt, spotkań zagranicznych inwestorów, producentów i twórców filmowych, które służą rozwojowi koprodukcji, usług filmowych oraz dystrybucji polskiej twórczości filmowej za granicą zgodnie z ust. 2 pkt 4",
+              "Organizowanie albo współorganizowanie z partnerami zagranicznymi wydarzeń dla przedstawicieli branży filmowej w formie szkoleń, warsztatów, prezentacji zgodnie z ust. 2 pkt 5"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "1. Plan, opis, charakter oraz cel wydarzenia",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Opis zaplanowanego przedsięwzięcia",
+              "name": "plannedTaskDesc345",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 20000
+                  },
+                  "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000."
+                }
+              ],
+              "helpText": "Podaj plan, opis, charakter oraz cel wydarzenia",
+              "required": true,
+              "dataBDD": "plannedTaskDesc345"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "2. Lista filmów planowanych do prezentacji podczas wydarzenia",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Lista filmów",
+              "name": "movieListToShow",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 20000
+                  },
+                  "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000."
+                }
+              ],
+              "helpText": "Podaj listę filmów planowanych do prezentacji podczas wydarzenia",
+              "required": true,
+              "dataBDD": "movieListToShow"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "3. Lista gości wydarzenia z zaznaczeniem kraju pochodzenia",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Lista gości",
+              "name": "guestList",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 20000
+                  },
+                  "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000."
+                }
+              ],
+              "helpText": "Podaj listę gości wydarzenia z zaznaczeniem kraju pochodzenia",
+              "required": true,
+              "dataBDD": "guestList"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4272 @@
+{
+  "kind": "part",
+  "title": "VII. Kosztorys przedsięwzięcia",
+  "shortName": "VII. Kosztorys przedsięwzięcia",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "text",
+          "label": "Nazwa przedsięwzięcia",
+          "name": "projectNameRepeat",
+          "value": "",
+          "calculationRules": [
+            {
+              "name": "copyValue",
+              "from": "applicationTaskName"
+            }
+          ],
+          "readOnly": true,
+          "required": true,
+          "validators": [
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "dataBDD": "projectNameRepeat"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "radio",
+          "label": "Wszystkie kwoty zaznaczone w kosztorysie są kwotami (w przypadku kosztów wynagrodzeń rozliczanych listą płac lub rachunkiem do umowy o dzieło/zlecenie należy wykazać kwotę brutto z uwzględnieniem narzutów ZUS pracodawcy)",
+          "name": "isVatPayer",
+          "value": false,
+          "options": [
+            "netto (zaznacza Wnioskodawca, który jest podatnikiem VAT)",
+            "brutto (zaznacza Wnioskodawca, który NIE jest podatnikiem VAT)"
+          ],
+          "validators": [
+            {
+              "name": "ExactValidator",
+              "kwargs": {
+                "values": [
+                  "netto (zaznacza Wnioskodawca, który jest podatnikiem VAT)",
+                  "brutto (zaznacza Wnioskodawca, który NIE jest podatnikiem VAT)"
+                ]
+              }
+            }
+          ],
+          "dataBDD": "isVatPayer"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Koszty z podziałem na źródło finansowania",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "1. Koszty zarządzania przedsięwzięciem, np. honorarium lub wynagrodzenie<br /><normal><small>Koszty honorariów i wynagrodzeń koordynatorów lub dyrektorów nie mogą przekroczyć 10,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty, o których mowa powyżej nie mogą przekroczyć 10,00% przyznanej dotacji.</small></normal>",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>Razem </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "costManagementSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "coordinatorsSumAmount",
+                          "directorsSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "coordinatorsSumAmount",
+                          "directorsSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "costManagementSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "costManagementRequestedAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "coordinatorsRequestedAmount",
+                          "directorsRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "coordinatorsRequestedAmount",
+                          "directorsRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "costManagementRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "costManagementOtherFundsAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "coordinatorsOtherFundsAmount",
+                          "directorsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "coordinatorsOtherFundsAmount",
+                          "directorsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "costManagementOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- koordynatorów </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "coordinatorsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "coordinatorsRequestedAmount",
+                          "coordinatorsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "coordinatorsRequestedAmount",
+                          "coordinatorsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "coordinatorsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "coordinatorsRequestedAmount",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RelatedFractionGTEValidator",
+                      "kwargs": {
+                        "field_name": "pisfSupportAmount",
+                        "ratio": 0.1
+                      },
+                      "validationMsg": "Kwota dofinansowania dla kosztów honorariów koordynatorów nie może przekroczyć 10% kwoty wnioskowanej."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "coordinatorsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "coordinatorsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "coordinatorsOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- dyrektorów </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "directorsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "directorsRequestedAmount",
+                          "directorsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "directorsRequestedAmount",
+                          "directorsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "directorsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "directorsRequestedAmount",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RelatedFractionGTEValidator",
+                      "kwargs": {
+                        "field_name": "pisfSupportAmount",
+                        "ratio": 0.1
+                      },
+                      "validationMsg": "Kwota dofinansowania dla kosztów honorariów dyrektorów nie może przekroczyć 10% kwoty wnioskowanej."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "directorsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "directorsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "directorsOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "2. Koszty przygotowania przedsięwzięcia <br /><normal><small>Wyłącznie koszty finansowane w oparciu o umowy wraz z fakturami lub rachunkami i umowy zlecenia lub o dzieło wraz z rachunkami </normal></small>",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>Razem </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "costPreparationSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "lecturersSumAmount",
+                          "partnersSumAmount",
+                          "creatorsArtistsSumAmount",
+                          "eventHostsSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "lecturersSumAmount",
+                          "partnersSumAmount",
+                          "creatorsArtistsSumAmount",
+                          "eventHostsSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "costPreparationSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "costPreparationRequestedAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "lecturersRequestedAmount",
+                          "partnersRequestedAmount",
+                          "creatorsArtistsRequestedAmount",
+                          "eventHostsRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "lecturersRequestedAmount",
+                          "partnersRequestedAmount",
+                          "creatorsArtistsRequestedAmount",
+                          "eventHostsRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "costPreparationRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "costPreparationOtherFundsAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "lecturersOtherFundsAmount",
+                          "partnersOtherFundsAmount",
+                          "creatorsArtistsOtherFundsAmount",
+                          "eventHostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "lecturersOtherFundsAmount",
+                          "partnersOtherFundsAmount",
+                          "creatorsArtistsOtherFundsAmount",
+                          "eventHostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "costPreparationOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- twórców, artystów </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "creatorsArtistsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "creatorsArtistsRequestedAmount",
+                          "creatorsArtistsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "creatorsArtistsRequestedAmount",
+                          "creatorsArtistsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "creatorsArtistsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "creatorsArtistsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "creatorsArtistsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "creatorsArtistsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "creatorsArtistsOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- prelegentów, wykładowców </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "lecturersSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "lecturersRequestedAmount",
+                          "lecturersOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "lecturersRequestedAmount",
+                          "lecturersOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "lecturersSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "lecturersRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "lecturersRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "lecturersOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "lecturersOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- osób współpracujących przy realizacji przedsięwzięcia, w tym nadzór i opieka nad studentami </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "partnersSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "partnersRequestedAmount",
+                          "partnersOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "partnersRequestedAmount",
+                          "partnersOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "partnersSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "partnersRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "partnersRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "partnersOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "partnersOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- osób prowadzących (np. imprezy towarzyszące, dyskusje panelowe, konferencje, spotkania z artystami, wystawy) </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "eventHostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "eventHostsRequestedAmount",
+                          "eventHostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "eventHostsRequestedAmount",
+                          "eventHostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "eventHostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "eventHostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "eventHostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "eventHostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "eventHostsOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "3. Koszty konsultacji eksperckich, paneli eksperckich",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "expertConsultationSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "expertConsultationRequestedAmount",
+                          "expertConsultationOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "expertConsultationRequestedAmount",
+                          "expertConsultationOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "expertConsultationSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "expertConsultationRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "expertConsultationRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "expertConsultationOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "expertConsultationOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "4. Koszty tłumaczeń",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "translationCostSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "translationCostRequestedAmount",
+                          "translationCostOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "translationCostRequestedAmount",
+                          "translationCostOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "translationCostSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "translationCostRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "translationCostRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "translationCostOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "translationCostOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "5. Koszty obsługi PR",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "prServiceCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "prServiceCostsRequestedAmount",
+                          "prServiceCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "prServiceCostsRequestedAmount",
+                          "prServiceCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "prServiceCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "prServiceCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "prServiceCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "prServiceCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "prServiceCostsOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "6. Koszty promocji i reklamy",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>Razem </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "commercialsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "outdoorCommercialsSumAmount",
+                          "mediaCommercialsSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "outdoorCommercialsSumAmount",
+                          "mediaCommercialsSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "commercialsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "commercialsRequestedAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "outdoorCommercialsRequestedAmount",
+                          "mediaCommercialsRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "outdoorCommercialsRequestedAmount",
+                          "mediaCommercialsRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "commercialsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "commercialsOtherFundsAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "outdoorCommercialsOtherFundsAmount",
+                          "mediaCommercialsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "outdoorCommercialsOtherFundsAmount",
+                          "mediaCommercialsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "commercialsOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- outdoor </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "outdoorCommercialsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "outdoorCommercialsRequestedAmount",
+                          "outdoorCommercialsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "outdoorCommercialsRequestedAmount",
+                          "outdoorCommercialsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "outdoorCommercialsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "outdoorCommercialsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "outdoorCommercialsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "outdoorCommercialsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "outdoorCommercialsOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- reklama prasowa, radiowa, telewizyjna, internetowa </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "mediaCommercialsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "mediaCommercialsRequestedAmount",
+                          "mediaCommercialsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "mediaCommercialsRequestedAmount",
+                          "mediaCommercialsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "mediaCommercialsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "mediaCommercialsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "mediaCommercialsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "mediaCommercialsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "mediaCommercialsOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "7. Koszty usług graficznych, fotograficznych lub projektowych",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "graphicServiceSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "graphicServiceRequestedAmount",
+                          "graphicServiceOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "graphicServiceRequestedAmount",
+                          "graphicServiceOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "graphicServiceSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "graphicServiceRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "graphicServiceRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "graphicServiceOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "graphicServiceOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "8. Koszty usług poligraficznych/DTP</br><normal><small>(w tym m. in. publikacje towarzyszące przedsięwzięciu np. program, wydruki wielkoformatowe)</small></normal>",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>Razem </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "printingCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "printingCostsProjectSumAmount",
+                          "printingCostsTypesettingSumAmount",
+                          "printingCostsPrintSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "printingCostsProjectSumAmount",
+                          "printingCostsTypesettingSumAmount",
+                          "printingCostsPrintSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "printingCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "printingCostsRequestedAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "printingCostsProjectRequestedAmount",
+                          "printingCostsTypesettingRequestedAmount",
+                          "printingCostsPrintRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "printingCostsProjectRequestedAmount",
+                          "printingCostsTypesettingRequestedAmount",
+                          "printingCostsPrintRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "printingCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "printingCostsOtherFundsAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "printingCostsProjectOtherFundsAmount",
+                          "printingCostsTypesettingOtherFundsAmount",
+                          "printingCostsPrintOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "printingCostsProjectOtherFundsAmount",
+                          "printingCostsTypesettingOtherFundsAmount",
+                          "printingCostsPrintOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "printingCostsOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- projekt </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "printingCostsProjectSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "printingCostsProjectRequestedAmount",
+                          "printingCostsProjectOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "printingCostsProjectRequestedAmount",
+                          "printingCostsProjectOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "printingCostsProjectSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "printingCostsProjectRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "printingCostsProjectRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "printingCostsProjectOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "printingCostsProjectOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- skład </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "printingCostsTypesettingSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "printingCostsTypesettingRequestedAmount",
+                          "printingCostsTypesettingOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "printingCostsTypesettingRequestedAmount",
+                          "printingCostsTypesettingOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "printingCostsTypesettingSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "printingCostsTypesettingRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "printingCostsTypesettingRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "printingCostsTypesettingOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "printingCostsTypesettingOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- druk </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "printingCostsPrintSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "printingCostsPrintRequestedAmount",
+                          "printingCostsPrintOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "printingCostsPrintRequestedAmount",
+                          "printingCostsPrintOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "printingCostsPrintSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "printingCostsPrintRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "printingCostsPrintRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "printingCostsPrintOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "printingCostsPrintOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "9. Koszty zakupu sprzętu niezbędnego do realizacji przedsięwzięcia",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "equipmentPurchaseCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "equipmentPurchaseCostsRequestedAmount",
+                          "equipmentPurchaseCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "equipmentPurchaseCostsRequestedAmount",
+                          "equipmentPurchaseCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "equipmentPurchaseCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "equipmentPurchaseCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "equipmentPurchaseCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "equipmentPurchaseCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "equipmentPurchaseCostsOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "10. Koszty obsługi finansowej",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal><small>1) Opłaty związane z otwarciem i prowadzeniem rachunku bankowego, jeżeli umowa dotacji nakłada na beneficjenta obowiązek posiadania wyodrębnionego rachunku bankowego wyłącznie dla operacji finansowych związanych z realizacją przedsięwzięcia; <br />2) Koszty prowadzenia księgowości związanej z realizacją danego przedsięwzięcia. Koszt ten powinien zostać udokumentowany rachunkiem lub fakturą z opisem, potwierdzającym, że koszty prowadzenia księgowości dotyczyły realizacji danego przedsięwzięcia.</small></normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "financialServiceSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "financialServiceRequestedAmount",
+                          "financialServiceOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "financialServiceRequestedAmount",
+                          "financialServiceOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "financialServiceSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "financialServiceRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "financialServiceRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "financialServiceOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "financialServiceOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "11. Koszty związane z miejscem realizacji przedsięwzięcia <br /><normal><small>Z wyłączeniem zakupu środków trwałych.</small></normal>",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>Razem </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "locationCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "rentalCostsSumAmount",
+                          "spaceArrangementCostsSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "rentalCostsSumAmount",
+                          "spaceArrangementCostsSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "locationCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "locationCostsRequestedAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "rentalCostsRequestedAmount",
+                          "spaceArrangementCostsRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "rentalCostsRequestedAmount",
+                          "spaceArrangementCostsRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "locationCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "locationCostsOtherFundsAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "rentalCostsOtherFundsAmount",
+                          "spaceArrangementCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "rentalCostsOtherFundsAmount",
+                          "spaceArrangementCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "locationCostsOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- koszty wynajmu sali lub powierzchni na potrzeby przedsięwzięcia </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "rentalCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "rentalCostsRequestedAmount",
+                          "rentalCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "rentalCostsRequestedAmount",
+                          "rentalCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "rentalCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "rentalCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "rentalCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "rentalCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "rentalCostsOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- koszty aranżacji przestrzeni, w tym zabezpieczenia BHP </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "spaceArrangementCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "spaceArrangementCostsRequestedAmount",
+                          "spaceArrangementCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "spaceArrangementCostsRequestedAmount",
+                          "spaceArrangementCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "spaceArrangementCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "spaceArrangementCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "spaceArrangementCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "spaceArrangementCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "spaceArrangementCostsOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "12. Koszty obsługi przedsięwzięcia",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>Razem </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "eventHostingCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "personalCostsSumAmount",
+                          "equipmentRentalCostsSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "personalCostsSumAmount",
+                          "equipmentRentalCostsSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "eventHostingCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "eventHostingCostsRequestedAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "personalCostsRequestedAmount",
+                          "equipmentRentalCostsRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "personalCostsRequestedAmount",
+                          "equipmentRentalCostsRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "eventHostingCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "eventHostingCostsOtherFundsAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "personalCostsOtherFundsAmount",
+                          "equipmentRentalCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "personalCostsOtherFundsAmount",
+                          "equipmentRentalCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "eventHostingCostsOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- koszty osobowe </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "personalCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "personalCostsRequestedAmount",
+                          "personalCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "personalCostsRequestedAmount",
+                          "personalCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "personalCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "personalCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "personalCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "personalCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "personalCostsOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- najem sprzętu, rekwizytów, kostiumów </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "equipmentRentalCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "equipmentRentalCostsRequestedAmount",
+                          "equipmentRentalCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "equipmentRentalCostsRequestedAmount",
+                          "equipmentRentalCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "equipmentRentalCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "equipmentRentalCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "equipmentRentalCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "equipmentRentalCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "equipmentRentalCostsOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "13. Koszty usług transportowych",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "transportationServiceSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "transportationServiceRequestedAmount",
+                          "transportationServiceOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "transportationServiceRequestedAmount",
+                          "transportationServiceOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "transportationServiceSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "transportationServiceRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "transportationServiceRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "transportationServiceOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "transportationServiceOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "14. Koszty dotyczące podróży <br /><normal>Koszty przejazdu udokumentowane wyłącznie fakturami lub biletami; w przypadku podróży lotniczych pokrywa się z dotacji tylko koszt biletów w klasie ekonomicznej (z wyłączeniem diet, ryczałtów i innych kosztów udokumentowanych w inny sposób, niż rachunkiem lub fakturą). <br />W przypadku zakupu paliwa wyłącznie koszty paliwa do samochodów wykorzystywanych do realizacji przedsięwzięcia zgodnie z obowiązującymi przepisami (w przypadku, gdy samochód jest środkiem trwałym Wnioskodawcy, w leasingu lub najmie długoterminowym).</normal>",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>Razem </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "tripCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "hostsTripCostsSumAmount",
+                          "participantsTripCostsSumAmount",
+                          "guestsTripCostsSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "hostsTripCostsSumAmount",
+                          "participantsTripCostsSumAmount",
+                          "guestsTripCostsSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "tripCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "tripCostsRequestedAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "hostsTripCostsRequestedAmount",
+                          "participantsTripCostsRequestedAmount",
+                          "guestsTripCostsRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "hostsTripCostsRequestedAmount",
+                          "participantsTripCostsRequestedAmount",
+                          "guestsTripCostsRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "tripCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "tripCostsOtherFundsAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "hostsTripCostsOtherFundsAmount",
+                          "participantsTripCostsOtherFundsAmount",
+                          "guestsTripCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "hostsTripCostsOtherFundsAmount",
+                          "participantsTripCostsOtherFundsAmount",
+                          "guestsTripCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "tripCostsOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- organizatorów przedsięwzięcia </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "hostsTripCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "hostsTripCostsRequestedAmount",
+                          "hostsTripCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "hostsTripCostsRequestedAmount",
+                          "hostsTripCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "hostsTripCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "hostsTripCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "hostsTripCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "hostsTripCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "hostsTripCostsOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- twórców, artystów, prelegentów </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "participantsTripCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "participantsTripCostsRequestedAmount",
+                          "participantsTripCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "participantsTripCostsRequestedAmount",
+                          "participantsTripCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "participantsTripCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "participantsTripCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "participantsTripCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "participantsTripCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "participantsTripCostsOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- zaproszonych gości </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "guestsTripCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "guestsTripCostsRequestedAmount",
+                          "guestsTripCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "guestsTripCostsRequestedAmount",
+                          "guestsTripCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "guestsTripCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "guestsTripCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "guestsTripCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "guestsTripCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "guestsTripCostsOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "15. Koszty dotyczące noclegów <br /><normal><small>Koszty zakwaterowania udokumentowane wyłącznie fakturami (z wyłączeniem diet, ryczałtów i innych kosztów udokumentowanych w inny sposób, niż rachunkiem lub fakturą).</small></normal>",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>Razem </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "accommodationCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "hostsAccommodationCostsSumAmount",
+                          "participantsAccommodationCostsSumAmount",
+                          "guestsAccommodationCostsSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "hostsAccommodationCostsSumAmount",
+                          "participantsAccommodationCostsSumAmount",
+                          "guestsAccommodationCostsSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "accommodationCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "accommodationCostsRequestedAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "hostsAccommodationCostsRequestedAmount",
+                          "participantsAccommodationCostsRequestedAmount",
+                          "guestsAccommodationCostsRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "hostsAccommodationCostsRequestedAmount",
+                          "participantsAccommodationCostsRequestedAmount",
+                          "guestsAccommodationCostsRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "accommodationCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "accommodationCostsOtherFundsAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "hostsAccommodationCostsOtherFundsAmount",
+                          "participantsAccommodationCostsOtherFundsAmount",
+                          "guestsAccommodationCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "hostsAccommodationCostsOtherFundsAmount",
+                          "participantsAccommodationCostsOtherFundsAmount",
+                          "guestsAccommodationCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "accommodationCostsOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- organizatorów przedsięwzięcia </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "hostsAccommodationCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "hostsAccommodationCostsRequestedAmount",
+                          "hostsAccommodationCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "hostsAccommodationCostsRequestedAmount",
+                          "hostsAccommodationCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "hostsAccommodationCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "hostsAccommodationCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "hostsAccommodationCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "hostsAccommodationCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "hostsAccommodationCostsOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- twórców, artystów, prelegentów </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "participantsAccommodationCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "participantsAccommodationCostsRequestedAmount",
+                          "participantsAccommodationCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "participantsAccommodationCostsRequestedAmount",
+                          "participantsAccommodationCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "participantsAccommodationCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "participantsAccommodationCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "participantsAccommodationCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "participantsAccommodationCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "participantsAccommodationCostsOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- zaproszonych gości </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "guestsAccommodationCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "guestsAccommodationCostsRequestedAmount",
+                          "guestsAccommodationCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "guestsAccommodationCostsRequestedAmount",
+                          "guestsAccommodationCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "guestsAccommodationCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "guestsAccommodationCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "guestsAccommodationCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "guestsAccommodationCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "guestsAccommodationCostsOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "16. Koszty nagrań (audio i video) materiałów, stanowiących część przedsięwzięcia",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "recordingCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "recordingCostsRequestedAmount",
+                          "recordingCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "recordingCostsRequestedAmount",
+                          "recordingCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "recordingCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "recordingCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "recordingCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "recordingCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "recordingCostsOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "17. Koszty ubezpieczeń",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "insuranceCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "insuranceCostsRequestedAmount",
+                          "insuranceCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "insuranceCostsRequestedAmount",
+                          "insuranceCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "insuranceCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "insuranceCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "insuranceCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "insuranceCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "insuranceCostsOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "18. Koszty praw autorskich",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>Razem </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "copyrightsCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "copyrightsAcquisitionCostsSumAmount",
+                          "copyRentalCostsSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "copyrightsAcquisitionCostsSumAmount",
+                          "copyRentalCostsSumAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "copyrightsCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "copyrightsCostsRequestedAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "copyrightsAcquisitionCostsRequestedAmount",
+                          "copyRentalCostsRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "copyrightsAcquisitionCostsRequestedAmount",
+                          "copyRentalCostsRequestedAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "copyrightsCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "copyrightsCostsOtherFundsAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "copyrightsAcquisitionCostsOtherFundsAmount",
+                          "copyRentalCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "copyrightsAcquisitionCostsOtherFundsAmount",
+                          "copyRentalCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "copyrightsCostsOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- koszty pozyskania praw autorskich lub licencji </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "copyrightsAcquisitionCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "copyrightsAcquisitionCostsRequestedAmount",
+                          "copyrightsAcquisitionCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "copyrightsAcquisitionCostsRequestedAmount",
+                          "copyrightsAcquisitionCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "copyrightsAcquisitionCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "copyrightsAcquisitionCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "copyrightsAcquisitionCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "copyrightsAcquisitionCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "copyrightsAcquisitionCostsOtherFundsAmount"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>- koszty najmu kopii </normal>",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "copyRentalCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "copyRentalCostsRequestedAmount",
+                          "copyRentalCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "copyRentalCostsRequestedAmount",
+                          "copyRentalCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "copyRentalCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "copyRentalCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "copyRentalCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "copyRentalCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "copyRentalCostsOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "19. Koszty związane z dostosowaniem działań i formy przekazu do osób ze szczególnymi potrzebami, w tym osób z niepełnosprawnościami",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "disabledAdaptationCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "disabledAdaptationCostsRequestedAmount",
+                          "disabledAdaptationCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "disabledAdaptationCostsRequestedAmount",
+                          "disabledAdaptationCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "disabledAdaptationCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "disabledAdaptationCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "disabledAdaptationCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "disabledAdaptationCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "disabledAdaptationCostsOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "20. Koszty bezpośrednio związane z realizacją przedsięwzięcia, takie jak materiały biurowe i plastyczne, nagrody rzeczowe",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "otherDirectCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "otherDirectCostsRequestedAmount",
+                          "otherDirectCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "otherDirectCostsRequestedAmount",
+                          "otherDirectCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "otherDirectCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "otherDirectCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "otherDirectCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "otherDirectCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "otherDirectCostsOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "21. Koszty cateringu <br /><normal><small>Koszty cateringu nie mogą przekroczyć 10,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty, o których mowa powyżej nie mogą przekroczyć 10,00% przyznanej dotacji.<small></normal>",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "cateringCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "cateringCostsRequestedAmount",
+                          "cateringCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "cateringCostsRequestedAmount",
+                          "cateringCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "cateringCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "cateringCostsRequestedAmount",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RelatedFractionGTEValidator",
+                      "kwargs": {
+                        "field_name": "pisfSupportAmount",
+                        "ratio": 0.1
+                      },
+                      "validationMsg": "Kwota dofinansowania dla kosztów cateringu nie może przekroczyć 10% kwoty wnioskowanej."
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "cateringCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "cateringCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "cateringCostsOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "22. Koszt przeprowadzenia ewaluacji przedsięwzięcia",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "evaluationCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "evaluationCostsRequestedAmount",
+                          "evaluationCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "evaluationCostsRequestedAmount",
+                          "evaluationCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "evaluationCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "evaluationCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "evaluationCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "evaluationCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "evaluationCostsOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "23. Koszty obsługi projektów edukacyjnych online",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt ogółem",
+                  "name": "onlineManagementCostsSumAmount",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "onlineManagementCostsRequestedAmount",
+                          "onlineManagementCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "onlineManagementCostsRequestedAmount",
+                          "onlineManagementCostsOtherFundsAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "onlineManagementCostsSumAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "onlineManagementCostsRequestedAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "onlineManagementCostsRequestedAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "onlineManagementCostsOtherFundsAmount",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "onlineManagementCostsOtherFundsAmount"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "PODSUMOWANIE",
+      "classList": {
+        "sub": [
+          "table-1-2-top"
+        ]
+      },
+      "components": [
+        {
+          "kind": "chapter",
+          "classList": {
+            "main": [
+              "table-1-3-narrow",
+              "grid",
+              "grid-cols-3"
+            ],
+            "sub": [
+              "table-1-3__col"
+            ]
+          },
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Koszt ogółem",
+              "name": "totalSumAmount",
+              "value": 0,
+              "calculationRules": [
+                {
+                  "name": "sumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "costManagementSumAmount",
+                      "costPreparationSumAmount",
+                      "expertConsultationSumAmount",
+                      "translationCostSumAmount",
+                      "prServiceCostsSumAmount",
+                      "commercialsSumAmount",
+                      "graphicServiceSumAmount",
+                      "printingCostsSumAmount",
+                      "equipmentPurchaseCostsSumAmount",
+                      "financialServiceSumAmount",
+                      "locationCostsSumAmount",
+                      "eventHostingCostsSumAmount",
+                      "transportationServiceSumAmount",
+                      "tripCostsSumAmount",
+                      "accommodationCostsSumAmount",
+                      "recordingCostsSumAmount",
+                      "insuranceCostsSumAmount",
+                      "copyrightsCostsSumAmount",
+                      "disabledAdaptationCostsSumAmount",
+                      "otherDirectCostsSumAmount",
+                      "cateringCostsSumAmount",
+                      "evaluationCostsSumAmount",
+                      "onlineManagementCostsSumAmount"
+                    ]
+                  }
+                }
+              ],
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "costManagementSumAmount",
+                      "costPreparationSumAmount",
+                      "expertConsultationSumAmount",
+                      "translationCostSumAmount",
+                      "prServiceCostsSumAmount",
+                      "commercialsSumAmount",
+                      "graphicServiceSumAmount",
+                      "printingCostsSumAmount",
+                      "equipmentPurchaseCostsSumAmount",
+                      "financialServiceSumAmount",
+                      "locationCostsSumAmount",
+                      "eventHostingCostsSumAmount",
+                      "transportationServiceSumAmount",
+                      "tripCostsSumAmount",
+                      "accommodationCostsSumAmount",
+                      "recordingCostsSumAmount",
+                      "insuranceCostsSumAmount",
+                      "copyrightsCostsSumAmount",
+                      "disabledAdaptationCostsSumAmount",
+                      "otherDirectCostsSumAmount",
+                      "cateringCostsSumAmount",
+                      "evaluationCostsSumAmount",
+                      "onlineManagementCostsSumAmount"
+                    ]
+                  }
+                },
+                {
+                  "name": "RelatedNumericEqualityValidator",
+                  "kwargs": {
+                    "field_name": "totalProjectCost"
+                  },
+                  "validationMsg": "Wartość musi pokrywać się z wartością zadeklarowaną w zakładce IV. Źródła finansowania"
+                }
+              ],
+              "unit": "PLN",
+              "dataBDD": "totalSumAmount"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Wnioskowana dotacja z PISF ogółem",
+              "name": "totalRequestedAmount",
+              "value": 0,
+              "calculationRules": [
+                {
+                  "name": "sumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "costManagementRequestedAmount",
+                      "costPreparationRequestedAmount",
+                      "expertConsultationRequestedAmount",
+                      "translationCostRequestedAmount",
+                      "prServiceCostsRequestedAmount",
+                      "commercialsRequestedAmount",
+                      "graphicServiceRequestedAmount",
+                      "printingCostsRequestedAmount",
+                      "equipmentPurchaseCostsRequestedAmount",
+                      "financialServiceRequestedAmount",
+                      "locationCostsRequestedAmount",
+                      "eventHostingCostsRequestedAmount",
+                      "transportationServiceRequestedAmount",
+                      "tripCostsRequestedAmount",
+                      "accommodationCostsRequestedAmount",
+                      "recordingCostsRequestedAmount",
+                      "insuranceCostsRequestedAmount",
+                      "copyrightsCostsRequestedAmount",
+                      "disabledAdaptationCostsRequestedAmount",
+                      "otherDirectCostsRequestedAmount",
+                      "cateringCostsRequestedAmount",
+                      "evaluationCostsRequestedAmount",
+                      "onlineManagementCostsRequestedAmount"
+                    ]
+                  }
+                }
+              ],
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "costManagementRequestedAmount",
+                      "costPreparationRequestedAmount",
+                      "expertConsultationRequestedAmount",
+                      "translationCostRequestedAmount",
+                      "prServiceCostsRequestedAmount",
+                      "commercialsRequestedAmount",
+                      "graphicServiceRequestedAmount",
+                      "printingCostsRequestedAmount",
+                      "equipmentPurchaseCostsRequestedAmount",
+                      "financialServiceRequestedAmount",
+                      "locationCostsRequestedAmount",
+                      "eventHostingCostsRequestedAmount",
+                      "transportationServiceRequestedAmount",
+                      "tripCostsRequestedAmount",
+                      "accommodationCostsRequestedAmount",
+                      "recordingCostsRequestedAmount",
+                      "insuranceCostsRequestedAmount",
+                      "copyrightsCostsRequestedAmount",
+                      "disabledAdaptationCostsRequestedAmount",
+                      "otherDirectCostsRequestedAmount",
+                      "cateringCostsRequestedAmount",
+                      "evaluationCostsRequestedAmount",
+                      "onlineManagementCostsRequestedAmount"
+                    ]
+                  }
+                },
+                {
+                  "name": "RelatedNumericEqualityValidator",
+                  "kwargs": {
+                    "field_name": "pisfSupportAmount"
+                  },
+                  "validationMsg": "Wartość musi pokrywać się z wartością zadeklarowaną w zakładce IV. Źródła finansowania"
+                }
+              ],
+              "unit": "PLN",
+              "dataBDD": "totalRequestedAmount"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Pozostałe środki ogółem",
+              "name": "totalOtherFundsAmount",
+              "value": 0,
+              "calculationRules": [
+                {
+                  "name": "sumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "costManagementOtherFundsAmount",
+                      "costPreparationOtherFundsAmount",
+                      "expertConsultationOtherFundsAmount",
+                      "translationCostOtherFundsAmount",
+                      "prServiceCostsOtherFundsAmount",
+                      "commercialsOtherFundsAmount",
+                      "graphicServiceOtherFundsAmount",
+                      "printingCostsOtherFundsAmount",
+                      "equipmentPurchaseCostsOtherFundsAmount",
+                      "financialServiceOtherFundsAmount",
+                      "locationCostsOtherFundsAmount",
+                      "eventHostingCostsOtherFundsAmount",
+                      "transportationServiceOtherFundsAmount",
+                      "tripCostsOtherFundsAmount",
+                      "accommodationCostsOtherFundsAmount",
+                      "recordingCostsOtherFundsAmount",
+                      "insuranceCostsOtherFundsAmount",
+                      "copyrightsCostsOtherFundsAmount",
+                      "disabledAdaptationCostsOtherFundsAmount",
+                      "otherDirectCostsOtherFundsAmount",
+                      "cateringCostsOtherFundsAmount",
+                      "evaluationCostsOtherFundsAmount",
+                      "onlineManagementCostsOtherFundsAmount"
+                    ]
+                  }
+                }
+              ],
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "costManagementOtherFundsAmount",
+                      "costPreparationOtherFundsAmount",
+                      "expertConsultationOtherFundsAmount",
+                      "translationCostOtherFundsAmount",
+                      "prServiceCostsOtherFundsAmount",
+                      "commercialsOtherFundsAmount",
+                      "graphicServiceOtherFundsAmount",
+                      "printingCostsOtherFundsAmount",
+                      "equipmentPurchaseCostsOtherFundsAmount",
+                      "financialServiceOtherFundsAmount",
+                      "locationCostsOtherFundsAmount",
+                      "eventHostingCostsOtherFundsAmount",
+                      "transportationServiceOtherFundsAmount",
+                      "tripCostsOtherFundsAmount",
+                      "accommodationCostsOtherFundsAmount",
+                      "recordingCostsOtherFundsAmount",
+                      "insuranceCostsOtherFundsAmount",
+                      "copyrightsCostsOtherFundsAmount",
+                      "disabledAdaptationCostsOtherFundsAmount",
+                      "otherDirectCostsOtherFundsAmount",
+                      "cateringCostsOtherFundsAmount",
+                      "evaluationCostsOtherFundsAmount",
+                      "onlineManagementCostsOtherFundsAmount"
+                    ]
+                  }
+                }
+              ],
+              "unit": "PLN",
+              "dataBDD": "totalOtherFundsAmount"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Udział wsparcia PISF w kosztach ogółem",
+              "name": "totalRequestedAmountShareInTotalCosts",
+              "value": 0,
+              "calculationRules": [
+                {
+                  "name": "shareCalculator",
+                  "kwargs": {
+                    "dividendField": "totalRequestedAmount",
+                    "divisorField": "totalSumAmount"
+                  }
+                }
+              ],
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedShareValidator",
+                  "kwargs": {
+                    "dividend": "totalRequestedAmount",
+                    "divisor": "totalSumAmount"
+                  }
+                }
+              ],
+              "unit": "%",
+              "dataBDD": "totalRequestedAmountShareInTotalCosts",
+              "classList": [
+                "col-span-3"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Uwaga! <br /><small>Koszt jest kwalifikowany jeżeli spełnia następujące kryteria: <normal><br />- został/zostanie poniesiony w okresie realizacji przedsięwzięcia określonym w harmonogramie, jednak nie wcześniej niż od daty rozpoczęcia naboru wniosków w sesji, <br />- jest celowy, tj. został/zostanie poniesiony w związku z realizacją przedsięwzięcia, na które została przyznana dotacja, <br />- jest rzetelnie udokumentowany i możliwy do zweryfikowania, <br />- jest zgodny z obowiązującymi przepisami prawa. </normal></small>",
+      "components": []
+    }
+  ]
+}

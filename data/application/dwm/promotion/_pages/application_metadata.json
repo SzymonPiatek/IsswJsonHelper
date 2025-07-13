@@ -1,0 +1,76 @@
+{
+  "kind": "part",
+  "title": "I. Nazwa programu operacyjnego/priorytetu",
+  "shortName": "I. Nazwa programu i priorytetu",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "1. Program",
+      "components": [
+        {
+          "kind": "component",
+          "type": "text",
+          "label": "",
+          "name": "programName",
+          "value": "Promocja polskiej twórczości filmowej za granicą",
+          "readOnly": true,
+          "dataBDD": "programName"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "2. Priorytet",
+      "components": [
+        {
+          "kind": "component",
+          "type": "text",
+          "label": "",
+          "name": "priorityName",
+          "value": "Stypendia zagraniczne",
+          "readOnly": true,
+          "dataBDD": "priorityName"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "3. Czy przedsięwzięcie jest związane z udziałem w targach branżowych, pitchingach lub prezentacjach Work in Progress?",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "radio",
+              "label": "",
+              "name": "wasRelatedToParticipation",
+              "value": "",
+              "options": [
+                "Tak",
+                "Nie"
+              ],
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                },
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Tak",
+                      "Nie"
+                    ]
+                  }
+                }
+              ],
+              "dataBDD": "wasRelatedToParticipation"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

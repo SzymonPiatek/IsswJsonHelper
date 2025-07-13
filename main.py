@@ -23,6 +23,9 @@ from classes.form_builder.duk.dissemination.reconstruction.application_builder i
 # DUK - development
 from classes.form_builder.duk.development.modernization.application_builder import ModernizationApplicationBuilder
 from classes.form_builder.duk.development.digitalization.application_builder import DigitalizationApplicationBuilder
+# DWM
+from classes.form_builder.dwm.promotion.application_builder import PromotionApplicationBuilder
+from classes.form_builder.dwm.foreign_scholarship.application_builder import ForeignScholarshipApplicationBuilder
 
 
 def main():
@@ -53,6 +56,10 @@ def main():
         # DUK - development
         ModernizationApplicationBuilder(),
         DigitalizationApplicationBuilder(),
+
+        # DWM
+        PromotionApplicationBuilder(),
+        ForeignScholarshipApplicationBuilder()
     ]
 
     for application in applications:

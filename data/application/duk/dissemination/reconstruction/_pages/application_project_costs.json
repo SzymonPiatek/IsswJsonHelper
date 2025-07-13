@@ -1,0 +1,3589 @@
+{
+  "kind": "part",
+  "title": "VII. Kosztorys przedsięwzięcia",
+  "shortName": "VII. Kosztorys przedsięwzięcia",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "text",
+          "label": "Nazwa przedsięwzięcia",
+          "name": "projectNameRepeat",
+          "value": "",
+          "calculationRules": [
+            {
+              "name": "copyValue",
+              "from": "applicationTaskName"
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "readOnly": true,
+          "required": true,
+          "dataBDD": "projectNameRepeat"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "radio",
+          "label": "Wszystkie kwoty zaznaczone w kosztorysie są kwotami (w przypadku kosztów wynagrodzeń rozliczanych listą płac lub rachunkiem do umowy o dzieło/zlecenie należy wykazać kwotę brutto z uwzględnieniem narzutów ZUS pracodawcy)",
+          "name": "isVatPayer",
+          "value": false,
+          "options": [
+            "netto (zaznacza Wnioskodawca, który jest podatnikiem VAT)",
+            "brutto (zaznacza Wnioskodawca, który NIE jest podatnikiem VAT)"
+          ],
+          "validators": [
+            {
+              "name": "ExactValidator",
+              "kwargs": {
+                "values": [
+                  "netto (zaznacza Wnioskodawca, który jest podatnikiem VAT)",
+                  "brutto (zaznacza Wnioskodawca, który NIE jest podatnikiem VAT)"
+                ]
+              }
+            }
+          ],
+          "dataBDD": "isVatPayer"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Etap I <br /><normal><small>Wyłącznie koszty finansowane w oparciu o umowy wraz z fakturami/ rachunkami i umowy zlecenia lub o dzieło wraz z rachunkami. </small></normal>",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "1. Wypożyczenie materiałów wyjściowych",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "outputRentalCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "outputRentalCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "outputRentalCostAmount",
+                  "value": 0,
+                  "dataBDD": "outputRentalCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "outputRentalCostUnit",
+                  "value": "akt",
+                  "options": [
+                    "akt"
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "akt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "outputRentalCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "outputRentalCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "outputRentalCostSingle",
+                          "outputRentalCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "outputRentalCostSingle",
+                          "outputRentalCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "outputRentalCostRequested",
+                          "outputRentalCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "outputRentalCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "outputRentalCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "outputRentalCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "outputRentalCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "outputRentalCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "2. Czyszczenie materiałów wyjściowych – obraz i dźwięk",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "outputCleaningCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "outputCleaningCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "outputCleaningCostAmount",
+                  "value": 0,
+                  "dataBDD": "outputCleaningCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "outputCleaningCostUnit",
+                  "value": "---",
+                  "options": [
+                    "---",
+                    "min",
+                    "godz",
+                    "akt"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "---",
+                          "min",
+                          "godz",
+                          "akt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "outputCleaningCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "outputCleaningCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "outputCleaningCostSingle",
+                          "outputCleaningCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "outputCleaningCostSingle",
+                          "outputCleaningCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "outputCleaningCostRequested",
+                          "outputCleaningCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "outputCleaningCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "outputCleaningCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "outputCleaningCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "outputCleaningCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "outputCleaningCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "3. Skanowanie materiałów wyjściowych – obraz i dźwięk",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "outputScanningCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "outputScanningCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "outputScanningCostAmount",
+                  "value": 0,
+                  "dataBDD": "outputScanningCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "outputScanningCostUnit",
+                  "value": "---",
+                  "options": [
+                    "---",
+                    "min",
+                    "godz",
+                    "akt"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "---",
+                          "min",
+                          "godz",
+                          "akt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "outputScanningCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "outputScanningCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "outputScanningCostSingle",
+                          "outputScanningCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "outputScanningCostSingle",
+                          "outputScanningCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "outputScanningCostRequested",
+                          "outputScanningCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "outputScanningCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "outputScanningCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "outputScanningCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "outputScanningCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "outputScanningCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "4. Digitalizacja materiałów wyjściowych dźwięku",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "outputAudioDigitCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "outputAudioDigitCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "outputAudioDigitCostAmount",
+                  "value": 0,
+                  "dataBDD": "outputAudioDigitCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "outputAudioDigitCostUnit",
+                  "value": "---",
+                  "options": [
+                    "---",
+                    "min",
+                    "godz",
+                    "akt"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "---",
+                          "min",
+                          "godz",
+                          "akt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "outputAudioDigitCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "outputAudioDigitCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "outputAudioDigitCostSingle",
+                          "outputAudioDigitCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "outputAudioDigitCostSingle",
+                          "outputAudioDigitCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "outputAudioDigitCostRequested",
+                          "outputAudioDigitCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "outputAudioDigitCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "outputAudioDigitCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "outputAudioDigitCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "outputAudioDigitCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "outputAudioDigitCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "5. Wykonanie cyfrowych kopii archiwizacyjnych materiałów wyjściowych - obraz",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "digitalCopyPictureCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "digitalCopyPictureCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "digitalCopyPictureCostAmount",
+                  "value": 0,
+                  "dataBDD": "digitalCopyPictureCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "digitalCopyPictureCostUnit",
+                  "value": "---",
+                  "options": [
+                    "---",
+                    "min",
+                    "ryczałt"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "---",
+                          "min",
+                          "ryczałt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "digitalCopyPictureCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "digitalCopyPictureCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "digitalCopyPictureCostSingle",
+                          "digitalCopyPictureCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "digitalCopyPictureCostSingle",
+                          "digitalCopyPictureCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "digitalCopyPictureCostRequested",
+                          "digitalCopyPictureCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "digitalCopyPictureCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "digitalCopyPictureCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "digitalCopyPictureCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "digitalCopyPictureCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "digitalCopyPictureCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "6. Wykonanie cyfrowych kopii archiwizacyjnych materiałów wyjściowych - dźwięk",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "digitalCopySoundCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "digitalCopySoundCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "digitalCopySoundCostAmount",
+                  "value": 0,
+                  "dataBDD": "digitalCopySoundCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "digitalCopySoundCostUnit",
+                  "value": "---",
+                  "options": [
+                    "---",
+                    "min",
+                    "ryczałt"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "---",
+                          "min",
+                          "ryczałt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "digitalCopySoundCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "digitalCopySoundCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "digitalCopySoundCostSingle",
+                          "digitalCopySoundCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "digitalCopySoundCostSingle",
+                          "digitalCopySoundCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "digitalCopySoundCostRequested",
+                          "digitalCopySoundCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "digitalCopySoundCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "digitalCopySoundCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "digitalCopySoundCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "digitalCopySoundCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "digitalCopySoundCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "7. Nośniki kopii archiwizacyjnych materiałów wyjściowych",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "mediaArchivesCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "mediaArchivesCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "mediaArchivesCostAmount",
+                  "value": 0,
+                  "dataBDD": "mediaArchivesCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "mediaArchivesCostUnit",
+                  "value": "szt",
+                  "options": [
+                    "szt"
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "szt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "mediaArchivesCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "mediaArchivesCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "mediaArchivesCostSingle",
+                          "mediaArchivesCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "mediaArchivesCostSingle",
+                          "mediaArchivesCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "mediaArchivesCostRequested",
+                          "mediaArchivesCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "mediaArchivesCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "mediaArchivesCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "mediaArchivesCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "mediaArchivesCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "mediaArchivesCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "8. Opis stanu technicznego materiałów wyjściowych – przegląd i ocena stanu zniszczeń",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "descConditionCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "descConditionCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "descConditionCostAmount",
+                  "value": 0,
+                  "dataBDD": "descConditionCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "descConditionCostUnit",
+                  "value": "---",
+                  "options": [
+                    "---",
+                    "godz",
+                    "ryczałt",
+                    "akt"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "---",
+                          "godz",
+                          "ryczałt",
+                          "akt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "descConditionCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "descConditionCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "descConditionCostSingle",
+                          "descConditionCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "descConditionCostSingle",
+                          "descConditionCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "descConditionCostRequested",
+                          "descConditionCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "descConditionCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "descConditionCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "descConditionCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "descConditionCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "descConditionCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Etap II",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "1. Konforming – porównanie zeskanowanego materiału filmowego z dostępnymi kopiami filmu i przygotowanie wersji referencyjnej do rekonstrukcji",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "conformingCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "conformingCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "conformingCostAmount",
+                  "value": 0,
+                  "dataBDD": "conformingCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "conformingCostUnit",
+                  "value": "akt",
+                  "options": [
+                    "akt"
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "akt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "conformingCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "conformingCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "conformingCostSingle",
+                          "conformingCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "conformingCostSingle",
+                          "conformingCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "conformingCostRequested",
+                          "conformingCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "conformingCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "conformingCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "conformingCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "conformingCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "conformingCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "2. Rekonstrukcja obrazu",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "pictureReconstructionCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "pictureReconstructionCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "pictureReconstructionCostAmount",
+                  "value": 0,
+                  "dataBDD": "pictureReconstructionCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "pictureReconstructionCostUnit",
+                  "value": "---",
+                  "options": [
+                    "---",
+                    "min",
+                    "godz",
+                    "akt"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "---",
+                          "min",
+                          "godz",
+                          "akt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "pictureReconstructionCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "pictureReconstructionCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "pictureReconstructionCostSingle",
+                          "pictureReconstructionCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "pictureReconstructionCostSingle",
+                          "pictureReconstructionCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "pictureReconstructionCostRequested",
+                          "pictureReconstructionCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "pictureReconstructionCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "pictureReconstructionCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "pictureReconstructionCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "pictureReconstructionCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "pictureReconstructionCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "3. Rekonstrukcja dźwięku",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "soundReconstructionCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "soundReconstructionCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "soundReconstructionCostAmount",
+                  "value": 0,
+                  "dataBDD": "soundReconstructionCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "soundReconstructionCostUnit",
+                  "value": "---",
+                  "options": [
+                    "---",
+                    "min",
+                    "godz",
+                    "akt"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "---",
+                          "min",
+                          "godz",
+                          "akt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "soundReconstructionCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "soundReconstructionCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "soundReconstructionCostSingle",
+                          "soundReconstructionCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "soundReconstructionCostSingle",
+                          "soundReconstructionCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "soundReconstructionCostRequested",
+                          "soundReconstructionCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "soundReconstructionCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "soundReconstructionCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "soundReconstructionCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "soundReconstructionCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "soundReconstructionCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "4. Synchronizacja dźwięku z obrazem",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "soundPictureSyncCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "soundPictureSyncCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "soundPictureSyncCostAmount",
+                  "value": 0,
+                  "dataBDD": "soundPictureSyncCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "soundPictureSyncCostUnit",
+                  "value": "min",
+                  "options": [
+                    "min"
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "min"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "soundPictureSyncCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "soundPictureSyncCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "soundPictureSyncCostSingle",
+                          "soundPictureSyncCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "soundPictureSyncCostSingle",
+                          "soundPictureSyncCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "soundPictureSyncCostRequested",
+                          "soundPictureSyncCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "soundPictureSyncCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "soundPictureSyncCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "soundPictureSyncCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "soundPictureSyncCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "soundPictureSyncCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "5. Wykonanie cyfrowych kopii master – archiwizacyjnych i operacyjnych TIFF/LTO",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "masterCopyArchiveCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "masterCopyArchiveCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "masterCopyArchiveCostAmount",
+                  "value": 0,
+                  "dataBDD": "masterCopyArchiveCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "masterCopyArchiveCostUnit",
+                  "value": "---",
+                  "options": [
+                    "---",
+                    "min",
+                    "ryczałt",
+                    "akt"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "---",
+                          "min",
+                          "ryczałt",
+                          "akt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "masterCopyArchiveCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "masterCopyArchiveCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "masterCopyArchiveCostSingle",
+                          "masterCopyArchiveCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "masterCopyArchiveCostSingle",
+                          "masterCopyArchiveCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "masterCopyArchiveCostRequested",
+                          "masterCopyArchiveCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "masterCopyArchiveCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "masterCopyArchiveCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "masterCopyArchiveCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "masterCopyArchiveCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "masterCopyArchiveCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "6. Nośniki kopii master",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "masterCopyCarriersCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "masterCopyCarriersCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "masterCopyCarriersCostAmount",
+                  "value": 0,
+                  "dataBDD": "masterCopyCarriersCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "masterCopyCarriersCostUnit",
+                  "value": "szt",
+                  "options": [
+                    "szt"
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "szt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "masterCopyCarriersCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "masterCopyCarriersCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "masterCopyCarriersCostSingle",
+                          "masterCopyCarriersCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "masterCopyCarriersCostSingle",
+                          "masterCopyCarriersCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "masterCopyCarriersCostRequested",
+                          "masterCopyCarriersCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "masterCopyCarriersCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "masterCopyCarriersCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "masterCopyCarriersCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "masterCopyCarriersCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "masterCopyCarriersCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "7. Wykonanie dystrybucyjnych cyfrowych kopii wzorcowych filmu – archiwizacyjnych i operacyjnych",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "distributionCopiesCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "distributionCopiesCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "distributionCopiesCostAmount",
+                  "value": 0,
+                  "dataBDD": "distributionCopiesCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "distributionCopiesCostUnit",
+                  "value": "---",
+                  "options": [
+                    "---",
+                    "min",
+                    "ryczałt",
+                    "szt"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "---",
+                          "min",
+                          "ryczałt",
+                          "szt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "distributionCopiesCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "distributionCopiesCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "distributionCopiesCostSingle",
+                          "distributionCopiesCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "distributionCopiesCostSingle",
+                          "distributionCopiesCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "distributionCopiesCostRequested",
+                          "distributionCopiesCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "distributionCopiesCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "distributionCopiesCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "distributionCopiesCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "distributionCopiesCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "distributionCopiesCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "8. Nośniki kopii dystrybucyjnych",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "distributionCopyCarriersCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "distributionCopyCarriersCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "distributionCopyCarriersCostAmount",
+                  "value": 0,
+                  "dataBDD": "distributionCopyCarriersCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "distributionCopyCarriersCostUnit",
+                  "value": "szt",
+                  "options": [
+                    "szt"
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "szt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "distributionCopyCarriersCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "distributionCopyCarriersCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "distributionCopyCarriersCostSingle",
+                          "distributionCopyCarriersCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "distributionCopyCarriersCostSingle",
+                          "distributionCopyCarriersCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "distributionCopyCarriersCostRequested",
+                          "distributionCopyCarriersCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "distributionCopyCarriersCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "distributionCopyCarriersCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "distributionCopyCarriersCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "distributionCopyCarriersCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "distributionCopyCarriersCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "9. Wykonanie kopii wieczystej filmu na taśmie światłoczułej",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "perpetualCopyCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "perpetualCopyCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "perpetualCopyCostAmount",
+                  "value": 0,
+                  "dataBDD": "perpetualCopyCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "perpetualCopyCostUnit",
+                  "value": "min",
+                  "options": [
+                    "min"
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "min"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "perpetualCopyCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "perpetualCopyCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "perpetualCopyCostSingle",
+                          "perpetualCopyCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "perpetualCopyCostSingle",
+                          "perpetualCopyCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "perpetualCopyCostRequested",
+                          "perpetualCopyCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "perpetualCopyCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "perpetualCopyCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "perpetualCopyCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "perpetualCopyCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "perpetualCopyCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "10. Nadzór artystyczny",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "artisticSupervisionCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "artisticSupervisionCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "artisticSupervisionCostAmount",
+                  "value": 0,
+                  "dataBDD": "artisticSupervisionCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "artisticSupervisionCostUnit",
+                  "value": "---",
+                  "options": [
+                    "---",
+                    "godz",
+                    "ryczałt"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "---",
+                          "godz",
+                          "ryczałt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "artisticSupervisionCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "artisticSupervisionCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "artisticSupervisionCostSingle",
+                          "artisticSupervisionCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "artisticSupervisionCostSingle",
+                          "artisticSupervisionCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "artisticSupervisionCostRequested",
+                          "artisticSupervisionCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "artisticSupervisionCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "artisticSupervisionCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "artisticSupervisionCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "artisticSupervisionCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "artisticSupervisionCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "11. Kontrola techniczna jakości wykonania rekonstrukcji obrazu i dźwięku",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "qualityControlCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "qualityControlCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "qualityControlCostAmount",
+                  "value": 0,
+                  "dataBDD": "qualityControlCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "qualityControlCostUnit",
+                  "value": "---",
+                  "options": [
+                    "---",
+                    "godz",
+                    "ryczałt"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "---",
+                          "godz",
+                          "ryczałt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "qualityControlCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "qualityControlCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "qualityControlCostSingle",
+                          "qualityControlCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "qualityControlCostSingle",
+                          "qualityControlCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "qualityControlCostRequested",
+                          "qualityControlCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "qualityControlCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "qualityControlCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "qualityControlCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "qualityControlCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "qualityControlCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "12. Koordynacja procesu digitalizacji i rekonstrukcji cyfrowej",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "digitalizationCoordinationCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "digitalizationCoordinationCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "digitalizationCoordinationCostAmount",
+                  "value": 0,
+                  "dataBDD": "digitalizationCoordinationCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "digitalizationCoordinationCostUnit",
+                  "value": "---",
+                  "options": [
+                    "---",
+                    "godz",
+                    "ryczałt"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "---",
+                          "godz",
+                          "ryczałt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "digitalizationCoordinationCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "digitalizationCoordinationCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "digitalizationCoordinationCostSingle",
+                          "digitalizationCoordinationCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "digitalizationCoordinationCostSingle",
+                          "digitalizationCoordinationCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "digitalizationCoordinationCostRequested",
+                          "digitalizationCoordinationCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "digitalizationCoordinationCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "digitalizationCoordinationCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "digitalizationCoordinationCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "digitalizationCoordinationCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "digitalizationCoordinationCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "13. Przygotowanie wersji językowej (max 3 wersje)",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "languageVersionsCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "languageVersionsCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "languageVersionsCostAmount",
+                  "value": 0,
+                  "dataBDD": "languageVersionsCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "languageVersionsCostUnit",
+                  "value": "---",
+                  "options": [
+                    "---",
+                    "godz",
+                    "ryczałt"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "---",
+                          "godz",
+                          "ryczałt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "languageVersionsCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "languageVersionsCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "languageVersionsCostSingle",
+                          "languageVersionsCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "languageVersionsCostSingle",
+                          "languageVersionsCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "languageVersionsCostRequested",
+                          "languageVersionsCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "languageVersionsCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "languageVersionsCostRequested",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "languageVersionsCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "languageVersionsCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "languageVersionsCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "14. Opracowanie i wykonanie filmowych materiałów promocyjnych <br /><normal><small>Koszty nie mogą być finansowanie ze środków PISF</small></normal>",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "promoMaterialsCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "promoMaterialsCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "promoMaterialsCostAmount",
+                  "value": 0,
+                  "dataBDD": "promoMaterialsCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "promoMaterialsCostUnit",
+                  "value": "---",
+                  "options": [
+                    "---",
+                    "szt",
+                    "ryczałt"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "---",
+                          "szt",
+                          "ryczałt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "promoMaterialsCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "promoMaterialsCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "promoMaterialsCostSingle",
+                          "promoMaterialsCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "promoMaterialsCostSingle",
+                          "promoMaterialsCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "promoMaterialsCostRequested",
+                          "promoMaterialsCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "promoMaterialsCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "promoMaterialsCostRequested",
+                  "value": 0,
+                  "readOnly": true,
+                  "unit": "PLN",
+                  "dataBDD": "promoMaterialsCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "promoMaterialsCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "promoMaterialsCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "15. Organizacja kolaudacji <br /><normal><small>Koszty nie mogą być finansowanie ze środków PISF</small></normal>",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "finalInspectionCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "finalInspectionCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "finalInspectionCostAmount",
+                  "value": 0,
+                  "dataBDD": "finalInspectionCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "finalInspectionCostUnit",
+                  "value": "ryczałt",
+                  "options": [
+                    "ryczałt"
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "ryczałt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "finalInspectionCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "finalInspectionCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "finalInspectionCostSingle",
+                          "finalInspectionCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "finalInspectionCostSingle",
+                          "finalInspectionCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "finalInspectionCostRequested",
+                          "finalInspectionCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "finalInspectionCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "finalInspectionCostRequested",
+                  "value": 0,
+                  "readOnly": true,
+                  "unit": "PLN",
+                  "dataBDD": "finalInspectionCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "finalInspectionCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "finalInspectionCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "16. Transport materiałów filmowych <br /><normal><small>Koszty nie mogą być finansowanie ze środków PISF</small></normal>",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3-narrow",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt jednostkowy",
+                  "name": "movieMaterialsTransportCostSingle",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "movieMaterialsTransportCostSingle"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba",
+                  "name": "movieMaterialsTransportCostAmount",
+                  "value": 0,
+                  "dataBDD": "movieMaterialsTransportCostAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Jednostka",
+                  "name": "movieMaterialsTransportCostUnit",
+                  "value": "ryczałt",
+                  "options": [
+                    "ryczałt"
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "ryczałt"
+                        ]
+                      }
+                    }
+                  ],
+                  "dataBDD": "movieMaterialsTransportCostUnit"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Koszt łączny",
+                  "name": "movieMaterialsTransportCostTotal",
+                  "value": 0,
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "movieMaterialsTransportCostSingle",
+                          "movieMaterialsTransportCostAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "movieMaterialsTransportCostSingle",
+                          "movieMaterialsTransportCostAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "movieMaterialsTransportCostRequested",
+                          "movieMaterialsTransportCostOtherFunds"
+                        ]
+                      },
+                      "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "movieMaterialsTransportCostTotal"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Wnioskowana dotacja PISF",
+                  "name": "movieMaterialsTransportCostRequested",
+                  "value": 0,
+                  "readOnly": true,
+                  "unit": "PLN",
+                  "dataBDD": "movieMaterialsTransportCostRequested"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Pozostałe środki",
+                  "name": "movieMaterialsTransportCostOtherFunds",
+                  "value": 0,
+                  "unit": "PLN",
+                  "dataBDD": "movieMaterialsTransportCostOtherFunds"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "PODSUMOWANIE",
+      "classList": {
+        "sub": [
+          "table-1-2-top"
+        ]
+      },
+      "components": [
+        {
+          "kind": "chapter",
+          "classList": {
+            "main": [
+              "table-1-3-narrow",
+              "grid",
+              "grid-cols-3"
+            ],
+            "sub": [
+              "table-1-3__col"
+            ]
+          },
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Koszt ogółem",
+              "name": "totalSumAmount",
+              "value": 0,
+              "calculationRules": [
+                {
+                  "name": "sumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "outputRentalCostTotal",
+                      "outputCleaningCostTotal",
+                      "outputScanningCostTotal",
+                      "outputAudioDigitCostTotal",
+                      "digitalCopyPictureCostTotal",
+                      "digitalCopySoundCostTotal",
+                      "mediaArchivesCostTotal",
+                      "descConditionCostTotal",
+                      "conformingCostTotal",
+                      "pictureReconstructionCostTotal",
+                      "soundReconstructionCostTotal",
+                      "soundPictureSyncCostTotal",
+                      "masterCopyArchiveCostTotal",
+                      "masterCopyCarriersCostTotal",
+                      "distributionCopiesCostTotal",
+                      "distributionCopyCarriersCostTotal",
+                      "perpetualCopyCostTotal",
+                      "artisticSupervisionCostTotal",
+                      "qualityControlCostTotal",
+                      "digitalizationCoordinationCostTotal",
+                      "languageVersionsCostTotal",
+                      "promoMaterialsCostTotal",
+                      "finalInspectionCostTotal",
+                      "movieMaterialsTransportCostTotal"
+                    ]
+                  }
+                }
+              ],
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "outputRentalCostTotal",
+                      "outputCleaningCostTotal",
+                      "outputScanningCostTotal",
+                      "outputAudioDigitCostTotal",
+                      "digitalCopyPictureCostTotal",
+                      "digitalCopySoundCostTotal",
+                      "mediaArchivesCostTotal",
+                      "descConditionCostTotal",
+                      "conformingCostTotal",
+                      "pictureReconstructionCostTotal",
+                      "soundReconstructionCostTotal",
+                      "soundPictureSyncCostTotal",
+                      "masterCopyArchiveCostTotal",
+                      "masterCopyCarriersCostTotal",
+                      "distributionCopiesCostTotal",
+                      "distributionCopyCarriersCostTotal",
+                      "perpetualCopyCostTotal",
+                      "artisticSupervisionCostTotal",
+                      "qualityControlCostTotal",
+                      "digitalizationCoordinationCostTotal",
+                      "languageVersionsCostTotal",
+                      "promoMaterialsCostTotal",
+                      "finalInspectionCostTotal",
+                      "movieMaterialsTransportCostTotal"
+                    ]
+                  }
+                },
+                {
+                  "name": "RelatedNumericEqualityValidator",
+                  "kwargs": {
+                    "field_name": "totalProjectCost"
+                  },
+                  "validationMsg": "Wartość musi pokrywać się z wartością zadeklarowaną w zakładce VII. Źródła finansowania"
+                },
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "totalRequestedAmount",
+                      "totalOtherFundsAmount"
+                    ]
+                  },
+                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków"
+                }
+              ],
+              "unit": "PLN",
+              "dataBDD": "totalSumAmount"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Wnioskowana dotacja z PISF ogółem",
+              "name": "totalRequestedAmount",
+              "value": 0,
+              "calculationRules": [
+                {
+                  "name": "sumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "outputRentalCostRequested",
+                      "outputCleaningCostRequested",
+                      "outputScanningCostRequested",
+                      "outputAudioDigitCostRequested",
+                      "digitalCopyPictureCostRequested",
+                      "digitalCopySoundCostRequested",
+                      "mediaArchivesCostRequested",
+                      "descConditionCostRequested",
+                      "conformingCostRequested",
+                      "pictureReconstructionCostRequested",
+                      "soundReconstructionCostRequested",
+                      "soundPictureSyncCostRequested",
+                      "masterCopyArchiveCostRequested",
+                      "masterCopyCarriersCostRequested",
+                      "distributionCopiesCostRequested",
+                      "distributionCopyCarriersCostRequested",
+                      "perpetualCopyCostRequested",
+                      "artisticSupervisionCostRequested",
+                      "qualityControlCostRequested",
+                      "digitalizationCoordinationCostRequested",
+                      "languageVersionsCostRequested",
+                      "promoMaterialsCostRequested",
+                      "finalInspectionCostRequested",
+                      "movieMaterialsTransportCostRequested"
+                    ]
+                  }
+                }
+              ],
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "outputRentalCostRequested",
+                      "outputCleaningCostRequested",
+                      "outputScanningCostRequested",
+                      "outputAudioDigitCostRequested",
+                      "digitalCopyPictureCostRequested",
+                      "digitalCopySoundCostRequested",
+                      "mediaArchivesCostRequested",
+                      "descConditionCostRequested",
+                      "conformingCostRequested",
+                      "pictureReconstructionCostRequested",
+                      "soundReconstructionCostRequested",
+                      "soundPictureSyncCostRequested",
+                      "masterCopyArchiveCostRequested",
+                      "masterCopyCarriersCostRequested",
+                      "distributionCopiesCostRequested",
+                      "distributionCopyCarriersCostRequested",
+                      "perpetualCopyCostRequested",
+                      "artisticSupervisionCostRequested",
+                      "qualityControlCostRequested",
+                      "digitalizationCoordinationCostRequested",
+                      "languageVersionsCostRequested",
+                      "promoMaterialsCostRequested",
+                      "finalInspectionCostRequested",
+                      "movieMaterialsTransportCostRequested"
+                    ]
+                  }
+                },
+                {
+                  "name": "RelatedNumericEqualityValidator",
+                  "kwargs": {
+                    "field_name": "pisfSupportAmount"
+                  },
+                  "validationMsg": "Wartość musi pokrywać się z wartością zadeklarowaną w zakładce VII. Źródła finansowania"
+                }
+              ],
+              "unit": "PLN",
+              "dataBDD": "totalRequestedAmount"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Pozostałe środki ogółem",
+              "name": "totalOtherFundsAmount",
+              "value": 0,
+              "calculationRules": [
+                {
+                  "name": "sumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "outputRentalCostOtherFunds",
+                      "outputCleaningCostOtherFunds",
+                      "outputScanningCostOtherFunds",
+                      "outputAudioDigitCostOtherFunds",
+                      "digitalCopyPictureCostOtherFunds",
+                      "digitalCopySoundCostOtherFunds",
+                      "mediaArchivesCostOtherFunds",
+                      "descConditionCostOtherFunds",
+                      "conformingCostOtherFunds",
+                      "pictureReconstructionCostOtherFunds",
+                      "soundReconstructionCostOtherFunds",
+                      "soundPictureSyncCostOtherFunds",
+                      "masterCopyArchiveCostOtherFunds",
+                      "masterCopyCarriersCostOtherFunds",
+                      "distributionCopiesCostOtherFunds",
+                      "distributionCopyCarriersCostOtherFunds",
+                      "perpetualCopyCostOtherFunds",
+                      "artisticSupervisionCostOtherFunds",
+                      "qualityControlCostOtherFunds",
+                      "digitalizationCoordinationCostOtherFunds",
+                      "languageVersionsCostOtherFunds",
+                      "promoMaterialsCostOtherFunds",
+                      "finalInspectionCostOtherFunds",
+                      "movieMaterialsTransportCostOtherFunds"
+                    ]
+                  }
+                }
+              ],
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "outputRentalCostOtherFunds",
+                      "outputCleaningCostOtherFunds",
+                      "outputScanningCostOtherFunds",
+                      "outputAudioDigitCostOtherFunds",
+                      "digitalCopyPictureCostOtherFunds",
+                      "digitalCopySoundCostOtherFunds",
+                      "mediaArchivesCostOtherFunds",
+                      "descConditionCostOtherFunds",
+                      "conformingCostOtherFunds",
+                      "pictureReconstructionCostOtherFunds",
+                      "soundReconstructionCostOtherFunds",
+                      "soundPictureSyncCostOtherFunds",
+                      "masterCopyArchiveCostOtherFunds",
+                      "masterCopyCarriersCostOtherFunds",
+                      "distributionCopiesCostOtherFunds",
+                      "distributionCopyCarriersCostOtherFunds",
+                      "perpetualCopyCostOtherFunds",
+                      "artisticSupervisionCostOtherFunds",
+                      "qualityControlCostOtherFunds",
+                      "digitalizationCoordinationCostOtherFunds",
+                      "languageVersionsCostOtherFunds",
+                      "promoMaterialsCostOtherFunds",
+                      "finalInspectionCostOtherFunds",
+                      "movieMaterialsTransportCostOtherFunds"
+                    ]
+                  }
+                }
+              ],
+              "unit": "PLN",
+              "dataBDD": "totalOtherFundsAmount"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Udział wsparcia PISF w kosztach ogółem",
+              "name": "totalRequestedAmountShareInTotalCosts",
+              "value": 0,
+              "calculationRules": [
+                {
+                  "name": "shareCalculator",
+                  "kwargs": {
+                    "dividendField": "totalRequestedAmount",
+                    "divisorField": "totalSumAmount"
+                  }
+                }
+              ],
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedShareValidator",
+                  "kwargs": {
+                    "dividend": "totalRequestedAmount",
+                    "divisor": "totalSumAmount"
+                  }
+                }
+              ],
+              "unit": "%",
+              "dataBDD": "totalRequestedAmountShareInTotalCosts",
+              "classList": [
+                "col-span-3"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Uwaga! <br /><small>Koszt jest kwalifikowany jeżeli spełnia następujące kryteria: <normal><br />- został/zostanie poniesiony w okresie realizacji przedsięwzięcia określonym w harmonogramie, jednak nie wcześniej niż od daty rozpoczęcia naboru wniosków w sesji, <br />- jest celowy, tj. został/zostanie poniesiony w związku z realizacją przedsięwzięcia, na które została przyznana dotacja, <br />- jest rzetelnie udokumentowany i możliwy do zweryfikowania, <br />- jest zgodny z obowiązującymi przepisami prawa. </normal></small>",
+      "components": []
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "header",
+          "name": "header-budget-warning",
+          "label": "LABEL",
+          "value": "Uwaga: W przypadku innych kosztów niż ujętych w wykazie kosztów kwalifikowanych powyżej, PISF może wskazać konkretne pozycje w budżecie przedsięwzięcia, które mogą zostać pokryte z przyznanego dofinansowania.",
+          "dataBDD": "header-budget-warning"
+        }
+      ]
+    }
+  ]
+}

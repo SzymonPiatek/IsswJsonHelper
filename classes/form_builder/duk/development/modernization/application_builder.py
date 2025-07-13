@@ -71,6 +71,7 @@ class ModernizationApplicationBuilder(DevelopmentApplicationBuilder):
         self.create_application_attachments()
 
         # VII. Kosztorys przedsięwzięcia
+        self.create_application_project_costs()
 
         # VIII. Harmonogram
         self.create_application_schedule()

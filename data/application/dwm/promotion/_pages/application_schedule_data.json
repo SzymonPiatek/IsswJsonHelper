@@ -1,0 +1,183 @@
+{
+  "kind": "part",
+  "title": "XII. Harmonogram realizacji przedsięwzięcia",
+  "shortName": "XII. Harmonogram",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "Nazwa przedsięwzięcia",
+          "name": "applicationTaskNameRepeats",
+          "value": "",
+          "calculationRules": [
+            {
+              "name": "copyValue",
+              "from": "applicationTaskName"
+            }
+          ],
+          "readOnly": true,
+          "dataBDD": "applicationTaskNameRepeats"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "<normal>Uwaga!\n\n- Harmonogram przedsięwzięcia powinien uwzględniać wszystkie działania wymienione w kosztorysie przedsięwzięcia.\n- Prosimy o chronologiczne ułożenie wszystkich pozycji harmonogramu.</normal>\n\nWymagane jest uwzględnienie przynajmniej 3 etapów realizacji przedsięwzięcia.",
+      "components": []
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "isMultipleForms": true,
+      "multipleFormsRules": {
+        "minCount": 3,
+        "maxCount": 20
+      },
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "date",
+                  "label": "Termin od",
+                  "name": "taskActionDateStart",
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "required": true,
+                  "value": false,
+                  "dataBDD": "taskActionDateStart"
+                },
+                {
+                  "kind": "component",
+                  "type": "date",
+                  "label": "Termin do",
+                  "name": "taskActionDateEnd",
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "required": true,
+                  "value": false,
+                  "dataBDD": "taskActionDateEnd"
+                },
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "Działanie",
+                  "name": "taskActionDesc",
+                  "value": "",
+                  "helpText": "Krótki opis działania",
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 501
+                      },
+                      "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 500."
+                    },
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "taskActionDesc",
+                  "classList": [
+                    "col-span-2",
+                    "table-full"
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "date",
+          "label": "Zakończenie realizacji przedsięwzięcia",
+          "name": "taskActionCompletionDate",
+          "value": false,
+          "readOnly": true,
+          "calculationRules": [
+            {
+              "name": "lastDate",
+              "kwargs": {
+                "field": "taskActionDateEnd"
+              }
+            }
+          ],
+          "required": true,
+          "validators": [
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "dataBDD": "taskActionCompletionDate"
+        },
+        {
+          "kind": "component",
+          "type": "date",
+          "label": "Maksymalny termin złożenia raportu końcowego do PISF",
+          "name": "taskActionSettlingDate",
+          "value": false,
+          "readOnly": true,
+          "calculationRules": [
+            {
+              "name": "relateToLastDate",
+              "kwargs": {
+                "field": "taskActionDateEnd",
+                "parameter": 30
+              }
+            }
+          ],
+          "required": true,
+          "validators": [
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "dataBDD": "taskActionSettlingDate"
+        }
+      ],
+      "classList": {
+        "main": [
+          "table-1-2",
+          "grid",
+          "grid-cols-2"
+        ],
+        "sub": [
+          "table-1-2__col"
+        ]
+      }
+    }
+  ]
+}

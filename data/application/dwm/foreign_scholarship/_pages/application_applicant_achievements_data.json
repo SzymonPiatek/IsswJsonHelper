@@ -1,0 +1,141 @@
+{
+  "kind": "part",
+  "title": "IV. Dotychczasowy dorobek i doświadczenie wnioskodawcy w dziedzinie, której wniosek dotyczy",
+  "shortName": "IV. Dorobek wnioskodawcy",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "1. Czy wnioskodawca realizował już przedsięwzięcie w dziedzinie, której wniosek dotyczy?",
+      "components": [
+        {
+          "kind": "component",
+          "type": "radio",
+          "label": "Doświadczenie wnioskodawcy",
+          "name": "applicantHasAccomplishedSimilarTasks",
+          "value": "",
+          "options": [
+            "Tak",
+            "Nie"
+          ],
+          "required": true,
+          "validators": [
+            {
+              "name": "RequiredValidator"
+            },
+            {
+              "name": "ExactValidator",
+              "kwargs": {
+                "values": [
+                  "Tak",
+                  "Nie"
+                ]
+              }
+            }
+          ],
+          "dataBDD": "applicantHasAccomplishedSimilarTasks"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Należy podać daty i krótki opis przedsięwzięć podjętych w przeszłości (z uwzględnieniem ich miejsca, zasięgu i partnerów)",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "applicantHasAccomplishedSimilarTasks",
+            "values": [
+              "Tak"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "Opis przedsięwzięć podjętych w przeszłości",
+          "name": "applicantPrevTasksDesc",
+          "value": "",
+          "helpText": "Podaj daty i krótki opis przedsięwzięć podjętych w przeszłości (z uwzględnieniem ich miejsca, zasięgu i partnerów)",
+          "required": true,
+          "validators": [
+            {
+              "name": "RelatedRequiredIfEqualValidator",
+              "kwargs": {
+                "field_name": "applicantHasAccomplishedSimilarTasks",
+                "value": "Tak"
+              }
+            }
+          ],
+          "dataBDD": "applicantPrevTasksDesc"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "2. Wskazanie innych przedsięwzięć z zakresu kinematografii, podejmowanych w przeszłości (z uwzględnieniem ich miejsca, zasięgu i partnerów)",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "Opis innych przedsięwzięć podjętych w przeszłości",
+          "name": "applicantOtherPrevTasks",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 10000
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 10000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "helpText": "Podaj opis innych przedsięwzięć z zakresu kinematografii, podejmowanych w przeszłości (z uwzględnieniem ich miejsca, zasięgu i partnerów)",
+          "required": true,
+          "dataBDD": "applicantOtherPrevTasks"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "3. CV reżysera (należy podać filmografię z informacją o pełnionej funkcji w projekcie oraz ew. nagrody dla filmu lub/i nagrody dla reżysera)",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "requestedSupportType",
+            "values": [
+              "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 1",
+              "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 2"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "Opis innych przedsięwzięć podjętych w przeszłości",
+          "name": "applicantDirectorCv",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 10000
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 10000."
+            }
+          ],
+          "helpText": "Podaj opis innych przedsięwzięć z zakresu kinematografii, podejmowanych w przeszłości (z uwzględnieniem ich miejsca, zasięgu i partnerów)",
+          "required": true,
+          "dataBDD": "applicantDirectorCv"
+        }
+      ]
+    }
+  ]
+}
