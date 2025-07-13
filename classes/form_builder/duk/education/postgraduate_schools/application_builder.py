@@ -1,5 +1,6 @@
 from classes.form_builder.duk.education.application_builder import EducationApplicationBuilder
 from classes.form_builder.duk.application_builder import DUKApplicationBuilder
+from classes.form_builder.estimate_builder.duk.application_estimate_builder import DUKApplicationEstimateBuilder
 
 
 class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
@@ -23,3 +24,89 @@ class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
             }
         }
         DUKApplicationBuilder.create_application_basic_data(self=self, data=data)
+
+    def create_application_project_costs(self):
+        estimate = DUKApplicationEstimateBuilder(
+            data={
+                'sections': [
+                    {
+                        'title': '1. Koszty zarządzania przedsięwzięciem, np. honorarium lub wynagrodzenie',
+                        'costs': [
+                            {
+                                'isSum': True,
+                                'title': 'Razem',
+                                'name': 'costManagement'
+                            },
+                            {
+                                'title': '- koordynatorów',
+                                'name': 'coordinators'
+                            },
+                            {
+                                'title': '- dyrektorów',
+                                'name': 'directors'
+                            }
+                        ]
+                    },
+                    {
+                        'title': '2. Koszty przygotowania przedsięwzięcia',
+                        'costs': [
+                            {
+                                'isSum': True,
+                                'title': 'Razem',
+                                'name': 'costPreparation'
+                            },
+                            {
+                                'title': '- twórców, artystów',
+                                'name': 'creatorsArtists'
+                            },
+                            {
+                                'title': '- prelegentów, wykładowców',
+                                'name': 'lecturers'
+                            },
+                            {
+                                'title': '- osób współpracujących przy realizacji przedsięwzięcia, w tym nadzór i opieka nad studentami ',
+                                'name': 'partners'
+                            },
+                            {
+                                'title': '- osób prowadzących (np. imprezy towarzyszące, dyskusje panelowe, konferencje, spotkania z artystami, wystawy) ',
+                                'name': 'eventHosts'
+                            }
+                        ]
+                    },
+                    {
+                        'title': '3. Koszty konsultacji eksperckich, paneli eksperckich',
+                        'costs': [
+                            {
+                                'isSum': True,
+                                'title': '',
+                                'name': 'expertConsultation'
+                            }
+                        ]
+                    },
+                ],
+                'section_structure': [
+                    {
+                        'label': 'Koszt ogółem',
+                        'name': 'SumAmount'
+                    },
+                    {
+                        'label': 'Wnioskowana dotacja PISF',
+                        'name': 'RequestedAmount'
+                    },
+                    {
+                        'label': 'Pozostałe środki',
+                        'name': 'OtherFundsAmount'
+                    }
+                ]
+            }
+        )
+
+        part = self.create_part(
+            title='VII. Kosztorys przedsięwzięcia',
+            short_name='VII. Kosztorys przedsięwzięcia',
+            chapters=[
+                estimate.generate()
+            ]
+        )
+
+        self.save_part(part=part)
