@@ -1,10 +1,10 @@
 {
   "kind": "component",
   "type": "text",
-  "label": "",
-  "name": "",
-  "value": 0,
-  "dataBDD": "",
+  "label": "{label}",
+  "name": "{name}",
+  "value": "{value}",
+  "dataBDD": "{name}",
   "mask": "fund",
-  "unit": "PLN"
+  "unit": "{unit}"
 }

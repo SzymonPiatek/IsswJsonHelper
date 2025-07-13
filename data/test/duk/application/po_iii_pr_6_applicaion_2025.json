@@ -2616,7 +2616,6 @@
                                 {
                                   "name": "RelatedMappedLimitValidator",
                                   "kwargs": {
-                                    "options": [],
                                     "default_limit": 100.0
                                   }
                                 }
@@ -3428,7 +3427,6 @@
                         {
                           "name": "RelatedMappedLimitValidator",
                           "kwargs": {
-                            "options": [],
                             "default_limit": 40000
                           }
                         }

@@ -97,58 +97,84 @@ class FormBuilder:
         except KeyError as e:
             raise RuntimeError(f"Nie znalazłem miejsca na introText w JSONie: {e!s}")
 
-    def create_part(self, title, short_name, layout_path=None, class_list=None):
+    def create_part(self, title, short_name, layout_path=None, class_list=None, chapters=None):
         if class_list is None:
             class_list = []
         if layout_path is None:
             layout_path = self.application_data_path / '_pages' / 'layout.json'
+        if chapters is None:
+            chapters = []
 
         part = self.load_json(path=layout_path)
         values = {
             "title": title,
             "shortName": short_name,
-            "classList": class_list
+            "classList": class_list,
         }
+        part['chapters'] = chapters
+
         return self.replace_placeholders(part, values)
 
-    def create_chapter(self, title, layout_path=None, class_list=None, visibility_rules=None):
+    def create_chapter(self, title, layout_path=None, class_list=None, visibility_rules=None, components=None):
         if class_list is None:
             class_list = []
         if visibility_rules is None:
             visibility_rules = []
         if layout_path is None:
             layout_path = self.main_dir / 'data' / 'base' / 'chapter.json'
+        if components is None:
+            components = []
 
-        part = self.load_json(path=layout_path)
+        chapter = self.load_json(path=layout_path)
         values = {
             "title": title,
             "classList": class_list,
-            "visibilityRules": visibility_rules
+            "visibilityRules": visibility_rules,
+            "components": components
         }
-        return self.replace_placeholders(part, values)
+
+        return self.replace_placeholders(chapter, values)
 
     def create_component(
             self,
             component_type: Literal['date', 'fund', 'number', 'select', 'text', 'textarea', 'file'],
+            mask: str = '',
             label: str = '',
             name: str = '',
             value: str = '',
+            unit: str = '',
+            options: Optional[list] = None,
             validators: Optional[list] = None,
+            calculation_rules: Optional[list] = None,
+            class_list: Optional[list] = None,
             required: bool = False,
             read_only: bool = False
     ):
         if validators is None:
             validators = []
+        if options is None:
+            options = []
+        if calculation_rules is None:
+            calculation_rules = []
+        if class_list is None:
+            class_list = []
 
-        component = self.load_json(path=self.main_dir / 'data' / 'base' / 'components' / f'component_{component_type}.json')
+        component = self.load_json(path=self.main_dir / 'data' / 'base' / 'component.json')
         values = {
+            "type": component_type,
+            "mask": mask,
             "label": label,
             "name": name,
             "value": value,
+            "unit": unit,
+            "options": options,
             "validators": validators,
+            "calculationRules": calculation_rules,
+            "classList": class_list,
             "required": required,
             "readOnly": read_only
         }
+
         return self.replace_placeholders(component, values)
 
     def create_part_by_sections(self, part, sections):

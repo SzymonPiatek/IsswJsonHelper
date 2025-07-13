@@ -1,8 +1,8 @@
 {
   "kind": "component",
   "type": "textarea",
-  "label": "",
-  "name": "",
-  "value": "",
-  "dataBDD": ""
+  "label": "{label}",
+  "name": "{name}",
+  "value": "{value}",
+  "dataBDD": "{name}"
 }
