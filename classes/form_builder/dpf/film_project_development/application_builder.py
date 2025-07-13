@@ -10,226 +10,177 @@ class FilmProjectDevelopmentApplicationBuilder(DPFApplicationBuilder):
 
         self.priority_data_path = self.department_data_path / 'film_project_development'
 
-    def create_application_applicant_data(self, **kwargs):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_applicant_data.json')
-        self.save_part(part=part)
+    def create_application_metadata(self, task_type: str = 'Przygotowania projektów filmowych'):
+        DPFApplicationBuilder.create_application_metadata(self, task_type)
 
-    def create_application_information_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_information_data.json')
-        self.save_part(part=part)
-
-    def create_application_completion_date_data(self, **kwargs):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_completion_date_data.json')
-        self.save_part(part=part)
-
-    def create_application_financial_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_financial_data.json')
-        self.save_part(part=part)
-
-    def create_application_additional_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_additional_data.json')
-        self.save_part(part=part)
-
-    def create_application_attachments(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_attachments.json')
-        self.save_part(part=part)
-
-    def create_application_statements(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_statements.json')
-        self.save_part(part=part)
-
-    def generate(self):
-        self.create_application_base()
-
-        # Metadane wniosku
-        self.create_application_metadata(task_type='Przygotowanie projektów filmowych')
-
-        # I. Dane podstawowe
+    def create_application_basic_data(self, **kwargs):
         section_path = self.department_data_path / '_pages' / 'application_basic_data'
         priority_section_path = self.priority_data_path / '_pages' / 'application_basic_data'
 
-        self.create_application_basic_data(
-            sections=[
-                {
-                    "path": section_path / "scope_of_project.json",
-                    "data": {
-                        "number": "1",
-                        "scopeOfProject": {
-                            "options": [
-                                "Rozwój projektu"
-                            ]
-                        }
+        part = self.create_part(
+            title='I. Dane podstawowe',
+            short_name='I. Dane podstawowe',
+        )
+
+        sections = [
+            {
+                "path": section_path / "scope_of_project.json",
+                "data": {
+                    "number": "1",
+                    "scopeOfProject": {
+                        "options": [
+                            "Rozwój projektu"
+                        ]
                     }
-                },
-                {
-                    "path": section_path / "movie_kind.json",
-                    "data": {
-                        "number": "2",
-                        "movieKind": {
-                            "options": [
-                                "fabularny",
-                                "dokumentalny",
-                                "animowany",
-                                "seria animowana"
-                            ]
-                        },
-                        "typeOfProject": {
-                            "options": [
-                                "rozwój projektu",
-                                "seria animowana"
-                            ],
-                            "validators": [
-                                {
-                                    "name": "RequiredValidator"
-                                },
-                            ],
-                            "calculationRules": [
-                                {
-                                    "name": "assignValue",
-                                    "kwargs": {
-                                        "options": [
-                                            {
-                                                "fieldName": "movieKind",
-                                                "value": "fabularny",
-                                                "inputValue": "rozwój projektu"
-                                            },
-                                            {
-                                                "fieldName": "movieKind",
-                                                "value": "animowany",
-                                                "inputValue": "rozwój projektu"
-                                            },
-                                            {
-                                                "fieldName": "movieKind",
-                                                "value": "dokumentalny",
-                                                "inputValue": "rozwój projektu"
-                                            },
-                                            {
-                                                "fieldName": "movieKind",
-                                                "value": "seria animowana",
-                                                "inputValue": "seria animowana"
-                                            },
+                }
+            },
+            {
+                "path": section_path / "movie_kind.json",
+                "data": {
+                    "number": "2",
+                    "movieKind": {
+                        "options": [
+                            "fabularny",
+                            "dokumentalny",
+                            "animowany",
+                            "seria animowana"
+                        ]
+                    },
+                    "typeOfProject": {
+                        "options": [
+                            "rozwój projektu",
+                            "seria animowana"
+                        ],
+                        "validators": [
+                            {
+                                "name": "RequiredValidator"
+                            },
+                        ],
+                        "calculationRules": [
+                            {
+                                "name": "assignValue",
+                                "kwargs": {
+                                    "options": [
+                                        {
+                                            "fieldName": "movieKind",
+                                            "value": "fabularny",
+                                            "inputValue": "rozwój projektu"
+                                        },
+                                        {
+                                            "fieldName": "movieKind",
+                                            "value": "animowany",
+                                            "inputValue": "rozwój projektu"
+                                        },
+                                        {
+                                            "fieldName": "movieKind",
+                                            "value": "dokumentalny",
+                                            "inputValue": "rozwój projektu"
+                                        },
+                                        {
+                                            "fieldName": "movieKind",
+                                            "value": "seria animowana",
+                                            "inputValue": "seria animowana"
+                                        },
+                                    ]
+                                }
+                            }
+                        ],
+                        "readOnly": True,
+                    }
+                }
+            },
+            {
+                "path": section_path / "movie_subject.json",
+                "data": {
+                    "number": "3",
+                    "movieSubject": {
+                        "options": [
+                            "film autorski",
+                            "film o tematyce historycznej",
+                            "film dla młodego widza i widowni familijnej"
+                        ],
+                        "validators": [
+                            {
+                                "name": "RelatedAllowedOptionsValidator",
+                                "kwargs": {
+                                    "field_name": "movieKind",
+                                    "mapping": {
+                                        "fabularny": [
+                                            "film autorski",
+                                            "film o tematyce historycznej",
+                                            "film dla młodego widza i widowni familijnej"
+                                        ],
+                                        "animowany": [
+                                            "film autorski",
+                                            "film o tematyce historycznej",
+                                            "film dla młodego widza i widowni familijnej"
+                                        ],
+                                        "dokumentalny": [
+                                            "film autorski",
+                                            "film o tematyce historycznej",
+                                            "film dla młodego widza i widowni familijnej"
+                                        ],
+                                        "seria animowana": [
+                                            "film dla młodego widza i widowni familijnej"
                                         ]
                                     }
                                 }
-                            ],
-                            "readOnly": True,
-                        }
+                            },
+                            {
+                                "name": "RequiredValidator"
+                            }
+                        ]
                     }
-                },
-                {
-                    "path": section_path / "movie_subject.json",
-                    "data": {
-                        "number": "3",
-                        "movieSubject": {
-                            "options": [
-                                "film autorski",
-                                "film o tematyce historycznej",
-                                "film dla młodego widza i widowni familijnej"
-                            ],
-                            "validators": [
-                                {
-                                    "name": "RelatedAllowedOptionsValidator",
-                                    "kwargs": {
-                                        "field_name": "movieKind",
-                                        "mapping": {
-                                            "fabularny": [
-                                                "film autorski",
-                                                "film o tematyce historycznej",
-                                                "film dla młodego widza i widowni familijnej"
-                                            ],
-                                            "animowany": [
-                                                "film autorski",
-                                                "film o tematyce historycznej",
-                                                "film dla młodego widza i widowni familijnej"
-                                            ],
-                                            "dokumentalny": [
-                                                "film autorski",
-                                                "film o tematyce historycznej",
-                                                "film dla młodego widza i widowni familijnej"
-                                            ],
-                                            "seria animowana": [
-                                                "film dla młodego widza i widowni familijnej"
-                                            ]
-                                        }
-                                    }
-                                },
-                                {
-                                    "name": "RequiredValidator"
-                                }
-                            ]
-                        }
+                }
+            },
+            {
+                "path": section_path / "piece_title.json",
+                "data": {
+                    "number": "4"
+                }
+            },
+            {
+                "path": section_path / "short_movie_description.json",
+                "data": {
+                    "number": "5"
+                }
+            },
+            {
+                "path": section_path / "category_of_project.json",
+                "data": {
+                    "number": "6"
+                }
+            },
+            {
+                "path": section_path / "application_relates.json",
+                "data": {
+                    "number": "7",
+                    "applicationRelates": {
+                        "options": [
+                            "umowa"
+                        ]
                     }
-                },
-                {
-                    "path": section_path / "piece_title.json",
-                    "data": {
-                        "number": "4"
+                }
+            },
+            {
+                "path": section_path / "type_of_support.json",
+                "data": {
+                    "number": "8",
+                    "typeOfSupport": {
+                        "options": [
+                            "dotacja",
+                            "pożyczka",
+                            "poręczenie"
+                        ]
                     }
-                },
-                {
-                    "path": section_path / "short_movie_description.json",
-                    "data": {
-                        "number": "5"
-                    }
-                },
-                {
-                    "path": section_path / "category_of_project.json",
-                    "data": {
-                        "number": "6"
-                    }
-                },
-                {
-                    "path": section_path / "application_relates.json",
-                    "data": {
-                        "number": "7",
-                        "applicationRelates": {
-                            "options": [
-                                "umowa"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "path": section_path / "type_of_support.json",
-                    "data": {
-                        "number": "8",
-                        "typeOfSupport": {
-                            "options": [
-                                "dotacja",
-                                "pożyczka",
-                                "poręczenie"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "path": priority_section_path / "committee.json",
-                    "data": {
-                        "number": "9"
-                    }
-                },
-            ]
-        )
+                }
+            },
+            {
+                "path": priority_section_path / "committee.json",
+                "data": {
+                    "number": "9"
+                }
+            },
+        ]
 
-        # II. Dane wnioskodawcy
-        self.create_application_applicant_data()
-
-        # III. Informacje
-        self.create_application_information_data()
-
-        # IV. Termin realizacji
-        self.create_application_completion_date_data()
-
-        # V. Dane finansowe
-        self.create_application_financial_data()
-
-        # VI. Dane dodatkowe
-        self.create_application_additional_data()
-
-        # VII. Załączniki
-        self.create_application_attachments()
-
-        # VIII. Oświadczenia
-        self.create_application_statements()
-
-        self.save_output()
+        self.create_part_by_sections(part=part, sections=sections)
