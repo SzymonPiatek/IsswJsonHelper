@@ -10,6 +10,10 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
 
         self.priority_data_path = self.department_data_path / 'screenplay_scholarship'
 
+    def create_application_information_data(self):
+        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_information_data.json')
+        self.save_part(part=part)
+
     def create_application_completion_date_data(self, **kwargs):
         priority_data_path = self.priority_data_path / '_pages' / 'application_completion_date_data'
 
@@ -57,6 +61,18 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
             ]
         )
         self.save_part(part)
+
+    def create_application_additional_data(self):
+        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_additional_data.json')
+        self.save_part(part=part)
+
+    def create_application_attachments(self):
+        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_attachments.json')
+        self.save_part(part=part)
+
+    def create_application_statements(self):
+        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_statements.json')
+        self.save_part(part=part)
 
     def generate(self):
         self.create_application_base()
@@ -206,6 +222,7 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         )
 
         # III. Informacje
+        self.create_application_information_data()
 
         # IV. Termin realizacji
         self.create_application_completion_date_data()
@@ -214,9 +231,12 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         self.create_application_financial_data()
 
         # VI. Dane dodatkowe
+        self.create_application_additional_data()
 
         # VII. Załączniki
+        self.create_application_attachments()
 
         # VIII. Oświadczenia
+        self.create_application_statements()
 
         self.save_output()

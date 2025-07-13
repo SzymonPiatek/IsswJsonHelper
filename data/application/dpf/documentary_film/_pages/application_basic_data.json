@@ -1,0 +1,548 @@
+{
+  "kind": "part",
+  "title": "I. Dane podstawowe",
+  "shortName": "I. Dane podstawowe",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "1. Zakres przedsięwzięcia",
+      "components": [
+        {
+          "kind": "component",
+          "type": "select",
+          "label": "Zakres przedsięwzięcia",
+          "name": "scopeOfProject",
+          "value": "Produkcja filmowa",
+          "options": [
+            "Produkcja filmowa"
+          ],
+          "readOnly": true,
+          "validators": [
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "scopeOfProject"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "2. Rodzaj filmowy",
+      "components": [
+        {
+          "kind": "component",
+          "type": "select",
+          "label": "Rodzaj filmowy",
+          "name": "movieKind",
+          "value": "",
+          "options": [
+            "fabularny",
+            "dokumentalny",
+            "animowany"
+          ],
+          "validators": [
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "movieKind"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "2a. Przedsięwzięcie jest:",
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "Przedsięwzięcie jest",
+              "name": "scopeOfProjectKind",
+              "value": "produkcja koprodukcji mniejszościowej",
+              "options": [
+                "produkcja koprodukcji mniejszościowej"
+              ],
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "scopeOfProjectKind"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "3. Tematyka",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "movieKind",
+                "values": [
+                  "fabularny",
+                  "animowany"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "Tematyka",
+              "name": "movieSubject",
+              "value": "",
+              "options": [
+                "film autorski",
+                "film o tematyce historycznej",
+                "film dla młodego widza lub widowni familijnej"
+              ],
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "movieSubject"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "movieKind",
+                "values": [
+                  "dokumentalny"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "Tematyka",
+              "name": "movieSubjectDoc",
+              "value": "",
+              "options": [
+                "film autorski",
+                "film o tematyce historycznej"
+              ],
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "movieSubjectDoc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "4. Tytuł utworu audiowizualnego",
+      "components": [
+        {
+          "kind": "component",
+          "type": "text",
+          "label": "Tytuł utworu audiowizualnego",
+          "name": "pieceTitle",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 201
+              },
+              "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 200."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "pieceTitle"
+        },
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "Krótki opis filmu",
+          "name": "shortMovieDescription",
+          "value": "",
+          "helpText": "Maksymalna liczba znaków nie może przekroczyć 5400",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 5401
+              },
+              "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 5400."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "shortMovieDescription"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "5. Kategoria przedsięwzięcia",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "Kategoria przedsięwzięcia",
+              "name": "categoryOfProject",
+              "value": "koprodukcja międzynarodowa mniejszościowa",
+              "options": [
+                "koprodukcja międzynarodowa mniejszościowa"
+              ],
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "categoryOfProject"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "categoryOfProject",
+                "values": [
+                  "koprodukcja międzynarodowa mniejszościowa"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "5.1 Wyłączne prawa wnioskodawcy na terytorium Polski",
+              "name": "movieRights",
+              "value": "",
+              "options": [
+                "Tak",
+                "Nie"
+              ],
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "movieRights"
+            },
+            {
+              "kind": "component",
+              "type": "countryMulti",
+              "label": "5.2 Kraje koprodukcji",
+              "name": "coproductionCountries",
+              "value": "",
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "coproductionCountries"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "categoryOfProject",
+                "values": [
+                  "koprodukcja międzynarodowa mniejszościowa"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "5.3 Rodzaj koprodukcji",
+              "name": "coProductionKind",
+              "value": "",
+              "options": [
+                "koprodukcja dwustronna",
+                "koprodukcja wielostronna"
+              ],
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "coProductionKind"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "6. Wniosek dotyczy",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "scopeOfProjectKind",
+            "values": [
+              "produkcja koprodukcji mniejszościowej"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "component",
+          "type": "select",
+          "label": "Wniosek dotyczy",
+          "name": "applicationRelates",
+          "value": "",
+          "options": [
+            "promesa",
+            "umowa"
+          ],
+          "validators": [
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "applicationRelates"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "7. Rodzaj pomocy",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "Rodzaj pomocy",
+              "name": "kindOfSupport",
+              "value": "",
+              "options": [
+                "dotacja",
+                "pożyczka",
+                "poręczenie"
+              ],
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "kindOfSupport"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "kindOfSupport",
+                "values": [
+                  "pożyczka"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "8.1 Sposób zabezpieczenia pożyczki",
+              "name": "methodOfSecuringTheLoan",
+              "value": "",
+              "helpText": "Maksymalna liczba znaków nie może przekroczyć 900",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 901
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 900."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "methodOfSecuringTheLoan"
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "8.1A Proponowane raty spłaty pożyczki",
+              "name": "proposedLoanPaymentInstallments",
+              "value": "",
+              "helpText": "Maksymalna liczba znaków nie może przekroczyć 900",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 901
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 900."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "proposedLoanPaymentInstallments"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "kindOfSupport",
+                "values": [
+                  "poręczenie"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "8.A.1 Przedmiot zobowiązania",
+              "name": "subjectOfObligation",
+              "value": "",
+              "helpText": "Maksymalna liczba znaków nie może przekroczyć 900",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 901
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 900."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "subjectOfObligation"
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "8.A.2 Wysokość i okres poręczenia",
+              "name": "amountAndPeriodOfGuarantee",
+              "value": "",
+              "helpText": "Maksymalna liczba znaków nie może przekroczyć 900",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 901
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 900."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "amountAndPeriodOfGuarantee"
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "8.A.3 Zabezpieczenie poręczenia",
+              "name": "securityOfGuarantee",
+              "value": "",
+              "helpText": "Maksymalna liczba znaków nie może przekroczyć 900",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 901
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 900."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "securityOfGuarantee"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "8. Wybór lidera komisji eksperckiej",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "8.1 Komisja jednoetapowa",
+          "components": []
+        }
+      ]
+    }
+  ]
+}

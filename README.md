@@ -5,7 +5,7 @@
 Jest to program do generowania formularzy wniosków/raportów JSON dla systemu ISSW.
 Formularze są generowane na podstawie template'ów JSON dostosowanych dla konkretnych działów, programów operacyjnych lub priorytetów.
 
-### Stan prac:
+### Stan prac (zganie partów, nadpisywanie template'ów):
 
 <details>
 <summary>DUK - Wnioski</summary>
@@ -35,13 +35,13 @@ Formularze są generowane na podstawie template'ów JSON dostosowanych dla konkr
 
 | Program operacyjny   | Priorytet                                                     | Metadane wniosku | I. Dane podstawowe | II. Dane wnioskodawcy | III. Informacje | IV. Termin realizacji | V. Dane finansowe | VI. Dane dodatkowe | VII. Załączniki | VIII. Oświadczenia |
 |----------------------|---------------------------------------------------------------|------------------|--------------------|-----------------------|-----------------|-----------------------|-------------------|--------------------|-----------------|--------------------|
-| I. Produkcja filmowa | I. Stypendia scenriuszowe                                     | [x]              | [x]                | [x]                   |                 | [x]                   | [x]               |                    |                 |                    |    
-|                      | II. Rozwój projektów filmowych                                | [x]              | [x]                |                       |                 |                       |                   |                    |                 |                    |    
-|                      | III. Produkcja filmów fabularnych                             | [x]              | [x]                |                       |                 |                       |                   |                    |                 |                    |    
-|                      | IV. Produkcja filmów dokumentalnych                           | [x]              |                    |                       |                 |                       |                   |                    |                 |                    |    
-|                      | V. Produkcja filmów animowanych                               | [x]              |                    |                       |                 |                       |                   |                    |                 |                    |    
-|                      | VI. Produkcja koprodukcji mniejszościowych                    | [x]              |                    |                       |                 |                       |                   |                    |                 |                    |    
-|                      | VII. Produkcja filmów kina familijnego                        | [x]              |                    |                       |                 |                       |                   |                    |                 |                    |    
+| I. Produkcja filmowa | I. Stypendia scenriuszowe                                     | [x]              | [x]                | [x]                   | [x]             | [x]                   | [x]               | [x]                | [x]             | [x]                |    
+|                      | II. Rozwój projektów filmowych                                | [x]              | [x]                | [x]                   | [x]             | [x]                   | [x]               | [x]                | [x]             | [x]                |    
+|                      | III. Produkcja filmów fabularnych                             | [x]              | [x]                | [x]                   | [x]             | [x]                   | [x]               | [x]                | [x]             | [x]                |    
+|                      | IV. Produkcja filmów dokumentalnych                           | [x]              | [x]                | [x]                   | [x]             | [x]                   | [x]               | [x]                | [x]             | [x]                |    
+|                      | V. Produkcja filmów animowanych                               | [x]              | [x]                | [x]                   | [x]             | [x]                   | [x]               | [x]                | [x]             | [x]                |    
+|                      | VI. Produkcja koprodukcji mniejszościowych                    | [x]              | [x]                | [x]                   | [x]             | [x]                   | [x]               | [x]                | [x]             | [x]                |    
+|                      | VII. Produkcja filmów kina familijnego                        | [x]              | [x]                | [x]                   | [x]             | [x]                   | [x]               | [x]                | [x]             | [x]                |    
 |                      | VIII. Produkcja filmów fabularnych pełnometrażowych - DEBIUTY |                  |                    |                       |                 |                       |                   |                    |                 |                    |
 | List intencyjny      | X. Produkcja filmów fabularnych                               |                  |                    |                       |                 |                       |                   |                    |                 |                    |    
 |                      | X. Produkcja filmów dokumentalnych                            |                  |                    |                       |                 |                       |                   |                    |                 |                    |    
