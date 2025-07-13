@@ -18,6 +18,7 @@ class FilmProjectDevelopmentApplicationBuilder(DPFApplicationBuilder):
 
         # I. Dane podstawowe
         section_path = self.department_data_path / '_pages' / 'application_basic_data'
+        priority_section_path = self.priority_data_path / '_pages' / 'application_basic_data'
 
         self.create_application_basic_data(
             sections=[
@@ -97,26 +98,37 @@ class FilmProjectDevelopmentApplicationBuilder(DPFApplicationBuilder):
                                 "film o tematyce historycznej",
                                 "film dla młodego widza i widowni familijnej"
                             ],
-                            "mapping": {
-                                "fabularny": [
-                                    "film autorski",
-                                    "film o tematyce historycznej",
-                                    "film dla młodego widza i widowni familijnej"
-                                ],
-                                "animowany": [
-                                    "film autorski",
-                                    "film o tematyce historycznej",
-                                    "film dla młodego widza i widowni familijnej"
-                                ],
-                                "dokumentalny": [
-                                    "film autorski",
-                                    "film o tematyce historycznej",
-                                    "film dla młodego widza i widowni familijnej"
-                                ],
-                                "seria animowana": [
-                                    "film dla młodego widza i widowni familijnej"
-                                ]
-                            }
+                            "validators": [
+                                {
+                                    "name": "RelatedAllowedOptionsValidator",
+                                    "kwargs": {
+                                        "field_name": "movieKind",
+                                        "mapping": {
+                                            "fabularny": [
+                                                "film autorski",
+                                                "film o tematyce historycznej",
+                                                "film dla młodego widza i widowni familijnej"
+                                            ],
+                                            "animowany": [
+                                                "film autorski",
+                                                "film o tematyce historycznej",
+                                                "film dla młodego widza i widowni familijnej"
+                                            ],
+                                            "dokumentalny": [
+                                                "film autorski",
+                                                "film o tematyce historycznej",
+                                                "film dla młodego widza i widowni familijnej"
+                                            ],
+                                            "seria animowana": [
+                                                "film dla młodego widza i widowni familijnej"
+                                            ]
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "RequiredValidator"
+                                }
+                            ]
                         }
                     }
                 },
@@ -163,7 +175,7 @@ class FilmProjectDevelopmentApplicationBuilder(DPFApplicationBuilder):
                     }
                 },
                 {
-                    "path": section_path / "committee.json",
+                    "path": priority_section_path / "committee.json",
                     "data": {
                         "number": "9"
                     }

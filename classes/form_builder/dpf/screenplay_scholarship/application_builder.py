@@ -114,22 +114,33 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
                                 "film o tematyce historycznej",
                                 "film dla młodego widza i widowni familijnej"
                             ],
-                            "mapping": {
-                                "fabularny": [
-                                    "film autorski",
-                                    "film o tematyce historycznej",
-                                    "film dla młodego widza i widowni familijnej"
-                                ],
-                                "animowany": [
-                                    "film autorski",
-                                    "film o tematyce historycznej",
-                                    "film dla młodego widza i widowni familijnej"
-                                ],
-                                "dokumentalny": [
-                                    "film autorski",
-                                    "film o tematyce historycznej"
-                                ]
-                            }
+                            "validators": [
+                                {
+                                    "name": "RelatedAllowedOptionsValidator",
+                                    "kwargs": {
+                                        "field_name": "movieKind",
+                                        "mapping": {
+                                            "fabularny": [
+                                                "film autorski",
+                                                "film o tematyce historycznej",
+                                                "film dla młodego widza i widowni familijnej"
+                                            ],
+                                            "animowany": [
+                                                "film autorski",
+                                                "film o tematyce historycznej",
+                                                "film dla młodego widza i widowni familijnej"
+                                            ],
+                                            "dokumentalny": [
+                                                "film autorski",
+                                                "film o tematyce historycznej"
+                                            ]
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "RequiredValidator"
+                                }
+                            ]
                         }
                     }
                 },

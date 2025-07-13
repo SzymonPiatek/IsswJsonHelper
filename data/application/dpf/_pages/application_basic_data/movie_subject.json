@@ -9,18 +9,7 @@
       "name": "movieSubject",
       "value": "{movieSubject[value]}",
       "options": "{movieSubject[options]}",
-      "validators": [
-        {
-          "name": "RelatedAllowedOptionsValidator",
-          "kwargs": {
-            "field_name": "movieKind",
-            "mapping": "{movieSubject[mapping]}"
-          }
-        },
-        {
-          "name": "RequiredValidator"
-        }
-      ],
+      "validators": "{movieSubject[validators]}",
       "readOnly": "{movieSubject[readOnly]}",
       "required": true,
       "dataBDD": "movieSubject"

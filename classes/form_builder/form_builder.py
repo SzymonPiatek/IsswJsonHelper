@@ -190,8 +190,7 @@ class FormBuilder:
                     read_only = value.get('readOnly', False)
                     data[key]['readOnly'] = read_only if read_only else True if len(options) == 1 else False
 
-            section_path = section['path']
-            section_json = self.load_json(path=section_path)
+            section_json = self.load_json(path=section['path'])
             filled_section = self.replace_placeholders(section_json, data)
 
             layout_chapters.append(filled_section)
