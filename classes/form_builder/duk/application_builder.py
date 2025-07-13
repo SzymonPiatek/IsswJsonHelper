@@ -8,6 +8,8 @@ class DUKApplicationBuilder(ApplicationBuilder):
         super().__init__()
 
         self.department_data_path = self.application_data_path / 'duk'
+        self.program_data_path = None
+        self.priority_data_path = None
 
     def create_application_metadata(self):
         part = self.load_json(path=self.department_data_path / '_pages' / 'application_metadata.json')
@@ -143,3 +145,7 @@ class DUKApplicationBuilder(ApplicationBuilder):
     def create_application_schedule(self):
         part = self.load_json(path=self.department_data_path / '_pages' / 'application_schedule.json')
         self.save_part(part)
+
+    def create_application_project_costs(self):
+        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_project_costs.json')
+        self.save_part(part=part)
