@@ -1,0 +1,97 @@
+{
+  "kind": "chapter",
+  "title": "{number}. Kategoria przedsięwzięcia",
+  "components": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "select",
+          "label": "Kategoria przedsięwzięcia",
+          "name": "categoryOfProject",
+          "value": "",
+          "options": [
+            "produkcja krajowa",
+            "koprodukcja międzynarodowa większościowa"
+          ],
+          "validators": [
+            {
+              "name": "ExactValidator",
+              "kwargs": {
+                "values": [
+                  "produkcja krajowa",
+                  "koprodukcja międzynarodowa większościowa"
+                ]
+              }
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "categoryOfProject"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "categoryOfProject",
+            "values": [
+              "koprodukcja międzynarodowa większościowa"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "component",
+          "type": "select",
+          "label": "{number}.1 Wyłączne prawa wnioskodawcy na terytorium Polski",
+          "name": "movieRights",
+          "value": "Tak",
+          "options": [
+            "Tak"
+          ],
+          "readOnly": true,
+          "validators": [
+            {
+              "name": "RequiredValidator"
+            },
+            {
+              "name": "ExactValidator",
+              "kwargs": {
+                "values": [
+                  "Tak"
+                ]
+              }
+            }
+          ],
+          "required": true,
+          "dataBDD": "movieRights"
+        },
+        {
+          "kind": "component",
+          "type": "countryMulti",
+          "label": "{number}.2 Kraje koprodukcji",
+          "name": "coproductionCountries",
+          "value": "",
+          "helpText": "Wpisz kraje koprodukcji oddzielone przecinkiem.",
+          "validators": [
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "coproductionCountries"
+        }
+      ]
+    }
+  ]
+}

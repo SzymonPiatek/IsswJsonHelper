@@ -31,17 +31,8 @@
       "name": "typeOfProject",
       "value": "{typeOfProject[value]}",
       "options": "{typeOfProject[options]}",
-      "validators": [
-        {
-          "name": "ExactValidator",
-          "kwargs": {
-            "values": "{typeOfProject[options]}"
-          }
-        },
-        {
-          "name": "RequiredValidator"
-        }
-      ],
+      "validators": "{typeOfProject[validators]}",
+      "calculationRules": "{typeOfProject[calculationRules]}",
       "readOnly": "{typeOfProject[readOnly]}",
       "required": true,
       "dataBDD": "typeOfProject"

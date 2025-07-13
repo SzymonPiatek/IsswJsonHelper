@@ -3816,7 +3816,6 @@
                       "label": "Liczba",
                       "name": "outputRentalCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "outputRentalCostAmount"
                     },
                     {
@@ -3839,7 +3838,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "outputRentalCostUnit"
                     },
                     {
@@ -3948,7 +3946,6 @@
                       "label": "Liczba",
                       "name": "outputCleaningCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "outputCleaningCostAmount"
                     },
                     {
@@ -3976,7 +3973,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "outputCleaningCostUnit"
                     },
                     {
@@ -4085,7 +4081,6 @@
                       "label": "Liczba",
                       "name": "outputScanningCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "outputScanningCostAmount"
                     },
                     {
@@ -4113,7 +4108,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "outputScanningCostUnit"
                     },
                     {
@@ -4222,7 +4216,6 @@
                       "label": "Liczba",
                       "name": "outputAudioDigitCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "outputAudioDigitCostAmount"
                     },
                     {
@@ -4250,7 +4243,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "outputAudioDigitCostUnit"
                     },
                     {
@@ -4359,7 +4351,6 @@
                       "label": "Liczba",
                       "name": "digitalCopyPictureCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "digitalCopyPictureCostAmount"
                     },
                     {
@@ -4385,7 +4376,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "digitalCopyPictureCostUnit"
                     },
                     {
@@ -4494,7 +4484,6 @@
                       "label": "Liczba",
                       "name": "digitalCopySoundCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "digitalCopySoundCostAmount"
                     },
                     {
@@ -4520,7 +4509,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "digitalCopySoundCostUnit"
                     },
                     {
@@ -4629,7 +4617,6 @@
                       "label": "Liczba",
                       "name": "mediaArchivesCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "mediaArchivesCostAmount"
                     },
                     {
@@ -4652,7 +4639,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "mediaArchivesCostUnit"
                     },
                     {
@@ -4761,7 +4747,6 @@
                       "label": "Liczba",
                       "name": "descConditionCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "descConditionCostAmount"
                     },
                     {
@@ -4789,7 +4774,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "descConditionCostUnit"
                     },
                     {
@@ -4904,7 +4888,6 @@
                       "label": "Liczba",
                       "name": "conformingCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "conformingCostAmount"
                     },
                     {
@@ -4927,7 +4910,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "conformingCostUnit"
                     },
                     {
@@ -5036,7 +5018,6 @@
                       "label": "Liczba",
                       "name": "pictureReconstructionCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "pictureReconstructionCostAmount"
                     },
                     {
@@ -5064,7 +5045,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "pictureReconstructionCostUnit"
                     },
                     {
@@ -5173,7 +5153,6 @@
                       "label": "Liczba",
                       "name": "soundReconstructionCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "soundReconstructionCostAmount"
                     },
                     {
@@ -5201,7 +5180,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "soundReconstructionCostUnit"
                     },
                     {
@@ -5310,7 +5288,6 @@
                       "label": "Liczba",
                       "name": "soundPictureSyncCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "soundPictureSyncCostAmount"
                     },
                     {
@@ -5333,7 +5310,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "soundPictureSyncCostUnit"
                     },
                     {
@@ -5442,7 +5418,6 @@
                       "label": "Liczba",
                       "name": "masterCopyArchiveCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "masterCopyArchiveCostAmount"
                     },
                     {
@@ -5470,7 +5445,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "masterCopyArchiveCostUnit"
                     },
                     {
@@ -5579,7 +5553,6 @@
                       "label": "Liczba",
                       "name": "masterCopyCarriersCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "masterCopyCarriersCostAmount"
                     },
                     {
@@ -5602,7 +5575,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "masterCopyCarriersCostUnit"
                     },
                     {
@@ -5711,7 +5683,6 @@
                       "label": "Liczba",
                       "name": "distributionCopiesCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "distributionCopiesCostAmount"
                     },
                     {
@@ -5739,7 +5710,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "distributionCopiesCostUnit"
                     },
                     {
@@ -5848,7 +5818,6 @@
                       "label": "Liczba",
                       "name": "distributionCopyCarriersCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "distributionCopyCarriersCostAmount"
                     },
                     {
@@ -5871,7 +5840,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "distributionCopyCarriersCostUnit"
                     },
                     {
@@ -5980,7 +5948,6 @@
                       "label": "Liczba",
                       "name": "perpetualCopyCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "perpetualCopyCostAmount"
                     },
                     {
@@ -6003,7 +5970,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "perpetualCopyCostUnit"
                     },
                     {
@@ -6112,7 +6078,6 @@
                       "label": "Liczba",
                       "name": "artisticSupervisionCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "artisticSupervisionCostAmount"
                     },
                     {
@@ -6138,7 +6103,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "artisticSupervisionCostUnit"
                     },
                     {
@@ -6247,7 +6211,6 @@
                       "label": "Liczba",
                       "name": "qualityControlCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "qualityControlCostAmount"
                     },
                     {
@@ -6273,7 +6236,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "qualityControlCostUnit"
                     },
                     {
@@ -6382,7 +6344,6 @@
                       "label": "Liczba",
                       "name": "digitalizationCoordinationCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "digitalizationCoordinationCostAmount"
                     },
                     {
@@ -6408,7 +6369,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "digitalizationCoordinationCostUnit"
                     },
                     {
@@ -6517,7 +6477,6 @@
                       "label": "Liczba",
                       "name": "languageVersionsCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "languageVersionsCostAmount"
                     },
                     {
@@ -6543,7 +6502,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "languageVersionsCostUnit"
                     },
                     {
@@ -6652,7 +6610,6 @@
                       "label": "Liczba",
                       "name": "promoMaterialsCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "promoMaterialsCostAmount"
                     },
                     {
@@ -6678,7 +6635,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "promoMaterialsCostUnit"
                     },
                     {
@@ -6788,7 +6744,6 @@
                       "label": "Liczba",
                       "name": "finalInspectionCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "finalInspectionCostAmount"
                     },
                     {
@@ -6811,7 +6766,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "finalInspectionCostUnit"
                     },
                     {
@@ -6921,7 +6875,6 @@
                       "label": "Liczba",
                       "name": "movieMaterialsTransportCostAmount",
                       "value": 0,
-                      "unit": "",
                       "dataBDD": "movieMaterialsTransportCostAmount"
                     },
                     {
@@ -6944,7 +6897,6 @@
                           }
                         }
                       ],
-                      "unit": "",
                       "dataBDD": "movieMaterialsTransportCostUnit"
                     },
                     {

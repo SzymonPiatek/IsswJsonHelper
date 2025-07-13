@@ -3,5 +3,5 @@
   "title": "{title}",
   "classList": "{classList}",
   "visibilityRules": "{visibilityRules}",
-  "components": []
+  "components": "{components}"
 }

@@ -1,8 +1,8 @@
-{
+}
   "kind": "component",
   "type": "text",
-  "label": "",
-  "name": "",
-  "value": "",
-  "dataBDD": ""
+  "label": "{label}",
+  "name": "{name}",
+  "value": "{value}",
+  "dataBDD": "{name}"
 }

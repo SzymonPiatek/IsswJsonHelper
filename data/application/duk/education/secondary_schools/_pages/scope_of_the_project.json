@@ -284,7 +284,6 @@
     {
       "kind": "chapter",
       "title": "7. Podstawowe dane liczbowe na temat bieżącej i poprzedniej edycji",
-      "classList": {},
       "visibilityRules": [
         {
           "name": "dependsOnValue",
@@ -359,7 +358,6 @@
     {
       "kind": "chapter",
       "title": "7. Podstawowe dane liczbowe na temat bieżącej i poprzedniej edycji",
-      "classList": {},
       "visibilityRules": [
         {
           "name": "dependsOnValue",

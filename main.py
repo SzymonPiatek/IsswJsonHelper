@@ -6,7 +6,7 @@ from classes.form_builder.dpf.screenplay_scholarship.application_builder import 
 from classes.form_builder.dpf.documentary_film.application_builder import DocumentaryFilmApplicationBuilder
 from classes.form_builder.dpf.family_film.application_builder import FamilyFilmApplicationBuilder
 from classes.form_builder.dpf.coproduction_film.application_builder import CoproductionFilmApplicationBuilder
-from classes.form_builder.dpf.feature_film.priority_data_path import FeatureFilmApplicationBuilder
+from classes.form_builder.dpf.feature_film.application_builder import FeatureFilmApplicationBuilder
 from classes.form_builder.dpf.film_project_development.application_builder import FilmProjectDevelopmentApplicationBuilder
 # DUK - education
 from classes.form_builder.duk.education.postgraduate_schools.application_builder import PostgraduateSchoolsApplicationBuilder

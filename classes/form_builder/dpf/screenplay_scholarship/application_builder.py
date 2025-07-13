@@ -10,6 +10,70 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
 
         self.priority_data_path = self.department_data_path / 'screenplay_scholarship'
 
+    def create_application_information_data(self):
+        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_information_data.json')
+        self.save_part(part=part)
+
+    def create_application_completion_date_data(self, **kwargs):
+        priority_data_path = self.priority_data_path / '_pages' / 'application_completion_date_data'
+
+        part = self.create_part(
+            title="IV. Termin realizacji",
+            short_name="IV. Termin realizacji",
+            chapters=[
+                self.create_chapter(
+                    title='Stypendium scenariuszowe',
+                ),
+                self.create_chapter(
+                    title='Termin realizacji stypendium scenariuszowego 12 miesięcy od daty podpisania umowy',
+                    components=[
+                        self.load_json(path=priority_data_path / 'activity_schedule.json')
+                    ]
+                ),
+                self.create_chapter(
+                    title='OBLIGATORYJNE CZYNNOŚCI W PRZYPADKU ZAWARCIA UMOWY O DOFINANSOWANIE'
+                ),
+                self.create_chapter(
+                    title='Akceptacja scenariusza'
+                ),
+                self.create_chapter(
+                    title='Raport końcowy'
+                ),
+                self.create_chapter(
+                    title='Wykonanie i udokumentowanie działań obligatoryjnych wymaganych Programem operacyjnym PISF'
+                )
+            ]
+        )
+
+        self.save_part(part)
+
+    def create_application_financial_data(self):
+        part = self.create_part(
+            title="V. Dane finansowe",
+            short_name="V. Dane finansowe",
+            chapters=[
+                self.create_chapter(
+                    title="1. Wnioskowana wysokość dofinansowania ze środków PISF",
+                    components=[
+                        self.load_json(path=self.priority_data_path / '_pages' / 'application_financial_data' / 'requested_pisf_support_amount.json')
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_application_additional_data(self):
+        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_additional_data.json')
+        self.save_part(part=part)
+
+    def create_application_attachments(self):
+        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_attachments.json')
+        self.save_part(part=part)
+
+    def create_application_statements(self):
+        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_statements.json')
+        self.save_part(part=part)
+
     def generate(self):
         self.create_application_base()
 
@@ -46,7 +110,13 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
                         "typeOfProject": {
                             "options": [
                                 "stypendium scenariuszowe"
-                            ]
+                            ],
+                            "validators": [
+                                {
+                                    "name": "RequiredValidator"
+                                },
+                            ],
+                            "calculationRules": []
                         }
                     }
                 },
@@ -60,22 +130,33 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
                                 "film o tematyce historycznej",
                                 "film dla młodego widza i widowni familijnej"
                             ],
-                            "mapping": {
-                                "fabularny": [
-                                    "film autorski",
-                                    "film o tematyce historycznej",
-                                    "film dla młodego widza i widowni familijnej"
-                                ],
-                                "animowany": [
-                                    "film autorski",
-                                    "film o tematyce historycznej",
-                                    "film dla młodego widza i widowni familijnej"
-                                ],
-                                "dokumentalny": [
-                                    "film autorski",
-                                    "film o tematyce historycznej"
-                                ]
-                            }
+                            "validators": [
+                                {
+                                    "name": "RelatedAllowedOptionsValidator",
+                                    "kwargs": {
+                                        "field_name": "movieKind",
+                                        "mapping": {
+                                            "fabularny": [
+                                                "film autorski",
+                                                "film o tematyce historycznej",
+                                                "film dla młodego widza i widowni familijnej"
+                                            ],
+                                            "animowany": [
+                                                "film autorski",
+                                                "film o tematyce historycznej",
+                                                "film dla młodego widza i widowni familijnej"
+                                            ],
+                                            "dokumentalny": [
+                                                "film autorski",
+                                                "film o tematyce historycznej"
+                                            ]
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "RequiredValidator"
+                                }
+                            ]
                         }
                     }
                 },
@@ -141,15 +222,21 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         )
 
         # III. Informacje
+        self.create_application_information_data()
 
         # IV. Termin realizacji
-        self.create_application_completion_date_data(
-            sections=[]
-        )
+        self.create_application_completion_date_data()
 
         # V. Dane finansowe
+        self.create_application_financial_data()
+
         # VI. Dane dodatkowe
+        self.create_application_additional_data()
+
         # VII. Załączniki
+        self.create_application_attachments()
+
         # VIII. Oświadczenia
+        self.create_application_statements()
 
         self.save_output()

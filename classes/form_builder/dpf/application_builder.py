@@ -25,12 +25,10 @@ class DPFApplicationBuilder(ApplicationBuilder):
         self.save_part(final_part)
 
     def create_application_basic_data(self, sections):
-        part = self.load_json(path=self.application_data_path / '_pages' / 'layout.json')
-        values = {
-            "title": "I. Dane podstawowe",
-            "shortName": "I. Dane podstawowe"
-        }
-        part = self.replace_placeholders(part, values)
+        part = self.create_part(
+            title='I. Dane podstawowe',
+            short_name='I. Dane podstawowe',
+        )
 
         self.create_part_by_sections(part=part, sections=sections)
 

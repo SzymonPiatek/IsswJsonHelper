@@ -1,0 +1,16 @@
+{
+  "kind": "component",
+  "type": "{type}",
+  "mask": "{mask}",
+  "label": "{label}",
+  "name": "{name}",
+  "value": "{value}",
+  "unit": "{unit}",
+  "options": "{options}",
+  "validators": "{validators}",
+  "calculationRules": "{calculationRules}",
+  "classList": "{classList}",
+  "required": "{required}",
+  "readOnly": "{readOnly}",
+  "dataBDD": "{name}"
+}

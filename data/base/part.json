@@ -1,6 +1,7 @@
 {
   "kind": "part",
-  "title": "",
-  "shortName": "",
-  "chapters": []
+  "title": "{title}",
+  "shortName": "{shortName}",
+  "classList": "{classList}",
+  "chapters": "{chapters}"
 }
