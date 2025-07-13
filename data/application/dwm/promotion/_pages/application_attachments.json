@@ -1,0 +1,165 @@
+{
+  "kind": "part",
+  "title": "XI. Obowiązkowe załączniki zgodnie z rodzajem przedsięwzięcia",
+  "shortName": "XI. Załączniki",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "wasRelatedToParticipation",
+            "values": [
+              "Tak",
+              "Nie"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "A. Oficjalne zaproszenie filmu/twórcy na festiwal",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 20
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "Plik",
+                      "name": "invitationAttachment",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RelatedRequiredIfEqualValidator",
+                          "kwargs": {
+                            "field_name": "wasRelatedToParticipation",
+                            "value": "Nie"
+                          }
+                        }
+                      ],
+                      "dataBDD": "invitationAttachment"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "B. Lista gości zagranicznych",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 20
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "Plik",
+                      "name": "foreignersListAttachment",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RelatedRequiredIfEqualValidator",
+                          "kwargs": {
+                            "field_name": "wasRelatedToParticipation",
+                            "value": "Nie"
+                          }
+                        }
+                      ],
+                      "dataBDD": "foreignersListAttachment"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "C. Zaświadczenie o zakwalifikowaniu się do udziału w przedsięwzięciu",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 20
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "Plik",
+                      "name": "qualifyConfirmAttachment",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RelatedRequiredIfEqualValidator",
+                          "kwargs": {
+                            "field_name": "wasRelatedToParticipation",
+                            "value": "Nie"
+                          }
+                        }
+                      ],
+                      "dataBDD": "qualifyConfirmAttachment"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Uwaga",
+      "components": [
+        {
+          "kind": "component",
+          "type": "checkbox",
+          "label": "Zapoznałem/łam się z poniższymi zasadami.<br/>- Wnioskodawca jest zobowiązany do przedstawienia rozliczenia dofinansowania zgodnie z warunkami określonymi w umowie o dofinansowanie, w tym w szczególności do przedłożenia raportu końcowego, który zawiera finansowe rozliczenie przedsięwzięcia, ocenę jakościową jego realizacji (WAŻNE: W przypadku dokumentów wystawionych w walucie obcej, należy przyjąć średni kurs NBP z dnia roboczego poprzedzającego wystawienie dokumentu księgowego).<br/>- Do raportu końcowego należy załączyć dokumenty finansowo-księgowe potwierdzające\nwydatkowanie kosztów poniesionych z udzielonego dofinansowania w postaci faktur (WAŻNE: faktury muszą być wystawione na Beneficjenta jako osobę fizyczną) oraz biletów (jeśli z przyczyn obiektywnie niezależnych od Beneficjenta niemożliwe jest otrzymanie faktury) wraz z potwierdzeniem wykonania przelewów z rachunku bankowego Beneficjenta.<br/>- Procentowy wkład dofinansowania PISF w finalnym budżecie przedsięwzięcia nie może przekroczyć wkładu zakładanego, określonego w umowie o dofinansowanie. Jeżeli faktycznie poniesiony koszt całkowity przedsięwzięcia okazał się niższy od planowanego lub beneficjent nie wykorzystał całego dofinansowania, należy dokonać zwrotu na rachunek PISF i dostarczyć wraz z raportem potwierdzenie przelewu.<br/>- Jedynie koszty poniesione od daty złożenia wniosku o dofinansowanie w ISSW do daty zakończenia przedsięwzięcia określonej w harmonogramie, mogą zostać uznane za koszty kwalifikowalne i opłacone z dofinasowania PISF (koszty poniesione przed datą złożenia wniosku o dofinansowanie nie będą uznane za koszty kwalifikowalne).<br/>- Wniosek o dofinansowanie wraz z załącznikami należy podpisać przy użyciu kwalifikowanego podpisu elektronicznego lub profilu zaufanego platformy E-PUAP.<br/>- Wszelkie załączniki do wniosku o dofinansowanie (w tym listy intencyjne, umowy z partnerami, itp.) wymagają poświadczenia za zgodność z oryginałem. Podpisanie wniosku o dofinansowanie przez wnioskodawcę kwalifikowanym podpisem elektronicznym lub profilem zaufanym platformy E-PUAP jest równoznaczne z poświadczeniem przez wnioskodawcę załączników do wniosku o dofinansowanie za zgodne z oryginałem.<br/>- Linki do zasobów zewnętrznych umieszczane we wniosku o dofinansowanie powinny zachować ważność co najmniej do czasu wydania decyzji przez Dyrektora PISF.<br/>- Do dokumentów przedkładanych do wniosku o dofinansowanie sporządzonych w językach obcych należy obligatoryjnie dołączyć tłumaczenie na język polski. wnioskodawca, na wniosek PISF, ma obowiązek przedstawić tłumaczenie przysięgłe wskazanego dokumentu.",
+          "name": "acknowledgeRules",
+          "value": false,
+          "required": true,
+          "validators": [
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "dataBDD": "acknowledgeRules"
+        }
+      ]
+    }
+  ]
+}

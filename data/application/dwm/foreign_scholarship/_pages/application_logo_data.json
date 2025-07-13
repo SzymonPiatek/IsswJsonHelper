@@ -1,0 +1,35 @@
+{
+  "kind": "part",
+  "title": "VI. Wskazanie sposobu wykorzystania logotypu PISF / Informacja o dofinansowaniu ze środków PISF w kampanii promocyjnej",
+  "shortName": "VI. Logotyp PISF",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "Opis wykorzystania logotypu lub informacji o dofinansowaniu",
+          "name": "applicantLogotypePromotionDesc",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 20000
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "helpText": "Opisz w jaki sposób wykorzystasz logotyp PISF i/lub zamieścisz informację o dofinansowaniu ze środków PISF.",
+          "required": true,
+          "dataBDD": "applicantLogotypePromotionDesc"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "kind": "part",
+  "title": "VIII. Inne informacje",
+  "shortName": "VIII. Inne informacje",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "requestedSupportType",
+            "values": [
+              "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 1",
+              "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 2"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "1. Synopsis filmu / opis projektu",
+          "name": "movieProjectDesc",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 20000
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000."
+            }
+          ],
+          "helpText": "Podaj synopsis filmu lub opis projektu.",
+          "required": true,
+          "dataBDD": "movieProjectDesc"
+        },
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "2. Link do filmu",
+          "name": "movieLink",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1000
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1000."
+            }
+          ],
+          "helpText": "Podaj link do filmu.",
+          "required": true,
+          "dataBDD": "movieLink"
+        },
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "3. Potwierdzony udział partnerów w projekcie (wyłącznie udokumentowany deklaracjami i listami intencyjnymi)",
+          "name": "partnersParticipationConfirm",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 20000
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000."
+            }
+          ],
+          "helpText": "Opisz udział partnerów w projekcie.",
+          "required": true,
+          "dataBDD": "partnersParticipationConfirm"
+        },
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "4. Plan promocji (z uwzględnieniem kampanii reklamowych w prasie branżowej/mediach społecznościowych/obsługa PR)",
+          "name": "promotionPlan",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 20000
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000."
+            }
+          ],
+          "helpText": "Opisz plan promocji filmu/projektu.",
+          "required": true,
+          "dataBDD": "promotionPlan"
+        },
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "5. Festiwale, warsztaty, pitchingi w których film/projekt dotychczas wziął udział",
+          "name": "previousEventsMoviePromotion",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 20000
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000."
+            }
+          ],
+          "helpText": "Opisz festiwale, warsztaty. pitchingi lub inne wydarzenia, w którym film wziął już udział.",
+          "required": true,
+          "dataBDD": "previousEventsMoviePromotion"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "requestedSupportType",
+            "values": [
+              "Organizowanie albo współorganizowanie poza granicami Polski wydarzeń promujących dorobek polskich twórców filmowych oraz polską twórczość filmową, w tym przeglądów, retrospektyw, wystaw, konferencji zgodnie z ust. 2 pkt 3",
+              "Organizowanie albo współorganizowanie w Polsce wizyt, spotkań zagranicznych inwestorów, producentów i twórców filmowych, które służą rozwojowi koprodukcji, usług filmowych oraz dystrybucji polskiej twórczości filmowej za granicą zgodnie z ust. 2 pkt 4",
+              "Organizowanie albo współorganizowanie z partnerami zagranicznymi wydarzeń dla przedstawicieli branży filmowej w formie szkoleń, warsztatów, prezentacji zgodnie z ust. 2 pkt 5"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "1. Potwierdzony udział partnerów w projekcie (wyłącznie udokumentowany deklaracjami i listami intencyjnymi)",
+          "name": "partnersParticipationConfirm345",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 20000
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000."
+            }
+          ],
+          "helpText": "Opisz udział partnerów w projekcie.",
+          "required": true,
+          "dataBDD": "partnersParticipationConfirm345"
+        },
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "2. Plan promocji (z uwzględnieniem kampanii reklamowych w prasie branżowej/mediach społecznościowych/obsługa PR)",
+          "name": "promotionPlan345",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 20000
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000."
+            }
+          ],
+          "helpText": "Opisz plan promocji filmu/projektu.",
+          "required": true,
+          "dataBDD": "promotionPlan345"
+        }
+      ]
+    }
+  ]
+}

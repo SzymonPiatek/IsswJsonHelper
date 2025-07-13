@@ -1,0 +1,100 @@
+{
+  "kind": "part",
+  "title": "VIII. Inne informacje",
+  "shortName": "VIII. Inne informacje",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "1. Synopsis filmu/opis projektu",
+          "name": "movieProjectSynopsis",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 20001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000"
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "helpText": "Podaj synopsis filmu lub opis projektu.",
+          "required": true,
+          "dataBDD": "movieProjectSynopsis"
+        },
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "2. Link do filmu",
+          "name": "movieLink",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 1801
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 1800"
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "helpText": "Podaj link do filmu.",
+          "required": true,
+          "dataBDD": "movieLink"
+        },
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "3. Plan promocji",
+          "name": "moviePromotionPlan",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 20001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000"
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "helpText": "Podaj opis planowanych działań promocyjnych.",
+          "required": true,
+          "dataBDD": "moviePromotionPlan"
+        },
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "4. Festiwale, warsztaty, pitchingi w których film/projekt dotychczas wziął udział",
+          "name": "movieFestivalsShown",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 20001
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 20000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "helpText": "Podaj informacje na temat wydarzeń, w których film już wziął udział.",
+          "dataBDD": "movieFestivalsShown"
+        }
+      ]
+    }
+  ]
+}
