@@ -8,26 +8,41 @@ class DUKApplicationEstimateBuilder(ApplicationEstimateBuilder):
         self.data = data
 
     def generate(self):
-        sections = self.data["sections"]
-        section_structure = self.data["section_structure"]
-        section_construct = self.data["section_construct"]
+        chapters = self.data['chapters']
 
+        # Estimate
+        estimate = chapters['estimate']
+        estimate_sections = estimate["sections"]
+        estimate_section_structure = estimate["section_structure"]
+        estimate_section_construct = estimate["section_construct"]
+
+        # Sum Estimate
+        sum_estimate = chapters['sum_estimate']
+        sum_estimate_sections = sum_estimate["sections"]
+        sum_estimate_section_structure = sum_estimate["section_structure"]
+        sum_estimate_section_construct = sum_estimate["section_construct"]
+
+        # Vault
         sum_costs = [
             cost["name"]
-            for section in sections
+            for section in estimate_sections
             for cost in section["costs"]
             if cost.get("isSum")
         ]
 
-        full_chapter = self.create_chapter(
+        # Containter
+        full_chapter = self.create_chapter()
+
+        # Estimate
+        estimate_chapter = self.create_chapter(
             components=[
                 self.create_chapter(
                     title=section["title"],
-                    class_list=section_construct['chapter_title']["classList"],
+                    class_list=estimate_section_construct['chapter_title']["classList"],
                     components=[
                         self.create_chapter(
                             title=cost["title"],
-                            class_list=section_construct['section_title']["classList"],
+                            class_list=estimate_section_construct['section_title']["classList"],
                             components=[
                                 self.create_component(
                                     component_type='text',
@@ -35,23 +50,28 @@ class DUKApplicationEstimateBuilder(ApplicationEstimateBuilder):
                                     label=structure["label"],
                                     name=cost["name"]+structure["name"],
                                     value=0,
-                                    unit='PLN'
-                                ) for structure in section_structure
+                                    unit='PLN',
+                                    read_only=cost.get("readOnly", False)
+                                ) for structure in estimate_section_structure
                             ]
                         ) for cost in section["costs"]
                     ]
-                ) for section in sections
+                ) for section in estimate_sections
             ]
         )
+        full_chapter["components"].append(estimate_chapter)
 
-        sum_chapter = self.create_chapter(
-            title="Podsumowanie",
+        # Sum estimate
+        sum_estimate_chapter = self.create_chapter(
+            title=sum_estimate_sections[0]['title'],
+            class_list=sum_estimate_section_construct["section_title"]['classList'],
             components=[
                 self.create_component(
                     component_type='text',
                     mask='fund',
                     label=structure["label"],
-                    name=f'total{structure["name"]}',
+                    name=f'{sum_estimate_sections[0]['costs'][0]['name']}{structure["name"]}',
+                    unit=structure["unit"],
                     calculation_rules=[
                         {
                             "name": "sumInputs",
@@ -59,6 +79,12 @@ class DUKApplicationEstimateBuilder(ApplicationEstimateBuilder):
                                 "fields": [
                                     [f'{sum_cost}{structure["name"]}' for sum_cost in sum_costs]
                                 ]
+                            }
+                        } if structure.get('isSum', False) else {
+                            "name": "shareCalculator",
+                            "kwargs": {
+                                "dividendField": structure["dividend"],
+                                "divisorField": structure["divisor"]
                             }
                         }
                     ],
@@ -70,13 +96,18 @@ class DUKApplicationEstimateBuilder(ApplicationEstimateBuilder):
                                     [f'{sum_cost}{structure["name"]}' for sum_cost in sum_costs]
                                 ]
                             }
+                        } if structure.get('isSum', False) else {
+                            "name": "RelatedShareValidator",
+                            "kwargs": {
+                                "dividend": structure["dividend"],
+                                "divisor": structure["divisor"]
+                            }
                         }
                     ],
                     read_only=True
-                ) for structure in section_structure
+                ) for structure in sum_estimate_section_structure
             ]
         )
-
-        full_chapter["components"].append(sum_chapter)
+        full_chapter["components"].append(sum_estimate_chapter)
 
         return full_chapter
