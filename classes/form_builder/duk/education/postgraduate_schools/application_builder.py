@@ -97,13 +97,35 @@ class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
                         'label': 'Pozostałe środki',
                         'name': 'OtherFundsAmount'
                     }
-                ]
+                ],
+                'section_construct': {
+                    'chapter_title': {
+                        'classList': {
+                            "sub": [
+                                "table-1-2-top"
+                            ]
+                        }
+                    },
+                    'section_title': {
+                        'classList': {
+                            "main": [
+                                "table-1-3-narrow",
+                                "grid",
+                                "grid-cols-3"
+                            ],
+                            "sub": [
+                                "table-1-3__col"
+                            ]
+                        }
+                    }
+                }
             }
         )
 
         part = self.create_part(
             title='VII. Kosztorys przedsięwzięcia',
             short_name='VII. Kosztorys przedsięwzięcia',
+
             chapters=[
                 estimate.generate()
             ]
