@@ -94,7 +94,7 @@ class FormBuilderBase:
 
     def create_component(
             self,
-            component_type: Literal['date', 'number', 'select', 'text', 'textarea', 'file', 'radio'],
+            component_type: Literal['date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header'],
             mask: str = '',
             label: str = '',
             name: str = '',

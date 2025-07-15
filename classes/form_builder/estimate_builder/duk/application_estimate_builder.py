@@ -2,9 +2,131 @@ from classes.form_builder.form_builder_base import FormBuilderBase
 
 
 class DUKApplicationEstimateBuilder(FormBuilderBase):
-    def __init__(self, data):
+    def __init__(self, estimate_sections):
         super().__init__()
-        self.data = data
+        self.data = self.convert_data(estimate_sections=estimate_sections)
+
+    def convert_data(self, estimate_sections):
+        return {
+            'chapters': {
+                'estimate': {
+                    'sections': estimate_sections,
+                    'section_structure': [
+                        {
+                            'label': '',
+                            'name': 'Desc',
+                            'readOnly': True,
+                            'isDesc': True,
+                        },
+                        {
+                            'label': 'Koszt ogółem',
+                            'name': 'SumAmount',
+                            'readOnly': True,
+                        },
+                        {
+                            'label': 'Wnioskowana dotacja PISF',
+                            'name': 'RequestedAmount'
+                        },
+                        {
+                            'label': 'Pozostałe środki',
+                            'name': 'OtherFundsAmount'
+                        }
+                    ],
+                    'section_construct': {
+                        'chapter_title': {
+                            'classList': {
+                                "main": [
+                                    "no-title"
+                                ],
+                                "sub": [
+                                    "table-1-2-top",
+                                ]
+                            }
+                        },
+                        'section_title': {
+                            "classList": {
+                                "main": [
+                                    "table-1-3-narrow",
+                                    "grid",
+                                    "grid-cols-5",
+                                    "no-title"
+                                ],
+                                "sub": [
+                                    "table-1-3__col"
+                                ]
+                            }
+                        },
+                        'cost': {
+                            'classList': [
+                                "no-label"
+                            ]
+                        },
+                        'cost_desc': {
+                            'classList': [
+                                "col-span-2",
+                                "displayNoneFrontend",
+                                "full-width",
+                                "no-label"
+                            ]
+                        }
+                    }
+                },
+                'sum_estimate': {
+                    'sections': [
+                        {
+                            'title': 'Podsumowanie',
+                            'costs': [
+                                {
+                                    'name': 'total'
+                                }
+                            ]
+                        }
+                    ],
+                    'section_structure': [
+                        {
+                            'isSum': True,
+                            'label': 'Koszt ogółem',
+                            'name': 'SumAmount',
+                            'unit': 'PLN'
+                        },
+                        {
+                            'isSum': True,
+                            'label': 'Wnioskowana dotacja PISF ogółem',
+                            'name': 'RequestedAmount',
+                            'unit': 'PLN'
+                        },
+                        {
+                            'isSum': True,
+                            'label': 'Pozostałe środki ogółem',
+                            'name': 'OtherFundsAmount',
+                            'unit': 'PLN'
+                        },
+                        {
+                            'isShare': True,
+                            'label': 'Udział wsparcia PISF w kosztach ogółem',
+                            'name': 'RequestedAmountShareInTotal',
+                            'unit': '%',
+                            'dividend': 'totalRequestedAmount',
+                            'divisor': 'totalSumAmount',
+                        }
+                    ],
+                    'section_construct': {
+                        'section_title': {
+                            'classList': {
+                                "main": [
+                                    "table-1-3-narrow",
+                                    "grid",
+                                    "grid-cols-3"
+                                ],
+                                "sub": [
+                                    "table-1-3__col"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
     def build_component(self, name, label, structure, is_sum=False, sub_fields=None):
         component = self.create_component(
@@ -51,31 +173,47 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
         for cost in costs:
             is_sum = cost.get("isSum", False)
             cost_components = []
+
             for structure in section_structure:
-                sub_fields = [f"{sub['name']}{structure['name']}" for sub in costs if not sub.get("isSum")]
-                cost_components.append(
-                    self.build_component(
+                field_name = f"{cost['name']}{structure['name']}"
+
+                # DESC
+                if structure.get("isDesc", False):
+                    cost_components.append(
+                        self.create_component(
+                            component_type="text",
+                            label='',
+                            name=field_name,
+                            value=f'{section["title"]} - {cost["title"]}' if is_sum else cost["title"],
+                            read_only=True,
+                            class_list=construct["cost_desc"]["classList"]
+                        )
+                    )
+                else:
+                    sub_fields = [f"{sub['name']}{structure['name']}" for sub in costs if not sub.get("isSum")]
+                    component = self.build_component(
                         cost["name"],
                         structure["label"],
                         structure,
                         is_sum,
                         sub_fields if is_sum else None
                     )
+                    component["classList"] = construct["cost"]["classList"]
+                    cost_components.append(component)
+
+            components.append(
+                self.create_chapter(
+                    title=cost["title"],
+                    class_list=construct["section_title"]["classList"],
+                    components=cost_components
                 )
+            )
 
-            components.append({
-                "kind": "chapter",
-                "title": cost["title"],
-                "classList": construct["section_title"]["classList"],
-                "components": cost_components
-            })
-
-        return {
-            "kind": "chapter",
-            "title": section["title"],
-            "classList": construct["chapter_title"]["classList"],
-            "components": components
-        }
+        return self.create_chapter(
+            title=section["title"],
+            class_list=construct["chapter_title"]["classList"],
+            components=components
+        )
 
     def build_summary_chapter(self, section, structure_list, construct, all_costs):
         components = [
@@ -114,6 +252,48 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
         full_chapter = self.create_chapter(
             title="Koszty z podziałem na źródło finansowania",
             components=[
+                self.create_chapter(
+                    class_list=[
+                        "grid",
+                        "grid-cols-5"
+                    ],
+                    components=[
+                        self.create_component(
+                            component_type='header',
+                            name='headerComponentDesc',
+                            value='Rodzaj kosztu',
+                            class_list=[
+                                "displayNoneFrontend",
+                                "col-span-2"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type='header',
+                            name='headerComponentSumAmount',
+                            value='Koszt ogółem',
+                            class_list=[
+                                "displayNoneFrontend",
+                            ]
+                        ),
+                        self.create_component(
+                            component_type='header',
+                            name='headerComponentRequestedAmount',
+                            value='Wnioskowana dotacja PISF',
+                            class_list=[
+                                "displayNoneFrontend",
+                            ]
+                        ),
+                        self.create_component(
+                            component_type='header',
+                            name='headerComponentOtherFundsAmount',
+                            value='Pozostałe środki',
+                            class_list=[
+                                "displayNoneFrontend",
+                            ]
+                        )
+                    ]
+                )
+            ] + [
                 self.build_section_chapter(section, section_structure, section_construct)
                 for section in estimate_sections
             ] + [

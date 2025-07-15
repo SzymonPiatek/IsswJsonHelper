@@ -12,7 +12,7 @@
           "type": "text",
           "name": "programNamePartTwo",
           "label": "Program",
-          "value": "",
+          "value": "{programNamePartTwo}",
           "readOnly": true,
           "required": true,
           "dataBDD": "programNamePartTwo"
@@ -22,7 +22,7 @@
           "type": "text",
           "label": "Priorytet",
           "name": "priorityNamePartTwo",
-          "value": "",
+          "value": "{priorityNamePartTwo}",
           "readOnly": true,
           "required": true,
           "dataBDD": "priorityNamePartTwo"
