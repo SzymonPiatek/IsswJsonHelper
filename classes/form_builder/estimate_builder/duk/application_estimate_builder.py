@@ -73,7 +73,7 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
             }
         }
 
-    def build_component(self, name, label, structure, is_sum=False, sub_fields=None):
+    def build_component(self, name, label, structure, is_sum=False, sub_fields=None, field_overrides=None):
         component = self.create_component(
             component_type="text" if not structure.get("isShare") else "number",
             mask="fund" if not structure.get("isShare") else None,
@@ -109,6 +109,16 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
                 }
             }]
 
+        if field_overrides:
+            if "validators" in field_overrides:
+                component.setdefault("validators", []).extend(field_overrides["validators"])
+            if "calculationRules" in field_overrides:
+                component.setdefault("calculationRules", []).extend(field_overrides["calculationRules"])
+            if "read_only" in field_overrides:
+                component["read_only"] = field_overrides["read_only"]
+            if "required" in field_overrides:
+                component["required"] = field_overrides["required"]
+
         return component
 
     def build_section_chapter(self, section, section_structure, construct):
@@ -136,12 +146,14 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
                     )
                 else:
                     sub_fields = [f"{sub['name']}{structure['name']}" for sub in costs if not sub.get("isSum")]
+                    field_overrides = cost.get("overrides", {}).get(structure["name"], {})
                     component = self.build_component(
-                        cost["name"],
-                        structure["label"],
-                        structure,
-                        is_sum,
-                        sub_fields if is_sum else None
+                        name=cost["name"],
+                        label=structure["label"],
+                        structure=structure,
+                        is_sum=is_sum,
+                        sub_fields=sub_fields if is_sum else None,
+                        field_overrides=field_overrides
                     )
                     component["classList"] = construct["cost"]["classList"]
                     cost_components.append(component)
