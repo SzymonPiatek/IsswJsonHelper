@@ -181,13 +181,6 @@ class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
             }
         )
 
-        part = self.create_part(
-            title='VII. Kosztorys przedsięwzięcia',
-            short_name='VII. Kosztorys przedsięwzięcia',
-
-            chapters=[
-                estimate.generate()
-            ]
-        )
+        part = estimate.generate()
 
         self.save_part(part=part)
