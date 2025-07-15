@@ -1,4 +1,5 @@
 from classes.form_builder.form_builder_base import FormBuilderBase
+from classes.form_builder.duk.estimate_data import estimate_section_structure, sum_estimate_section_structure, sum_estimate_sections
 
 
 class DUKApplicationEstimateBuilder(FormBuilderBase):
@@ -11,27 +12,7 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
             'chapters': {
                 'estimate': {
                     'sections': estimate_sections,
-                    'section_structure': [
-                        {
-                            'label': '',
-                            'name': 'Desc',
-                            'readOnly': True,
-                            'isDesc': True,
-                        },
-                        {
-                            'label': 'Koszt ogółem',
-                            'name': 'SumAmount',
-                            'readOnly': True,
-                        },
-                        {
-                            'label': 'Wnioskowana dotacja PISF',
-                            'name': 'RequestedAmount'
-                        },
-                        {
-                            'label': 'Pozostałe środki',
-                            'name': 'OtherFundsAmount'
-                        }
-                    ],
+                    'section_structure': estimate_section_structure,
                     'section_construct': {
                         'chapter_title': {
                             'classList': {
@@ -72,44 +53,8 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
                     }
                 },
                 'sum_estimate': {
-                    'sections': [
-                        {
-                            'title': 'Podsumowanie',
-                            'costs': [
-                                {
-                                    'name': 'total'
-                                }
-                            ]
-                        }
-                    ],
-                    'section_structure': [
-                        {
-                            'isSum': True,
-                            'label': 'Koszt ogółem',
-                            'name': 'SumAmount',
-                            'unit': 'PLN'
-                        },
-                        {
-                            'isSum': True,
-                            'label': 'Wnioskowana dotacja PISF ogółem',
-                            'name': 'RequestedAmount',
-                            'unit': 'PLN'
-                        },
-                        {
-                            'isSum': True,
-                            'label': 'Pozostałe środki ogółem',
-                            'name': 'OtherFundsAmount',
-                            'unit': 'PLN'
-                        },
-                        {
-                            'isShare': True,
-                            'label': 'Udział wsparcia PISF w kosztach ogółem',
-                            'name': 'RequestedAmountShareInTotal',
-                            'unit': '%',
-                            'dividend': 'totalRequestedAmount',
-                            'divisor': 'totalSumAmount',
-                        }
-                    ],
+                    'sections': sum_estimate_sections,
+                    'section_structure': sum_estimate_section_structure,
                     'section_construct': {
                         'section_title': {
                             'classList': {
