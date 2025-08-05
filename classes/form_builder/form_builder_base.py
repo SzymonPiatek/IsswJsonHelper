@@ -115,6 +115,8 @@ class FormBuilderBase:
             calculation_rules = []
         if class_list is None:
             class_list = []
+        if mask is None:
+            mask = ''
 
         component = self.load_json(path=self.main_dir / 'data' / 'base' / 'component.json')
         values = {
