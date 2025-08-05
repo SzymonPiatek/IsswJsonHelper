@@ -74,6 +74,48 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
         }
 
     def build_component(self, name, label, structure, is_sum=False, sub_fields=None, field_overrides=None):
+        field_overrides = field_overrides.copy() if field_overrides else {}
+
+        # Handle sumFields for internal section-level sums
+        if "sumFields" in structure:
+            sibling_fields = [f"{name}{field}" for field in structure["sumFields"]]
+            field_overrides.setdefault("calculationRules", []).append({
+                "name": "sumInputs",
+                "kwargs": {"fields": sibling_fields}
+            })
+            field_overrides.setdefault("validators", []).append({
+                "name": "RelatedSumValidator",
+                "kwargs": {"field_names": sibling_fields}
+            })
+
+        # Handle percentage share fields
+        if structure.get("isShare"):
+            field_overrides.setdefault("calculationRules", []).append({
+                "name": "shareCalculator",
+                "kwargs": {
+                    "dividendField": structure["dividend"],
+                    "divisorField": structure["divisor"]
+                }
+            })
+            field_overrides.setdefault("validators", []).append({
+                "name": "RelatedShareValidator",
+                "kwargs": {
+                    "dividend": structure["dividend"],
+                    "divisor": structure["divisor"]
+                }
+            })
+
+        # Handle total sums across sections
+        if is_sum and sub_fields and not structure.get("isShare") and "sumFields" not in structure:
+            field_overrides.setdefault("calculationRules", []).append({
+                "name": "sumInputs",
+                "kwargs": {"fields": sub_fields}
+            })
+            field_overrides.setdefault("validators", []).append({
+                "name": "RelatedSumValidator",
+                "kwargs": {"field_names": sub_fields}
+            })
+
         component = self.create_component(
             component_type="text" if not structure.get("isShare") else "number",
             mask="fund" if not structure.get("isShare") else None,
@@ -84,31 +126,7 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
             read_only=structure.get("readOnly", True if is_sum and sub_fields else False),
         )
 
-        if is_sum and sub_fields:
-            component["calculationRules"] = [{
-                "name": "sumInputs",
-                "kwargs": {"fields": sub_fields}
-            }]
-            component["validators"] = [{
-                "name": "RelatedSumValidator",
-                "kwargs": {"field_names": sub_fields}
-            }]
-        elif structure.get("isShare"):
-            component["calculationRules"] = [{
-                "name": "shareCalculator",
-                "kwargs": {
-                    "dividendField": structure["dividend"],
-                    "divisorField": structure["divisor"]
-                }
-            }]
-            component["validators"] = [{
-                "name": "RelatedShareValidator",
-                "kwargs": {
-                    "dividend": structure["dividend"],
-                    "divisor": structure["divisor"]
-                }
-            }]
-
+        # Merge any overrides
         if field_overrides:
             if "validators" in field_overrides:
                 component.setdefault("validators", []).extend(field_overrides["validators"])
@@ -146,7 +164,18 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
                     )
                 else:
                     sub_fields = [f"{sub['name']}{structure['name']}" for sub in costs if not sub.get("isSum")]
-                    field_overrides = cost.get("overrides", {}).get(structure["name"], {})
+                    field_overrides = cost.get("overrides", {}).get(structure["name"], {}).copy()
+
+                    if "sumFields" in structure:
+                        sibling_fields = [f"{cost['name']}{field}" for field in structure["sumFields"]]
+                        field_overrides.setdefault("calculationRules", []).append({
+                            "name": "sumInputs",
+                            "kwargs": {"fields": sibling_fields}
+                        })
+                        field_overrides.setdefault("validators", []).append({
+                            "name": "RelatedSumValidator",
+                            "kwargs": {"field_names": sibling_fields}
+                        })
                     component = self.build_component(
                         name=cost["name"],
                         label=structure["label"],

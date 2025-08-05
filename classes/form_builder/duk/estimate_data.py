@@ -9,6 +9,7 @@ estimate_section_structure = [
         'label': 'Koszt ogółem',
         'name': 'SumAmount',
         'readOnly': True,
+        'sumFields': ['RequestedAmount', 'OtherFundsAmount']
     },
     {
         'label': 'Wnioskowana dotacja PISF',

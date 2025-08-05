@@ -24,8 +24,8 @@ def delete_unused_args_in_file(path: Path):
                     obj.pop(key, None)
                     changed = True
 
-            for drop_key in ['visibilityRules', 'classList', 'validators', 'calculationRules', 'errorMsgs', 'options']:
-                if not obj.get(drop_key):
+            for drop_key in ['visibilityRules', 'classList', 'validators', 'calculationRules', 'errorMsgs', 'options', 'mask']:
+                if not obj.get(drop_key, False):
                     obj.pop(drop_key, None)
                     changed = True
 
