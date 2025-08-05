@@ -81,7 +81,7 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
             name=f"{name}{structure['name']}",
             value=0,
             unit=structure.get("unit", "PLN"),
-            read_only=structure.get("readOnly", is_sum),
+            read_only=structure.get("readOnly", True if is_sum and sub_fields else False),
         )
 
         if is_sum and sub_fields:

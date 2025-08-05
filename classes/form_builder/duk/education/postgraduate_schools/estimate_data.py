@@ -71,8 +71,7 @@ estimate_sections = [
     {
         'title': '5. Koszty eksploatacyjne i utrzymania obiektów',
         'costs': [
-            {'isSum': True, 'title': 'Razem', 'name': 'costFacilities'},
-            {'title': '- czynsze, media, ochrona, sprzątanie', 'name': 'rentUtilities'}
+            {'isSum': True, 'title': '', 'name': 'costFacilities'}
         ]
     },
     {
@@ -86,8 +85,7 @@ estimate_sections = [
     {
         'title': '7. Koszty materiałów biurowych i eksploatacyjnych',
         'costs': [
-            {'isSum': True, 'title': 'Razem', 'name': 'costSupplies'},
-            {'title': '- papier, tonery, akcesoria', 'name': 'officeSupplies'}
+            {'isSum': True, 'title': '', 'name': 'costSupplies'}
         ]
     },
     {
@@ -101,25 +99,25 @@ estimate_sections = [
     {
         'title': '9. Koszty ubezpieczeń',
         'costs': [
-            {'isSum': True, 'title': 'Razem', 'name': 'costInsurance'}
+            {'isSum': True, 'title': '', 'name': 'costInsurance'}
         ]
     },
     {
         'title': '10. Koszty rezerwowe',
         'costs': [
-            {'isSum': True, 'title': 'Razem', 'name': 'costReserve'}
+            {'isSum': True, 'title': '', 'name': 'costReserve'}
         ]
     },
     {
         'title': '11. Inne koszty kwalifikowane',
         'costs': [
-            {'isSum': True, 'title': 'Razem', 'name': 'otherEligibleCosts'}
+            {'isSum': True, 'title': '', 'name': 'otherEligibleCosts'}
         ]
     },
     {
         'title': '12. Koszty niekwalifikowane',
         'costs': [
-            {'isSum': True, 'title': 'Razem', 'name': 'ineligibleCosts'}
+            {'isSum': True, 'title': '', 'name': 'ineligibleCosts'}
         ]
     },
     {
@@ -133,8 +131,7 @@ estimate_sections = [
     {
         'title': '14. Zakup wartości niematerialnych i prawnych',
         'costs': [
-            {'isSum': True, 'title': 'Razem', 'name': 'costIntangibleAssets'},
-            {'title': '- licencje, prawa autorskie', 'name': 'licenses'}
+            {'isSum': True, 'title': '', 'name': 'costIntangibleAssets'}
         ]
     },
     {
@@ -156,46 +153,43 @@ estimate_sections = [
     {
         'title': '17. Koszty publikacji materiałów edukacyjnych',
         'costs': [
-            {'isSum': True, 'title': 'Razem', 'name': 'costEducationalMaterials'},
-            {'title': '- redakcja, skład, druk', 'name': 'editingPrinting'}
+            {'isSum': True, 'title': '', 'name': 'costEducationalMaterials'},
         ]
     },
     {
         'title': '18. Koszty organizacji szkoleń i warsztatów',
         'costs': [
-            {'isSum': True, 'title': 'Razem', 'name': 'costTrainings'},
-            {'title': '- prowadzący, materiały, wynajem', 'name': 'trainingComponents'}
+            {'isSum': True, 'title': '', 'name': 'costTrainings'},
         ]
     },
     {
         'title': '19. Koszty opłat administracyjnych i urzędowych',
         'costs': [
-            {'isSum': True, 'title': 'Razem', 'name': 'costAdministrativeFees'}
+            {'isSum': True, 'title': '', 'name': 'costAdministrativeFees'}
         ]
     },
     {
         'title': '20. Koszty rekrutacji uczestników',
         'costs': [
-            {'isSum': True, 'title': 'Razem', 'name': 'costRecruitment'}
+            {'isSum': True, 'title': '', 'name': 'costRecruitment'}
         ]
     },
     {
         'title': '21. Koszty ewaluacji i monitoringu',
         'costs': [
-            {'isSum': True, 'title': 'Razem', 'name': 'costEvaluation'},
-            {'title': '- badania, raporty', 'name': 'researchReports'}
+            {'isSum': True, 'title': '', 'name': 'costEvaluation'}
         ]
     },
     {
         'title': '22. Koszty obsługi prawnej i księgowej',
         'costs': [
-            {'isSum': True, 'title': 'Razem', 'name': 'costLegalAccounting'}
+            {'isSum': True, 'title': '', 'name': 'costLegalAccounting'}
         ]
     },
     {
         'title': '23. Pozostałe koszty związane z realizacją przedsięwzięcia',
         'costs': [
-            {'isSum': True, 'title': 'Razem', 'name': 'otherProjectCosts'}
+            {'isSum': True, 'title': '', 'name': 'otherProjectCosts'}
         ]
     }
 ]
