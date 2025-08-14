@@ -33,9 +33,8 @@ class FormBuilder(FormBuilderBase):
         self.output_file_name = f'po{self.operation_num}_pr{self.priority_num}_{self.json_type}_{self.year}.json'
         self.output_file = self.main_dir / 'output' / self.department_name / self.json_type / self.output_file_name
 
-
     def info(self):
-            return f'''
+        return f'''
             Typ formularza: {'Wniosek' if self.json_type == 'application' else 'Raport'}
             Dział: {self.department_name}
             Program oparacyjny: {self.operation_name}

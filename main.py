@@ -1,11 +1,12 @@
 import subprocess
-from generators import dpf, duk, dwm
+from classes.generator.dpf_generator import DPFGenerator
+from classes.generator.duk_generator import DUKGenerator
+from classes.generator.dwm_generator import DWMGenerator
 
 
 def main():
-    for department in [dpf, duk, dwm]:
-        department.generate_applications()
-        department.generate_reports()
+    for generator in [DPFGenerator, DUKGenerator, DWMGenerator]:
+        generator().generate_applications_and_reports()
 
     subprocess.run(["python", "scripts/delete_unused_args.py"], check=True)
 

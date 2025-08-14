@@ -1,3 +1,4 @@
+from classes.generator.generator import Generator
 # EDUCATION
 from classes.form_builder.duk.education.postgraduate_schools.application_builder import PostgraduateSchoolsApplicationBuilder
 from classes.form_builder.duk.education.secondary_schools.application_builder import SecondarySchoolsApplicationBuilder
@@ -15,30 +16,27 @@ from classes.form_builder.duk.development.modernization.application_builder impo
 from classes.form_builder.duk.development.digitalization.application_builder import DigitalizationApplicationBuilder
 
 
-def generate_applications():
-    applications = [
-        # DUK - education
-        PostgraduateSchoolsApplicationBuilder(),
-        SecondarySchoolsApplicationBuilder(),
-        CinemasApplicationBuilder(),
-        ProfessionalTrainingApplicationBuilder(),
+class DUKGenerator(Generator):
+    def __init__(self):
+        super().__init__(
+            applications=[
+                # DUK - education
+                PostgraduateSchoolsApplicationBuilder(),
+                SecondarySchoolsApplicationBuilder(),
+                CinemasApplicationBuilder(),
+                ProfessionalTrainingApplicationBuilder(),
 
-        # DUK - dissemination
-        ResearchApplicationBuilder(),
-        FestivalsApplicationBuilder(),
-        LiteratueApplicationBuilder(),
-        InitiativesApplicationBuilder(),
-        DocumentaryDistributionApplicationBuilder(),
-        ReconstructionApplicationBuilder(),
+                # DUK - dissemination
+                ResearchApplicationBuilder(),
+                FestivalsApplicationBuilder(),
+                LiteratueApplicationBuilder(),
+                InitiativesApplicationBuilder(),
+                DocumentaryDistributionApplicationBuilder(),
+                ReconstructionApplicationBuilder(),
 
-        # DUK - development
-        ModernizationApplicationBuilder(),
-        DigitalizationApplicationBuilder(),
-    ]
-
-    for application in applications:
-        application.generate()
-
-
-def generate_reports():
-    pass
+                # DUK - development
+                ModernizationApplicationBuilder(),
+                DigitalizationApplicationBuilder(),
+            ],
+            reports=[]
+        )
