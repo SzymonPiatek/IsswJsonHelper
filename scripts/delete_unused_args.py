@@ -40,9 +40,6 @@ def delete_unused_args_in_file(path: Path):
     if changed:
         with path.open('w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
-        print(f"Cleaned {path}")
-    else:
-        print(f"No changes in {path}")
 
 
 def main():
