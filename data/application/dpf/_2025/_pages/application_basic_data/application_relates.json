@@ -1,0 +1,28 @@
+{
+  "kind": "chapter",
+  "title": "{number}. Wniosek dotyczy",
+  "components": [
+    {
+      "kind": "component",
+      "type": "select",
+      "label": "Wniosek dotyczy",
+      "name": "applicationRelates",
+      "value": "{applicationRelates[value]}",
+      "options": "{applicationRelates[options]}",
+      "validators": [
+        {
+          "name": "ExactValidator",
+          "kwargs": {
+            "values": "{applicationRelates[options]}"
+          }
+        },
+        {
+          "name": "RequiredValidator"
+        }
+      ],
+      "readOnly": "{applicationRelates[readOnly]}",
+      "required": true,
+      "dataBDD": "applicationRelates"
+    }
+  ]
+}

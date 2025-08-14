@@ -1,0 +1,175 @@
+{
+  "kind": "chapter",
+  "title": "{number}. Rodzaj pomocy",
+  "components": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "select",
+          "label": "Rodzaj pomocy",
+          "name": "typeOfSupport",
+          "value": "{typeOfSupport[value]}",
+          "options": "{typeOfSupport[options]}",
+          "validators": [
+            {
+              "name": "ExactValidator",
+              "kwargs": {
+                "values": "{typeOfSupport[options]}"
+              }
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "readOnly": "{typeOfSupport[readOnly]}",
+          "required": true,
+          "dataBDD": "typeOfSupport"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "typeOfSupport",
+            "values": [
+              "pożyczka"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "{number}.1 Sposób zabezpieczenia pożyczki",
+          "name": "methodOfSecuringTheLoan",
+          "value": "",
+          "helpText": "Maksymalna liczba znaków nie może przekroczyć 900.",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 901
+              },
+              "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 900."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "methodOfSecuringTheLoan"
+        },
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "{number}.1A Proponowane raty spłaty pożyczki",
+          "name": "proposedLoanPaymentInstallments",
+          "value": "",
+          "helpText": "Maksymalna liczba znaków nie może przekroczyć 900.",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 901
+              },
+              "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 900."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "proposedLoanPaymentInstallments"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "typeOfSupport",
+            "values": [
+              "poręczenie"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "{number}.A.1 Przedmiot zobowiązania",
+          "name": "subjectOfObligation",
+          "value": "",
+          "helpText": "Maksymalna liczba znaków nie może przekroczyć 900.",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 901
+              },
+              "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 900."
+            }
+          ],
+          "required": true,
+          "dataBDD": "subjectOfObligation"
+        },
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "{number}.A.2 Wysokość i okres poręczenia",
+          "name": "amountAndPeriodOfGuarantee",
+          "value": "",
+          "helpText": "Maksymalna liczba znaków nie może przekroczyć 900.",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 901
+              },
+              "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 900."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "amountAndPeriodOfGuarantee"
+        },
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "{number}.A.3 Zabezpieczenie poręczenia",
+          "name": "securityOfGuarantee",
+          "value": "",
+          "helpText": "Maksymalna liczba znaków nie może przekroczyć 900.",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 901
+              },
+              "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 900."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "securityOfGuarantee"
+        }
+      ]
+    }
+  ]
+}

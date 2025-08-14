@@ -1,0 +1,108 @@
+{
+  "kind": "part",
+  "title": "V. Dane finansowe",
+  "shortName": "V. Dane finansowe",
+  "classList": [
+    "full-width-grid"
+  ],
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "classList": {
+        "sub": [
+          "table-1-2-top"
+        ]
+      },
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "1. Wnioskowana wysokość dofinansowania ze środków PISF",
+          "classList": {
+            "main": [
+              "full-width"
+            ],
+            "sub": [
+              "full-width"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "movieKind",
+                        "values": [
+                          "fabularny",
+                          "animowany"
+                        ]
+                      }
+                    }
+                  ],
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Kwota",
+                      "name": "requestedPisfSupportAmountFabAni",
+                      "value": 50000,
+                      "readOnly": true,
+                      "unit": "PLN",
+                      "dataBDD": "requestedPisfSupportAmountFabAni"
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "movieKind",
+                        "values": [
+                          "dokumentalny"
+                        ]
+                      }
+                    }
+                  ],
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Kwota",
+                      "name": "requestedPisfSupportAmountDok",
+                      "value": 35000,
+                      "readOnly": true,
+                      "unit": "PLN",
+                      "dataBDD": "requestedPisfSupportAmountDok"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "chapter",
+  "title": "{number}. Tematyka",
+  "components": [
+    {
+      "kind": "component",
+      "type": "select",
+      "label": "Tematyka",
+      "name": "movieSubject",
+      "value": "{movieSubject[value]}",
+      "options": "{movieSubject[options]}",
+      "validators": "{movieSubject[validators]}",
+      "readOnly": "{movieSubject[readOnly]}",
+      "required": true,
+      "dataBDD": "movieSubject"
+    }
+  ]
+}

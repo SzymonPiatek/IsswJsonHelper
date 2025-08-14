@@ -1,0 +1,286 @@
+{
+  "kind": "part",
+  "title": "Dane podstawowe",
+  "shortName": "Dane podstawowe",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "Okres przedsięwzięcia",
+      "components": [
+        {
+          "kind": "component",
+          "type": "header",
+          "label": "Label",
+          "name": "headerComponent-taskDateStart",
+          "value": "Data rozpoczęcia przedsięwzięcia",
+          "dataBDD": "header-component-taskDateStart",
+          "classList": [
+            "col-start-3",
+            "text-right"
+          ]
+        },
+        {
+          "kind": "component",
+          "type": "date",
+          "label": "Okres od",
+          "name": "taskDateStart",
+          "value": "",
+          "copyFrom": "projectCommencement",
+          "readOnly": true,
+          "required": true,
+          "dataBDD": "task-date-start",
+          "classList": [
+            "no-label"
+          ]
+        },
+        {
+          "kind": "component",
+          "type": "header",
+          "label": "Label",
+          "name": "headerComponent-taskDateEnd",
+          "value": "Data zakończenia przedsięwzięcia",
+          "dataBDD": "header-component-taskDateEnd",
+          "classList": [
+            "text-right",
+            "displayNoneFrontend"
+          ]
+        },
+        {
+          "kind": "component",
+          "type": "date",
+          "label": "Okres do",
+          "name": "taskDateEnd",
+          "value": "",
+          "copyFrom": "projectCompletion",
+          "readOnly": true,
+          "required": true,
+          "dataBDD": "task-date-end",
+          "classList": [
+            "no-label"
+          ]
+        }
+      ],
+      "classList": [
+        "grid",
+        "grid-cols-6",
+        "no-title"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Umowa",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "Label",
+              "name": "headerComponent-contractNum",
+              "value": "Numer umowy",
+              "dataBDD": "header-component-contractNum",
+              "classList": [
+                "col-start-3",
+                "text-right",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Numer umowy",
+              "name": "contractNum",
+              "value": "",
+              "helpText": "Podaj numer umowy",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "contract-num",
+              "classList": [
+                "no-label"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "Label",
+              "name": "headerComponent-contractDate",
+              "value": "Data zawarcia umowy",
+              "dataBDD": "header-component-contractDate",
+              "classList": [
+                "text-right",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data podpisania umowy",
+              "name": "contractDate",
+              "value": "",
+              "helpText": "Podaj datę podpisania umowy",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "contract-date",
+              "classList": [
+                "no-label"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "Label",
+              "name": "headerComponent-addAnnex",
+              "value": "Czy umowa była aneksowana?",
+              "dataBDD": "header-component-addAnnex",
+              "classList": [
+                "col-span-2",
+                "col-start-3",
+                "text-right",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Dodaj aneks",
+              "name": "addAnnex",
+              "value": false,
+              "helpText": "Zaznacz, jeśli umowa była aneksowana",
+              "dataBDD": "add-annex",
+              "classList": [
+                "no-label"
+              ]
+            }
+          ],
+          "classList": [
+            "grid",
+            "grid-cols-6",
+            "no-title"
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "addAnnex",
+                "values": [
+                  true
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 20
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "header",
+                          "label": "Label",
+                          "name": "headerComponent-codeAnnex",
+                          "value": "Numer aneksu",
+                          "dataBDD": "header-component-codeAnnex",
+                          "classList": [
+                            "col-span-2",
+                            "col-start-2",
+                            "text-right",
+                            "displayNoneFrontend"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Numer aneksu",
+                          "name": "contractAnnexNum",
+                          "value": "",
+                          "helpText": "Podaj numer aneksu",
+                          "required": true,
+                          "dataBDD": "contractAnnexNum",
+                          "classList": [
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "header",
+                          "label": "Label",
+                          "name": "headerComponent-dateAnnex",
+                          "value": "Data podpisania aneksu",
+                          "dataBDD": "header-component-dateAnnex",
+                          "classList": [
+                            "text-right",
+                            "displayNoneFrontend"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "date",
+                          "label": "Data podpisania aneksu",
+                          "name": "contractAnnexDate",
+                          "value": "",
+                          "required": true,
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            },
+                            {
+                              "name": "RelatedDateGTEValidator",
+                              "validationMsg": "Data podpisania aneksu nie może być wcześniejsza niż data podpisania umowy.",
+                              "kwargs": {
+                                "field_name": "contractDate"
+                              }
+                            }
+                          ],
+                          "helpText": "Podaj datę aneksowania umowy",
+                          "dataBDD": "contract-annex-date",
+                          "classList": [
+                            "no-label"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-6",
+                    "no-title"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "classList": [
+        "no-title"
+      ]
+    }
+  ]
+}

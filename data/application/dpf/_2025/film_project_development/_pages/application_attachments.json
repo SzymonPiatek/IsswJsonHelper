@@ -1,0 +1,443 @@
+{
+  "kind": "part",
+  "title": "VII. Załączniki",
+  "shortName": "VII. Załączniki",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Lista szczegółowych zadań zaplanowanych do realizacji",
+              "name": "detailedListOfTasks",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 5401
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 5400."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "required": true,
+              "dataBDD": "detailedListOfTasks"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "Opis walorów artystycznych i ekonomicznych przedsięwzięcia, tj. uzasadnienie przedsięwzięcia pod kątem kryteriów, o których mowa w art. 22. ust. 3 Ustawy o kinematografii",
+          "name": "descriptionOfArtisticQualities",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 5401
+              },
+              "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 5400."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "descriptionOfArtisticQualities"
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Dodatkowe informacje o bohaterze",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "movieKind",
+            "values": [
+              "dokumentalny"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Nie dotyczy",
+              "name": "additionalHeroInfoDoesntApply",
+              "value": false,
+              "dataBDD": "additionalHeroInfoDoesntApply"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "additionalHeroInfoDoesntApply",
+                "values": [
+                  false
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "file",
+              "label": "Dodatkowe informacje o bohaterze",
+              "name": "additionalHeroInfo",
+              "value": "",
+              "validators": [
+                {
+                  "name": "RelatedRequiredIfEqualValidator",
+                  "kwargs": {
+                    "field_name": "additionalHeroInfoDoesntApply",
+                    "value": false
+                  }
+                }
+              ],
+              "required": true,
+              "dataBDD": "additionalHeroInfo"
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Opis linku",
+              "name": "additionalHeroInfoDesc",
+              "value": "",
+              "helpText": "Maksymalna liczba znaków nie może przekroczyć 1000.",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 1001
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 1000."
+                }
+              ],
+              "dataBDD": "additionalHeroInfoDesc"
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Adres linku",
+              "name": "additionalHeroInfoLink",
+              "value": "",
+              "helpText": "Maksymalna liczba znaków nie może przekroczyć 2000.",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 2001
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 2000."
+                }
+              ],
+              "dataBDD": "additionalHeroInfoLink"
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Dodatkowe informacje, np. hasło",
+              "name": "additionalHeroInfoAdditionalInfo",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 26
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 25."
+                }
+              ],
+              "helpText": "Maksymalna liczba znaków nie może przekroczyć 25",
+              "dataBDD": "additionalHeroInfoAdditionalInfo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "visibilityRules": [
+        {
+          "name": "dependsOnValue",
+          "kwargs": {
+            "fieldName": "movieKind",
+            "values": [
+              "animowany",
+              "seria animowana"
+            ]
+          }
+        }
+      ],
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "movieKind",
+                "values": [
+                  "animowany"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "Projekty plastyczne",
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 3,
+                "maxCount": 50
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "Projekt plastyczny",
+                      "name": "visualProject",
+                      "helpText": "Minimum 3 szt.",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "visualProject"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "movieKind",
+                "values": [
+                  "seria animowana"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "Projekty plastyczne",
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 3,
+                "maxCount": 50
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "Projekt plastyczny",
+                      "name": "visualProjectSeries",
+                      "helpText": "Minimum 3 szt. z uwzględnieniem tzw. key visualas oraz postaci i światów",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "visualProjectSeries"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Projekty plastyczne - linki",
+          "isMultipleForms": true,
+          "multipleFormsRules": {
+            "minCount": 1,
+            "maxCount": 10
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "Opis linku",
+                  "name": "visualProjectLinkDescription",
+                  "value": "",
+                  "helpText": "Maksymalna liczba znaków nie może przekroczyć 1000.",
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 1001
+                      },
+                      "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 1000."
+                    }
+                  ],
+                  "dataBDD": "visualProjectLinkDescription"
+                },
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "Adres linku",
+                  "name": "visualProjectLink",
+                  "value": "",
+                  "helpText": "Maksymalna liczba znaków nie może przekroczyć 2000.",
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 2001
+                      },
+                      "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 2000."
+                    }
+                  ],
+                  "dataBDD": "visualProjectLink"
+                },
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "Dodatkowe informacje, np. hasło",
+                  "name": "visualProjectLinkAdditionalInfo",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 26
+                      },
+                      "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 25."
+                    }
+                  ],
+                  "helpText": "Maksymalna liczba znaków nie może przekroczyć 25",
+                  "dataBDD": "visualProjectLinkAdditionalInfo"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Moodboard",
+          "isMultipleForms": true,
+          "multipleFormsRules": {
+            "minCount": 1,
+            "maxCount": 5
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "file",
+                  "label": "Moodboard",
+                  "name": "moodboard",
+                  "value": "",
+                  "helpText": "Plik. Maksymalna wielkość pliku: 50 MB.",
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "moodboard"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Inne dodatkowe załączniki",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 20
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "Dodatkowy załącznik",
+                      "name": "otherAttachments",
+                      "value": "",
+                      "dataBDD": "otherAttachments"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
