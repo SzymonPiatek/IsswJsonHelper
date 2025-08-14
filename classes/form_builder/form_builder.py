@@ -15,8 +15,8 @@ class FormBuilder(FormBuilderBase):
     OPERATION_NUM: int
     PRIORITY_NAME: str
     PRIORITY_NUM: int
-    YEAR: int
-    SESSION: ClassVar[SessionType]
+    YEAR: int = 2025
+    SESSION: ClassVar[SessionType] = 'I'
 
     def __init__(self) -> None:
         super().__init__()

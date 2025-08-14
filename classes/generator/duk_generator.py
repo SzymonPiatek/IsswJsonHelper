@@ -1,4 +1,6 @@
 from classes.generator.generator import Generator
+
+# APPLICATIONS
 # EDUCATION
 from classes.form_builder.duk.education.postgraduate_schools.application_builder import PostgraduateSchoolsApplicationBuilder
 from classes.form_builder.duk.education.secondary_schools.application_builder import SecondarySchoolsApplicationBuilder
@@ -15,18 +17,25 @@ from classes.form_builder.duk.dissemination.reconstruction.application_builder i
 from classes.form_builder.duk.development.modernization.application_builder import ModernizationApplicationBuilder
 from classes.form_builder.duk.development.digitalization.application_builder import DigitalizationApplicationBuilder
 
+# REPORTS
+# EDUCATION
+from classes.form_builder.duk.education.postgraduate_schools.report_builder import PostgraduateSchoolsReportBuilder
+from classes.form_builder.duk.education.secondary_schools.report_builder import SecondarySchoolsReportBuilder
+from classes.form_builder.duk.education.cinemas.report_builder import CinemasReportBuilder
+from classes.form_builder.duk.education.professional_training.report_builder import ProfessionalTrainingReportBuilder
+
 
 class DUKGenerator(Generator):
     def __init__(self):
         super().__init__(
             applications=[
-                # DUK - education
+                # EDUCATION
                 PostgraduateSchoolsApplicationBuilder(),
                 SecondarySchoolsApplicationBuilder(),
                 CinemasApplicationBuilder(),
                 ProfessionalTrainingApplicationBuilder(),
 
-                # DUK - dissemination
+                # DISSEMINATION
                 ResearchApplicationBuilder(),
                 FestivalsApplicationBuilder(),
                 LiteratueApplicationBuilder(),
@@ -34,9 +43,15 @@ class DUKGenerator(Generator):
                 DocumentaryDistributionApplicationBuilder(),
                 ReconstructionApplicationBuilder(),
 
-                # DUK - development
+                # DEVELOPMENT
                 ModernizationApplicationBuilder(),
                 DigitalizationApplicationBuilder(),
             ],
-            reports=[]
+            reports=[
+                # EDUCATION
+                PostgraduateSchoolsReportBuilder(),
+                SecondarySchoolsReportBuilder(),
+                CinemasReportBuilder(),
+                ProfessionalTrainingReportBuilder()
+            ]
         )
