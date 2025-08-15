@@ -18,7 +18,9 @@ def delay_after(seconds=3):
             result = func(*args, **kwargs)
             time.sleep(seconds)
             return result
+
         return wrapper
+
     return decorator
 
 
@@ -40,6 +42,22 @@ class WebScrapper:
     @delay_after(3)
     def go_to_page(self, url: str):
         self.driver.get(url)
+
+    @delay_after(3)
+    def close_introjs(self):
+        while True:
+            try:
+                tooltip = self.driver.find_element(By.CLASS_NAME, "introjs-tooltip")
+            except Exception:
+                break
+
+            try:
+                header = tooltip.find_element(By.CLASS_NAME, "introjs-tooltip-header")
+                skip_btn = header.find_element(By.CLASS_NAME, "introjs-skipbutton")
+                skip_btn.click()
+                time.sleep(1)
+            except Exception:
+                break
 
     @delay_after(3)
     def login(self):
@@ -73,6 +91,7 @@ class WebScrapper:
     def run(self):
         try:
             self.login()
+            self.close_introjs()
             self.capture_screenshot(screen_size='full')
         finally:
             self.close()
