@@ -1,0 +1,163 @@
+{
+  "kind": "part",
+  "title": "{number}. Informacje ogólne",
+  "shortName": "{number}. Informacje ogólne",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "component",
+          "type": "header",
+          "label": "Label",
+          "name": "headerComponent-applicationTaskName",
+          "value": "1. Nazwa przedsięwzięcia",
+          "dataBDD": "header-component-applicationTaskName",
+          "classList": [
+            "displayNoneFrontend"
+          ]
+        },
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "1. Nazwa przedsięwzięcia",
+          "name": "applicationTaskName",
+          "value": "",
+          "copyFrom": "applicationTaskName",
+          "readOnly": true,
+          "required": true,
+          "helpText": "Wpisz nazwę przedsięwzięcia, którego dotyczy składany raport",
+          "dataBDD": "task-name",
+          "classList": [
+            "no-label",
+            "col-span-2",
+            "text-left"
+          ]
+        },
+        {
+          "kind": "component",
+          "type": "header",
+          "label": "Label",
+          "name": "headerComponent-taskCompletionInfo",
+          "value": "2. Stopień realizacji przedsięwzięcia na dzień złożenia raportu",
+          "dataBDD": "header-component-taskCompletionInfo",
+          "classList": [
+            "displayNoneFrontend"
+          ]
+        },
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "2. Stopień realizacji przedsięwzięcia na dzień złożenia raportu",
+          "name": "taskCompletionInfo",
+          "value": "",
+          "helpText": "Opisz stopień realizacji przedsięwzięcia na dzień złożenia raportu",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 10000
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 10000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "task-completion-info",
+          "classList": [
+            "no-label",
+            "col-span-2",
+            "userInput-border",
+            "text-left"
+          ]
+        },
+        {
+          "kind": "component",
+          "type": "header",
+          "label": "Label",
+          "name": "headerComponent-taskImplementationDesc",
+          "value": "3. Szczegółowy opis wykonania\nprzedsięwzięcia, ze\nszczególnym uwzględnieniem\nrealizacji poszczególnych\netapów prac opisanych we\nwniosku o dofinansowanie",
+          "dataBDD": "header-component-taskImplementationDesc",
+          "classList": [
+            "displayNoneFrontend"
+          ]
+        },
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "3. Szczegółowy opis wykonania przedsięwzięcia",
+          "name": "taskImplementationDesc",
+          "value": "",
+          "helpText": "Opis musi uwzględniać m.in. realizację poszczególnych etapów prac opisanych we wniosku o dofinansowanie",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 40000
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 40000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "task-implementation-desc",
+          "classList": [
+            "no-label",
+            "col-span-2",
+            "userInput-border",
+            "text-left"
+          ]
+        },
+        {
+          "kind": "component",
+          "type": "header",
+          "label": "Label",
+          "name": "headerComponent-taskImplementationByPartnersDesc",
+          "value": "4. Opis działań partnerów  \nw ramach realizacji\nprzedsięwzięcia  \n(ze szczególnym\nuwzględnieniem organów\nadministracji publicznej)",
+          "dataBDD": "header-component-taskImplementationByPartnersDesc",
+          "classList": [
+            "displayNoneFrontend"
+          ]
+        },
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "4. Opis działań partnerów w ramach realizacji przedsięwzięcia (ze szczególnym uwzględnieniem organów administracji publicznej)",
+          "name": "taskImplementationByPartnersDesc",
+          "value": "",
+          "helpText": "Opisz działania partnerów",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 10000
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 10000."
+            },
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "required": true,
+          "dataBDD": "task-implementation-by-partners-desc",
+          "classList": [
+            "no-label",
+            "col-span-2",
+            "userInput-border",
+            "text-left"
+          ]
+        }
+      ],
+      "classList": [
+        "grid",
+        "grid-cols-3",
+        "no-title"
+      ]
+    }
+  ]
+}

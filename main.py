@@ -1,69 +1,12 @@
 import subprocess
-
-# DPF
-from classes.form_builder.dpf.animated_film.application_builder import AnimatedFilmApplicationBuilder
-from classes.form_builder.dpf.screenplay_scholarship.application_builder import ScreenplayScholarshipApplicationBuilder
-from classes.form_builder.dpf.documentary_film.application_builder import DocumentaryFilmApplicationBuilder
-from classes.form_builder.dpf.family_film.application_builder import FamilyFilmApplicationBuilder
-from classes.form_builder.dpf.coproduction_film.application_builder import CoproductionFilmApplicationBuilder
-from classes.form_builder.dpf.feature_film.application_builder import FeatureFilmApplicationBuilder
-from classes.form_builder.dpf.film_project_development.application_builder import FilmProjectDevelopmentApplicationBuilder
-# DUK - education
-from classes.form_builder.duk.education.postgraduate_schools.application_builder import PostgraduateSchoolsApplicationBuilder
-from classes.form_builder.duk.education.secondary_schools.application_builder import SecondarySchoolsApplicationBuilder
-from classes.form_builder.duk.education.cinemas.application_builder import CinemasApplicationBuilder
-from classes.form_builder.duk.education.professional_training.application_builder import ProfessionalTrainingApplicationBuilder
-# DUK - dissemination
-from classes.form_builder.duk.dissemination.research.application_builder import ResearchApplicationBuilder
-from classes.form_builder.duk.dissemination.festivals.application_builder import FestivalsApplicationBuilder
-from classes.form_builder.duk.dissemination.literature.application_builder import LiteratueApplicationBuilder
-from classes.form_builder.duk.dissemination.initiatives.application_builder import InitiativesApplicationBuilder
-from classes.form_builder.duk.dissemination.documentary_distribution.application_builder import DocumentaryDistributionApplicationBuilder
-from classes.form_builder.duk.dissemination.reconstruction.application_builder import ReconstructionApplicationBuilder
-# DUK - development
-from classes.form_builder.duk.development.modernization.application_builder import ModernizationApplicationBuilder
-from classes.form_builder.duk.development.digitalization.application_builder import DigitalizationApplicationBuilder
-# DWM
-from classes.form_builder.dwm.promotion.application_builder import PromotionApplicationBuilder
-from classes.form_builder.dwm.foreign_scholarship.application_builder import ForeignScholarshipApplicationBuilder
+from classes.generator.dpf_generator import DPFGenerator
+from classes.generator.duk_generator import DUKGenerator
+from classes.generator.dwm_generator import DWMGenerator
 
 
 def main():
-    applications = [
-        # DPF
-        AnimatedFilmApplicationBuilder(),
-        ScreenplayScholarshipApplicationBuilder(),
-        DocumentaryFilmApplicationBuilder(),
-        FamilyFilmApplicationBuilder(),
-        CoproductionFilmApplicationBuilder(),
-        FeatureFilmApplicationBuilder(),
-        FilmProjectDevelopmentApplicationBuilder(),
-
-        # DUK - education
-        PostgraduateSchoolsApplicationBuilder(),
-        SecondarySchoolsApplicationBuilder(),
-        CinemasApplicationBuilder(),
-        ProfessionalTrainingApplicationBuilder(),
-
-        # DUK - dissemination
-        ResearchApplicationBuilder(),
-        FestivalsApplicationBuilder(),
-        LiteratueApplicationBuilder(),
-        InitiativesApplicationBuilder(),
-        DocumentaryDistributionApplicationBuilder(),
-        ReconstructionApplicationBuilder(),
-
-        # DUK - development
-        ModernizationApplicationBuilder(),
-        DigitalizationApplicationBuilder(),
-
-        # DWM
-        PromotionApplicationBuilder(),
-        ForeignScholarshipApplicationBuilder()
-    ]
-
-    for application in applications:
-        application.generate()
+    for generator in [DPFGenerator, DUKGenerator, DWMGenerator]:
+        generator().generate_applications_and_reports()
 
     subprocess.run(["python", "scripts/delete_unused_args.py"], check=True)
 

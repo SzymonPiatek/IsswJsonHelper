@@ -1,0 +1,86 @@
+{
+  "kind": "part",
+  "title": "V. Dane finansowe",
+  "shortName": "V. Dane finansowe",
+  "classList": [
+    "full-width-grid"
+  ],
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "classList": {
+        "sub": [
+          "table-1-2-top"
+        ]
+      },
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "1. Wnioskowana wysokość dofinansowania ze środków PISF",
+          "classList": {
+            "main": [
+              "full-width"
+            ],
+            "sub": [
+              "full-width"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3",
+                  "grid",
+                  "grid-cols-3"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Kwota",
+                  "name": "requestedPisfSupportAmount",
+                  "value": 0,
+                  "readOnly": true,
+                  "unit": "PLN",
+                  "dataBDD": "requestedPisfSupportAmount",
+                  "calculationRules": [
+                    {
+                      "name": "assignValue",
+                      "kwargs": {
+                        "options": [
+                          {
+                            "fieldName": "movieKind",
+                            "value": "fabularny",
+                            "inputValue": 50000
+                          },
+                          {
+                            "fieldName": "movieKind",
+                            "value": "animowany",
+                            "inputValue": 50000
+                          },
+                          {
+                            "fieldName": "movieKind",
+                            "value": "dokumentalny",
+                            "inputValue": 35000
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

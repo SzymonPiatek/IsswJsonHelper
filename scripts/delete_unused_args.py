@@ -24,8 +24,8 @@ def delete_unused_args_in_file(path: Path):
                     obj.pop(key, None)
                     changed = True
 
-            for drop_key in ['visibilityRules', 'classList', 'validators', 'calculationRules', 'errorMsgs', 'options']:
-                if not obj.get(drop_key):
+            for drop_key in ['visibilityRules', 'classList', 'validators', 'calculationRules', 'errorMsgs', 'options', 'mask']:
+                if not obj.get(drop_key, False):
                     obj.pop(drop_key, None)
                     changed = True
 
@@ -40,9 +40,6 @@ def delete_unused_args_in_file(path: Path):
     if changed:
         with path.open('w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
-        print(f"Cleaned {path}")
-    else:
-        print(f"No changes in {path}")
 
 
 def main():

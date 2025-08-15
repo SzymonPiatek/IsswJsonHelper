@@ -1,0 +1,3093 @@
+{
+  "kind": "part",
+  "title": "V. Dane finansowe przedsięwzięcia",
+  "shortName": "V. Dane finansowe",
+  "classList": [
+    "full-width-grid"
+  ],
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "OGÓLNE KOSZTY WEDŁUG UDOKUMENTOWANYCH ŹRÓDEŁ FINANSOWANIA",
+      "classList": {
+        "sub": [
+          "table-1-2-top"
+        ]
+      },
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "<small>UWAGA! <normal>Dane dotyczące kosztów produkcji powinny być identyczne z danymi zawartymi w planowanym kosztorysie stanowiącym załącznik do wniosku oraz z deklaracjami koproducentów wynikającymi z umów lub listów intencyjnych załączonych do wniosku.</small></normal>",
+          "components": []
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal><small><red>Przed wypełnieniem danych finansowych upewnij się, że zakładki I. Dane podstawowe i III. Informacje zostały wypełnione w całości i zgodnie z właściwościami produkcji.  </red><br />W przypadku braku automatycznego przeliczenia wartości finansowych prosimy o użycie przycisku „Przelicz i waliduj”, który znajduje się w prawym, dolnym rogu ekranu. Wymusi to dokonanie niezbędnych przeliczeń oraz podświetli nieuzupełnione pola formularza. </small></normal>",
+          "components": []
+        },
+        {
+          "kind": "chapter",
+          "title": "1. Całkowity przewidywany koszt realizacji przedsięwzięcia",
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-3"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Kwota",
+              "name": "totalTaskCost",
+              "value": 0,
+              "calculationRules": [
+                {
+                  "name": "sumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "requestedPisfSupportAmount",
+                      "ownFundsTotalAmount",
+                      "financingEntitiesTotalAmount",
+                      "publicEntitiesTotalAmount"
+                    ]
+                  }
+                }
+              ],
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "requestedPisfSupportAmount",
+                      "ownFundsTotalAmount",
+                      "financingEntitiesTotalAmount",
+                      "publicEntitiesTotalAmount"
+                    ]
+                  }
+                }
+              ],
+              "unit": "PLN",
+              "dataBDD": "totalTaskCost"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Udział w budżecie całkowitym",
+              "name": "totalTaskCostShare",
+              "value": 0,
+              "calculationRules": [
+                {
+                  "name": "shareCalculator",
+                  "kwargs": {
+                    "dividendField": "totalTaskCost",
+                    "divisorField": "totalTaskCost"
+                  },
+                  "validationMsg": "Wartość musi być większa od zera."
+                }
+              ],
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedShareValidator",
+                  "kwargs": {
+                    "dividend": "totalTaskCost",
+                    "divisor": "totalTaskCost"
+                  }
+                }
+              ],
+              "unit": "%",
+              "dataBDD": "totalTaskCostShare"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "2. Wnioskowana wysokość dofinansowania ze środków PISF",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": {
+                "main": [
+                  "table-1-3",
+                  "grid",
+                  "grid-cols-5"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "mask": "fund",
+                  "label": "Kwota",
+                  "name": "requestedPisfSupportAmount",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RelatedMappedLimitValidator",
+                      "kwargs": {
+                        "options": [
+                          {
+                            "limit": 7000000.0,
+                            "conditions": [
+                              {
+                                "field_name": "movieKind",
+                                "value": "animowany"
+                              },
+                              {
+                                "field_name": "movieSubject",
+                                "value": "film autorski"
+                              },
+                              {
+                                "field_name": "eventMovieDuration",
+                                "value": "pełnometrażowy"
+                              },
+                              {
+                                "field_name": "isFirstExploitedInCinemas",
+                                "value": "Tak"
+                              }
+                            ]
+                          },
+                          {
+                            "limit": 7000000.0,
+                            "conditions": [
+                              {
+                                "field_name": "movieKind",
+                                "value": "animowany"
+                              },
+                              {
+                                "field_name": "movieSubject",
+                                "value": "film o tematyce historycznej"
+                              },
+                              {
+                                "field_name": "eventMovieDuration",
+                                "value": "pełnometrażowy"
+                              },
+                              {
+                                "field_name": "isFirstExploitedInCinemas",
+                                "value": "Tak"
+                              }
+                            ]
+                          },
+                          {
+                            "limit": 3000000.0,
+                            "conditions": [
+                              {
+                                "field_name": "movieKind",
+                                "value": "animowany"
+                              },
+                              {
+                                "field_name": "movieSubject",
+                                "value": "film autorski"
+                              },
+                              {
+                                "field_name": "eventMovieDuration",
+                                "value": "pełnometrażowy"
+                              },
+                              {
+                                "field_name": "isFirstExploitedInCinemas",
+                                "value": "Nie"
+                              }
+                            ]
+                          },
+                          {
+                            "limit": 3000000.0,
+                            "conditions": [
+                              {
+                                "field_name": "movieKind",
+                                "value": "animowany"
+                              },
+                              {
+                                "field_name": "movieSubject",
+                                "value": "film o tematyce historycznej"
+                              },
+                              {
+                                "field_name": "eventMovieDuration",
+                                "value": "pełnometrażowy"
+                              },
+                              {
+                                "field_name": "isFirstExploitedInCinemas",
+                                "value": "Nie"
+                              }
+                            ]
+                          },
+                          {
+                            "limit": 700000.0,
+                            "conditions": [
+                              {
+                                "field_name": "movieKind",
+                                "value": "animowany"
+                              },
+                              {
+                                "field_name": "movieSubject",
+                                "value": "film autorski"
+                              },
+                              {
+                                "field_name": "eventMovieDuration",
+                                "value": "średniometrażowy"
+                              }
+                            ]
+                          },
+                          {
+                            "limit": 700000.0,
+                            "conditions": [
+                              {
+                                "field_name": "movieKind",
+                                "value": "animowany"
+                              },
+                              {
+                                "field_name": "movieSubject",
+                                "value": "film o tematyce historycznej"
+                              },
+                              {
+                                "field_name": "eventMovieDuration",
+                                "value": "średniometrażowy"
+                              }
+                            ]
+                          },
+                          {
+                            "limit": 700000.0,
+                            "conditions": [
+                              {
+                                "field_name": "movieKind",
+                                "value": "animowany"
+                              },
+                              {
+                                "field_name": "movieSubject",
+                                "value": "film dla młodego widza lub widowni familijnej"
+                              },
+                              {
+                                "field_name": "eventMovieDurationFamily",
+                                "value": "średniometrażowy"
+                              }
+                            ]
+                          },
+                          {
+                            "limit": 400000.0,
+                            "conditions": [
+                              {
+                                "field_name": "movieKind",
+                                "value": "animowany"
+                              },
+                              {
+                                "field_name": "movieSubject",
+                                "value": "film autorski"
+                              },
+                              {
+                                "field_name": "eventMovieDuration",
+                                "value": "krótkometrażowy"
+                              }
+                            ]
+                          },
+                          {
+                            "limit": 400000.0,
+                            "conditions": [
+                              {
+                                "field_name": "movieKind",
+                                "value": "animowany"
+                              },
+                              {
+                                "field_name": "movieSubject",
+                                "value": "film o tematyce historycznej"
+                              },
+                              {
+                                "field_name": "eventMovieDuration",
+                                "value": "krótkometrażowy"
+                              }
+                            ]
+                          },
+                          {
+                            "limit": 400000.0,
+                            "conditions": [
+                              {
+                                "field_name": "movieKind",
+                                "value": "animowany"
+                              },
+                              {
+                                "field_name": "movieSubject",
+                                "value": "film dla młodego widza lub widowni familijnej"
+                              },
+                              {
+                                "field_name": "eventMovieDurationFamily",
+                                "value": "krótkometrażowy"
+                              }
+                            ]
+                          },
+                          {
+                            "limit": 6000000.0,
+                            "conditions": [
+                              {
+                                "field_name": "movieKind",
+                                "value": "seria animowana"
+                              },
+                              {
+                                "field_name": "numberOfEpisodes",
+                                "value": "52"
+                              }
+                            ]
+                          },
+                          {
+                            "limit": 3000000.0,
+                            "conditions": [
+                              {
+                                "field_name": "movieKind",
+                                "value": "seria animowana"
+                              },
+                              {
+                                "field_name": "numberOfEpisodes",
+                                "value": "26"
+                              }
+                            ]
+                          },
+                          {
+                            "limit": 1500000.0,
+                            "conditions": [
+                              {
+                                "field_name": "movieKind",
+                                "value": "seria animowana"
+                              },
+                              {
+                                "field_name": "numberOfEpisodes",
+                                "value": "13"
+                              }
+                            ]
+                          }
+                        ],
+                        "default_limit": 0
+                      }
+                    }
+                  ],
+                  "unit": "PLN",
+                  "dataBDD": "requestedPisfSupportAmount"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział w budżecie całkowitym",
+                  "name": "requestedPisfSupportShare",
+                  "value": 0,
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMappedLimitValidator",
+                      "kwargs": {
+                        "options": [
+                          {
+                            "limit": 90.0,
+                            "conditions": [
+                              {
+                                "field_name": "isDifficultPiece",
+                                "value": "Tak"
+                              }
+                            ]
+                          },
+                          {
+                            "limit": 50.0,
+                            "conditions": [
+                              {
+                                "field_name": "isDifficultPiece",
+                                "value": "Nie"
+                              }
+                            ]
+                          }
+                        ],
+                        "default_limit": 50.0
+                      }
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "requestedPisfSupportAmount",
+                        "divisorField": "totalTaskCost"
+                      }
+                    }
+                  ],
+                  "unit": "%",
+                  "dataBDD": "requestedPisfSupportShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Udział w budżecie strony polskiej",
+                  "name": "requestedPisfSupportSharePl",
+                  "value": 0,
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMappedLimitValidator",
+                      "kwargs": {
+                        "default_limit": 100.01
+                      }
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "requestedPisfSupportAmount",
+                        "divisorField": "domesticFinancingTotalAmount"
+                      }
+                    }
+                  ],
+                  "unit": "%",
+                  "dataBDD": "requestedPisfSupportSharePl"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "3. Łączna wysokość pozostałych środków publicznych",
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-3"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          },
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "mask": "fund",
+              "label": "Kwota",
+              "name": "requestedOtherPublicSupportAmount",
+              "value": 0,
+              "readOnly": true,
+              "calculationRules": [
+                {
+                  "name": "sumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "publicEntitiesTotalAmountPoland",
+                      "publicEntitiesTotalAmountOther"
+                    ]
+                  }
+                }
+              ],
+              "unit": "PLN",
+              "dataBDD": "requestedOtherPublicSupportAmount"
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Udział w budżecie całkowitym",
+              "name": "requestedOtherPublicSupportShare",
+              "value": 0,
+              "readOnly": true,
+              "calculationRules": [
+                {
+                  "name": "shareCalculator",
+                  "kwargs": {
+                    "dividendField": "publicEntitiesTotalAmount",
+                    "divisorField": "totalTaskCost"
+                  }
+                }
+              ],
+              "unit": "%",
+              "dataBDD": "requestedOtherPublicSupportShare"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "4. Deklarowana wysokość środków własnych producenta",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>Wyszczególnienie źródeł finansowania </normal>",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "<normal>- źródło pochodzenia: Polska </normal>",
+                  "isMultipleForms": true,
+                  "multipleFormsRules": {
+                    "minCount": 1,
+                    "maxCount": 10
+                  },
+                  "classList": {
+                    "sub": [
+                      "table-1-2-top"
+                    ]
+                  },
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "classList": {
+                        "main": [
+                          "table-1-3",
+                          "grid",
+                          "grid-cols-3"
+                        ],
+                        "sub": [
+                          "table-1-3__col"
+                        ]
+                      },
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "country",
+                          "label": "Kraj pochodzenia środków",
+                          "name": "ownFundsCountryNamePoland",
+                          "value": "Polska",
+                          "defaultValue": "Polska",
+                          "readOnly": true,
+                          "dataBDD": "ownFundsCountryNamePoland"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "mask": "fund",
+                          "label": "Wkład finansowy",
+                          "name": "ownFundsFinancialInputAmountPoland",
+                          "value": 0,
+                          "helpText": "Kwota PLN",
+                          "unit": "PLN",
+                          "dataBDD": "ownFundsFinancialInputAmountPoland"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "mask": "fund",
+                          "label": "Wkład rzeczowy",
+                          "name": "ownFundsInKindInputsAmountPoland",
+                          "value": 0,
+                          "helpText": "Kwota PLN (pole do uzupełnienia tylko w przypadku wyboru źródła: wkład finansowo-rzeczowy Producenta)",
+                          "unit": "PLN",
+                          "dataBDD": "ownFundsInKindInputsAmountPoland"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "select",
+                          "label": "Źródło wkładu",
+                          "name": "ownFundsSourcePoland",
+                          "value": "wkład finansowo-rzeczowy Producenta",
+                          "options": [
+                            "wkład finansowo-rzeczowy Producenta",
+                            "minimum gwarantowane",
+                            "licencja",
+                            "pożyczka",
+                            "kredyt",
+                            "środki od sponsora"
+                          ],
+                          "helpText": "Wskaż źródło wkładu",
+                          "dataBDD": "ownFundsSourcePoland"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "mask": "fund",
+                          "label": "Wkład łącznie",
+                          "name": "ownFundsTotalInputPoland",
+                          "value": 0,
+                          "readOnly": true,
+                          "calculationRules": [
+                            {
+                              "name": "localSum",
+                              "kwargs": {
+                                "fields": [
+                                  "ownFundsFinancialInputAmountPoland",
+                                  "ownFundsInKindInputsAmountPoland"
+                                ]
+                              }
+                            }
+                          ],
+                          "unit": "PLN",
+                          "dataBDD": "ownFundsTotalInputPoland"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "number",
+                          "label": "Udział w budżecie całkowitym",
+                          "name": "ownFundsTotalSharePoland",
+                          "value": 0,
+                          "readOnly": true,
+                          "calculationRules": [
+                            {
+                              "name": "singlePositionShareCalculator",
+                              "kwargs": {
+                                "dividendField": "ownFundsTotalInputPoland",
+                                "divisorField": "totalTaskCost"
+                              }
+                            }
+                          ],
+                          "unit": "%",
+                          "dataBDD": "ownFundsTotalSharePoland"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "classList": {
+                    "sub": [
+                      "displayNone"
+                    ]
+                  },
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "<normal>- źródło pochodzenia inne niż Polska </normal>",
+                      "isMultipleForms": true,
+                      "multipleFormsRules": {
+                        "minCount": 1,
+                        "maxCount": 10
+                      },
+                      "classList": {
+                        "sub": [
+                          "table-1-2-top"
+                        ]
+                      },
+                      "components": [
+                        {
+                          "kind": "chapter",
+                          "title": "",
+                          "classList": {
+                            "main": [
+                              "table-1-3",
+                              "grid",
+                              "grid-cols-3"
+                            ],
+                            "sub": [
+                              "table-1-3__col"
+                            ]
+                          },
+                          "components": [
+                            {
+                              "kind": "component",
+                              "type": "country",
+                              "label": "Kraj pochodzenia środków",
+                              "name": "ownFundsCountryNameOther",
+                              "value": "",
+                              "helpText": "Podaj kraj pochodzenia środków",
+                              "dataBDD": "ownFundsCountryNameOther"
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "mask": "fund",
+                              "label": "Wkład finansowy",
+                              "name": "ownFundsFinancialInputAmountOther",
+                              "value": 0,
+                              "helpText": "Kwota PLN",
+                              "unit": "PLN",
+                              "dataBDD": "ownFundsFinancialInputAmountOther"
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "mask": "fund",
+                              "label": "Wkład rzeczowy",
+                              "name": "ownFundsInKindInputsAmountOther",
+                              "value": 0,
+                              "helpText": "Kwota PLN",
+                              "unit": "PLN",
+                              "dataBDD": "ownFundsInKindInputsAmountOther"
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "mask": "fund",
+                              "label": "Wkład łącznie",
+                              "name": "ownFundsTotalInputOther",
+                              "value": 0,
+                              "readOnly": true,
+                              "calculationRules": [
+                                {
+                                  "name": "localSum",
+                                  "kwargs": {
+                                    "fields": [
+                                      "ownFundsFinancialInputAmountOther",
+                                      "ownFundsInKindInputsAmountOther"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "unit": "PLN",
+                              "dataBDD": "ownFundsTotalInputOther"
+                            },
+                            {
+                              "kind": "component",
+                              "type": "number",
+                              "label": "Udział w budżecie całkowitym",
+                              "name": "ownFundsTotalShareOther",
+                              "value": 0,
+                              "readOnly": true,
+                              "calculationRules": [
+                                {
+                                  "name": "singlePositionShareCalculator",
+                                  "kwargs": {
+                                    "dividendField": "ownFundsTotalInputOther",
+                                    "divisorField": "totalTaskCost"
+                                  }
+                                }
+                              ],
+                              "unit": "%",
+                              "dataBDD": "ownFundsTotalShareOther"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<normal>Razem </normal>",
+              "classList": {
+                "sub": [
+                  "table-1-2-top"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "classList": {
+                    "main": [
+                      "table-1-3",
+                      "grid",
+                      "grid-cols-5"
+                    ],
+                    "sub": [
+                      "table-1-3__col"
+                    ]
+                  },
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład finansowy łącznie dla kraju: Polska",
+                      "name": "ownFinancialInputAmountPolandSum",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "ownFundsFinancialInputAmountPoland"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "ownFinancialInputAmountPolandSum"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład finansowy łącznie dla krajów innych niż Polska",
+                      "name": "ownFinancialInputAmountOtherSum",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "ownFundsFinancialInputAmountOther"
+                            ]
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "ownFinancialInputAmountOtherSum"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład finansowy łącznie",
+                      "name": "ownFinancialInputAmountAltogether",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "sumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "ownFinancialInputAmountPolandSum",
+                              "ownFinancialInputAmountOtherSum"
+                            ]
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "ownFinancialInputAmountAltogether"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład rzeczowy łącznie dla kraju: Polska",
+                      "name": "ownInKindInputAmountPolandSum",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "ownFundsInKindInputsAmountPoland"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "ownInKindInputAmountPolandSum"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład rzeczowy łącznie dla krajów innych niż Polska",
+                      "name": "ownInKindInputAmountOtherSum",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "ownFundsInKindInputsAmountOther"
+                            ]
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "ownInKindInputAmountOtherSum"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład rzeczowy łącznie",
+                      "name": "ownInKindInputAmountAltogether",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "sumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "ownInKindInputAmountPolandSum",
+                              "ownInKindInputAmountOtherSum"
+                            ]
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "ownInKindInputAmountAltogether"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Kwota całkowita dla kraju pochodzenia: Polska",
+                      "name": "ownFundsTotalAmountPoland",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "sumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "ownFinancialInputAmountPolandSum",
+                              "ownInKindInputAmountPolandSum"
+                            ]
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "ownFundsTotalAmountPoland"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Kwota całkowita dla krajów pochodzenia innych niż Polska",
+                      "name": "ownFundsTotalAmountOther",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "sumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "ownFinancialInputAmountOtherSum",
+                              "ownInKindInputAmountOtherSum"
+                            ]
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "ownFundsTotalAmountOther"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Kwota całkowita",
+                      "name": "ownFundsTotalAmount",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "sumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "ownFundsTotalAmountPoland",
+                              "ownFundsTotalAmountOther"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "ownFundsTotalAmount"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Udział w budżecie całkowitym",
+                      "name": "ownFundsTotalShare",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "shareCalculator",
+                          "kwargs": {
+                            "dividendField": "ownFundsTotalAmount",
+                            "divisorField": "totalTaskCost"
+                          }
+                        }
+                      ],
+                      "unit": "%",
+                      "dataBDD": "ownFundsTotalShare"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Udział wkładu finansowego w łącznym wkładzie producenta",
+                      "name": "ownFundsFinancialToTotalShare",
+                      "value": 0,
+                      "readOnly": true,
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 5.0
+                          },
+                          "validationMsg": "Wkład finansowy nie może być mniejszy niż 5% łącznego wkładu producenta."
+                        }
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "shareCalculator",
+                          "kwargs": {
+                            "dividendField": "ownFinancialInputAmountAltogether",
+                            "divisorField": "ownFundsTotalAmount"
+                          }
+                        }
+                      ],
+                      "unit": "%",
+                      "dataBDD": "ownFundsFinancialToTotalShare"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Udział wkładu rzeczowego w łącznym wkładzie producenta",
+                      "name": "ownFundsInKindToTotalShare",
+                      "value": 0,
+                      "readOnly": true,
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "max": 95.01
+                          },
+                          "validationMsg": "Wkład rzeczowy nie może przekroczyć 95% łącznego wkładu producenta."
+                        }
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "shareCalculator",
+                          "kwargs": {
+                            "dividendField": "ownInKindInputAmountAltogether",
+                            "divisorField": "ownFundsTotalAmount"
+                          }
+                        }
+                      ],
+                      "unit": "%",
+                      "dataBDD": "ownFundsInKindToTotalShare"
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "categoryOfProject",
+                        "values": [
+                          "produkcja krajowa",
+                          "koprodukcja międzynarodowa większościowa"
+                        ]
+                      }
+                    }
+                  ],
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Udział wkładu własnego do kwoty dofinansowania",
+                      "helpText": "Udział wkładu własnego wnioskodawcy w stosunku do wnioskowanej kwoty dofinansowania",
+                      "name": "ownFundsTotalShareToRequestedAmount",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "shareCalculator",
+                          "kwargs": {
+                            "dividendField": "ownFundsTotalAmount",
+                            "divisorField": "requestedPisfSupportAmount"
+                          }
+                        }
+                      ],
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 5
+                          },
+                          "validationMsg": "Wkład własny nie może stanowić mniej niż 5% wnioskowanej kwoty dofinansowania."
+                        }
+                      ],
+                      "unit": "%",
+                      "dataBDD": "ownFundsTotalShareToRequestedAmount"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "<normal>Opinia bankowa o rachunku firmy producenta zgodnie z Programem Operacyjnym Produkcja Filmowa</normal>",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 5
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "Opinia bankowa (nie starsza niż 3 miesiące w dniu składania wniosku do PISF)",
+                      "name": "bankReviewAttachments",
+                      "value": "",
+                      "helpText": "Plik. Maksymalna wielkość pliku: 50 MB.",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "dataBDD": "bankReviewAttachments"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "5. Pozostałe źródła finansowania prywatne oraz środki z programów wspólnotowych Eurimages, Creative Europe",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Zaznacz, aby dodać środki finansowania w tej kategorii",
+                  "name": "isOtherPrivateFinancing",
+                  "value": false,
+                  "dataBDD": "isOtherPrivateFinancing"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "isOtherPrivateFinancing",
+                    "values": [
+                      "true",
+                      true
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "<normal>Wyszczególnienie podmiotów finansujących </normal><br /><small> Uwaga! <normal>Odznaczenie checkboxa nie prowadzi do automatycznego usunięcia zawartych w danej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "checkbox",
+                          "label": "Dodaj środki o kraju pochodzenia: Polska",
+                          "name": "addOtherPrivateSourcesPolish",
+                          "value": false,
+                          "dataBDD": "addOtherPrivateSourcesPolish"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "<normal>- źródło pochodzenia: Polska </normal>",
+                      "visibilityRules": [
+                        {
+                          "name": "dependsOnValue",
+                          "kwargs": {
+                            "fieldName": "addOtherPrivateSourcesPolish",
+                            "values": [
+                              "true",
+                              true
+                            ]
+                          }
+                        }
+                      ],
+                      "isMultipleForms": true,
+                      "multipleFormsRules": {
+                        "minCount": 1,
+                        "maxCount": 10
+                      },
+                      "components": [
+                        {
+                          "kind": "chapter",
+                          "title": "",
+                          "classList": {
+                            "sub": [
+                              "table-1-2-top"
+                            ]
+                          },
+                          "components": [
+                            {
+                              "kind": "chapter",
+                              "title": "",
+                              "classList": {
+                                "main": [
+                                  "table-1-3",
+                                  "grid",
+                                  "grid-cols-3"
+                                ],
+                                "sub": [
+                                  "table-1-3__col"
+                                ]
+                              },
+                              "components": [
+                                {
+                                  "kind": "component",
+                                  "type": "country",
+                                  "label": "Kraj pochodzenia środków",
+                                  "name": "financingEntityCountryNamePoland",
+                                  "value": "Polska",
+                                  "defaultValue": "Polska",
+                                  "readOnly": true,
+                                  "dataBDD": "financingEntityCountryNamePoland"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "text",
+                                  "label": "Nazwa podmiotu",
+                                  "name": "financingPrivateEntityNamePoland",
+                                  "value": "",
+                                  "helpText": "Podaj nazwę podmiotu finansującego",
+                                  "dataBDD": "financingPrivateEntityNamePoland"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "select",
+                                  "label": "Rodzaj podmiotu",
+                                  "name": "financingEntityTypePoland",
+                                  "value": "",
+                                  "options": [
+                                    "koproducent",
+                                    "dystrybutor",
+                                    "agent sprzedaży",
+                                    "inwestor",
+                                    "sponsor",
+                                    "instytucja kultury",
+                                    "fundusz",
+                                    "nadawca telewizyjny",
+                                    "stowarzyszenie",
+                                    "platforma streamingowa",
+                                    "inne"
+                                  ],
+                                  "helpText": "Wskaż rodzaj podmiotu finansującego",
+                                  "dataBDD": "financingEntityTypePoland"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "text",
+                                  "mask": "fund",
+                                  "label": "Wkład finansowy",
+                                  "name": "financingEntityFinancialInputAmountPoland",
+                                  "value": 0,
+                                  "helpText": "Kwota PLN",
+                                  "unit": "PLN",
+                                  "dataBDD": "financingEntityFinancialInputAmountPoland"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "text",
+                                  "mask": "fund",
+                                  "label": "Wkład rzeczowy",
+                                  "name": "financingEntityInKindInputsAmountPoland",
+                                  "value": 0,
+                                  "helpText": "Kwota PLN",
+                                  "unit": "PLN",
+                                  "dataBDD": "financingEntityInKindInputsAmountPoland"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "text",
+                                  "mask": "fund",
+                                  "label": "Wkład łącznie",
+                                  "name": "financingEntityTotalInputPoland",
+                                  "value": 0,
+                                  "readOnly": true,
+                                  "calculationRules": [
+                                    {
+                                      "name": "localSum",
+                                      "kwargs": {
+                                        "fields": [
+                                          "financingEntityFinancialInputAmountPoland",
+                                          "financingEntityInKindInputsAmountPoland"
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "unit": "PLN",
+                                  "dataBDD": "financingEntityTotalInputPoland"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "number",
+                                  "label": "Udział w budżecie całkowitym",
+                                  "name": "financingEntityTotalSharePoland",
+                                  "value": 0,
+                                  "readOnly": true,
+                                  "calculationRules": [
+                                    {
+                                      "name": "singlePositionShareCalculator",
+                                      "kwargs": {
+                                        "dividendField": "financingEntityTotalInputPoland",
+                                        "divisorField": "totalTaskCost"
+                                      }
+                                    }
+                                  ],
+                                  "unit": "%",
+                                  "dataBDD": "financingEntityTotalSharePoland"
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "chapter",
+                              "title": "",
+                              "visibilityRules": [
+                                {
+                                  "name": "dependsOnValue",
+                                  "kwargs": {
+                                    "fieldName": "applicationRelates",
+                                    "values": [
+                                      "promesa"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "components": [
+                                {
+                                  "kind": "chapter",
+                                  "title": "",
+                                  "components": [
+                                    {
+                                      "kind": "component",
+                                      "type": "file",
+                                      "label": "Umowa na podstawie której nastąpi finansowanie przedsięwzięcia bądź aktualny (nie starszy niż 6 miesięcy w dniu składania wniosku do PISF) list intencyjny z konkretnymi kwotami netto deklarowanego udziału",
+                                      "name": "pledgePrivateFinancingAttachmentPoland",
+                                      "value": "",
+                                      "helpText": "Plik. Maksymalny rozmiar pliku: 50 MB.",
+                                      "dataBDD": "pledgePrivateFinancingAttachmentPoland"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "chapter",
+                              "title": "",
+                              "visibilityRules": [
+                                {
+                                  "name": "dependsOnValue",
+                                  "kwargs": {
+                                    "fieldName": "applicationRelates",
+                                    "values": [
+                                      "umowa"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "components": [
+                                {
+                                  "kind": "chapter",
+                                  "title": "",
+                                  "components": [
+                                    {
+                                      "kind": "component",
+                                      "type": "file",
+                                      "label": "Umowa na podstawie której nastąpi finansowanie przedsięwzięcia",
+                                      "name": "contractPrivateFinancingAttachmentPoland",
+                                      "value": "",
+                                      "helpText": "Plik. Maksymalny rozmiar pliku: 50 MB.",
+                                      "dataBDD": "contractPrivateFinancingAttachmentPoland"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "checkbox",
+                          "label": "Dodaj środki o kraju pochodzenia innym niż Polska",
+                          "name": "addOtherPrivateSourcesNonPolish",
+                          "value": false,
+                          "dataBDD": "addOtherPrivateSourcesNonPolish"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "<normal>- źródło pochodzenia inne niż Polska </normal>",
+                      "visibilityRules": [
+                        {
+                          "name": "dependsOnValue",
+                          "kwargs": {
+                            "fieldName": "addOtherPrivateSourcesNonPolish",
+                            "values": [
+                              "true",
+                              true
+                            ]
+                          }
+                        }
+                      ],
+                      "isMultipleForms": true,
+                      "multipleFormsRules": {
+                        "minCount": 1,
+                        "maxCount": 10
+                      },
+                      "components": [
+                        {
+                          "kind": "chapter",
+                          "title": "",
+                          "classList": {
+                            "sub": [
+                              "table-1-2-top"
+                            ]
+                          },
+                          "components": [
+                            {
+                              "kind": "chapter",
+                              "title": "",
+                              "classList": {
+                                "main": [
+                                  "table-1-3",
+                                  "grid",
+                                  "grid-cols-3"
+                                ],
+                                "sub": [
+                                  "table-1-3__col"
+                                ]
+                              },
+                              "components": [
+                                {
+                                  "kind": "component",
+                                  "type": "country",
+                                  "label": "Kraj pochodzenia środków",
+                                  "name": "financingEntityCountryNameOther",
+                                  "value": "",
+                                  "helpText": "Podaj kraj pochodzenia środków",
+                                  "dataBDD": "financingEntityCountryNameOther"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "text",
+                                  "label": "Nazwa podmiotu",
+                                  "name": "financingPrivateEntityNameOther",
+                                  "value": "",
+                                  "helpText": "Podaj nazwę podmiotu finansującego",
+                                  "dataBDD": "financingPrivateEntityNameOther"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "select",
+                                  "label": "Rodzaj podmiotu",
+                                  "name": "financingEntityTypeOther",
+                                  "value": "",
+                                  "options": [
+                                    "koproducent",
+                                    "dystrybutor",
+                                    "agent sprzedaży",
+                                    "inwestor",
+                                    "sponsor",
+                                    "instytucja kultury",
+                                    "fundusz",
+                                    "nadawca telewizyjny",
+                                    "stowarzyszenie",
+                                    "platforma streamingowa",
+                                    "inne"
+                                  ],
+                                  "helpText": "Wskaż rodzaj podmiotu finansującego",
+                                  "dataBDD": "financingEntityTypeOther"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "text",
+                                  "mask": "fund",
+                                  "label": "Wkład finansowy",
+                                  "name": "financingEntityFinancialInputAmountOther",
+                                  "value": 0,
+                                  "helpText": "Kwota PLN",
+                                  "unit": "PLN",
+                                  "dataBDD": "financingEntityFinancialInputAmountOther"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "text",
+                                  "mask": "fund",
+                                  "label": "Wkład rzeczowy",
+                                  "name": "financingEntityInKindInputsAmountOther",
+                                  "value": 0,
+                                  "helpText": "Kwota PLN",
+                                  "unit": "PLN",
+                                  "dataBDD": "financingEntityInKindInputsAmountOther"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "text",
+                                  "mask": "fund",
+                                  "label": "Wkład łącznie",
+                                  "name": "financingEntityTotalInputOther",
+                                  "value": 0,
+                                  "readOnly": true,
+                                  "calculationRules": [
+                                    {
+                                      "name": "localSum",
+                                      "kwargs": {
+                                        "fields": [
+                                          "financingEntityFinancialInputAmountOther",
+                                          "financingEntityInKindInputsAmountOther"
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "unit": "PLN",
+                                  "dataBDD": "financingEntityTotalInputOther"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "number",
+                                  "label": "Udział w budżecie całkowitym",
+                                  "name": "financingEntityTotalShareOther",
+                                  "value": 0,
+                                  "readOnly": true,
+                                  "calculationRules": [
+                                    {
+                                      "name": "singlePositionShareCalculator",
+                                      "kwargs": {
+                                        "dividendField": "financingEntityTotalInputOther",
+                                        "divisorField": "totalTaskCost"
+                                      }
+                                    }
+                                  ],
+                                  "unit": "%",
+                                  "dataBDD": "financingEntityTotalShareOther"
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "chapter",
+                              "title": "",
+                              "visibilityRules": [
+                                {
+                                  "name": "dependsOnValue",
+                                  "kwargs": {
+                                    "fieldName": "applicationRelates",
+                                    "values": [
+                                      "promesa"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "components": [
+                                {
+                                  "kind": "chapter",
+                                  "title": "",
+                                  "components": [
+                                    {
+                                      "kind": "component",
+                                      "type": "file",
+                                      "label": "Umowa na podstawie której nastąpi finansowanie przedsięwzięcia bądź aktualny (nie starszy niż 6 miesięcy w dniu składania wniosku do PISF) list intencyjny z konkretnymi kwotami netto deklarowanego udziału",
+                                      "name": "pledgePrivateFinancingAttachmentOther",
+                                      "value": "",
+                                      "helpText": "Plik. Maksymalny rozmiar pliku: 50 MB.",
+                                      "dataBDD": "pledgePrivateFinancingAttachmentOther"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "chapter",
+                              "title": "",
+                              "visibilityRules": [
+                                {
+                                  "name": "dependsOnValue",
+                                  "kwargs": {
+                                    "fieldName": "applicationRelates",
+                                    "values": [
+                                      "umowa"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "components": [
+                                {
+                                  "kind": "chapter",
+                                  "title": "",
+                                  "components": [
+                                    {
+                                      "kind": "component",
+                                      "type": "file",
+                                      "label": "Umowa na podstawie której nastąpi finansowanie przedsięwzięcia",
+                                      "name": "contractPrivateFinancingAttachmentOther",
+                                      "value": "",
+                                      "helpText": "Plik. Maksymalny rozmiar pliku: 50 MB.",
+                                      "dataBDD": "contractPrivateFinancingAttachmentOther"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "<normal>Razem </normal>",
+                  "classList": {
+                    "main": [
+                      "table-1-3",
+                      "grid",
+                      "grid-cols-3"
+                    ],
+                    "sub": [
+                      "table-1-3__col"
+                    ]
+                  },
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład finansowy łącznie dla kraju: Polska",
+                      "name": "financingEntitiesFinancialInputAmountPolandSum",
+                      "value": 0,
+                      "readOnly": true,
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "financingEntityFinancialInputAmountPoland"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "financingEntitiesFinancialInputAmountPolandSum"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład finansowy łącznie dla krajów innych niż Polska",
+                      "name": "financingEntitiesFinancialInputAmountOtherSum",
+                      "value": 0,
+                      "readOnly": true,
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "financingEntityFinancialInputAmountOther"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "financingEntitiesFinancialInputAmountOtherSum"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład finansowy łącznie",
+                      "name": "financingEntitiesFinancialInputAmountAltogether",
+                      "value": 0,
+                      "readOnly": true,
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "sumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "financingEntitiesFinancialInputAmountPolandSum",
+                              "financingEntitiesFinancialInputAmountOtherSum"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "financingEntitiesFinancialInputAmountAltogether"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład rzeczowy łącznie dla kraju: Polska",
+                      "name": "financingEntitiesInKindInputAmountPolandSum",
+                      "value": 0,
+                      "readOnly": true,
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "financingEntityInKindInputsAmountPoland"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "financingEntitiesInKindInputAmountPolandSum"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład rzeczowy łącznie dla krajów innych niż Polska",
+                      "name": "financingEntitiesInKindInputAmountOtherSum",
+                      "value": 0,
+                      "readOnly": true,
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "financingEntityInKindInputsAmountOther"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "financingEntitiesInKindInputAmountOtherSum"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład rzeczowy łącznie",
+                      "name": "financingEntitiesInKindInputAmountAltogether",
+                      "value": 0,
+                      "readOnly": true,
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "sumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "financingEntitiesInKindInputAmountPolandSum",
+                              "financingEntitiesInKindInputAmountOtherSum"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "financingEntitiesInKindInputAmountAltogether"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Kwota całkowita dla kraju pochodzenia: Polska",
+                      "name": "financingEntitiesTotalAmountPoland",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "sumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "financingEntitiesFinancialInputAmountPolandSum",
+                              "financingEntitiesInKindInputAmountPolandSum"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "financingEntitiesTotalAmountPoland"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Kwota całkowita dla krajów pochodzenia innych niż Polska",
+                      "name": "financingEntitiesTotalAmountOther",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "sumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "financingEntitiesFinancialInputAmountOtherSum",
+                              "financingEntitiesInKindInputAmountOtherSum"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "financingEntitiesTotalAmountOther"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Kwota całkowita",
+                      "name": "financingEntitiesTotalAmount",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "sumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "financingEntitiesTotalAmountPoland",
+                              "financingEntitiesTotalAmountOther"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "financingEntitiesTotalAmount"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Udział w budżecie całkowitym",
+                      "name": "financingEntitiesTotalShare",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "shareCalculator",
+                          "kwargs": {
+                            "dividendField": "financingEntitiesTotalAmount",
+                            "divisorField": "totalTaskCost"
+                          }
+                        }
+                      ],
+                      "unit": "%",
+                      "dataBDD": "financingEntitiesTotalShare"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "6. Pozostałe publiczne źródła finansowania",
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Zaznacz, aby dodać środki finansowania w tej kategorii",
+                  "name": "isOtherPublicFinancing",
+                  "value": false,
+                  "dataBDD": "isOtherPublicFinancing"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "isOtherPublicFinancing",
+                    "values": [
+                      "true",
+                      true
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "<normal>Wyszczególnienie podmiotów finansujących </normal><br /><small> Uwaga! <normal>Odznaczenie checkboxa nie prowadzi do automatycznego usunięcia zawartych w danej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "checkbox",
+                          "label": "Dodaj środki o kraju pochodzenia: Polska",
+                          "name": "addOtherPublicSourcesPolish",
+                          "value": false,
+                          "dataBDD": "addOtherPublicSourcesPolish"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "<normal>- źródło pochodzenia: Polska </normal>",
+                      "visibilityRules": [
+                        {
+                          "name": "dependsOnValue",
+                          "kwargs": {
+                            "fieldName": "addOtherPublicSourcesPolish",
+                            "values": [
+                              "true",
+                              true
+                            ]
+                          }
+                        }
+                      ],
+                      "isMultipleForms": true,
+                      "multipleFormsRules": {
+                        "minCount": 1,
+                        "maxCount": 10
+                      },
+                      "components": [
+                        {
+                          "kind": "chapter",
+                          "title": "",
+                          "classList": {
+                            "sub": [
+                              "table-1-2-top"
+                            ]
+                          },
+                          "components": [
+                            {
+                              "kind": "chapter",
+                              "title": "",
+                              "classList": {
+                                "main": [
+                                  "table-1-3",
+                                  "grid",
+                                  "grid-cols-3"
+                                ],
+                                "sub": [
+                                  "table-1-3__col"
+                                ]
+                              },
+                              "components": [
+                                {
+                                  "kind": "component",
+                                  "type": "country",
+                                  "label": "Kraj pochodzenia środków",
+                                  "name": "publicEntityCountryNamePoland",
+                                  "value": "Polska",
+                                  "defaultValue": "Polska",
+                                  "readOnly": true,
+                                  "dataBDD": "publicEntityCountryNamePoland"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "text",
+                                  "label": "Nazwa podmiotu",
+                                  "name": "publicEntityNamePoland",
+                                  "value": "",
+                                  "helpText": "Podaj nazwę podmiotu finansującego",
+                                  "dataBDD": "publicEntityNamePoland"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "select",
+                                  "label": "Rodzaj podmiotu",
+                                  "name": "publicEntityTypePoland",
+                                  "value": "",
+                                  "options": [
+                                    "instytut filmowy",
+                                    "instytucja kultury",
+                                    "fundusz",
+                                    "inne"
+                                  ],
+                                  "helpText": "Wskaż rodzaj podmiotu finansującego",
+                                  "dataBDD": "publicEntityTypePoland"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "text",
+                                  "mask": "fund",
+                                  "label": "Wkład finansowy",
+                                  "name": "publicEntityFinancialInputAmountPoland",
+                                  "value": 0,
+                                  "helpText": "Kwota PLN",
+                                  "unit": "PLN",
+                                  "dataBDD": "publicEntityFinancialInputAmountPoland"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "text",
+                                  "mask": "fund",
+                                  "label": "Wkład rzeczowy",
+                                  "name": "publicEntityInKindInputsAmountPoland",
+                                  "value": 0,
+                                  "helpText": "Kwota PLN",
+                                  "unit": "PLN",
+                                  "dataBDD": "publicEntityInKindInputsAmountPoland"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "text",
+                                  "mask": "fund",
+                                  "label": "Wkład łącznie",
+                                  "name": "publicEntityTotalInputPoland",
+                                  "value": 0,
+                                  "readOnly": true,
+                                  "calculationRules": [
+                                    {
+                                      "name": "localSum",
+                                      "kwargs": {
+                                        "fields": [
+                                          "publicEntityFinancialInputAmountPoland",
+                                          "publicEntityInKindInputsAmountPoland"
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "unit": "PLN",
+                                  "dataBDD": "publicEntityTotalInputPoland"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "number",
+                                  "label": "Udział w budżecie całkowitym",
+                                  "name": "publicEntityTotalSharePoland",
+                                  "value": 0,
+                                  "readOnly": true,
+                                  "calculationRules": [
+                                    {
+                                      "name": "singlePositionShareCalculator",
+                                      "kwargs": {
+                                        "dividendField": "publicEntityTotalInputPoland",
+                                        "divisorField": "totalTaskCost"
+                                      }
+                                    }
+                                  ],
+                                  "unit": "%",
+                                  "dataBDD": "publicEntityTotalSharePoland"
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "chapter",
+                              "title": "",
+                              "visibilityRules": [
+                                {
+                                  "name": "dependsOnValue",
+                                  "kwargs": {
+                                    "fieldName": "applicationRelates",
+                                    "values": [
+                                      "promesa"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "components": [
+                                {
+                                  "kind": "chapter",
+                                  "title": "",
+                                  "components": [
+                                    {
+                                      "kind": "component",
+                                      "type": "file",
+                                      "label": "Umowa na podstawie której nastąpi finansowanie przedsięwzięcia bądź oświadczenie producenta dot. pokrycia finansowania",
+                                      "name": "pledgePublicFinancingAttachmentPoland",
+                                      "value": "",
+                                      "helpText": "Plik. Maksymalny rozmiar pliku: 50 MB.",
+                                      "dataBDD": "pledgePublicFinancingAttachmentPoland"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "chapter",
+                              "title": "",
+                              "visibilityRules": [
+                                {
+                                  "name": "dependsOnValue",
+                                  "kwargs": {
+                                    "fieldName": "applicationRelates",
+                                    "values": [
+                                      "umowa"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "components": [
+                                {
+                                  "kind": "chapter",
+                                  "title": "",
+                                  "components": [
+                                    {
+                                      "kind": "component",
+                                      "type": "file",
+                                      "label": "Umowa na podstawie której nastąpi finansowanie przedsięwzięcia bądź oświadczenie producenta dot. pokrycia finansowania",
+                                      "name": "contractPublicFinancingAttachmentPoland",
+                                      "value": "",
+                                      "helpText": "Plik. Maksymalny rozmiar pliku: 50 MB.",
+                                      "dataBDD": "contractPublicFinancingAttachmentPoland"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "checkbox",
+                          "label": "Dodaj środki o kraju pochodzenia innym niż Polska",
+                          "name": "addOtherPublicSourcesNonPolish",
+                          "value": false,
+                          "dataBDD": "addOtherPublicSourcesNonPolish"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "<normal>- źródło pochodzenia inne niż Polska </normal>",
+                      "visibilityRules": [
+                        {
+                          "name": "dependsOnValue",
+                          "kwargs": {
+                            "fieldName": "addOtherPublicSourcesNonPolish",
+                            "values": [
+                              "true",
+                              true
+                            ]
+                          }
+                        }
+                      ],
+                      "isMultipleForms": true,
+                      "multipleFormsRules": {
+                        "minCount": 1,
+                        "maxCount": 10
+                      },
+                      "components": [
+                        {
+                          "kind": "chapter",
+                          "title": "",
+                          "classList": {
+                            "sub": [
+                              "table-1-2-top"
+                            ]
+                          },
+                          "components": [
+                            {
+                              "kind": "chapter",
+                              "title": "",
+                              "classList": {
+                                "main": [
+                                  "table-1-3",
+                                  "grid",
+                                  "grid-cols-3"
+                                ],
+                                "sub": [
+                                  "table-1-3__col"
+                                ]
+                              },
+                              "components": [
+                                {
+                                  "kind": "component",
+                                  "type": "country",
+                                  "label": "Kraj pochodzenia środków",
+                                  "name": "publicEntityCountryNameOther",
+                                  "value": "",
+                                  "helpText": "Podaj kraj pochodzenia środków",
+                                  "dataBDD": "publicEntityCountryNameOther"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "text",
+                                  "label": "Nazwa podmiotu",
+                                  "name": "publicEntityNameOther",
+                                  "value": "",
+                                  "helpText": "Podaj nazwę podmiotu finansującego",
+                                  "dataBDD": "publicEntityNameOther"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "select",
+                                  "label": "Rodzaj podmiotu",
+                                  "name": "publicEntityTypeOther",
+                                  "value": "",
+                                  "options": [
+                                    "instytut filmowy",
+                                    "instytucja kultury",
+                                    "fundusz",
+                                    "inne"
+                                  ],
+                                  "helpText": "Wskaż rodzaj podmiotu finansującego",
+                                  "dataBDD": "publicEntityTypeOther"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "text",
+                                  "mask": "fund",
+                                  "label": "Wkład finansowy",
+                                  "name": "publicEntityFinancialInputAmountOther",
+                                  "value": 0,
+                                  "helpText": "Kwota PLN",
+                                  "unit": "PLN",
+                                  "dataBDD": "publicEntityFinancialInputAmountOther"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "text",
+                                  "mask": "fund",
+                                  "label": "Wkład rzeczowy",
+                                  "name": "publicEntityInKindInputsAmountOther",
+                                  "value": 0,
+                                  "helpText": "Kwota PLN",
+                                  "unit": "PLN",
+                                  "dataBDD": "publicEntityInKindInputsAmountOther"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "text",
+                                  "mask": "fund",
+                                  "label": "Wkład łącznie",
+                                  "name": "publicEntityTotalInputOther",
+                                  "value": 0,
+                                  "readOnly": true,
+                                  "calculationRules": [
+                                    {
+                                      "name": "localSum",
+                                      "kwargs": {
+                                        "fields": [
+                                          "publicEntityFinancialInputAmountOther",
+                                          "publicEntityInKindInputsAmountOther"
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "unit": "PLN",
+                                  "dataBDD": "publicEntityTotalInputOther"
+                                },
+                                {
+                                  "kind": "component",
+                                  "type": "number",
+                                  "label": "Udział w budżecie całkowitym",
+                                  "name": "publicEntityTotalShareOther",
+                                  "value": 0,
+                                  "readOnly": true,
+                                  "calculationRules": [
+                                    {
+                                      "name": "singlePositionShareCalculator",
+                                      "kwargs": {
+                                        "dividendField": "publicEntityTotalInputOther",
+                                        "divisorField": "totalTaskCost"
+                                      }
+                                    }
+                                  ],
+                                  "unit": "%",
+                                  "dataBDD": "publicEntityTotalShareOther"
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "chapter",
+                              "title": "",
+                              "visibilityRules": [
+                                {
+                                  "name": "dependsOnValue",
+                                  "kwargs": {
+                                    "fieldName": "applicationRelates",
+                                    "values": [
+                                      "promesa"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "components": [
+                                {
+                                  "kind": "chapter",
+                                  "title": "",
+                                  "components": [
+                                    {
+                                      "kind": "component",
+                                      "type": "file",
+                                      "label": "Umowa na podstawie której nastąpi finansowanie przedsięwzięcia bądź oświadczenie producenta dot. pokrycia finansowania",
+                                      "name": "pledgePublicFinancingAttachmentOther",
+                                      "value": "",
+                                      "helpText": "Plik. Maksymalny rozmiar pliku: 50 MB.",
+                                      "dataBDD": "pledgePublicFinancingAttachmentOther"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "chapter",
+                              "title": "",
+                              "visibilityRules": [
+                                {
+                                  "name": "dependsOnValue",
+                                  "kwargs": {
+                                    "fieldName": "applicationRelates",
+                                    "values": [
+                                      "umowa"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "components": [
+                                {
+                                  "kind": "chapter",
+                                  "title": "",
+                                  "components": [
+                                    {
+                                      "kind": "component",
+                                      "type": "file",
+                                      "label": "Umowa na podstawie której nastąpi finansowanie przedsięwzięcia bądź oświadczenie producenta dot. pokrycia finansowania",
+                                      "name": "contractPublicFinancingAttachmentOther",
+                                      "value": "",
+                                      "helpText": "Plik. Maksymalny rozmiar pliku: 50 MB.",
+                                      "dataBDD": "contractPublicFinancingAttachmentOther"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "<normal>Razem </normal>",
+                  "classList": {
+                    "main": [
+                      "table-1-3",
+                      "grid",
+                      "grid-cols-3"
+                    ],
+                    "sub": [
+                      "table-1-3__col"
+                    ]
+                  },
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład finansowy łącznie dla kraju: Polska",
+                      "name": "publicEntitiesFinancialInputAmountPolandSum",
+                      "value": 0,
+                      "readOnly": true,
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "publicEntityFinancialInputAmountPoland"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "publicEntitiesFinancialInputAmountPolandSum"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład finansowy łącznie dla krajów innych niż Polska",
+                      "name": "publicEntitiesFinancialInputAmountOtherSum",
+                      "value": 0,
+                      "readOnly": true,
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "publicEntityFinancialInputAmountOther"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "publicEntitiesFinancialInputAmountOtherSum"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład finansowy łącznie",
+                      "name": "publicEntitiesFinancialInputAmountAltogether",
+                      "value": 0,
+                      "readOnly": true,
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "sumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "publicEntitiesFinancialInputAmountPolandSum",
+                              "publicEntitiesFinancialInputAmountOtherSum"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "publicEntitiesFinancialInputAmountAltogether"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład rzeczowy łącznie dla kraju: Polska",
+                      "name": "publicEntitiesInKindInputAmountPolandSum",
+                      "value": 0,
+                      "readOnly": true,
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "publicEntityInKindInputsAmountPoland"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "publicEntitiesInKindInputAmountPolandSum"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład rzeczowy łącznie dla krajów innych niż Polska",
+                      "name": "publicEntitiesInKindInputAmountOtherSum",
+                      "value": 0,
+                      "readOnly": true,
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "publicEntityInKindInputsAmountOther"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "publicEntitiesInKindInputAmountOtherSum"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Wkład rzeczowy łącznie",
+                      "name": "publicEntitiesInKindInputAmountAltogether",
+                      "value": 0,
+                      "readOnly": true,
+                      "classList": [
+                        "displayNone"
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "sumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "publicEntitiesInKindInputAmountPolandSum",
+                              "publicEntitiesInKindInputAmountOtherSum"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "publicEntitiesInKindInputAmountAltogether"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Kwota całkowita dla kraju pochodzenia: Polska",
+                      "name": "publicEntitiesTotalAmountPoland",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "sumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "publicEntitiesFinancialInputAmountPolandSum",
+                              "publicEntitiesInKindInputAmountPolandSum"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "publicEntitiesTotalAmountPoland"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Kwota całkowita dla krajów pochodzenia innych niż Polska",
+                      "name": "publicEntitiesTotalAmountOther",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "sumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "publicEntitiesFinancialInputAmountOtherSum",
+                              "publicEntitiesInKindInputAmountOtherSum"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "publicEntitiesTotalAmountOther"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Kwota całkowita",
+                      "name": "publicEntitiesTotalAmount",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "sumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "publicEntitiesTotalAmountPoland",
+                              "publicEntitiesTotalAmountOther"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "publicEntitiesTotalAmount"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Udział w budżecie całkowitym",
+                      "name": "publicEntitiesTotalShare",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "shareCalculator",
+                          "kwargs": {
+                            "dividendField": "publicEntitiesTotalAmount",
+                            "divisorField": "totalTaskCost"
+                          }
+                        }
+                      ],
+                      "unit": "%",
+                      "dataBDD": "publicEntitiesTotalShare"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "categoryOfProject",
+                "values": [
+                  "koprodukcja międzynarodowa większościowa"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "7. Łączna wartość środków krajowych",
+              "classList": {
+                "sub": [
+                  "table-1-2-top"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "classList": {
+                    "main": [
+                      "table-1-2",
+                      "grid",
+                      "grid-cols-3"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  },
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Kwota całkowita",
+                      "name": "domesticFinancingTotalAmount",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "sumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "requestedPisfSupportAmount",
+                              "ownFundsTotalAmountPoland",
+                              "publicEntitiesTotalAmountPoland",
+                              "financingEntitiesTotalAmountPoland"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "domesticFinancingTotalAmount"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Udział w budżecie całkowitym",
+                      "name": "domesticFinancingTotalShare",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "shareCalculator",
+                          "kwargs": {
+                            "dividendField": "domesticFinancingTotalAmount",
+                            "divisorField": "totalTaskCost"
+                          }
+                        }
+                      ],
+                      "unit": "%",
+                      "dataBDD": "domesticFinancingTotalShare"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "8. Łączna wartość środków zagranicznych",
+              "classList": {
+                "sub": [
+                  "table-1-2-top"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "classList": {
+                    "main": [
+                      "table-1-2",
+                      "grid",
+                      "grid-cols-3"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  },
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Kwota całkowita",
+                      "name": "foreignFinancingTotalAmount",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "sumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "ownFundsTotalAmountOther",
+                              "publicEntitiesTotalAmountOther",
+                              "financingEntitiesTotalAmountOther"
+                            ]
+                          }
+                        }
+                      ],
+                      "unit": "PLN",
+                      "dataBDD": "foreignFinancingTotalAmount"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Udział w budżecie całkowitym",
+                      "name": "foreignFinancingTotalShare",
+                      "value": 0,
+                      "readOnly": true,
+                      "calculationRules": [
+                        {
+                          "name": "shareCalculator",
+                          "kwargs": {
+                            "dividendField": "foreignFinancingTotalAmount",
+                            "divisorField": "totalTaskCost"
+                          }
+                        }
+                      ],
+                      "unit": "%",
+                      "dataBDD": "foreignFinancingTotalShare"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "9. Informacja o kwocie wydatkowanej na terytorium Polski",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "categoryOfProject",
+                    "values": [
+                      "koprodukcja międzynarodowa większościowa"
+                    ]
+                  }
+                }
+              ],
+              "classList": {
+                "sub": [
+                  "table-1-2-top"
+                ]
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "classList": {
+                    "main": [
+                      "table-1-2",
+                      "grid",
+                      "grid-cols-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  },
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "fund",
+                      "label": "Kwota całkowita",
+                      "name": "infoTotalSpendingInPl",
+                      "value": 0,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "unit": "PLN",
+                      "dataBDD": "infoTotalSpendingInPl"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "OŚWIADCZENIA",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Oświadczam, że w projekcie nie występują inne środki publiczne niż te, wskazane w strukturze finansowania powyżej, a łączny udział środków publicznych nie przekracza limitów określonych w Rozporządzeniu Ministra Kultury w sprawie udzielania przez Polski Instytut Sztuki Filmowej dofinansowania przedsięwzięć z zakresu kinematografii/wystawionego listu intencyjnego załączonego do wniosku o dofinansowanie.",
+              "name": "noOtherPublicFundsStatement",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "dataBDD": "noOtherPublicFundsStatement"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "KOSZTORYS",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "categoryOfProject",
+                "values": [
+                  "produkcja krajowa"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "<normal>Kosztorys szczegółowy (według wzoru elektronicznego dostępnego na stronie internetowej PISF) </normal>",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "file",
+                  "label": "",
+                  "name": "costEstimateDomesticProductionAttachmentXlsm",
+                  "value": "",
+                  "helpText": "Plik XLSM. Maksymalny rozmiar pliku: 50 MB.",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "dataBDD": "costEstimateDomesticProductionAttachmentXlsm"
+                },
+                {
+                  "kind": "component",
+                  "type": "file",
+                  "label": "",
+                  "name": "costEstimateDomesticProductionAttachmentPdf",
+                  "value": "",
+                  "helpText": "Plik PDF. Maksymalny rozmiar pliku: 50 MB.",
+                  "dataBDD": "costEstimateDomesticProductionAttachmentPdf"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "categoryOfProject",
+                "values": [
+                  "koprodukcja międzynarodowa większościowa"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "<normal>Kosztorys szczegółowy filmu (według wzoru elektronicznego dostępnego na stronie internetowej PISF) </normal>",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "",
+                      "name": "costEstimateMajorityProductionAttachmentXlsm",
+                      "value": "",
+                      "helpText": "Plik XLSM. Maksymalny rozmiar pliku: 50 MB.",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "dataBDD": "costEstimateMajorityProductionAttachmentXlsm"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "",
+                      "name": "costEstimateMajorityProductionAttachmentPdf",
+                      "value": "",
+                      "helpText": "Plik PDF. Maksymalny rozmiar pliku: 50 MB.",
+                      "dataBDD": "costEstimateMajorityProductionAttachmentPdf"
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "<normal>Spis polskich elementów twórczych i produkcyjnych z uwzględnieniem minimum określonego w PO Produkcja filmowa </normal>",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "",
+                      "name": "polishElementsMajorityAttachmentPdf",
+                      "value": "",
+                      "helpText": "Plik PDF. Maksymalny rozmiar pliku: 50 MB.",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "dataBDD": "polishElementsMajorityAttachmentPdf"
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "isMultipleForms": true,
+                  "multipleFormsRules": {
+                    "minCount": 1,
+                    "maxCount": 5
+                  },
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "<normal>Wykaz innych środków publiczych (przeliczone na PLN z podaniem przyjętego kursu waluty)</normal>",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "file",
+                          "label": "",
+                          "name": "listOfOtherPublicFunds",
+                          "value": "",
+                          "helpText": "Plik PDF. Maksymalny rozmiar pliku: 50 MB.",
+                          "required": true,
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            }
+                          ],
+                          "dataBDD": "listOfOtherPublicFunds"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "DODATKOWE ZAŁĄCZNIKI (opcjonalne)",
+      "isMultipleForms": true,
+      "multipleFormsRules": {
+        "minCount": 1,
+        "maxCount": 20
+      },
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "file",
+              "label": "",
+              "helpText": "Plik. Maksymalny rozmiar pliku: 50 MB.",
+              "name": "optionalAttachments",
+              "value": "",
+              "dataBDD": "optionalAttachments"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

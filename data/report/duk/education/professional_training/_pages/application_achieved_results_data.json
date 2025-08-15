@@ -1,0 +1,619 @@
+{
+  "kind": "part",
+  "title": "III. Osiągnięte wskaźniki rezultatów przedsięwzięcia",
+  "shortName": "III. Osiągnięte rezultaty",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "header-resultInfo",
+              "value": "- proszę wypełnić tylko pozycje związane z realizacją przedsięwzięcia",
+              "readOnly": true,
+              "dataBDD": "header-resultInfo",
+              "classList": [
+                "displayNonePDF"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "1. Liczba wydarzeń w ramach realizowanego przedsięwzięcia",
+          "classList": [
+            "grid",
+            "grid-cols-8",
+            "no-title",
+            "chapter-bg-red"
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "header-numEvents",
+              "value": "Liczba wydarzeń w ramach realizowanego przedsięwzięcia",
+              "readOnly": true,
+              "dataBDD": "header-numEvents",
+              "classList": [
+                "col-span-7",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "",
+              "name": "numEvents",
+              "value": 0,
+              "helpText": "Wpisz liczbę wydarzeń",
+              "unit": "szt",
+              "dataBDD": "num-events"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "2. Liczba prezentowanych filmów w ramach realizowanego przedsięwzięcia",
+          "classList": [
+            "no-title"
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": [
+                "grid",
+                "grid-cols-8",
+                "chapter-bg-grey"
+              ],
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "header-numPresentedMovies",
+                  "value": "Liczba prezentowanych filmów w ramach realizowanego przedsięwzięcia",
+                  "readOnly": true,
+                  "dataBDD": "header-numPresentedMovies",
+                  "classList": [
+                    "col-span-8",
+                    "displayNoneFrontend"
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "classList": [
+                "grid",
+                "grid-cols-8",
+                "chapter-bg-grey"
+              ],
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "header-numPolishMovies",
+                  "value": "liczba filmów polskich",
+                  "readOnly": true,
+                  "dataBDD": "header-numPolishMovies",
+                  "classList": [
+                    "col-start-2",
+                    "col-span-6",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba filmów polskich",
+                  "name": "numPolishMovies",
+                  "value": 0,
+                  "helpText": "Wpisz liczbę filmów",
+                  "unit": "szt",
+                  "dataBDD": "num-polish-movies",
+                  "classList": [
+                    "no-label"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "header-numForeignMovies",
+                  "value": "liczba filmów zagranicznych",
+                  "readOnly": true,
+                  "dataBDD": "header-numForeignMovies",
+                  "classList": [
+                    "col-start-2",
+                    "col-span-6",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba filmów zagranicznych",
+                  "name": "numForeignMovies",
+                  "value": 0,
+                  "helpText": "Wpisz liczbę filmów",
+                  "unit": "szt",
+                  "dataBDD": "num-foreign-movies",
+                  "classList": [
+                    "no-label"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "3. Liczba osób zaangażowanych w realizację przedsięwzięcia",
+          "classList": [
+            "no-title",
+            "grid",
+            "grid-cols-8",
+            "chapter-bg-red"
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "header-numInvolvedPersons",
+              "value": "Liczba osób zaangażowanych w realizację przedsięwzięcia",
+              "readOnly": true,
+              "dataBDD": "header-numInvolvedPersons",
+              "classList": [
+                "col-span-7",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "",
+              "name": "numInvolvedPersons",
+              "value": 0,
+              "helpText": "Wpisz liczbę osób",
+              "unit": "os",
+              "dataBDD": "num-involved-persons",
+              "classList": [
+                "no-label"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "4. Szacowana liczba uczestników biorących udział w ramach przedsięwzięcia",
+          "classList": [
+            "no-title",
+            "grid",
+            "grid-cols-8",
+            "chapter-bg-grey"
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "header-numParticipants",
+              "value": "Szacowana liczba uczestników biorących udział w ramach przedsięwzięcia",
+              "readOnly": true,
+              "dataBDD": "header-numParticipants",
+              "classList": [
+                "col-span-7",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "",
+              "name": "numParticipants",
+              "value": 0,
+              "helpText": "Wpisz liczbę osób",
+              "unit": "os",
+              "dataBDD": "num-participants",
+              "classList": [
+                "no-label"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "5. Liczba partnerów lub instytucji zaangażowanych w realizację przedsięwzięcia",
+          "classList": [
+            "no-title",
+            "grid",
+            "grid-cols-8",
+            "chapter-bg-red"
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "header-numInvolvedPartners",
+              "value": "Liczba partnerów lub instytucji zaangażowanych w realizację przedsięwzięcia",
+              "readOnly": true,
+              "dataBDD": "header-numInvolvedPartners",
+              "classList": [
+                "col-span-7",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "",
+              "name": "numInvolvedPartners",
+              "value": 0,
+              "helpText": "Wpisz liczbę partnerów lub instytucji",
+              "unit": "szt",
+              "dataBDD": "num-involved-partners",
+              "classList": [
+                "no-label"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "6. Liczba partnerów medialnych",
+          "classList": [
+            "no-title",
+            "grid",
+            "grid-cols-8",
+            "chapter-bg-grey"
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "header-numMediaPartners",
+              "value": "Liczba partnerów medialnych",
+              "readOnly": true,
+              "dataBDD": "header-numMediaPartners",
+              "classList": [
+                "col-span-7",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "",
+              "name": "numMediaPartners",
+              "value": 0,
+              "helpText": "Wpisz liczbę partnerów medialnych",
+              "unit": "szt",
+              "dataBDD": "num-media-partners",
+              "classList": [
+                "no-label"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "7. Nakład materiałów promocyjnych (dotyczy tylko materiałów drukowanych)",
+          "classList": [
+            "no-title",
+            "grid",
+            "grid-cols-8",
+            "chapter-bg-red"
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "header-numPromotionalMaterials",
+              "value": " Nakład materiałów promocyjnych (dotyczy tylko materiałów drukowanych)",
+              "readOnly": true,
+              "dataBDD": "header-numPromotionalMaterials",
+              "classList": [
+                "col-span-7",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "",
+              "name": "numPromotionalMaterials",
+              "value": 0,
+              "helpText": "Określ nakład materiałów promocyjnych",
+              "unit": "egz",
+              "dataBDD": "num-promotional-materials",
+              "classList": [
+                "no-label"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "8. Liczba zdigitalizowanych pozycji",
+          "classList": [
+            "no-title",
+            "grid",
+            "grid-cols-8",
+            "chapter-bg-grey"
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "header-numDigitalizedPieces",
+              "value": " Liczba zdigitalizowanych pozycji",
+              "readOnly": true,
+              "dataBDD": "header-numDigitalizedPieces",
+              "classList": [
+                "col-span-7",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "",
+              "name": "numDigitalizedPieces",
+              "value": 0,
+              "helpText": "Wpisz liczbę zdigitalizowanych pozycji",
+              "unit": "szt",
+              "dataBDD": "num-digitalized-pieces",
+              "classList": [
+                "no-label"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "9. Nakład książek i czasopism",
+          "classList": [
+            "no-title",
+            "grid",
+            "grid-cols-8",
+            "chapter-bg-red"
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "header-numBooksMagazines",
+              "value": "Nakład książek i czasopism",
+              "readOnly": true,
+              "dataBDD": "header-numBooksMagazines",
+              "classList": [
+                "col-span-7",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "",
+              "name": "numBooksMagazines",
+              "value": 0,
+              "helpText": "Określ nakład książek i czasopism",
+              "unit": "egz",
+              "dataBDD": "num-books-magazines",
+              "classList": [
+                "no-label"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "10. Liczba przyznanych nagród",
+          "classList": [
+            "no-title",
+            "grid",
+            "grid-cols-8",
+            "chapter-bg-grey"
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "header-numAwards",
+              "value": "Liczba przyznanych nagród",
+              "readOnly": true,
+              "dataBDD": "header-numAwards",
+              "classList": [
+                "col-span-7",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "",
+              "name": "numAwards",
+              "value": 0,
+              "helpText": "Wpisz liczbę przyznanych nagród",
+              "unit": "szt",
+              "dataBDD": "num-awards",
+              "classList": [
+                "no-label"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Dodatkowe informacje",
+      "components": [
+        {
+          "kind": "component",
+          "type": "textarea",
+          "label": "Informacje ważne zdaniem Beneficjenta dla wyjaśnienia danych z raportu",
+          "name": "additionalGeneralComments",
+          "value": "",
+          "validators": [
+            {
+              "name": "LengthValidator",
+              "kwargs": {
+                "max": 10000
+              },
+              "validationMsg": "Maksymalna ilość znaków nie może przekroczyć 10000."
+            }
+          ],
+          "dataBDD": "additional-general-comments",
+          "classList": [
+            "userInput-border"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "Lista załączników",
+          "isMultipleForms": true,
+          "multipleFormsRules": {
+            "minCount": 1,
+            "maxCount": 20
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "file",
+                  "label": "Plik (należy podpisać elektronicznie)",
+                  "name": "reportAttachment",
+                  "value": "",
+                  "helpText": "Plik należy podpisać elektronicznie. Maksymalna wielkość pliku to 50 MB.",
+                  "dataBDD": "report-attachment"
+                }
+              ],
+              "classList": [
+                "no-title"
+              ]
+            }
+          ],
+          "classList": [
+            "swappable-bg"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "Oświadczenia",
+      "classList": [
+        "grid",
+        "grid-cols-10"
+      ],
+      "components": [
+        {
+          "kind": "component",
+          "type": "checkbox",
+          "label": "1. Od daty zawarcia umowy nie zmienił się status prawny Beneficjenta (w przypadku takiej zmiany Beneficjent jest zobowiązany do dostarczenia odpowiednich dokumentów).",
+          "name": "statementLegalStatusUnchanged",
+          "value": false,
+          "required": true,
+          "validators": [
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "dataBDD": "statement-legal-status-unchanged",
+          "classList": [
+            "no-label",
+            "text-center"
+          ]
+        },
+        {
+          "kind": "component",
+          "type": "header",
+          "label": "Label",
+          "name": "headerComponent-description-3",
+          "value": "Od daty zawarcia umowy nie zmienił się status prawny Beneficjenta.",
+          "dataBDD": "header-component-description-3",
+          "classList": [
+            "col-span-9",
+            "text-left",
+            "displayNoneFrontend"
+          ]
+        },
+        {
+          "kind": "component",
+          "type": "checkbox",
+          "label": "2. Wszystkie podane w niniejszym raporcie informacje są zgodne z aktualnym stanem prawnym i faktycznym.",
+          "name": "statementDeclaredInformationUptodate",
+          "value": false,
+          "required": true,
+          "validators": [
+            {
+              "name": "RequiredValidator"
+            }
+          ],
+          "dataBDD": "statement-declared-information-uptodate",
+          "classList": [
+            "no-label",
+            "text-center"
+          ]
+        },
+        {
+          "kind": "component",
+          "type": "header",
+          "label": "Label",
+          "name": "headerComponent-description-4",
+          "value": "Wszystkie podane w niniejszym raporcie informacje są zgodne z aktualnym stanem prawnym i faktycznym.",
+          "dataBDD": "header-component-description-4",
+          "classList": [
+            "col-span-9",
+            "text-left",
+            "displayNoneFrontend"
+          ]
+        },
+        {
+          "kind": "component",
+          "type": "text",
+          "label": "PODPIS BENEFICJENTA:",
+          "name": "headerComponent-description-5",
+          "value": "",
+          "dataBDD": "report-signature",
+          "classList": [
+            "col-start-7",
+            "col-span-4",
+            "text-center",
+            "report-signature",
+            "displayNoneFrontend"
+          ]
+        }
+      ]
+    }
+  ]
+}

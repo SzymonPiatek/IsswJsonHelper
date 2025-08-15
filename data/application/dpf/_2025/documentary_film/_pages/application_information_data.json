@@ -1,0 +1,3862 @@
+{
+  "kind": "part",
+  "title": "III. Informacje",
+  "shortName": "III. Informacje",
+  "chapters": [
+    {
+      "kind": "chapter",
+      "title": "A. Charakterystyka przedsięwzięcia",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "Metraż",
+                  "name": "eventMovieDuration",
+                  "options": [
+                    "pełnometrażowy"
+                  ],
+                  "value": "pełnometrażowy",
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "pełnometrażowy"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "required": true,
+                  "dataBDD": "eventMovieDuration"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "unit": "min",
+                  "label": "Liczba minut",
+                  "name": "fullLength",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 71
+                      },
+                      "validationMsg": "Liczba minut musi być większa od 70"
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "fullLength"
+                },
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "Film przeznaczony w pierwszej kolejności do eksploatacji w kinach",
+                  "name": "isFirstExploitedInCinemas",
+                  "options": [
+                    "Tak"
+                  ],
+                  "value": "Tak",
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Tak"
+                        ]
+                      }
+                    }
+                  ],
+                  "readOnly": true,
+                  "required": true,
+                  "dataBDD": "isFirstExploitedInCinemas"
+                },
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "Film trudny w rozumieniu Ustawy z dn. 30 czerwca 2005 roku o kinematografii",
+                  "name": "isDifficultPiece",
+                  "options": [
+                    "Tak",
+                    "Nie"
+                  ],
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Tak",
+                          "Nie"
+                        ]
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "isDifficultPiece"
+                }
+              ],
+              "classList": [
+                "grid",
+                "grid-cols-2"
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "isDifficultPiece",
+                    "values": [
+                      "Tak"
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "Uzasadnienie kwalifikacji filmu jako trudnego",
+                  "name": "descDifficultPiece",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 1801
+                      },
+                      "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 1800."
+                    }
+                  ],
+                  "helpText": "Liczba znaków nie może przekroczyć 1800",
+                  "classList": [
+                    "full-width"
+                  ],
+                  "required": true,
+                  "dataBDD": "descDifficultPiece"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Cel realizacji przedsięwzięcia",
+                  "name": "projectGoal",
+                  "value": "",
+                  "options": [
+                    "artystyczny",
+                    "edukacyjny",
+                    "historyczny"
+                  ],
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "artystyczny",
+                          "edukacyjny",
+                          "historyczny"
+                        ]
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "projectGoal"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Gatunek filmu",
+                  "name": "movieGenre",
+                  "value": "",
+                  "options": [
+                    "Dramat",
+                    "Komedia",
+                    "Horror",
+                    "Thriller",
+                    "Przygodowy",
+                    "Familijny",
+                    "Akcji",
+                    "Wojenny",
+                    "Biograficzny",
+                    "Historyczny",
+                    "Sensacyjny",
+                    "Fantastyczny",
+                    "Kostiumowy",
+                    "Western",
+                    "Film noir",
+                    "Anime",
+                    "Inny"
+                  ],
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Dramat",
+                          "Komedia",
+                          "Horror",
+                          "Thriller",
+                          "Przygodowy",
+                          "Familijny",
+                          "Akcji",
+                          "Wojenny",
+                          "Biograficzny",
+                          "Historyczny",
+                          "Sensacyjny",
+                          "Fantastyczny",
+                          "Kostiumowy",
+                          "Western",
+                          "Film noir",
+                          "Anime",
+                          "Inny"
+                        ]
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "movieGenre"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Nośnik kopii wzorcowej",
+                  "name": "masterCopyMedium",
+                  "value": "",
+                  "options": [
+                    "taśma 35 mm",
+                    "cyfrowy"
+                  ],
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "taśma 35 mm",
+                          "cyfrowy"
+                        ]
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "masterCopyMedium"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "masterCopyMedium",
+                "values": [
+                  "cyfrowy"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "Rodzaj nośnika cyfrowego",
+              "name": "digitalMediumFormat",
+              "value": "",
+              "options": [
+                "Digital Cinema Package (DCP)",
+                "Digital Cinema Distribution Master (DCDM)"
+              ],
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                },
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Digital Cinema Package (DCP)",
+                      "Digital Cinema Distribution Master (DCDM)"
+                    ]
+                  }
+                }
+              ],
+              "required": true,
+              "dataBDD": "digitalMediumFormat"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Główna wersja językowa",
+              "name": "mainLanguage",
+              "value": "",
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                },
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 201
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 200."
+                }
+              ],
+              "required": true,
+              "dataBDD": "mainLanguage"
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Planowany dystrybutor/nadawca",
+              "name": "distributor",
+              "value": "",
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                },
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 201
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 200."
+                }
+              ],
+              "required": true,
+              "dataBDD": "distributor"
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Przyznane nagrody (jeśli dotyczy)",
+              "name": "receivedAwards",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 5401
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 5400."
+                }
+              ],
+              "helpText": "Maksymalna liczba znaków nie może przekroczyć 5400",
+              "classList": [
+                "full-width"
+              ],
+              "dataBDD": "receivedAwards"
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Dodatkowe informacje o przedsięwzięciu",
+              "name": "additionalInfo",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 5401
+                  },
+                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 5400."
+                }
+              ],
+              "helpText": "Maksymalna liczba znaków nie może przekroczyć 5400",
+              "classList": [
+                "full-width"
+              ],
+              "dataBDD": "additionalInfo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "B. Scenariusz",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "Typ scenariusza",
+                  "name": "screenplayType",
+                  "options": [
+                    "oryginalny",
+                    "adaptowany"
+                  ],
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "oryginalny",
+                          "adaptowany"
+                        ]
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "screenplayType"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "screenplayType",
+                    "values": [
+                      "adaptowany"
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Tytuł utworu adaptowanego",
+                  "name": "adaptedWorkTitle",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 201
+                      },
+                      "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 200."
+                    },
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "adaptedWorkTitle"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Autor/Autorzy utworu adaptowanego",
+                  "name": "adaptedWorkAuthor",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 201
+                      },
+                      "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 200."
+                    },
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "adaptedWorkAuthor"
+                },
+                {
+                  "kind": "component",
+                  "type": "file",
+                  "label": "Umowa nabycia autorskich praw majątkowych do utworu pierwotnego lub odpowiednia umowa opcji (jeśli dotyczy) wraz z potwierdzeniem uiszczenia opłaty",
+                  "name": "adaptationRightsContract",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "adaptationRightsContract"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "Streszczenie",
+                  "name": "screenplaySynopsis",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 5401
+                      },
+                      "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 5400."
+                    }
+                  ],
+                  "helpText": "Maksymalna liczba znaków nie może przekroczyć 5400",
+                  "classList": [
+                    "full-width"
+                  ],
+                  "required": true,
+                  "dataBDD": "screenplaySynopsis"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "movieKind",
+                "values": [
+                  "fabularny",
+                  "animowany"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "Scenariusz filmu",
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 10
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "Scenariusz filmu",
+                      "name": "movieScreenplayAttachment",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "dataBDD": "movieScreenplayAttachment"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "Tagi/Słowa klucze",
+                  "name": "tagsKeyWords",
+                  "value": "",
+                  "helpText": "Wprowadź wartości oddzielone przecinkiem",
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 1801
+                      },
+                      "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 1800."
+                    }
+                  ],
+                  "dataBDD": "tagsKeyWords"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "movieKind",
+                "values": [
+                  "dokumentalny"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "Scenariusz filmu</br><normal><small>lub treatment wraz z podaniem uzasadnienia w oddzielnym pliku</small></normal>",
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 10
+              },
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "Scenariusz filmu lub treatment",
+                      "name": "movieScreenplayAttachmentDoc",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "movieScreenplayAttachmentDoc"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "Uzasadnienie",
+                      "name": "movieScreenplayAttachmentExplanationDoc",
+                      "value": "",
+                      "dataBDD": "movieScreenplayAttachmentExplanationDoc"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "Tagi/Słowa klucze",
+                  "name": "tagsKeyWordsDoc",
+                  "value": "",
+                  "helpText": "Wprowadź wartości oddzielone przecinkiem",
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 1801
+                      },
+                      "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 1800."
+                    }
+                  ],
+                  "dataBDD": "tagsKeyWordsDoc"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "C. Scenarzysta",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "isMultipleForms": true,
+          "multipleFormsRules": {
+            "minCount": 1,
+            "maxCount": 10
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Imię i nazwisko scenarzysty",
+                  "name": "screenwriterFullname",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "screenwriterFullname"
+                },
+                {
+                  "kind": "component",
+                  "type": "country",
+                  "label": "Obywatelstwo scenarzysty",
+                  "name": "screenwriterCitizenship",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "screenwriterCitizenship"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Płeć scenarzysty",
+                  "name": "screenwriter-sex",
+                  "value": "",
+                  "options": [
+                    "Kobieta",
+                    "Mężczyzna",
+                    "Inna"
+                  ],
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Kobieta",
+                          "Mężczyzna",
+                          "Inna"
+                        ]
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "screenwriter-sex"
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "unit": "%",
+                  "label": "Procent udziału",
+                  "name": "screenwriterRightsShare",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0,
+                        "max": 101
+                      },
+                      "validationMsg": "Udział nie może być mniejszy od 0 ani większy od 100%"
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "screenwriterRightsShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "file",
+                  "label": "Umowa nabycia praw do scenariusza",
+                  "name": "screenplayRightsContract",
+                  "helpText": "W przypadku ubiegania się o Promesę istnieje możliwość przedłożenia umowy opcji. W przypadku dofinansowania Przygotowania projektu filmowego przez PISF wymagane jest przedłożenie umowy nabycia praw do scenariusza.",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "classList": [
+                    "col-span-2"
+                  ],
+                  "dataBDD": "screenplayRightsContract"
+                },
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Rodzaj umowy zawartej ze scenarzystą",
+                  "name": "screenplayRightsContractType",
+                  "value": "",
+                  "options": [
+                    "umowa opcji",
+                    "umowa nabycia praw"
+                  ],
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "umowa opcji",
+                          "umowa nabycia praw"
+                        ]
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "screenplayRightsContractType"
+                },
+                {
+                  "kind": "component",
+                  "type": "file",
+                  "label": "Potwierdzenie uiszczenia opłaty scenarzyście",
+                  "name": "scriptwriterPaymentConfirmation",
+                  "helpText": "Potwierdzenie uiszczenia opłaty scenarzyście",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "dataBDD": "scriptwriterPaymentConfirmation"
+                }
+              ],
+              "classList": [
+                "grid",
+                "grid-cols-2"
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "unit": "%",
+              "label": "Suma udziałów",
+              "name": "allScreenwritersRightsShare",
+              "value": false,
+              "helptext": "Suma udziałów nie może być większa niż 100%",
+              "calculationRules": [
+                {
+                  "name": "sumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "screenwriterRightsShare"
+                    ]
+                  }
+                }
+              ],
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 100,
+                    "max": 101
+                  },
+                  "validationMsg": "Suma udziałów nie może wynosić więcej ani mniej niż 100%"
+                }
+              ],
+              "readOnly": true,
+              "required": true,
+              "dataBDD": "allScreenwritersRightsShare"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "D. Reżyser",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "isMultipleForms": true,
+          "multipleFormsRules": {
+            "minCount": 1,
+            "maxCount": 10
+          },
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Imię i nazwisko reżysera",
+                          "name": "directorFullname",
+                          "value": "",
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            }
+                          ],
+                          "required": true,
+                          "dataBDD": "directorFullname"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "country",
+                          "label": "Obywatelstwo reżysera",
+                          "name": "directorCitizenship",
+                          "value": "",
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            }
+                          ],
+                          "required": true,
+                          "dataBDD": "directorCitizenship"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "select",
+                          "label": "Płeć reżysera",
+                          "name": "directorSex",
+                          "value": "",
+                          "options": [
+                            "Mężczyzna",
+                            "Kobieta",
+                            "Inna"
+                          ],
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            },
+                            {
+                              "name": "ExactValidator",
+                              "kwargs": {
+                                "values": [
+                                  "Mężczyzna",
+                                  "Kobieta",
+                                  "Inna"
+                                ]
+                              }
+                            }
+                          ],
+                          "required": true,
+                          "dataBDD": "directorSex"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "visibilityRules": [
+                        {
+                          "name": "dependsOnValue",
+                          "kwargs": {
+                            "fieldName": "movieKind",
+                            "values": [
+                              "animowany"
+                            ]
+                          }
+                        }
+                      ],
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "radio",
+                          "label": "Czy reżyser ma ukończone pełnowymiarowe studia kierunkowe?",
+                          "name": "hasDirectorFullyGraduatedAni",
+                          "options": [
+                            "Tak",
+                            "Nie"
+                          ],
+                          "value": "",
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            },
+                            {
+                              "name": "ExactValidator",
+                              "kwargs": {
+                                "values": [
+                                  "Tak",
+                                  "Nie"
+                                ]
+                              }
+                            }
+                          ],
+                          "required": true,
+                          "dataBDD": "hasDirectorFullyGraduatedAni"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "visibilityRules": [
+                        {
+                          "name": "dependsOnValue",
+                          "kwargs": {
+                            "fieldName": "movieKind",
+                            "values": [
+                              "fabularny",
+                              "dokumentalny"
+                            ]
+                          }
+                        }
+                      ],
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "radio",
+                          "label": "Czy reżyser ma ukończone pełnowymiarowe studia reżyserskie?",
+                          "name": "hasDirectorFullyGraduated",
+                          "options": [
+                            "Tak",
+                            "Nie"
+                          ],
+                          "value": "",
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            },
+                            {
+                              "name": "ExactValidator",
+                              "kwargs": {
+                                "values": [
+                                  "Tak",
+                                  "Nie"
+                                ]
+                              }
+                            }
+                          ],
+                          "required": true,
+                          "dataBDD": "hasDirectorFullyGraduated"
+                        }
+                      ]
+                    }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-2"
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "Czy film jest debiutem reżyserskim",
+                      "name": "directorIsDebuting",
+                      "value": "",
+                      "options": [
+                        "debiut reżyserski",
+                        "film drugi reżysera",
+                        "inny film reżysera"
+                      ],
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        },
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "debiut reżyserski",
+                              "film drugi reżysera",
+                              "inny film reżysera"
+                            ]
+                          }
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "directorIsDebuting"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "textarea",
+                      "label": "Opis dorobku reżyserskiego",
+                      "name": "directorResume",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        },
+                        {
+                          "name": "LengthValidator",
+                          "kwargs": {
+                            "max": 5401
+                          },
+                          "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 5400."
+                        }
+                      ],
+                      "helpText": "Maksymalna liczba znaków nie może przekroczyć 5400",
+                      "classList": [
+                        "full-width"
+                      ],
+                      "required": true,
+                      "dataBDD": "directorResume"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "CV reżysera",
+                      "name": "directorResumeAttachment",
+                      "helpText": "CV reżysera",
+                      "value": "",
+                      "required": true,
+                      "dataBDD": "directorResumeAttachment"
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Link do zrealizowanego filmu",
+                  "visibilityRules": [
+                    {
+                      "name": "localEqualsValue",
+                      "kwargs": {
+                        "fieldName": "directorIsDebuting",
+                        "values": [
+                          "inny film reżysera"
+                        ]
+                      }
+                    }
+                  ],
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "isMultipleForms": true,
+                      "multipleFormsRules": {
+                        "minCount": 1,
+                        "maxCount": 5
+                      },
+                      "components": [
+                        {
+                          "kind": "chapter",
+                          "title": "",
+                          "components": [
+                            {
+                              "kind": "component",
+                              "type": "textarea",
+                              "label": "Opis linku",
+                              "name": "directorFinishedFilmDescription",
+                              "value": "",
+                              "validators": [
+                                {
+                                  "name": "RequiredValidator"
+                                },
+                                {
+                                  "name": "LengthValidator",
+                                  "kwargs": {
+                                    "max": 3001
+                                  },
+                                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 3000."
+                                }
+                              ],
+                              "helpText": "(Maksymalna liczba znaków nie może przekroczyć 3000)",
+                              "classList": [
+                                "full-width"
+                              ],
+                              "required": true,
+                              "dataBDD": "directorFinishedFilmDescription"
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Adres linku",
+                              "name": "directorFinishedFilmLink",
+                              "value": "",
+                              "validators": [
+                                {
+                                  "name": "RequiredValidator"
+                                }
+                              ],
+                              "required": true,
+                              "dataBDD": "directorFinishedFilmLink"
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Dodatkowe informacje, np. hasło",
+                              "name": "directorFinishedFilmAdditionalInfo",
+                              "value": "",
+                              "validators": [
+                                {
+                                  "name": "RequiredValidator"
+                                }
+                              ],
+                              "required": true,
+                              "dataBDD": "directorFinishedFilmAdditionalInfo"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Link do próbek pracy dotychczasowej",
+                  "visibilityRules": [
+                    {
+                      "name": "localEqualsValue",
+                      "kwargs": {
+                        "fieldName": "directorIsDebuting",
+                        "values": [
+                          "debiut reżyserski"
+                        ]
+                      }
+                    }
+                  ],
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "isMultipleForms": true,
+                      "multipleFormsRules": {
+                        "minCount": 1,
+                        "maxCount": 5
+                      },
+                      "components": [
+                        {
+                          "kind": "chapter",
+                          "title": "",
+                          "components": [
+                            {
+                              "kind": "component",
+                              "type": "textarea",
+                              "label": "Opis linku",
+                              "name": "directorCurrentSamplesDescription",
+                              "value": "",
+                              "validators": [
+                                {
+                                  "name": "RequiredValidator"
+                                },
+                                {
+                                  "name": "LengthValidator",
+                                  "kwargs": {
+                                    "max": 3001
+                                  },
+                                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 3000."
+                                }
+                              ],
+                              "helpText": "Maksymalna liczba znaków nie może przekroczyć 3000",
+                              "classList": [
+                                "full-width"
+                              ],
+                              "required": true,
+                              "dataBDD": "directorCurrentSamplesDescription"
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Adres linku",
+                              "name": "directorCurrentSamplesLink",
+                              "value": "",
+                              "validators": [
+                                {
+                                  "name": "RequiredValidator"
+                                }
+                              ],
+                              "required": true,
+                              "dataBDD": "directorCurrentSamplesLink"
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Dodatkowe informacje, np. hasło",
+                              "name": "directorCurrentSamplesAdditionalInfo",
+                              "value": "",
+                              "validators": [
+                                {
+                                  "name": "RequiredValidator"
+                                }
+                              ],
+                              "required": true,
+                              "dataBDD": "directorCurrentSamplesAdditionalInfo"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Link do zrealizowanego debiutu reżyserskiego",
+                  "visibilityRules": [
+                    {
+                      "name": "localEqualsValue",
+                      "kwargs": {
+                        "fieldName": "directorIsDebuting",
+                        "values": [
+                          "film drugi reżysera"
+                        ]
+                      }
+                    }
+                  ],
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "isMultipleForms": true,
+                      "multipleFormsRules": {
+                        "minCount": 1,
+                        "maxCount": 5
+                      },
+                      "components": [
+                        {
+                          "kind": "chapter",
+                          "title": "",
+                          "components": [
+                            {
+                              "kind": "component",
+                              "type": "textarea",
+                              "label": "Opis linku",
+                              "name": "directorDebutDescription",
+                              "value": "",
+                              "validators": [
+                                {
+                                  "name": "RequiredValidator"
+                                },
+                                {
+                                  "name": "LengthValidator",
+                                  "kwargs": {
+                                    "max": 3001
+                                  },
+                                  "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 3000."
+                                }
+                              ],
+                              "helpText": "Maksymalna liczba znaków nie może przekroczyć 3000",
+                              "classList": [
+                                "full-width"
+                              ],
+                              "required": true,
+                              "dataBDD": "directorDebutDescription"
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Adres linku",
+                              "name": "directorDebutLink",
+                              "value": "",
+                              "validators": [
+                                {
+                                  "name": "RequiredValidator"
+                                }
+                              ],
+                              "required": true,
+                              "dataBDD": "directorDebutLink"
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Dodatkowe informacje, np. hasło",
+                              "name": "directorDebutAdditionalInfo",
+                              "value": "",
+                              "validators": [
+                                {
+                                  "name": "RequiredValidator"
+                                }
+                              ],
+                              "required": true,
+                              "dataBDD": "directorDebutAdditionalInfo"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "Eksplikacja reżyserska",
+                      "name": "directorExplanation",
+                      "helpText": "Należy załączyć dokument podpisany przez reżysera ",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "directorExplanation"
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "<normal>Oświadczenie reżysera debiutanta filmu fabularnego o dorobku zgodnym z Programem Operacyjnym PISF - Produkcja Filmowa</normal>",
+                  "visibilityRules": [
+                    {
+                      "name": "localEqualsValue",
+                      "kwargs": {
+                        "fieldName": "directorIsDebuting",
+                        "values": [
+                          "debiut reżyserski"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "equalsValue",
+                      "kwargs": {
+                        "fieldName": "movieKind",
+                        "values": [
+                          "fabularny"
+                        ]
+                      }
+                    }
+                  ],
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "checkbox",
+                          "label": "Oświadczenie: nie dotyczy zgodnie z Programem Operacyjnym PISF - Produkcja Filmowa",
+                          "name": "notApplicableDebutingDirectorStatement",
+                          "value": false,
+                          "dataBDD": "notApplicableDebutingDirectorStatement"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "visibilityRules": [
+                        {
+                          "name": "localEqualsValue",
+                          "kwargs": {
+                            "fieldName": "notApplicableDebutingDirectorStatement",
+                            "values": [
+                              false,
+                              "false"
+                            ]
+                          }
+                        }
+                      ],
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "file",
+                          "label": "",
+                          "name": "debutingDirectorStatement",
+                          "value": "",
+                          "helpText": "należy załączyć dokument podpisany przez reżysera",
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            }
+                          ],
+                          "required": true,
+                          "dataBDD": "debutingDirectorStatement"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "radio",
+                      "label": "Oświadczenia dot. Reżysera",
+                      "name": "directorsStatementOtherFilm",
+                      "value": "",
+                      "options": [
+                        "reżyser nie jest zaangażowany jako reżyser w żaden inny, oprócz niniejszego, projekt ubiegający się w bieżącej sesji o dofinansowanie produkcji ( niezależnie od rodzaju filmowego)",
+                        "reżyser jest zaangażowany jako reżyser w inny projekt ubiegający się w bieżącej sesji o dofinansowanie produkcj"
+                      ],
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "directorsStatementOtherFilm"
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "directorsStatementOtherFilm",
+                        "values": [
+                          "reżyser jest zaangażowany jako reżyser w inny projekt ubiegający się w bieżącej sesji o dofinansowanie produkcji"
+                        ]
+                      }
+                    }
+                  ],
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "textarea",
+                          "label": "Tytuły innych projektów",
+                          "name": "otherProjectsTitlesOfDirector",
+                          "value": "",
+                          "helpText": "Maksymalna liczba znaków nie może przekroczyć 200",
+                          "required": true,
+                          "dataBDD": "otherProjectsTitlesOfDirector",
+                          "validators": [
+                            {
+                              "name": "LengthValidator",
+                              "kwargs": {
+                                "max": 201
+                              },
+                              "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 200."
+                            },
+                            {
+                              "name": "RelatedRequiredIfEqualValidator",
+                              "kwargs": {
+                                "field_name": "directorsStatementOtherFilm",
+                                "value": "reżyser jest zaangażowany jako reżyser w inny projekt ubiegający się w bieżącej sesji o dofinansowanie produkcji"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "visibilityRules": [
+                        {
+                          "name": "dependsOnValue",
+                          "kwargs": {
+                            "fieldName": "movieKind",
+                            "values": [
+                              "fabularny",
+                              "dokumentalny"
+                            ]
+                          }
+                        }
+                      ],
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "checkbox",
+                          "label": "Oświadczam, że okres zdjęciowy oraz montażu i udźwiękowienia nie pokrywa się z tymi samymi okresami prac w innych przedsięwzięciach.",
+                          "name": "periodOfShootingEditingDeclaration",
+                          "value": false,
+                          "required": true,
+                          "dataBDD": "periodOfShootingEditingDeclaration"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "visibilityRules": [
+                        {
+                          "name": "dependsOnValue",
+                          "kwargs": {
+                            "fieldName": "movieKind",
+                            "values": [
+                              "animowany"
+                            ]
+                          }
+                        }
+                      ],
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "checkbox",
+                          "label": "Oświadczam, że okres zdjęciowy lub animacji nie pokrywa się z tymi samymi okresami prac w innych przedsięwzięciach.",
+                          "name": "periodOfShootingAnimatingDeclaration",
+                          "value": false,
+                          "required": true,
+                          "dataBDD": "periodOfShootingAnimatingDeclaration"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Oświadczenie o dyspozycyjności",
+                  "visibilityRules": [
+                    {
+                      "name": "localEqualsValue",
+                      "kwargs": {
+                        "fieldName": "directorsStatementOtherFilm",
+                        "values": [
+                          "reżyser jest zaangażowany jako reżyser w inny projekt ubiegający się w bieżącej sesji o dofinansowanie produkcj"
+                        ]
+                      }
+                    }
+                  ],
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "<normal><small>W przypadku, gdy wielu producentów angażuje tego samego reżysera i ubiega się o dofinansowanie w ramach jednego naboru, w wykazaniu dyspozycyjności oraz zaangażowania tego reżysera, powinien zostać spełniony jeden z poniższych warunków:</small></normal>",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "radio",
+                          "label": "",
+                          "name": "availabilityStatementCompletion",
+                          "value": "",
+                          "options": [
+                            "daty wskazane w harmonogramach produkcji filmów, w szczególności daty okresu zdjęciowego, eksploatacji kinowej i festiwalowej nie są zbieżne",
+                            "jeden z filmów to wieloletni dokument obserwacyjny",
+                            "jeden z filmów to animacja z długim okresem produkcji bądź seria filmów animowanych reżyserowanych przez więcej niż jednego reżysera"
+                          ],
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            },
+                            {
+                              "name": "ExactValidator",
+                              "kwargs": {
+                                "values": [
+                                  "daty wskazane w harmonogramach produkcji filmów, w szczególności daty okresu zdjęciowego, eksploatacji kinowej i festiwalowej nie są zbieżne",
+                                  "jeden z filmów to wieloletni dokument obserwacyjny",
+                                  "jeden z filmów to animacja z długim okresem produkcji bądź seria filmów animowanych reżyserowanych przez więcej niż jednego reżysera"
+                                ]
+                              }
+                            }
+                          ],
+                          "required": true,
+                          "dataBDD": "availabilityStatementCompletion"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "E. Producent",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "Debiut producencki aplikującego podmiotu",
+                  "name": "isProducerDebuting",
+                  "options": [
+                    "Tak",
+                    "Nie"
+                  ],
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Tak",
+                          "Nie"
+                        ]
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "isProducerDebuting"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "Producent osoba fizyczna - aplikującego podmiotu",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Imię i nazwisko producenta",
+                          "name": "individualProducerFullname",
+                          "value": "",
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            }
+                          ],
+                          "required": true,
+                          "classList": [
+                            "col-span-2"
+                          ],
+                          "dataBDD": "individualProducerFullname"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "country",
+                          "label": "Obywatelstwo",
+                          "name": "individualProducerCitizenship",
+                          "value": "",
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            }
+                          ],
+                          "required": true,
+                          "classList": [
+                            "col-span-1"
+                          ],
+                          "dataBDD": "individualProducerCitizenship"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "select",
+                          "label": "Płeć",
+                          "name": "individualProducerSex",
+                          "value": "",
+                          "options": [
+                            "Mężczyzna",
+                            "Kobieta",
+                            "Inna"
+                          ],
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            },
+                            {
+                              "name": "ExactValidator",
+                              "kwargs": {
+                                "values": [
+                                  "Mężczyzna",
+                                  "Kobieta",
+                                  "Inna"
+                                ]
+                              }
+                            }
+                          ],
+                          "required": true,
+                          "classList": [
+                            "col-span-1"
+                          ],
+                          "dataBDD": "individualProducerSex"
+                        }
+                      ],
+                      "classList": [
+                        "grid",
+                        "grid-cols-2"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "Informacja o dorobku wnioskodawcy, tj. podmiotu wnioskującego",
+                  "name": "applicantBodyOfWork",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    },
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 5401
+                      },
+                      "validationMsg": "Maksymalna liczba znaków nie może przekroczyć 5400."
+                    }
+                  ],
+                  "helpText": "Maksymalna liczba znaków nie może przekroczyć 3000. Należy podać tytuł filmu, który posiada w swoim dorobku podmiot wnioskujący zgodnie z definicją Producenta określoną w Programie operacyjnym PISF",
+                  "classList": [
+                    "full-width"
+                  ],
+                  "required": true,
+                  "dataBDD": "applicantBodyOfWork"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "orgAndLegalStructure",
+                    "values": [
+                      "Fundacja",
+                      "Stowarzyszenie",
+                      "Instytucja kultury",
+                      "Instytucja filmowa",
+                      "Publiczna szkoła lub uczelnia artystyczna",
+                      "Niepubliczna szkoła lub uczelnia artystyczna",
+                      "Kościół lub związek wyznaniowy",
+                      "Jednostka samorządu terytorialnego",
+                      "Placówka dyplomatyczna",
+                      "Instytut Polski",
+                      "Inna (np. spółka w organizacji)"
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Dokumenty rejestrowe: nie dotyczy zgodnie z Programem Operacyjnym PISF - Produkcja Filmowa",
+                  "name": "applicantDocumentsOtherThanKrsOrCeidgDoesntApply",
+                  "value": false,
+                  "dataBDD": "applicantDocumentsOtherThanKrsOrCeidgDoesntApply"
+                },
+                {
+                  "kind": "component",
+                  "type": "file",
+                  "label": "Dokumenty rejestrowe podmiotu wnioskującego, który nie podlega wpisowi do KRS, CEIG z których wynika uprawnienie do prowadzenia działalności z zakresu produkcji filmowej (w przypadku fundacji - status, stowarzyszeń - umowa spółki).",
+                  "name": "applicantDocumentsOtherThanKrsOrCeidg",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantDocumentsOtherThanKrsOrCeidgDoesntApply",
+                        "value": false
+                      }
+                    }
+                  ],
+                  "required": true,
+                  "dataBDD": "applicantDocumentsOtherThanKrsOrCeidg"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Skład organu reprezentującego: nie dotyczy zgodnie z Programem Operacyjnym PISF - Produkcja Filmowa",
+                      "name": "documentConfirmingTheRepresentingBodyDoesntApply",
+                      "value": false,
+                      "dataBDD": "documentConfirmingTheRepresentingBodyDoesntApply"
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "documentConfirmingTheRepresentingBodyDoesntApply",
+                        "values": [
+                          false
+                        ]
+                      }
+                    }
+                  ],
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "Dokument potwierdzający skład organu reprezentującego w przypadku braku ujawnienia zmian w Rejestrze do dnia złożenia wniosku",
+                      "name": "documentConfirmingTheRepresentingBody",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RelatedRequiredIfEqualValidator",
+                          "kwargs": {
+                            "field_name": "documentConfirmingTheRepresentingBodyDoesntApply",
+                            "value": false
+                          }
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "documentConfirmingTheRepresentingBody"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "F. Informacje o koproducentach",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Nie dotyczy",
+              "name": "coproducersDoesntApply",
+              "value": false,
+              "dataBDD": "coproducersDoesntApply"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "isMultipleForms": true,
+          "multipleFormsRules": {
+            "minCount": 1,
+            "maxCount": 10
+          },
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "coproducersDoesntApply",
+                "values": [
+                  false
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Pełna nazwa koproducenta",
+                      "name": "coproducerFullname",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "coproducerFullname"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Osoby upoważnione do reprezentowania koproducenta",
+                      "name": "coproducerRepresentative",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "coproducerRepresentative"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "radio",
+                      "label": "Siedziba",
+                      "name": "coproducerResidence",
+                      "options": [
+                        "w Polsce",
+                        "za granicą"
+                      ],
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        },
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "w Polsce",
+                              "za granicą"
+                            ]
+                          }
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "coproducerResidence"
+                    }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-2"
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "visibilityRules": [
+                    {
+                      "name": "localEqualsValue",
+                      "kwargs": {
+                        "fieldName": "coproducerResidence",
+                        "values": [
+                          "w Polsce"
+                        ]
+                      }
+                    }
+                  ],
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Państwo",
+                      "name": "coproducerCountry",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "coproducerCountry"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Miejscowość",
+                      "name": "coproducerLocation",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "coproducerLocation"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Ulica",
+                      "name": "coproducerStreet",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "coproducerStreet"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer domu",
+                      "name": "coproducerHouseNumber",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "coproducerHouseNumber"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer lokalu",
+                      "name": "coproducerApartmentNumber",
+                      "value": "",
+                      "dataBDD": "coproducerApartmentNumber"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Kod pocztowy",
+                      "name": "coproducerZipcode",
+                      "validators": [
+                        {
+                          "name": "ZipCodeValidator",
+                          "validationMsg": "Podaj kod pocztowy we właściwym formacie: 00-000."
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "value": "",
+                      "required": true,
+                      "dataBDD": "coproducerZipcode"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Poczta",
+                      "name": "coproducerPostOffice",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "dataBDD": "coproducerPostOffice"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Gmina",
+                      "name": "coproducerMunicipality",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "dataBDD": "coproducerMunicipality"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Powiat",
+                      "name": "coproducerCounty",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "dataBDD": "coproducerCounty"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "Województwo",
+                      "name": "coproducerVoivodeship",
+                      "value": "",
+                      "options": [
+                        "dolnośląskie",
+                        "kujawsko-pomorskie",
+                        "lubelskie",
+                        "lubuskie",
+                        "łódzkie",
+                        "małopolskie",
+                        "mazowieckie",
+                        "opolskie",
+                        "podkarpackie",
+                        "podlaskie",
+                        "pomorskie",
+                        "śląskie",
+                        "świętokrzyskie",
+                        "warmińsko-mazurskie",
+                        "wielkopolskie",
+                        "zachodniopomorskie"
+                      ],
+                      "validators": [
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "dolnośląskie",
+                              "kujawsko-pomorskie",
+                              "lubelskie",
+                              "lubuskie",
+                              "łódzkie",
+                              "małopolskie",
+                              "mazowieckie",
+                              "opolskie",
+                              "podkarpackie",
+                              "podlaskie",
+                              "pomorskie",
+                              "śląskie",
+                              "świętokrzyskie",
+                              "warmińsko-mazurskie",
+                              "wielkopolskie",
+                              "zachodniopomorskie"
+                            ]
+                          }
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "coproducerVoivodeship"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "phoneNumber",
+                      "label": "Numer telefonu",
+                      "name": "coproducerPhone",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        },
+                        {
+                          "name": "PhoneNumberValidator",
+                          "validationMsg": "Wprowadź numer telefonu w formie: +kod kraju oraz pozostałe cyfry numeru. Dla numeru polskiego przykładowo +48123456789"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "coproducerPhone"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Adres e-mail",
+                      "name": "coproducerEmail",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "EmailValidator",
+                          "validationMsg": "Podaj prawidłowy adres email."
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "coproducerEmail"
+                    }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-2"
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "visibilityRules": [
+                    {
+                      "name": "localEqualsValue",
+                      "kwargs": {
+                        "fieldName": "coproducerResidence",
+                        "values": [
+                          "za granicą"
+                        ]
+                      }
+                    }
+                  ],
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Państwo",
+                      "name": "coproducerForeignCountry",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "coproducerForeignCountry"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Miejscowość",
+                      "name": "coproducerForeignLocation",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "coproducerForeignLocation"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Ulica",
+                      "name": "coproducerForeignStreet",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "coproducerForeignStreet"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer domu",
+                      "name": "coproducerForeignHouseNumber",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "coproducerForeignHouseNumber"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer lokalu",
+                      "name": "coproducerForeignApartmentNumber",
+                      "value": "",
+                      "dataBDD": "coproducerForeignApartmentNumber"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Kod pocztowy",
+                      "name": "coproducerForeignZipcode",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "value": "",
+                      "required": true,
+                      "dataBDD": "coproducerForeignZipcode"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "mask": "phoneNumber",
+                      "label": "Numer telefonu",
+                      "name": "coproducerForeignPhone",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        },
+                        {
+                          "name": "PhoneNumberValidator",
+                          "validationMsg": "Wprowadź numer telefonu w formie: +kod kraju oraz pozostałe cyfry numeru. Dla numeru polskiego przykładowo +48123456789"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "coproducerForeignPhone"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Adres e-mail",
+                      "name": "coproducerForeignEmail",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "EmailValidator",
+                          "validationMsg": "Podaj prawidłowy adres email."
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "coproducerForeignEmail"
+                    }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-2"
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Dorobek koproducenta",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "",
+                      "name": "coproducerBodyOfWork",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "helpText": "Dorobek koproducenta",
+                      "classList": [
+                        "full-width"
+                      ],
+                      "dataBDD": "coproducerBodyOfWork"
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Koproducent wiodący",
+                      "name": "coproducerIsLeadCoproducer",
+                      "value": false,
+                      "dataBDD": "coproducerIsLeadCoproducer"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "title": "G. Członkowie ekipy realizacyjnej",
+      "components": [
+        {
+          "kind": "chapter",
+          "title": "Kierownik produkcji",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "WAKAT",
+                  "name": "productionSupervisorIsVacant",
+                  "value": false,
+                  "dataBDD": "productionSupervisorIsVacant"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "productionSupervisorIsVacant",
+                    "values": [
+                      false
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Imię i nazwisko",
+                      "name": "productionSupervisorFullname",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "classList": [
+                        "col-span-2"
+                      ],
+                      "dataBDD": "productionSupervisorFullname"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "country",
+                      "label": "Obywatelstwo",
+                      "name": "productionSupervisorCitizenship",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "productionSupervisorCitizenship"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "Płeć",
+                      "name": "productionSupervisorSex",
+                      "value": "",
+                      "options": [
+                        "Mężczyzna",
+                        "Kobieta",
+                        "Inna"
+                      ],
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        },
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "Mężczyzna",
+                              "Kobieta",
+                              "Inna"
+                            ]
+                          }
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "productionSupervisorSex"
+                    }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-2"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Operator obrazu",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "WAKAT",
+                  "name": "directorOfPhotographyIsVacant",
+                  "value": false,
+                  "dataBDD": "directorOfPhotographyIsVacant"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "directorOfPhotographyIsVacant",
+                    "values": [
+                      false
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Imię i nazwisko",
+                      "name": "directorOfPhotographyFullname",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "classList": [
+                        "col-span-2"
+                      ],
+                      "dataBDD": "directorOfPhotographyFullname"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "country",
+                      "label": "Obywatelstwo",
+                      "name": "directorOfPhotographyCitizenship",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "directorOfPhotographyCitizenship"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "Płeć",
+                      "name": "directorOfPhotographySex",
+                      "value": "",
+                      "options": [
+                        "Mężczyzna",
+                        "Kobieta",
+                        "Inna"
+                      ],
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        },
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "Mężczyzna",
+                              "Kobieta",
+                              "Inna"
+                            ]
+                          }
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "directorOfPhotographySex"
+                    }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-2"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Scenograf",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "WAKAT",
+                  "name": "sceneDesignerIsVacant",
+                  "value": false,
+                  "dataBDD": "sceneDesignerIsVacant"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "sceneDesignerIsVacant",
+                    "values": [
+                      false
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Imię i nazwisko",
+                      "name": "sceneDesignerFullname",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "classList": [
+                        "col-span-2"
+                      ],
+                      "dataBDD": "sceneDesignerFullname"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "country",
+                      "label": "Obywatelstwo",
+                      "name": "sceneDesignerCitizenship",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "sceneDesignerCitizenship"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "Płeć",
+                      "name": "sceneDesignerSex",
+                      "value": "",
+                      "options": [
+                        "Mężczyzna",
+                        "Kobieta",
+                        "Inna"
+                      ],
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        },
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "Mężczyzna",
+                              "Kobieta",
+                              "Inna"
+                            ]
+                          }
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "sceneDesignerSex"
+                    }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-2"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Montażysta",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "WAKAT",
+                  "name": "editorIsVacant",
+                  "value": false,
+                  "dataBDD": "editorIsVacant"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "editorIsVacant",
+                    "values": [
+                      false
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Imię i nazwisko",
+                      "name": "editorFullname",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "classList": [
+                        "col-span-2"
+                      ],
+                      "dataBDD": "editorFullname"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "country",
+                      "label": "Obywatelstwo",
+                      "name": "editorCitizenship",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "editorCitizenship"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "Płeć",
+                      "name": "editorSex",
+                      "value": "",
+                      "options": [
+                        "Mężczyzna",
+                        "Kobieta",
+                        "Inna"
+                      ],
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        },
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "Mężczyzna",
+                              "Kobieta",
+                              "Inna"
+                            ]
+                          }
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "editorSex"
+                    }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-2"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Kompozytor",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "WAKAT",
+                  "name": "composerIsVacant",
+                  "value": false,
+                  "dataBDD": "composerIsVacant"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "composerIsVacant",
+                    "values": [
+                      false
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Imię i nazwisko",
+                      "name": "composerFullname",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "classList": [
+                        "col-span-2"
+                      ],
+                      "dataBDD": "composerFullname"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "country",
+                      "label": "Obywatelstwo",
+                      "name": "composerCitizenship",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "composerCitizenship"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "Płeć",
+                      "name": "composerSex",
+                      "value": "",
+                      "options": [
+                        "Mężczyzna",
+                        "Kobieta",
+                        "Inna"
+                      ],
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        },
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "Mężczyzna",
+                              "Kobieta",
+                              "Inna"
+                            ]
+                          }
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "composerSex"
+                    }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-2"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Dodatkowi członkowie ekipy realizacyjnej",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Nie dotyczy",
+                  "name": "additionalCrewNotApplicable",
+                  "value": false,
+                  "dataBDD": "additionalCrewNotApplicable"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "additionalCrewNotApplicable",
+                    "values": [
+                      false
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "isMultipleForms": true,
+                  "multipleFormsRules": {
+                    "minCount": 1,
+                    "maxCount": 10
+                  },
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Funkcja",
+                          "name": "additionalCrewFunction",
+                          "value": "",
+                          "classList": [
+                            "col-span-2"
+                          ],
+                          "dataBDD": "additionalCrewFunction"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Imię i nazwisko",
+                          "name": "additionalCrewFullname",
+                          "value": "",
+                          "classList": [
+                            "col-span-2"
+                          ],
+                          "dataBDD": "additionalCrewFullname"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "country",
+                          "label": "Obywatelstwo",
+                          "name": "additionalCrewCitizenship",
+                          "value": "",
+                          "dataBDD": "additionalCrewCitizenship"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "select",
+                          "label": "Płeć",
+                          "name": "additionalCrewSex",
+                          "value": "",
+                          "options": [
+                            "Mężczyzna",
+                            "Kobieta",
+                            "Inna"
+                          ],
+                          "validators": [
+                            {
+                              "name": "ExactValidator",
+                              "kwargs": {
+                                "values": [
+                                  "Mężczyzna",
+                                  "Kobieta",
+                                  "Inna"
+                                ]
+                              }
+                            }
+                          ],
+                          "dataBDD": "additionalCrewSex"
+                        }
+                      ],
+                      "classList": [
+                        "grid",
+                        "grid-cols-2"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Autor opracowania plastycznego",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "movieKind",
+                "values": [
+                  "animowany"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "WAKAT",
+                  "name": "animationDesignerIsVacant",
+                  "value": false,
+                  "dataBDD": "animationDesignerIsVacant"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "animationDesignerIsVacant",
+                    "values": [
+                      false,
+                      "false"
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Imię i nazwisko",
+                      "name": "animationDesignerFullname",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RelatedRequiredIfEqualValidator",
+                          "kwargs": {
+                            "field_name": "animationDesignerIsVacant",
+                            "value": false
+                          }
+                        }
+                      ],
+                      "required": true,
+                      "classList": [
+                        "col-span-2"
+                      ],
+                      "dataBDD": "animationDesignerFullname"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "country",
+                      "label": "Obywatelstwo",
+                      "name": "animationDesignerCitizenship",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RelatedRequiredIfEqualValidator",
+                          "kwargs": {
+                            "field_name": "animationDesignerIsVacant",
+                            "value": false
+                          }
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "animationDesignerCitizenship"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "Płeć",
+                      "name": "animationDesignerSex",
+                      "value": "",
+                      "options": [
+                        "Mężczyzna",
+                        "Kobieta",
+                        "Inna"
+                      ],
+                      "validators": [
+                        {
+                          "name": "RelatedRequiredIfEqualValidator",
+                          "kwargs": {
+                            "field_name": "animationDesignerIsVacant",
+                            "value": false
+                          }
+                        }
+                      ],
+                      "required": true,
+                      "dataBDD": "animationDesignerSex"
+                    }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-2"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Bohater",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "movieKind",
+                "values": [
+                  "dokumentalny"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Nie dotyczy",
+                  "name": "protagonistDoesntApply",
+                  "value": false,
+                  "dataBDD": "protagonistDoesntApply"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "protagonistDoesntApply",
+                    "values": [
+                      false
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Imię i nazwisko",
+                          "name": "protagonistFullname",
+                          "value": "",
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            }
+                          ],
+                          "required": true,
+                          "classList": [
+                            "col-span-2"
+                          ],
+                          "dataBDD": "protagonistFullname"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "country",
+                          "label": "Obywatelstwo",
+                          "name": "protagonistCitizenship",
+                          "value": "",
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            }
+                          ],
+                          "required": true,
+                          "dataBDD": "protagonistCitizenship"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "select",
+                          "label": "Płeć",
+                          "name": "protagonistSex",
+                          "value": "",
+                          "options": [
+                            "Mężczyzna",
+                            "Kobieta",
+                            "Inna"
+                          ],
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            },
+                            {
+                              "name": "ExactValidator",
+                              "kwargs": {
+                                "values": [
+                                  "Mężczyzna",
+                                  "Kobieta",
+                                  "Inna"
+                                ]
+                              }
+                            }
+                          ],
+                          "required": true,
+                          "dataBDD": "protagonistSex"
+                        }
+                      ],
+                      "classList": [
+                        "grid",
+                        "grid-cols-2"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Wiodący aktorzy",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "movieKind",
+                "values": [
+                  "fabularny"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Nie dotyczy",
+                  "name": "leadingActorDoesntApply",
+                  "value": false,
+                  "dataBDD": "leadingActorDoesntApply"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "leadingActorDoesntApply",
+                    "values": [
+                      false
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "isMultipleForms": true,
+                  "multipleFormsRules": {
+                    "minCount": 1,
+                    "maxCount": 20
+                  },
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Imię i nazwisko",
+                          "name": "leadingActorFullname",
+                          "value": "",
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            }
+                          ],
+                          "required": true,
+                          "classList": [
+                            "col-span-2"
+                          ],
+                          "dataBDD": "leadingActorFullname"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "country",
+                          "label": "Obywatelstwo",
+                          "name": "leadingActorCitizenship",
+                          "value": "",
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            }
+                          ],
+                          "required": true,
+                          "dataBDD": "leadingActorCitizenship"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "select",
+                          "label": "Płeć",
+                          "name": "leadingActorSex",
+                          "value": "",
+                          "options": [
+                            "Mężczyzna",
+                            "Kobieta",
+                            "Inna"
+                          ],
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            },
+                            {
+                              "name": "ExactValidator",
+                              "kwargs": {
+                                "values": [
+                                  "Mężczyzna",
+                                  "Kobieta",
+                                  "Inna"
+                                ]
+                              }
+                            }
+                          ],
+                          "required": true,
+                          "dataBDD": "leadingActorSex"
+                        }
+                      ],
+                      "classList": [
+                        "grid",
+                        "grid-cols-2"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Minimalny wkład artystyczny polskich twórców",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "categoryOfProject",
+                "values": [
+                  "koprodukcja międzynarodowa mniejszościowa"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "movieKind",
+                    "values": [
+                      "fabularny"
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "zaangażowanie co najmniej jednego z polskich twórców",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Reżyser",
+                      "name": "minorityCoproductionAtLeastOneDirector",
+                      "value": false,
+                      "dataBDD": "minorityCoproductionAtLeastOneDirector"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Scenarzysta",
+                      "name": "minorityCoproductionAtLeastOneScreenwriter",
+                      "value": false,
+                      "dataBDD": "minorityCoproductionAtLeastOneScreenwriter"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Aktor pierwszoplanowy",
+                      "name": "minorityCoproductionAtLeastOneLeadingActor",
+                      "value": false,
+                      "dataBDD": "minorityCoproductionAtLeastOneLeadingActor"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Operator",
+                      "name": "minorityCoproductionAtLeastOneDirectorOfPhotography",
+                      "value": false,
+                      "dataBDD": "minorityCoproductionAtLeastOneDirectorOfPhotography"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Scenograf",
+                      "name": "minorityCoproductionAtLeastOneSceneDirector",
+                      "value": false,
+                      "dataBDD": "minorityCoproductionAtLeastOneSceneDirector"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Montażysta",
+                      "name": "minorityCoproductionAtLeastOneEditor",
+                      "value": false,
+                      "dataBDD": "minorityCoproductionAtLeastOneEditor"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Kompozytor",
+                      "name": "minorityCoproductionAtLeastOneComposer",
+                      "value": false,
+                      "dataBDD": "minorityCoproductionAtLeastOneComposer"
+                    }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-3"
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "zaangażowanie co najmniej trzech z polskich twórców",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "VFX Supervisor",
+                      "name": "minorityCoproductionAtLeastOneVfxSupervisor",
+                      "value": false,
+                      "dataBDD": "minorityCoproductionAtLeastOneVfxSupervisor"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Charakteryzator",
+                      "name": "minorityCoproductionAtLeastOneMakeupArtist",
+                      "value": false,
+                      "dataBDD": "minorityCoproductionAtLeastOneMakeupArtist"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Kostiumograf",
+                      "name": "minorityCoproductionAtLeastOneCostumeDesigner",
+                      "value": false,
+                      "dataBDD": "minorityCoproductionAtLeastOneCostumeDesigner"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Główny realizator dźwięku",
+                      "name": "minorityCoproductionAtLeastOneSoundDesigner",
+                      "value": false,
+                      "dataBDD": "minorityCoproductionAtLeastOneSoundDesigner"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Jeden aktor drugoplanowy",
+                      "name": "minorityCoproductionAtLeastOneSupportingActor",
+                      "value": false,
+                      "dataBDD": "minorityCoproductionAtLeastOneSupportingActor"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Dwóch aktorów drugoplanowych (wymaga zaangażowania dwóch dodatkowych osób spośród wyżej wymienionych)",
+                      "name": "minorityCoproductionAtLeastOneSupportingActors",
+                      "value": false,
+                      "dataBDD": "minorityCoproductionAtLeastOneSupportingActors"
+                    }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-3"
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "zaangażowanie co najmniej jednego z polskich twórców",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "movieKind",
+                    "values": [
+                      "animowany"
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Reżyser animacji",
+                  "name": "minorityCoproductionAtLeastThreeDirector",
+                  "value": false,
+                  "dataBDD": "minorityCoproductionAtLeastThreeDirector"
+                },
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Scenarzysta",
+                  "name": "minorityCoproductionAtLeastThreeScreenwriter",
+                  "value": false,
+                  "dataBDD": "minorityCoproductionAtLeastThreeScreenwriter"
+                },
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Montażysta",
+                  "name": "minorityCoproductionAtLeastThreeEditor",
+                  "value": false,
+                  "dataBDD": "minorityCoproductionAtLeastThreeEditor"
+                },
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Kompozytor",
+                  "name": "minorityCoproductionAtLeastThreeComposer",
+                  "value": false,
+                  "dataBDD": "minorityCoproductionAtLeastThreeComposer"
+                },
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Animator",
+                  "name": "minorityCoproductionAtLeastThreeAnimator",
+                  "value": false,
+                  "dataBDD": "minorityCoproductionAtLeastThreeAnimator"
+                },
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Polski autor scenopisu obrazkowego (storyboardu)",
+                  "name": "hasPolishStoryboardCreator",
+                  "value": false,
+                  "dataBDD": "hasPolishStoryboardCreator"
+                },
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Polski autor projektów plastycznych",
+                  "name": "hasPolishAnimationDesigner",
+                  "value": false,
+                  "dataBDD": "hasPolishAnimationDesigner"
+                }
+              ],
+              "classList": [
+                "grid",
+                "grid-cols-3"
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "wykorzystanie przynajmniej jednego z poniższych",
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "movieKind",
+                    "values": [
+                      "dokumentalny"
+                    ]
+                  }
+                }
+              ],
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Reżyser",
+                  "name": "minorityCoproductionAtLeastOneDirectorDoc",
+                  "value": false,
+                  "dataBDD": "minorityCoproductionAtLeastOneDirectorDoc"
+                },
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Scenarzysta",
+                  "name": "minorityCoproductionAtLeastOneScreenwriterDoc",
+                  "value": false,
+                  "dataBDD": "minorityCoproductionAtLeastOneScreenwriterDoc"
+                },
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Montażysta",
+                  "name": "minorityCoproductionAtLeastOneEditorDoc",
+                  "value": false,
+                  "dataBDD": "minorityCoproductionAtLeastOneEditorDoc"
+                },
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Autor zdjęć",
+                  "name": "minorityCoproductionAtLeastOneDirectorOfPhotographyDoc",
+                  "value": false,
+                  "dataBDD": "minorityCoproductionAtLeastOneDirectorOfPhotographyDoc"
+                },
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Kompozytor",
+                  "name": "minorityCoproductionAtLeastOneComposerDoc",
+                  "value": false,
+                  "dataBDD": "minorityCoproductionAtLeastOneComposerDoc"
+                },
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Zostaną wykorzystane materiały z polskich archiwów filmowych",
+                  "name": "hasPolishMaterialsFromArchives",
+                  "value": false,
+                  "dataBDD": "hasPolishMaterialsFromArchives"
+                },
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Weźmie udział polski bohater",
+                  "name": "polishHeroTakePart",
+                  "value": false,
+                  "dataBDD": "polishHeroTakePart"
+                },
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Dominująca tematyka związana z Polską (historycznie lub geograficznie)",
+                  "name": "dominantTopicOfPoland",
+                  "value": false,
+                  "dataBDD": "dominantTopicOfPoland"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
