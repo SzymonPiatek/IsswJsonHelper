@@ -31,7 +31,8 @@ class LoginData(TypedDict):
 
 
 class WebScrapper:
-    def __init__(self, login_data: LoginData, screenshot_path: str, headless: bool = True):
+    def __init__(self, base_url: str, login_data: LoginData, screenshot_path: str, headless: bool = True):
+        self.base_url = base_url
         self.login_data = login_data
         self.screenshot_path = screenshot_path
 

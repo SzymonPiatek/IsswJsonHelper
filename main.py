@@ -8,8 +8,9 @@ from classes.web_scrapper.web_scrapper import WebScrapper
 
 load_dotenv()
 
+base_url = os.getenv("BASE_URL")
 login_info = {
-    "url": os.getenv("LOGIN_URL"),
+    "url": f"{base_url}/{os.getenv("LOGIN_URL")}",
     "email": os.getenv("LOGIN_EMAIL"),
     "password": os.getenv("LOGIN_PASSWORD"),
 }
@@ -22,6 +23,7 @@ def main():
     # subprocess.run(["python", "scripts/delete_unused_args.py"], check=True)
 
     scraper = WebScrapper(
+        base_url=base_url,
         login_data=login_info,
         screenshot_path='output/screenshots'
     )
