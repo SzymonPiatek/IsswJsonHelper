@@ -40,11 +40,11 @@ class WebScrapper:
         self.options.headless = headless
         self.driver = webdriver.Firefox(options=self.options)
 
-    @delay_after(3)
+    @delay_after(1)
     def go_to_page(self, url: str):
         self.driver.get(url)
 
-    @delay_after(3)
+    @delay_after(1)
     def close_introjs(self):
         while True:
             try:
@@ -60,7 +60,7 @@ class WebScrapper:
             except Exception:
                 break
 
-    @delay_after(3)
+    @delay_after(2)
     def login(self):
         self.go_to_page(url=self.login_data['url'])
         wait = WebDriverWait(self.driver, 10)
@@ -72,9 +72,25 @@ class WebScrapper:
         password_input.send_keys(self.login_data["password"])
         password_input.send_keys(Keys.RETURN)
 
-    def capture_screenshot(self, screen_size: str):
-        timestamp = time.strftime("%Y_%m_%d_%H_%M_%S")
-        file_name = f"{self.screenshot_path}/{timestamp}.png"
+    @delay_after(1)
+    def click_button_by_text(self, text: str):
+        try:
+            WebDriverWait(self.driver, 2).until(
+                EC.presence_of_element_located((By.XPATH, f"//button[contains(text(), '{text}')]"))
+            )
+            buttons = self.driver.find_elements(By.XPATH, f"//button[contains(text(), '{text}')]")
+            for button in buttons:
+                if button.is_displayed() and button.is_enabled():
+                    try:
+                        self.driver.execute_script("arguments[0].click();", button)
+                    except Exception as e:
+                        print(f"Nie udało się kliknąć przycisku '{text}':", e)
+                    break
+        except Exception:
+            pass
+
+    def capture_screenshot(self, screen_size: str, file_path: str):
+        file_name = f"{self.screenshot_path}/{file_path}.png"
 
         if screen_size == "full":
             self.driver.get_full_page_screenshot_as_file(file_name)
@@ -89,10 +105,27 @@ class WebScrapper:
     def close(self):
         self.driver.quit()
 
+    def screenshot_pages_of_application(self, form_id: int, pages: int, department: str, program: str, priority: str, form_type: str):
+        os.makedirs(f"{self.screenshot_path}/{department}/{form_type}/po_{program}_pr_{priority}", exist_ok=True)
+
+        for page in range(0, pages):
+            self.go_to_page(url=f"{self.base_url}/wniosek/{form_id}/edycja?version=-1&strona={page}")
+            self.click_button_by_text("Rozumiem")
+            self.click_button_by_text("Nie pokazuj więcej")
+            self.capture_screenshot(screen_size="full", file_path=f"{department}/{form_type}/po_{program}_pr_{priority}/page_{page}")
+
     def run(self):
         try:
             self.login()
             self.close_introjs()
-            self.capture_screenshot(screen_size='full')
+
+            self.screenshot_pages_of_application(
+                form_id=2312,
+                pages=9,
+                department="DPF",
+                program="1",
+                priority="3",
+                form_type="application",
+            )
         finally:
             self.close()
