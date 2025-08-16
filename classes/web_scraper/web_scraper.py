@@ -30,7 +30,7 @@ class LoginData(TypedDict):
     password: str
 
 
-class WebScrapper:
+class WebScraper:
     def __init__(self, base_url: str, login_data: LoginData, screenshot_path: str, headless: bool = True):
         self.base_url = base_url
         self.login_data = login_data
@@ -39,6 +39,8 @@ class WebScrapper:
         self.options = Options()
         self.options.headless = headless
         self.driver = webdriver.Firefox(options=self.options)
+
+        os.makedirs(self.screenshot_path, exist_ok=True)
 
     @delay_after(1)
     def go_to_page(self, url: str):
@@ -60,7 +62,7 @@ class WebScrapper:
             except Exception:
                 break
 
-    @delay_after(2)
+    @delay_after(1)
     def login(self):
         self.go_to_page(url=self.login_data['url'])
         wait = WebDriverWait(self.driver, 10)
@@ -75,7 +77,7 @@ class WebScrapper:
     @delay_after(1)
     def click_button_by_text(self, text: str):
         try:
-            WebDriverWait(self.driver, 2).until(
+            WebDriverWait(self.driver, 1).until(
                 EC.presence_of_element_located((By.XPATH, f"//button[contains(text(), '{text}')]"))
             )
             buttons = self.driver.find_elements(By.XPATH, f"//button[contains(text(), '{text}')]")
