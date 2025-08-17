@@ -6,13 +6,11 @@ from pathlib import Path
 
 class FormBuilderBase:
     def __init__(self):
-        # DIRS
         self.main_dir = Path(__file__).resolve().parents[2]
         self.data_path = self.main_dir / 'data'
-
         self.main_dir.mkdir(parents=True, exist_ok=True)
-
         self.output_json = None
+        self.parts_number = 0
 
     @staticmethod
     def load_json(path):
@@ -39,6 +37,7 @@ class FormBuilderBase:
     def save_part(self, part):
         parts = self.output_json.setdefault('parts', [])
         parts.append(part)
+        self.parts_number += 1
 
     def create_base(self, intro_text: str, layout_path=None):
         if layout_path is None:
