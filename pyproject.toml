@@ -1,0 +1,24 @@
+[project]
+name = "isswjsonhelper"
+version = "0.0.1"
+description = ""
+authors = [
+    {name = "Szymon Piątek",email = "szymon.piatek125@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dotenv (>=0.9.9,<0.10.0)",
+    "selenium (>=4.35.0,<5.0.0)"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "isswjsonhelper"
+version = "0.0.1"
+description = ""
+authors = ["Szymon Piątek <szymon.piatek125@gmail.com>"]
+packages = [{ include = "classes" }]
