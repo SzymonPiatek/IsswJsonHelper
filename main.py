@@ -7,6 +7,7 @@ from classes.generator.dwm_generator import DWMGenerator
 from classes.web_scraper.web_scraper import WebScraper
 from classes.postman.postman import Postman
 from classes.form_builder.duk.education.postgraduate_schools.application_builder import PostgraduateSchoolsApplicationBuilder
+from classes.generator import applications
 
 load_dotenv()
 
@@ -23,7 +24,8 @@ def example():
     """
 
     # 1. Inicjalizacja i generowanie formularza w formacie JSON
-    application = PostgraduateSchoolsApplicationBuilder()
+    application_class = applications.get_application_builder(department='duk', program='po2', priority='pr1')
+    application = application_class()
     application.generate()
 
     # 2. Podmiana formularza na stronie oraz pobranie pliku pdf
