@@ -1,3 +1,5 @@
+import os
+
 import requests
 
 
@@ -9,7 +11,7 @@ class Postman:
         self.access_token = None
 
     def login(self):
-        login_url = f"{self.base_url}/token/"
+        login_url = f"{self.base_url}/api/v1/token/"
 
         response = requests.post(
             login_url,
@@ -31,7 +33,7 @@ class Postman:
             raise Exception(f"Logowanie nie powiodło się: {response.status_code}, {response.text}")
 
     def application_autosave(self, form_id: int, json: object):
-        url = f"{self.base_url}/applications/{form_id}/autosave"
+        url = f"{self.base_url}/api/v1/applications/{form_id}/autosave"
 
         response = requests.put(
             url,
@@ -47,4 +49,29 @@ class Postman:
         if response.status_code == 200:
             print(f"Nadpisano wniosek: {form_id}")
         else:
-            raise Exception(f"Operacja nie powiodła się: {response.status_code}, {response.text}")
+            raise Exception(f"Operacja nie powiodła się ({form_id}): {response.status_code}, {response.text}")
+
+    def application_pdf(self, output_path: str, json: object):
+        url = f"{self.base_url}:5000/pdf/"
+        output_file_path = f"{output_path}/file.pdf"
+        os.makedirs(output_path, exist_ok=True)
+
+        response = requests.post(
+            url,
+            json={
+                "jrwa_file": "",
+                "form": json
+            },
+            headers={
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+            },
+            verify=False
+        )
+
+        if response.status_code == 200:
+            with open(output_file_path, 'wb') as f:
+                f.write(response.content)
+            print(f"PDF zapisany do: {output_file_path}")
+        else:
+            raise Exception(f"Generowanie PDF nie powiodło się: {response.status_code}, {response.text}")

@@ -35,7 +35,7 @@ def main():
     application.generate()
 
     postman = Postman(
-        base_url=f"{base_url}/api/v1",
+        base_url,
         email=login_info["email"],
         password=login_info["password"],
     )
@@ -43,6 +43,10 @@ def main():
     postman.login()
     postman.application_autosave(
         form_id=application.form_id,
+        json=application.output_json
+    )
+    postman.application_pdf(
+        output_path=f"output/pdf/{application.department_name}/{application.json_type}/po_{application.operation_num}_pr_{application.priority_num}",
         json=application.output_json
     )
 
