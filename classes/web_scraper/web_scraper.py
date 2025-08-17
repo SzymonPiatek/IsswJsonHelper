@@ -114,19 +114,3 @@ class WebScraper:
             self.click_button_by_text("Rozumiem")
             self.click_button_by_text("Nie pokazuj więcej")
             self.capture_screenshot(screen_size="full", file_path=f"{department}/{form_type}/po_{program}_pr_{priority}/page_{page}")
-
-    def run(self):
-        try:
-            self.login()
-            self.close_introjs()
-
-            self.screenshot_pages_of_application(
-                form_id=2312,
-                pages=9,
-                department="DPF",
-                program="1",
-                priority="3",
-                form_type="application",
-            )
-        finally:
-            self.close()
