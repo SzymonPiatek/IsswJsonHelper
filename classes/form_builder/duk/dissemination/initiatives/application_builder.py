@@ -5,6 +5,7 @@ from classes.form_builder.duk.application_builder import DUKApplicationBuilder
 class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
     PRIORITY_NAME = 'II. Inicjatywy filmowe'
     PRIORITY_NUM = 2
+    FORM_ID = 2597
 
     def __init__(self):
         super().__init__()

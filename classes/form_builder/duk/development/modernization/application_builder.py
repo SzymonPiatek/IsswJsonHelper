@@ -5,6 +5,7 @@ from classes.form_builder.duk.application_builder import DUKApplicationBuilder
 class ModernizationApplicationBuilder(DevelopmentApplicationBuilder):
     PRIORITY_NAME = 'I. Modernizacja kin'
     PRIORITY_NUM = 1
+    FORM_ID = 2602
 
     def __init__(self):
         super().__init__()

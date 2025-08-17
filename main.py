@@ -6,6 +6,7 @@ from classes.generator.duk_generator import DUKGenerator
 from classes.generator.dwm_generator import DWMGenerator
 from classes.web_scraper.web_scraper import WebScraper
 from classes.postman.postman import Postman
+from classes.form_builder.duk.education.postgraduate_schools.application_builder import PostgraduateSchoolsApplicationBuilder
 
 load_dotenv()
 
@@ -30,12 +31,20 @@ def main():
     # )
     # scraper.run()
 
+    application = PostgraduateSchoolsApplicationBuilder()
+    application.generate()
+
     postman = Postman(
         base_url=f"{base_url}/api/v1",
         email=login_info["email"],
         password=login_info["password"],
     )
+
     postman.login()
+    postman.application_autosave(
+        form_id=application.form_id,
+        json=application.output_json
+    )
 
 
 if __name__ == '__main__':

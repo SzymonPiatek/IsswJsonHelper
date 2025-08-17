@@ -5,6 +5,7 @@ from classes.form_builder.duk.application_builder import DUKApplicationBuilder
 class LiteratueApplicationBuilder(DisseminationApplicationBuilder):
     PRIORITY_NAME = 'III. Literatura i czasopisma o filmie'
     PRIORITY_NUM = 3
+    FORM_ID = 2598
 
     def __init__(self):
         super().__init__()

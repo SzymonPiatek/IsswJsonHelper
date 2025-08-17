@@ -5,6 +5,7 @@ from classes.form_builder.duk.application_builder import DUKApplicationBuilder
 class ResearchApplicationBuilder(DisseminationApplicationBuilder):
     PRIORITY_NAME = 'V. Badania rynku audiowizualnego'
     PRIORITY_NUM = 5
+    FORM_ID = 2600
 
     def __init__(self):
         super().__init__()
