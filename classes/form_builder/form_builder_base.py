@@ -10,7 +10,7 @@ class FormBuilderBase:
         self.data_path = self.main_dir / 'data'
         self.main_dir.mkdir(parents=True, exist_ok=True)
         self.output_json = None
-        self.parts_number = 0
+        self.parts = []
 
     @staticmethod
     def load_json(path):
@@ -35,9 +35,8 @@ class FormBuilderBase:
             return obj
 
     def save_part(self, part):
-        parts = self.output_json.setdefault('parts', [])
-        parts.append(part)
-        self.parts_number += 1
+        self.parts = self.output_json.setdefault('parts', [])
+        self.parts.append(part)
 
     def create_base(self, intro_text: str, layout_path=None):
         if layout_path is None:

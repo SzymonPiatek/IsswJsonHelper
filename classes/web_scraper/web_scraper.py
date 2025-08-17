@@ -25,7 +25,6 @@ def delay_after(seconds=3):
 
 
 class LoginData(TypedDict):
-    url: str
     email: str
     password: str
 
@@ -42,11 +41,12 @@ class WebScraper:
 
         os.makedirs(self.screenshot_path, exist_ok=True)
 
-    @delay_after(1)
     def go_to_page(self, url: str):
         self.driver.get(url)
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.TAG_NAME, "body"))
+        )
 
-    @delay_after(1)
     def close_introjs(self):
         while True:
             try:
@@ -64,7 +64,7 @@ class WebScraper:
 
     @delay_after(1)
     def login(self):
-        self.go_to_page(url=self.login_data['url'])
+        self.go_to_page(url=f"{self.base_url}/logowanie")
         wait = WebDriverWait(self.driver, 10)
 
         email_input = wait.until(EC.presence_of_element_located((By.NAME, "email.value")))
@@ -74,7 +74,6 @@ class WebScraper:
         password_input.send_keys(self.login_data["password"])
         password_input.send_keys(Keys.RETURN)
 
-    @delay_after(1)
     def click_button_by_text(self, text: str):
         try:
             WebDriverWait(self.driver, 1).until(

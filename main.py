@@ -11,33 +11,25 @@ from classes.form_builder.duk.education.postgraduate_schools.application_builder
 load_dotenv()
 
 base_url = os.getenv("BASE_URL")
-login_info = {
-    "url": f"{base_url}/{os.getenv("LOGIN_URL")}",
+login_data = {
     "email": os.getenv("LOGIN_EMAIL"),
     "password": os.getenv("LOGIN_PASSWORD"),
 }
 
 
-def main():
-    # for generator in [DPFGenerator, DUKGenerator, DWMGenerator]:
-    #     generator().generate_applications_and_reports()
-    #
-    # subprocess.run(["python", "scripts/delete_unused_args.py"], check=True)
-    #
-    # scraper = WebScraper(
-    #     base_url=base_url,
-    #     login_data=login_info,
-    #     screenshot_path='output/screenshots'
-    # )
-    # scraper.run()
+def example():
+    """
+    Przykładowa funkcja pokazująca pracę programu
+    """
 
+    # 1. Inicjalizacja i generowanie formularza w formacie JSON
     application = PostgraduateSchoolsApplicationBuilder()
     application.generate()
 
+    # 2. Podmiana formularza na stronie oraz pobranie pliku pdf
     postman = Postman(
         base_url,
-        email=login_info["email"],
-        password=login_info["password"],
+        login_data
     )
 
     postman.login()
@@ -49,6 +41,29 @@ def main():
         output_path=f"output/pdf/{application.department_name}/{application.json_type}/po_{application.operation_num}_pr_{application.priority_num}",
         json=application.output_json
     )
+
+    # 3. Zapisanie widoku strony (widok użytkownika)
+    scraper = WebScraper(
+        base_url,
+        login_data,
+        screenshot_path='output/screenshots'
+    )
+
+    scraper.login()
+    scraper.close_introjs()
+    scraper.screenshot_pages_of_application(
+        form_id=application.form_id,
+        pages=len(application.parts),
+        department=application.department_name,
+        program=application.operation_num,
+        priority=application.priority_num,
+        form_type="application"
+    )
+    scraper.close()
+
+
+def main():
+    example()
 
 
 if __name__ == '__main__':

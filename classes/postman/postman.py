@@ -1,13 +1,17 @@
 import os
-
 import requests
+from typing import TypedDict
+
+
+class LoginData(TypedDict):
+    email: str
+    password: str
 
 
 class Postman:
-    def __init__(self, base_url: str, email: str, password: str):
+    def __init__(self, base_url: str, login_data: LoginData):
         self.base_url = base_url
-        self.email = email
-        self.password = password
+        self.login_data = login_data
         self.access_token = None
 
     def login(self):
@@ -16,8 +20,8 @@ class Postman:
         response = requests.post(
             login_url,
             json={
-                "email": self.email,
-                "password": self.password
+                "email": self.login_data["email"],
+                "password": self.login_data["password"],
             },
             headers={
                 "Content-Type": "application/json",
