@@ -17,6 +17,7 @@ class FormBuilder(FormBuilderBase):
     PRIORITY_NUM: int
     YEAR: int = 2025
     SESSION: ClassVar[SessionType] = 'I'
+    FORM_ID: int
 
     def __init__(self) -> None:
         super().__init__()
@@ -29,6 +30,7 @@ class FormBuilder(FormBuilderBase):
         self.priority_num = self.PRIORITY_NUM
         self.year = self.YEAR
         self.session = self.SESSION
+        self.form_id = self.FORM_ID
 
         self.output_file_name = f'po{self.operation_num}_pr{self.priority_num}_{self.json_type}_{self.year}.json'
         self.output_file = self.main_dir / 'output' / self.department_name / self.json_type / self.output_file_name
