@@ -5,7 +5,7 @@ from classes.form_builder.duk.application_builder import DUKApplicationBuilder
 class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder):
     PRIORITY_NAME = 'III. Edukacja i kształcenie profesjonalne'
     PRIORITY_NUM = 3
-    FORM_ID = 2594
+    FORM_ID = 9182
 
     def __init__(self):
         super().__init__()

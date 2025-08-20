@@ -4,6 +4,7 @@ from classes.form_builder.dpf.application_builder import DPFApplicationBuilder
 class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
     PRIORITY_NAME = 'I. Stypendia scenariuszowe'
     PRIORITY_NUM = 1
+    FORM_ID = 9194
 
     def __init__(self):
         super().__init__()

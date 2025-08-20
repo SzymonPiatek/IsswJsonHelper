@@ -4,6 +4,7 @@ from classes.form_builder.dwm.application_builder import DWMApplicationBuilder
 class PromotionApplicationBuilder(DWMApplicationBuilder):
     PRIORITY_NAME = 'I. Promocja polskiej twórczości filmowej za granicą'
     PRIORITY_NUM = 1
+    FORM_ID = 9192
 
     def __init__(self):
         super().__init__()

@@ -7,7 +7,7 @@ from classes.form_builder.duk.education.postgraduate_schools.estimate_data impor
 class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
     PRIORITY_NAME = 'I. Szkoły wyższe i podyplomowe'
     PRIORITY_NUM = 1
-    FORM_ID = 9176
+    FORM_ID = 9180
 
     def __init__(self):
         super().__init__()

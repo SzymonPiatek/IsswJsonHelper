@@ -5,7 +5,7 @@ from classes.form_builder.duk.application_builder import DUKApplicationBuilder
 class DigitalizationApplicationBuilder(DevelopmentApplicationBuilder):
     PRIORITY_NAME = 'II. Cyfryzacja kin'
     PRIORITY_NUM = 2
-    FORM_ID = 2603
+    FORM_ID = 9191
 
     def __init__(self):
         super().__init__()

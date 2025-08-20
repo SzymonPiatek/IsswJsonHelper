@@ -5,7 +5,7 @@ from classes.form_builder.duk.application_builder import DUKApplicationBuilder
 class FestivalsApplicationBuilder(DisseminationApplicationBuilder):
     PRIORITY_NAME = 'I. Festiwale filmowe'
     PRIORITY_NUM = 1
-    FORM_ID = 2596
+    FORM_ID = 9184
 
     def __init__(self):
         super().__init__()
