@@ -30,16 +30,22 @@ class LoginData(TypedDict):
 
 
 class WebScraper:
-    def __init__(self, base_url: str, login_data: LoginData, screenshot_path: str, headless: bool = True):
+    def __init__(self, base_url: str, login_data: LoginData, output_path: str, headless: bool = True):
         self.base_url = base_url
         self.login_data = login_data
-        self.screenshot_path = screenshot_path
+        self.output_path = output_path
 
         self.options = Options()
         self.options.headless = headless
         self.driver = webdriver.Firefox(options=self.options)
 
-        os.makedirs(self.screenshot_path, exist_ok=True)
+        os.makedirs(self.output_path, exist_ok=True)
+
+    def run(self, application):
+        self.login()
+        self.close_introjs()
+        self.screenshot_pages_of_application(application=application)
+        self.close()
 
     def go_to_page(self, url: str):
         self.driver.get(url)
@@ -91,7 +97,7 @@ class WebScraper:
             pass
 
     def capture_screenshot(self, screen_size: str, file_path: str):
-        file_name = f"{self.screenshot_path}/{file_path}.png"
+        file_name = f"{self.output_path}/{file_path}.png"
 
         if screen_size == "full":
             self.driver.get_full_page_screenshot_as_file(file_name)
@@ -106,11 +112,19 @@ class WebScraper:
     def close(self):
         self.driver.quit()
 
-    def screenshot_pages_of_application(self, form_id: int, pages: int, department: str, program: str, priority: str, form_type: str):
-        os.makedirs(f"{self.screenshot_path}/{department}/{form_type}/po_{program}_pr_{priority}", exist_ok=True)
+    def screenshot_pages_of_application(self, application):
+        form_id = application.form_id,
+        pages = len(application.parts),
+        department = application.department_name,
+        program = application.operation_num,
+        priority = application.priority_num,
+        form_type = application.json_type
+
+        os.makedirs(f"{self.output_path}/{department}/{form_type}/po_{program}_pr_{priority}", exist_ok=True)
 
         for page in range(0, pages):
             self.go_to_page(url=f"{self.base_url}/wniosek/{form_id}/edycja?version=-1&strona={page}")
             self.click_button_by_text("Rozumiem")
             self.click_button_by_text("Nie pokazuj więcej")
-            self.capture_screenshot(screen_size="full", file_path=f"{department}/{form_type}/po_{program}_pr_{priority}/page_{page}")
+            self.capture_screenshot(screen_size="full",
+                                    file_path=f"{department}/{form_type}/po_{program}_pr_{priority}/page_{page}")

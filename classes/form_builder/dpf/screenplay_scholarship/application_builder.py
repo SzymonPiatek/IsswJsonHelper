@@ -202,16 +202,5 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         self.save_part(part)
 
     def create_application_financial_data(self):
-        part = self.create_part(
-            title="V. Dane finansowe",
-            short_name="V. Dane finansowe",
-            chapters=[
-                self.create_chapter(
-                    title="1. Wnioskowana wysokość dofinansowania ze środków PISF",
-                    components=[
-                        self.load_json(path=self.priority_data_path / '_pages' / 'application_financial_data' / 'requested_pisf_support_amount.json')
-                    ]
-                )
-            ]
-        )
+        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_financial_data' / 'requested_pisf_support_amount.json')
         self.save_part(part)
