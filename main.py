@@ -88,6 +88,8 @@ def generate_applications():
 def main():
     generate_applications()
 
+    # subprocess.run(["python", "scripts/delete_unused_args.py"], check=True)
+
 
 if __name__ == '__main__':
     main()

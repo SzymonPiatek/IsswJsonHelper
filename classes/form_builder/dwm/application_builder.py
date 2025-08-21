@@ -12,22 +12,6 @@ class DWMApplicationBuilder(ApplicationBuilder):
         self.department_data_path = self.application_data_path / 'dwm'
         self.priority_data_path = None
 
-    def create_application_metadata(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_metadata.json')
-        self.save_part(part=part)
-
-    def create_application_name_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_name_data.json')
-        self.save_part(part=part)
-
-    def create_application_applicant_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_applicant_data.json')
-        self.save_part(part=part)
-
-    def create_application_applicant_achievements_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_applicant_achievements_data.json')
-        self.save_part(part=part)
-
     def create_application_description_of_the_project_data(self):
         part = self.load_json(path=self.priority_data_path / '_pages' / 'application_description_of_the_project_data.json')
         self.save_part(part=part)
@@ -61,7 +45,8 @@ class DWMApplicationBuilder(ApplicationBuilder):
         self.save_part(part=part)
 
     def generate(self):
-        self. create_application_base()
+        # Base
+        self.create_application_base()
 
         # 1. Nazwa programu i priorytetu
         self.create_application_metadata()

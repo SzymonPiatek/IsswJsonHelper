@@ -3,5 +3,7 @@
   "title": "{title}",
   "classList": "{classList}",
   "visibilityRules": "{visibilityRules}",
-  "components": "{components}"
+  "components": "{components}",
+  "isMultipleForms": "{isMultipleForms}",
+  "multipleFormsRules": "{multipleFormsRules}"
 }

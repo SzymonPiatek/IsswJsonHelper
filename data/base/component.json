@@ -5,6 +5,7 @@
   "label": "{label}",
   "name": "{name}",
   "value": "{value}",
+  "defaultValue": "{defaultValue}",
   "unit": "{unit}",
   "options": "{options}",
   "validators": "{validators}",
@@ -12,5 +13,6 @@
   "classList": "{classList}",
   "required": "{required}",
   "readOnly": "{readOnly}",
-  "dataBDD": "{name}"
+  "dataBDD": "{name}",
+  "helpText": "{helpText}"
 }

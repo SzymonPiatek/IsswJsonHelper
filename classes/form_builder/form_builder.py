@@ -12,9 +12,9 @@ class FormBuilder(FormBuilderBase):
     JSON_TYPE: ClassVar[JSONType]
     DEPARTMENT_NAME: ClassVar[DepartmentType]
     OPERATION_NAME: str
-    OPERATION_NUM: int
+    OPERATION_NUM: str
     PRIORITY_NAME: str
-    PRIORITY_NUM: int
+    PRIORITY_NUM: str
     YEAR: int = 2025
     SESSION: ClassVar[SessionType] = 'I'
     FORM_ID: int

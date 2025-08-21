@@ -3567,7 +3567,6 @@
                                   "label": "Planowany koszt całkowity",
                                   "name": "soundSystemSumAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "soundSystemSumAmount",
                                   "validators": [
@@ -3596,7 +3595,6 @@
                                   "name": "soundSystemRequestedAmountPlanned",
                                   "readOnly": true,
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "copyFrom": "soundSystemRequestedAmount",
                                   "validators": [
                                     {
@@ -3622,7 +3620,6 @@
                                   "label": "Poniesiony koszt całkowity",
                                   "name": "soundSystemCostsActualTotal",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -3648,7 +3645,6 @@
                                   "label": "W tym dotacja PISF",
                                   "name": "soundSystemCostsActualSupportPisf",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -3917,7 +3913,6 @@
                                   "label": "Planowany koszt całkowity",
                                   "name": "screenSumAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "screenSumAmount",
                                   "validators": [
@@ -3946,7 +3941,6 @@
                                   "name": "screenRequestedAmountPlanned",
                                   "copyFrom": "screenRequestedAmount",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "validators": [
                                     {
@@ -3972,7 +3966,6 @@
                                   "label": "Poniesiony koszt całkowity",
                                   "name": "screenCostsActualTotal",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -3998,7 +3991,6 @@
                                   "label": "W tym dotacja PISF",
                                   "name": "screenCostsActualSupportPisf",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -4275,7 +4267,6 @@
                                   "label": "Planowany koszt całkowity",
                                   "name": "wiringSumAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "wiringSumAmount",
                                   "validators": [
@@ -4303,7 +4294,6 @@
                                   "label": "Planowana dotacja PISF",
                                   "name": "wiringRequestedAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "wiringRequestedAmount",
                                   "validators": [
@@ -4330,7 +4320,6 @@
                                   "label": "Poniesiony koszt całkowity",
                                   "name": "wiringCostsActualTotal",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -4356,7 +4345,6 @@
                                   "label": "W tym dotacja PISF",
                                   "name": "wiringCostsActualSupportPisf",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -4625,7 +4613,6 @@
                                   "label": "Planowany koszt całkowity",
                                   "name": "cashRegisterSystemSumAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "cashRegisterSystemSumAmount",
                                   "validators": [
@@ -4653,7 +4640,6 @@
                                   "label": "Planowana dotacja PISF",
                                   "name": "cashRegisterSystemRequestedAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "cashRegisterSystemRequestedAmount",
                                   "validators": [
@@ -4680,7 +4666,6 @@
                                   "label": "Poniesiony koszt całkowity",
                                   "name": "cashRegisterSystemCostsActualTotal",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -4706,7 +4691,6 @@
                                   "label": "W tym dotacja PISF",
                                   "name": "cashRegisterSystemCostsActualSupportPisf",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -4975,7 +4959,6 @@
                                   "label": "Planowany koszt całkowity",
                                   "name": "renovationSumAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "renovationSumAmount",
                                   "validators": [
@@ -5003,7 +4986,6 @@
                                   "label": "Planowana dotacja PISF",
                                   "name": "renovationRequestedAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "renovationRequestedAmount",
                                   "validators": [
@@ -5030,7 +5012,6 @@
                                   "label": "Poniesiony koszt całkowity",
                                   "name": "renovationCostsActualTotal",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -5056,7 +5037,6 @@
                                   "label": "W tym dotacja PISF",
                                   "name": "renovationCostsActualSupportPisf",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -5325,7 +5305,6 @@
                                   "label": "Planowany koszt całkowity",
                                   "name": "carpetReplacementSumAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "carpetReplacementSumAmount",
                                   "validators": [
@@ -5353,7 +5332,6 @@
                                   "label": "Planowana dotacja PISF",
                                   "name": "carpetReplacementRequestedAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "carpetReplacementRequestedAmount",
                                   "validators": [
@@ -5380,7 +5358,6 @@
                                   "label": "Poniesiony koszt całkowity",
                                   "name": "carpetReplacementCostsActualTotal",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -5406,7 +5383,6 @@
                                   "label": "W tym dotacja PISF",
                                   "name": "carpetReplacementCostsActualSupportPisf",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -5675,7 +5651,6 @@
                                   "label": "Planowany koszt całkowity",
                                   "name": "cinemaEquipmentSumAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "cinemaEquipmentSumAmount",
                                   "validators": [
@@ -5703,7 +5678,6 @@
                                   "label": "Planowana dotacja PISF",
                                   "name": "cinemaEquipmentRequestedAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "cinemaEquipmentRequestedAmount",
                                   "validators": [
@@ -5730,7 +5704,6 @@
                                   "label": "Poniesiony koszt całkowity",
                                   "name": "cinemaEquipmentCostsActualTotal",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -5756,7 +5729,6 @@
                                   "label": "W tym dotacja PISF",
                                   "name": "cinemaEquipmentCostsActualSupportPisf",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -6025,7 +5997,6 @@
                                   "label": "Planowany koszt całkowity",
                                   "name": "obstacleLightingSumAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "obstacleLightingSumAmount",
                                   "validators": [
@@ -6053,7 +6024,6 @@
                                   "label": "Planowana dotacja PISF",
                                   "name": "obstacleLightingRequestedAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "obstacleLightingRequestedAmount",
                                   "validators": [
@@ -6080,7 +6050,6 @@
                                   "label": "Poniesiony koszt całkowity",
                                   "name": "obstacleLightingCostsActualTotal",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -6106,7 +6075,6 @@
                                   "label": "W tym dotacja PISF",
                                   "name": "obstacleLightingCostsActualSupportPisf",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -6375,7 +6343,6 @@
                                   "label": "Planowany koszt całkowity",
                                   "name": "airConditioningSumAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "airConditioningSumAmount",
                                   "validators": [
@@ -6403,7 +6370,6 @@
                                   "label": "Planowana dotacja PISF",
                                   "name": "airConditioningRequestedAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "airConditioningRequestedAmount",
                                   "validators": [
@@ -6430,7 +6396,6 @@
                                   "label": "Poniesiony koszt całkowity",
                                   "name": "airConditioningCostsActualTotal",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -6456,7 +6421,6 @@
                                   "label": "W tym dotacja PISF",
                                   "name": "airConditioningCostsActualSupportPisf",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -6725,7 +6689,6 @@
                                   "label": "Planowany koszt całkowity",
                                   "name": "objectAdaptationSpecialSumAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "objectAdaptationSpecialSumAmount",
                                   "validators": [
@@ -6753,7 +6716,6 @@
                                   "label": "Planowana dotacja PISF",
                                   "name": "objectAdaptationSpecialRequestedAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "objectAdaptationSpecialRequestedAmount",
                                   "validators": [
@@ -6780,7 +6742,6 @@
                                   "label": "Poniesiony koszt całkowity",
                                   "name": "objectAdaptationSpecialCostsActualTotal",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -6806,7 +6767,6 @@
                                   "label": "W tym dotacja PISF",
                                   "name": "objectAdaptationSpecialCostsActualSupportPisf",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -7075,7 +7035,6 @@
                                   "label": "Planowany koszt całkowity",
                                   "name": "objectAdaptationDisabledSumAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "objectAdaptationDisabledSumAmount",
                                   "validators": [
@@ -7103,7 +7062,6 @@
                                   "label": "Planowana dotacja PISF",
                                   "name": "objectAdaptationDisabledRequestedAmountPlanned",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "readOnly": true,
                                   "copyFrom": "objectAdaptationDisabledRequestedAmount",
                                   "validators": [
@@ -7130,7 +7088,6 @@
                                   "label": "Poniesiony koszt całkowity",
                                   "name": "objectAdaptationDisabledCostsActualTotal",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -7156,7 +7113,6 @@
                                   "label": "W tym dotacja PISF",
                                   "name": "objectAdaptationDisabledCostsActualSupportPisf",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",

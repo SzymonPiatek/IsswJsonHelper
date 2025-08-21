@@ -1,3 +1,4 @@
+from email.policy import default
 from typing import Literal, Optional
 import json
 import ast
@@ -10,7 +11,9 @@ class FormBuilderBase:
         self.data_path = self.main_dir / 'data'
         self.main_dir.mkdir(parents=True, exist_ok=True)
         self.output_json = None
+
         self.parts = []
+        self.names = set()
 
     @staticmethod
     def load_json(path):
@@ -52,7 +55,7 @@ class FormBuilderBase:
         except KeyError as e:
             raise RuntimeError(f"Nie znalazłem miejsca na introText w JSONie: {e!s}")
 
-    def create_part(self, title, short_name, layout_path=None, class_list=None, chapters=None):
+    def create_part(self, title: str, short_name:str, layout_path: str = None, class_list=None, chapters = None):
         if class_list is None:
             class_list = []
         if layout_path is None:
@@ -70,7 +73,7 @@ class FormBuilderBase:
 
         return self.replace_placeholders(part, values)
 
-    def create_chapter(self, title='', layout_path=None, class_list=None, visibility_rules=None, components=None):
+    def create_chapter(self, title='', layout_path=None, class_list=None, visibility_rules=None, components=None, is_multiple_forms=False, multiple_forms_rules=None):
         if class_list is None:
             class_list = []
         if visibility_rules is None:
@@ -79,42 +82,84 @@ class FormBuilderBase:
             layout_path = self.main_dir / 'data' / 'base' / 'chapter.json'
         if components is None:
             components = []
+        if multiple_forms_rules is None:
+            multiple_forms_rules = {}
 
         chapter = self.load_json(path=layout_path)
         values = {
             "title": title,
             "classList": class_list,
             "visibilityRules": visibility_rules,
-            "components": components
+            "components": components,
+            "isMultipleForms": is_multiple_forms,
+            "multipleFormsRules": multiple_forms_rules
         }
 
         return self.replace_placeholders(chapter, values)
 
     def create_component(
             self,
-            component_type: Literal['date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header'],
-            mask: str = '',
+            component_type: Literal['date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox'],
+            mask: Literal['fund', 'phoneNumber', 'bankAccount'] = '',
             label: str = '',
             name: str = '',
-            value: str = '',
+            value: str | int | bool = '',
+            default_value: str | int | bool = None,
             unit: str = '',
             options: Optional[list] = None,
             validators: Optional[list] = None,
             calculation_rules: Optional[list] = None,
             class_list: Optional[list] = None,
             required: bool = False,
-            read_only: bool = False
+            read_only: bool = False,
+            help_text: str = '',
     ):
+        allowed_types = {'date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox'}
+        if component_type not in allowed_types:
+            raise ValueError(f"Invalid component_type '{component_type}'. Must be one of: {', '.join(allowed_types)}.")
+
+        if not name:
+            raise ValueError("Component 'name' must be provided and non-empty.")
+
         if validators is None:
             validators = []
+        if mask == "fund":
+            if not (isinstance(value, int) or (isinstance(value, str) and value.isdigit())):
+                value = 0
+        elif mask == "phoneNumber":
+            validators.append(
+                {
+                    "name": "PhoneNumberValidator",
+                    "validationMsg": "Wprowadź numer telefonu w formie: +kod kraju oraz pozostałe cyfry numeru. Dla numeru polskiego przykładowo +48123456789"
+                },
+            )
+        if component_type == 'date' or component_type == 'checkbox':
+            value = False
         if options is None:
             options = []
         if calculation_rules is None:
             calculation_rules = []
         if class_list is None:
             class_list = []
-        if mask is None:
-            mask = ''
+        if value == 0:
+            validators.append(
+                {
+                    "name": "RangeValidator",
+                    "kwargs": {
+                        "min": 0
+                    },
+                    "validationMsg": "Wartość musi być większa od zera."
+                },
+            )
+        if default_value is None:
+            default_value = value
+
+        if required and not any(v.get("name") == "RelatedRequiredIfEqualValidator" for v in validators):
+            validators.append(
+                {
+                    "name": "RequiredValidator"
+                }
+            )
 
         component = self.load_json(path=self.main_dir / 'data' / 'base' / 'component.json')
         values = {
@@ -123,14 +168,20 @@ class FormBuilderBase:
             "label": label,
             "name": name,
             "value": value,
+            "defaultValue": default_value,
             "unit": unit,
             "options": options,
             "validators": validators,
             "calculationRules": calculation_rules,
             "classList": class_list,
             "required": required,
-            "readOnly": read_only
+            "readOnly": read_only,
+            "helpText": help_text,
         }
+
+        if name in self.names:
+            raise ValueError(f"Duplicate component name detected: {name}")
+        self.names.add(name)
 
         return self.replace_placeholders(component, values)
 
