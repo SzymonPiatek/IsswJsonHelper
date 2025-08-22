@@ -11,5 +11,7 @@ class ReportBuilder(FormBuilder):
 
     def create_report_base(self):
         self.create_base(
-            intro_text="Raport końcowy"
+            intro_text=[
+                "Raport końcowy"
+            ]
         )

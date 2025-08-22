@@ -1,8 +1,0 @@
-{
-  "kind": "component",
-  "type": "text",
-  "label": "{label}",
-  "name": "{name}",
-  "value": "{value}",
-  "dataBDD": "{name}"
-}

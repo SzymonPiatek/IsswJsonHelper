@@ -1,9 +1,0 @@
-{
-  "kind": "component",
-  "type": "select",
-  "label": "{label}",
-  "name": "{name}",
-  "value": "{value}",
-  "dataBDD": "{name}",
-  "options": "{options}"
-}

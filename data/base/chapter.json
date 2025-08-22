@@ -1,9 +1,0 @@
-{
-  "kind": "chapter",
-  "title": "{title}",
-  "classList": "{classList}",
-  "visibilityRules": "{visibilityRules}",
-  "components": "{components}",
-  "isMultipleForms": "{isMultipleForms}",
-  "multipleFormsRules": "{multipleFormsRules}"
-}

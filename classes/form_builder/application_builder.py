@@ -11,5 +11,7 @@ class ApplicationBuilder(FormBuilder):
 
     def create_application_base(self):
         self.create_base(
-            intro_text="Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"
+            intro_text=[
+                "Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"
+            ]
         )

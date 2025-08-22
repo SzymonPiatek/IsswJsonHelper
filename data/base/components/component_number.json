@@ -1,9 +1,0 @@
-{
-  "kind": "component",
-  "type": "number",
-  "label": "{label}",
-  "name": "{name}",
-  "value": "{value}",
-  "dataBDD": "{name}",
-  "unit": "{unit}"
-}
