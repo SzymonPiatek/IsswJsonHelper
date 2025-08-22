@@ -134,9 +134,19 @@ class FormBuilderBase:
 
         if validators is None:
             validators = []
-        if mask == "fund":
+        if mask == "fund" or component_type == "number":
             if not (isinstance(value, int) or (isinstance(value, str) and value.isdigit())):
                 value = 0
+            if mask == "fund":
+                validators.append(
+                    {
+                        "name": "RangeValidator",
+                        "kwargs": {
+                            "min": 0
+                        },
+                        "validationMsg": "Wartość musi być większa od zera."
+                    },
+                )
         elif mask == "phoneNumber":
             validators.append(Validator.phone_number_validator())
         if component_type == 'date' or component_type == 'checkbox':
@@ -147,16 +157,6 @@ class FormBuilderBase:
             calculation_rules = []
         if class_list is None:
             class_list = []
-        if value == 0:
-            validators.append(
-                {
-                    "name": "RangeValidator",
-                    "kwargs": {
-                        "min": 0
-                    },
-                    "validationMsg": "Wartość musi być większa od zera."
-                },
-            )
         if default_value is None:
             default_value = value
 

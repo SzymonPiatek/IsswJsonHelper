@@ -27,3 +27,50 @@ class CalculationRule:
                 "parameter": parameter
             }
         }
+
+    @staticmethod
+    def local_sum(fields: [str]):
+        return {
+            "name": "localSum",
+            "kwargs": {
+                "fields": fields
+            }
+        }
+
+    @staticmethod
+    def sum_inputs(fields: [str]):
+        return {
+            "name": "sumInputs",
+            "kwargs": {
+                "fields": fields
+            }
+        }
+
+    @staticmethod
+    def dynamic_sum_inputs(fields: [str]):
+        return {
+            "name": "dynamicSumInputs",
+            "kwargs": {
+                "fields": fields
+            }
+        }
+
+    @staticmethod
+    def local_share_calculator(dividend_field: str, divisor_field: str):
+        return {
+            "name": "localShareCalculator",
+            "kwargs": {
+                "dividendField": dividend_field,
+                "divisorField": divisor_field
+            }
+        }
+
+    @staticmethod
+    def share_calculator(dividend_field: str, divisor_field: str):
+        return {
+            "name": "shareCalculator",
+            "kwargs": {
+                "dividendField": dividend_field,
+                "divisorField": divisor_field
+            }
+        }

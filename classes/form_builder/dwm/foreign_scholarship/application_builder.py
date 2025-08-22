@@ -1526,6 +1526,644 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
         )
         self.save_part(part=part)
 
+    def create_application_financial_data(self):
+        financing_source_chapters = [
+            {
+                "section_title": "Koszty akredytacji",
+                "cost_title": "Koszty akredytacji",
+                "name": "accreditation"
+            },
+            {
+                "section_title": "Koszty noclegu",
+                "cost_title": "Koszty noclegu",
+                "name": "accommodation"
+            },
+            {
+                "section_title": "Koszty transportu",
+                "cost_title": "Koszty transportu",
+                "name": "trasportation"
+            },
+            {
+                "section_title": "Koszty uczesnictwa w warsztatach (jeśli dotyczy)",
+                "cost_title": "Koszty uczestnictwa",
+                "name": "participation"
+            }
+        ]
+
+        part = self.create_part(
+            title="IX. Koszty planowanego przedsięwzięcia",
+            short_name="IX. Koszty przedsięwzięcia",
+            class_list=[
+                "full-width-grid"
+            ],
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            label="Waluta, w której dotacja PISF ma zostać przelana na w/w konto",
+                            name="grantCurrency",
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Nazwa przedsięwzięcia",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="applicationTaskNameRepeat",
+                            calculation_rules=[
+                                self.calculation_rule.copy_value(from_name="applicationTaskName")
+                            ],
+                            read_only=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="<normal>Uwaga! W przypadku braku automatycznego przeliczenia wartości finansowych prosimy o użycie przycisku „Przelicz i waliduj”, który znajduje się w prawym, dolnym rogu ekranu. Wymusi to dokonanie niezbędnych przeliczeń oraz podświetli nieuzupełnione pola formularza.</normal>"
+                ),
+                self.create_chapter(
+                    components=[
+                        self.create_chapter(
+                            title="1. Koszty wg źródeł finansowania",
+                            class_list={
+                                "main": [
+                                    "table-6-top"
+                                ],
+                                "sub": [
+                                    "table-6-top__col"
+                                ]
+                            },
+                            components=[
+                                self.create_chapter(
+                                    title=chapter["section_title"],
+                                    class_list={
+                                        "main": [
+                                            "table-6",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-6__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            label="Rodzaj kosztów",
+                                            value=chapter["cost_title"],
+                                            name=f"{chapter["name"]}Costs",
+                                            read_only=True
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Koszt całkowity",
+                                            name=f"{chapter["name"]}CostTotal",
+                                            read_only=True,
+                                            unit="PLN",
+                                            calculation_rules=[
+                                                self.calculation_rule.sum_inputs(
+                                                    fields=[
+                                                        f"{chapter["name"]}CostRequestPisf",
+                                                        f"{chapter["name"]}CostOwnFunds",
+                                                        f"{chapter["name"]}CostPartnersSponsors",
+                                                        f"{chapter["name"]}CostOtherSources"
+                                                    ]
+                                                )
+                                            ],
+                                            validators=[
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        f"{chapter["name"]}CostRequestPisf",
+                                                        f"{chapter["name"]}CostOwnFunds",
+                                                        f"{chapter["name"]}CostPartnersSponsors",
+                                                        f"{chapter["name"]}CostOtherSources"
+                                                    ]
+                                                )
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Wniosek o dotację PISF",
+                                            name=f"{chapter["name"]}CostRequestPisf",
+                                            unit="PLN"
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Środki własne",
+                                            name=f"{chapter["name"]}CostOwnFunds",
+                                            unit="PLN"
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Środki innych partnerów/sponsorów",
+                                            name=f"{chapter["name"]}CostPartnersSponsors",
+                                            unit="PLN"
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Pozostałe źródła publiczne",
+                                            name=f"{chapter["name"]}CostOtherSources",
+                                            unit="PLN"
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Udział wnioskowanej dotacji PISF we wskazanym rodzaju kosztów",
+                                            name=f"{chapter["name"]}CostRequestPisfShare",
+                                            unit="%",
+                                            calculation_rules=[
+                                                self.calculation_rule.share_calculator(
+                                                    dividend_field=f"{chapter["name"]}CostRequestPisf",
+                                                    divisor_field=f"{chapter["name"]}CostTotal"
+                                                )
+                                            ],
+                                            read_only=True
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Udział środków własnych we wskazanym rodzaju kosztów",
+                                            name=f"{chapter["name"]}CostOwnFundsShare",
+                                            unit="%",
+                                            calculation_rules=[
+                                                self.calculation_rule.share_calculator(
+                                                    dividend_field=f"{chapter["name"]}CostOwnFunds",
+                                                    divisor_field=f"{chapter["name"]}CostTotal"
+                                                )
+                                            ],
+                                            read_only=True
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Udział środków od partnerów/sponsorów we wskazanym rodzaju kosztów",
+                                            name=f"{chapter["name"]}CostPartnersSponsorsShare",
+                                            unit="%",
+                                            calculation_rules=[
+                                                self.calculation_rule.share_calculator(
+                                                    dividend_field=f"{chapter["name"]}CostPartnersSponsors",
+                                                    divisor_field=f"{chapter["name"]}CostTotal"
+                                                )
+                                            ],
+                                            read_only=True
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Udział innych środków publicznych we wskazanym rodzaju kosztów",
+                                            name=f"{chapter["name"]}CostOtherSourcesShare",
+                                            unit="%",
+                                            calculation_rules=[
+                                                self.calculation_rule.share_calculator(
+                                                    dividend_field=f"{chapter["name"]}CostOtherSources",
+                                                    divisor_field=f"{chapter["name"]}CostTotal"
+                                                )
+                                            ],
+                                            read_only=True
+                                        )
+                                    ]
+                                ) for chapter in financing_source_chapters
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Źródła finansowania łącznie",
+                            class_list={
+                                "main": [
+                                    "table-6-top"
+                                ],
+                                "sub": [
+                                    "table-6-top__col"
+                                ]
+                            },
+                            components=[
+                                self.create_chapter(
+                                    class_list={
+                                        "main": [
+                                            "table-6",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-6__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Koszt całkowity",
+                                            name="costTotalSum",
+                                            read_only=True,
+                                            unit="PLN",
+                                            class_list=[
+                                                "col-span-2"
+                                            ],
+                                            calculation_rules=[
+                                                self.calculation_rule.dynamic_sum_inputs(
+                                                    fields=[
+                                                        f"{chapter["name"]}CostTotal" for chapter in financing_source_chapters
+                                                    ]
+                                                )
+                                            ],
+                                            validators=[
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        f"{chapter["name"]}CostTotal" for chapter in financing_source_chapters
+                                                    ]
+                                                )
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Wniosek o dotację PISF",
+                                            name="costRequestPisfSum",
+                                            read_only=True,
+                                            unit="PLN",
+                                            calculation_rules=[
+                                                self.calculation_rule.dynamic_sum_inputs(
+                                                    fields=[
+                                                        f"{chapter["name"]}CostRequestPisf" for chapter in financing_source_chapters
+                                                    ]
+                                                )
+                                            ],
+                                            validators=[
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        f"{chapter["name"]}CostRequestPisf" for chapter in financing_source_chapters
+                                                    ]
+                                                )
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Środki własne",
+                                            name="costOwnFundsSum",
+                                            read_only=True,
+                                            unit="PLN",
+                                            calculation_rules=[
+                                                self.calculation_rule.dynamic_sum_inputs(
+                                                    fields=[
+                                                        f"{chapter["name"]}CostOwnFunds" for chapter in financing_source_chapters
+                                                    ]
+                                                )
+                                            ],
+                                            validators=[
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        f"{chapter["name"]}CostOwnFunds" for chapter in financing_source_chapters
+                                                    ]
+                                                )
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Środki innych partnerów/sponsorów",
+                                            name="costPartnersSponsorsSum",
+                                            read_only=True,
+                                            unit="PLN",
+                                            calculation_rules=[
+                                                self.calculation_rule.dynamic_sum_inputs(
+                                                    fields=[
+                                                        f"{chapter["name"]}CostPartnersSponsors" for chapter in financing_source_chapters
+                                                    ]
+                                                )
+                                            ],
+                                            validators=[
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        f"{chapter["name"]}CostPartnersSponsors" for chapter in financing_source_chapters
+                                                    ]
+                                                )
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Pozostałe źródła publiczne",
+                                            name="costOtherSourcesSum",
+                                            read_only=True,
+                                            unit="PLN",
+                                            calculation_rules=[
+                                                self.calculation_rule.dynamic_sum_inputs(
+                                                    fields=[
+                                                        f"{chapter["name"]}CostOtherSources" for chapter in financing_source_chapters
+                                                    ]
+                                                )
+                                            ],
+                                            validators=[
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        f"{chapter["name"]}CostOtherSources" for chapter in financing_source_chapters
+                                                    ]
+                                                )
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Udział wnioskodawnej dotacji PISF w kosztach razem",
+                                            name="costRequestPisfSumShare",
+                                            calculation_rules=[
+                                                self.calculation_rule.share_calculator(
+                                                    dividend_field="costRequestPisfSum",
+                                                    divisor_field="costTotalSum"
+                                                )
+                                            ],
+                                            read_only=True,
+                                            validators=[
+                                                self.validator.range_validator(
+                                                    max_value=90,
+                                                    message="Przekroczono maksymalny limit dofinansowania, który dla wybranego przedsięwzięcia wynosi: 90%. Wymagana będzie zgoda dyrektora PISF."
+                                                )
+                                            ],
+                                            unit="%"
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Udział środków własnych w kosztach razem",
+                                            name="costOwnFundsSumShare",
+                                            calculation_rules=[
+                                                self.calculation_rule.share_calculator(
+                                                    dividend_field="costOwnFundsSum",
+                                                    divisor_field="costTotalSum"
+                                                )
+                                            ],
+                                            read_only=True,
+                                            validators=[
+                                                self.validator.range_validator(
+                                                    min_value=10,
+                                                    message="Minimalny wkład własny wnioskodawcy powinien wynosić 10% całości budżetu przedsięwzięcia."
+                                                )
+                                            ],
+                                            unit="%"
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Udział środków od partnerów/sponsorów w kosztach razem",
+                                            name="costPartnersSponsorsSumShare",
+                                            calculation_rules=[
+                                                self.calculation_rule.share_calculator(
+                                                    dividend_field="costPartnersSponsors",
+                                                    divisor_field="costTotalSum"
+                                                )
+                                            ],
+                                            read_only=True,
+                                            unit="%"
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Udział innych środków publicznych w kosztach razem",
+                                            name="costOtherSourcesSumShare",
+                                            calculation_rules=[
+                                                self.calculation_rule.share_calculator(
+                                                    dividend_field="costOtherSourcesSum",
+                                                    divisor_field="costTotalSum"
+                                                )
+                                            ],
+                                            read_only=True,
+                                            unit="%"
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Udział dotacji PISF oraz innych środków publicznych w kosztach razem",
+                                            name="costPisfPublicShareInTotal",
+                                            calculation_rules=[
+                                                self.calculation_rule.sum_inputs(
+                                                    fields=[
+                                                        "costRequestPisfSumShare",
+                                                        "costOtherSourcesSumShare"
+                                                    ]
+                                                )
+                                            ],
+                                            read_only=True,
+                                            unit="%",
+                                            validators=[
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "costRequestPisfSumShare",
+                                                        "costOtherSourcesSumShare"
+                                                    ]
+                                                )
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Udział środków własnych oraz środków od partnerów/sponsorów w kosztach razem",
+                                            name="costOwnPartnersSponsorsShareInTotal",
+                                            calculation_rules=[
+                                                self.calculation_rule.sum_inputs(
+                                                    fields=[
+                                                        "costOwnFundsSumShare",
+                                                        "costPartnersSponsorsSumShare"
+                                                    ]
+                                                )
+                                            ],
+                                            read_only=True,
+                                            unit="%",
+                                            validators=[
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "costOwnFundsSumShare",
+                                                        "costPartnersSponsorsSumShare"
+                                                    ]
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                ),
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="2. Środki innych partnerów/sponsorów (wyłącznie udokumentowane deklaracjami i listami intencyjnymi)",
+                    class_list={
+                        "main": [
+                            "table-2-top"
+                        ]
+                    },
+                    components=[
+                        self.create_chapter(
+                            is_multiple_forms=True,
+                            multiple_forms_rules={
+                                "minCount": 1,
+                                "maxCount": 20
+                            },
+                            class_list={
+                                "main": [
+                                    "table-2-multiple"
+                                ]
+                            },
+                            components=[
+                                self.create_chapter(
+                                    class_list={
+                                        "main": [
+                                            "table-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            label="Nazwa podmiotu finansującego",
+                                            name="otherPartnersSponsorsName",
+                                            class_list=[
+                                                "table-2__col--textarea"
+                                            ],
+                                            validators=[
+                                                self.validator.length_validator(max_value=200)
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Kwota",
+                                            name="otherPartnersSponsorsAmount",
+                                            class_list=[
+                                                "table-2__col--text"
+                                            ],
+                                            unit="PLN"
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Razem",
+                            class_list={
+                                "main": [
+                                    "summary"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    mask="fund",
+                                    name="otherPartnersSponsorsAmountSum",
+                                    read_only=True,
+                                    calculation_rules=[
+                                        self.calculation_rule.dynamic_sum_inputs(
+                                            fields=[
+                                                "otherPartnersSponsorsAmount"
+                                            ]
+                                        )
+                                    ],
+                                    validators=[
+                                        self.validator.related_sum_validator(
+                                            field_names=[
+                                                "otherPartnersSponsorsAmount"
+                                            ]
+                                        )
+                                    ],
+                                    unit="PLN"
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="3. Pozostałe źródła publiczne (wyłącznie udokumentowane deklaracjami i listami intencyjnymi)",
+                    class_list={
+                        "main": [
+                            "table-2-top"
+                        ]
+                    },
+                    components=[
+                        self.create_chapter(
+                            is_multiple_forms=True,
+                            multiple_forms_rules={
+                                "minCount": 1,
+                                "maxCount": 20
+                            },
+                            class_list={
+                                "main": [
+                                    "table-2-multiple"
+                                ]
+                            },
+                            components=[
+                                self.create_chapter(
+                                    class_list={
+                                        "main": [
+                                            "table-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            label="Nazwa podmiotu publicznego",
+                                            name="otherSourcesName",
+                                            class_list=[
+                                                "table-2__col--textarea"
+                                            ],
+                                            validators=[
+                                                self.validator.length_validator(max_value=200)
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Kwota",
+                                            name="otherSourcesAmount",
+                                            class_list=[
+                                                "table-2__col--text"
+                                            ],
+                                            unit="PLN"
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Razem",
+                            class_list={
+                                "main": [
+                                    "summary"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    mask="fund",
+                                    name="otherSourcesAmountSum",
+                                    read_only=True,
+                                    calculation_rules=[
+                                        self.calculation_rule.dynamic_sum_inputs(
+                                            fields=[
+                                                "otherSourcesAmount"
+                                            ]
+                                        )
+                                    ],
+                                    validators=[
+                                        self.validator.related_sum_validator(
+                                            field_names=[
+                                                "otherSourcesAmount"
+                                            ]
+                                        )
+                                    ],
+                                    unit="PLN"
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part=part)
+
     def create_application_statements(self):
         part = self.create_part(
             title="X. Oświadczenia wnioskodawcy",

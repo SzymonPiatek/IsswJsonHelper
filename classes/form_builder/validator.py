@@ -91,3 +91,45 @@ class Validator:
             },
             "validationMsg": "Numer konta bankowego musi liczyć 26 cyfr."
         }
+
+    @staticmethod
+    def related_local_sum_validator(field_names: [str]):
+        return {
+            "name": "RelatedLocalSumValidator",
+            "kwargs": {
+                "field_names": field_names
+            }
+        }
+
+    @staticmethod
+    def related_sum_validator(field_names: [str]):
+        return {
+            "name": "RelatedSumValidator",
+            "kwargs": {
+                "field_names": field_names
+            }
+        }
+
+    @staticmethod
+    def range_validator(min_value: int | float = 0, max_value: int | float = 0, message: str = None):
+        if min_value == 0 and max_value == 0:
+            raise ValueError("Musisz podać co najmniej jedną wartość: min_value lub max_value")
+
+        kwargs = {}
+        if min_value > 0:
+            kwargs["min"] = min_value
+        if max_value > 0:
+            kwargs["max"] = float(max_value) + 0.01
+
+        if min_value > 0 and max_value > 0:
+            msg = f"Wartość musi być w zakresie od {min_value}% do {max_value}%"
+        elif min_value > 0:
+            msg = f"Wartość musi wynosić przynajmniej {min_value}%"
+        else:
+            msg = f"Wartość nie może przekorczyć {max_value}"
+
+        return {
+            "name": "RangeValidator",
+            "kwargs": kwargs,
+            "validationMsg": message if message is not None else msg,
+        }

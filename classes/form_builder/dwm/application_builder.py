@@ -83,21 +83,21 @@ class DWMApplicationBuilder(ApplicationBuilder):
     def create_application_other_information_data(self):
         pass
 
+    @not_implemented_func
     def create_application_financial_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_financial_data.json')
-        self.save_part(part=part)
+        pass
 
+    @not_implemented_func
     def create_application_statements(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_statements.json')
-        self.save_part(part=part)
+        pass
 
+    @not_implemented_func
     def create_application_attachments(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_attachments.json')
-        self.save_part(part=part)
+        pass
 
+    @not_implemented_func
     def create_application_schedule_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_schedule_data.json')
-        self.save_part(part=part)
+        pass
 
     def generate(self):
         # Base
@@ -128,7 +128,7 @@ class DWMApplicationBuilder(ApplicationBuilder):
         self.create_application_other_information_data()
 
         # # 9. Koszty przedsięwzięcia
-        # self.create_application_financial_data()
+        self.create_application_financial_data()
 
         # 10. Oświadczenia
         self.create_application_statements()
