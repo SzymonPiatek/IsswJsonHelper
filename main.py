@@ -1,12 +1,8 @@
 import os
 from dotenv import load_dotenv
-from classes.generator.dpf_generator import DPFGenerator
-from classes.generator.duk_generator import DUKGenerator
-from classes.generator.dwm_generator import DWMGenerator
 from classes.web_scraper.web_scraper import WebScraper
 from classes.postman.postman import Postman
-from classes.form_builder.duk.education.postgraduate_schools.application_builder import PostgraduateSchoolsApplicationBuilder
-from classes.generator import applications
+from classes.form_builder import applications
 
 load_dotenv()
 
