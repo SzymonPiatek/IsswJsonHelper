@@ -26,6 +26,70 @@ class FormBuilderBase:
         with path.open('r', encoding='utf-8') as f:
             return json.load(f)
 
+    @staticmethod
+    def delete_unused_component_args(component: dict):
+        drop_if_equal = {
+            "required": False,
+            "readOnly": False,
+            "helpText": None,
+            "unit": None,
+            "defaultValue": "",
+            "mask": None
+        }
+
+        drop_if_empty = [
+            "validators",
+            "calculationRules",
+            "classList",
+            "options"
+        ]
+
+
+        for key, val in drop_if_equal.items():
+            if component.get(key) == val:
+                component.pop(key, None)
+
+        for key in drop_if_empty:
+            if key in component and not component[key]:
+                component.pop(key, None)
+
+        return component
+
+    @staticmethod
+    def delete_unused_chapter_args(chapter: dict):
+        drop_if_equal = {
+            "isMultipleForms": False,
+            "isPaginated": False
+        }
+
+        drop_if_empty = [
+            "visibilityRules",
+            "multipleFormsRules",
+            "classList"
+        ]
+
+        for key, val in drop_if_equal.items():
+            if chapter.get(key) == val:
+                chapter.pop(key, None)
+
+        for key in drop_if_empty:
+            if key in chapter and not chapter[key]:
+                chapter.pop(key, None)
+
+        return chapter
+
+    @staticmethod
+    def delete_unused_part_args(part: dict):
+        drop_if_empty = [
+            "classList"
+        ]
+
+        for key in drop_if_empty:
+            if key in part and not part[key]:
+                part.pop(key, None)
+
+        return part
+
     def replace_placeholders(self, obj, values: dict):
         if isinstance(obj, dict):
             return {k: self.replace_placeholders(v, values) for k, v in obj.items()}
@@ -79,13 +143,15 @@ class FormBuilderBase:
         if chapters is None:
             chapters = []
 
-        return {
+        part = {
             "kind": "part",
             "title": title,
             "shortName": short_name,
             "classList": class_list,
             "chapters": chapters
         }
+
+        return self.delete_unused_part_args(part=part)
 
     def create_chapter(self, title='', class_list=None, visibility_rules=None, components=None, is_multiple_forms=False, multiple_forms_rules=None):
         if class_list is None:
@@ -97,7 +163,7 @@ class FormBuilderBase:
         if multiple_forms_rules is None:
             multiple_forms_rules = {}
 
-        return {
+        chapter = {
             "kind": "chapter",
             "title": title,
             "classList": class_list,
@@ -107,56 +173,63 @@ class FormBuilderBase:
             "multipleFormsRules": multiple_forms_rules
         }
 
+        return self.delete_unused_chapter_args(chapter=chapter)
+
     def create_component(
             self,
             component_type: Literal['date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox'],
-            mask: Literal['fund', 'phoneNumber', 'bankAccount'] = '',
+            mask: Literal['fund', 'phoneNumber', 'bankAccount'] = None,
             label: str = '',
             name: str = '',
             value: str | int | bool = '',
-            default_value: str | int | bool = None,
-            unit: str = '',
+            default_value: str | int | bool = '',
+            unit: str = None,
             options: Optional[list] = None,
             validators: Optional[list] = None,
             calculation_rules: Optional[list] = None,
             class_list: Optional[list] = None,
             required: bool = False,
             read_only: bool = False,
-            help_text: str = '',
+            help_text: str = None,
     ):
         allowed_types = {'date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox'}
         if component_type not in allowed_types:
             raise ValueError(f"Invalid component_type '{component_type}'. Must be one of: {', '.join(allowed_types)}.")
-
         if not name:
             raise ValueError("Component 'name' must be provided and non-empty.")
 
         if validators is None:
             validators = []
+        if calculation_rules is None:
+            calculation_rules = []
+        if class_list is None:
+            class_list = []
+
+        if component_type == 'select' or component_type == 'radio':
+            if options is None:
+                raise ValueError("Component 'options' must be provided and non-empty.")
+            else:
+                validators.append(Validator.exact_validator(values=options))
+        else:
+            options = []
+
+        if mask == "fund" and unit is None:
+            unit = "PLN"
         if mask == "fund" or component_type == "number":
             if not (isinstance(value, int) or (isinstance(value, str) and value.isdigit())):
                 value = 0
             if mask == "fund":
                 validators.append(
-                    {
-                        "name": "RangeValidator",
-                        "kwargs": {
-                            "min": 0
-                        },
-                        "validationMsg": "Wartość musi być większa od zera."
-                    },
+                    self.validator.range_validator(
+                        min_value=0
+                    )
                 )
         elif mask == "phoneNumber":
             validators.append(Validator.phone_number_validator())
         if component_type == 'date' or component_type == 'checkbox':
             value = False
-        if options is None:
-            options = []
-        if calculation_rules is None:
-            calculation_rules = []
-        if class_list is None:
-            class_list = []
-        if default_value is None:
+
+        if not default_value and value == 0:
             default_value = value
 
         if required and not any(v.get("name") == "RelatedRequiredIfEqualValidator" for v in validators):
@@ -166,7 +239,7 @@ class FormBuilderBase:
             raise ValueError(f"Duplicate component name detected: {name}")
         self.names.add(name)
 
-        return {
+        component = {
             "kind": "component",
             "type": component_type,
             "mask": mask,
@@ -184,6 +257,8 @@ class FormBuilderBase:
             "dataBDD": name,
             "helpText": help_text
         }
+
+        return self.delete_unused_component_args(component=component)
 
     def create_part_by_sections(self, part, sections):
         layout_chapters = []

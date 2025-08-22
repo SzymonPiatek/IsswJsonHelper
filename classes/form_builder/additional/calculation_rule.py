@@ -74,3 +74,13 @@ class CalculationRule:
                 "divisorField": divisor_field
             }
         }
+
+    @staticmethod
+    def single_position_share_calculator(dividend_field: str, divisor_field: str):
+        return {
+            "name": "singlePositionShareCalculator",
+            "kwargs": {
+                "dividendField": dividend_field,
+                "divisorField": divisor_field
+            }
+        }
