@@ -1,11 +1,10 @@
-from email.policy import default
 from typing import Literal, Optional
 import json
 import ast
 from pathlib import Path
-from classes.form_builder.validator import Validator
-from classes.form_builder.visibility_rule import VisibilityRule
-from classes.form_builder.calculation_rule import CalculationRule
+from classes.form_builder.additional.validator import Validator
+from classes.form_builder.additional.visibility_rule import VisibilityRule
+from classes.form_builder.additional.calculation_rule import CalculationRule
 
 
 class FormBuilderBase:
