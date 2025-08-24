@@ -167,3 +167,14 @@ class Validator:
                 "divisor": divisor
             }
         }
+
+    @staticmethod
+    def nip_validator():
+        return {
+            "name": "LengthValidator",
+            "kwargs": {
+                "min": 9,
+                "max": 11
+            },
+            "validationMsg": "Niepoprawny numer NIP"
+        }

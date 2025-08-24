@@ -178,7 +178,7 @@ class FormBuilderBase:
     def create_component(
             self,
             component_type: Literal['date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox'],
-            mask: Literal['fund', 'phoneNumber', 'bankAccount', 'landline'] = None,
+            mask: Literal['fund', 'phoneNumber', 'bankAccount', 'landline', 'jst', 'ibanAccount'] = None,
             label: str = '',
             name: str = '',
             value: str | int | bool = '',
@@ -195,7 +195,7 @@ class FormBuilderBase:
         allowed_types = {'date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox'}
         if component_type not in allowed_types:
             raise ValueError(f"Invalid component_type '{component_type}'. Must be one of: {', '.join(allowed_types)}.")
-        allowed_masks = {'fund', 'phoneNumber', 'bankAccount', 'landline'}
+        allowed_masks = {'fund', 'phoneNumber', 'bankAccount', 'landline', 'jst', 'ibanAccount'}
         if mask and mask not in allowed_masks:
             raise ValueError(f"Invalid mask '{mask}'. Must be one of: {', '.join(allowed_masks)}")
         if not name:

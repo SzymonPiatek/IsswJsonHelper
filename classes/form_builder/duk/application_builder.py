@@ -75,39 +75,14 @@ class DUKApplicationBuilder(ApplicationBuilder):
                 self.section.applicant_name(number="1"),
                 self.section.eligible_person_data(number="2"),
                 self.section.responsible_person_data(number="3"),
-                self.section.applicant_address(number="4", main_poland=True, contact_poland=True, main_foreign=False, contact_foreign=False)
+                self.section.applicant_address(number="4", main_poland=True, contact_poland=True, main_foreign=False, contact_foreign=False),
+                self.section.applicant_identification_data(number="5"),
+                self.section.applicant_bank_data(number="6", poland=True, foreign=True),
+                self.section.applicant_legal_information(number="7"),
+                self.section.applicant_statistical_data(number="8")
             ]
         )
-
-        self.create_part_by_sections(
-            part=part,
-            sections=[
-                {
-                    "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'applicant_identification_data.json',
-                    "data": {
-                        "number": "5"
-                    }
-                },
-                {
-                    "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'bank_data.json',
-                    "data": {
-                        "number": "6"
-                    }
-                },
-                {
-                    "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'legal_information.json',
-                    "data": {
-                        "number": "7"
-                    }
-                },
-                {
-                    "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'statistical_data.json',
-                    "data": {
-                        "number": "8"
-                    }
-                },
-            ]
-        )
+        self.save_part(part)
 
     def create_application_sources_of_financing(self):
         sources_of_financing_chapters = {
