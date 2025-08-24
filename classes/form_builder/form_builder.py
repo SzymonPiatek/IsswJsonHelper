@@ -1,9 +1,10 @@
 from typing import Literal, ClassVar
 import json
 
+from classes.form_builder.components.part import Part
+from classes.form_builder.components.section import Section
 from classes.form_builder.components.component import Component
 from classes.form_builder.form_builder_base import FormBuilderBase
-from classes.form_builder.components.section import Section
 
 JSONType = Literal['application', 'report']
 DepartmentType = Literal['DPF', 'DUK', 'DWM']
@@ -37,6 +38,7 @@ class FormBuilder(FormBuilderBase):
         self.output_file_name = f'po{self.operation_num}_pr{self.priority_num}_{self.json_type}_{self.year}.json'
         self.output_file = self.main_dir / 'output' / self.department_name / self.json_type / self.output_file_name
 
+        self.part = Part()
         self.section = Section()
         self.component = Component()
 

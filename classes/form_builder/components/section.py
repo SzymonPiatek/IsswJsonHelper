@@ -167,265 +167,272 @@ class Section(FormBuilderBase):
         )
 
     def applicant_address_base(self, build_name: str = '', poland: bool = True, foreign: bool = True):
-        return [
-            self.create_chapter(
-                visibility_rules=[
-                    self.visibility_rule.depends_on_value(
-                        field_name=f"applicant{build_name}Residence",
-                        values=["w Polsce"]
-                    )
-                ],
-                class_list={
-                    "main": [
-                        "table-1-2",
-                        "grid",
-                        "grid-cols-2"
+        chapters = []
+        if poland:
+            chapters.append(
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name=f"applicant{build_name}Residence",
+                            values=["w Polsce"]
+                        )
                     ],
-                    "sub": [
-                        "table-1-2__col"
-                    ]
-                },
-                components=[
-                    self.component.voivodeship_select(
-                        name=f"applicant{build_name}Voivodeship",
-                        required_if_name=f"applicant{build_name}Residence",
-                        required_if_value="w Polsce"
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        label="Powiat",
-                        name=f"applicant{build_name}County",
-                        required=True,
-                        validators=[
-                            self.validator.related_required_if_equal_validator(
-                                field_name=f"applicant{build_name}Residence",
-                                value="w Polsce"
-                            )
-                        ]
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        label="Miejscowość",
-                        name=f"applicant{build_name}Location",
-                        required=True,
-                        validators=[
-                            self.validator.related_required_if_equal_validator(
-                                field_name=f"applicant{build_name}Residence",
-                                value="w Polsce"
-                            )
-                        ]
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        label="Gmina",
-                        name=f"applicant{build_name}Municipality",
-                        required=True,
-                        validators=[
-                            self.validator.related_required_if_equal_validator(
-                                field_name=f"applicant{build_name}Residence",
-                                value="w Polsce"
-                            )
-                        ]
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        label="Ulica",
-                        name=f"applicant{build_name}Street",
-                        required=True,
-                        validators=[
-                            self.validator.related_required_if_equal_validator(
-                                field_name=f"applicant{build_name}Residence",
-                                value="w Polsce"
-                            )
-                        ]
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        label="Numer domu",
-                        name=f"applicant{build_name}HouseNum",
-                        required=True,
-                        validators=[
-                            self.validator.related_required_if_equal_validator(
-                                field_name=f"applicant{build_name}Residence",
-                                value="w Polsce"
-                            )
-                        ]
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        label="Numer lokalu",
-                        name=f"applicant{build_name}ApartmentNum"
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        label="Kod pocztowy",
-                        name=f"applicant{build_name}ZipCode",
-                        required=True,
-                        validators=[
-                            self.validator.related_required_if_equal_validator(
-                                field_name=f"applicant{build_name}Residence",
-                                value="w Polsce"
-                            )
-                        ]
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        label="Poczta",
-                        name=f"applicant{build_name}PostOffice",
-                        required=True,
-                        validators=[
-                            self.validator.related_required_if_equal_validator(
-                                field_name=f"applicant{build_name}Residence",
-                                value="w Polsce"
-                            )
-                        ]
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        mask="phoneNumber",
-                        label="Numer telefonu",
-                        name=f"applicant{build_name}PhoneNum",
-                        required=True,
-                        validators=[
-                            self.validator.related_required_if_equal_validator(
-                                field_name=f"applicant{build_name}Residence",
-                                value="w Polsce"
-                            )
-                        ]
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        label="Email kontaktowy",
-                        name=f"applicant{build_name}Email",
-                        required=True,
-                        validators=[
-                            self.validator.email_validator(),
-                            self.validator.related_required_if_equal_validator(
-                                field_name=f"applicant{build_name}Residence",
-                                value="w Polsce"
-                            )
-                        ]
-                    )
-                ]
-            ) if poland else None,
-            self.create_chapter(
-                visibility_rules=[
-                    self.visibility_rule.depends_on_value(
-                        field_name=f"applicant{build_name}Residence",
-                        values=["za granicą"]
-                    )
-                ],
-                class_list={
-                    "main": [
-                        "table-1-2",
-                        "grid",
-                        "grid-cols-2"
-                    ],
-                    "sub": [
-                        "table-1-2__col"
-                    ]
-                },
-                components=[
-                    self.create_component(
-                        component_type="text",
-                        label="Kraj",
-                        name=f"applicant{build_name}Country",
-                        required=True,
-                        validators=[
-                            self.validator.related_required_if_equal_validator(
-                                field_name=f"applicant{build_name}Residence",
-                                value="za granicą"
-                            )
-                        ]
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        label="Miejscowość",
-                        name=f"applicant{build_name}ForeignLocation",
-                        required=True,
-                        validators=[
-                            self.validator.related_required_if_equal_validator(
-                                field_name=f"applicant{build_name}Residence",
-                                value="za granicą"
-                            )
-                        ]
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        label="Ulica",
-                        name=f"applicant{build_name}ForeignStreet",
-                        required=True,
-                        validators=[
-                            self.validator.related_required_if_equal_validator(
-                                field_name=f"applicant{build_name}Residence",
-                                value="za granicą"
-                            )
-                        ]
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        label="Numer domu",
-                        name=f"applicant{build_name}ForeignHouseNum",
-                        required=True,
-                        validators=[
-                            self.validator.related_required_if_equal_validator(
-                                field_name=f"applicant{build_name}Residence",
-                                value="za granicą"
-                            )
-                        ]
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        label="Numer lokalu",
-                        name=f"applicant{build_name}ForeignApartmentNum"
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        label="Kod pocztowy",
-                        name=f"applicant{build_name}ForeignZipCode",
-                        required=True,
-                        validators=[
-                            self.validator.related_required_if_equal_validator(
-                                field_name=f"applicant{build_name}Residence",
-                                value="za granicą"
-                            )
-                        ]
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        label="Poczta",
-                        name=f"applicant{build_name}ForeignPostOffice"
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        mask="phoneNumber",
-                        label="Numer telefonu",
-                        name=f"applicant{build_name}ForeignPhoneNum",
-                        required=True,
-                        validators=[
-                            self.validator.related_required_if_equal_validator(
-                                field_name=f"applicant{build_name}Residence",
-                                value="za granicą"
-                            )
-                        ]
-
-                    ),
-                    self.create_component(
-                        component_type="text",
-                        label="Email kontaktowy",
-                        name=f"applicant{build_name}ForeignEmail",
-                        validators=[
-                            self.validator.email_validator(),
-                            self.validator.related_required_if_equal_validator(
-                                field_name=f"applicant{build_name}Residence",
-                                value="za granicą"
-                            )
+                    class_list={
+                        "main": [
+                            "table-1-2",
+                            "grid",
+                            "grid-cols-2"
                         ],
-                        required=True
-                    )
-                ]
-            ) if foreign else None
-        ]
+                        "sub": [
+                            "table-1-2__col"
+                        ]
+                    },
+                    components=[
+                        self.component.voivodeship_select(
+                            name=f"applicant{build_name}Voivodeship",
+                            required_if_name=f"applicant{build_name}Residence",
+                            required_if_value="w Polsce"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Powiat",
+                            name=f"applicant{build_name}County",
+                            required=True,
+                            validators=[
+                                self.validator.related_required_if_equal_validator(
+                                    field_name=f"applicant{build_name}Residence",
+                                    value="w Polsce"
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Miejscowość",
+                            name=f"applicant{build_name}Location",
+                            required=True,
+                            validators=[
+                                self.validator.related_required_if_equal_validator(
+                                    field_name=f"applicant{build_name}Residence",
+                                    value="w Polsce"
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Gmina",
+                            name=f"applicant{build_name}Municipality",
+                            required=True,
+                            validators=[
+                                self.validator.related_required_if_equal_validator(
+                                    field_name=f"applicant{build_name}Residence",
+                                    value="w Polsce"
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Ulica",
+                            name=f"applicant{build_name}Street",
+                            required=True,
+                            validators=[
+                                self.validator.related_required_if_equal_validator(
+                                    field_name=f"applicant{build_name}Residence",
+                                    value="w Polsce"
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Numer domu",
+                            name=f"applicant{build_name}HouseNum",
+                            required=True,
+                            validators=[
+                                self.validator.related_required_if_equal_validator(
+                                    field_name=f"applicant{build_name}Residence",
+                                    value="w Polsce"
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Numer lokalu",
+                            name=f"applicant{build_name}ApartmentNum"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Kod pocztowy",
+                            name=f"applicant{build_name}ZipCode",
+                            required=True,
+                            validators=[
+                                self.validator.related_required_if_equal_validator(
+                                    field_name=f"applicant{build_name}Residence",
+                                    value="w Polsce"
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Poczta",
+                            name=f"applicant{build_name}PostOffice",
+                            required=True,
+                            validators=[
+                                self.validator.related_required_if_equal_validator(
+                                    field_name=f"applicant{build_name}Residence",
+                                    value="w Polsce"
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="phoneNumber",
+                            label="Numer telefonu",
+                            name=f"applicant{build_name}PhoneNum",
+                            required=True,
+                            validators=[
+                                self.validator.related_required_if_equal_validator(
+                                    field_name=f"applicant{build_name}Residence",
+                                    value="w Polsce"
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Email kontaktowy",
+                            name=f"applicant{build_name}Email",
+                            required=True,
+                            validators=[
+                                self.validator.email_validator(),
+                                self.validator.related_required_if_equal_validator(
+                                    field_name=f"applicant{build_name}Residence",
+                                    value="w Polsce"
+                                )
+                            ]
+                        )
+                    ]
+                )
+            )
+
+        if foreign:
+            chapters.append(
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name=f"applicant{build_name}Residence",
+                            values=["za granicą"]
+                        )
+                    ],
+                    class_list={
+                        "main": [
+                            "table-1-2",
+                            "grid",
+                            "grid-cols-2"
+                        ],
+                        "sub": [
+                            "table-1-2__col"
+                        ]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            label="Kraj",
+                            name=f"applicant{build_name}Country",
+                            required=True,
+                            validators=[
+                                self.validator.related_required_if_equal_validator(
+                                    field_name=f"applicant{build_name}Residence",
+                                    value="za granicą"
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Miejscowość",
+                            name=f"applicant{build_name}ForeignLocation",
+                            required=True,
+                            validators=[
+                                self.validator.related_required_if_equal_validator(
+                                    field_name=f"applicant{build_name}Residence",
+                                    value="za granicą"
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Ulica",
+                            name=f"applicant{build_name}ForeignStreet",
+                            required=True,
+                            validators=[
+                                self.validator.related_required_if_equal_validator(
+                                    field_name=f"applicant{build_name}Residence",
+                                    value="za granicą"
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Numer domu",
+                            name=f"applicant{build_name}ForeignHouseNum",
+                            required=True,
+                            validators=[
+                                self.validator.related_required_if_equal_validator(
+                                    field_name=f"applicant{build_name}Residence",
+                                    value="za granicą"
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Numer lokalu",
+                            name=f"applicant{build_name}ForeignApartmentNum"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Kod pocztowy",
+                            name=f"applicant{build_name}ForeignZipCode",
+                            required=True,
+                            validators=[
+                                self.validator.related_required_if_equal_validator(
+                                    field_name=f"applicant{build_name}Residence",
+                                    value="za granicą"
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Poczta",
+                            name=f"applicant{build_name}ForeignPostOffice"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="phoneNumber",
+                            label="Numer telefonu",
+                            name=f"applicant{build_name}ForeignPhoneNum",
+                            required=True,
+                            validators=[
+                                self.validator.related_required_if_equal_validator(
+                                    field_name=f"applicant{build_name}Residence",
+                                    value="za granicą"
+                                )
+                            ]
+
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Email kontaktowy",
+                            name=f"applicant{build_name}ForeignEmail",
+                            validators=[
+                                self.validator.email_validator(),
+                                self.validator.related_required_if_equal_validator(
+                                    field_name=f"applicant{build_name}Residence",
+                                    value="za granicą"
+                                )
+                            ],
+                            required=True
+                        )
+                    ]
+                )
+            )
+        return chapters
 
     def applicant_address(self, number: int | str, poland: bool = True, foreign: bool = True):
         return self.create_chapter(
@@ -485,107 +492,3 @@ class Section(FormBuilderBase):
                 )
             ]
         )
-
-    def application_basic_data(self, data):
-        part = self.create_part(
-            title="I. Dane podstawowe",
-            short_name="I. Dane podstawowe",
-            chapters=[
-                self.create_chapter(
-                    title="1. Nazwa programu operacyjnego / priorytetu",
-                    components=[
-                        self.create_component(
-                            component_type="text",
-                            label="Program",
-                            name="programNamePartTwo",
-                            read_only=True,
-                            value=self.operation_name
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            label="Priorytet",
-                            name="priorityNamePartTwo",
-                            read_only=True,
-                            value=self.priority_name
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="2. Nazwa przedsięwzięcia, którego dotyczy wniosek",
-                    components=[
-                        self.create_component(
-                            component_type="textarea",
-                            name="applicationTaskName",
-                            validators=[
-                                self.validator.length_validator(max_value=100)
-                            ],
-                            required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="3. Rodzaj przedsięwzięcia określony w programie operacyjnym",
-                    components=[
-                        self.create_component(
-                            component_type="radio",
-                            name="projectType",
-                            value=data['projectType']['options'][0] if len(data['projectType']['options']) == 1 else "",
-                            read_only=True if len(data['projectType']['options']) == 1 else False,
-                            options=data["projectType"]["options"]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="4. Poprzednie edycje przedsięwzięcia",
-                    components=[
-                        self.create_chapter(
-                            components=[
-                                self.create_component(
-                                    component_type="radio",
-                                    label="Czy był składany wniosek na poprzednią edycję tego przedsięwzięcia",
-                                    name="previousApplicationForProject",
-                                    options=[
-                                        "Tak",
-                                        "Nie"
-                                    ],
-                                    validators=[
-                                        self.validator.exact_validator(
-                                            values=[
-                                                "Tak",
-                                                "Nie"
-                                            ]
-                                        )
-                                    ],
-                                    required=True
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="previousApplicationForProject",
-                                    values=[
-                                        "Tak"
-                                    ]
-                                )
-                            ],
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    label="Proszę podać numer wniosku nadany przez PISF",
-                                    name="fiveDigitNumberOfApplication",
-                                    required=True,
-                                    validators=[
-                                        self.validator.related_required_if_equal_validator(
-                                            field_name="previousApplicationForProject",
-                                            value="Tak"
-                                        )
-                                    ]
-                                )
-                            ]
-                        )
-                    ]
-                )
-            ]
-        )
-        self.save_part(part=part)

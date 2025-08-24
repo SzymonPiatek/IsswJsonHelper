@@ -12,7 +12,7 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder):
 
         self.priority_data_path = self.program_data_path / 'professional_training'
 
-    def create_application_basic_data(self, data: dict):
+    def create_application_basic_data(self, **kwargs):
         data = {
             'projectType': {
                 'options': [
@@ -22,4 +22,4 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder):
                 ]
             }
         }
-        DUKApplicationBuilder.create_application_basic_data(self=self, data=data)
+        DUKApplicationBuilder.create_application_basic_data(self, data=data)

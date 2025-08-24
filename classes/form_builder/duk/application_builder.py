@@ -57,81 +57,53 @@ class DUKApplicationBuilder(ApplicationBuilder):
         )
         self.save_part(part=part)
 
-    @not_implemented_func
-    def create_application_basic_data(self):
-        pass
+    def create_application_basic_data(self, data):
+        part = self.part.application_basic_data(
+            data={
+                **data,
+                "operation_name": self.operation_name,
+                "priority_name": self.priority_name,
+            }
+        )
+        self.save_part(part)
 
     def create_application_applicant_data(self):
         part = self.create_part(
             title="II. Dane wnioskodawcy",
-            short_name="II. Dane wnioskodawcy"
+            short_name="II. Dane wnioskodawcy",
+            chapters=[
+                self.section.applicant_name(number="1"),
+                self.section.eligible_person_data(number="2"),
+                self.section.responsible_person_data(number="3"),
+                self.section.applicant_address(number="4", poland=True, foreign=False)
+            ]
         )
 
         self.create_part_by_sections(
             part=part,
             sections=[
-                # {
-                #     "path": self.department_data_path / '_pages' / 'application_applicant_data' / 'applicant_full_name.json',
-                #     "data": {
-                #         "number": "1"
-                #     }
-                # },
-                # {
-                #     "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'eligible_person.json',
-                #     "data": {
-                #         "number": "2"
-                #     }
-                # },
-                # {
-                #     "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'responsible_person.json',
-                #     "data": {
-                #         "number": "3"
-                #     }
-                # },
-                # {
-                #     "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'applicant_main_address.json',
-                #     "data": {
-                #         "number": "4",
-                #         "applicantResidence": {
-                #             "options": [
-                #                 "w Polsce"
-                #             ]
-                #         }
-                #     }
-                # },
-                # {
-                #     "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'applicant_contact_address.json',
-                #     "data": {
-                #         "number": "5",
-                #         "applicantContactResidence": {
-                #             "options": [
-                #                 "w Polsce"
-                #             ]
-                #         }
-                #     }
-                # },
                 {
                     "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'applicant_identification_data.json',
                     "data": {
-                        "number": "6"
+                        "number": "5"
                     }
                 },
                 {
                     "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'bank_data.json',
                     "data": {
-                        "number": "7"
+                        "number": "6"
                     }
                 },
                 {
                     "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'legal_information.json',
                     "data": {
-                        "number": "8"
+                        "number": "7"
                     }
                 },
                 {
                     "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'statistical_data.json',
                     "data": {
-                        "number": "9"
+                        "number": "8"
                     }
                 },
             ]
@@ -609,7 +581,7 @@ class DUKApplicationBuilder(ApplicationBuilder):
         self.create_application_metadata()
 
         # I. Dane podstawowe
-        # self.create_application_basic_data()
+        self.create_application_basic_data()
 
         # II. Dane wnioskodawcy
         self.create_application_applicant_data()

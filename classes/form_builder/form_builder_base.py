@@ -263,8 +263,8 @@ class FormBuilderBase:
 
         return self.delete_unused_component_args(component=component)
 
-    def create_part_by_sections(self, part, sections):
-        layout_chapters = []
+    def create_part_by_sections(self, part: dict, sections):
+        layout_chapters = part["chapters"]
 
         for section in sections:
             data = section['data']
