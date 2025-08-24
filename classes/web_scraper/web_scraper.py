@@ -30,28 +30,24 @@ class LoginData(TypedDict):
 
 
 class WebScraper:
-    def __init__(self, base_url: str, login_data: LoginData, output_path: str, headless: bool = True):
+    def __init__(self, base_url: str, login_data: LoginData, headless: bool = True):
         self.base_url = base_url
         self.login_data = login_data
-        self.output_path = output_path
 
         self.options = Options()
         self.options.headless = headless
         self.driver = webdriver.Firefox(options=self.options)
 
-        os.makedirs(self.output_path, exist_ok=True)
-
-    def run(self, application):
-        self.login()
-        self.close_introjs()
-        self.screenshot_pages_of_application(application=application)
-        self.close()
-
-    def go_to_page(self, url: str):
+    def go_to_page(self, url: str, wait_for: str = None):
         self.driver.get(url)
-        WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.TAG_NAME, "body"))
-        )
+        if wait_for:
+            WebDriverWait(self.driver, 10).until(
+                EC.text_to_be_present_in_element((By.TAG_NAME, "body"), wait_for)
+            )
+        else:
+            WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.TAG_NAME, "body"))
+            )
 
     def close_introjs(self):
         while True:
@@ -97,34 +93,33 @@ class WebScraper:
             pass
 
     def capture_screenshot(self, screen_size: str, file_path: str):
-        file_name = f"{self.output_path}/{file_path}.png"
-
         if screen_size == "full":
-            self.driver.get_full_page_screenshot_as_file(file_name)
+            self.driver.get_full_page_screenshot_as_file(file_path)
         elif screen_size == "window":
             self.driver.set_window_size(1920, 1080)
-            self.driver.save_screenshot(file_name)
+            self.driver.save_screenshot(file_path)
         else:
             raise ValueError("screen_size must be either 'window' or 'full'")
 
-        print(f"Zrzut ekranu zapisany jako: {file_name}")
+        print(f"Zrzut ekranu zapisany jako: {file_path}")
 
     def close(self):
         self.driver.quit()
 
-    def screenshot_pages_of_application(self, application):
-        form_id = application.form_id,
-        pages = len(application.parts),
-        department = application.department_name,
-        program = application.operation_num,
-        priority = application.priority_num,
-        form_type = application.json_type
+    def screenshot_pages_of_form(self, application: dict, output_path: str):
+        form_id = application.form_id
+        json_type = "wniosek" if application.json_type == "application" else "raport"
+        page = 0
 
-        os.makedirs(f"{self.output_path}/{department}/{form_type}/po_{program}_pr_{priority}", exist_ok=True)
+        os.makedirs(output_path, exist_ok=True)
 
-        for page in range(0, pages):
-            self.go_to_page(url=f"{self.base_url}/wniosek/{form_id}/edycja?version=-1&strona={page}")
+        for part in application.parts:
+            self.go_to_page(
+                url=f"{self.base_url}/{json_type}/{form_id}/edycja?version=-1&strona={page}",
+                wait_for=part["title"]
+            )
             self.click_button_by_text("Rozumiem")
             self.click_button_by_text("Nie pokazuj więcej")
             self.capture_screenshot(screen_size="full",
-                                    file_path=f"{department}/{form_type}/po_{program}_pr_{priority}/page_{page}")
+                                    file_path=f"{output_path}/page_{page}.png")
+            page += 1

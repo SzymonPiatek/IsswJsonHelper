@@ -46,7 +46,13 @@ def example():
         output_path='output/screenshots'
     )
 
-    scraper.run(application=application)
+    scraper.login()
+    scraper.close_introjs()
+    scraper.screenshot_pages_of_form(
+        application=application,
+        output_path='output/png'
+    )
+    scraper.close()
 
 
 def generate_application(department: str, program: str, priority: str):
@@ -67,7 +73,7 @@ def generate_applications():
             for priority in priorities:
                 print("====="*10)
                 print(f"[{department.upper()}] {program.upper()} {priority.upper()}")
-                # Generarowanie
+                # Generowanie
                 application = generate_application(
                     department=department,
                     program=program,
