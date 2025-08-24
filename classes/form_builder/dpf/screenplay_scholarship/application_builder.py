@@ -143,24 +143,24 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         )
 
         sections = [
-            {
-                "path": self.department_data_path / '_pages' / 'application_applicant_data' / 'applicant_full_name.json',
-                "data": {
-                    "number": "1"
-                }
-            },
-            {
-                "path": self.priority_data_path / '_pages' / 'application_applicant_data' / 'applicant_data.json',
-                "data": {
-                    "number": "2"
-                }
-            },
-            {
-                "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'responsible_person.json',
-                "data": {
-                    "number": "3"
-                }
-            }
+            # {
+            #     "path": self.department_data_path / '_pages' / 'application_applicant_data' / 'applicant_full_name.json',
+            #     "data": {
+            #         "number": "1"
+            #     }
+            # },
+            # {
+            #     "path": self.priority_data_path / '_pages' / 'application_applicant_data' / 'applicant_data.json',
+            #     "data": {
+            #         "number": "2"
+            #     }
+            # },
+            # {
+            #     "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'responsible_person.json',
+            #     "data": {
+            #         "number": "3"
+            #     }
+            # }
         ]
 
         self.create_part_by_sections(

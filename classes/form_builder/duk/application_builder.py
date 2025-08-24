@@ -1,4 +1,5 @@
 from classes.form_builder.application_builder import ApplicationBuilder
+from classes.form_builder.additional.decorators import not_implemented_func
 
 
 class DUKApplicationBuilder(ApplicationBuilder):
@@ -56,109 +57,9 @@ class DUKApplicationBuilder(ApplicationBuilder):
         )
         self.save_part(part=part)
 
-    def create_application_basic_data(self, data):
-        part = self.create_part(
-            title="I. Dane podstawowe",
-            short_name="I. Dane podstawowe",
-            chapters=[
-                self.create_chapter(
-                    title="1. Nazwa programu operacyjnego / priorytetu",
-                    components=[
-                        self.create_component(
-                            component_type="text",
-                            label="Program",
-                            name="programNamePartTwo",
-                            read_only=True,
-                            value=self.operation_name
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            label="Priorytet",
-                            name="priorityNamePartTwo",
-                            read_only=True,
-                            value=self.priority_name
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="2. Nazwa przedsięwzięcia, którego dotyczy wniosek",
-                    components=[
-                        self.create_component(
-                            component_type="textarea",
-                            name="applicationTaskName",
-                            validators=[
-                                self.validator.length_validator(max_value=100)
-                            ],
-                            required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="3. Rodzaj przedsięwzięcia określony w programie operacyjnym",
-                    components=[
-                        self.create_component(
-                            component_type="radio",
-                            name="projectType",
-                            value=data['projectType']['options'][0] if len(data['projectType']['options']) == 1 else "",
-                            read_only=True if len(data['projectType']['options']) == 1 else False,
-                            options=data["projectType"]["options"]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="4. Poprzednie edycje przedsięwzięcia",
-                    components=[
-                        self.create_chapter(
-                            components=[
-                                self.create_component(
-                                    component_type="radio",
-                                    label="Czy był składany wniosek na poprzednią edycję tego przedsięwzięcia",
-                                    name="previousApplicationForProject",
-                                    options=[
-                                        "Tak",
-                                        "Nie"
-                                    ],
-                                    validators=[
-                                        self.validator.exact_validator(
-                                            values=[
-                                                "Tak",
-                                                "Nie"
-                                            ]
-                                        )
-                                    ],
-                                    required=True
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="previousApplicationForProject",
-                                    values=[
-                                        "Tak"
-                                    ]
-                                )
-                            ],
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    label="Proszę podać numer wniosku nadany przez PISF",
-                                    name="fiveDigitNumberOfApplication",
-                                    required=True,
-                                    validators=[
-                                        self.validator.related_required_if_equal_validator(
-                                            field_name="previousApplicationForProject",
-                                            value="Tak"
-                                        )
-                                    ]
-                                )
-                            ]
-                        )
-                    ]
-                )
-            ]
-        )
-        self.save_part(part=part)
+    @not_implemented_func
+    def create_application_basic_data(self):
+        pass
 
     def create_application_applicant_data(self):
         part = self.create_part(
@@ -169,46 +70,46 @@ class DUKApplicationBuilder(ApplicationBuilder):
         self.create_part_by_sections(
             part=part,
             sections=[
-                {
-                    "path": self.department_data_path / '_pages' / 'application_applicant_data' / 'applicant_full_name.json',
-                    "data": {
-                        "number": "1"
-                    }
-                },
-                {
-                    "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'eligible_person.json',
-                    "data": {
-                        "number": "2"
-                    }
-                },
-                {
-                    "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'responsible_person.json',
-                    "data": {
-                        "number": "3"
-                    }
-                },
-                {
-                    "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'applicant_main_address.json',
-                    "data": {
-                        "number": "4",
-                        "applicantResidence": {
-                            "options": [
-                                "w Polsce"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'applicant_contact_address.json',
-                    "data": {
-                        "number": "5",
-                        "applicantContactResidence": {
-                            "options": [
-                                "w Polsce"
-                            ]
-                        }
-                    }
-                },
+                # {
+                #     "path": self.department_data_path / '_pages' / 'application_applicant_data' / 'applicant_full_name.json',
+                #     "data": {
+                #         "number": "1"
+                #     }
+                # },
+                # {
+                #     "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'eligible_person.json',
+                #     "data": {
+                #         "number": "2"
+                #     }
+                # },
+                # {
+                #     "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'responsible_person.json',
+                #     "data": {
+                #         "number": "3"
+                #     }
+                # },
+                # {
+                #     "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'applicant_main_address.json',
+                #     "data": {
+                #         "number": "4",
+                #         "applicantResidence": {
+                #             "options": [
+                #                 "w Polsce"
+                #             ]
+                #         }
+                #     }
+                # },
+                # {
+                #     "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'applicant_contact_address.json',
+                #     "data": {
+                #         "number": "5",
+                #         "applicantContactResidence": {
+                #             "options": [
+                #                 "w Polsce"
+                #             ]
+                #         }
+                #     }
+                # },
                 {
                     "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'applicant_identification_data.json',
                     "data": {
@@ -708,7 +609,7 @@ class DUKApplicationBuilder(ApplicationBuilder):
         self.create_application_metadata()
 
         # I. Dane podstawowe
-        self.create_application_basic_data()
+        # self.create_application_basic_data()
 
         # II. Dane wnioskodawcy
         self.create_application_applicant_data()

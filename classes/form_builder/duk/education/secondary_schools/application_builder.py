@@ -12,7 +12,7 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder):
 
         self.priority_data_path = self.program_data_path / 'professional_training'
 
-    def create_application_basic_data(self, **kwargs):
+    def create_application_basic_data(self, data: dict):
         data = {
             'projectType': {
                 'options': [
