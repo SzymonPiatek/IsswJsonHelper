@@ -178,3 +178,24 @@ class Validator:
             },
             "validationMsg": "Niepoprawny numer NIP"
         }
+
+    @staticmethod
+    def related_local_date_lte_validator(field_name: str, message: str):
+        return {
+            "name": "RelatedLocalDateLTEValidator",
+            "kwargs": {
+                "field_name": field_name
+            },
+            "validationMsg": message
+        }
+
+    @staticmethod
+    def related_local_date_gte_validator(field_name: str, message: str):
+        return {
+            "name": "RelatedLocalDateGTEValidator",
+            "kwargs": {
+                "field_name": field_name
+            },
+            "validationMsg": message
+        }
+

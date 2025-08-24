@@ -10,15 +10,6 @@ class CalculationRule:
         }
 
     @staticmethod
-    def last_date(field: str):
-        return {
-            "name": "lastDate",
-            "kwargs": {
-                "field": field
-            }
-        }
-
-    @staticmethod
     def relate_to_last_date(field: str, parameter: int):
         return {
             "name": "relateToLastDate",
@@ -82,5 +73,23 @@ class CalculationRule:
             "kwargs": {
                 "dividendField": dividend_field,
                 "divisorField": divisor_field
+            }
+        }
+
+    @staticmethod
+    def first_date(field: str):
+        return {
+            "name": "firstDate",
+            "kwargs": {
+                "field": field
+            }
+        }
+
+    @staticmethod
+    def last_date(field: str):
+        return {
+            "name": "lastDate",
+            "kwargs": {
+                "field": field
             }
         }
