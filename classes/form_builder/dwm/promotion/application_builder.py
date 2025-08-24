@@ -448,7 +448,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                 ),
                 self.section.eligible_person_data(number="2"),
                 self.section.responsible_person_data(number="3"),
-                self.section.applicant_address(number="4"),
+                self.section.applicant_address(number="4", main_poland=True, contact_poland=True, main_foreign=True, contact_foreign=True),
                 self.create_chapter(
                     title="5. Nazwa i numer rachunku bankowego",
                     components=[

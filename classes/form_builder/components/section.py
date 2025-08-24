@@ -434,7 +434,7 @@ class Section(FormBuilderBase):
             )
         return chapters
 
-    def applicant_address(self, number: int | str, poland: bool = True, foreign: bool = True):
+    def applicant_address(self, number: int | str, main_poland: bool = True, main_foreign: bool = True, contact_poland: bool = True, contact_foreign: bool = True):
         return self.create_chapter(
             title=f"{number}. Adres i dane wnioskodawcy",
             components=[
@@ -446,16 +446,16 @@ class Section(FormBuilderBase):
                                 self.create_component(
                                     component_type="radio",
                                     name="applicantResidence",
-                                    value="" if poland and foreign else "w Polsce" if poland else "za granicą",
-                                    options=["w Polsce", "za granicą"] if poland and foreign else ["w Polsce"] if poland else ["za granicą"],
-                                    read_only=False if poland and foreign else True,
+                                    value="" if main_poland and main_foreign else "w Polsce" if main_poland else "za granicą",
+                                    options=["w Polsce", "za granicą"] if main_poland and main_foreign else ["w Polsce"] if main_poland else ["za granicą"],
+                                    read_only=False if main_poland and main_foreign else True,
                                     required=True
                                 )
                             ]
                         ),
                         *self.applicant_address_base(
-                            poland=poland,
-                            foreign=foreign,
+                            poland=main_poland,
+                            foreign=main_foreign,
                         )
                     ]
                 ),
@@ -476,17 +476,17 @@ class Section(FormBuilderBase):
                                 self.create_component(
                                     component_type="radio",
                                     name="applicantContactResidence",
-                                    value="" if poland and foreign else "w Polsce" if poland else "za granicą",
-                                    options=["w Polsce", "za granicą"] if poland and foreign else ["w Polsce"] if poland else ["za granicą"],
-                                    read_only=False if poland and foreign else True,
+                                    value="" if contact_poland and contact_foreign else "w Polsce" if contact_poland else "za granicą",
+                                    options=["w Polsce", "za granicą"] if contact_poland and contact_foreign else ["w Polsce"] if contact_poland else ["za granicą"],
+                                    read_only=False if contact_poland and contact_foreign else True,
                                     required=True
                                 )
                             ]
                         ),
                         *self.applicant_address_base(
                             build_name="Contact",
-                            poland=poland,
-                            foreign=foreign,
+                            poland=contact_poland,
+                            foreign=contact_foreign,
                         )
                     ]
                 )

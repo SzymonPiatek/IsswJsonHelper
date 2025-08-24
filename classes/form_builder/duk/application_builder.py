@@ -75,7 +75,7 @@ class DUKApplicationBuilder(ApplicationBuilder):
                 self.section.applicant_name(number="1"),
                 self.section.eligible_person_data(number="2"),
                 self.section.responsible_person_data(number="3"),
-                self.section.applicant_address(number="4", poland=True, foreign=False)
+                self.section.applicant_address(number="4", main_poland=True, contact_poland=True, main_foreign=False, contact_foreign=False)
             ]
         )
 
