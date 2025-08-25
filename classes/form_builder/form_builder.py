@@ -5,6 +5,7 @@ from classes.form_builder.components.part import Part
 from classes.form_builder.components.section import Section
 from classes.form_builder.components.component import Component
 from classes.form_builder.form_builder_base import FormBuilderBase
+from classes.form_builder.additional.decorators import not_implemented_func
 
 JSONType = Literal['application', 'report']
 DepartmentType = Literal['DPF', 'DUK', 'DWM']
@@ -36,7 +37,7 @@ class FormBuilder(FormBuilderBase):
         self.form_id = self.FORM_ID
 
         self.output_file_name = f'po{self.operation_num}_pr{self.priority_num}_{self.json_type}_{self.year}.json'
-        self.output_file = self.main_dir / 'output' / self.department_name / self.json_type / self.output_file_name
+        self.output_file = self.main_dir / 'output' / 'json' /self.department_name / self.json_type / self.output_file_name
 
         self.part = Part()
         self.section = Section()
@@ -50,6 +51,7 @@ class FormBuilder(FormBuilderBase):
             Priorytet: {self.priority_name}
             Rok: {self.year}
             Sesja: {self.session}
+            ID: {self.form_id}
             '''
 
     def save_output(self) -> None:
@@ -60,5 +62,6 @@ class FormBuilder(FormBuilderBase):
 
         print(f'Zapisano output do {self.output_file}')
 
+    @not_implemented_func
     def generate(self):
-        raise NotImplementedError("Podklasa musi nadpisać `generate`")
+        pass

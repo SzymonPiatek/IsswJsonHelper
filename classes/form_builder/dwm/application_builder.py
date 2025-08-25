@@ -10,9 +10,6 @@ class DWMApplicationBuilder(ApplicationBuilder):
     def __init__(self):
         super().__init__()
 
-        self.department_data_path = self.application_data_path / 'dwm'
-        self.priority_data_path = None
-
     @not_implemented_func
     def create_application_metadata(self):
         pass
@@ -139,4 +136,5 @@ class DWMApplicationBuilder(ApplicationBuilder):
         # 12. Harmonogram
         self.create_application_schedule_data()
 
+        # Zapis
         self.save_output()

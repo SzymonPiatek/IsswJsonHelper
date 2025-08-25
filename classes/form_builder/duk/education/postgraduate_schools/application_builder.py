@@ -12,8 +12,6 @@ class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
     def __init__(self):
         super().__init__()
 
-        self.priority_data_path = self.program_data_path / 'postgraduate_schools'
-
     def create_application_basic_data(self, **kwargs):
         data = {
             'projectType': {

@@ -9,8 +9,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
     def __init__(self):
         super().__init__()
 
-        self.priority_data_path = self.department_data_path / 'promotion'
-
     def create_application_metadata(self):
         part = self.create_part(
             title="I. Metadane wniosku",

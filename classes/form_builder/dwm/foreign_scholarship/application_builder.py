@@ -9,8 +9,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
     def __init__(self):
         super().__init__()
 
-        self.priority_data_path = self.department_data_path / 'foreign_scholarship'
-
     def create_application_metadata(self):
         part = self.create_part(
             title="I. Metadane wniosku",
