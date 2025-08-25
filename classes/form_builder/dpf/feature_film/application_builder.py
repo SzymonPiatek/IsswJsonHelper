@@ -4,6 +4,7 @@ from classes.form_builder.dpf.application_builder import DPFApplicationBuilder
 class FeatureFilmApplicationBuilder(DPFApplicationBuilder):
     PRIORITY_NAME = 'III. Produkcja filmów fabularnych'
     PRIORITY_NUM = 3
+    FORM_ID = 9196
 
     def __init__(self):
         super().__init__()

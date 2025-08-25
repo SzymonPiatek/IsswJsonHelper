@@ -1874,7 +1874,6 @@
                                   "label": "Koszt planowany: środki jednostki",
                                   "name": "budgetInputLocalGvmtAmount",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "copyFrom": "localGovernmentFundingAmount",
                                   "helpText": "Podaj wartość finansowania zgodnie z kosztorysem",
                                   "readOnly": true,

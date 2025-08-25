@@ -3564,7 +3564,6 @@
                       "label": "Poniesiony koszt całkowity",
                       "name": "projector2k4kCostActualTotal",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -3590,7 +3589,6 @@
                       "label": "W tym dotacja PISF",
                       "name": "projector2k4kCostActualSupportPisf",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -3712,7 +3710,6 @@
                       "label": "Poniesiony koszt całkowity",
                       "name": "projectionServerCostActualTotal",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -3738,7 +3735,6 @@
                       "label": "W tym dotacja PISF",
                       "name": "projectionServerCostActualSupportPisf",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -3860,7 +3856,6 @@
                       "label": "Poniesiony koszt całkowity",
                       "name": "visionProcessorCostActualTotal",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -3886,7 +3881,6 @@
                       "label": "W tym dotacja PISF",
                       "name": "visionProcessorCostActualSupportPisf",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -4008,7 +4002,6 @@
                       "label": "Poniesiony koszt całkowity",
                       "name": "projectionLensesCostActualTotal",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -4034,7 +4027,6 @@
                       "label": "W tym dotacja PISF",
                       "name": "projectionLensesCostActualSupportPisf",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -4156,7 +4148,6 @@
                       "label": "Poniesiony koszt całkowity",
                       "name": "operatingUnitCostActualTotal",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -4182,7 +4173,6 @@
                       "label": "W tym dotacja PISF",
                       "name": "operatingUnitCostActualSupportPisf",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -4304,7 +4294,6 @@
                       "label": "Poniesiony koszt całkowity",
                       "name": "projectionLampCostActualTotal",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -4330,7 +4319,6 @@
                       "label": "W tym dotacja PISF",
                       "name": "projectionLampCostActualSupportPisf",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -4452,7 +4440,6 @@
                       "label": "Poniesiony koszt całkowity",
                       "name": "projection3dSystemCostActualTotal",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -4478,7 +4465,6 @@
                       "label": "W tym dotacja PISF",
                       "name": "projection3dSystemCostActualSupportPisf",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -4600,7 +4586,6 @@
                       "label": "Poniesiony koszt całkowity",
                       "name": "3dGlassesCostActualTotal",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -4626,7 +4611,6 @@
                       "label": "W tym dotacja PISF",
                       "name": "3dGlassesCostActualSupportPisf",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -4748,7 +4732,6 @@
                       "label": "Poniesiony koszt całkowity",
                       "name": "suitableLiftCostActualTotal",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -4774,7 +4757,6 @@
                       "label": "W tym dotacja PISF",
                       "name": "suitableLiftCostActualSupportPisf",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -4896,7 +4878,6 @@
                       "label": "Poniesiony koszt całkowity",
                       "name": "deliveryInstallationCostActualTotal",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",
@@ -4922,7 +4903,6 @@
                       "label": "W tym dotacja PISF",
                       "name": "deliveryInstallationCostActualSupportPisf",
                       "value": 0,
-                      "defaultValue": 0,
                       "validators": [
                         {
                           "name": "RangeValidator",

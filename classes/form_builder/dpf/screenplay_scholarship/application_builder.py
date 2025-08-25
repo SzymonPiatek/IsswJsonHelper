@@ -4,6 +4,7 @@ from classes.form_builder.dpf.application_builder import DPFApplicationBuilder
 class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
     PRIORITY_NAME = 'I. Stypendia scenariuszowe'
     PRIORITY_NUM = 1
+    FORM_ID = 9194
 
     def __init__(self):
         super().__init__()
@@ -142,24 +143,24 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         )
 
         sections = [
-            {
-                "path": self.department_data_path / '_pages' / 'application_applicant_data' / 'applicant_full_name.json',
-                "data": {
-                    "number": "1"
-                }
-            },
-            {
-                "path": self.priority_data_path / '_pages' / 'application_applicant_data' / 'applicant_data.json',
-                "data": {
-                    "number": "2"
-                }
-            },
-            {
-                "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'responsible_person.json',
-                "data": {
-                    "number": "3"
-                }
-            }
+            # {
+            #     "path": self.department_data_path / '_pages' / 'application_applicant_data' / 'applicant_full_name.json',
+            #     "data": {
+            #         "number": "1"
+            #     }
+            # },
+            # {
+            #     "path": self.priority_data_path / '_pages' / 'application_applicant_data' / 'applicant_data.json',
+            #     "data": {
+            #         "number": "2"
+            #     }
+            # },
+            # {
+            #     "path": self.application_data_path / '_pages' / 'application_applicant_data' / 'responsible_person.json',
+            #     "data": {
+            #         "number": "3"
+            #     }
+            # }
         ]
 
         self.create_part_by_sections(
@@ -201,16 +202,5 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         self.save_part(part)
 
     def create_application_financial_data(self):
-        part = self.create_part(
-            title="V. Dane finansowe",
-            short_name="V. Dane finansowe",
-            chapters=[
-                self.create_chapter(
-                    title="1. Wnioskowana wysokość dofinansowania ze środków PISF",
-                    components=[
-                        self.load_json(path=self.priority_data_path / '_pages' / 'application_financial_data' / 'requested_pisf_support_amount.json')
-                    ]
-                )
-            ]
-        )
+        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_financial_data' / 'requested_pisf_support_amount.json')
         self.save_part(part)

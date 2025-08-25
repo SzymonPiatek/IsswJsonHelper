@@ -1876,7 +1876,6 @@
                                   "helpText": "Podaj wartość poniesionych kosztów",
                                   "name": "budgetInputLocalGvmtCurrentAmount",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -2195,7 +2194,6 @@
                                   "helpText": "Podaj wartość poniesionych kosztów",
                                   "name": "budgetInputMinistryCurrentAmount",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -2516,7 +2514,6 @@
                                   "helpText": "Podaj wartość poniesionych kosztów",
                                   "name": "budgetInputSponsorCurrentAmount",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",
@@ -2799,7 +2796,6 @@
                                   "helpText": "Podaj wartość poniesionych kosztów",
                                   "name": "budgetInputForeignEntityCurrentAmount",
                                   "value": 0,
-                                  "defaultValue": 0,
                                   "validators": [
                                     {
                                       "name": "RangeValidator",

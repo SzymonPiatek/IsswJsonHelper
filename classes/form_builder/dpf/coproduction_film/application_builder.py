@@ -4,6 +4,7 @@ from classes.form_builder.dpf.application_builder import DPFApplicationBuilder
 class CoproductionFilmApplicationBuilder(DPFApplicationBuilder):
     PRIORITY_NAME = 'VI. Produkcja koprodukcji mniejszościowych'
     PRIORITY_NUM = 6
+    FORM_ID = 9199
 
     def __init__(self):
         super().__init__()

@@ -5,7 +5,7 @@ from classes.form_builder.duk.application_builder import DUKApplicationBuilder
 class CinemasApplicationBuilder(EducationApplicationBuilder):
     PRIORITY_NAME = 'IV. Edukacja w kinach'
     PRIORITY_NUM = 4
-    FORM_ID = 2595
+    FORM_ID = 9183
 
     def __init__(self):
         super().__init__()
@@ -101,3 +101,14 @@ class CinemasApplicationBuilder(EducationApplicationBuilder):
         )
 
         self.save_part(part)
+
+    def create_application_scope_of_project(self):
+        data = {
+            "chapters": [
+
+            ]
+        }
+
+        EducationApplicationBuilder.create_application_scope_of_project(
+            self, data=data
+        )

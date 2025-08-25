@@ -221,7 +221,6 @@
                           "label": "Koszt ogółem",
                           "name": "soundSystemSumAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "calculationRules": [
                             {
                               "name": "localSum",
@@ -255,7 +254,6 @@
                           "label": "Wnioskowana dotacja PISF",
                           "name": "soundSystemRequestedAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "soundSystemRequestedAmount"
                         },
@@ -266,7 +264,6 @@
                           "label": "Pozostałe środki",
                           "name": "soundSystemOtherFundsAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "soundSystemOtherFundsAmount"
                         }
@@ -466,7 +463,6 @@
                           "label": "Koszt ogółem",
                           "name": "screenSumAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "calculationRules": [
                             {
                               "name": "localSum",
@@ -500,7 +496,6 @@
                           "label": "Wnioskowana dotacja PISF",
                           "name": "screenRequestedAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "screenRequestedAmount"
                         },
@@ -511,7 +506,6 @@
                           "label": "Pozostałe środki",
                           "name": "screenOtherFundsAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "screenOtherFundsAmount"
                         }
@@ -711,7 +705,6 @@
                           "label": "Koszt ogółem",
                           "name": "wiringSumAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "calculationRules": [
                             {
                               "name": "localSum",
@@ -745,7 +738,6 @@
                           "label": "Wnioskowana dotacja PISF",
                           "name": "wiringRequestedAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "wiringRequestedAmount"
                         },
@@ -756,7 +748,6 @@
                           "label": "Pozostałe środki",
                           "name": "wiringOtherFundsAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "wiringOtherFundsAmount"
                         }
@@ -956,7 +947,6 @@
                           "label": "Koszt ogółem",
                           "name": "cashRegisterSystemSumAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "calculationRules": [
                             {
                               "name": "localSum",
@@ -990,7 +980,6 @@
                           "label": "Wnioskowana dotacja PISF",
                           "name": "cashRegisterSystemRequestedAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "cashRegisterSystemRequestedAmount"
                         },
@@ -1001,7 +990,6 @@
                           "label": "Pozostałe środki",
                           "name": "cashRegisterSystemOtherFundsAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "cashRegisterSystemOtherFundsAmount"
                         }
@@ -1201,7 +1189,6 @@
                           "label": "Koszt ogółem",
                           "name": "renovationSumAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "calculationRules": [
                             {
                               "name": "localSum",
@@ -1235,7 +1222,6 @@
                           "label": "Wnioskowana dotacja PISF",
                           "name": "renovationRequestedAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "renovationRequestedAmount"
                         },
@@ -1246,7 +1232,6 @@
                           "label": "Pozostałe środki",
                           "name": "renovationOtherFundsAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "renovationOtherFundsAmount"
                         }
@@ -1446,7 +1431,6 @@
                           "label": "Koszt ogółem",
                           "name": "carpetReplacementSumAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "calculationRules": [
                             {
                               "name": "localSum",
@@ -1480,7 +1464,6 @@
                           "label": "Wnioskowana dotacja PISF",
                           "name": "carpetReplacementRequestedAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "carpetReplacementRequestedAmount"
                         },
@@ -1491,7 +1474,6 @@
                           "label": "Pozostałe środki",
                           "name": "carpetReplacementOtherFundsAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "carpetReplacementOtherFundsAmount"
                         }
@@ -1691,7 +1673,6 @@
                           "label": "Koszt ogółem",
                           "name": "cinemaEquipmentSumAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "calculationRules": [
                             {
                               "name": "localSum",
@@ -1725,7 +1706,6 @@
                           "label": "Wnioskowana dotacja PISF",
                           "name": "cinemaEquipmentRequestedAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "cinemaEquipmentRequestedAmount"
                         },
@@ -1736,7 +1716,6 @@
                           "label": "Pozostałe środki",
                           "name": "cinemaEquipmentOtherFundsAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "cinemaEquipmentOtherFundsAmount"
                         }
@@ -1936,7 +1915,6 @@
                           "label": "Koszt ogółem",
                           "name": "obstacleLightingSumAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "calculationRules": [
                             {
                               "name": "localSum",
@@ -1970,7 +1948,6 @@
                           "label": "Wnioskowana dotacja PISF",
                           "name": "obstacleLightingRequestedAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "obstacleLightingRequestedAmount"
                         },
@@ -1981,7 +1958,6 @@
                           "label": "Pozostałe środki",
                           "name": "obstacleLightingOtherFundsAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "obstacleLightingOtherFundsAmount"
                         }
@@ -2181,7 +2157,6 @@
                           "label": "Koszt ogółem",
                           "name": "airConditioningSumAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "calculationRules": [
                             {
                               "name": "localSum",
@@ -2215,7 +2190,6 @@
                           "label": "Wnioskowana dotacja PISF",
                           "name": "airConditioningRequestedAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "airConditioningRequestedAmount"
                         },
@@ -2226,7 +2200,6 @@
                           "label": "Pozostałe środki",
                           "name": "airConditioningOtherFundsAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "airConditioningOtherFundsAmount"
                         }
@@ -2426,7 +2399,6 @@
                           "label": "Koszt ogółem",
                           "name": "objectAdaptationSpecialSumAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "calculationRules": [
                             {
                               "name": "localSum",
@@ -2460,7 +2432,6 @@
                           "label": "Wnioskowana dotacja PISF",
                           "name": "objectAdaptationSpecialRequestedAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "objectAdaptationSpecialRequestedAmount"
                         },
@@ -2471,7 +2442,6 @@
                           "label": "Pozostałe środki",
                           "name": "objectAdaptationSpecialOtherFundsAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "objectAdaptationSpecialOtherFundsAmount"
                         }
@@ -2671,7 +2641,6 @@
                           "label": "Koszt ogółem",
                           "name": "objectAdaptationDisabledSumAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "calculationRules": [
                             {
                               "name": "localSum",
@@ -2705,7 +2674,6 @@
                           "label": "Wnioskowana dotacja PISF",
                           "name": "objectAdaptationDisabledRequestedAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "objectAdaptationDisabledRequestedAmount"
                         },
@@ -2716,7 +2684,6 @@
                           "label": "Pozostałe środki",
                           "name": "objectAdaptationDisabledOtherFundsAmount",
                           "value": 0,
-                          "defaultValue": 0,
                           "unit": "PLN",
                           "dataBDD": "objectAdaptationDisabledOtherFundsAmount"
                         }
