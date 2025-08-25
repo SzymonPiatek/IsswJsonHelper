@@ -101,3 +101,14 @@ class CinemasApplicationBuilder(EducationApplicationBuilder):
         )
 
         self.save_part(part)
+
+    def create_application_scope_of_project(self):
+        data = {
+            "chapters": [
+
+            ]
+        }
+
+        EducationApplicationBuilder.create_application_scope_of_project(
+            self, data=data
+        )

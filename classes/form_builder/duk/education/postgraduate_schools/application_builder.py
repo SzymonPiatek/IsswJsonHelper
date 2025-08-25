@@ -35,3 +35,14 @@ class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
         part = estimate.generate()
 
         self.save_part(part=part)
+
+    def create_application_scope_of_project(self):
+        data = {
+            "chapters": [
+
+            ]
+        }
+
+        EducationApplicationBuilder.create_application_scope_of_project(
+            self, data=data
+        )

@@ -23,3 +23,14 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder):
             }
         }
         DUKApplicationBuilder.create_application_basic_data(self, data=data)
+
+    def create_application_scope_of_project(self):
+        data = {
+            "chapters": [
+
+            ]
+        }
+
+        EducationApplicationBuilder.create_application_scope_of_project(
+            self, data=data
+        )

@@ -31,10 +31,10 @@ class FormBuilderBase:
         drop_if_equal = {
             "required": False,
             "readOnly": False,
-            "helpText": None,
-            "unit": None,
-            "defaultValue": "",
-            "mask": None
+            "helpText": '',
+            "unit": '',
+            "defaultValue": '',
+            "mask": ''
         }
 
         drop_if_empty = [
@@ -178,19 +178,19 @@ class FormBuilderBase:
     def create_component(
             self,
             component_type: Literal['date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox'],
-            mask: Literal['fund', 'phoneNumber', 'bankAccount', 'landline', 'jst', 'ibanAccount'] = None,
+            mask: Literal['fund', 'phoneNumber', 'bankAccount', 'landline', 'jst', 'ibanAccount'] = '',
             label: str = '',
             name: str = '',
             value: str | int | bool = '',
             default_value: str | int | bool = '',
-            unit: str = None,
+            unit: str = '',
             options: Optional[list] = None,
             validators: Optional[list] = None,
             calculation_rules: Optional[list] = None,
-            class_list: Optional[list] = None,
+            class_list: Optional[list] | Optional[dict] = None,
             required: bool = False,
             read_only: bool = False,
-            help_text: str = None,
+            help_text: str = '',
     ):
         allowed_types = {'date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox'}
         if component_type not in allowed_types:
@@ -216,7 +216,7 @@ class FormBuilderBase:
         else:
             options = []
 
-        if mask == "fund" and unit is None:
+        if mask == "fund" and not unit:
             unit = "PLN"
         if mask == "fund" or component_type == "number":
             if not (isinstance(value, int) or (isinstance(value, str) and value.isdigit())):
