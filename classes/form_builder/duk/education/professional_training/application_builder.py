@@ -1,5 +1,6 @@
 from classes.form_builder.duk.education.application_builder import EducationApplicationBuilder
 from classes.form_builder.duk.application_builder import DUKApplicationBuilder
+from classes.form_builder.duk.education.professional_training.estimate_data import estimate_sections
 
 
 class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder):
@@ -10,7 +11,7 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder):
     def __init__(self):
         super().__init__()
 
-        self.priority_data_path = self.program_data_path / 'professional_training'
+        self.estimate_sections = estimate_sections
 
     def create_application_basic_data(self, **kwargs):
         data = {

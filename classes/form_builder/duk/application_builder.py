@@ -1,4 +1,5 @@
 from classes.form_builder.application_builder import ApplicationBuilder
+from classes.form_builder.estimate_builder.duk.application_estimate_builder import DUKApplicationEstimateBuilder
 from classes.form_builder.additional.decorators import not_implemented_func
 
 
@@ -11,6 +12,7 @@ class DUKApplicationBuilder(ApplicationBuilder):
         self.department_data_path = self.application_data_path / 'duk'
         self.program_data_path = None
         self.priority_data_path = None
+        self.estimate_sections = []
 
     def create_application_metadata(self):
         part = self.create_part(
@@ -544,7 +546,11 @@ class DUKApplicationBuilder(ApplicationBuilder):
         self.save_part(part)
 
     def create_application_project_costs(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_project_costs.json')
+        estimate = DUKApplicationEstimateBuilder(
+            estimate_sections=self.estimate_sections
+        )
+        part = estimate.generate()
+
         self.save_part(part=part)
 
     def generate(self):

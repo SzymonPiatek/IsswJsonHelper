@@ -12,6 +12,8 @@ class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
     def __init__(self):
         super().__init__()
 
+        self.estimate_sections = estimate_sections
+
     def create_application_basic_data(self, **kwargs):
         data = {
             'projectType': {
@@ -24,15 +26,6 @@ class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
             }
         }
         DUKApplicationBuilder.create_application_basic_data(self=self, data=data)
-
-    def create_application_project_costs(self):
-        estimate = DUKApplicationEstimateBuilder(
-            estimate_sections=estimate_sections
-        )
-
-        part = estimate.generate()
-
-        self.save_part(part=part)
 
     def create_application_scope_of_project(self):
         produced_films_chapters = [
