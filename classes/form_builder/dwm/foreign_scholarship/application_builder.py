@@ -74,7 +74,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                 ),
                 self.create_chapter(
                     title="2. Nazwa i termin docelowego wydarzenia",
-                    is_multiple_forms=True,
                     multiple_forms_rules={
                         "minCount": 1,
                         "maxCount": 20
@@ -133,7 +132,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                 ),
                 self.create_chapter(
                     title="3. Miasto i kraj, w którym odbywa sie wydarzenie",
-                    is_multiple_forms=True,
                     multiple_forms_rules={
                         "minCount": 1,
                         "maxCount": 20
@@ -1330,7 +1328,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                     },
                     components=[
                         self.create_chapter(
-                            is_multiple_forms=True,
                             multiple_forms_rules={
                                 "minCount": 1,
                                 "maxCount": 20
@@ -1420,7 +1417,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                     },
                     components=[
                         self.create_chapter(
-                            is_multiple_forms=True,
                             multiple_forms_rules={
                                 "minCount": 1,
                                 "maxCount": 20
@@ -1555,7 +1551,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
             chapters=[
                 self.create_chapter(
                     title="A. Oficjalne zaproszenie filmu/twórcy na festiwal",
-                    is_multiple_forms=True,
                     multiple_forms_rules={
                         "minCount": 1,
                         "maxCount": 20
@@ -1581,7 +1576,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                 ),
                 self.create_chapter(
                     title="B. Lista gości zagranicznych",
-                    is_multiple_forms=True,
                     multiple_forms_rules={
                         "minCount": 1,
                         "maxCount": 20
@@ -1607,7 +1601,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                 ),
                 self.create_chapter(
                     title="C. Zaświadczenie o zakwalifikowaniu się do udziału w przedsięwzięciu",
-                    is_multiple_forms=True,
                     multiple_forms_rules={
                         "minCount": 1,
                         "maxCount": 20
@@ -1666,7 +1659,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                 ),
                 self.create_chapter(
                     title="<normal>Uwaga!\n\n- Harmonogram przedsięwzięcia powinien uwzględniać wszystkie działania wymienione w kosztorysie przedsięwzięcia.\n- Prosimy o chronologiczne ułożenie wszystkich pozycji harmonogramu.</normal>\nWymagane jest uwzględnienie przynajmniej 3 etapów realizacji przedsięwzięcia.",
-                    is_multiple_forms=True,
                     multiple_forms_rules={
                         "minCount": 3,
                         "maxCount": 20

@@ -13,6 +13,29 @@ class EducationApplicationBuilder(DUKApplicationBuilder):
     def create_application_scope_of_project(self, **kwargs):
         data = kwargs["data"]
 
+        project_detailed_description_chapters = [
+            {
+                "section_title": "Wartość merytoryczna przedsięwzięcia, w tym ciągłość realizacji przedsięwzięcia oraz wartość edukacyjna",
+                "name": "scopeAndValueOfContent"
+            },
+            {
+                "section_title": "Spójność, oryginalność i unikalność koncepcji przedsięwzięcia, atrakcyjność przekazu dla odbiorcy i specyfika przedsięwzięcia",
+                "name": "originalityOfProject"
+            },
+            {
+                "section_title": "Zróżnicowanie struktury odbiorców lub uczestników oraz liczba uczestników",
+                "name": "diversificationOfAudience"
+            },
+            {
+                "section_title": "Różnorodność środowisk zaangażowanych w realizację przedsięwzięcia",
+                "name": "diversityOfInvolvedCommunities"
+            },
+            {
+                "section_title": "Planowane efekty realizacji przedsięwzięcia oraz jego ewaluacja",
+                "name": "plannedResultsOfProject"
+            }
+        ]
+
         part = self.create_part(
             title="III. Zakres przedsięwziecia",
             short_name="III. Zakres przedsięwzięcia",
@@ -49,32 +72,19 @@ class EducationApplicationBuilder(DUKApplicationBuilder):
                 self.create_chapter(
                     title="3. Opis szczegółowy przedsięwzięcia",
                     components=[
-                        self.create_chapter(
-                            title="<normal>Wartość merytoryczna przedsięwzięcia, w tym ciągłość realizacji przedsięwzięcia oraz wartość edukacyjna</normal>",
+                        *[self.create_chapter(
+                            title=f"<normal>{chapter["section_title"]}</normal>",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
-                                    name="scopeAndValueOfContent",
+                                    name=chapter["name"],
                                     validators=[
                                         self.validator.length_validator(max_value=1000)
                                     ],
                                     required=True
                                 )
                             ]
-                        ),
-                        self.create_chapter(
-                            title="<normal>Planowane efekty realizacji przedsięwzięcia oraz jego ewaluacja</normal>",
-                            components=[
-                                self.create_component(
-                                    component_type="textarea",
-                                    name="plannedResultsOfProject",
-                                    validators=[
-                                        self.validator.length_validator(max_value=1000)
-                                    ],
-                                    required=True
-                                )
-                            ]
-                        )
+                        ) for chapter in project_detailed_description_chapters]
                     ]
                 ),
                 self.create_chapter(

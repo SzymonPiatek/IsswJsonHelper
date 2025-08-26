@@ -22,7 +22,7 @@ class FormBuilderBase:
         self.calculation_rule = CalculationRule()
 
     @staticmethod
-    def load_json(path):
+    def load_json(path: str):
         with path.open('r', encoding='utf-8') as f:
             return json.load(f)
 
@@ -90,7 +90,7 @@ class FormBuilderBase:
 
         return part
 
-    def replace_placeholders(self, obj, values: dict):
+    def replace_placeholders(self, obj: dict, values: dict):
         if isinstance(obj, dict):
             return {k: self.replace_placeholders(v, values) for k, v in obj.items()}
         elif isinstance(obj, list):
@@ -107,7 +107,7 @@ class FormBuilderBase:
         else:
             return obj
 
-    def save_part(self, part):
+    def save_part(self, part: dict):
         self.parts = self.output_json.setdefault('parts', [])
         self.parts.append(part)
 
@@ -153,7 +153,7 @@ class FormBuilderBase:
 
         return self.delete_unused_part_args(part=part)
 
-    def create_chapter(self, title='', class_list=None, visibility_rules=None, components=None, is_multiple_forms=False, multiple_forms_rules=None):
+    def create_chapter(self, title: str = '', class_list: list | dict = None, visibility_rules: list = None, components: list = None, multiple_forms_rules: dict = None):
         if class_list is None:
             class_list = []
         if visibility_rules is None:
@@ -162,6 +162,9 @@ class FormBuilderBase:
             components = []
         if multiple_forms_rules is None:
             multiple_forms_rules = {}
+            is_multiple_forms = False
+        else:
+            is_multiple_forms = True
 
         chapter = {
             "kind": "chapter",
@@ -184,10 +187,10 @@ class FormBuilderBase:
             value: str | int | bool = '',
             default_value: str | int | bool = '',
             unit: str = '',
-            options: Optional[list] = None,
-            validators: Optional[list] = None,
-            calculation_rules: Optional[list] = None,
-            class_list: Optional[list] | Optional[dict] = None,
+            options: list = None,
+            validators: list = None,
+            calculation_rules: list = None,
+            class_list: list | dict = None,
             required: bool = False,
             read_only: bool = False,
             help_text: str = '',
@@ -263,7 +266,7 @@ class FormBuilderBase:
 
         return self.delete_unused_component_args(component=component)
 
-    def create_part_by_sections(self, part: dict, sections):
+    def create_part_by_sections(self, part: dict, sections: list):
         layout_chapters = part["chapters"]
 
         for section in sections:

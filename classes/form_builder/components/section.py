@@ -34,7 +34,6 @@ class Section(FormBuilderBase):
     def eligible_person_data(self, number: int | str):
         return self.create_chapter(
             title=f"{number}. Osoby upoważnione do reprezentowania wnioskodawcy, składania oświadczeń woli i zaciągania w jego imieniu zobowiązań finansowych",
-            is_multiple_forms=True,
             multiple_forms_rules={
                 "minCount": 1,
                 "maxCount": 8

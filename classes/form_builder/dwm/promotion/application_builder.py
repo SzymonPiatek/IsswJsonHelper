@@ -76,7 +76,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                 ),
                 self.create_chapter(
                     title="2. Nazwa i termin docelowego wydarzenia",
-                    is_multiple_forms=True,
                     multiple_forms_rules={
                         "minCount": 1,
                         "maxCount": 20
@@ -135,7 +134,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                 ),
                 self.create_chapter(
                     title="3. Miasto i kraj, w którym odbywa sie wydarzenie",
-                    is_multiple_forms=True,
                     multiple_forms_rules={
                         "minCount": 1,
                         "maxCount": 20
@@ -808,7 +806,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                                     "table-6-top__col"
                                 ]
                             },
-                            is_multiple_forms=True,
                             multiple_forms_rules={
                                 "minCount": 1,
                                 "maxCount": 20
@@ -1354,7 +1351,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                     },
                     components=[
                         self.create_chapter(
-                            is_multiple_forms=True,
                             multiple_forms_rules={
                                 "minCount": 1,
                                 "maxCount": 20
@@ -1444,7 +1440,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                     },
                     components=[
                         self.create_chapter(
-                            is_multiple_forms=True,
                             multiple_forms_rules={
                                 "minCount": 1,
                                 "maxCount": 20
@@ -1647,7 +1642,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
             chapters=[
                 self.create_chapter(
                     title="Deklaracje wkładu finansowego/rzeczowego lub listy intencyjne partnerów (dotyczy wszystkich rodzajów przedsięwzięć)",
-                    is_multiple_forms=True,
                     multiple_forms_rules={
                         "minCount": 1,
                         "maxCount": 20
@@ -1676,7 +1670,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                             ]
                         )
                     ],
-                    is_multiple_forms=True,
                     multiple_forms_rules={
                         "minCount": 1,
                         "maxCount": 20
@@ -1745,7 +1738,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                 ),
                 self.create_chapter(
                     title="<normal>Uwaga!\n\n-Harmonogram przedsięwzięcia powinien uwzględniać etapy: przygotowawczy (np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie promocji wydarzenia itp.), realizacji przedsięwzięcia (np. wykonanie i/lub wysyłka materiałów promocyjnych, pokaz filmu na festiwalu) oraz podsumowania (ewaluacja i rozliczenie przedsięwzięcia – ostateczna data zakończenia realizacji przedsięwzięcia: dzień, miesiąc i rok). W zakresie każdego z tych etapów należy określić najważniejsze działania (tzw. „kamienie milowe” przedsięwzięcia) i terminy ich realizacji.\n- Harmonogram przedsięwzięcia powinien uwzględniać wszystkie działania wymienione w kosztorysie przedsięwzięcia.\n- Prosimy o chronologiczne ułożenie wszystkich pozycji harmonogramu.</normal>Wymagane jest uwzględnienie przynajmniej 3 etapów realizacji przedsięwzięcia.",
-                    is_multiple_forms=True,
                     multiple_forms_rules={
                         "minCount": 3,
                         "maxCount": 20

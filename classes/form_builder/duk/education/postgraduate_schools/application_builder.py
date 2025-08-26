@@ -314,7 +314,6 @@ class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
                                 ),
                                 self.create_chapter(
                                     title="<normal>Inne</normal>",
-                                    is_multiple_forms=True,
                                     multiple_forms_rules={
                                         "minCount": 1,
                                         "maxCount": 20
@@ -726,7 +725,6 @@ class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
                                         ) for chapter in implemented_project_events],
                                         self.create_chapter(
                                             title="<normal>- innych</normal>",
-                                            is_multiple_forms=True,
                                             multiple_forms_rules={
                                                 "minCount": 1,
                                                 "maxCount": 25
@@ -861,7 +859,6 @@ class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
                                         ) for chapter in implemented_project_events],
                                         self.create_chapter(
                                             title="<normal>- innych</normal>",
-                                            is_multiple_forms=True,
                                             multiple_forms_rules={
                                                 "minCount": 1,
                                                 "maxCount": 25
@@ -1015,7 +1012,6 @@ class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
                                         ) for chapter in implemented_project_events],
                                         self.create_chapter(
                                             title="<normal>- innych</normal>",
-                                            is_multiple_forms=True,
                                             multiple_forms_rules={
                                                 "minCount": 1,
                                                 "maxCount": 25
@@ -1200,7 +1196,6 @@ class PostgraduateSchoolsApplicationBuilder(EducationApplicationBuilder):
                                             ]
                                         )
                                     ],
-                                    is_multiple_forms=True,
                                     multiple_forms_rules={
                                         "minCount": 1,
                                         "maxCount": 20

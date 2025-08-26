@@ -130,7 +130,6 @@ class Part(FormBuilderBase):
                     ]
                 ),
                 self.create_chapter(
-                    is_multiple_forms=True,
                     multiple_forms_rules={
                         "minCount": 1,
                         "maxCount": 20
