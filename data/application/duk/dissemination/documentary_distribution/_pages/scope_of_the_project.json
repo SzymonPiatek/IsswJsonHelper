@@ -268,17 +268,6 @@
                     {
                       "kind": "chapter",
                       "title": "",
-                      "visibilityRules": [
-                        {
-                          "name": "dependsOnValue",
-                          "kwargs": {
-                            "fieldName": "filmClassification",
-                            "values": [
-                              "b) Film jest filmem polskim w rozumieniu art. 4, ust. 2, pkt. 2 Ustawy"
-                            ]
-                          }
-                        }
-                      ],
                       "classList": {
                         "main": [
                           "table-1-2",
@@ -416,6 +405,24 @@
                     }
                   ],
                   "dataBDD": "distributedPriority"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Numer wniosku",
+                  "name": "distributedApplicationNumber",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "isDistributedFilmPISF",
+                        "value": "Tak"
+                      }
+                    }
+                  ],
+                  "dataBDD": "distributedApplicationNumber"
                 },
                 {
                   "kind": "component",
