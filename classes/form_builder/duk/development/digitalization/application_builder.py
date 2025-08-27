@@ -1,5 +1,6 @@
 from classes.form_builder.duk.development.application_builder import DevelopmentApplicationBuilder
 from classes.form_builder.duk.application_builder import DUKApplicationBuilder
+from classes.form_builder.duk.development.digitalization.estimate_data import estimate_sections
 
 
 class DigitalizationApplicationBuilder(DevelopmentApplicationBuilder):
@@ -11,6 +12,7 @@ class DigitalizationApplicationBuilder(DevelopmentApplicationBuilder):
         super().__init__()
 
         self.priority_data_path = self.program_data_path / 'digitalization'
+        self.estimate_sections = estimate_sections
 
     def create_application_basic_data(self, **kwargs):
         data = {

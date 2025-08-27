@@ -3,8 +3,42 @@ estimate_sections = [
         'title': '1. Koszty zarządzania przedsięwzięciem',
         'costs': [
             {'isSum': True, 'title': 'Razem', 'name': 'costManagement'},
-            {'title': '- koordynatorów', 'name': 'coordinators'},
-            {'title': '- dyrektorów', 'name': 'directors'}
+            {
+                'title': '- koordynatorów',
+                'name': 'coordinators',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.1
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów honorariów koordynatorów nie może przekroczyć 10% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                'title': '- dyrektorów',
+                'name': 'directors',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.1
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów honorariów dyrektorów nie może przekroczyć 10% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            }
         ]
     },
     {
@@ -82,7 +116,24 @@ estimate_sections = [
         'title': '12. Koszty obsługi przedsięwzięcia',
         'costs': [
             {'isSum': True, 'title': 'Razem', 'name': 'eventHostingCosts'},
-            {'title': '- koszty osobowe', 'name': 'personalCosts'},
+            {
+                'title': '- koszty osobowe',
+                'name': 'personalCosts',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.3
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów osobowych nie może przekroczyć 30% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            },
             {'title': '- najem sprzętu, rekwizytów, kostiumów', 'name': 'equipmentRentalCosts'}
         ]
     },
@@ -145,7 +196,25 @@ estimate_sections = [
     {
         'title': '21. Koszty cateringu',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'cateringCosts'}
+            {
+                'isSum': True,
+                'title': '',
+                'name': 'cateringCosts',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.1
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów cateringu nie może przekroczyć 10% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            }
         ]
     },
     {

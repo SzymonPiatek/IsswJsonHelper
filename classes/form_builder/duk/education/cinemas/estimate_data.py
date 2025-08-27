@@ -1,140 +1,166 @@
 estimate_sections = [
     {
-        'title': '1. Koszty koordynacji przedsięwzięcia',
+        'title': '1. Koszty zarządzania przedsięwzięciem',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'coordinationCosts'}
+            {'isSum': True, 'title': 'Razem', 'name': 'costManagement'},
+            {
+                'title': '- koordynatorów',
+                'name': 'coordinators',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.1
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów honorariów koordynatorów nie może przekroczyć 10% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                'title': '- dyrektorów',
+                'name': 'directors',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.1
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów honorariów dyrektorów nie może przekroczyć 10% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            }
         ]
     },
     {
-        'title': '2. Koszty wynagrodzeń',
+        'title': '2. Koszty przygotowania przedsięwzięcia',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'wagesCosts'}
+            {'isSum': True, 'title': 'Razem', 'name': 'costPreparation'},
+            {'title': '- twórców, artystów', 'name': 'creatorsArtists'},
+            {'title': '- prelegentów, wykładowców', 'name': 'lecturers'}
         ]
     },
     {
-        'title': '3. Koszty przygotowania materiałów edukacyjnych',
+        'title': '3. Koszty promocji i reklamy',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'educationalMaterialsPreparationCosts'}
+            {'isSum': True, 'title': '', 'name': 'prServiceCosts'}
         ]
     },
     {
-        'title': '4. Koszty druku materiałów edukacyjnych',
+        'title': '4. Koszty usług graficznych, fotograficznych lub projektowych',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'educationalMaterialsPrintingCosts'}
+            {'isSum': True, 'title': '', 'name': 'graphicService'}
         ]
     },
     {
-        'title': '5. Koszty przygotowania materiałów promocyjnych',
+        'title': '5. Koszty usług poligraficznych/DTP',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'promotionalMaterialsPreparationCosts'}
+            {'isSum': True, 'title': 'Razem', 'name': 'printingCosts'},
+            {'title': '- projekt', 'name': 'printingCostsProject'},
+            {'title': '- skład', 'name': 'printingCostsTypesetting'},
+            {'title': '- druk', 'name': 'printingCostsPrint'}
         ]
     },
     {
-        'title': '6. Koszty druku materiałów promocyjnych',
+        'title': '6. Koszty obsługi finansowej',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'promotionalMaterialsPrintingCosts'}
+            {'isSum': True, 'title': '', 'name': 'financialService'}
         ]
     },
     {
-        'title': '7. Koszty promocji w mediach',
+        'title': '7. Koszty związane z miejscem realizacji przedsięwzięcia',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'mediaPromotionCosts'}
+            {'isSum': True, 'title': 'Razem', 'name': 'locationCosts'},
+            {'title': '- koszty wynajmu sali lub powierzchni na potrzeby przedsięwzięcia', 'name': 'rentalCosts'}
         ]
     },
     {
-        'title': '8. Koszty organizacji wydarzeń edukacyjnych',
+        'title': '8. Koszty obsługi przedsięwzięcia',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'educationalEventsCosts'}
+            {'isSum': True, 'title': 'Razem', 'name': 'eventHostingCosts'},
+            {
+                'title': '- koszty osobowe',
+                'name': 'personalCosts',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.3
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów osobowych nie może przekroczyć 30% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            }
         ]
     },
     {
-        'title': '9. Koszty nagrań materiałów audiowizualnych',
+        'title': '9. Koszty dotyczące podróży',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'audiovisualRecordingCosts'}
+            {'isSum': True, 'title': 'Razem', 'name': 'tripCosts'},
+            {'title': '- organizatorów przedsięwzięcia', 'name': 'hostsTripCosts'},
+            {'title': '- twórców, artystów, prelegentów', 'name': 'participantsTripCosts'},
+            {'title': '- zaproszonych gości', 'name': 'guestsTripCosts'}
         ]
     },
     {
-        'title': '10. Koszty zakupu licencji',
+        'title': '10. Koszty dotyczące noclegów',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'licensePurchaseCosts'}
+            {'isSum': True, 'title': 'Razem', 'name': 'accommodationCosts'},
+            {'title': '- organizatorów przedsięwzięcia', 'name': 'hostsAccommodationCosts'},
+            {'title': '- twórców, artystów, prelegentów', 'name': 'participantsAccommodationCosts'},
+            {'title': '- zaproszonych gości', 'name': 'guestsAccommodationCosts'}
         ]
     },
     {
-        'title': '11. Koszty organizacji wydarzeń podsumowujących',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'summaryEventsCosts'}
-        ]
-    },
-    {
-        'title': '12. Koszty publikacji wyników',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'resultsPublicationCosts'}
-        ]
-    },
-    {
-        'title': '13. Koszty ewaluacji projektu',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'projectEvaluationCosts'}
-        ]
-    },
-    {
-        'title': '14. Koszty zarządzania projektem',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'projectManagementCosts'}
-        ]
-    },
-    {
-        'title': '15. Koszty zakupu materiałów biurowych',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'officeSuppliesCosts'}
-        ]
-    },
-    {
-        'title': '16. Koszty zakupu sprzętu',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'equipmentPurchaseCosts'}
-        ]
-    },
-    {
-        'title': '17. Koszty amortyzacji sprzętu',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'equipmentDepreciationCosts'}
-        ]
-    },
-    {
-        'title': '18. Koszty usług zewnętrznych',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'externalServicesCosts'}
-        ]
-    },
-    {
-        'title': '19. Koszty podróży i zakwaterowania',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'travelAccommodationCosts'}
-        ]
-    },
-    {
-        'title': '20. Koszty wyżywienia',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'cateringCosts'}
-        ]
-    },
-    {
-        'title': '21. Koszty ubezpieczenia',
+        'title': '11. Koszty ubezpieczeń',
         'costs': [
             {'isSum': True, 'title': '', 'name': 'insuranceCosts'}
         ]
     },
     {
-        'title': '22. Koszty administracyjne',
+        'title': '12. Koszty praw autorskich',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'administrativeCosts'}
+            {'isSum': True, 'title': 'Razem', 'name': 'copyrightsCosts'},
+            {'title': '- koszty pozyskania praw autorskich lub licencji', 'name': 'copyrightsAcquisitionCosts'},
+            {'title': '- koszty najmu kopii', 'name': 'copyRentalCosts'}
         ]
     },
     {
-        'title': '23. Inne koszty',
+        'title': '13. Koszty związane z dostosowaniem działań i formy przekazu do osób ze szczególnymi potrzebami, w tym osób z niepełnosprawnościami',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'otherCosts'}
+            {'isSum': True, 'title': '', 'name': 'disabledAdaptationCosts'}
+        ]
+    },
+    {
+        'title': '14. Koszty bezpośrednio związane z realizacją przedsięwzięcia',
+        'costs': [
+            {'isSum': True, 'title': '', 'name': 'otherDirectCosts'}
+        ]
+    },
+    {
+        'title': '15. Koszt przeprowadzenia ewaluacji przedsięwzięcia',
+        'costs': [
+            {'isSum': True, 'title': '', 'name': 'evaluationCosts'}
+        ]
+    },
+    {
+        'title': '16. Koszty obsługi projektów edukacyjnych online',
+        'costs': [
+            {'isSum': True, 'title': '', 'name': 'onlineManagementCosts'}
         ]
     }
 ]

@@ -3,8 +3,42 @@ estimate_sections_pt1 = [
         'title': '1. Koszty zarządzania przedsięwzięciem',
         'costs': [
             {'isSum': True, 'title': 'Razem', 'name': 'costManagement'},
-            {'title': '- dyrektora festiwalu lub przeglądu', 'name': 'festivalDirector'},
-            {'title': '- dyrektora artystycznego/dyrektora programowego', 'name': 'artisticDirector'},
+            {
+                'title': '- dyrektora festiwalu lub przeglądu',
+                'name': 'festivalDirector',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.1
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów honorariów dyrektora festiwalu lub przeglądu nie może przekroczyć 10% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                'title': '- dyrektora artystycznego/dyrektora programowego',
+                'name': 'artisticDirector',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.1
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów honorariów dyrektora artystycznego lub programowego nie może przekroczyć 10% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            },
             {'title': '- twórców, artystów', 'name': 'creatorsArtists'},
             {'title': '- członków jury', 'name': 'juryMembers'},
             {'title': '- osób prowadzących (np. imprezy towarzyszące, dyskusje panelowe, konferencje, spotkania z artystami, wystawy)', 'name': 'eventHosts'}
@@ -69,7 +103,24 @@ estimate_sections_pt1 = [
         'title': '10. Koszty obsługi przedsięwzięcia',
         'costs': [
             {'isSum': True, 'title': 'Razem', 'name': 'eventHostingCosts'},
-            {'title': '- koszty osobowe', 'name': 'personalCosts'},
+            {
+                'title': '- koszty osobowe',
+                'name': 'personalCosts',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.3
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów osobowych nie może przekroczyć 30% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            },
             {'title': '- koszty najmu sprzętu', 'name': 'equipmentRentalCosts'}
         ]
     },
@@ -132,7 +183,25 @@ estimate_sections_pt1 = [
     {
         'title': '19. Koszty cateringu',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'cateringCosts'}
+            {
+                'isSum': True,
+                'title': '',
+                'name': 'cateringCosts',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.1
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów cateringu nie może przekroczyć 10% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            }
         ]
     },
     {
@@ -163,117 +232,148 @@ estimate_sections_pt1 = [
 
 estimate_sections_pt2 = [
     {
-        'title': '1. Wypożyczenie materiałów wyjściowych',
+        'title': '1. Działalność ekspercka',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'outputRentalCost'}
+            {'isSum': True, 'title': 'Razem', 'name': 'expertsCosts'},
+            {'title': '- wynagrodzenia ekspertów', 'name': 'expertsFees'},
+            {'title': '- koszty podróży ekspertów', 'name': 'expertsTripCosts'},
+            {'title': '- koszty noclegów ekspertów', 'name': 'expertsAccommodationCosts'}
         ]
     },
     {
-        'title': '2. Koszty digitalizacji',
+        'title': '2. Rozpowszechnianie repertuaru studyjnego',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'digitizationCost'}
+            {'isSum': True, 'title': '', 'name': 'disseminationSubsidies'}
         ]
     },
     {
-        'title': '3. Koszty rekonstrukcji cyfrowej',
+        'title': '3. Koszty wsparcia wydarzeń filmowych realizowanych przez kina studyjne',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'restorationCost'}
+            {'isSum': True, 'title': 'Razem', 'name': 'localCinemasSupport'},
+            {'title': '- wynagrodzenia twórców, artystów, prelegentów', 'name': 'artistsRemunerationCostsA'},
+            {'title': '- wynagrodzenia osób prowadzących', 'name': 'hostsRemunerationCostsA'},
+            {'title': '- koszty tłumaczeń', 'name': 'translationCostA'},
+            {'title': '- koszty promocji i reklamy', 'name': 'commercialsA'},
+            {'title': '- koszty usług graficznych, fotograficznych i projektowych', 'name': 'graphicServiceA'},
+            {'title': '- koszty usług poligraficznych/DTP', 'name': 'printingCostsA'},
+            {'title': '- koszty najmu sprzętu', 'name': 'equipmentRentalCostsA'},
+            {'title': '- koszty usług transportowych', 'name': 'transportationServiceA'},
+            {'title': '- koszty podróży', 'name': 'tripCostsA'},
+            {'title': '- koszty noclegów', 'name': 'accommodationCostsA'},
+            {'title': '- koszty dokumentacji/rejestracji', 'name': 'documentationCostsA'},
+            {'title': '- koszty ubezpieczeń', 'name': 'insuranceCostsA'},
+            {'title': '- koszty pozyskania praw autorskich lub licencji', 'name': 'copyrightsPurchaseCostsA'},
+            {'title': '- koszty najmu kopii', 'name': 'copyRentalCostsA'},
+            {'title': '- koszty nagród', 'name': 'awardsCostsA'},
+            {'title': '- koszty szkoleń', 'name': 'trainingCostsA'},
+            {
+                'title': '- koszty cateringu',
+                'name': 'cateringCostsA',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.1
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów cateringu nie może przekroczyć 10% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            }
         ]
     },
     {
-        'title': '4. Koszty wykonania kopii wzorcowej oraz użytkowych',
+        'title': '4. Koszty wsparcia wydarzeń filmowych realizowanych przez Stowarzyszenie Kin Studyjnych',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'copyCreationCost'}
+            {'isSum': True, 'title': 'Razem', 'name': 'localCinemasAssociationSupport'},
+            {'title': '- wynagrodzenia twórców, artystów, prelegentów', 'name': 'artistsRemunerationCostsB'},
+            {'title': '- wynagrodzenia osób prowadzących', 'name': 'hostsRemunerationCostsB'},
+            {'title': '- koszty tłumaczeń', 'name': 'translationCostB'},
+            {'title': '- koszty promocji i reklamy', 'name': 'commercialsB'},
+            {'title': '- koszty usług graficznych, fotograficznych i projektowych', 'name': 'graphicServiceB'},
+            {'title': '- koszty usług poligraficznych/DTP', 'name': 'printingCostsB'},
+            {'title': '- koszty najmu sprzętu', 'name': 'equipmentRentalCostsB'},
+            {'title': '- koszty usług transportowych', 'name': 'transportationServiceB'},
+            {'title': '- koszty podróży', 'name': 'tripCostsB'},
+            {'title': '- koszty noclegów', 'name': 'accommodationCostsB'},
+            {'title': '- koszty dokumentacji/rejestracji', 'name': 'documentationCostsB'},
+            {'title': '- koszty ubezpieczeń', 'name': 'insuranceCostsB'},
+            {'title': '- koszty pozyskania praw autorskich lub licencji', 'name': 'copyrightsPurchaseCostsB'},
+            {'title': '- koszty najmu kopii', 'name': 'copyRentalCostsB'},
+            {'title': '- koszty nagród', 'name': 'awardsCostsB'},
+            {'title': '- koszty szkoleń', 'name': 'trainingCostsB'},
+            {
+                'title': '- koszty cateringu',
+                'name': 'cateringCostsB',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.1
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów cateringu nie może przekroczyć 10% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            }
         ]
     },
     {
-        'title': '5. Koszty zakupu dysków do przechowywania plików cyfrowych',
+        'title': '5. Koszty działań na rzecz integracji i reprezentacji SKS',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'storageDiskCost'}
+            {'isSum': True, 'title': 'Razem', 'name': 'networkIntegrationCosts'},
+            {'title': '- konferencje kin studyjnych', 'name': 'networkConferences'},
+            {'title': '- szkolenia', 'name': 'trainingCostsNetwork'},
+            {'title': '- obsługa i reprezentacja prawna', 'name': 'networkLegalCosts'}
         ]
     },
     {
-        'title': '6. Koszty wykonania napisów',
+        'title': '6. Działalność Rady Kin Studyjnych',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'subtitlesCost'}
+            {'isSum': True, 'title': '', 'name': 'networkCommitteeCosts'}
         ]
     },
     {
-        'title': '7. Koszty wykonania audiodeskrypcji',
+        'title': '7. Koszty organizacji i obsługi SKS',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'audiodescriptionCost'}
+            {'isSum': True, 'title': 'Razem', 'name': 'networkOrganisationCosts'},
+            {
+                'title': '- koszty osobowe',
+                'name': 'networkPersonalCosts',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.3
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów osobowych nie może przekroczyć 30% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            },
+            {'title': '- koszty obsługi finansowej', 'name': 'networkFinancialCosts'},
+            {'title': '- koszty najmu biura', 'name': 'networkOfficeRentalCosts'},
+            {'title': '- koszty podróży służbowych', 'name': 'networkTripCosts'},
+            {'title': '- koszty noclegów', 'name': 'networkAccommodationCosts'},
+            {'title': '- koszty promocji SKS', 'name': 'networkPromotionCosts'}
         ]
     },
     {
-        'title': '8. Koszty wykonania tłumaczenia PJM',
+        'title': '8. Koszty obsługi projektów online',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'pjmTranslationCost'}
-        ]
-    },
-    {
-        'title': '9. Koszty wykonania lektora',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'voiceoverCost'}
-        ]
-    },
-    {
-        'title': '10. Koszty korekty napisów / AD / PJM',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'correctionCost'}
-        ]
-    },
-    {
-        'title': '11. Koszty wykonania wersji rozpowszechniania',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'distributionVersionCost'}
-        ]
-    },
-    {
-        'title': '12. Koszty wykonania kopii wzorcowej wersji rozpowszechniania oraz kopii użytkowych',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'distributionMasterCost'}
-        ]
-    },
-    {
-        'title': '13. Koszty zakupu dysków do przechowywania wersji rozpowszechniania',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'distributionStorageDiskCost'}
-        ]
-    },
-    {
-        'title': '14. Koszty opracowania materiałów promocyjnych',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'promoMaterialsCost'}
-        ]
-    },
-    {
-        'title': '15. Koszty promocji',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'promotionCost'}
-        ]
-    },
-    {
-        'title': '16. Koszty premiery/organizacji wydarzenia',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'premiereCost'}
-        ]
-    },
-    {
-        'title': '17. Koszty koordynatora zadania',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'coordinatorCost'}
-        ]
-    },
-    {
-        'title': '18. Koszty prowadzenia dokumentacji zadania',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'documentationCost'}
-        ]
-    },
-    {
-        'title': '19. Koszty ewaluacji',
-        'costs': [
-            {'isSum': True, 'title': '', 'name': 'evaluationCost'}
+            {'isSum': True, 'title': '', 'name': 'onlineManagementCosts'}
         ]
     }
 ]
@@ -305,7 +405,24 @@ estimate_sections_pt3 = [
         'title': '4. Koszty obsługi przedsięwzięcia',
         'costs': [
             {'isSum': True, 'title': 'Razem', 'name': 'eventHostingCosts'},
-            {'title': '- koszty osobowe', 'name': 'personalCosts'},
+            {
+                'title': '- koszty osobowe',
+                'name': 'personalCosts',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmountPr3",
+                                    "ratio": 0.3
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów osobowych nie może przekroczyć 30% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            },
             {'title': '- najem sprzętu', 'name': 'equipmentRentalCosts'}
         ]
     },
@@ -367,7 +484,24 @@ estimate_sections_pt4 = [
             {'title': '- twórców, artystów', 'name': 'creatorsArtists'},
             {'title': '- prelegentów, wykładowców', 'name': 'lecturers'},
             {'title': '- komisarza wystawy', 'name': 'curator'},
-            {'title': '- koordynatorów przedsięwzięcia', 'name': 'organizers'},
+            {
+                'title': '- koordynatorów przedsięwzięcia',
+                'name': 'organizers',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.1
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów honorariów koordynatorów nie może przekroczyć 10% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            },
             {'title': '- osób prowadzących (np. imprezy towarzyszące, dyskusje panelowe, konferencje, spotkania z artystami, wystawy)', 'name': 'eventHosts'}
         ]
     },
@@ -448,7 +582,24 @@ estimate_sections_pt4 = [
         'title': '13. Koszty obsługi przedsięwzięcia',
         'costs': [
             {'isSum': True, 'title': 'Razem', 'name': 'eventHostingCosts'},
-            {'title': '- koszty osobowe', 'name': 'personalCosts'},
+            {
+                'title': '- koszty osobowe',
+                'name': 'personalCosts',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.3
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów osobowych nie może przekroczyć 30% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            },
             {'title': '- koszty najmu sprzętu', 'name': 'equipmentRentalCosts'}
         ]
     },
@@ -499,7 +650,25 @@ estimate_sections_pt4 = [
     {
         'title': '20. Koszty cateringu',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'cateringCosts'}
+            {
+                'isSum': True,
+                'title': '',
+                'name': 'cateringCosts',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.1
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów cateringu nie może przekroczyć 10% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            }
         ]
     },
     {

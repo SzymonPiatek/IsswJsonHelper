@@ -3,8 +3,42 @@ estimate_sections = [
         'title': '1. Koszty przygotowania i zarządzania przedsięwzięciem',
         'costs': [
             {'isSum': True, 'title': 'Razem', 'name': 'costManagement'},
-            {'title': '- dyrektora festiwalu', 'name': 'festivalDirector'},
-            {'title': '- dyrektora artystycznego/dyrektora programowego', 'name': 'artisticDirector'},
+            {
+                'title': '- dyrektora festiwalu',
+                'name': 'festivalDirector',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.1
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów honorariów dyrektora festiwalu nie może przekroczyć 10% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                'title': '- dyrektora artystycznego/dyrektora programowego',
+                'name': 'artisticDirector',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.1
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów honorariów dyrektora artystycznego lub programowego nie może przekroczyć 10% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            },
             {'title': '- twórców, artystów', 'name': 'creatorsArtists'},
             {'title': '- członków jury', 'name': 'juryMembers'},
             {'title': '- osób prowadzących (np. imprezy towarzyszące, dyskusje panelowe, konferencje, spotkania z artystami, wystawy)', 'name': 'eventHosts'}
@@ -69,7 +103,24 @@ estimate_sections = [
         'title': '10. Koszty obsługi przedsięwzięcia',
         'costs': [
             {'isSum': True, 'title': 'Razem', 'name': 'eventHostingCosts'},
-            {'title': '- koszty osobowe', 'name': 'personalCosts'},
+            {
+                'title': '- koszty osobowe',
+                'name': 'personalCosts',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.3
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów osobowych nie może przekroczyć 30% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            },
             {'title': '- koszty najmu sprzętu', 'name': 'equipmentRentalCosts'}
         ]
     },
@@ -132,7 +183,25 @@ estimate_sections = [
     {
         'title': '19. Koszty cateringu',
         'costs': [
-            {'isSum': True, 'title': '', 'name': 'cateringCosts'}
+            {
+                'isSum': True,
+                'title': '',
+                'name': 'cateringCosts',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "pisfSupportAmount",
+                                    "ratio": 0.1
+                                },
+                                "validationMsg": "Kwota dofinansowania dla kosztów cateringu nie może przekroczyć 10% kwoty wnioskowanej."
+                            }
+                        ]
+                    }
+                }
+            }
         ]
     },
     {

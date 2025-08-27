@@ -8,7 +8,24 @@ estimate_sections_pt12345 = [
             {'title': '- autorów tekstów do publikacji', 'name': 'textAuthors'},
             {'title': '- osób prowadzących wywiady', 'name': 'interviewers'},
             {'title': '- redaktorów', 'name': 'editors'},
-            {'title': '- koordynatora zadania', 'name': 'coordinators'}
+            {
+                'title': '- koordynatora zadania',
+                'name': 'coordinators',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "totalRequestedAmountPt12345",
+                                    "ratio": 0.1
+                                },
+                                "validationMsg": "Wnioskowana kwota dotacji dla kosztów honorariów wynagrodzeń koordynatorów nie może przekroczyć 10% kwoty wnioskowanej dotacji."
+                            }
+                        ]
+                    }
+                }
+            }
         ]
     },
     {
@@ -95,7 +112,24 @@ estimate_sections_pt6 = [
         'title': '1. Koszty przygotowania i zarządzania przedsięwzięciem',
         'costs': [
             {'isSum': True, 'title': 'Razem', 'name': 'costManagement'},
-            {'title': '- koordynatora projektu', 'name': 'coordinators'},
+            {
+                'title': '- koordynatora projektu',
+                'name': 'coordinators',
+                'overrides': {
+                    'RequestedAmount': {
+                        'validators': [
+                            {
+                                "name": "RelatedFractionGTEValidator",
+                                "kwargs": {
+                                    "field_name": "totalRequestedAmountPt6",
+                                    "ratio": 0.1
+                                },
+                                "validationMsg": "Wnioskowana kwota dotacji dla kosztów honorariów wynagrodzeń koordynatorów nie może przekroczyć 10% kwoty wnioskowanej dotacji."
+                            }
+                        ]
+                    }
+                }
+            },
             {'title': '- inne (podać jakie)', 'name': 'otherManagement'}
         ]
     },
