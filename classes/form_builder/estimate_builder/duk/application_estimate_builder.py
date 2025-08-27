@@ -135,7 +135,7 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
         return component
 
     def build_section_chapter(self, section, section_structure, construct):
-        costs = section["costs"]
+        costs = section.get("costs", [])
         components = []
 
         for cost in costs:
@@ -261,7 +261,7 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
         estimate_sections, section_structure, section_construct = self.get_chapter_data(data=estimate)
         sum_estimate_sections, sum_estimate_structure, sum_construct = self.get_chapter_data(data=sum_estimate)
 
-        all_cost_names = [cost["name"] for section in estimate_sections for cost in section["costs"] if
+        all_cost_names = [cost["name"] for section in estimate_sections for cost in section.get("costs", []) if
                           cost.get("isSum")]
 
         full_chapter = self.create_chapter(

@@ -547,8 +547,7 @@ class DUKApplicationBuilder(ApplicationBuilder):
 
     def create_application_project_costs(self):
         estimate = DUKApplicationEstimateBuilder(
-            estimate_sections=self.estimate_sections,
-            after_name="XDDD"
+            estimate_sections=self.estimate_sections
         )
         part = estimate.generate()
 
