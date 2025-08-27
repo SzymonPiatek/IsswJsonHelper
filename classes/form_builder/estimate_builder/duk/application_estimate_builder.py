@@ -1,5 +1,6 @@
 from classes.form_builder.form_builder_base import FormBuilderBase
-from classes.form_builder.duk.estimate_data import estimate_section_structure, sum_estimate_section_structure, sum_estimate_sections
+from classes.form_builder.duk.estimate_data import estimate_section_structure, sum_estimate_section_structure, \
+    sum_estimate_sections
 
 
 class DUKApplicationEstimateBuilder(FormBuilderBase):
@@ -120,7 +121,8 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
             label=label,
             name=f"{name}{structure['name']}{self.after_name}",
             unit=structure.get("unit", "PLN"),
-            read_only=True if structure.get("isShare") else structure.get("readOnly", True if is_sum and sub_fields else False),
+            read_only=True if structure.get("isShare") else structure.get("readOnly",
+                                                                          True if is_sum and sub_fields else False),
         )
 
         for key in ("validators", "calculationRules", "read_only", "required"):
@@ -155,7 +157,8 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
                         )
                     )
                 else:
-                    sub_fields = [f"{sub['name']}{structure['name']}{self.after_name}" for sub in costs if not sub.get("isSum")]
+                    sub_fields = [f"{sub['name']}{structure['name']}{self.after_name}" for sub in costs if
+                                  not sub.get("isSum")]
                     field_overrides = cost.get("overrides", {}).get(structure["name"], {}).copy()
 
                     component = self.build_component(
@@ -208,6 +211,49 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
 
         return sections, structure, construct
 
+    def generate_estimate_headers(self):
+        return self.create_chapter(
+            class_list=[
+                "grid",
+                "grid-cols-5"
+            ],
+            components=[
+                self.create_component(
+                    component_type='header',
+                    name='headerComponentDesc',
+                    value='Rodzaj kosztu',
+                    class_list=[
+                        "displayNoneFrontend",
+                        "col-span-2"
+                    ]
+                ),
+                self.create_component(
+                    component_type='header',
+                    name='headerComponentSumAmount',
+                    value='Koszt ogółem',
+                    class_list=[
+                        "displayNoneFrontend",
+                    ]
+                ),
+                self.create_component(
+                    component_type='header',
+                    name='headerComponentRequestedAmount',
+                    value='Wnioskowana dotacja PISF',
+                    class_list=[
+                        "displayNoneFrontend",
+                    ]
+                ),
+                self.create_component(
+                    component_type='header',
+                    name='headerComponentOtherFundsAmount',
+                    value='Pozostałe środki',
+                    class_list=[
+                        "displayNoneFrontend",
+                    ]
+                )
+            ]
+        )
+
     def generate_estimate(self):
         estimate = self.data['chapters']['estimate']
         sum_estimate = self.data['chapters']['sum_estimate']
@@ -215,57 +261,16 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
         estimate_sections, section_structure, section_construct = self.get_chapter_data(data=estimate)
         sum_estimate_sections, sum_estimate_structure, sum_construct = self.get_chapter_data(data=sum_estimate)
 
-        all_cost_names = [cost["name"] for section in estimate_sections for cost in section["costs"] if cost.get("isSum")]
+        all_cost_names = [cost["name"] for section in estimate_sections for cost in section["costs"] if
+                          cost.get("isSum")]
 
         full_chapter = self.create_chapter(
             title="Koszty z podziałem na źródło finansowania",
             components=[
-                self.create_chapter(
-                    class_list=[
-                        "grid",
-                        "grid-cols-5"
-                    ],
-                    components=[
-                        self.create_component(
-                            component_type='header',
-                            name=f'headerComponentDesc{self.after_name}',
-                            value='Rodzaj kosztu',
-                            class_list=[
-                                "displayNoneFrontend",
-                                "col-span-2"
-                            ]
-                        ),
-                        self.create_component(
-                            component_type='header',
-                            name=f'headerComponentSumAmount{self.after_name}',
-                            value='Koszt ogółem',
-                            class_list=[
-                                "displayNoneFrontend",
-                            ]
-                        ),
-                        self.create_component(
-                            component_type='header',
-                            name=f'headerComponentRequestedAmount{self.after_name}',
-                            value='Wnioskowana dotacja PISF',
-                            class_list=[
-                                "displayNoneFrontend",
-                            ]
-                        ),
-                        self.create_component(
-                            component_type='header',
-                            name=f'headerComponentOtherFundsAmount{self.after_name}',
-                            value='Pozostałe środki',
-                            class_list=[
-                                "displayNoneFrontend",
-                            ]
-                        )
-                    ]
-                )
-            ] + [
-                self.build_section_chapter(section, section_structure, section_construct)
-                for section in estimate_sections
-            ] + [
-                self.build_summary_chapter(sum_estimate_sections[0], sum_estimate_structure, sum_construct, all_cost_names)
+                *[self.build_section_chapter(section, section_structure, section_construct)
+                  for section in estimate_sections],
+                self.build_summary_chapter(sum_estimate_sections[0], sum_estimate_structure, sum_construct,
+                                           all_cost_names)
             ]
         )
 
@@ -310,6 +315,7 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
             short_name='VII. Kosztorys przedsięwzięcia',
             chapters=[
                 self.generate_estimate_top(),
+                self.generate_estimate_headers(),
                 self.generate_estimate(),
                 self.generate_estimate_bottom()
             ]

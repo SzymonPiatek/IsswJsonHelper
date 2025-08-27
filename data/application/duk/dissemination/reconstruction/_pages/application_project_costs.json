@@ -5,60 +5,6 @@
   "chapters": [
     {
       "kind": "chapter",
-      "title": "",
-      "components": [
-        {
-          "kind": "component",
-          "type": "text",
-          "label": "Nazwa przedsięwzięcia",
-          "name": "projectNameRepeat",
-          "value": "",
-          "calculationRules": [
-            {
-              "name": "copyValue",
-              "from": "applicationTaskName"
-            },
-            {
-              "name": "RequiredValidator"
-            }
-          ],
-          "readOnly": true,
-          "required": true,
-          "dataBDD": "projectNameRepeat"
-        }
-      ]
-    },
-    {
-      "kind": "chapter",
-      "title": "",
-      "components": [
-        {
-          "kind": "component",
-          "type": "radio",
-          "label": "Wszystkie kwoty zaznaczone w kosztorysie są kwotami (w przypadku kosztów wynagrodzeń rozliczanych listą płac lub rachunkiem do umowy o dzieło/zlecenie należy wykazać kwotę brutto z uwzględnieniem narzutów ZUS pracodawcy)",
-          "name": "isVatPayer",
-          "value": false,
-          "options": [
-            "netto (zaznacza Wnioskodawca, który jest podatnikiem VAT)",
-            "brutto (zaznacza Wnioskodawca, który NIE jest podatnikiem VAT)"
-          ],
-          "validators": [
-            {
-              "name": "ExactValidator",
-              "kwargs": {
-                "values": [
-                  "netto (zaznacza Wnioskodawca, który jest podatnikiem VAT)",
-                  "brutto (zaznacza Wnioskodawca, który NIE jest podatnikiem VAT)"
-                ]
-              }
-            }
-          ],
-          "dataBDD": "isVatPayer"
-        }
-      ]
-    },
-    {
-      "kind": "chapter",
       "title": "Etap I <br /><normal><small>Wyłącznie koszty finansowane w oparciu o umowy wraz z fakturami/ rachunkami i umowy zlecenia lub o dzieło wraz z rachunkami. </small></normal>",
       "components": [
         {

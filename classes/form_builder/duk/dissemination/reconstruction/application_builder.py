@@ -1,5 +1,6 @@
 from classes.form_builder.duk.dissemination.application_builder import DisseminationApplicationBuilder
 from classes.form_builder.duk.application_builder import DUKApplicationBuilder
+from classes.form_builder.duk.dissemination.reconstruction.estimate_data import estimate_sections
 
 
 class ReconstructionApplicationBuilder(DisseminationApplicationBuilder):
@@ -11,6 +12,7 @@ class ReconstructionApplicationBuilder(DisseminationApplicationBuilder):
         super().__init__()
 
         self.priority_data_path = self.program_data_path / 'reconstruction'
+        self.estimate_sections = estimate_sections
 
     def create_application_basic_data(self, **kwargs):
         data = {
