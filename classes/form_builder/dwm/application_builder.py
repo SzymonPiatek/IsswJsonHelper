@@ -4,7 +4,7 @@ from classes.form_builder.additional.decorators import not_implemented_func
 
 class DWMApplicationBuilder(ApplicationBuilder):
     DEPARTMENT_NAME = 'DWM'
-    OPERATION_NAME = 'I. Promocja polskiej twórczości filmowej za granicą'
+    OPERATION_NAME = 'V. Promocja polskiej twórczości filmowej za granicą'
     OPERATION_NUM = 5
 
     def __init__(self):

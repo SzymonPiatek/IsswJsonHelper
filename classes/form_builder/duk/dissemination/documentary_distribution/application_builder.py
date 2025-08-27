@@ -1,5 +1,6 @@
 from classes.form_builder.duk.dissemination.application_builder import DisseminationApplicationBuilder
 from classes.form_builder.duk.application_builder import DUKApplicationBuilder
+from classes.form_builder.duk.dissemination.documentary_distribution.estimate_data import estimate_sections
 
 
 class DocumentaryDistributionApplicationBuilder(DisseminationApplicationBuilder):
@@ -11,6 +12,7 @@ class DocumentaryDistributionApplicationBuilder(DisseminationApplicationBuilder)
         super().__init__()
 
         self.priority_data_path = self.program_data_path / 'documentary_distribution'
+        self.estimate_sections = estimate_sections
 
     def create_application_basic_data(self, **kwargs):
         data = {
