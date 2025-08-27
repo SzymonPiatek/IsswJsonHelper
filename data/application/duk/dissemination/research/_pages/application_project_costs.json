@@ -6,56 +6,6 @@
     {
       "kind": "chapter",
       "title": "",
-      "components": [
-        {
-          "kind": "component",
-          "type": "text",
-          "label": "Nazwa przedsięwzięcia",
-          "name": "projectNameRepeat",
-          "value": "",
-          "calculationRules": [
-            {
-              "name": "copyValue",
-              "from": "applicationTaskName"
-            }
-          ],
-          "readOnly": true,
-          "dataBDD": "projectNameRepeat"
-        }
-      ]
-    },
-    {
-      "kind": "chapter",
-      "title": "",
-      "components": [
-        {
-          "kind": "component",
-          "type": "radio",
-          "label": "Wszystkie kwoty zaznaczone w kosztorysie są kwotami (w przypadku kosztów wynagrodzeń rozliczanych listą płac lub rachunkiem do umowy o dzieło/zlecenie należy wykazać kwotę brutto z uwzględnieniem narzutów ZUS pracodawcy)",
-          "name": "isVatPayer",
-          "value": false,
-          "options": [
-            "netto (zaznacza Wnioskodawca, który jest podatnikiem VAT)",
-            "brutto (zaznacza Wnioskodawca, który NIE jest podatnikiem VAT)"
-          ],
-          "validators": [
-            {
-              "name": "ExactValidator",
-              "kwargs": {
-                "values": [
-                  "netto (zaznacza Wnioskodawca, który jest podatnikiem VAT)",
-                  "brutto (zaznacza Wnioskodawca, który NIE jest podatnikiem VAT)"
-                ]
-              }
-            }
-          ],
-          "dataBDD": "isVatPayer"
-        }
-      ]
-    },
-    {
-      "kind": "chapter",
-      "title": "",
       "visibilityRules": [
         {
           "name": "dependsOnValue",
@@ -4244,16 +4194,6 @@
           ]
         }
       ]
-    },
-    {
-      "kind": "chapter",
-      "title": "Uwaga! <br /><small>Koszt jest kwalifikowany jeżeli spełnia następujące kryteria: <normal><br />- został/zostanie poniesiony w okresie realizacji przedsięwzięcia określonym w harmonogramie, jednak nie wcześniej niż od daty rozpoczęcia naboru wniosków w sesji, <br />- jest celowy, tj. został/zostanie poniesiony w związku z realizacją przedsięwzięcia, na które została przyznana dotacja, <br />- jest rzetelnie udokumentowany i możliwy do zweryfikowania, <br />- jest zgodny z obowiązującymi przepisami prawa. </normal></small>",
-      "components": []
-    },
-    {
-      "kind": "chapter",
-      "title": "Uwaga! <br /><small>W przypadku innych kosztów niż ujętych w wykazie kosztów kwalifikowanych powyżej, PISF może wskazać konkretne pozycje w budżecie przedsięwzięcia, które mogą zostać pokryte z przyznanego dofinansowania</small>",
-      "components": []
     }
   ]
 }

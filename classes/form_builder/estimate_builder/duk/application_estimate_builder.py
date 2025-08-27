@@ -3,11 +3,13 @@ from classes.form_builder.duk.estimate_data import estimate_section_structure, s
 
 
 class DUKApplicationEstimateBuilder(FormBuilderBase):
-    def __init__(self, estimate_sections):
+    def __init__(self, estimate_sections: list, after_name: str = ''):
         super().__init__()
-        self.data = self.convert_data(estimate_sections=estimate_sections)
 
-    def convert_data(self, estimate_sections):
+        self.data = self.convert_data(estimate_sections=estimate_sections)
+        self.after_name = after_name
+
+    def convert_data(self, estimate_sections: list):
         return {
             'chapters': {
                 'estimate': {
@@ -73,27 +75,29 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
             }
         }
 
-    def build_calculations_and_validators(self, structure, name, is_sum=False, sub_fields=None):
+    def build_calculations_and_validators(self, structure: dict, name: str, is_sum: bool = False, sub_fields=None):
         rules = []
         validators = []
 
         if "sumFields" in structure:
-            fields = [f"{name}{field}" for field in structure["sumFields"]]
+            fields = [f"{name}{field}{self.after_name}" for field in structure["sumFields"]]
             rules.append({"name": "sumInputs", "kwargs": {"fields": fields}})
             validators.append({"name": "RelatedSumValidator", "kwargs": {"field_names": fields}})
         elif structure.get("isShare"):
+            dividend = f"{structure["dividend"]}{self.after_name}"
+            divisor = f"{structure["divisor"]}{self.after_name}"
             rules.append({
                 "name": "shareCalculator",
                 "kwargs": {
-                    "dividendField": structure["dividend"],
-                    "divisorField": structure["divisor"]
+                    "dividendField": dividend,
+                    "divisorField": divisor
                 }
             })
             validators.append({
                 "name": "RelatedShareValidator",
                 "kwargs": {
-                    "dividend": structure["dividend"],
-                    "divisor": structure["divisor"]
+                    "dividend": dividend,
+                    "divisor": divisor
                 }
             })
         elif is_sum and sub_fields:
@@ -112,12 +116,11 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
 
         component = self.create_component(
             component_type="number" if structure.get("isShare") else "text",
-            mask=None if structure.get("isShare") else "fund",
+            mask='' if structure.get("isShare") else "fund",
             label=label,
-            name=f"{name}{structure['name']}",
-            value=0,
+            name=f"{name}{structure['name']}{self.after_name}",
             unit=structure.get("unit", "PLN"),
-            read_only=structure.get("readOnly", True if is_sum and sub_fields else False),
+            read_only=True if structure.get("isShare") else structure.get("readOnly", True if is_sum and sub_fields else False),
         )
 
         for key in ("validators", "calculationRules", "read_only", "required"):
@@ -138,7 +141,7 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
             cost_components = []
 
             for structure in section_structure:
-                field_name = f"{cost['name']}{structure['name']}"
+                field_name = f"{cost['name']}{structure['name']}{self.after_name}"
 
                 if structure.get("isDesc", False):
                     cost_components.append(
@@ -152,7 +155,7 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
                         )
                     )
                 else:
-                    sub_fields = [f"{sub['name']}{structure['name']}" for sub in costs if not sub.get("isSum")]
+                    sub_fields = [f"{sub['name']}{structure['name']}{self.after_name}" for sub in costs if not sub.get("isSum")]
                     field_overrides = cost.get("overrides", {}).get(structure["name"], {}).copy()
 
                     component = self.build_component(
@@ -187,7 +190,7 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
                 label=structure["label"],
                 structure=structure,
                 is_sum=True,
-                sub_fields=[f"{c}{structure['name']}" for c in all_costs])
+                sub_fields=[f"{c}{structure['name']}{self.after_name}" for c in all_costs])
             for structure in structure_list
             for cost in section["costs"]
         ]
@@ -225,7 +228,7 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
                     components=[
                         self.create_component(
                             component_type='header',
-                            name='headerComponentDesc',
+                            name=f'headerComponentDesc{self.after_name}',
                             value='Rodzaj kosztu',
                             class_list=[
                                 "displayNoneFrontend",
@@ -234,7 +237,7 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
                         ),
                         self.create_component(
                             component_type='header',
-                            name='headerComponentSumAmount',
+                            name=f'headerComponentSumAmount{self.after_name}',
                             value='Koszt ogółem',
                             class_list=[
                                 "displayNoneFrontend",
@@ -242,7 +245,7 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
                         ),
                         self.create_component(
                             component_type='header',
-                            name='headerComponentRequestedAmount',
+                            name=f'headerComponentRequestedAmount{self.after_name}',
                             value='Wnioskowana dotacja PISF',
                             class_list=[
                                 "displayNoneFrontend",
@@ -250,7 +253,7 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
                         ),
                         self.create_component(
                             component_type='header',
-                            name='headerComponentOtherFundsAmount',
+                            name=f'headerComponentOtherFundsAmount{self.after_name}',
                             value='Pozostałe środki',
                             class_list=[
                                 "displayNoneFrontend",
@@ -281,11 +284,6 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
                             "from": "applicationTaskName"
                         }
                     ],
-                    validators=[
-                        {
-                            "name": "RequiredValidator"
-                        }
-                    ],
                     read_only=True,
                     required=True,
                 ),
@@ -293,23 +291,10 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
                     component_type='radio',
                     label='Wszystkie kwoty zaznaczone w kosztorysie są kwotami (w przypadku kosztów wynagrodzeń rozliczanych listą płac lub rachunkiem do umowy o dzieło/zlecenie należy wykazać kwotę brutto z uwzględnieniem narzutów ZUS pracodawcy)',
                     name='isVatPayer',
-                    value=False,
                     options=[
                         "netto (zaznacza Wnioskodawca, który jest podatnikiem VAT)",
                         "brutto (zaznacza Wnioskodawca, który NIE jest podatnikiem VAT)"
-                    ],
-                    validators=[
-                        {
-                            "name": "ExactValidator",
-                            "kwargs": {
-                                "values": [
-                                    "netto (zaznacza Wnioskodawca, który jest podatnikiem VAT)",
-                                    "brutto (zaznacza Wnioskodawca, który NIE jest podatnikiem VAT)"
-                                ]
-                            }
-                        }
                     ]
-
                 )
             ]
         )
