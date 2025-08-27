@@ -1,6 +1,6 @@
 from classes.form_builder.duk.dissemination.application_builder import DisseminationApplicationBuilder
 from classes.form_builder.duk.application_builder import DUKApplicationBuilder
-from classes.form_builder.estimate_builder.duk.application_estimate_builder import DUKApplicationEstimateBuilder
+from classes.form_builder.duk.application_estimate_builder import DUKApplicationEstimateBuilder
 from classes.form_builder.duk.dissemination.initiatives.estimate_data import estimate_sections_pt1, estimate_sections_pt2, estimate_sections_pt3, estimate_sections_pt4
 
 

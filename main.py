@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from classes.web_scraper.web_scraper import WebScraper
 from classes.postman.postman import Postman
-from classes.form_builder import applications
+from classes.form_builder.additional import applications
 
 load_dotenv()
 

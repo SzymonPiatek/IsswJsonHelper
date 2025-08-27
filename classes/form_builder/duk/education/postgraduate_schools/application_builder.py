@@ -1,6 +1,6 @@
 from classes.form_builder.duk.education.application_builder import EducationApplicationBuilder
 from classes.form_builder.duk.application_builder import DUKApplicationBuilder
-from classes.form_builder.estimate_builder.duk.application_estimate_builder import DUKApplicationEstimateBuilder
+from classes.form_builder.duk.application_estimate_builder import DUKApplicationEstimateBuilder
 from classes.form_builder.duk.education.postgraduate_schools.estimate_data import estimate_sections
 
 

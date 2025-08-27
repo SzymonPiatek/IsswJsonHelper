@@ -1,7 +1,7 @@
 from classes.form_builder.duk.education.application_builder import EducationApplicationBuilder
 from classes.form_builder.duk.application_builder import DUKApplicationBuilder
 from classes.form_builder.duk.education.professional_training.estimate_data import estimate_sections_pt1235, estimate_sections_pt4
-from classes.form_builder.estimate_builder.duk.application_estimate_builder import DUKApplicationEstimateBuilder
+from classes.form_builder.duk.application_estimate_builder import DUKApplicationEstimateBuilder
 
 
 class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder):

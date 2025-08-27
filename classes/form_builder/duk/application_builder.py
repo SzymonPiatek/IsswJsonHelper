@@ -1,5 +1,5 @@
 from classes.form_builder.application_builder import ApplicationBuilder
-from classes.form_builder.estimate_builder.duk.application_estimate_builder import DUKApplicationEstimateBuilder
+from classes.form_builder.duk.application_estimate_builder import DUKApplicationEstimateBuilder
 from classes.form_builder.additional.decorators import not_implemented_func
 
 
