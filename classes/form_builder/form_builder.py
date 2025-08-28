@@ -2,7 +2,7 @@ from typing import Literal, ClassVar
 import json
 
 from classes.form_builder.components.part import Part
-from classes.form_builder.components.section import Section
+from classes.form_builder.components.duk_section import DUKSection
 from classes.form_builder.components.component import Component
 from classes.form_builder.form_builder_base import FormBuilderBase
 from classes.form_builder.additional.decorators import not_implemented_func
@@ -40,7 +40,6 @@ class FormBuilder(FormBuilderBase):
         self.output_file = self.main_dir / 'output' / 'json' /self.department_name / self.json_type / self.output_file_name
 
         self.part = Part()
-        self.section = Section()
         self.component = Component()
 
     def info(self):

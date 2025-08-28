@@ -181,7 +181,7 @@ class FormBuilderBase:
     def create_component(
             self,
             component_type: Literal['date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox'],
-            mask: Literal['fund', 'phoneNumber', 'bankAccount', 'landline', 'jst', 'ibanAccount'] = '',
+            mask: Literal['fund', 'phoneNumber', 'bankAccount', 'landline', 'jst', 'ibanAccount', 'polishPostalCode'] = '',
             label: str = '',
             name: str = '',
             value: str | int | bool = '',
@@ -198,7 +198,7 @@ class FormBuilderBase:
         allowed_types = {'date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox'}
         if component_type not in allowed_types:
             raise ValueError(f"Invalid component_type '{component_type}'. Must be one of: {', '.join(allowed_types)}.")
-        allowed_masks = {'fund', 'phoneNumber', 'bankAccount', 'landline', 'jst', 'ibanAccount'}
+        allowed_masks = {'fund', 'phoneNumber', 'bankAccount', 'landline', 'jst', 'ibanAccount', 'polishPostalCode'}
         if mask and mask not in allowed_masks:
             raise ValueError(f"Invalid mask '{mask}'. Must be one of: {', '.join(allowed_masks)}")
         if not name:
@@ -219,6 +219,9 @@ class FormBuilderBase:
         else:
             options = []
 
+        if component_type == "file" and not help_text:
+            help_text = "Maksymalny rozmiar pliku to 50 MB"
+
         if mask == "fund" and not unit:
             unit = "PLN"
         if mask == "fund" or component_type == "number":
@@ -238,7 +241,7 @@ class FormBuilderBase:
         if not default_value and value == 0:
             default_value = value
 
-        if required and not any(v.get("name") == "RelatedRequiredIfEqualValidator" for v in validators):
+        if required and not any(v.get("name") in {"RelatedRequiredIfEqualValidator", "RequiredValidator"} for v in validators):
             validators.append(Validator.required_validator())
 
         if name in self.names:

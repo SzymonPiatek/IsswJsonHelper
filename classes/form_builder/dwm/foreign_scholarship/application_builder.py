@@ -441,7 +441,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
             title="III. Informacje o wnioskodawcy",
             short_name="III. Informacje o wnioskodawcy",
             chapters=[
-                self.section.applicant_full_name(number="1"),
+                self.dwm_section.applicant_full_name(number="1"),
                 self.create_chapter(
                     title="2. Funkcja pełniona przy projekcie",
                     components=[
@@ -498,7 +498,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                         )
                     ]
                 ),
-                self.section.responsible_person_data(number="3"),
+                self.dwm_section.responsible_person_data(number="3"),
                 self.create_chapter(
                     title="4. Adres i dane wnioskodawcy",
                     components=[
@@ -516,7 +516,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                                 )
                             ]
                         ),
-                        *self.section.applicant_address_base(
+                        *self.dwm_section.applicant_address_base(
                             poland=True,
                             foreign=True
                         )
@@ -555,7 +555,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                                 )
                             ]
                         ),
-                        *self.section.applicant_address_base(
+                        *self.dwm_section.applicant_address_base(
                             build_name="Contact",
                             poland=True,
                             foreign=True

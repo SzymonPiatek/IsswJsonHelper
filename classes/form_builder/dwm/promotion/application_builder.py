@@ -432,11 +432,11 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
             title="III. Informacje o wnioskodawcy",
             short_name="III. Informacje o wnioskodawcy",
             chapters=[
-                self.section.applicant_name(number="1"),
-                self.section.eligible_person_data(number="2"),
-                self.section.responsible_person_data(number="3"),
-                self.section.applicant_address(number="4", main_poland=True, contact_poland=True, main_foreign=True, contact_foreign=True),
-                self.section.applicant_bank_data(number="5", poland=True, foreign=True),
+                self.dwm_section.applicant_name(number="1"),
+                self.dwm_section.eligible_person_data(number="2"),
+                self.dwm_section.responsible_person_data(number="3"),
+                self.dwm_section.applicant_address(number="4", main_poland=True, contact_poland=True, main_foreign=True, contact_foreign=True),
+                self.dwm_section.applicant_bank_data(number="5", poland=True, foreign=True),
                 self.create_chapter(
                     title="6. Waluta, z której dotacja PISF ma zostać przelana na w/w konto",
                     class_list={
@@ -465,8 +465,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                         )
                     ]
                 ),
-                self.section.applicant_legal_information(number="7"),
-                self.section.applicant_statistical_data(number="8")
+                self.dwm_section.applicant_legal_information(number="7"),
+                self.dwm_section.applicant_statistical_data(number="8")
             ]
         )
         self.save_part(part=part)
