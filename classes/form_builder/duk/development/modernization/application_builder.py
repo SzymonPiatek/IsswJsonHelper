@@ -33,15 +33,15 @@ class ModernizationApplicationBuilder(DevelopmentApplicationBuilder):
                 self.create_chapter(
                     title="Obowiązkowe załączniki",
                     components=[
-                        self.duk_section.application_attachment.document_confirming_represent_applicant(),
-                        self.duk_section.application_attachment.schedule_information(),
-                        self.duk_section.application_attachment.right_to_property(),
-                        self.duk_section.application_attachment.building_permit(),
-                        self.duk_section.application_attachment.investment_cost_estimate()
+                        self.section.application_attachment.document_confirming_represent_applicant(),
+                        self.section.application_attachment.schedule_information(),
+                        self.section.application_attachment.right_to_property(),
+                        self.section.application_attachment.building_permit(),
+                        self.section.application_attachment.investment_cost_estimate()
                     ]
                 ),
-                self.duk_section.application_attachment.other_attachments(),
-                self.duk_section.application_attachment.storage_of_blanks()
+                self.section.application_attachment.other_attachments(),
+                self.section.application_attachment.storage_of_blanks()
             ]
         )
 

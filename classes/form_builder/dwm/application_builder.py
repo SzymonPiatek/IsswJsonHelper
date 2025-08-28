@@ -11,7 +11,7 @@ class DWMApplicationBuilder(ApplicationBuilder):
     def __init__(self):
         super().__init__()
 
-        self.dwm_section = DWMSection()
+        self.section = DWMSection()
 
     @not_implemented_func
     def create_application_metadata(self):

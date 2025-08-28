@@ -14,7 +14,7 @@ class DUKApplicationBuilder(ApplicationBuilder):
         self.program_data_path = None
         self.priority_data_path = None
         self.estimate_sections = []
-        self.duk_section = DUKSection()
+        self.section = DUKSection()
 
     def create_application_metadata(self):
         part = self.create_part(
@@ -76,14 +76,14 @@ class DUKApplicationBuilder(ApplicationBuilder):
             title="II. Dane wnioskodawcy",
             short_name="II. Dane wnioskodawcy",
             chapters=[
-                self.duk_section.applicant_name(number="1"),
-                self.duk_section.eligible_person_data(number="2"),
-                self.duk_section.responsible_person_data(number="3"),
-                self.duk_section.applicant_address(number="4", main_poland=True, contact_poland=True, main_foreign=False, contact_foreign=False),
-                self.duk_section.applicant_identification_data(number="5"),
-                self.duk_section.applicant_bank_data(number="6", poland=True, foreign=True),
-                self.duk_section.applicant_legal_information(number="7"),
-                self.duk_section.applicant_statistical_data(number="8")
+                self.section.applicant_name(number="1"),
+                self.section.eligible_person_data(number="2"),
+                self.section.responsible_person_data(number="3"),
+                self.section.applicant_address(number="4", main_poland=True, contact_poland=True, main_foreign=False, contact_foreign=False),
+                self.section.applicant_identification_data(number="5"),
+                self.section.applicant_bank_data(number="6", poland=True, foreign=True),
+                self.section.applicant_legal_information(number="7"),
+                self.section.applicant_statistical_data(number="8")
             ]
         )
         self.save_part(part)
