@@ -13,7 +13,7 @@ class EducationApplicationBuilder(DUKApplicationBuilder):
     def create_application_scope_of_project(self, **kwargs):
         data = kwargs["data"]
 
-        project_detailed_description_chapters = [
+        project_detailed_description_chapters = data["project_detailed_description_chapters"] if data.get("project_detailed_description_chapters", False) else [
             {
                 "section_title": "Wartość merytoryczna przedsięwzięcia, w tym ciągłość realizacji przedsięwzięcia oraz wartość edukacyjna",
                 "name": "scopeAndValueOfContent"
@@ -43,89 +43,12 @@ class EducationApplicationBuilder(DUKApplicationBuilder):
                 "full-width-grid"
             ],
             chapters=[
-                self.create_chapter(
-                    title="1. Miejsce realizacji przedsięwzięcia",
-                    components=[
-                        self.create_component(
-                            component_type="text",
-                            name="projectLocation",
-                            validators=[
-                                self.validator.length_validator(max_value=1000)
-                            ],
-                            required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="2. Opis ogólny przedsięwzięcia (cel i zakres merytoryczny, zastosowane technologie, sposób realizacji przedsięwzięcia, promocja)",
-                    components=[
-                        self.create_component(
-                            component_type="textarea",
-                            name="projectGeneralDescription",
-                            validators=[
-                                self.validator.length_validator(max_value=1000)
-                            ],
-                            required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="3. Opis szczegółowy przedsięwzięcia",
-                    components=[
-                        *[self.create_chapter(
-                            title=f"<normal>{chapter["section_title"]}</normal>",
-                            components=[
-                                self.create_component(
-                                    component_type="textarea",
-                                    name=chapter["name"],
-                                    validators=[
-                                        self.validator.length_validator(max_value=1000)
-                                    ],
-                                    required=True
-                                )
-                            ]
-                        ) for chapter in project_detailed_description_chapters]
-                    ]
-                ),
-                self.create_chapter(
-                    title="4. Dotychczasowe doświadczenia wnioskodawcy w działaniach będących przedmiotem przedsięwzięcia</br><normal>Proszę o wyszczególnienie przedsięwzięć z zakresu kinematografii realizowanych przez wnioskodawcę w ostatnich 2 latach</normal>",
-                    components=[
-                        self.create_component(
-                            component_type="textarea",
-                            name="applicantsPastExperience",
-                            validators=[
-                                self.validator.length_validator(max_value=1000)
-                            ],
-                            required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="5. Partnerzy, eksperci i specjaliści zaangażowani w przedsięwzięcie i ich dotychczasowy dorobek w tym zakresie",
-                    components=[
-                        self.create_component(
-                            component_type="textarea",
-                            name="involvedPartnersAndSpecialist",
-                            validators=[
-                                self.validator.length_validator(max_value=1000)
-                            ],
-                            required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="6. Informacje o praktycznych umiejętnościach nabywanych przez uczestników przedsięwzięcia",
-                    components=[
-                        self.create_component(
-                            component_type="textarea",
-                            name="practicalSkillsAcquiredByParticipants",
-                            validators=[
-                                self.validator.length_validator(max_value=1000)
-                            ],
-                            required=True
-                        )
-                    ]
-                ),
+                self.section.application_scope_of_project.project_implementation_place_education(),
+                self.section.application_scope_of_project.general_project_description(),
+                self.section.application_scope_of_project.project_detailed_description(chapters=project_detailed_description_chapters),
+                self.section.application_scope_of_project.applicant_experience_summary(),
+                self.section.application_scope_of_project.project_partners_and_experts(),
+                self.section.application_scope_of_project.participants_acquired_skills(),
                 *data["chapters"]
             ]
         )

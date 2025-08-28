@@ -116,3 +116,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
         )
 
         self.save_part(part=part)
+
+    def create_application_scope_of_project(self):
+        pass

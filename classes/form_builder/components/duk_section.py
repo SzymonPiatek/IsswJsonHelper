@@ -245,6 +245,81 @@ class ApplicationScopeOfProject(FormBuilderBase):
             ]
         )
 
+    def project_implementation_place_education(self):
+        return self.create_chapter(
+            title="1. Miejsce realizacji przedsięwzięcia",
+            components=[
+                self.create_component(
+                    component_type="text",
+                    name="projectLocation",
+                    validators=[
+                        self.validator.length_validator(max_value=1000)
+                    ],
+                    required=True
+                )
+            ]
+        )
+
+    def general_project_description(self):
+        return self.create_chapter(
+            title="2. Opis ogólny przedsięwzięcia (cel i zakres merytoryczny, zastosowane technologie, sposób realizacji przedsięwzięcia, promocja)",
+            components=[
+                self.create_component(
+                    component_type="textarea",
+                    name="projectGeneralDescription",
+                    validators=[
+                        self.validator.length_validator(max_value=1000)
+                    ],
+                    required=True
+                )
+            ]
+        )
+
+    def applicant_experience_summary(self):
+        return self.create_chapter(
+            title="4. Dotychczasowe doświadczenia wnioskodawcy w działaniach będących przedmiotem przedsięwzięcia</br><normal>Proszę o wyszczególnienie przedsięwzięć z zakresu kinematografii realizowanych przez wnioskodawcę w ostatnich 2 latach</normal>",
+            components=[
+                self.create_component(
+                    component_type="textarea",
+                    name="applicantsPastExperience",
+                    validators=[
+                        self.validator.length_validator(max_value=1000)
+                    ],
+                    required=True
+                )
+            ]
+        )
+
+    def project_partners_and_experts(self):
+        return self.create_chapter(
+            title="5. Partnerzy, eksperci i specjaliści zaangażowani w przedsięwzięcie i ich dotychczasowy dorobek w tym zakresie",
+            components=[
+                self.create_component(
+                    component_type="textarea",
+                    name="involvedPartnersAndSpecialist",
+                    validators=[
+                        self.validator.length_validator(max_value=1000)
+                    ],
+                    required=True
+                )
+            ]
+        )
+
+    def participants_acquired_skills(self):
+        return self.create_chapter(
+            title="6. Informacje o praktycznych umiejętnościach nabywanych przez uczestników przedsięwzięcia",
+            components=[
+                self.create_component(
+                    component_type="textarea",
+                    name="practicalSkillsAcquiredByParticipants",
+                    validators=[
+                        self.validator.length_validator(max_value=1000)
+                    ],
+                    required=True
+                )
+            ]
+        )
+
     def cinema_detailed_infomration_years_functioning(self):
         return self.create_chapter(
             class_list=["grid", "grid-cols-2"],
@@ -352,13 +427,22 @@ class ApplicationScopeOfProject(FormBuilderBase):
             components=[
                 self.create_component(component_type="text", label="Liczba seansów", name="activitiesNumScreenings"),
                 self.create_component(component_type="text", label="Liczba widzów", name="activitiesNumViewers"),
-                self.create_component(component_type="text", label="Wpływy z biletów", name="activitiesTicketIncome", mask="fund"),
-                self.create_component(component_type="text", label="Liczba filmów polskich", name="activitiesNumPolishMovies"),
-                self.create_component(component_type="text", label="Liczba premierowych filmów polskich", name="activitiesNumPremierePolishMovies"),
-                self.create_component(component_type="number", label="Procent seansów filmów polskich", name="activitiesSharePolishMovies", unit="%", validators=[self.validator.range_validator(min_value=0, max_value=100)]),
-                self.create_component(component_type="text", label="Liczba filmów europejskich", name="activitiesNumEuropeanMovies"),
-                self.create_component(component_type="number", label="Procent seansów filmów europejskich", name="activitiesShareEuropeanMovies", unit="%", validators=[self.validator.range_validator(min_value=0, max_value=100)]),
-                self.create_component(component_type="text", label="Liczba seansów dla szkół", name="activitiesNumSchoolScreenings")
+                self.create_component(component_type="text", label="Wpływy z biletów", name="activitiesTicketIncome",
+                                      mask="fund"),
+                self.create_component(component_type="text", label="Liczba filmów polskich",
+                                      name="activitiesNumPolishMovies"),
+                self.create_component(component_type="text", label="Liczba premierowych filmów polskich",
+                                      name="activitiesNumPremierePolishMovies"),
+                self.create_component(component_type="number", label="Procent seansów filmów polskich",
+                                      name="activitiesSharePolishMovies", unit="%",
+                                      validators=[self.validator.range_validator(min_value=0, max_value=100)]),
+                self.create_component(component_type="text", label="Liczba filmów europejskich",
+                                      name="activitiesNumEuropeanMovies"),
+                self.create_component(component_type="number", label="Procent seansów filmów europejskich",
+                                      name="activitiesShareEuropeanMovies", unit="%",
+                                      validators=[self.validator.range_validator(min_value=0, max_value=100)]),
+                self.create_component(component_type="text", label="Liczba seansów dla szkół",
+                                      name="activitiesNumSchoolScreenings")
             ]
         )
 
@@ -643,5 +727,25 @@ class ApplicationScopeOfProject(FormBuilderBase):
                         )
                     ]
                 )
+            ]
+        )
+
+    def project_detailed_description(self, chapters: dict):
+        return self.create_chapter(
+            title="3. Opis szczegółowy przedsięwzięcia",
+            components=[
+                *[self.create_chapter(
+                    title=f"<normal>{chapter["section_title"]}</normal>",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name=chapter["name"],
+                            validators=[
+                                self.validator.length_validator(max_value=1000)
+                            ],
+                            required=True
+                        )
+                    ]
+                ) for chapter in chapters]
             ]
         )

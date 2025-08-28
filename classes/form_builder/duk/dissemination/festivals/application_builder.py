@@ -24,3 +24,6 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder):
             }
         }
         DUKApplicationBuilder.create_application_basic_data(self=self, data=data)
+
+    def create_application_scope_of_project(self):
+        pass
