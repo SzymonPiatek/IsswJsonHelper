@@ -3,7 +3,7 @@ class VisibilityRule:
         pass
 
     @staticmethod
-    def depends_on_value(field_name: str, values: [str]):
+    def depends_on_value(field_name: str, values: list):
         return {
             "name": "dependsOnValue",
             "kwargs": {

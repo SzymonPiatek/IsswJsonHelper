@@ -153,7 +153,7 @@ class FormBuilderBase:
 
         return self.delete_unused_part_args(part=part)
 
-    def create_chapter(self, title: str = '', class_list: list | dict = None, visibility_rules: list = None, components: list = None, multiple_forms_rules: dict = None):
+    def create_chapter(self, title: str = '', class_list: list | dict = None, visibility_rules: list = None, components: list = None, multiple_forms_rules: dict = None, is_paginated: bool = False):
         if class_list is None:
             class_list = []
         if visibility_rules is None:
@@ -173,7 +173,8 @@ class FormBuilderBase:
             "visibilityRules": visibility_rules,
             "components": components,
             "isMultipleForms": is_multiple_forms,
-            "multipleFormsRules": multiple_forms_rules
+            "multipleFormsRules": multiple_forms_rules,
+            "isPaginated": is_paginated
         }
 
         return self.delete_unused_chapter_args(chapter=chapter)
