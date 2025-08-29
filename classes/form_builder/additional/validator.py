@@ -1,3 +1,6 @@
+from typing import Dict, List
+
+
 class Validator:
     def __init__(self):
         pass
@@ -199,3 +202,12 @@ class Validator:
             "validationMsg": message
         }
 
+    @staticmethod
+    def related_allowed_options_validator(field_name: str, mapping: Dict[str, List[str]]):
+        return {
+            "name": "RelatedAllowedOptionsValidator",
+            "kwargs": {
+                "field_name": field_name,
+                "mapping": mapping
+            }
+        }
