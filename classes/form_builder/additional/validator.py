@@ -7,6 +7,10 @@ class Validator:
 
     @staticmethod
     def length_validator(min_value: int = 0, max_value: int = 0, message: str = None):
+        """
+        Walidator sprawdza długość tekstu (min-max).
+        """
+
         if min_value == 0 and max_value == 0:
             raise ValueError("Musisz podać co najmniej jedną wartość: min_value lub max_value")
 
@@ -31,12 +35,20 @@ class Validator:
 
     @staticmethod
     def required_validator():
+        """
+        Walidator oznacza komponent jako obowiązkowy.
+        """
+
         return {
             "name": "RequiredValidator"
         }
 
     @staticmethod
     def related_required_if_equal_validator(field_name: str, value: str):
+        """
+        Walidator oznacza komponent jako obowiązkowy po spełnieniu warunku.
+        """
+
         return {
             "name": "RelatedRequiredIfEqualValidator",
             "kwargs": {
@@ -47,6 +59,10 @@ class Validator:
 
     @staticmethod
     def phone_number_validator():
+        """
+        Walidator sprawdza poprawność numeru telefonu komórkowego.
+        """
+
         return {
             "name": "PhoneNumberValidator",
             "validationMsg": "Wprowadź numer telefonu w formie: +kod kraju oraz pozostałe cyfry numeru. Dla numeru polskiego przykładowo +48123456789"
@@ -54,6 +70,10 @@ class Validator:
 
     @staticmethod
     def email_validator():
+        """
+        Walidator sprawdza poprawność adresu mailowego.
+        """
+
         return {
             "name": "EmailValidator",
             "validationMsg": "Podaj prawidłowy adres email."
@@ -61,24 +81,40 @@ class Validator:
 
     @staticmethod
     def pesel_validator():
+        """
+        Walidator sprawdza poprawność numeru PESEL.
+        """
+
         return {
             "name": "PeselValidator"
         }
 
     @staticmethod
     def iban_validator():
+        """
+        Walidator sprawdza poprawność numeru IBAN.
+        """
+
         return {
             "name": "IBANValidator"
         }
 
     @staticmethod
     def swift_validator():
+        """
+        Walidator sprawdza poprawność numeru Swift.
+        """
+
         return {
             "name": "SwiftValidator"
         }
 
     @staticmethod
     def regon_validator():
+        """
+        Walidator sprawdza poprawność numeru REGON.
+        """
+
         return {
             "name": "RegonValidator",
             "validationMsg": "Niepoprawny numer REGON"
@@ -86,6 +122,10 @@ class Validator:
 
     @staticmethod
     def bank_account_validator():
+        """
+        Walidator sprawdza poprawność numeru konta bankowego.
+        """
+
         return {
             "name": "LengthValidator",
             "kwargs": {
@@ -96,7 +136,26 @@ class Validator:
         }
 
     @staticmethod
+    def nip_validator():
+        """
+        Walidator sprawdza poprawność numeru NIP.
+        """
+
+        return {
+            "name": "LengthValidator",
+            "kwargs": {
+                "min": 9,
+                "max": 11
+            },
+            "validationMsg": "Niepoprawny numer NIP"
+        }
+
+    @staticmethod
     def related_local_sum_validator(field_names: [str]):
+        """
+        Walidator sprawdza poprawność sumy wartości (lokalnie).
+        """
+
         return {
             "name": "RelatedLocalSumValidator",
             "kwargs": {
@@ -106,6 +165,10 @@ class Validator:
 
     @staticmethod
     def related_sum_validator(field_names: [str]):
+        """
+        Walidator sprawdza poprawność sumy wartości.
+        """
+
         return {
             "name": "RelatedSumValidator",
             "kwargs": {
@@ -115,6 +178,10 @@ class Validator:
 
     @staticmethod
     def range_validator(min_value: int | float = None, max_value: int | float = None, message: str = None):
+        """
+        Walidator sprawdza czy wartość jest w danym zakresie (min - max).
+        """
+
         if min_value is None and max_value is None:
             raise ValueError("Musisz podać co najmniej jedną wartość: min_value lub max_value")
 
@@ -142,16 +209,33 @@ class Validator:
         }
 
     @staticmethod
-    def exact_validator(values: [str]):
-        return {
-            "name": "ExactValidator",
-            "kwargs": {
-                "values": values
+    def exact_validator(values: [str], message: str = None):
+        """
+        Walidator sprawdza, czy wybrana opcja jest jedną z możliwych do wyboru.
+        """
+
+        if message:
+            return {
+                "name": "ExactValidator",
+                "kwargs": {
+                    "values": values,
+                    "validationMsg": message
+                }
             }
-        }
+        else:
+            return {
+                "name": "ExactValidator",
+                "kwargs": {
+                    "values": values,
+                }
+            }
 
     @staticmethod
     def related_fraction_gte_validator(field_name: str, ratio: float, message: str = None):
+        """
+        Walidator sprawdza, czy wartość nie przekracza danej wartości procentowej wartości innego pola.
+        """
+
         return {
             "name": "RelatedFractionGTEValidator",
             "kwargs": {
@@ -163,6 +247,10 @@ class Validator:
 
     @staticmethod
     def related_share_validator(dividend: str, divisor: str):
+        """
+        Walidator sprawdza, czy wartość udziału jest poprawna.
+        """
+
         return {
             "name": "RelatedShareValidator",
             "kwargs": {
@@ -172,18 +260,11 @@ class Validator:
         }
 
     @staticmethod
-    def nip_validator():
-        return {
-            "name": "LengthValidator",
-            "kwargs": {
-                "min": 9,
-                "max": 11
-            },
-            "validationMsg": "Niepoprawny numer NIP"
-        }
-
-    @staticmethod
     def related_local_date_lte_validator(field_name: str, message: str):
+        """
+        Walidator sprawdza, czy wartość daty jest mniejsza lub równa wartości daty innego pola.
+        """
+
         return {
             "name": "RelatedLocalDateLTEValidator",
             "kwargs": {
@@ -194,6 +275,10 @@ class Validator:
 
     @staticmethod
     def related_local_date_gte_validator(field_name: str, message: str):
+        """
+        Walidator sprawdza, czy wartość daty jest większa lub równa wartości daty innego pola.
+        """
+
         return {
             "name": "RelatedLocalDateGTEValidator",
             "kwargs": {
@@ -204,10 +289,27 @@ class Validator:
 
     @staticmethod
     def related_allowed_options_validator(field_name: str, mapping: Dict[str, List[str]]):
+        """
+        Walidator sprawdza, czy wybrana opcja jest w liście poprawnych opcji dla danej wartości innego pola.
+        """
+
         return {
             "name": "RelatedAllowedOptionsValidator",
             "kwargs": {
                 "field_name": field_name,
                 "mapping": mapping
+            }
+        }
+
+    @staticmethod
+    def related_mapped_limit_validator(default_limit: int | float):
+        """
+        Walidator sprawdza, czy kwota nie przekracza danej wartości dla wybranej opcji (lub domyślny limit).
+        """
+
+        return {
+            "name": "RelatedMappedLimitValidator",
+            "kwargs": {
+                "default_limit": default_limit
             }
         }

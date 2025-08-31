@@ -36,3 +36,14 @@ class Component(FormBuilderBase):
                 )
             ]
         )
+
+    def project_location(self):
+        return self.create_component(
+            component_type="text",
+            label="Miejscowość",
+            name="projectLocation",
+            validators=[
+                self.validator.length_validator(max_value=100)
+            ],
+            required=True
+        )
