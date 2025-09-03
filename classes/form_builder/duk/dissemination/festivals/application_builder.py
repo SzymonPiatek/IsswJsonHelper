@@ -625,6 +625,371 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder):
                                         )
                                     ]
                                 ),
+                                self.create_chapter(
+                                    title="Liczba seansów",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Poprzednia edycja",
+                                            name="numberOfScreeningsPreviousEdition",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Planowane",
+                                            name="numberOfScreeningsPlanned",
+                                            unit="szt."
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Liczba prezentowanych filmów",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Poprzednia edycja",
+                                            name="numberOfPresentedFilmsPreviousEdition",
+                                            read_only=True,
+                                            calculation_rules=[
+                                                self.calculation_rule.dynamic_sum_inputs(
+                                                    fields=[
+                                                        "numberOfPresentedPolishFilmsPreviousEdition",
+                                                        "numberOfForeignPresentedFilmsPreviousEdition"
+                                                    ]
+                                                )
+                                            ],
+                                            validators=[
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "numberOfPresentedFilmsPreviousEdition"
+                                                    ]
+                                                ),
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "numberOfPresentedPolishFilmsPreviousEdition",
+                                                        "numberOfForeignPresentedFilmsPreviousEdition"
+                                                    ]
+                                                )
+                                            ],
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Planowane",
+                                            name="numberOfPresentedFilmsPlanned",
+                                            read_only=True,
+                                            calculation_rules=[
+                                                self.calculation_rule.dynamic_sum_inputs(
+                                                    fields=[
+                                                        "numberOfPresentedPolishFilmsPlanned",
+                                                        "numberOfForeignPresentedFilmsPlanned"
+                                                    ]
+                                                )
+                                            ],
+                                            validators=[
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "numberOfPresentedFilmsPlanned"
+                                                    ]
+                                                ),
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "numberOfPresentedPolishFilmsPlanned",
+                                                        "numberOfForeignPresentedFilmsPlanned"
+                                                    ]
+                                                )
+                                            ],
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Liczba filmów polskich w poprzedniej edycji",
+                                            name="numberOfPresentedPolishFilmsPreviousEdition",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Liczba filmów polskich w planowanej edycji",
+                                            name="numberOfPresentedPolishFilmsPlanned",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Liczba filmów zagranicznych w poprzedniej edycji",
+                                            name="numberOfForeignPresentedFilmsPreviousEdition",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Liczba filmów zagranicznych w planowanej edycji",
+                                            name="numberOfForeignPresentedFilmsPlanned",
+                                            unit="szt."
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Liczba nowości filmowych (z ostatnich 2 lat)",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Poprzednia edycja",
+                                            name="numberOfNewFilmsLastTwoYearsPreviousEdition",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Planowane",
+                                            name="numberOfNewFilmsLastTwoYearsPlanned",
+                                            unit="szt."
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Liczba retrospektyw",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Poprzednia edycja",
+                                            name="numberOfRetrospectivesPreviousEdition",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Planowane",
+                                            name="numberOfRetrospectivesPlanned",
+                                            unit="szt."
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Liczba filmów z audiodeskrypcją",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Poprzednia edycja",
+                                            name="audiodescriptionFilmsCountPreviousEdition",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Planowane",
+                                            name="audiodescriptionFilmsCountPlaned",
+                                            unit="szt."
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Nakład materiałów promocyjnych (katalogi, plakaty)",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Poprzednia edycja",
+                                            name="promotionalMaterialsCountPreviousEdition",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Planowane",
+                                            name="promotionalMaterialsCountPlanned",
+                                            unit="szt."
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Liczba przyznanych nagród",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Poprzednia edycja",
+                                            name="grantedAwardsPreviousEdition",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Planowane",
+                                            name="grantedAwardsPlanned",
+                                            unit="szt."
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Liczba publikacji w mediach na temat wydarzenia",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Poprzednia edycja",
+                                            name="mediaPublicationCountPreviousEdition",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Planowane",
+                                            name="mediaPublicationCountPlanned",
+                                            unit="szt."
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Liczba osób zaangażowanych w realizacje przedsięwzięcia",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Poprzednia edycja",
+                                            name="numberOfPeopleInvolvedPreviousEdition",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Planowane",
+                                            name="numberOfPeopleInvolvedPlanned",
+                                            unit="szt."
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Liczba widzów",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Poprzednia edycja",
+                                            name="numberOfViewersPreviousEdition",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Planowane",
+                                            name="numberOfViewersPlanned",
+                                            unit="szt."
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Liczba gości zagranicznych",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Poprzednia edycja",
+                                            name="numberOfForeignVisitorsPreviousEdition",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Planowane",
+                                            name="numberOfForeignVisitorsPlanned",
+                                            unit="szt."
+                                        )
+                                    ]
+                                ),
                             ]
                         )
                     ]
