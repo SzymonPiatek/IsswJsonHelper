@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from classes.web_scraper.web_scraper import WebScraper
 from classes.postman.postman import Postman
+from classes.analyzer.analyzer import Analyzer
 from classes.form_builder.additional import applications
 
 load_dotenv()
@@ -11,6 +12,8 @@ login_data = {
     "email": os.getenv("LOGIN_EMAIL"),
     "password": os.getenv("LOGIN_PASSWORD"),
 }
+
+analyzer = Analyzer()
 
 
 def example():
@@ -87,7 +90,8 @@ def generate_applications():
 
 
 def main():
-    generate_applications()
+    # generate_applications()
+    analyzer.report_duplicates("./output/json/DWM/application")
 
 
 if __name__ == '__main__':
