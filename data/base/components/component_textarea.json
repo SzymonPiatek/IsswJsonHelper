@@ -1,8 +1,0 @@
-{
-  "kind": "component",
-  "type": "textarea",
-  "label": "{label}",
-  "name": "{name}",
-  "value": "{value}",
-  "dataBDD": "{name}"
-}

@@ -1,7 +1,11 @@
-from typing import Literal, ClassVar, Optional
+from typing import Literal, ClassVar
 import json
 
+from classes.form_builder.components.part import Part
+from classes.form_builder.components.duk_section import DUKSection
+from classes.form_builder.components.component import Component
 from classes.form_builder.form_builder_base import FormBuilderBase
+from classes.form_builder.additional.decorators import not_implemented_func
 
 JSONType = Literal['application', 'report']
 DepartmentType = Literal['DPF', 'DUK', 'DWM']
@@ -12,9 +16,9 @@ class FormBuilder(FormBuilderBase):
     JSON_TYPE: ClassVar[JSONType]
     DEPARTMENT_NAME: ClassVar[DepartmentType]
     OPERATION_NAME: str
-    OPERATION_NUM: int
+    OPERATION_NUM: str
     PRIORITY_NAME: str
-    PRIORITY_NUM: int
+    PRIORITY_NUM: str
     YEAR: int = 2025
     SESSION: ClassVar[SessionType] = 'I'
     FORM_ID: int
@@ -33,7 +37,10 @@ class FormBuilder(FormBuilderBase):
         self.form_id = self.FORM_ID
 
         self.output_file_name = f'po{self.operation_num}_pr{self.priority_num}_{self.json_type}_{self.year}.json'
-        self.output_file = self.main_dir / 'output' / self.department_name / self.json_type / self.output_file_name
+        self.output_file = self.main_dir / 'output' / 'json' /self.department_name / self.json_type / self.output_file_name
+
+        self.part = Part()
+        self.component = Component()
 
     def info(self):
         return f'''
@@ -43,6 +50,7 @@ class FormBuilder(FormBuilderBase):
             Priorytet: {self.priority_name}
             Rok: {self.year}
             Sesja: {self.session}
+            ID: {self.form_id}
             '''
 
     def save_output(self) -> None:
@@ -53,5 +61,6 @@ class FormBuilder(FormBuilderBase):
 
         print(f'Zapisano output do {self.output_file}')
 
+    @not_implemented_func
     def generate(self):
-        raise NotImplementedError("Podklasa musi nadpisać `generate`")
+        pass

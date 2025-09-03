@@ -1,4 +1,5 @@
 from classes.form_builder.application_builder import ApplicationBuilder
+from classes.form_builder.components.dpf_section import DPFSection
 
 
 class DPFApplicationBuilder(ApplicationBuilder):
@@ -11,6 +12,7 @@ class DPFApplicationBuilder(ApplicationBuilder):
 
         self.department_data_path = self.application_data_path / 'dpf'
         self.priority_data_path = None
+        self.section = DPFSection()
 
     def create_application_metadata(self, task_type: str):
         part = self.load_json(path=self.department_data_path / '_pages' / 'application_metadata.json')

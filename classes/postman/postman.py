@@ -14,6 +14,8 @@ class Postman:
         self.login_data = login_data
         self.access_token = None
 
+        self.login()
+
     def login(self):
         login_url = f"{self.base_url}/api/v1/token/"
 

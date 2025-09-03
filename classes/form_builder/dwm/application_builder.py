@@ -1,67 +1,107 @@
 from classes.form_builder.application_builder import ApplicationBuilder
+from classes.form_builder.additional.decorators import not_implemented_func
+from classes.form_builder.components.dwm_section import DWMSection
 
 
 class DWMApplicationBuilder(ApplicationBuilder):
     DEPARTMENT_NAME = 'DWM'
-    OPERATION_NAME = 'I. Promocja polskiej twórczości filmowej za granicą'
+    OPERATION_NAME = 'V. Promocja polskiej twórczości filmowej za granicą'
     OPERATION_NUM = 5
 
     def __init__(self):
         super().__init__()
 
-        self.department_data_path = self.application_data_path / 'dwm'
-        self.priority_data_path = None
+        self.section = DWMSection()
 
+    @not_implemented_func
     def create_application_metadata(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_metadata.json')
-        self.save_part(part=part)
+        pass
 
+    @not_implemented_func
     def create_application_name_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_name_data.json')
-        self.save_part(part=part)
+        pass
 
+    @not_implemented_func
     def create_application_applicant_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_applicant_data.json')
-        self.save_part(part=part)
+        pass
 
+    @not_implemented_func
     def create_application_applicant_achievements_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_applicant_achievements_data.json')
-        self.save_part(part=part)
+        pass
 
+    @not_implemented_func
     def create_application_description_of_the_project_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_description_of_the_project_data.json')
-        self.save_part(part=part)
+        pass
 
     def create_application_logo_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_logo_data.json')
+        part = self.create_part(
+            title="VI. Wskazanie sposobu wykorzystania logotypu PISF / Informacja o dofinansowaniu ze środków PISF w kampanii promocyjnej",
+            short_name="VI. Logotyp PISF",
+            chapters=[
+                self.create_chapter(
+                    title="Opis wykorzystania logotypu lub informacji o dofinansowaniu",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="applicantLogotypePromotionDesc",
+                            validators=[
+                                self.validator.length_validator(max_value=20000)
+                            ],
+                            required=True,
+                            help_text="Opisz w jaki sposób wykorzystasz logotyp PISF i/lub zamieścisz informację o dofinansowaniu ze środków PISF."
+                        )
+                    ]
+                )
+            ]
+        )
         self.save_part(part=part)
 
     def create_application_implementation_effects_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_implementation_effects_data.json')
+        part = self.create_part(
+            title="VII. Planowane efekty realizacji przedsięwzięcia",
+            short_name="VII. Efekty realizacji",
+            chapters=[
+                self.create_chapter(
+                    title="Planowane efekty",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="applicantPlannedTaskEffects",
+                            validators=[
+                                self.validator.length_validator(max_value=20000)
+                            ],
+                            help_text="Opisz planowane efekty wykonania przedsięwzięcia. Należy podać konkretny efekt np. nawiązanie innej współpracy, zaproszenie na inny festiwal, itp. Po zakończeniu przedsięwzięcia beneficjent jest zobowiązany przedstawić w raporcie efekty przedsięwzięcia.",
+                            required=True
+                        )
+                    ]
+                )
+            ]
+        )
         self.save_part(part=part)
 
+    @not_implemented_func
     def create_application_other_information_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_other_information_data.json')
-        self.save_part(part=part)
+        pass
 
+    @not_implemented_func
     def create_application_financial_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_financial_data.json')
-        self.save_part(part=part)
+        pass
 
+    @not_implemented_func
     def create_application_statements(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_statements.json')
-        self.save_part(part=part)
+        pass
 
+    @not_implemented_func
     def create_application_attachments(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_attachments.json')
-        self.save_part(part=part)
+        pass
 
+    @not_implemented_func
     def create_application_schedule_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_schedule_data.json')
-        self.save_part(part=part)
+        pass
 
     def generate(self):
-        self. create_application_base()
+        # Base
+        self.create_application_base()
 
         # 1. Nazwa programu i priorytetu
         self.create_application_metadata()
@@ -87,7 +127,7 @@ class DWMApplicationBuilder(ApplicationBuilder):
         # 8. Inne informacje
         self.create_application_other_information_data()
 
-        # 9. Koszty przedsięwzięcia
+        # # 9. Koszty przedsięwzięcia
         self.create_application_financial_data()
 
         # 10. Oświadczenia
@@ -99,4 +139,5 @@ class DWMApplicationBuilder(ApplicationBuilder):
         # 12. Harmonogram
         self.create_application_schedule_data()
 
+        # Zapis
         self.save_output()

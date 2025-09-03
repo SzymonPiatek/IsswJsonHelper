@@ -1,13 +1,8 @@
 import os
 from dotenv import load_dotenv
-import subprocess
-from classes.generator.dpf_generator import DPFGenerator
-from classes.generator.duk_generator import DUKGenerator
-from classes.generator.dwm_generator import DWMGenerator
 from classes.web_scraper.web_scraper import WebScraper
 from classes.postman.postman import Postman
-from classes.form_builder.duk.education.postgraduate_schools.application_builder import PostgraduateSchoolsApplicationBuilder
-from classes.generator import applications
+from classes.form_builder.additional import applications
 
 load_dotenv()
 
@@ -24,17 +19,17 @@ def example():
     """
 
     # 1. Inicjalizacja i generowanie formularza w formacie JSON
-    application_class = applications.get_application_builder(department='duk', program='po2', priority='pr1')
-    application = application_class()
-    application.generate()
+    application = generate_application(
+        department='duk',
+        program='po2',
+        priority='pr1'
+    )
 
     # 2. Podmiana formularza na stronie oraz pobranie pliku pdf
     postman = Postman(
         base_url,
-        login_data
+        login_data,
     )
-
-    postman.login()
     postman.application_autosave(
         form_id=application.form_id,
         json=application.output_json
@@ -48,24 +43,51 @@ def example():
     scraper = WebScraper(
         base_url,
         login_data,
-        screenshot_path='output/screenshots'
+        output_path='output/screenshots'
     )
 
     scraper.login()
     scraper.close_introjs()
-    scraper.screenshot_pages_of_application(
-        form_id=application.form_id,
-        pages=len(application.parts),
-        department=application.department_name,
-        program=application.operation_num,
-        priority=application.priority_num,
-        form_type="application"
+    scraper.screenshot_pages_of_form(
+        application=application,
+        output_path='output/png'
     )
     scraper.close()
 
 
+def generate_application(department: str, program: str, priority: str):
+    application_class = applications.get_application_builder(department=department, program=program, priority=priority)
+    application = application_class()
+    application.generate()
+    return application
+
+
+def generate_applications():
+    postman = Postman(
+        base_url,
+        login_data,
+    )
+
+    for department, programs in applications._builder_map.items():
+        for program, priorities in programs.items():
+            for priority in priorities:
+                print("====="*10)
+                print(f"[{department.upper()}] {program.upper()} {priority.upper()}")
+                # Generowanie
+                application = generate_application(
+                    department=department,
+                    program=program,
+                    priority=priority
+                )
+                # Podmiana
+                postman.application_autosave(
+                    form_id=application.form_id,
+                    json=application.output_json
+                )
+
+
 def main():
-    example()
+    generate_applications()
 
 
 if __name__ == '__main__':
