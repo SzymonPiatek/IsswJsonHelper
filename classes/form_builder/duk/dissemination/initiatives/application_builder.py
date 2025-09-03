@@ -128,75 +128,55 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                     components=[
                         self.create_chapter(
                             components=[
-                                self.create_chapter(
-                                    components=[
-                                        self.component.project_location()
+                                self.component.project_location()
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Rodzaj organizowanego przedsięwzięcia",
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="projectType",
+                                    values=[
+                                        "Organizacja przeglądów i innych wydarzeń filmowych o charakterze lokalnym"
                                     ]
-                                ),
-                                self.create_chapter(
-                                    title="Rodzaj organizowanego przedsięwzięcia",
-                                    visibility_rules=[
-                                        self.visibility_rule.depends_on_value(
-                                            field_name="projectType",
-                                            values=[
-                                                "Organizacja przeglądów i innych wydarzeń filmowych o charakterze lokalnym"
-                                            ]
-                                        )
+                                )
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="radio",
+                                    name="eventTypePointOne",
+                                    options=[
+                                        "przegląd",
+                                        "inny"
                                     ],
-                                    components=[
-                                        self.create_component(
-                                            component_type="radio",
-                                            name="eventTypePointOne",
-                                            options=[
-                                                "przegląd",
-                                                "inny"
-                                            ],
-                                            required=True,
-                                            validators=[
-                                                self.validator.related_required_if_equal_validator(
-                                                    field_name="projectType",
-                                                    value="Organizacja przeglądów i innych wydarzeń filmowych o charakterze lokalnym"
-                                                )
-                                            ]
-                                        )
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Rodzaj organizowanego przedsięwzięcia",
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="projectType",
+                                    values=[
+                                        "Organizacja kongresów, konferencji i sympozjów, mających na celu pogłębianie i upowszechnianie wiedzy o filmie",
+                                        "Organizacja konkursów filmowych, wystaw oraz innych wydarzeń promujących sztukę filmową"
                                     ]
-                                ),
-                                self.create_chapter(
-                                    title="Rodzaj organizowanego przedsięwzięcia",
-                                    visibility_rules=[
-                                        self.visibility_rule.depends_on_value(
-                                            field_name="projectType",
-                                            values=[
-                                                "Organizacja kongresów, konferencji i sympozjów, mających na celu pogłębianie i upowszechnianie wiedzy o filmie",
-                                                "Organizacja konkursów filmowych, wystaw oraz innych wydarzeń promujących sztukę filmową"
-                                            ]
-                                        )
+                                )
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="radio",
+                                    name="eventTypePointsFourAndFive",
+                                    options=[
+                                        "konkurs",
+                                        "wystawa",
+                                        "kongres",
+                                        "konferencja",
+                                        "sympozjum",
+                                        "inne"
                                     ],
-                                    components=[
-                                        self.create_component(
-                                            component_type="radio",
-                                            name="eventTypePointsFourAndFive",
-                                            options=[
-                                                "konkurs",
-                                                "wystawa",
-                                                "kongres",
-                                                "konferencja",
-                                                "sympozjum",
-                                                "inne"
-                                            ],
-                                            required=True,
-                                            validators=[
-                                                self.validator.related_required_if_equal_validator(
-                                                    field_name="projectType",
-                                                    value="Organizacja kongresów, konferencji i sympozjów, mających na celu pogłębianie i upowszechnianie wiedzy o filmie"
-                                                ),
-                                                self.validator.related_required_if_equal_validator(
-                                                    field_name="projectType",
-                                                    value="Organizacja konkursów filmowych, wystaw oraz innych wydarzeń promujących sztukę filmową"
-                                                )
-                                            ]
-                                        )
-                                    ]
+                                    required=True
                                 )
                             ]
                         )
@@ -219,15 +199,7 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                             label="Przyznane nagrody (ile, jakie, jakie kwoty)",
                             name="awardedPrizes",
                             validators=[
-                                self.validator.length_validator(max_value=1000),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja kongresów, konferencji i sympozjów, mających na celu pogłębianie i upowszechnianie wiedzy o filmie"
-                                ),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja konkursów filmowych, wystaw oraz innych wydarzeń promujących sztukę filmową"
-                                )
+                                self.validator.length_validator(max_value=1000)
                             ],
                             required=True
                         ),
@@ -236,15 +208,7 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                             label="Przyznawane nagrody w ramach przedsięwzięcia (ile, jakie, jakie kwoty)",
                             name="grantedProjectAwards",
                             validators=[
-                                self.validator.length_validator(max_value=1000),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja kongresów, konferencji i sympozjów, mających na celu pogłębianie i upowszechnianie wiedzy o filmie"
-                                ),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja konkursów filmowych, wystaw oraz innych wydarzeń promujących sztukę filmową"
-                                )
+                                self.validator.length_validator(max_value=1000)
                             ],
                             required=True
                         )
@@ -284,12 +248,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                                     label="Udział filmów z ostatnich pięciu lat",
                                     name="lastFiveYearsFilms",
                                     required=True,
-                                    validators=[
-                                        self.validator.related_required_if_equal_validator(
-                                            field_name="projectType",
-                                            value="Organizacja przeglądów i innych wydarzeń filmowych o charakterze lokalnym"
-                                        )
-                                    ],
                                     unit="%"
                                 ),
                                 self.create_component(
@@ -297,12 +255,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                                     label="Udział starszych filmów",
                                     name="olderFilms",
                                     required=True,
-                                    validators=[
-                                        self.validator.related_required_if_equal_validator(
-                                            field_name="projectType",
-                                            value="Organizacja przeglądów i innych wydarzeń filmowych o charakterze lokalnym"
-                                        )
-                                    ],
                                     unit="%"
                                 ),
                                 self.create_component(
@@ -328,10 +280,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                                                 "100.00"
                                             ],
                                             message="Suma udziałów filmów musi się równać 100%"
-                                        ),
-                                        self.validator.related_required_if_equal_validator(
-                                            field_name="projectType",
-                                            value="Organizacja przeglądów i innych wydarzeń filmowych o charakterze lokalnym"
                                         )
                                     ]
                                 )
@@ -356,10 +304,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                             name="retrospectives",
                             validators=[
                                 self.validator.length_validator(max_value=1000),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja przeglądów i innych wydarzeń filmowych o charakterze lokalnym"
-                                )
                             ],
                         )
                     ]
@@ -382,18 +326,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                             name="projectPurpose",
                             validators=[
                                 self.validator.length_validator(max_value=1000),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja przeglądów i innych wydarzeń filmowych o charakterze lokalnym"
-                                ),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja kongresów, konferencji i sympozjów, mających na celu pogłębianie i upowszechnianie wiedzy o filmie"
-                                ),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja konkursów filmowych, wystaw oraz innych wydarzeń promujących sztukę filmową"
-                                )
                             ],
                             required=True
                         )
@@ -417,18 +349,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                             name="accompanyingEvents",
                             validators=[
                                 self.validator.length_validator(max_value=1000),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja przeglądów i innych wydarzeń filmowych o charakterze lokalnym"
-                                ),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja kongresów, konferencji i sympozjów, mających na celu pogłębianie i upowszechnianie wiedzy o filmie"
-                                ),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja konkursów filmowych, wystaw oraz innych wydarzeń promujących sztukę filmową"
-                                )
                             ],
                             required=True
                         )
@@ -452,18 +372,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                             name="participationOfSpecialist",
                             validators=[
                                 self.validator.length_validator(max_value=1000),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja przeglądów i innych wydarzeń filmowych o charakterze lokalnym"
-                                ),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja kongresów, konferencji i sympozjów, mających na celu pogłębianie i upowszechnianie wiedzy o filmie"
-                                ),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja konkursów filmowych, wystaw oraz innych wydarzeń promujących sztukę filmową"
-                                )
                             ],
                             required=True
                         )
@@ -487,18 +395,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                             name="promotionOfTheProject",
                             validators=[
                                 self.validator.length_validator(max_value=1000),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja przeglądów i innych wydarzeń filmowych o charakterze lokalnym"
-                                ),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja kongresów, konferencji i sympozjów, mających na celu pogłębianie i upowszechnianie wiedzy o filmie"
-                                ),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja konkursów filmowych, wystaw oraz innych wydarzeń promujących sztukę filmową"
-                                )
                             ],
                             required=True
                         )
@@ -567,20 +463,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                                 "płatny"
                             ],
                             required=True,
-                            validators=[
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja przeglądów i innych wydarzeń filmowych o charakterze lokalnym"
-                                ),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja kongresów, konferencji i sympozjów, mających na celu pogłębianie i upowszechnianie wiedzy o filmie"
-                                ),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja konkursów filmowych, wystaw oraz innych wydarzeń promujących sztukę filmową"
-                                )
-                            ]
                         )
                     ]
                 ),
@@ -601,10 +483,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                             name="generalDescription",
                             validators=[
                                 self.validator.length_validator(max_value=1000),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Inne działania realizujące cele Priorytetu II"
-                                )
                             ],
                             required=True
                         ),
@@ -614,10 +492,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                             name="substantiveValueOfProject",
                             validators=[
                                 self.validator.length_validator(max_value=1000),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Inne działania realizujące cele Priorytetu II"
-                                )
                             ],
                             required=True
                         ),
@@ -627,10 +501,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                             name="originalityOfProject",
                             validators=[
                                 self.validator.length_validator(max_value=1000),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Inne działania realizujące cele Priorytetu II"
-                                )
                             ],
                             required=True
                         ),
@@ -640,10 +510,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                             name="rangeOfProject",
                             validators=[
                                 self.validator.length_validator(max_value=1000),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Inne działania realizujące cele Priorytetu II"
-                                )
                             ],
                             required=True
                         ),
@@ -653,10 +519,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                             name="diversificationOfAudience",
                             validators=[
                                 self.validator.length_validator(max_value=1000),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Inne działania realizujące cele Priorytetu II"
-                                )
                             ],
                             required=True
                         ),
@@ -666,10 +528,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                             name="purposefulnessAndInnovation",
                             validators=[
                                 self.validator.length_validator(max_value=1000),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Inne działania realizujące cele Priorytetu II"
-                                )
                             ],
                             required=True
                         ),
@@ -679,10 +537,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                             name="adequacyOfPlannedActivities",
                             validators=[
                                 self.validator.length_validator(max_value=1000),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Inne działania realizujące cele Priorytetu II"
-                                )
                             ],
                             required=True
                         ),
@@ -692,10 +546,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                             name="plannedResultsOfProject",
                             validators=[
                                 self.validator.length_validator(max_value=1000),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Inne działania realizujące cele Priorytetu II"
-                                )
                             ],
                             required=True
                         )
@@ -720,22 +570,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                             name="applicantsPastExperience",
                             validators=[
                                 self.validator.length_validator(max_value=1000),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja przeglądów i innych wydarzeń filmowych o charakterze lokalnym"
-                                ),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja kongresów, konferencji i sympozjów, mających na celu pogłębianie i upowszechnianie wiedzy o filmie"
-                                ),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja konkursów filmowych, wystaw oraz innych wydarzeń promujących sztukę filmową"
-                                ),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Inne działania realizujące cele Priorytetu II"
-                                )
                             ],
                             required=True
                         )
@@ -759,18 +593,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                             name="plannedEffects",
                             validators=[
                                 self.validator.length_validator(max_value=300),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja przeglądów i innych wydarzeń filmowych o charakterze lokalnym"
-                                ),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja kongresów, konferencji i sympozjów, mających na celu pogłębianie i upowszechnianie wiedzy o filmie"
-                                ),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name="projectType",
-                                    value="Organizacja konkursów filmowych, wystaw oraz innych wydarzeń promujących sztukę filmową"
-                                )
                             ],
                             required=True
                         )
@@ -1349,6 +1171,221 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder):
                                         )
                                     ]
                                 ),
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="projectType",
+                            values=[
+                                "Działalność kin studyjnych i lokalnych"
+                            ]
+                        )
+                    ],
+                    components=[
+                        self.create_chapter(
+                            title="Opis szczegółowy przedsięwzięcia (cel i zakres merytoryczny, zastosowane technologie, sposób realizacji, promocja)",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="detailedDescriptionOfProject",
+                                    validators=[
+                                        self.validator.length_validator(max_value=1000)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Lista ekspertów",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="expertsList",
+                                    validators=[
+                                        self.validator.length_validator(max_value=100)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Planowane wydarzenia własne (przeglądy tematyczne, biograficzne, wydanie specjalne)",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="plannedInHouseEvents",
+                                    validators=[
+                                        self.validator.length_validator(max_value=100)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Planowane działania promocyjne SKS",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="plannedPromotionalActivityOfSKSiL",
+                                    validators=[
+                                        self.validator.length_validator(max_value=1000)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Partnerzy i specjaliści zaangażowani w przedsięwzięcie",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="involvedPartnersAndSpecialist",
+                                    validators=[
+                                        self.validator.length_validator(max_value=1000)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="projectType",
+                            values=[
+                                "Działalność klubów filmowych"
+                            ]
+                        )
+                    ],
+                    components=[
+                        self.create_chapter(
+                            title="Opis przedsięwzięcia (cel i zakres merytoryczny, zastosowane technologie, zasięg przedsięwzięcia, sposób realizacji, promocja)",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="detailedDescriptionPurposeAndScope",
+                                    validators=[
+                                        self.validator.length_validator(max_value=1000)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Dotychczasowe doświadczenia Wnioskodawcy w działaniach będących przedmiotem przedsięwzięcia",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="applicantsPreviousExperience",
+                                    validators=[
+                                        self.validator.length_validator(max_value=300)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Planowany udział prelegantów, partnerów, ekspertów i specjalistów zaangażowanych w przedsięwzięcie i ich dotychczasowy dorobek w tej dziedzinie",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="plannedParticipationOfSpeakers",
+                                    validators=[
+                                        self.validator.length_validator(max_value=1000)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Planowany wykaz tytułów prezentowanych w ramach DKF (ze szczególnym uwzględnieniem filmów o wysokiej wartości artystycznej, w tym klasyki filmowej) i określenie częstotliwości spotkań i pokazów w DKF",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="listOfPlannedTitles",
+                                    validators=[
+                                        self.validator.length_validator(max_value=1000)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Liczba stałych członków klubu filmowego",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="numberOfRegularMembers",
+                                    validators=[
+                                        self.validator.length_validator(max_value=100)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Partnerzy, eksperci i specjaliści zaangażowani w przedsięwzięcie i ich dotychczasowy dorobek w tym zakresie",
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="projectType",
+                            values=[
+                                "Inne działania realizujące cele Priorytetu II"
+                            ]
+                        )
+                    ],
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="partnersExpertsAndSpecialists",
+                            validators=[
+                                self.validator.length_validator(max_value=1000)
+                            ],
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Podstawowe dane liczbowe na temat bieżącej i poprzedniej edycji przedsięwzięcia",
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="projectType",
+                            values=[
+                                "Inne działania realizujące cele Priorytetu II"
+                            ]
+                        )
+                    ],
+                    components=[
+                        self.create_chapter(
+                            title="Liczba odbiorców wydarzenia",
+                            class_list={
+                                "main": [
+                                    "table-1-2",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="number",
+                                    label="Poprzednia edycja",
+                                    name="recipientsCountPreviousEdition",
+                                    unit="os."
+                                ),
+                                self.create_component(
+                                    component_type="number",
+                                    label="Bieżąca edycja przedsięwzięcia (przewidywane wielkości)",
+                                    name="recipientsCountCurrentEdition",
+                                    unit="os."
+                                )
                             ]
                         )
                     ]

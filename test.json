@@ -1,0 +1,86 @@
+{
+  "kind": "form",
+  "jrwa": "",
+  "expert": {
+    "name": "",
+    "email": "",
+    "avatar": ""
+  },
+  "status": "",
+  "applicant": {},
+  "title": "",
+  "introText": [
+    {
+      "text": "Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"
+    }
+  ],
+  "blanks": [],
+  "parts": [
+    {
+      "kind": "part",
+      "title": "Test",
+      "shortName": "Test",
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "Warunek",
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "name": "select",
+              "dataBDD": "select",
+              "label": "",
+              "options": [
+                "Tak", "Nie"
+              ],
+              "validators": [
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Tak", "Nie"
+                    ]
+                  }
+                }
+              ],
+              "required": true,
+              "value": ""
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Tak",
+          "visibilityRules": [
+            {
+              "name": "dependsOnValue",
+              "kwargs": {
+                "fieldName": "select",
+                "values": [
+                  "Tak"
+                ]
+              }
+            }
+          ],
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "",
+              "name": "valueA",
+              "dataBDD": "valueA",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

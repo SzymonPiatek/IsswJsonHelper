@@ -242,7 +242,7 @@ class FormBuilderBase:
         if not default_value and value == 0:
             default_value = value
 
-        if required and not any(v.get("name") in {"RelatedRequiredIfEqualValidator", "RequiredValidator"} for v in validators):
+        if required and not any(v.get("name") in {"RelatedRequiredIfEqualValidator", "RequiredValidator", "ExactValidator"} for v in validators):
             validators.append(Validator.required_validator())
 
         if name in self.names:
