@@ -90,8 +90,13 @@ def generate_applications():
 
 
 def main():
-    # generate_applications()
-    analyzer.report_duplicates("./output/json/DWM/application")
+    generate_applications()
+
+    for department in ["DPF", "DUK", "DWM"]:
+        analyzer.report_duplicates(
+            base_dir=f"./output/json/{department}/application",
+            output_path=f"./output/analyzer/{department}/application"
+        )
 
 
 if __name__ == '__main__':

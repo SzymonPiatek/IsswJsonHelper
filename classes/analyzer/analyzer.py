@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 from collections import defaultdict
+import os
 
 
 class Analyzer:
@@ -44,27 +45,53 @@ class Analyzer:
         }
 
     @staticmethod
-    def report_duplicates(base_dir: str):
+    def report_duplicates(base_dir: str, output_path: str):
         files = Analyzer.find_json_files(base_dir)
         duplicates = Analyzer.analyze_duplicates(files)
 
-        if not duplicates:
-            print("✅ Brak duplikatów komponentów.")
-            return
+        os.makedirs(output_path, exist_ok=True)
 
-        print("╔══════════════════════════════════════════════════════╗")
-        print("║      ⚠️  Znaleziono duplikaty komponentów (name)     ║")
-        print("╚══════════════════════════════════════════════════════╝\n")
+        output_data = {}
+
+        file_name = f"{output_path}/duplicates_report.json"
+        if os.path.exists(file_name):
+            with open(file_name, "r", encoding="utf-8") as f:
+                existing_data = json.load(f)
+        else:
+            existing_data = {}
 
         for name, occurrences in duplicates.items():
-            print(f"📛 Name: {name}")
-            for occ in occurrences:
-                print(f"   ├─ Plik: {occ['file']}")
-                location = f"part[{occ['part_index']}], chapter[{occ['chapter_index']}], component[{occ['component_index']}]"
-                print(f"   └─ Lokalizacja: {location}")
-            print("─" * 60)
+            existing_entry = existing_data.get(name, {})
+            was_checked = False
+            if isinstance(existing_entry, dict):
+                was_checked = existing_entry.get("isChecked", False)
+            files = sorted({occ["file"] for occ in occurrences})
+            output_data[name] = {
+                "isChecked": was_checked,
+                "filesCount": len(files),
+                "files": files
+            }
 
-        print(f"\n🔍 Łącznie zduplikowanych nazw: {len(duplicates)}")
+        total_duplicates = len(output_data)
+        total_checked = sum(1 for entry in output_data.values()
+                            if isinstance(entry, dict) and entry.get("isChecked"))
+        total_unchecked = sum(1 for entry in output_data.values()
+                              if isinstance(entry, dict) and not entry.get("isChecked"))
+
+        summary = {
+            "total_duplicates": total_duplicates,
+            "total_checked": total_checked,
+            "total_unchecked": total_unchecked
+        }
+
+        # Prepend summary to output_data
+        output_data = {"__summary__": summary, **output_data}
+
+        file_name = f"{output_path}/duplicates_report.json"
+        with open(file_name, "w", encoding="utf-8") as f:
+            json.dump(output_data, f, indent=2, ensure_ascii=False)
+
+        print(f"📄 Raport JSON zapisany do: {file_name}")
 
 
 if __name__ == "__main__":
