@@ -14,6 +14,26 @@ class Analyzer:
     def analyze_duplicates(json_files: list[Path]) -> dict:
         name_occurrences = defaultdict(list)
 
+        def walk_components(components, file_path, part_idx=None, chapter_idx=None, path=None):
+            if path is None:
+                path = []
+            for idx, component in enumerate(components):
+                current_path = path + [f"component[{idx}]"]
+                if component.get("kind") == "component":
+                    name = component.get("name")
+                    if name:
+                        name_occurrences[name].append({
+                            "file": str(file_path),
+                            "path": current_path
+                        })
+                if "components" in component:
+                    walk_components(component["components"], file_path, part_idx, chapter_idx, current_path)
+                if "chapters" in component:
+                    for chap_idx, chapter in enumerate(component["chapters"]):
+                        chapter_path = current_path + [f"chapter[{chap_idx}]"]
+                        inner_components = chapter.get("components", [])
+                        walk_components(inner_components, file_path, part_idx, chap_idx, chapter_path)
+
         for file_path in json_files:
             try:
                 with open(file_path, "r", encoding="utf-8") as f:
@@ -26,17 +46,9 @@ class Analyzer:
             for part_idx, part in enumerate(parts):
                 chapters = part.get("chapters", [])
                 for chap_idx, chapter in enumerate(chapters):
+                    path = [f"part[{part_idx}]", f"chapter[{chap_idx}]"]
                     components = chapter.get("components", [])
-                    for comp_idx, component in enumerate(components):
-                        if component.get("kind") == "component":
-                            name = component.get("name")
-                            if name:
-                                name_occurrences[name].append({
-                                    "file": str(file_path),
-                                    "part_index": part_idx,
-                                    "chapter_index": chap_idx,
-                                    "component_index": comp_idx
-                                })
+                    walk_components(components, file_path, part_idx, chap_idx, path)
 
         return {
             name: locations
@@ -84,7 +96,6 @@ class Analyzer:
             "total_unchecked": total_unchecked
         }
 
-        # Prepend summary to output_data
         output_data = {"__summary__": summary, **output_data}
 
         file_name = f"{output_path}/duplicates_report.json"
@@ -92,7 +103,3 @@ class Analyzer:
             json.dump(output_data, f, indent=2, ensure_ascii=False)
 
         print(f"📄 Raport JSON zapisany do: {file_name}")
-
-
-if __name__ == "__main__":
-    Analyzer.report_duplicates("./output/json")
