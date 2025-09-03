@@ -101,7 +101,7 @@ class ReconstructionApplicationBuilder(DisseminationApplicationBuilder):
                             component_type="textarea",
                             name="granteeExperience",
                             validators=[
-                                self.validator.length_validator(max_value=500)
+                                self.validator.length_validator(max_value=1000)
                             ],
                             required=True
                         )

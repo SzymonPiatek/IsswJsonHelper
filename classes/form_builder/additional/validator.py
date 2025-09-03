@@ -6,31 +6,32 @@ class Validator:
         pass
 
     @staticmethod
-    def length_validator(min_value: int = 0, max_value: int = 0, message: str = None):
+    def length_validator(min_value: int = None, max_value: int = None, message: str = None):
         """
         Walidator sprawdza długość tekstu (min-max).
         """
 
-        if min_value == 0 and max_value == 0:
+        if min_value is None and max_value is None:
             raise ValueError("Musisz podać co najmniej jedną wartość: min_value lub max_value")
 
         kwargs = {}
-        if min_value > 0:
+        if min_value is not None and min_value > 0:
             kwargs["min"] = min_value
-        if max_value > 0:
+        if max_value is not None and max_value > 0:
             kwargs["max"] = max_value + 1
-
-        if min_value > 0 and max_value > 0:
-            msg = f"Ilość znaków musi zawierać się w przedziale od {min_value} do {max_value}"
-        elif min_value > 0:
-            msg = f"Ilość znaków musi wynosić co najmniej {min_value}"
+        if min_value is not None and min_value > 0 and max_value is not None and max_value > 0:
+            default_msg = f"Ilość znaków musi zawierać się w przedziale od {min_value} do {max_value}"
+        elif min_value is not None and min_value > 0:
+            default_msg = f"Ilość znaków musi wynosić co najmniej {min_value}"
+        elif max_value is not None and max_value > 0:
+            default_msg = f"Ilość znaków nie może przekroczyć {max_value}"
         else:
-            msg = f"Ilość znaków nie może przekroczyć {max_value}"
+            default_msg = "Nieprawidłowe ograniczenia długości tekstu"
 
         return {
             "name": "LengthValidator",
             "kwargs": kwargs,
-            "validationMsg": message if message is not None else msg,
+            "validationMsg": message if message is not None else default_msg,
         }
 
     @staticmethod
