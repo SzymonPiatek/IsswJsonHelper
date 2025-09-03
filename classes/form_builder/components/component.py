@@ -43,7 +43,7 @@ class Component(FormBuilderBase):
             label="Miejscowość",
             name="projectLocation",
             validators=[
-                self.validator.length_validator(max_value=100)
+                self.validator.length_validator(max_value=1000)
             ],
             required=True
         )
