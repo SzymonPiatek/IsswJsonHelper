@@ -749,3 +749,104 @@ class ApplicationScopeOfProject(FormBuilderBase):
                 ) for chapter in chapters]
             ]
         )
+
+    def expected_type_and_number_of_films_presented(self):
+        expected_films_chapters = [
+            {
+                "name": "feature",
+                "label": "Film fabularny"
+            },
+            {
+                "name": "documentary",
+                "label": "Film dokumentalny"
+            },
+            {
+                "name": "animated",
+                "label": "animowany"
+            },
+            {
+                "name": "experimental",
+                "label": "Film eksperymentalny"
+            },
+            {
+                "name": "other",
+                "label": "Inny (jakie?)",
+                "isOther": True
+            }
+        ]
+
+        return self.create_chapter(
+            title="Rodzaj i przewidywana liczba prezentowanych filmów, przykładowe tytuły (jeśli są już znane)",
+            components=[
+                *[self.create_chapter(
+                    components=[
+                        self.create_chapter(
+                            components=[
+                                self.create_component(
+                                    component_type="checkbox",
+                                    label=chapter["label"],
+                                    name=f"{chapter["name"]}Film"
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name=f"{chapter["name"]}Film",
+                                    values=[True]
+                                )
+                            ],
+                            class_list=[
+                                "grid",
+                                "grid-cols-3"
+                            ],
+                            components=[
+                                *(
+                                    [
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Jakie?",
+                                            name=f"{chapter['name']}FilmKind",
+                                            validators=[
+                                                self.validator.length_validator(max_value=100),
+                                                self.validator.related_required_if_equal_validator(
+                                                    field_name=f"{chapter['name']}Film",
+                                                    value=True
+                                                )
+                                            ],
+                                            class_list=["col-span-3"],
+                                            required=True
+                                        )
+                                    ] if chapter.get("isOther", False) else []
+                                ),
+                                self.create_component(
+                                    component_type="number",
+                                    label="Liczba",
+                                    name=f"{chapter["name"]}FilmCount",
+                                    required=True,
+                                    validators=[
+                                        self.validator.related_required_if_equal_validator(
+                                            field_name=f"{chapter["name"]}Film",
+                                            value=True
+                                        )
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="textarea",
+                                    label="Tytuły",
+                                    name=f"{chapter["name"]}FilmTitles",
+                                    validators=[
+                                        self.validator.length_validator(max_value=200)
+                                    ],
+                                    required=True,
+                                    class_list=[
+                                        "col-star-2",
+                                        "col-end-4"
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                ) for chapter in expected_films_chapters]
+            ]
+        )
