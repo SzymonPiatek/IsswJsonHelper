@@ -184,7 +184,7 @@ class LiteratueApplicationBuilder(DisseminationApplicationBuilder):
                             component_type="textarea",
                             name="projectCooperators",
                             validators=[
-                                self.validator.length_validator(max_value=400)
+                                self.validator.length_validator(max_value=1000)
                             ],
                             required=True
                         )

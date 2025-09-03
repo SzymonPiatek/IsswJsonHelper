@@ -67,4 +67,59 @@ class ReconstructionApplicationBuilder(DisseminationApplicationBuilder):
         self.save_part(part)
 
     def create_application_scope_of_project(self):
-        pass
+        part = self.create_part(
+            title="III. Zakres przedsięwzięcia i jego charakterystyka",
+            short_name="III. Zakres przedsięwięcia",
+            chapters=[
+                self.create_chapter(
+                    title="Miejsce realizacji i rodzaj organizowanego przedsięwzięcia",
+                    components=[
+                        self.create_chapter(
+                            components=[
+                                self.component.project_location()
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Cel i zakres merytoryczny przedsięwzięcia",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="projectGoalAndScope",
+                            validators=[
+                                self.validator.length_validator(max_value=1000)
+                            ],
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Dotychczasowe doświadczenia Wnioskodawcy w działaniach będących przedmiotem przedsięwzięcia. </br><normal>Proszę o wyszczególnienie przedsięwzięć z zakresu kinematografii realizowanych przez Wnioskodawcę w ostatnich 2 latach, o budżecie przekraczającym 50 000 zł</normal>",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="granteeExperience",
+                            validators=[
+                                self.validator.length_validator(max_value=500)
+                            ],
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Partnerzy, eksperci i specjaliści zaangażowani w przedsięwzięcie i ich dotychczasowy dorobek w tym zakresie (z wyszczególnieniem stopni i tytułów naukowych oraz afiliacji instytucjonalnych)",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="projectCooperators",
+                            validators=[
+                                self.validator.length_validator(max_value=1000)
+                            ],
+                            required=True
+                        )
+                    ]
+                ),
+            ]
+        )
+        self.save_part(part)
