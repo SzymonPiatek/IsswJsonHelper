@@ -424,6 +424,210 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder):
                             required=True
                         )
                     ]
+                ),
+                self.create_chapter(
+                    title="15. Podstawowe dane liczbowe na temat bieżącej i poprzedniej edycji przedsięwzięcia",
+                    components=[
+                        self.create_chapter(
+                            class_list={
+                                "sub": [
+                                    "table-1-2-top"
+                                ]
+                            },
+                            components=[
+                                self.create_chapter(
+                                    title="Liczba akredytacji",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Poprzednia edycja",
+                                            name="numberOfAccreditationPreviousEdition",
+                                            read_only=True,
+                                            calculation_rules=[
+                                                self.calculation_rule.dynamic_sum_inputs(
+                                                    fields=[
+                                                        "numberOfAccreditationPreviousEditionPaid",
+                                                        "numberOfAccreditationPreviousEditionNotPaid"
+                                                    ]
+                                                )
+                                            ],
+                                            validators=[
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "numberOfAccreditationPreviousEdition"
+                                                    ]
+                                                ),
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "numberOfAccreditationPreviousEditionPaid",
+                                                        "numberOfAccreditationPreviousEditionNotPaid"
+                                                    ]
+                                                )
+                                            ],
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Planowane",
+                                            name="numberOfAccreditationPlanned",
+                                            read_only=True,
+                                            calculation_rules=[
+                                                self.calculation_rule.dynamic_sum_inputs(
+                                                    fields=[
+                                                        "numberOfAccreditationPlannedNotPaid",
+                                                        "numberOfAccreditationPlannedPaid"
+                                                    ]
+                                                )
+                                            ],
+                                            validators=[
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "numberOfAccreditationPlanned"
+                                                    ]
+                                                ),
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "numberOfAccreditationPlannedNotPaid",
+                                                        "numberOfAccreditationPlannedPaid"
+                                                    ]
+                                                )
+                                            ],
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Poprzednia edycja płatne",
+                                            name="numberOfAccreditationPreviousEditionPaid",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Planowane płatne",
+                                            name="numberOfAccreditationPlannedPaid",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Poprzednia edycja bezpłatne",
+                                            name="numberOfAccreditationPreviousEditionNotPaid",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Planowane bezpłatne",
+                                            name="numberOfAccreditationPlannedNotPaid",
+                                            unit="szt."
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Liczba biletów",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Poprzednia edycja",
+                                            name="numberOfTicketsPreviousEdition",
+                                            read_only=True,
+                                            calculation_rules=[
+                                                self.calculation_rule.dynamic_sum_inputs(
+                                                    fields=[
+                                                        "numberOfTicketsPreviousEditionPaid",
+                                                        "numberOfTicketsPreviousEditionNotPaid"
+                                                    ]
+                                                )
+                                            ],
+                                            validators=[
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "numberOfTicketsPreviousEdition"
+                                                    ]
+                                                ),
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "numberOfTicketsPreviousEditionPaid",
+                                                        "numberOfTicketsPreviousEditionNotPaid"
+                                                    ]
+                                                )
+                                            ],
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Planowane",
+                                            name="numberOfTicketsPlanned",
+                                            read_only=True,
+                                            calculation_rules=[
+                                                self.calculation_rule.dynamic_sum_inputs(
+                                                    fields=[
+                                                        "numberOfTicketsPlannedPaid",
+                                                        "numberOfTicketsPlannedNotPaid"
+                                                    ]
+                                                )
+                                            ],
+                                            validators=[
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "numberOfTicketsPlanned"
+                                                    ]
+                                                ),
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "numberOfTicketsPlannedPaid",
+                                                        "numberOfTicketsPlannedNotPaid"
+                                                    ]
+                                                )
+                                            ],
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Poprzednia edycja płatne",
+                                            name="numberOfTicketsPreviousEditionPaid",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Planowane płatne",
+                                            name="numberOfTicketsPlannedPaid",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Poprzednia edycja bezpłatne",
+                                            name="numberOfTicketsPreviousEditionNotPaid",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Planowane bezpłatne",
+                                            name="numberOfTicketsPlannedNotPaid",
+                                            unit="szt."
+                                        )
+                                    ]
+                                ),
+                            ]
+                        )
+                    ]
                 )
             ]
         )
