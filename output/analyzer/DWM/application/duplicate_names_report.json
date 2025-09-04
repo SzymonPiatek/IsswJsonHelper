@@ -1,0 +1,880 @@
+{
+  "__summary__": {
+    "total_duplicates": 109,
+    "total_checked": 0,
+    "total_unchecked": 109
+  },
+  "__ignored_names__": [],
+  "programName": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "priorityName": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicationTaskName": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "eventName": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "eventDateStart": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "eventDateEnd": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "eventCountry": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "eventLocation": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "eventParticipationType": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "eventMovieTitle": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "eventMovieDirector": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "eventMovieDuration": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "movieType": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "eventEventSession": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "eventMoviePremiereType": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "wasMovieProjectSupportedByPisf": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "movieProjectSupportedByPisfProgram": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "movieProjectSupportedByPisfPriority": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "movieProjectSupportedPisfYear": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "movieProjectSupportedPisfAmount": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "authPersonFirstName": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "authPersonLastName": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "authPersonPhoneNum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "authPersonMobileNum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "authPersonEmail": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantResidence": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantVoivodeship": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantCounty": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantMunicipality": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantJst": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantLocation": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantStreet": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantHouseNum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantApartmentNum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantZipCode": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantPostOffice": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantPhoneNum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantEmail": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantCountry": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantForeignLocation": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantForeignStreet": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantForeignHouseNum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantForeignApartmentNum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantForeignZipCode": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantForeignPostOffice": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantForeignPhoneNum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantForeignEmail": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantHasDifferentContactAddress": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactResidence": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactVoivodeship": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactCounty": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactMunicipality": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactJst": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactLocation": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactStreet": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactHouseNum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactApartmentNum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactZipCode": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactPostOffice": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactPhoneNum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactEmail": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactCountry": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactForeignLocation": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactForeignStreet": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactForeignHouseNum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactForeignApartmentNum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactForeignZipCode": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactForeignPostOffice": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactForeignPhoneNum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantContactForeignEmail": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantBank": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantBankAccountNum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantForeignBank": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantIban": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantForeignBankSwift": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "plannedTaskDesc": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantLogotypePromotionDesc": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantPlannedTaskEffects": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "movieLink": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicationTaskNameRepeat": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "costTotalSum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "costRequestPisfSum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "costOwnFundsSum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "costPartnersSponsorsSum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "costOtherSourcesSum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "otherPartnersSponsorsName": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "otherPartnersSponsorsAmount": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "otherPartnersSponsorsAmountSum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "otherSourcesName": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "otherSourcesAmount": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "otherSourcesAmountSum": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "statementNoPublicLiabilities": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "statementEligibleForFunding": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "statementMeetConditions": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicantsStatementOfNoTies": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "invitationAttachment": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "acknowledgeRules": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "applicationTaskNameRepeatCopy": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "taskActionDateStart_1": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "taskActionDateEnd_1": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "taskActionDesc_1": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "taskActionDateStart_2": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "taskActionDateEnd_2": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "taskActionDesc_2": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "taskActionDateStart_3": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "taskActionDateEnd_3": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "taskActionDesc_3": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "taskActionCompletionDate": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  },
+  "taskActionSettlingDate": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DWM/application/po5_pr1_application_2025.json",
+      "output/json/DWM/application/po5_pr2_application_2025.json"
+    ]
+  }
+}

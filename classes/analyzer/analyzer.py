@@ -65,7 +65,7 @@ class Analyzer:
 
         output_data = {}
 
-        file_name = f"{output_path}/duplicates_report.json"
+        file_name = f"{output_path}/duplicate_names_report.json"
         if os.path.exists(file_name):
             with open(file_name, "r", encoding="utf-8") as f:
                 existing_data = json.load(f)
@@ -105,7 +105,6 @@ class Analyzer:
             **output_data
         }
 
-        file_name = f"{output_path}/duplicates_report.json"
         with open(file_name, "w", encoding="utf-8") as f:
             json.dump(output_data, f, indent=2, ensure_ascii=False)
 
