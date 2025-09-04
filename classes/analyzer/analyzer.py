@@ -72,11 +72,18 @@ class Analyzer:
         else:
             existing_data = {}
 
+        ignored_names = set(existing_data.get("__ignored_names__", []))
+
         for name, occurrences in duplicates.items():
+            if name in ignored_names:
+                continue
             existing_entry = existing_data.get(name, {})
             was_checked = False
             if isinstance(existing_entry, dict):
                 was_checked = existing_entry.get("isChecked", False)
+            if was_checked:
+                ignored_names.add(name)
+                continue
             files = sorted({occ["file"] for occ in occurrences})
             output_data[name] = {
                 "isChecked": was_checked,
@@ -90,13 +97,13 @@ class Analyzer:
         total_unchecked = sum(1 for entry in output_data.values()
                               if isinstance(entry, dict) and not entry.get("isChecked"))
 
-        summary = {
-            "total_duplicates": total_duplicates,
-            "total_checked": total_checked,
-            "total_unchecked": total_unchecked
+        summary = {"total_duplicates": total_duplicates, "total_checked": total_checked,
+                   "total_unchecked": total_unchecked}
+        output_data = {
+            "__summary__": summary,
+            "__ignored_names__": sorted(ignored_names),
+            **output_data
         }
-
-        output_data = {"__summary__": summary, **output_data}
 
         file_name = f"{output_path}/duplicates_report.json"
         with open(file_name, "w", encoding="utf-8") as f:
