@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from classes.web_scraper.web_scraper import WebScraper
 from classes.postman.postman import Postman
+from classes.analyzer.analyzer import Analyzer
 from classes.form_builder.additional import applications
 
 load_dotenv()
@@ -11,6 +12,8 @@ login_data = {
     "email": os.getenv("LOGIN_EMAIL"),
     "password": os.getenv("LOGIN_PASSWORD"),
 }
+
+analyzer = Analyzer()
 
 
 def example():
@@ -88,6 +91,12 @@ def generate_applications():
 
 def main():
     generate_applications()
+
+    for department in ["DPF", "DUK", "DWM"]:
+        analyzer.report_duplicates(
+            base_dir=f"./output/json/{department}/application",
+            output_path=f"./output/analyzer/{department}/application"
+        )
 
 
 if __name__ == '__main__':
