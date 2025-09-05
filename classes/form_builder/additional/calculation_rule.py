@@ -140,3 +140,19 @@ class CalculationRule:
             "name": "conditionalCopyValue",
             "kwargs": kwargs
         }
+
+    @staticmethod
+    def copy_company_data(
+        field: str,
+        force: Optional[bool] = False,
+    ):
+        kwargs = {
+            "field": field,
+        }
+        if force:
+            kwargs["force"] = True
+
+        return {
+            "name": "copyCompanyData",
+            "kwargs": kwargs
+        }
