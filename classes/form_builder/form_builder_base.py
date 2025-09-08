@@ -196,14 +196,20 @@ class FormBuilderBase:
             read_only: bool = False,
             help_text: str = '',
     ):
+        # Check type
         allowed_types = {'date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox'}
         if component_type not in allowed_types:
             raise ValueError(f"Invalid component_type '{component_type}'. Must be one of: {', '.join(allowed_types)}.")
+        # Check mask
         allowed_masks = {'fund', 'phoneNumber', 'bankAccount', 'landline', 'jst', 'ibanAccount', 'polishPostalCode'}
         if mask and mask not in allowed_masks:
             raise ValueError(f"Invalid mask '{mask}'. Must be one of: {', '.join(allowed_masks)}")
+        # Check name
         if not name:
             raise ValueError("Component 'name' must be provided and non-empty.")
+        if name in self.names:
+            raise ValueError(f"Duplicate component name detected: {name}")
+        self.names.add(name)
 
         if validators is None:
             validators = []
@@ -216,7 +222,8 @@ class FormBuilderBase:
             if options is None:
                 raise ValueError("Component 'options' must be provided and non-empty.")
             else:
-                validators.append(Validator.exact_validator(values=options))
+                if not any(v.get("name") in {"ExactValidator"} for v in validators):
+                    validators.append(Validator.exact_validator(values=options))
         else:
             options = []
 
@@ -245,30 +252,37 @@ class FormBuilderBase:
         if required and not any(v.get("name") in {"RelatedRequiredIfEqualValidator", "RequiredValidator", "ExactValidator"} for v in validators):
             validators.append(Validator.required_validator())
 
-        if name in self.names:
-            raise ValueError(f"Duplicate component name detected: {name}")
-        self.names.add(name)
-
-        component = {
+        kwargs = {
             "kind": "component",
             "type": component_type,
-            "mask": mask,
             "label": label,
             "name": name,
-            "value": value,
-            "defaultValue": default_value,
-            "unit": unit,
-            "options": options,
-            "validators": validators,
-            "calculationRules": calculation_rules,
-            "classList": class_list,
-            "required": required,
-            "readOnly": read_only,
             "dataBDD": name,
-            "helpText": help_text
+            "value": value
         }
 
-        return self.delete_unused_component_args(component=component)
+        if default_value:
+            kwargs["defaultValue"] = default_value
+        if mask:
+            kwargs["mask"] = mask
+        if unit:
+            kwargs["unit"] = unit
+        if options:
+            kwargs["options"] = options
+        if required:
+            kwargs["required"] = required
+        if read_only:
+            kwargs["read_only"] = read_only
+        if help_text:
+            kwargs["help_text"] = help_text
+        if validators:
+            kwargs["validators"] = validators
+        if calculation_rules:
+            kwargs["calculation_rules"] = calculation_rules
+        if class_list:
+            kwargs["class_list"] = class_list
+
+        return self.delete_unused_component_args(component=kwargs)
 
     def create_part_by_sections(self, part: dict, sections: list):
         layout_chapters = part["chapters"]

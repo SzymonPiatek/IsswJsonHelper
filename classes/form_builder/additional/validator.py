@@ -3,7 +3,27 @@ from typing import Dict, List
 
 class Validator:
     def __init__(self):
-        pass
+        self.names = [
+            "LengthValidator",
+            "RequiredValidator",
+            "RelatedRequiredIfEqualValidator",
+            "PhoneNumberValidator",
+            "EmailValidator",
+            "PeselValidator",
+            "IBANValidator",
+            "SwiftValidator",
+            "RegonValidator",
+            "RelatedLocalSumValidator",
+            "RelatedSumValidator",
+            "RangeValidator",
+            "ExactValidator",
+            "RelatedFractionGTEValidator",
+            "RelatedShareValidator",
+            "RelatedLocalDateLTEValidator",
+            "RelatedLocalDateGTEValidator",
+            "RelatedAllowedOptionsValidator",
+            "RelatedMappedLimitValidator"
+        ]
 
     @staticmethod
     def length_validator(min_value: int = None, max_value: int = None, message: str = None):
@@ -188,20 +208,20 @@ class Validator:
 
         kwargs = {}
 
-        if min_value is not None and min_value > 0:
+        if min_value is not None:
             kwargs["min"] = min_value
 
         if max_value is not None and max_value > 0:
             kwargs["max"] = float(max_value) + 0.01
 
-        if min_value is not None and max_value is not None and min_value > 0 and max_value > 0:
+        if min_value is not None and max_value is not None and max_value > 0:
             msg = f"Wartość musi być w zakresie od {min_value} do {max_value}"
-        elif min_value is not None and min_value > 0:
-            msg = f"Wartość musi wynosić przynajmniej {min_value}"
+        elif min_value is not None:
+            msg = f"Wartość musi być większa lub równa {min_value}"
         elif max_value is not None and max_value > 0:
             msg = f"Wartość nie może przekroczyć {max_value}"
         else:
-            msg = "Nieprawidłowe parametry walidatora zakresu"
+            raise ValueError("Błędne wartości")
 
         return {
             "name": "RangeValidator",

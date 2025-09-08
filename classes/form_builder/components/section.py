@@ -167,6 +167,7 @@ class Section(FormBuilderBase):
 
     def applicant_address_base(self, build_name: str = '', poland: bool = True, foreign: bool = True):
         chapters = []
+
         if poland:
             chapters.append(
                 self.create_chapter(
@@ -188,33 +189,19 @@ class Section(FormBuilderBase):
                     },
                     components=[
                         self.component.voivodeship_select(
-                            name=f"applicant{build_name}Voivodeship",
-                            required_if_name=f"applicant{build_name}Residence",
-                            required_if_value="w Polsce"
+                            name=f"applicant{build_name}Voivodeship"
                         ),
                         self.create_component(
                             component_type="text",
                             label="Powiat",
                             name=f"applicant{build_name}County",
-                            required=True,
-                            validators=[
-                                self.validator.related_required_if_equal_validator(
-                                    field_name=f"applicant{build_name}Residence",
-                                    value="w Polsce"
-                                )
-                            ]
+                            required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Gmina",
                             name=f"applicant{build_name}Municipality",
-                            required=True,
-                            validators=[
-                                self.validator.related_required_if_equal_validator(
-                                    field_name=f"applicant{build_name}Residence",
-                                    value="w Polsce"
-                                )
-                            ]
+                            required=True
                         ),
                         self.create_component(
                             component_type="text",
@@ -222,49 +209,25 @@ class Section(FormBuilderBase):
                             name=f"applicant{build_name}Jst",
                             mask="jst",
                             required=True,
-                            validators=[
-                                self.validator.related_required_if_equal_validator(
-                                    field_name=f"applicant{build_name}Residence",
-                                    value="w Polsce"
-                                )
-                            ],
                             help_text="Kod JST gminy można znaleźć w wyszukiwarce pod adresem https://eteryt.stat.gov.pl"
                         ),
                         self.create_component(
                             component_type="text",
                             label="Miejscowość",
                             name=f"applicant{build_name}Location",
-                            required=True,
-                            validators=[
-                                self.validator.related_required_if_equal_validator(
-                                    field_name=f"applicant{build_name}Residence",
-                                    value="w Polsce"
-                                )
-                            ]
+                            required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Ulica",
                             name=f"applicant{build_name}Street",
-                            required=True,
-                            validators=[
-                                self.validator.related_required_if_equal_validator(
-                                    field_name=f"applicant{build_name}Residence",
-                                    value="w Polsce"
-                                )
-                            ]
+                            required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Numer domu",
                             name=f"applicant{build_name}HouseNum",
-                            required=True,
-                            validators=[
-                                self.validator.related_required_if_equal_validator(
-                                    field_name=f"applicant{build_name}Residence",
-                                    value="w Polsce"
-                                )
-                            ]
+                            required=True
                         ),
                         self.create_component(
                             component_type="text",
@@ -275,38 +238,20 @@ class Section(FormBuilderBase):
                             component_type="text",
                             label="Kod pocztowy",
                             name=f"applicant{build_name}ZipCode",
-                            required=True,
-                            validators=[
-                                self.validator.related_required_if_equal_validator(
-                                    field_name=f"applicant{build_name}Residence",
-                                    value="w Polsce"
-                                )
-                            ]
+                            required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Poczta",
                             name=f"applicant{build_name}PostOffice",
-                            required=True,
-                            validators=[
-                                self.validator.related_required_if_equal_validator(
-                                    field_name=f"applicant{build_name}Residence",
-                                    value="w Polsce"
-                                )
-                            ]
+                            required=True
                         ),
                         self.create_component(
                             component_type="text",
                             mask="phoneNumber",
                             label="Numer telefonu",
                             name=f"applicant{build_name}PhoneNum",
-                            required=True,
-                            validators=[
-                                self.validator.related_required_if_equal_validator(
-                                    field_name=f"applicant{build_name}Residence",
-                                    value="w Polsce"
-                                )
-                            ]
+                            required=True
                         ),
                         self.create_component(
                             component_type="text",
@@ -314,11 +259,7 @@ class Section(FormBuilderBase):
                             name=f"applicant{build_name}Email",
                             required=True,
                             validators=[
-                                self.validator.email_validator(),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name=f"applicant{build_name}Residence",
-                                    value="w Polsce"
-                                )
+                                self.validator.email_validator()
                             ]
                         )
                     ]
@@ -349,49 +290,25 @@ class Section(FormBuilderBase):
                             component_type="text",
                             label="Kraj",
                             name=f"applicant{build_name}Country",
-                            required=True,
-                            validators=[
-                                self.validator.related_required_if_equal_validator(
-                                    field_name=f"applicant{build_name}Residence",
-                                    value="za granicą"
-                                )
-                            ]
+                            required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Miejscowość",
                             name=f"applicant{build_name}ForeignLocation",
-                            required=True,
-                            validators=[
-                                self.validator.related_required_if_equal_validator(
-                                    field_name=f"applicant{build_name}Residence",
-                                    value="za granicą"
-                                )
-                            ]
+                            required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Ulica",
                             name=f"applicant{build_name}ForeignStreet",
-                            required=True,
-                            validators=[
-                                self.validator.related_required_if_equal_validator(
-                                    field_name=f"applicant{build_name}Residence",
-                                    value="za granicą"
-                                )
-                            ]
+                            required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Numer domu",
                             name=f"applicant{build_name}ForeignHouseNum",
-                            required=True,
-                            validators=[
-                                self.validator.related_required_if_equal_validator(
-                                    field_name=f"applicant{build_name}Residence",
-                                    value="za granicą"
-                                )
-                            ]
+                            required=True
                         ),
                         self.create_component(
                             component_type="text",
@@ -402,13 +319,7 @@ class Section(FormBuilderBase):
                             component_type="text",
                             label="Kod pocztowy",
                             name=f"applicant{build_name}ForeignZipCode",
-                            required=True,
-                            validators=[
-                                self.validator.related_required_if_equal_validator(
-                                    field_name=f"applicant{build_name}Residence",
-                                    value="za granicą"
-                                )
-                            ]
+                            required=True
                         ),
                         self.create_component(
                             component_type="text",
@@ -420,31 +331,21 @@ class Section(FormBuilderBase):
                             mask="phoneNumber",
                             label="Numer telefonu",
                             name=f"applicant{build_name}ForeignPhoneNum",
-                            required=True,
-                            validators=[
-                                self.validator.related_required_if_equal_validator(
-                                    field_name=f"applicant{build_name}Residence",
-                                    value="za granicą"
-                                )
-                            ]
-
+                            required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Email kontaktowy",
                             name=f"applicant{build_name}ForeignEmail",
                             validators=[
-                                self.validator.email_validator(),
-                                self.validator.related_required_if_equal_validator(
-                                    field_name=f"applicant{build_name}Residence",
-                                    value="za granicą"
-                                )
+                                self.validator.email_validator()
                             ],
                             required=True
                         )
                     ]
                 )
             )
+
         return chapters
 
     def applicant_address(self, number: int | str, main_poland: bool = True, main_foreign: bool = True, contact_poland: bool = True, contact_foreign: bool = True):
@@ -739,18 +640,7 @@ class Section(FormBuilderBase):
                                     component_type="text",
                                     label="Numer rejestru",
                                     name="registrationNumber",
-                                    required=True,
-                                    validators=[
-                                        self.validator.related_required_if_equal_validator(
-                                            field_name="registrationType",
-                                            value=value
-                                        ) for value in [
-                                            "KRS",
-                                            "Rejestr Instytucji Filmowych",
-                                            "Rejestr Instytucji Kultury",
-                                            "Inny"
-                                        ]
-                                    ]
+                                    required=True
                                 )
                             ]
                         ),
@@ -769,13 +659,7 @@ class Section(FormBuilderBase):
                                     label="Nazwa rejestru",
                                     name="registrationName",
                                     help_text="Podaj nazwę rejestru, w którym Wnioskodawca został zarejestrowany.",
-                                    required=True,
-                                    validators=[
-                                        self.validator.related_required_if_equal_validator(
-                                            field_name="registrationType",
-                                            value="Inny"
-                                        )
-                                    ]
+                                    required=True
                                 )
                             ]
                         ),
@@ -796,17 +680,7 @@ class Section(FormBuilderBase):
                                     label="Prowadzony przez",
                                     name="registrationAuthority",
                                     help_text="Podaj nazwę podmiotu, który odpowiada za prowadzenie wskazanego rejestru.",
-                                    required=True,
-                                    validators=[
-                                        self.validator.related_required_if_equal_validator(
-                                            field_name="registrationType",
-                                            value=value
-                                        ) for value in [
-                                            "Rejestr Instytucji Filmowych",
-                                            "Rejestr Instytucji Kultury",
-                                            "Inny"
-                                        ]
-                                    ]
+                                    required=True
                                 )
                             ]
                         ),
@@ -826,10 +700,6 @@ class Section(FormBuilderBase):
                                     name="applicantPeselNum",
                                     validators=[
                                         self.validator.pesel_validator(),
-                                        self.validator.related_required_if_equal_validator(
-                                            field_name="registrationType",
-                                            value="Ewidencja działalności gospodarczej"
-                                        )
                                     ],
                                     required=True
                                 )

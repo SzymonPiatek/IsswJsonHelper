@@ -1655,7 +1655,7 @@
                   "label": "Numer",
                   "name": "registrationNumber",
                   "value": "",
-                  "validation": [
+                  "validators": [
                     {
                       "name": "RequiredValidator"
                     }

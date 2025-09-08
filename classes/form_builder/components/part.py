@@ -67,14 +67,6 @@ class Part(FormBuilderBase):
                                         "Tak",
                                         "Nie"
                                     ],
-                                    validators=[
-                                        self.validator.exact_validator(
-                                            values=[
-                                                "Tak",
-                                                "Nie"
-                                            ]
-                                        )
-                                    ],
                                     required=True
                                 )
                             ]
