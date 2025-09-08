@@ -11,7 +11,9 @@ class Analyzer:
         return list(base_path.rglob("*.json"))
 
     @staticmethod
-    def analyze_duplicates(json_files: list[Path]) -> dict:
+    def report_duplicates(base_dir: str, output_path: str, file_name: str):
+        files = Analyzer.find_json_files(base_dir)
+
         name_occurrences = defaultdict(list)
 
         def walk_components(components, file_path, part_idx=None, chapter_idx=None, path=None):
@@ -34,7 +36,7 @@ class Analyzer:
                         inner_components = chapter.get("components", [])
                         walk_components(inner_components, file_path, part_idx, chap_idx, chapter_path)
 
-        for file_path in json_files:
+        for file_path in files:
             try:
                 with open(file_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
@@ -50,16 +52,11 @@ class Analyzer:
                     components = chapter.get("components", [])
                     walk_components(components, file_path, part_idx, chap_idx, path)
 
-        return {
+        duplicates = {
             name: locations
             for name, locations in name_occurrences.items()
             if len(locations) > 1
         }
-
-    @staticmethod
-    def report_duplicates(base_dir: str, output_path: str, file_name: str):
-        files = Analyzer.find_json_files(base_dir)
-        duplicates = Analyzer.analyze_duplicates(files)
 
         os.makedirs(output_path, exist_ok=True)
 
@@ -92,12 +89,10 @@ class Analyzer:
             }
 
         total_duplicates = len(output_data)
-        total_checked = sum(1 for entry in output_data.values()
-                            if isinstance(entry, dict) and entry.get("isChecked"))
         total_unchecked = sum(1 for entry in output_data.values()
                               if isinstance(entry, dict) and not entry.get("isChecked"))
 
-        summary = {"total_duplicates": total_duplicates, "total_checked": total_checked,
+        summary = {"total_duplicates": total_duplicates,
                    "total_unchecked": total_unchecked}
         output_data = {
             "__summary__": summary,
@@ -198,12 +193,10 @@ class Analyzer:
             }
 
         total = len(output_data)
-        total_checked = sum(1 for entry in output_data.values() if entry.get("isChecked"))
-        total_unchecked = total - total_checked
+        total_unchecked = sum(1 for entry in output_data.values() if not entry.get("isChecked"))
 
         summary = {
             "total_missing_required_validators": total,
-            "total_checked": total_checked,
             "total_unchecked": total_unchecked
         }
 

@@ -3,7 +3,20 @@ from typing import TypedDict, Optional, List
 
 class CalculationRule:
     def __init__(self):
-        pass
+        self.names = [
+            "copyValue",
+            "relateToLastDate",
+            "localSum",
+            "sumInputs",
+            "dynamicSumInputs",
+            "localShareCalculator",
+            "shareCalculator",
+            "singlePositionShareCalculator",
+            "firstDate",
+            "lastDate",
+            "conditionalCopyValue",
+            "copyCompanyData",
+        ]
 
     @staticmethod
     def copy_value(from_name: str):

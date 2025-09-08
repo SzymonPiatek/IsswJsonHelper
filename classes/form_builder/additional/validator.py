@@ -3,7 +3,27 @@ from typing import Dict, List
 
 class Validator:
     def __init__(self):
-        pass
+        self.names = [
+            "LengthValidator",
+            "RequiredValidator",
+            "RelatedRequiredIfEqualValidator",
+            "PhoneNumberValidator",
+            "EmailValidator",
+            "PeselValidator",
+            "IBANValidator",
+            "SwiftValidator",
+            "RegonValidator",
+            "RelatedLocalSumValidator",
+            "RelatedSumValidator",
+            "RangeValidator",
+            "ExactValidator",
+            "RelatedFractionGTEValidator",
+            "RelatedShareValidator",
+            "RelatedLocalDateLTEValidator",
+            "RelatedLocalDateGTEValidator",
+            "RelatedAllowedOptionsValidator",
+            "RelatedMappedLimitValidator"
+        ]
 
     @staticmethod
     def length_validator(min_value: int = None, max_value: int = None, message: str = None):
