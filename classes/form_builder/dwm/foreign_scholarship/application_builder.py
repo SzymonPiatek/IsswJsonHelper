@@ -115,13 +115,10 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                                             name="eventDateEnd",
                                             required=True,
                                             validators=[
-                                                {
-                                                    "name": "RelatedDateGTEself.validator",
-                                                    "kwargs": {
-                                                        "field_name": "eventDateEnd"
-                                                    },
-                                                    "validationMsg": "Data końcowa nie może być wcześniejsza niż data początkowa."
-                                                },
+                                                self.validator.related_local_date_gte_validator(
+                                                    field_name="eventDateEnd",
+                                                    message="Data końcowa nie może być wcześniejsza niż data początkowa."
+                                                )
                                             ]
                                         )
                                     ]
@@ -362,15 +359,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                                     label="Program operacyjny",
                                     name="movieProjectSupportedByPisfProgram",
                                     required=True,
-                                    validators=[
-                                        {
-                                            "name": "RelatedRequiredIfEqualself.validator",
-                                            "kwargs": {
-                                                "field_name": "wasMovieProjectSupportedByPisf",
-                                                "value": "Tak"
-                                            }
-                                        }
-                                    ],
                                     class_list=[
                                         "col-span-2",
                                         "table-full"
@@ -397,7 +385,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                                     mask="fund",
                                     label="Kwota dofinansowania",
                                     name="movieProjectSupportedPisfAmount",
-                                    value=0,
                                     unit="PLN",
                                     required=True
                                 )

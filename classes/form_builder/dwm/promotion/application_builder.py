@@ -118,13 +118,10 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                                             name="eventDateEnd",
                                             required=True,
                                             validators=[
-                                                {
-                                                    "name": "RelatedDateGTEself.validator",
-                                                    "kwargs": {
-                                                        "field_name": "eventDateEnd"
-                                                    },
-                                                    "validationMsg": "Data końcowa nie może być wcześniejsza niż data początkowa."
-                                                },
+                                                self.validator.related_local_date_gte_validator(
+                                                    field_name="eventDateEnd",
+                                                    message="Data końcowa nie może być wcześniejsza niż data początkowa."
+                                                )
                                             ]
                                         )
                                     ]

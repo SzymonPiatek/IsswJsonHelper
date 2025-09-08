@@ -2,6 +2,9 @@ import json
 from pathlib import Path
 from collections import defaultdict
 import os
+from classes.form_builder.additional.validator import Validator
+from classes.form_builder.additional.calculation_rule import CalculationRule
+from classes.form_builder.additional.visibility_rule import VisibilityRule
 
 
 class Analyzer:
@@ -209,4 +212,73 @@ class Analyzer:
         with open(full_path, "w", encoding="utf-8") as f:
             json.dump(output_data, f, indent=2, ensure_ascii=False)
 
-        print(f"📄 Raport brakujących RequiredValidator zapisany do: {full_path}")
+        print(f"📄 Raport brakujących walidatorów zapisany do: {full_path}")
+
+    @staticmethod
+    def report_unknown_rules(base_dir: str, output_path: str, file_name: str):
+        allowed_validators = set(Validator().names)
+        allowed_calculations = set(CalculationRule().names)
+        allowed_visibility = set(VisibilityRule().names)
+
+        files = Analyzer.find_json_files(base_dir)
+        results = []
+
+        def check_rule(name: str, allowed: set, category: str, file_path, path):
+            if name not in allowed:
+                results.append({
+                    "file": str(file_path),
+                    "invalid": name,
+                    "category": category
+                })
+
+        def walk_components(components, file_path, path=None):
+            if path is None:
+                path = []
+            for idx, component in enumerate(components):
+                current_path = path + [f"component[{idx}]"]
+
+                for validator in component.get("validators", []):
+                    check_rule(validator.get("name"), allowed_validators, "validator", file_path, current_path)
+
+                rule = component.get("calculationRule")
+                if rule:
+                    check_rule(rule.get("name"), allowed_calculations, "calculationRule", file_path, current_path)
+
+                visibility = component.get("visibilityRule")
+                if visibility:
+                    check_rule(visibility.get("name"), allowed_visibility, "visibilityRule", file_path, current_path)
+
+                if "components" in component:
+                    walk_components(component["components"], file_path, current_path)
+                if "chapters" in component:
+                    for chap_idx, chapter in enumerate(component["chapters"]):
+                        chapter_path = current_path + [f"chapter[{chap_idx}]"]
+                        inner_components = chapter.get("components", [])
+                        walk_components(inner_components, file_path, chapter_path)
+
+        for file_path in files:
+            try:
+                with open(file_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+            except Exception as e:
+                print(f"[Błąd] Nie udało się wczytać {file_path}: {e}")
+                continue
+
+            parts = data.get("parts", [])
+            for part_idx, part in enumerate(parts):
+                chapters = part.get("chapters", [])
+                for chap_idx, chapter in enumerate(chapters):
+                    path = [f"part[{part_idx}]", f"chapter[{chap_idx}]"]
+                    components = chapter.get("components", [])
+                    walk_components(components, file_path, path)
+
+        os.makedirs(output_path, exist_ok=True)
+        full_path = os.path.join(output_path, f"{file_name}.json")
+
+        with open(full_path, "w", encoding="utf-8") as f:
+            json.dump({
+                "total_invalid_rules": len(results),
+                "invalid_rules": results
+            }, f, indent=2, ensure_ascii=False)
+
+        print(f"📄 Raport nieznanych reguł zapisany do: {full_path}")

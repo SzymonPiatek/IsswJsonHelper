@@ -105,6 +105,12 @@ def main():
             file_name="missing_validators"
         )
 
+        analyzer.report_unknown_rules(
+            base_dir=f"./output/json/{department}/application",
+            output_path=f"./output/analyzer/{department}/application",
+            file_name="unknown_rules"
+        )
+
 
 if __name__ == '__main__':
     main()
