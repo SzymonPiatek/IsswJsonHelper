@@ -1,0 +1,158 @@
+{
+  "__summary__": {
+    "total_missing_required_validators": 30,
+    "total_checked": 0,
+    "total_unchecked": 30
+  },
+  "__ignored_names__": [],
+  "directorResumeAttachment": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "name": "directorResumeAttachment"
+  },
+  "periodOfShootingEditingDeclaration": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr4_application_2025.json",
+    "name": "periodOfShootingEditingDeclaration"
+  },
+  "periodOfShootingAnimatingDeclaration": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr4_application_2025.json",
+    "name": "periodOfShootingAnimatingDeclaration"
+  },
+  "subjectOfObligation": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "name": "subjectOfObligation"
+  },
+  "registrationAuthority": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "registrationAuthority"
+  },
+  "individualProducerFullname": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr2_application_2025.json",
+    "name": "individualProducerFullname"
+  },
+  "individualProducerCitizenship": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr2_application_2025.json",
+    "name": "individualProducerCitizenship"
+  },
+  "isProjectRatedInPISF": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "name": "isProjectRatedInPISF"
+  },
+  "adaptationRightsContract": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "adaptationRightsContract"
+  },
+  "screenplayRightsContract": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "screenplayRightsContract"
+  },
+  "scheduleShootingDaysAll": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "scheduleShootingDaysAll"
+  },
+  "scheduleShootingDaysPoland": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "scheduleShootingDaysPoland"
+  },
+  "scheduleFinalCopyDate": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "scheduleFinalCopyDate"
+  },
+  "schedulePremiereDate": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "schedulePremiereDate"
+  },
+  "scheduleSecondPreReleaseReviewDate": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "scheduleSecondPreReleaseReviewDate"
+  },
+  "scheduleFirstReportDate": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "scheduleFirstReportDate"
+  },
+  "scheduleSecondReportDate": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "scheduleSecondReportDate"
+  },
+  "scheduleThirdReportDate": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "scheduleThirdReportDate"
+  },
+  "scheduleFourthReportDate": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "scheduleFourthReportDate"
+  },
+  "scheduleFifthReportDate": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "scheduleFifthReportDate"
+  },
+  "scheduleSixthReportDate": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "scheduleSixthReportDate"
+  },
+  "scheduleSeventhReportDate": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "scheduleSeventhReportDate"
+  },
+  "scheduleEighthReportDate": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "scheduleEighthReportDate"
+  },
+  "scheduleNinthReportDate": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "scheduleNinthReportDate"
+  },
+  "scheduleTenthReportDate": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "scheduleTenthReportDate"
+  },
+  "scheduleEleventhReportDate": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "scheduleEleventhReportDate"
+  },
+  "scheduleTwelfthReportDate": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "scheduleTwelfthReportDate"
+  },
+  "plannedProductionBase": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "plannedProductionBase"
+  },
+  "plannedShootingLocations": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "plannedShootingLocations"
+  },
+  "plannedLaboratory": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "name": "plannedLaboratory"
+  }
+}

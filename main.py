@@ -95,7 +95,14 @@ def main():
     for department in ["DPF", "DUK", "DWM"]:
         analyzer.report_duplicates(
             base_dir=f"./output/json/{department}/application",
-            output_path=f"./output/analyzer/{department}/application"
+            output_path=f"./output/analyzer/{department}/application",
+            file_name="duplicate_names_report"
+        )
+
+        analyzer.report_missing_validators(
+            base_dir=f"./output/json/{department}/application",
+            output_path=f"./output/analyzer/{department}/application",
+            file_name="missing_validators"
         )
 
 

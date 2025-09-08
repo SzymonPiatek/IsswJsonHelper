@@ -216,7 +216,8 @@ class FormBuilderBase:
             if options is None:
                 raise ValueError("Component 'options' must be provided and non-empty.")
             else:
-                validators.append(Validator.exact_validator(values=options))
+                if not any(v.get("name") in {"ExactValidator"} for v in validators):
+                    validators.append(Validator.exact_validator(values=options))
         else:
             options = []
 
