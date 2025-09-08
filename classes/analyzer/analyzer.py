@@ -116,23 +116,34 @@ class Analyzer:
         results = []
 
         required_validators = ["RequiredValidator", "RelatedRequiredIfEqualValidator", "ExactValidator"]
+        length_validators = ["LengthValidator"]
 
         def walk_components(components, file_path, path=None):
             if path is None:
                 path = []
             for idx, component in enumerate(components):
                 current_path = path + [f"component[{idx}]"]
+                validators = component.get("validators", [])
+
+                base = {
+                    "file": str(file_path),
+                    "name": component.get("name"),
+                    "type": component.get("type"),
+                    "missing": []
+                }
 
                 if component.get("required") is True:
-                    validators = component.get("validators", [])
                     has_valid_required = any(
                         v.get("name") in required_validators for v in validators
                     )
                     if not has_valid_required:
-                        results.append({
-                            "file": str(file_path),
-                            "name": component.get("name")
-                        })
+                        base["missing"].append("Any required validator")
+                if component.get("type") == "textarea":
+                    has_valid_required = any(
+                        v.get("name") in length_validators for v in validators
+                    )
+                    if not has_valid_required:
+                        base["missing"].append("Length validator")
 
                 if "components" in component:
                     walk_components(component["components"], file_path, current_path)
@@ -141,6 +152,9 @@ class Analyzer:
                         chapter_path = current_path + [f"chapter[{chap_idx}]"]
                         inner_components = chapter.get("components", [])
                         walk_components(inner_components, file_path, chapter_path)
+
+                if base.get("missing", []):
+                    results.append(base)
 
         for file_path in files:
             try:

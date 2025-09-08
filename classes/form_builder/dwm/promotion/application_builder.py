@@ -290,15 +290,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                                             label="Program operacyjny",
                                             name="movieProjectSupportedByPisfProgram",
                                             required=True,
-                                            validators=[
-                                                {
-                                                    "name": "RelatedRequiredIfEqualself.validator",
-                                                    "kwargs": {
-                                                        "field_name": "wasMovieProjectSupportedByPisf",
-                                                        "value": "Tak"
-                                                    }
-                                                }
-                                            ],
                                             class_list=[
                                                 "col-span-2",
                                                 "table-full"
@@ -309,15 +300,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                                             label="Priorytet",
                                             name="movieProjectSupportedByPisfPriority",
                                             required=True,
-                                            validators=[
-                                                {
-                                                    "name": "RelatedRequiredIfEqualself.validator",
-                                                    "kwargs": {
-                                                        "field_name": "wasMovieProjectSupportedByPisf",
-                                                        "value": "Tak"
-                                                    }
-                                                }
-                                            ],
                                             class_list=[
                                                 "col-span-2",
                                                 "table-full"
@@ -327,15 +309,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                                             component_type="text",
                                             label="Rok przyznania dofinansowania",
                                             name="movieProjectSupportedPisfYear",
-                                            validators=[
-                                                {
-                                                    "name": "RelatedRequiredIfEqualself.validator",
-                                                    "kwargs": {
-                                                        "field_name": "wasMovieProjectSupportedByPisf",
-                                                        "value": "Tak"
-                                                    }
-                                                }
-                                            ],
                                             required=True
                                         ),
                                         self.create_component(
@@ -343,16 +316,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                                             mask="fund",
                                             label="Kwota dofinansowania",
                                             name="movieProjectSupportedPisfAmount",
-                                            value=0,
-                                            validators=[
-                                                {
-                                                    "name": "RelatedRequiredIfEqualself.validator",
-                                                    "kwargs": {
-                                                        "field_name": "wasMovieProjectSupportedByPisf",
-                                                        "value": "Tak"
-                                                    }
-                                                }
-                                            ],
                                             unit="PLN",
                                             required=True
                                         )
@@ -408,17 +371,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                                     label="Kwota dofinansowania",
                                     name="eventPrevSupportedPisfAmount",
                                     required=True,
-                                    value=0,
-                                    unit="PLN",
-                                    validators=[
-                                        {
-                                            "name": "RelatedRequiredIfEqualself.validator",
-                                            "kwargs": {
-                                                "field_name": "wasMovieProjectSupportedByPisfPkt345",
-                                                "value": "Tak"
-                                            }
-                                        }
-                                    ]
+                                    unit="PLN"
                                 )
                             ]
                         )
@@ -509,16 +462,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                                     label="Opis przedsięwzięć podjętych w przeszłości",
                                     name="applicantPrevTasksDesc",
                                     help_text="Podaj daty i krótki opis przedsięwzięć podjętych w przeszłości (z uwzględnieniem ich miejsca, zasięgu i partnerów).",
-                                    required=True,
-                                    validators=[
-                                        {
-                                            "name": "RelatedRequiredIfEqualself.validator",
-                                            "kwargs": {
-                                                "field_name": "applicantHasAccomplishedSimilarTasks",
-                                                "value": "Tak"
-                                            }
-                                        }
-                                    ]
+                                    required=True
                                 )
                             ]
                         )
@@ -556,20 +500,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                             name="applicantDirectorCv",
                             validators=[
                                 self.validator.length_validator(max_value=10000),
-                                {
-                                    "name": "RelatedRequiredIfEqualself.validator",
-                                    "kwargs": {
-                                        "field_name": "requestedSupportType",
-                                        "value": "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 1",
-                                    }
-                                },
-                                {
-                                    "name": "RelatedRequiredIfEqualself.validator",
-                                    "kwargs": {
-                                        "field_name": "requestedSupportType",
-                                        "value": "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 2"
-                                    }
-                                }
                             ],
                             required=True
                         )

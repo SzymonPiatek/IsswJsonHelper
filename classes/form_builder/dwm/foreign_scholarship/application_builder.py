@@ -381,15 +381,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                                     label="Priorytet",
                                     name="movieProjectSupportedByPisfPriority",
                                     required=True,
-                                    validators=[
-                                        {
-                                            "name": "RelatedRequiredIfEqualself.validator",
-                                            "kwargs": {
-                                                "field_name": "wasMovieProjectSupportedByPisf",
-                                                "value": "Tak"
-                                            }
-                                        }
-                                    ],
                                     class_list=[
                                         "col-span-2",
                                         "table-full"
@@ -399,15 +390,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                                     component_type="text",
                                     label="Rok przyznania dofinansowania",
                                     name="movieProjectSupportedPisfYear",
-                                    validators=[
-                                        {
-                                            "name": "RelatedRequiredIfEqualself.validator",
-                                            "kwargs": {
-                                                "field_name": "wasMovieProjectSupportedByPisf",
-                                                "value": "Tak"
-                                            }
-                                        }
-                                    ],
                                     required=True
                                 ),
                                 self.create_component(
@@ -416,15 +398,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                                     label="Kwota dofinansowania",
                                     name="movieProjectSupportedPisfAmount",
                                     value=0,
-                                    validators=[
-                                        {
-                                            "name": "RelatedRequiredIfEqualself.validator",
-                                            "kwargs": {
-                                                "field_name": "wasMovieProjectSupportedByPisf",
-                                                "value": "Tak"
-                                            }
-                                        }
-                                    ],
                                     unit="PLN",
                                     required=True
                                 )
@@ -483,16 +456,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                                     component_type="text",
                                     label="Nazwa pełnionej funkcji przy projekcie",
                                     name="applicantRoleOther",
-                                    required=True,
-                                    validators=[
-                                        {
-                                            "name": "RelatedRequiredIfEqualself.validator",
-                                            "kwargs": {
-                                                "field_name": "applicantRole",
-                                                "value": "inna"
-                                            }
-                                        }
-                                    ]
+                                    required=True
                                 )
                             ]
                         )
@@ -588,16 +552,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                                     component_type="text",
                                     label="Właściwy urząd skarbowy",
                                     name="applicantTaxOffice",
-                                    required=True,
-                                    validators=[
-                                        {
-                                            "name": "RelatedRequiredIfEqualself.validator",
-                                            "kwargs": {
-                                                "field_name": "applicantResidence",
-                                                "value": "w Polsce"
-                                            }
-                                        }
-                                    ]
+                                    required=True
                                 )
                             ]
                         ),
@@ -624,16 +579,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                                     component_type="text",
                                     label="Właściwy urząd skarbowy",
                                     name="applicantForeignTaxOffice",
-                                    required=True,
-                                    validators=[
-                                        {
-                                            "name": "RelatedRequiredIfEqualself.validator",
-                                            "kwargs": {
-                                                "field_name": "applicantResidence",
-                                                "value": "za granicą"
-                                            }
-                                        }
-                                    ]
+                                    required=True
                                 )
                             ]
                         )
@@ -666,33 +612,14 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                                     component_type="text",
                                     label="Nazwa banku",
                                     name="applicantBank",
-                                    required=True,
-                                    validators=[
-                                        {
-                                            "name": "RelatedRequiredIfEqualself.validator",
-                                            "kwargs": {
-                                                "field_name": "applicantResidence",
-                                                "value": "w Polsce"
-                                            }
-                                        }
-                                    ]
+                                    required=True
                                 ),
                                 self.create_component(
                                     component_type="text",
                                     label="Numer konta bankowego",
                                     mask="bankAccount",
                                     name="applicantBankAccountNum",
-                                    required=True,
-                                    validators=[
-                                        self.validator.bank_account_validator(),
-                                        {
-                                            "name": "RelatedRequiredIfEqualself.validator",
-                                            "kwargs": {
-                                                "field_name": "applicantResidence",
-                                                "value": "w Polsce"
-                                            }
-                                        }
-                                    ]
+                                    required=True
                                 )
                             ]
                         ),
@@ -720,48 +647,19 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                                     component_type="text",
                                     label="Nazwa banku",
                                     name="applicantForeignBank",
-                                    required=True,
-                                    validators=[
-                                        {
-                                            "name": "RelatedRequiredIfEqualself.validator",
-                                            "kwargs": {
-                                                "field_name": "applicantResidence",
-                                                "value": "za granicą"
-                                            }
-                                        }
-                                    ]
+                                    required=True
                                 ),
                                 self.create_component(
                                     component_type="text",
                                     label="Numer IBAN",
                                     name="applicantIban",
-                                    required=True,
-                                    validators=[
-                                        self.validator.iban_validator(),
-                                        {
-                                            "name": "RelatedRequiredIfEqualself.validator",
-                                            "kwargs": {
-                                                "field_name": "applicantResidence",
-                                                "value": "za granicą"
-                                            }
-                                        }
-                                    ]
+                                    required=True
                                 ),
                                 self.create_component(
                                     component_type="text",
                                     label="Kod SWIFT banku",
                                     name="applicantForeignBankSwift",
-                                    required=True,
-                                    validators=[
-                                        self.validator.swift_validator(),
-                                        {
-                                            "name": "RelatedRequiredIfEqualself.validator",
-                                            "kwargs": {
-                                                "field_name": "applicantResidence",
-                                                "value": "za granicą"
-                                            }
-                                        }
-                                    ]
+                                    required=True
                                 )
                             ]
                         )

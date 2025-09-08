@@ -1,158 +1,323 @@
 {
   "__summary__": {
-    "total_missing_required_validators": 30,
+    "total_missing_required_validators": 35,
     "total_checked": 0,
-    "total_unchecked": 30
+    "total_unchecked": 35
   },
   "__ignored_names__": [],
   "directorResumeAttachment": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "name": "directorResumeAttachment"
+    "name": "directorResumeAttachment",
+    "type": "file",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "periodOfShootingEditingDeclaration": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr4_application_2025.json",
-    "name": "periodOfShootingEditingDeclaration"
+    "name": "periodOfShootingEditingDeclaration",
+    "type": "checkbox",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "periodOfShootingAnimatingDeclaration": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr4_application_2025.json",
-    "name": "periodOfShootingAnimatingDeclaration"
+    "name": "periodOfShootingAnimatingDeclaration",
+    "type": "checkbox",
+    "missing": [
+      "Any required validator"
+    ]
+  },
+  "scriptScholarshipComments": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "name": "scriptScholarshipComments",
+    "type": "textarea",
+    "missing": [
+      "Length validator"
+    ]
+  },
+  "scriptDevelopmentComments": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "name": "scriptDevelopmentComments",
+    "type": "textarea",
+    "missing": [
+      "Length validator"
+    ]
+  },
+  "projectDevelopmentComments": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "name": "projectDevelopmentComments",
+    "type": "textarea",
+    "missing": [
+      "Length validator"
+    ]
+  },
+  "productionComments": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "name": "productionComments",
+    "type": "textarea",
+    "missing": [
+      "Length validator"
+    ]
+  },
+  "otherComments": {
+    "isChecked": false,
+    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "name": "otherComments",
+    "type": "textarea",
+    "missing": [
+      "Length validator"
+    ]
   },
   "subjectOfObligation": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "name": "subjectOfObligation"
+    "name": "subjectOfObligation",
+    "type": "textarea",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "registrationAuthority": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "registrationAuthority"
+    "name": "registrationAuthority",
+    "type": "text",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "individualProducerFullname": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr2_application_2025.json",
-    "name": "individualProducerFullname"
+    "name": "individualProducerFullname",
+    "type": "text",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "individualProducerCitizenship": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr2_application_2025.json",
-    "name": "individualProducerCitizenship"
+    "name": "individualProducerCitizenship",
+    "type": "country",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "isProjectRatedInPISF": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "name": "isProjectRatedInPISF"
+    "name": "isProjectRatedInPISF",
+    "type": "select",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "adaptationRightsContract": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "adaptationRightsContract"
+    "name": "adaptationRightsContract",
+    "type": "file",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "screenplayRightsContract": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "screenplayRightsContract"
+    "name": "screenplayRightsContract",
+    "type": "file",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "scheduleShootingDaysAll": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleShootingDaysAll"
+    "name": "scheduleShootingDaysAll",
+    "type": "number",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "scheduleShootingDaysPoland": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleShootingDaysPoland"
+    "name": "scheduleShootingDaysPoland",
+    "type": "number",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "scheduleFinalCopyDate": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleFinalCopyDate"
+    "name": "scheduleFinalCopyDate",
+    "type": "date",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "schedulePremiereDate": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "schedulePremiereDate"
+    "name": "schedulePremiereDate",
+    "type": "date",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "scheduleSecondPreReleaseReviewDate": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleSecondPreReleaseReviewDate"
+    "name": "scheduleSecondPreReleaseReviewDate",
+    "type": "text",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "scheduleFirstReportDate": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleFirstReportDate"
+    "name": "scheduleFirstReportDate",
+    "type": "date",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "scheduleSecondReportDate": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleSecondReportDate"
+    "name": "scheduleSecondReportDate",
+    "type": "date",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "scheduleThirdReportDate": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleThirdReportDate"
+    "name": "scheduleThirdReportDate",
+    "type": "date",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "scheduleFourthReportDate": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleFourthReportDate"
+    "name": "scheduleFourthReportDate",
+    "type": "date",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "scheduleFifthReportDate": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleFifthReportDate"
+    "name": "scheduleFifthReportDate",
+    "type": "date",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "scheduleSixthReportDate": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleSixthReportDate"
+    "name": "scheduleSixthReportDate",
+    "type": "date",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "scheduleSeventhReportDate": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleSeventhReportDate"
+    "name": "scheduleSeventhReportDate",
+    "type": "date",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "scheduleEighthReportDate": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleEighthReportDate"
+    "name": "scheduleEighthReportDate",
+    "type": "date",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "scheduleNinthReportDate": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleNinthReportDate"
+    "name": "scheduleNinthReportDate",
+    "type": "date",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "scheduleTenthReportDate": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleTenthReportDate"
+    "name": "scheduleTenthReportDate",
+    "type": "date",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "scheduleEleventhReportDate": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleEleventhReportDate"
+    "name": "scheduleEleventhReportDate",
+    "type": "date",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "scheduleTwelfthReportDate": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleTwelfthReportDate"
+    "name": "scheduleTwelfthReportDate",
+    "type": "date",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "plannedProductionBase": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "plannedProductionBase"
+    "name": "plannedProductionBase",
+    "type": "textarea",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "plannedShootingLocations": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "plannedShootingLocations"
+    "name": "plannedShootingLocations",
+    "type": "textarea",
+    "missing": [
+      "Any required validator"
+    ]
   },
   "plannedLaboratory": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "plannedLaboratory"
+    "name": "plannedLaboratory",
+    "type": "textarea",
+    "missing": [
+      "Any required validator"
+    ]
   }
 }
