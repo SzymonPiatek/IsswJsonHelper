@@ -371,7 +371,7 @@ class Analyzer:
         print(f"📄 Raport redundantnych walidatorów zapisany do: {full_path}")
 
     @staticmethod
-    def report_many_validators(base_dir: str, output_path: str, file_name: str):
+    def report_many_validators(base_dir: str, output_path: str, file_name: str, validators_num: int = 2):
         files = Analyzer.find_json_files(base_dir)
         results = []
 
@@ -381,7 +381,7 @@ class Analyzer:
             for idx, component in enumerate(components):
                 current_path = path + [f"component[{idx}]"]
                 validators = component.get("validators", [])
-                if len(validators) > 2:
+                if len(validators) > validators_num:
                     results.append({
                         "name": component.get("name"),
                         "file": str(file_path),

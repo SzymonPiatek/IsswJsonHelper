@@ -120,7 +120,8 @@ def main():
         analyzer.report_many_validators(
             base_dir=f"./output/json/{department}/application",
             output_path=f"./output/analyzer/{department}/application",
-            file_name="many_validators"
+            file_name="many_validators",
+            validators_num=2
         )
 
 
