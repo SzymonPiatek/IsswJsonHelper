@@ -96,7 +96,7 @@ def main():
         analyzer.report_duplicates(
             base_dir=f"./output/json/{department}/application",
             output_path=f"./output/analyzer/{department}/application",
-            file_name="duplicate_names_report"
+            file_name="duplicate_names"
         )
 
         analyzer.report_missing_validators(
@@ -109,6 +109,18 @@ def main():
             base_dir=f"./output/json/{department}/application",
             output_path=f"./output/analyzer/{department}/application",
             file_name="unknown_rules"
+        )
+
+        analyzer.report_redundant_validators(
+            base_dir=f"./output/json/{department}/application",
+            output_path=f"./output/analyzer/{department}/application",
+            file_name="redundant_validators"
+        )
+
+        analyzer.report_many_validators(
+            base_dir=f"./output/json/{department}/application",
+            output_path=f"./output/analyzer/{department}/application",
+            file_name="many_validators"
         )
 
 

@@ -5,7 +5,7 @@ class Component(FormBuilderBase):
     def __init__(self):
         super().__init__()
 
-    def voivodeship_select(self, name: str, required_if_name: str, required_if_value: str):
+    def voivodeship_select(self, name: str):
         return self.create_component(
             component_type="select",
             label="Województwo",
@@ -28,13 +28,7 @@ class Component(FormBuilderBase):
                 "wielkopolskie",
                 "zachodniopomorskie"
             ],
-            required=True,
-            validators=[
-                self.validator.related_required_if_equal_validator(
-                    field_name=required_if_name,
-                    value=required_if_value
-                )
-            ]
+            required=True
         )
 
     def project_location(self):

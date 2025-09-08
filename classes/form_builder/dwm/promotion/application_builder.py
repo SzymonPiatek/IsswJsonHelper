@@ -1605,23 +1605,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder):
                                     component_type="file",
                                     label="Plik",
                                     name="invitationAttachment",
-                                    required=True,
-                                    validators=[
-                                        {
-                                            "name": "RelatedRequiredIfEqualValidator",
-                                            "kwargs": {
-                                                "field_name": "requestedSupportType",
-                                                "value": "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 1"
-                                            }
-                                        },
-                                        {
-                                            "name": "RelatedRequiredIfEqualValidator",
-                                            "kwargs": {
-                                                "field_name": "requestedSupportType",
-                                                "value": "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 2"
-                                            }
-                                        }
-                                    ]
+                                    required=True
                                 )
                             ]
                         )

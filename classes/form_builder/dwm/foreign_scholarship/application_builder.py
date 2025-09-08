@@ -1446,12 +1446,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
                                     component_type="file",
                                     label="Plik",
                                     name="invitationAttachment",
-                                    validators=[
-                                        self.validator.related_required_if_equal_validator(
-                                            field_name="wasRelatedToParticipation",
-                                            value="Nie"
-                                        )
-                                    ],
                                     required=True
                                 )
                             ]
