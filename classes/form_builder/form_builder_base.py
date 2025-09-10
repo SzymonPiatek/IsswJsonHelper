@@ -1,4 +1,4 @@
-from typing import Literal, Optional
+from typing import Literal, Optional, Sequence
 import json
 import ast
 from pathlib import Path
@@ -111,7 +111,7 @@ class FormBuilderBase:
         self.parts = self.output_json.setdefault('parts', [])
         self.parts.append(part)
 
-    def create_base(self, intro_text: [str]):
+    def create_base(self, intro_text: Sequence[str]):
         self.output_json = {
             "kind": "form",
             "jrwa": "",
@@ -224,6 +224,9 @@ class FormBuilderBase:
             else:
                 if not any(v.get("name") in {"ExactValidator"} for v in validators):
                     validators.append(Validator.exact_validator(values=options))
+                if len(options) == 1:
+                    read_only = True
+                    value = options[0]
         else:
             options = []
 

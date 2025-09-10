@@ -15,126 +15,81 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         DPFApplicationBuilder.create_application_metadata(self, task_type)
 
     def create_application_basic_data(self, **kwargs):
-        section_path = self.department_data_path / '_pages' / 'application_basic_data'
-
         part = self.create_part(
             title='I. Dane podstawowe',
             short_name='I. Dane podstawowe',
+            chapters=[
+                self.section.application_basic_data.scope_of_project(
+                    number="1",
+                    options=[
+                        "Stypendium scenariuszowe"
+                    ]
+                ),
+                self.section.application_basic_data.movie_kind(
+                    number="2",
+                    options=[
+                        "fabularny",
+                        "dokumentalny",
+                        "animowany"
+                    ]
+                ),
+                self.section.application_basic_data.scope_of_project_kind(
+                    number="2",
+                    options=[
+                        "stypendium scenariuszowe"
+                    ]
+                ),
+                self.section.application_basic_data.movie_subject(
+                    number="3",
+                    options=[
+                        "film autorski",
+                        "film o tematyce historycznej",
+                        "film dla młodego widza i widowni familijnej"
+                    ],
+                    validators=[
+                        self.validator.related_allowed_options_validator(
+                            field_name="movieKind",
+                            mapping={
+                                "fabularny": [
+                                    "film autorski",
+                                    "film o tematyce historycznej",
+                                    "film dla młodego widza i widowni familijnej"
+                                ],
+                                "animowany": [
+                                    "film autorski",
+                                    "film o tematyce historycznej",
+                                    "film dla młodego widza i widowni familijnej"
+                                ],
+                                "dokumentalny": [
+                                    "film autorski",
+                                    "film o tematyce historycznej"
+                                ]
+                            }
+                        )
+                    ]
+                ),
+                self.section.application_basic_data.piece_title(
+                    number="4",
+                ),
+                self.section.application_basic_data.short_movie_description(
+                    number="5",
+                ),
+                self.section.application_basic_data.application_relates(
+                    number="6",
+                    options=[
+                        "umowa"
+                    ]
+                ),
+                self.section.application_basic_data.kind_of_support(
+                    number="7",
+                    options=[
+                        "stypendium scenariuszowe"
+                    ]
+                )
+            ]
         )
 
-        sections = [
-            {
-                "path": section_path / "scope_of_project.json",
-                "data": {
-                    "number": "1",
-                    "scopeOfProject": {
-                        "options": [
-                            "Stypendium scenariuszowe"
-                        ]
-                    }
-                }
-            },
-            {
-                "path": section_path / "movie_kind.json",
-                "data": {
-                    "number": "2",
-                    "movieKind": {
-                        "options": [
-                            "fabularny",
-                            "dokumentalny",
-                            "animowany"
-                        ]
-                    },
-                    "typeOfProject": {
-                        "options": [
-                            "stypendium scenariuszowe"
-                        ],
-                        "validators": [
-                            {
-                                "name": "RequiredValidator"
-                            },
-                        ],
-                        "calculationRules": []
-                    }
-                }
-            },
-            {
-                "path": section_path / "movie_subject.json",
-                "data": {
-                    "number": "3",
-                    "movieSubject": {
-                        "options": [
-                            "film autorski",
-                            "film o tematyce historycznej",
-                            "film dla młodego widza i widowni familijnej"
-                        ],
-                        "validators": [
-                            {
-                                "name": "RelatedAllowedOptionsValidator",
-                                "kwargs": {
-                                    "field_name": "movieKind",
-                                    "mapping": {
-                                        "fabularny": [
-                                            "film autorski",
-                                            "film o tematyce historycznej",
-                                            "film dla młodego widza i widowni familijnej"
-                                        ],
-                                        "animowany": [
-                                            "film autorski",
-                                            "film o tematyce historycznej",
-                                            "film dla młodego widza i widowni familijnej"
-                                        ],
-                                        "dokumentalny": [
-                                            "film autorski",
-                                            "film o tematyce historycznej"
-                                        ]
-                                    }
-                                }
-                            },
-                            {
-                                "name": "RequiredValidator"
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "path": section_path / "piece_title.json",
-                "data": {
-                    "number": "4"
-                }
-            },
-            {
-                "path": section_path / "short_movie_description.json",
-                "data": {
-                    "number": "5"
-                }
-            },
-            {
-                "path": section_path / "application_relates.json",
-                "data": {
-                    "number": "6",
-                    "applicationRelates": {
-                        "options": [
-                            "umowa"
-                        ]
-                    }
-                }
-            },
-            {
-                "path": section_path / "type_of_support.json",
-                "data": {
-                    "number": "7",
-                    "typeOfSupport": {
-                        "options": [
-                            "stypendium scenariuszowe"
-                        ]
-                    }
-                }
-            }
-        ]
-
-        self.create_part_by_sections(part=part, sections=sections)
+        self.save_part(part)
 
     def create_application_applicant_data(self, **kwargs):
         part = self.create_part(
