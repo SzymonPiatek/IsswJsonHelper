@@ -11,7 +11,7 @@ class FeatureFilmApplicationBuilder(DPFApplicationBuilder):
 
         self.priority_data_path = self.department_data_path / 'feature_film'
 
-    def create_application_basic_data(self, **kwargs):
+    def create_application_basic_data(self):
         part = self.create_part(
             title='I. Dane podstawowe',
             short_name='I. Dane podstawowe',

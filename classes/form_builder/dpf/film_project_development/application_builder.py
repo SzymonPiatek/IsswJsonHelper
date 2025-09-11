@@ -14,7 +14,7 @@ class FilmProjectDevelopmentApplicationBuilder(DPFApplicationBuilder):
     def create_application_metadata(self, task_type: str = 'Przygotowania projektów filmowych'):
         DPFApplicationBuilder.create_application_metadata(self, task_type)
 
-    def create_application_basic_data(self, **kwargs):
+    def create_application_basic_data(self):
         part = self.create_part(
             title='I. Dane podstawowe',
             short_name='I. Dane podstawowe',

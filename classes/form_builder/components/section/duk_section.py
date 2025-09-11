@@ -1,6 +1,6 @@
-from classes.form_builder.components.section import Section
+from classes.form_builder.components.section.section import Section
 from classes.form_builder.form_builder_base import FormBuilderBase
-from classes.form_builder.components.component import Component
+from classes.form_builder.components.component.component import Component
 
 
 class DUKSection(Section):

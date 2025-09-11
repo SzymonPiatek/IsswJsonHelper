@@ -1,7 +1,7 @@
 from classes.form_builder.application_builder import ApplicationBuilder
 from classes.form_builder.duk.application_estimate_builder import DUKApplicationEstimateBuilder
 from classes.form_builder.additional.decorators import not_implemented_func
-from classes.form_builder.components.duk_section import DUKSection
+from classes.form_builder.components.section.duk_section import DUKSection
 
 
 class DUKApplicationBuilder(ApplicationBuilder):

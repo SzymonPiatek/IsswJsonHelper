@@ -1,4 +1,4 @@
-from classes.form_builder.components.section import Section
+from classes.form_builder.components.section.section import Section
 from classes.form_builder.form_builder_base import FormBuilderBase
 
 

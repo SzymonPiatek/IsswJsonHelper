@@ -1,5 +1,7 @@
+from classes.form_builder.additional.decorators import not_implemented_func
 from classes.form_builder.application_builder import ApplicationBuilder
-from classes.form_builder.components.dpf_section import DPFSection
+from classes.form_builder.components.component.dpf_component import DPFComponent
+from classes.form_builder.components.section.dpf_section import DPFSection
 
 
 class DPFApplicationBuilder(ApplicationBuilder):
@@ -13,6 +15,7 @@ class DPFApplicationBuilder(ApplicationBuilder):
         self.department_data_path = self.application_data_path / 'dpf'
         self.priority_data_path = None
         self.section = DPFSection()
+        self.component = DPFComponent()
 
     def create_application_metadata(self, task_type: str):
         part = self.load_json(path=self.department_data_path / '_pages' / 'application_metadata.json')
@@ -27,9 +30,9 @@ class DPFApplicationBuilder(ApplicationBuilder):
         final_part = self.replace_placeholders(part, values)
         self.save_part(final_part)
 
-    def create_application_basic_data(self, **kwargs):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_basic_data.json')
-        self.save_part(part=part)
+    @not_implemented_func
+    def create_application_basic_data(self):
+        pass
 
     def create_application_applicant_data(self, **kwargs):
         part = self.load_json(path=self.priority_data_path / '_pages' / 'application_applicant_data.json')
@@ -56,8 +59,18 @@ class DPFApplicationBuilder(ApplicationBuilder):
         self.save_part(part=part)
 
     def create_application_statements(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_statements.json')
-        self.save_part(part=part)
+        part = self.create_part(
+            title="VIII. Oświadczenia",
+            short_name="VIII. Oświadczenia",
+            chapters=[
+                self.section.application_statements.applicant_statements(),
+                self.section.application_statements.producer_statements(),
+                self.section.application_statements.script_statements(),
+                self.section.application_statements.storage_of_blank_public_documents()
+            ]
+        )
+
+        self.save_part(part)
 
     def generate(self):
         self.create_application_base()

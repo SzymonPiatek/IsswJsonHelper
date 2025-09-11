@@ -14,7 +14,7 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
     def create_application_metadata(self, task_type: str = 'Stypendium scenariuszowe'):
         DPFApplicationBuilder.create_application_metadata(self, task_type)
 
-    def create_application_basic_data(self, **kwargs):
+    def create_application_basic_data(self):
         part = self.create_part(
             title='I. Dane podstawowe',
             short_name='I. Dane podstawowe',
@@ -34,13 +34,13 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
                     ]
                 ),
                 self.section.application_basic_data.scope_of_project_kind(
-                    number="2",
+                    number="3",
                     options=[
                         "stypendium scenariuszowe"
                     ]
                 ),
                 self.section.application_basic_data.movie_subject(
-                    number="3",
+                    number="4",
                     options=[
                         "film autorski",
                         "film o tematyce historycznej",
@@ -69,19 +69,19 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
                     ]
                 ),
                 self.section.application_basic_data.piece_title(
-                    number="4",
-                ),
-                self.section.application_basic_data.short_movie_description(
                     number="5",
                 ),
-                self.section.application_basic_data.application_relates(
+                self.section.application_basic_data.short_movie_description(
                     number="6",
+                ),
+                self.section.application_basic_data.application_relates(
+                    number="7",
                     options=[
                         "umowa"
                     ]
                 ),
                 self.section.application_basic_data.kind_of_support(
-                    number="7",
+                    number="8",
                     options=[
                         "stypendium scenariuszowe"
                     ]
@@ -158,4 +158,17 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
 
     def create_application_financial_data(self):
         part = self.load_json(path=self.priority_data_path / '_pages' / 'application_financial_data' / 'requested_pisf_support_amount.json')
+        self.save_part(part)
+
+    def create_application_statements(self):
+        part = self.create_part(
+            title="VIII. Oświadczenia",
+            short_name="VIII. Oświadczenia",
+            chapters=[
+                self.section.application_statements.applicant_statements(),
+                self.section.application_statements.script_statements(),
+                self.section.application_statements.storage_of_blank_public_documents()
+            ]
+        )
+
         self.save_part(part)
