@@ -12,123 +12,79 @@ class FeatureFilmApplicationBuilder(DPFApplicationBuilder):
         self.priority_data_path = self.department_data_path / 'feature_film'
 
     def create_application_basic_data(self, **kwargs):
-        section_path = self.department_data_path / '_pages' / 'application_basic_data'
-        priority_section_path = self.priority_data_path / '_pages' / 'application_basic_data'
-
         part = self.create_part(
             title='I. Dane podstawowe',
             short_name='I. Dane podstawowe',
+            chapters=[
+                self.section.application_basic_data.scope_of_project(
+                    number="1",
+                    options=[
+                        "Produkcja filmowa",
+                    ]
+                ),
+                self.section.application_basic_data.scope_of_project_kind(
+                    number="2",
+                    options=[
+                        "film fabularny"
+                    ]
+                ),
+                self.section.application_basic_data.movie_kind(
+                    number="3",
+                    options=[
+                        "fabularny"
+                    ]
+                ),
+                self.section.application_basic_data.movie_subject(
+                    number="4",
+                    options=[
+                        "film autorski",
+                        "film o tematyce historycznej"
+                    ]
+                ),
+                self.section.application_basic_data.piece_title(
+                    number="5",
+                ),
+                self.section.application_basic_data.short_movie_description(
+                    number="6",
+                ),
+                self.section.application_basic_data.category_of_project(
+                    number="7",
+                    options=[
+                        "produkcja krajowa",
+                        "koprodukcja międzynarodowa większościowa"
+                    ]
+                ),
+                self.section.application_basic_data.application_relates(
+                    number="8",
+                    options=[
+                        "promesa",
+                        "umowa"
+                    ]
+                ),
+                self.section.application_basic_data.kind_of_support(
+                    number="9",
+                    options=[
+                        "dotacja",
+                        "pożyczka",
+                        "poręczenie"
+                    ]
+                ),
+                self.create_chapter(
+                    title="10. Wybór lidera komisji eksperckiej",
+                    components=[
+                        self.section.application_basic_data.two_stages_commission(
+                            number="10",
+                            options=[
+                                "Lider: Leszek Dawid",
+                                "Lider: Sławomir Fabicki",
+                                "Lider: Paweł Laskowski",
+                                "Lider: Renata Czarnkowska-Listoś",
+                                "Lider: Izabela Igel"
+                            ]
+                        )
+                    ]
+                )
+            ]
         )
 
-        sections = [
-            {
-                "path": section_path / "scope_of_project.json",
-                "data": {
-                    "number": "1",
-                    "scopeOfProject": {
-                        "options": [
-                            "Produkcja filmowa",
-                        ]
-                    }
-                }
-            },
-            {
-                "path": section_path / "movie_kind.json",
-                "data": {
-                    "number": "2",
-                    "movieKind": {
-                        "options": [
-                            "fabularny"
-                        ]
-                    },
-                    "typeOfProject": {
-                        "options": [
-                            "film fabularny"
-                        ],
-                        "validators": [
-                            {
-                                "name": "RequiredValidator"
-                            },
-                        ],
-                        "calculationRules": []
-                    }
-                }
-            },
-            {
-                "path": section_path / "movie_subject.json",
-                "data": {
-                    "number": "3",
-                    "movieSubject": {
-                        "options": [
-                            "film autorski",
-                            "film o tematyce historycznej"
-                        ],
-                        "validators": [
-                            {
-                                "name": "RequiredValidator"
-                            },
-                            {
-                                "name": "ExactValidator",
-                                "kwargs": {
-                                    "values": [
-                                        "film autorski",
-                                        "film o tematyce historycznej"
-                                    ]
-                                }
-                            },
-                        ]
-                    }
-                }
-            },
-            {
-                "path": section_path / "piece_title.json",
-                "data": {
-                    "number": "4"
-                }
-            },
-            {
-                "path": section_path / "short_movie_description.json",
-                "data": {
-                    "number": "5"
-                }
-            },
-            {
-                "path": section_path / "category_of_project.json",
-                "data": {
-                    "number": "6"
-                }
-            },
-            {
-                "path": section_path / "application_relates.json",
-                "data": {
-                    "number": "7",
-                    "applicationRelates": {
-                        "options": [
-                            "promesa",
-                            "umowa"
-                        ]
-                    }
-                }
-            },
-            {
-                "path": section_path / "type_of_support.json",
-                "data": {
-                    "number": "8",
-                    "typeOfSupport": {
-                        "options": [
-                            "dotacja",
-                            "pożyczka",
-                            "poręczenie"
-                        ]
-                    }
-                }
-            },
-            {
-                "path": priority_section_path / "committee.json",
-                "data": {
-                    "number": "9"
-                }
-            },
-        ]
-
-        self.create_part_by_sections(part=part, sections=sections)
+        self.save_part(part)

@@ -27,15 +27,16 @@ class ApplicationBasicData(FormBuilderBase):
             ]
         )
 
-    def scope_of_project_kind(self, number: int | str, options: List[str]):
+    def scope_of_project_kind(self, number: int | str, options: List[str], calculation_rules: Optional[List[dict]] = None):
         return self.create_chapter(
-            title=f"{number}.2. Przedsięwzięcie jest:",
+            title=f"{number}. Przedsięwzięcie jest:",
             components=[
                 self.create_component(
                     component_type="select",
                     name="scopeOfProjectKind",
                     options=options,
-                    required=True
+                    required=True,
+                    calculation_rules=calculation_rules
                 )
             ]
         )
@@ -53,8 +54,8 @@ class ApplicationBasicData(FormBuilderBase):
             ]
         )
 
-    def movie_subject(self, number: int | str, options: List[str], validators: Optional[List[dict]]):
-        return self.create_chapter(
+    def movie_subject(self, number: int | str, options: List[str], validators: Optional[List[dict]] = None, is_film_about_history: bool = False):
+        chapter = self.create_chapter(
             title=f"{number}. Tematyka",
             components=[
                 self.create_component(
@@ -66,6 +67,20 @@ class ApplicationBasicData(FormBuilderBase):
                 )
             ]
         )
+        if is_film_about_history:
+            chapter["components"].append(
+                self.create_component(
+                    component_type="radio",
+                    label="Czy film jest o tematyce historycznej?",
+                    name="isFilmAboutHistory",
+                    options=[
+                        "Tak", "Nie"
+                    ],
+                    required=True
+                )
+            )
+
+        return chapter
 
     def piece_title(self, number: int | str):
         return self.create_chapter(
@@ -140,17 +155,16 @@ class ApplicationBasicData(FormBuilderBase):
                         required=True
                     ),
                     self.create_component(
-                        component_type="select",
+                        component_type="countryMulti",
                         label=f"{number}.2. Kraje koprodukcji",
                         name="coproductionCountries",
-                        help_text="Wpisz kraje koprodukcji oddzielone przecinkiem.",
                         required=True
                     )
                 ]
             )
 
             if second_value in options:
-                inside_chapter.components.append(
+                inside_chapter["components"].append(
                     self.create_component(
                         component_type="select",
                         label=f"{number}.3. Rodzaj koprodukcji",
@@ -163,11 +177,11 @@ class ApplicationBasicData(FormBuilderBase):
                     )
                 )
 
-            chapter.components.append(inside_chapter)
+            chapter["components"].append(inside_chapter)
 
 
         if value in options:
-            chapter.components.append(
+            chapter["components"].append(
                 self.create_chapter(
                     visibility_rules=[
                         self.visibility_rule.depends_on_value(
@@ -215,7 +229,7 @@ class ApplicationBasicData(FormBuilderBase):
 
         value = "pożyczka"
         if value in options:
-            chapter.components.append(
+            chapter["components"].append(
                 self.create_chapter(
                     visibility_rules=[
                         self.visibility_rule.depends_on_value(
@@ -252,7 +266,7 @@ class ApplicationBasicData(FormBuilderBase):
 
         value = "poręczenie"
         if value in options:
-            chapter.components.append(
+            chapter["components"].append(
                 self.create_chapter(
                     visibility_rules=[
                         self.visibility_rule.depends_on_value(
@@ -305,28 +319,28 @@ class ApplicationBasicData(FormBuilderBase):
             title=f"{number}.1. Komisja jednoetapowa"
         )
 
-    def two_stages_commission(self, number: int | str, options: List[str]):
+    def two_stages_commission(self, number: int | str, options: List[str], after_name: Optional[str] = ''):
         return self.create_chapter(
             title=f"{number}.1. Komisja dwuetapowa",
             components=[
                 self.create_component(
                     component_type="select",
                     label=f"{number}.1.1. Lista pierwszego wyboru",
-                    name="firstChoiceCommittee",
+                    name=f"firstChoiceCommittee{after_name}",
                     options=options,
                     required=True
                 ),
                 self.create_component(
                     component_type="select",
                     label=f"{number}.1.2. Lista drugiego wyboru",
-                    name="secondChoiceCommittee",
+                    name=f"secondChoiceCommittee{after_name}",
                     options=options,
                     required=True
                 ),
                 self.create_component(
                     component_type="select",
                     label=f"{number}.1.3. W przypadku niedostępności wybranej komisji",
-                    name="noCommitteeAvailable",
+                    name=f"noCommitteeAvailable{after_name}",
                     options=[
                         "w przypadku niedostępności żadnej z dwóch wybranych komisji składam wniosek do następnej wolnej komisji",
                         "w przypadku niedostępności żadnej z dwóch wybranych komisji wycofuję wniosek z oceny"
