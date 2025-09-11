@@ -172,3 +172,118 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         )
 
         self.save_part(part)
+
+    def create_application_attachments(self):
+        part = self.create_part(
+            title="VII. Załączniki",
+            short_name="VII. Załączniki",
+            chapters=[
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="movieKind",
+                            values=[
+                                "fabularny",
+                                "animowany"
+                            ]
+                        )
+                    ],
+                    components=[
+                        self.create_chapter(
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="movieKind",
+                                    values=["animowany"]
+                                )
+                            ],
+                            components=[
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="checkbox",
+                                            label="Nie dotyczy zgodnie z Programem Operacyjnym PISF - Produkcja Filmowa",
+                                            name="notDialogScene"
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="notDialogScene",
+                                            values=[False]
+                                        )
+                                    ],
+                                    components=[
+                                        self.create_component(
+                                            component_type="file",
+                                            label="Scena dialogowa",
+                                            name="dialogSceneAni",
+                                            required=True
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="movieKind",
+                                    values=["fabularny"]
+                                )
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="file",
+                                    label="Scena dialogowa",
+                                    name="dialogSceneFab",
+                                    required=True
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="directorVacat",
+                            values=[False]
+                        )
+                    ],
+                    components=[
+                        self.create_component(
+                            component_type="checkbox",
+                            label="Nie dotyczy zgodnie z Programem Operacyjnym PISF - Produkcja Filmowa",
+                            name="notDirectorLetterOfIntention"
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="notDirectorLetterOfIntention",
+                            values=[False]
+                        ),
+                        self.visibility_rule.depends_on_value(
+                            field_name="directorVacat",
+                            values=[False]
+                        )
+                    ],
+                    components=[
+                        self.create_component(
+                            component_type="file",
+                            label="List intencyjny od reżysera",
+                            name="directorLetterOfIntention",
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    components=[
+                        self.component.application_attachments.description_of_artistic_qualities()
+                    ]
+                ),
+                self.section.application_attachments.other_additional_attachments()
+            ]
+        )
+
+        self.save_part(part=part)

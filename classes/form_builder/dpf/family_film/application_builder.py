@@ -83,3 +83,23 @@ class FamilyFilmApplicationBuilder(DPFApplicationBuilder):
         )
 
         self.save_part(part=part)
+
+    def create_application_attachments(self):
+        part = self.create_part(
+            title="VII. Załączniki",
+            short_name="VII. Załączniki",
+            chapters=[
+                self.section.application_attachments.common_part(),
+                self.section.application_attachments.factual_report_on_goals_and_effects_of_development_of_film_project(),
+                self.section.application_attachments.declaration_of_division_of_rights_coproduced_by_television_broadcaster(),
+                self.section.application_attachments.film_promotion_and_distribution_plan(),
+                self.section.application_attachments.feature_attachments(),
+                self.section.application_attachments.animation_attachments(moodboard=True),
+                self.section.application_attachments.document_attachments(),
+                self.section.application_attachments.opinion_of_the_historian(is_film_about_history=True),
+                self.section.application_attachments.opition_of_the_child_psychologist(),
+                self.section.application_attachments.other_additional_attachments()
+            ]
+        )
+
+        self.save_part(part=part)

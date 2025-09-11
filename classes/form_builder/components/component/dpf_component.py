@@ -57,8 +57,7 @@ class ApplicationStatements(FormBuilderBase):
     def applicants_statement_of_no_ties(self):
         return self.create_component(
             component_type="checkbox",
-            label="""
-                Oświadczenie Wnioskodawcy o braku powiązań z podmiotami sankcjonowanymi: <br/><br/> 
+            label="""Oświadczenie Wnioskodawcy o braku powiązań z podmiotami sankcjonowanymi: <br/><br/> 
                 W związku z wejściem w życie dnia 16 kwietnia 2022 roku ustawy z dnia 13 kwietnia 2022 roku  
                 o szczególnych rozwiązaniach w zakresie przeciwdziałania wspieraniu agresji na Ukrainę oraz 
                 służących ochronie bezpieczeństwa narodowego (Dz.U. z 2022 r. poz. 835) 

@@ -174,7 +174,7 @@ class FilmProjectDevelopmentApplicationBuilder(DPFApplicationBuilder):
                                                 "Lider: Joanna Kos Krauze",
                                                 "Lider: Anna Kazejak"
                                             ],
-                                            after_name="fab"
+                                            after_name="Fab"
                                         )
                                     ]
                                 ),
@@ -207,3 +207,20 @@ class FilmProjectDevelopmentApplicationBuilder(DPFApplicationBuilder):
         )
 
         self.save_part(part)
+
+    def create_application_attachments(self):
+        part = self.create_part(
+            title="VII. Załączniki",
+            short_name="VII. Załączniki",
+            chapters=[
+                self.section.application_attachments.detailed_list_of_tasks(),
+                self.create_chapter(
+                    components=[
+                        self.component.application_attachments.description_of_artistic_qualities(),
+                    ]
+                ),
+                self.section.application_attachments.other_additional_attachments()
+            ]
+        )
+
+        self.save_part(part=part)
