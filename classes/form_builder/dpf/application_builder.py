@@ -18,17 +18,59 @@ class DPFApplicationBuilder(ApplicationBuilder):
         self.component = DPFComponent()
 
     def create_application_metadata(self, task_type: str):
-        part = self.load_json(path=self.department_data_path / '_pages' / 'application_metadata.json')
+        part = self.create_part(
+            title="Wniosek o dofinansowanie w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej",
+            short_name="Metadane wniosku",
+            chapters=[
+                self.create_chapter(
+                    title="1. Tryb naboru",
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            label="Nr sesji i rok",
+                            name="sessionYear",
+                            value=f"Sesja {self.session}/{self.year}",
+                            read_only=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="2. Program operacyjny",
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            name="programName",
+                            value=self.operation_name,
+                            read_only=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="3. Priorytet",
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            name="priorityName",
+                            value=self.priority_name,
+                            read_only=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="4. Zakres przedsięwzięcia",
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            name="taskType",
+                            value=task_type,
+                            read_only=True
+                        )
+                    ]
+                )
+            ]
+        )
 
-        values = {
-            "sessionYear": f"Sesja {self.session}/{self.year}",
-            "programName": self.operation_name,
-            "priorityName": self.priority_name,
-            "taskType": task_type
-        }
-
-        final_part = self.replace_placeholders(part, values)
-        self.save_part(final_part)
+        self.save_part(part)
 
     @not_implemented_func
     def create_application_basic_data(self):
