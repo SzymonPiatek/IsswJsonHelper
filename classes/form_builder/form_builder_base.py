@@ -1,5 +1,6 @@
 from typing import Literal, Optional, Sequence
 import json
+import copy
 import ast
 from pathlib import Path
 from classes.form_builder.additional.validator import Validator
@@ -153,6 +154,32 @@ class FormBuilderBase:
 
         return self.delete_unused_part_args(part=part)
 
+
+    @staticmethod
+    def duplicate_chapter_with_indexing(start_chapter: dict, mf_min_count: int, start_title: str = "") -> list:
+        if start_title == "":
+            start_title = "Pozycja"
+        def update_names_recursively(obj, index):
+            if isinstance(obj, dict):
+                if obj.get("kind") == "component" and "name" in obj:
+                    obj["name"] = f"{obj['name']}_{index}"
+                    obj["dataBDD"] = obj["name"]
+                elif obj.get("kind") == "chapter":
+                    for comp in obj.get("components", []):
+                        update_names_recursively(comp, index)
+            elif isinstance(obj, list):
+                for item in obj:
+                    update_names_recursively(item, index)
+
+        new_chapters = []
+        for i in range(1, mf_min_count + 1):
+            new_chapter = copy.deepcopy(start_chapter)
+            new_chapter["title"] = f"{start_title} {i}"
+            update_names_recursively(new_chapter, i)
+            new_chapters.append(new_chapter)
+
+        return new_chapters
+
     def create_chapter(self, title: str = '', class_list: list | dict = None, visibility_rules: list = None, components: list = None, multiple_forms_rules: dict = None, is_paginated: bool = False):
         if class_list is None:
             class_list = []
@@ -166,15 +193,24 @@ class FormBuilderBase:
         else:
             is_multiple_forms = True
 
+            mf_min_count = multiple_forms_rules.get("minCount", 1)
+
+            if len(components) == 0:
+                raise ValueError("Chapter z multipleForms powinien posiadać przynajmniej jeden chapter")
+            if len(components) != mf_min_count:
+                start_chapter = components[0]
+                start_title = start_chapter.get("title", "")
+                components = self.duplicate_chapter_with_indexing(start_chapter, mf_min_count, start_title)
+
         chapter = {
             "kind": "chapter",
             "title": title,
             "classList": class_list,
             "visibilityRules": visibility_rules,
-            "components": components,
             "isMultipleForms": is_multiple_forms,
             "multipleFormsRules": multiple_forms_rules,
-            "isPaginated": is_paginated
+            "isPaginated": is_paginated,
+            "components": components
         }
 
         return self.delete_unused_chapter_args(chapter=chapter)
@@ -232,6 +268,8 @@ class FormBuilderBase:
 
         if component_type == "file" and not help_text:
             help_text = "Maksymalny rozmiar pliku to 50 MB"
+        if component_type == "file" and not label:
+            label = "Plik"
 
         if mask == "fund" and not unit:
             unit = "PLN"

@@ -10,6 +10,7 @@ class DPFSection(Section):
 
         self.application_basic_data = ApplicationBasicData()
         self.application_statements = ApplicationStatements()
+        self.application_attachments = ApplicationAttachments()
 
 
 class ApplicationBasicData(FormBuilderBase):
@@ -418,5 +419,437 @@ class ApplicationStatements(FormBuilderBase):
             title="Oświadczenie dot. scenariusza",
             components=[
                 self.script_meet_bechdel_test_criteria()
+            ]
+        )
+
+
+class ApplicationAttachments(FormBuilderBase):
+    def __init__(self):
+        super().__init__()
+
+    def factual_report_on_goals_and_effects_of_development_of_film_project(self):
+        return self.create_chapter(
+            title="Raport merytoryczny o celach i skutakach rozwoju projektu filmowego",
+            components=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="checkbox",
+                            label="Nie dotyczy zgodnie z Programem Operacyjnym PISF - Produkcja Filmowa",
+                            name="notApplicableReportOnTheObjectives"
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="notApplicableReportOnTheObjectives",
+                            values=[False]
+                        )
+                    ],
+                    multiple_forms_rules={
+                        "minCount": 1,
+                        "maxCount": 5,
+                    },
+                    components=[
+                        self.create_chapter(
+                            components=[
+                                self.create_component(
+                                    component_type="file",
+                                    name="reportOnTheObjectivesAndEffectsOfProject",
+                                    required=True
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+
+    def declaration_of_division_of_rights_coproduced_by_television_broadcaster(self):
+        return self.create_chapter(
+            title="Oświadczenie o podziale praw w przypadku projektów filmowych, których koproducentem jest nadawca telewizyjny bądź jednym ze źródeł finansowania są środki uzyskane od nadawcy telewizyjnego.",
+            components=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="checkbox",
+                            label="Nie dotyczy zgodnie z Programem Operacyjnym PISF - Produkcja Filmowa",
+                            name="notApplicablerightsSharingStatementTvBroadcaster"
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="notApplicablerightsSharingStatementTvBroadcaster",
+                            values=[False]
+                        )
+                    ],
+                    multiple_forms_rules={
+                        "minCount": 1,
+                        "maxCount": 10,
+                    },
+                    components=[
+                        self.create_chapter(
+                            components=[
+                                self.create_component(
+                                    component_type="file",
+                                    name="rightsSharingStatementTvBroadcaster",
+                                    required=True
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+
+    def film_promotion_and_distribution_plan(self):
+        return self.create_chapter(
+            title="Plan promocji i dystrybucji filmu",
+            components=[
+                self.create_component(
+                    component_type="textarea",
+                    label="Plan promocji i dystrybucji filmu",
+                    name="promotionAndDistributionPlan",
+                    validators=[
+                        self.validator.length_validator(
+                            max_value=5400
+                        )
+                    ],
+                    required=True
+                ),
+                self.create_component(
+                    component_type="file",
+                    label="Plan promocji i dystrybucji filmu - Plik",
+                    name="promotionAndDistributionPlanFile",
+                    required=True
+                )
+            ]
+        )
+
+    def distributor_explanation_and_film_promotion_and_distribution_plan(self):
+        return self.create_chapter(
+            title="Eksplikacja dystrybutora oraz plan promocji i dystrybucji filmu (dla filmów pełnometrażowych do kin)</br><normal><small>Należy załączyć dokument podpisany przez dystrybutora</small></normal>",
+            components=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="checkbox",
+                            label="Nie dotyczy zgodnie z Programem Operacyjnym PISF - Produkcja Filmowa",
+                            name="notApplicableDistributorsExplication"
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="notApplicableDistributorsExplication",
+                            values=[False]
+                        )
+                    ],
+                    components=[
+                        self.create_component(
+                            component_type="file",
+                            name="distributorExplicationOnDistributionPlansAndStrategy",
+                            help_text="Dokument nie jest obligatoryjny w przypadku debiutu reżyserskiego i drugiego filmu reżysera, jeżeli producent ubiega się o dotację dla Filmu trudnego.",
+                            required=True
+                        )
+                    ]
+                )
+            ]
+        )
+
+    def letter_of_intent_from_distributor(self):
+        return self.create_chapter(
+            title="List intencyjny od dystrybutora. W przypadku filmów z polem eksploatacji innym niż kino należy załączyć dokument od firmy gwarantującej publiczną eksploatację.</br><normal><small>Należy załączyć dokument podpisany przez dystrybutora. W przypadku filmów z polem eksploatacji inne niż kino należy załączyć dokument podpisany przez firmę gwarantującą publiczną eksploatację.</small></normal>",
+            components=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="checkbox",
+                            label="Nie dotyczy zgodnie z Programem Operacyjnym PISF - Produkcja Filmowa",
+                            name="notApplicableLetterOfIntent"
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="notApplicableLetterOfIntent",
+                            values=[False]
+                        )
+                    ],
+                    multiple_forms_rules={
+                        "minCount": 1,
+                        "maxCount": 5,
+                    },
+                    components=[
+                        self.create_chapter(
+                            components=[
+                                self.create_component(
+                                    component_type="file",
+                                    name="letterOfIntentFromDistributor",
+                                    help_text="Dokument nie jest obligatoryjny w przypadku debiutu reżyserskiego i drugiego filmu reżysera, jeżeli producent ubiega się o dotację dla filmu trudnego.",
+                                    required=True
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+
+    def animation_attachments(self):
+        return self.create_chapter(
+            title="ZAŁĄCZNIKI: FILM ANIMOWANY",
+            components=[
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="movieKind",
+                            values=[
+                                "seria animowana"
+                            ]
+                        )
+                    ],
+                    components=[
+                        self.create_chapter(
+                            title="Jeden pełny odcinek serii",
+                            components=[
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="checkbox",
+                                            label="Nie dotyczy zgodnie z Programem Operacyjnym PISF - Produkcja Filmowa",
+                                            name="fullEpisodeNotApplicable"
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="fullEpisodeNotApplicable",
+                                            values=[False]
+                                        )
+                                    ],
+                                    multiple_forms_rules={
+                                        "minCount": 1,
+                                        "maxCount": 10,
+                                    },
+                                    components=[
+                                        self.create_chapter(
+                                            components=[
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Opis linku",
+                                                    name="fullEpisodeDesc",
+                                                    required=True,
+                                                    validators=[
+                                                        self.validator.length_validator(
+                                                            max_value=200
+                                                        )
+                                                    ]
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Adres linku",
+                                                    name="fullEpisodeLink",
+                                                    required=True,
+                                                    validators=[
+                                                        self.validator.length_validator(
+                                                            max_value=300
+                                                        )
+                                                    ]
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Dodatkowe informacje, np. hasło",
+                                                    name="fullEpisodeAdditionalInfo",
+                                                    required=True,
+                                                    validators=[
+                                                        self.validator.length_validator(
+                                                            max_value=200
+                                                        )
+                                                    ]
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="movieKind",
+                            values=[
+                                "animowany"
+                            ]
+                        )
+                    ],
+                    components=[
+                        self.create_chapter(
+                            title="Projekty plastyczne",
+                            components=[
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="checkbox",
+                                            label="Nie dotyczy zgodnie z Programem Operacyjnym PISF - Produkcja Filmowa",
+                                            name="animationDesignsNotApplicable"
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="animationDesignsNotApplicable",
+                                            values=[False]
+                                        )
+                                    ],
+                                    multiple_forms_rules={
+                                        "minCount": 6,
+                                        "maxCount": 20,
+                                    },
+                                    components=[
+                                        self.create_chapter(
+                                            components=[
+                                                self.create_component(
+                                                    component_type="file",
+                                                    label="Projekty plastyczne",
+                                                    name="animationDesigns",
+                                                    required=True,
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Scenopis obrazkowy",
+                            components=[
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="checkbox",
+                                            label="Nie dotyczy zgodnie z Programem Operacyjnym PISF - Produkcja Filmowa",
+                                            name="pictureStoryboardNotApplicable"
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="pictureStoryboardNotApplicable",
+                                            values=[False]
+                                        )
+                                    ],
+                                    multiple_forms_rules={
+                                        "minCount": 1,
+                                        "maxCount": 10,
+                                    },
+                                    components=[
+                                        self.create_chapter(
+                                            components=[
+                                                self.create_component(
+                                                    component_type="file",
+                                                    label="Scenopis obrazkowy",
+                                                    name="pictureStoryboard",
+                                                    help_text="Obejmujący min. 25% planowanego czasu.",
+                                                    required=True,
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Projekty plastyczne - linki",
+                            multiple_forms_rules={
+                                "minCount": 1,
+                                "maxCount": 10,
+                            },
+                            components=[
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Opis linku",
+                                            name="animationDesignLinkDesc",
+                                            validators=[
+                                                self.validator.length_validator(
+                                                    max_value=1000
+                                                )
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Adres linku",
+                                            name="animationDesignsLinkAddress",
+                                            validators=[
+                                                self.validator.length_validator(
+                                                    max_value=2000
+                                                )
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Dodatkowe informacje, np. hasło",
+                                            name="animationDesignLinkAdditionalInfo",
+                                            validators=[
+                                                self.validator.length_validator(
+                                                    max_value=100
+                                                )
+                                            ]
+                                        ),
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+
+    def other_additional_attachments(self):
+        return self.create_chapter(
+            title="INNE DODATKOWE ZAŁĄCZNIKI",
+            components=[
+                self.create_chapter(
+                    title="Opinia historyka wraz z wykazem jego dorobku",
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="movieSubject",
+                            values=[
+                                "film o tematyce historycznej"
+                            ]
+                        )
+                    ],
+                    components=[
+                        self.create_chapter(
+                            multiple_forms_rules={
+                                "minCount": 1,
+                                "maxCount": 5,
+                            },
+                            components=[
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="file",
+                                            name="opinionOfTheHistorian",
+                                            required=True,
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                )
             ]
         )

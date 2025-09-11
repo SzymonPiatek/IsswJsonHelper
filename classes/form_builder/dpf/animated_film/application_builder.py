@@ -92,3 +92,41 @@ class AnimatedFilmApplicationBuilder(DPFApplicationBuilder):
         )
 
         self.save_part(part=part)
+
+    def create_application_attachments(self):
+        part = self.create_part(
+            title="VII. Załączniki",
+            short_name="VII. Załączniki",
+            chapters=[
+                self.create_chapter(
+                    title="Część wspólna",
+                    components=[
+                        self.component.application_attachments.description_of_artistic_qualities(),
+                        self.component.application_attachments.expected_results_indicator()
+                    ]
+                ),
+                self.section.application_attachments.factual_report_on_goals_and_effects_of_development_of_film_project(),
+                self.section.application_attachments.declaration_of_division_of_rights_coproduced_by_television_broadcaster(),
+                self.section.application_attachments.film_promotion_and_distribution_plan(),
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="movieKind",
+                            values=["animowany"]
+                        ),
+                        self.visibility_rule.depends_on_value(
+                            field_name="eventMovieDuration",
+                            values=["pełnometrażowy"]
+                        )
+                    ],
+                    components=[
+                        self.section.application_attachments.distributor_explanation_and_film_promotion_and_distribution_plan()
+                    ]
+                ),
+                self.section.application_attachments.letter_of_intent_from_distributor(),
+                self.section.application_attachments.animation_attachments(),
+                self.section.application_attachments.other_additional_attachments()
+            ]
+        )
+
+        self.save_part(part=part)
