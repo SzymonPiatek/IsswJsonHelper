@@ -217,7 +217,7 @@ class FormBuilderBase:
 
     def create_component(
             self,
-            component_type: Literal['date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox', 'countryMulti'],
+            component_type: Literal['date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox', 'country', 'countryMulti'],
             mask: Literal['fund', 'phoneNumber', 'bankAccount', 'landline', 'jst', 'ibanAccount', 'polishPostalCode'] = '',
             label: str = '',
             name: str = '',
@@ -233,7 +233,7 @@ class FormBuilderBase:
             help_text: str = '',
     ):
         # Check type
-        allowed_types = {'date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox', 'countryMulti'}
+        allowed_types = {'date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox', 'country', 'countryMulti'}
         if component_type not in allowed_types:
             raise ValueError(f"Invalid component_type '{component_type}'. Must be one of: {', '.join(allowed_types)}.")
         # Check mask

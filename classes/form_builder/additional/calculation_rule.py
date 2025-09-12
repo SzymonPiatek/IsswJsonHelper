@@ -16,6 +16,7 @@ class CalculationRule:
             "lastDate",
             "conditionalCopyValue",
             "copyCompanyData",
+            "multiplyInputs"
         ]
 
     @staticmethod
@@ -176,5 +177,16 @@ class CalculationRule:
             "name": "assignValue",
             "kwargs": {
                 "options": options
+            }
+        }
+
+    @staticmethod
+    def multiply_inputs(
+        fields: List[str],
+    ):
+        return {
+            "name": "multiplyInputs",
+            "kwargs": {
+                "fields": fields
             }
         }
