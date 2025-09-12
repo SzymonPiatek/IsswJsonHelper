@@ -154,11 +154,11 @@ class FormBuilderBase:
 
         return self.delete_unused_part_args(part=part)
 
-
     @staticmethod
     def duplicate_chapter_with_indexing(start_chapter: dict, mf_min_count: int, start_title: str = "") -> list:
         if start_title == "":
             start_title = "Pozycja"
+
         def update_names_recursively(obj, index):
             if isinstance(obj, dict):
                 if obj.get("kind") == "component" and "name" in obj:
@@ -324,24 +324,3 @@ class FormBuilderBase:
             kwargs["class_list"] = class_list
 
         return self.delete_unused_component_args(component=kwargs)
-
-    def create_part_by_sections(self, part: dict, sections: list):
-        layout_chapters = part["chapters"]
-
-        for section in sections:
-            data = section['data']
-
-            for key, value in data.items():
-                if isinstance(value, dict) and 'options' in value:
-                    options = value['options']
-                    data[key]['value'] = options[0] if len(options) == 1 else ""
-                    read_only = value.get('readOnly', False)
-                    data[key]['readOnly'] = read_only if read_only else True if len(options) == 1 else False
-
-            section_json = self.load_json(path=section['path'])
-            filled_section = self.replace_placeholders(section_json, data)
-
-            layout_chapters.append(filled_section)
-
-        part['chapters'] = layout_chapters
-        self.save_part(part)
