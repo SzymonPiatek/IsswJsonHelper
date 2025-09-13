@@ -22,7 +22,12 @@ class Validator:
             "RelatedLocalDateLTEValidator",
             "RelatedLocalDateGTEValidator",
             "RelatedAllowedOptionsValidator",
-            "RelatedMappedLimitValidator"
+            "RelatedMappedLimitValidator",
+            "ZipCodeValidator",
+            "RelatedDateLTEValidator",
+            "RelatedDateGTEValidator",
+            "RelatedMultiplicationValidator",
+            "RelatedDateOffsetValidator"
         ]
 
     @staticmethod
@@ -40,13 +45,13 @@ class Validator:
         if max_value is not None and max_value > 0:
             kwargs["max"] = max_value + 1
         if min_value is not None and min_value > 0 and max_value is not None and max_value > 0:
-            default_msg = f"Ilość znaków musi zawierać się w przedziale od {min_value} do {max_value}"
+            default_msg = f"Ilość znaków musi zawierać się w przedziale od {min_value} do {max_value}."
         elif min_value is not None and min_value > 0:
-            default_msg = f"Ilość znaków musi wynosić co najmniej {min_value}"
+            default_msg = f"Ilość znaków musi wynosić co najmniej {min_value}."
         elif max_value is not None and max_value > 0:
-            default_msg = f"Ilość znaków nie może przekroczyć {max_value}"
+            default_msg = f"Ilość znaków nie może przekroczyć {max_value}."
         else:
-            default_msg = "Nieprawidłowe ograniczenia długości tekstu"
+            default_msg = "Nieprawidłowe ograniczenia długości tekstu."
 
         return {
             "name": "LengthValidator",
@@ -86,7 +91,7 @@ class Validator:
 
         return {
             "name": "PhoneNumberValidator",
-            "validationMsg": "Wprowadź numer telefonu w formie: +kod kraju oraz pozostałe cyfry numeru. Dla numeru polskiego przykładowo +48123456789"
+            "validationMsg": "Wprowadź numer telefonu w formie: +kod kraju oraz pozostałe cyfry numeru. Dla numeru polskiego przykładowo +48123456789."
         }
 
     @staticmethod
@@ -138,7 +143,7 @@ class Validator:
 
         return {
             "name": "RegonValidator",
-            "validationMsg": "Niepoprawny numer REGON"
+            "validationMsg": "Niepoprawny numer REGON."
         }
 
     @staticmethod
@@ -168,11 +173,11 @@ class Validator:
                 "min": 9,
                 "max": 11
             },
-            "validationMsg": "Niepoprawny numer NIP"
+            "validationMsg": "Niepoprawny numer NIP."
         }
 
     @staticmethod
-    def related_local_sum_validator(field_names: [str]):
+    def related_local_sum_validator(field_names: List[str]):
         """
         Walidator sprawdza poprawność sumy wartości (lokalnie).
         """
@@ -185,7 +190,7 @@ class Validator:
         }
 
     @staticmethod
-    def related_sum_validator(field_names: [str]):
+    def related_sum_validator(field_names: List[str]):
         """
         Walidator sprawdza poprawność sumy wartości.
         """
@@ -215,11 +220,11 @@ class Validator:
             kwargs["max"] = float(max_value) + 0.01
 
         if min_value is not None and max_value is not None and max_value > 0:
-            msg = f"Wartość musi być w zakresie od {min_value} do {max_value}"
+            msg = f"Wartość musi być w zakresie od {min_value} do {max_value}."
         elif min_value is not None:
-            msg = f"Wartość musi być większa lub równa {min_value}"
+            msg = f"Wartość musi być większa lub równa {min_value}."
         elif max_value is not None and max_value > 0:
-            msg = f"Wartość nie może przekroczyć {max_value}"
+            msg = f"Wartość nie może przekroczyć {max_value}."
         else:
             raise ValueError("Błędne wartości")
 
@@ -230,7 +235,7 @@ class Validator:
         }
 
     @staticmethod
-    def exact_validator(values: [str], message: str = None):
+    def exact_validator(values: List[str], message: str = None):
         """
         Walidator sprawdza, czy wybrana opcja jest jedną z możliwych do wyboru.
         """
@@ -263,7 +268,7 @@ class Validator:
                 "field_name": field_name,
                 "ratio": ratio
             },
-            "validationMsg": message if message else f"Wartość nie może przekroczyć {ratio*100}% '{field_name}'"
+            "validationMsg": message if message else f"Wartość nie może przekroczyć {ratio*100}% '{field_name}'."
         }
 
     @staticmethod
@@ -291,7 +296,7 @@ class Validator:
             "kwargs": {
                 "field_name": field_name
             },
-            "validationMsg": message
+            "validationMsg": message if message else f"Podana data musi być wcześniejsza niż data z pola '{field_name}.'"
         }
 
     @staticmethod
@@ -305,7 +310,7 @@ class Validator:
             "kwargs": {
                 "field_name": field_name
             },
-            "validationMsg": message
+            "validationMsg": message if message else f"Podana data musi być pożniejsza niż data z pola '{field_name}.'"
         }
 
     @staticmethod
@@ -346,4 +351,54 @@ class Validator:
             "kwargs": {
                 "field_names": field_names
             }
+        }
+
+    @staticmethod
+    def zip_code_validator():
+        """
+        Walidator sprawdza poprawność kodu pocztowego
+        """
+
+        return {
+            "name": "ZipCodeValidator",
+            "validationMsg": "Podaj kod pocztowy we właściwym formacie."
+        }
+
+    @staticmethod
+    def related_date_lte_validator(field_name: str, message: str):
+        """
+        Walidator sprawdza, czy podana data jest wcześniejsza niż data ze wskazanego pola.
+        """
+
+        return {
+            "name": "RelatedDateLTEValidator",
+            "kwargs": {
+                "field_name": field_name
+            },
+            "validationMsg": message if message else f"Podana data musi być wcześniejsza niż data z pola '{field_name}.'"
+        }
+
+    @staticmethod
+    def related_date_gte_validator(field_name: str, message: str):
+        """
+        Walidator sprawdza, czy podana data jest późniejsza niż data ze wskazanego pola.
+        """
+
+        return {
+            "name": "RelatedDateGTEValidator",
+            "kwargs": {
+                "field_name": field_name
+            },
+            "validationMsg": message if message else f"Podana data musi być pożniejsza niż data z pola '{field_name}.'"
+        }
+
+    @staticmethod
+    def related_date_offset_validator(field_name: str, offset: int, message: str):
+        return {
+            "name": "RelatedDateOffsetValidator",
+            "kwargs": {
+                "field_name": field_name,
+                "offset": offset,
+            },
+            "validationMsg": message if message else f"Dane wydarzenie nie może trwać dłużej niż {offset} dni."
         }

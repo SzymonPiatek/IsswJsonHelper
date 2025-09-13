@@ -1,7 +1,7 @@
 {
   "__summary__": {
-    "total_redundant_validators": 62,
-    "total_unchecked": 62
+    "total_redundant_validators": 54,
+    "total_unchecked": 54
   },
   "__ignored_names__": [],
   "applicantResidence": {
@@ -122,6 +122,66 @@
     "validators": [
       "RelatedRequiredIfEqualValidator",
       "ExactValidator"
+    ]
+  },
+  "entityApplicationsListPriorityCurrentSession": {
+    "isChecked": false,
+    "name": "entityApplicationsListPriorityCurrentSession",
+    "file": "output/json/DPF/application/po1_pr4_application_2025.json",
+    "type": "select",
+    "validators": [
+      "ExactValidator",
+      "RequiredValidator"
+    ]
+  },
+  "entityApplicationsListPriorityCurrentPromises": {
+    "isChecked": false,
+    "name": "entityApplicationsListPriorityCurrentPromises",
+    "file": "output/json/DPF/application/po1_pr4_application_2025.json",
+    "type": "select",
+    "validators": [
+      "ExactValidator",
+      "RequiredValidator"
+    ]
+  },
+  "entityApplicationsListPriorityCurrentProductionContracts": {
+    "isChecked": false,
+    "name": "entityApplicationsListPriorityCurrentProductionContracts",
+    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "type": "select",
+    "validators": [
+      "ExactValidator",
+      "RequiredValidator"
+    ]
+  },
+  "entityApplicationsListPriorityCurrentProjectDevelopment": {
+    "isChecked": false,
+    "name": "entityApplicationsListPriorityCurrentProjectDevelopment",
+    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "type": "select",
+    "validators": [
+      "ExactValidator",
+      "RequiredValidator"
+    ]
+  },
+  "entityApplicationsListPriorityPreviousSessionProjectDevelopment": {
+    "isChecked": false,
+    "name": "entityApplicationsListPriorityPreviousSessionProjectDevelopment",
+    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "type": "select",
+    "validators": [
+      "ExactValidator",
+      "RequiredValidator"
+    ]
+  },
+  "entityApplicationsListPriorityPreviousSessionProduction": {
+    "isChecked": false,
+    "name": "entityApplicationsListPriorityPreviousSessionProduction",
+    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "type": "select",
+    "validators": [
+      "ExactValidator",
+      "RequiredValidator"
     ]
   },
   "eventMovieDuration": {
@@ -384,114 +444,14 @@
       "ExactValidator"
     ]
   },
-  "scopeOfProject": {
-    "isChecked": false,
-    "name": "scopeOfProject",
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "type": "select",
-    "validators": [
-      "RequiredValidator",
-      "ExactValidator"
-    ]
-  },
-  "movieKind": {
-    "isChecked": false,
-    "name": "movieKind",
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "type": "select",
-    "validators": [
-      "RequiredValidator",
-      "ExactValidator"
-    ]
-  },
-  "categoryOfProject": {
-    "isChecked": false,
-    "name": "categoryOfProject",
-    "file": "output/json/DPF/application/po1_pr3_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  },
-  "movieRights": {
-    "isChecked": false,
-    "name": "movieRights",
-    "file": "output/json/DPF/application/po1_pr3_application_2025.json",
-    "type": "select",
-    "validators": [
-      "RequiredValidator",
-      "ExactValidator"
-    ]
-  },
-  "applicationRelates": {
-    "isChecked": false,
-    "name": "applicationRelates",
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  },
-  "typeOfSupport": {
-    "isChecked": false,
-    "name": "typeOfSupport",
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  },
-  "firstChoiceCommittee": {
-    "isChecked": false,
-    "name": "firstChoiceCommittee",
-    "file": "output/json/DPF/application/po1_pr3_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  },
-  "secondChoiceCommittee": {
-    "isChecked": false,
-    "name": "secondChoiceCommittee",
-    "file": "output/json/DPF/application/po1_pr3_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  },
-  "firstChoiceCommitteeDoc": {
-    "isChecked": false,
-    "name": "firstChoiceCommitteeDoc",
-    "file": "output/json/DPF/application/po1_pr2_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  },
-  "secondChoiceCommitteeDoc": {
-    "isChecked": false,
-    "name": "secondChoiceCommitteeDoc",
-    "file": "output/json/DPF/application/po1_pr2_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  },
   "eventMovieDurationFamily": {
     "isChecked": false,
     "name": "eventMovieDurationFamily",
-    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "file": "output/json/DPF/application/po1_pr2_application_2025.json",
     "type": "radio",
     "validators": [
-      "RequiredValidator",
-      "ExactValidator"
+      "ExactValidator",
+      "RequiredValidator"
     ]
   },
   "eventMovieDurationFab": {
@@ -507,7 +467,7 @@
   "eventMovieDurationSeries": {
     "isChecked": false,
     "name": "eventMovieDurationSeries",
-    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "file": "output/json/DPF/application/po1_pr2_application_2025.json",
     "type": "radio",
     "validators": [
       "ExactValidator",
@@ -517,7 +477,7 @@
   "numberOfEpisodes": {
     "isChecked": false,
     "name": "numberOfEpisodes",
-    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "file": "output/json/DPF/application/po1_pr2_application_2025.json",
     "type": "select",
     "validators": [
       "ExactValidator",
@@ -547,7 +507,7 @@
   "isDifficultPieceSeries": {
     "isChecked": false,
     "name": "isDifficultPieceSeries",
-    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "file": "output/json/DPF/application/po1_pr2_application_2025.json",
     "type": "radio",
     "validators": [
       "RequiredValidator",
@@ -568,46 +528,6 @@
     "isChecked": false,
     "name": "screenplayConsultantSex",
     "file": "output/json/DPF/application/po1_pr2_application_2025.json",
-    "type": "select",
-    "validators": [
-      "RequiredValidator",
-      "ExactValidator"
-    ]
-  },
-  "isFilmAboutHistory": {
-    "isChecked": false,
-    "name": "isFilmAboutHistory",
-    "file": "output/json/DPF/application/po1_pr7_application_2025.json",
-    "type": "radio",
-    "validators": [
-      "RequiredValidator",
-      "ExactValidator"
-    ]
-  },
-  "sceneDesignerFullname": {
-    "isChecked": false,
-    "name": "sceneDesignerFullname",
-    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "type": "text",
-    "validators": [
-      "RelatedRequiredIfEqualValidator",
-      "RelatedRequiredIfEqualValidator"
-    ]
-  },
-  "sceneDesignerCitizenship": {
-    "isChecked": false,
-    "name": "sceneDesignerCitizenship",
-    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "type": "country",
-    "validators": [
-      "RelatedRequiredIfEqualValidator",
-      "RelatedRequiredIfEqualValidator"
-    ]
-  },
-  "movieSubject": {
-    "isChecked": false,
-    "name": "movieSubject",
-    "file": "output/json/DPF/application/po1_pr3_application_2025.json",
     "type": "select",
     "validators": [
       "RequiredValidator",

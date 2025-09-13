@@ -1,7 +1,7 @@
 {
   "__summary__": {
-    "total_many_validators": 4,
-    "total_unchecked": 4
+    "total_many_validators": 5,
+    "total_unchecked": 5
   },
   "__ignored_names__": [],
   "scheduleFinalCopyDate": {
@@ -23,6 +23,13 @@
     "name": "activityScheduleEndProject",
     "file": "output/json/DPF/application/po1_pr2_application_2025.json",
     "type": "date",
+    "validatorsCount": 3
+  },
+  "eventMovieDuration": {
+    "isChecked": false,
+    "name": "eventMovieDuration",
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
+    "type": "radio",
     "validatorsCount": 3
   },
   "activityScheduleEnd": {
