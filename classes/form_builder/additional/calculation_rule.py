@@ -16,6 +16,7 @@ class CalculationRule:
             "lastDate",
             "conditionalCopyValue",
             "copyCompanyData",
+            "multiplyInputs"
         ]
 
     @staticmethod
@@ -36,7 +37,7 @@ class CalculationRule:
         }
 
     @staticmethod
-    def local_sum(fields: [str]):
+    def local_sum(fields: List[str]):
         return {
             "name": "localSum",
             "kwargs": {
@@ -45,7 +46,7 @@ class CalculationRule:
         }
 
     @staticmethod
-    def sum_inputs(fields: [str]):
+    def sum_inputs(fields: List[str]):
         return {
             "name": "sumInputs",
             "kwargs": {
@@ -54,7 +55,7 @@ class CalculationRule:
         }
 
     @staticmethod
-    def dynamic_sum_inputs(fields: [str]):
+    def dynamic_sum_inputs(fields: List[str]):
         return {
             "name": "dynamicSumInputs",
             "kwargs": {
@@ -168,4 +169,24 @@ class CalculationRule:
         return {
             "name": "copyCompanyData",
             "kwargs": kwargs
+        }
+
+    @staticmethod
+    def assign_value(options: dict):
+        return {
+            "name": "assignValue",
+            "kwargs": {
+                "options": options
+            }
+        }
+
+    @staticmethod
+    def multiply_inputs(
+        fields: List[str],
+    ):
+        return {
+            "name": "multiplyInputs",
+            "kwargs": {
+                "fields": fields
+            }
         }

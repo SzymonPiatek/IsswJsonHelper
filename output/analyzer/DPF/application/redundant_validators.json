@@ -1,7 +1,7 @@
 {
   "__summary__": {
-    "total_redundant_validators": 68,
-    "total_unchecked": 68
+    "total_redundant_validators": 62,
+    "total_unchecked": 62
   },
   "__ignored_names__": [],
   "applicantResidence": {
@@ -382,66 +382,6 @@
     "validators": [
       "RequiredValidator",
       "ExactValidator"
-    ]
-  },
-  "entityApplicationsListPriorityCurrentSession": {
-    "isChecked": false,
-    "name": "entityApplicationsListPriorityCurrentSession",
-    "file": "output/json/DPF/application/po1_pr4_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  },
-  "entityApplicationsListPriorityCurrentPromises": {
-    "isChecked": false,
-    "name": "entityApplicationsListPriorityCurrentPromises",
-    "file": "output/json/DPF/application/po1_pr4_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  },
-  "entityApplicationsListPriorityCurrentProductionContracts": {
-    "isChecked": false,
-    "name": "entityApplicationsListPriorityCurrentProductionContracts",
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  },
-  "entityApplicationsListPriorityCurrentProjectDevelopment": {
-    "isChecked": false,
-    "name": "entityApplicationsListPriorityCurrentProjectDevelopment",
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  },
-  "entityApplicationsListPriorityPreviousSessionProjectDevelopment": {
-    "isChecked": false,
-    "name": "entityApplicationsListPriorityPreviousSessionProjectDevelopment",
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  },
-  "entityApplicationsListPriorityPreviousSessionProduction": {
-    "isChecked": false,
-    "name": "entityApplicationsListPriorityPreviousSessionProduction",
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
     ]
   },
   "scopeOfProject": {

@@ -1,5 +1,6 @@
-from typing import Literal, Optional
+from typing import Literal, Optional, Sequence
 import json
+import copy
 import ast
 from pathlib import Path
 from classes.form_builder.additional.validator import Validator
@@ -111,7 +112,7 @@ class FormBuilderBase:
         self.parts = self.output_json.setdefault('parts', [])
         self.parts.append(part)
 
-    def create_base(self, intro_text: [str]):
+    def create_base(self, intro_text: Sequence[str]):
         self.output_json = {
             "kind": "form",
             "jrwa": "",
@@ -153,6 +154,32 @@ class FormBuilderBase:
 
         return self.delete_unused_part_args(part=part)
 
+    @staticmethod
+    def duplicate_chapter_with_indexing(start_chapter: dict, mf_min_count: int, start_title: str = "") -> list:
+        if start_title == "":
+            start_title = "Pozycja"
+
+        def update_names_recursively(obj, index):
+            if isinstance(obj, dict):
+                if obj.get("kind") == "component" and "name" in obj:
+                    obj["name"] = f"{obj['name']}_{index}"
+                    obj["dataBDD"] = obj["name"]
+                elif obj.get("kind") == "chapter":
+                    for comp in obj.get("components", []):
+                        update_names_recursively(comp, index)
+            elif isinstance(obj, list):
+                for item in obj:
+                    update_names_recursively(item, index)
+
+        new_chapters = []
+        for i in range(1, mf_min_count + 1):
+            new_chapter = copy.deepcopy(start_chapter)
+            new_chapter["title"] = f"{start_title} {i}"
+            update_names_recursively(new_chapter, i)
+            new_chapters.append(new_chapter)
+
+        return new_chapters
+
     def create_chapter(self, title: str = '', class_list: list | dict = None, visibility_rules: list = None, components: list = None, multiple_forms_rules: dict = None, is_paginated: bool = False):
         if class_list is None:
             class_list = []
@@ -166,22 +193,31 @@ class FormBuilderBase:
         else:
             is_multiple_forms = True
 
+            mf_min_count = multiple_forms_rules.get("minCount", 1)
+
+            if len(components) == 0:
+                raise ValueError("Chapter z multipleForms powinien posiadać przynajmniej jeden chapter")
+            if len(components) != mf_min_count:
+                start_chapter = components[0]
+                start_title = start_chapter.get("title", "")
+                components = self.duplicate_chapter_with_indexing(start_chapter, mf_min_count, start_title)
+
         chapter = {
             "kind": "chapter",
             "title": title,
             "classList": class_list,
             "visibilityRules": visibility_rules,
-            "components": components,
             "isMultipleForms": is_multiple_forms,
             "multipleFormsRules": multiple_forms_rules,
-            "isPaginated": is_paginated
+            "isPaginated": is_paginated,
+            "components": components
         }
 
         return self.delete_unused_chapter_args(chapter=chapter)
 
     def create_component(
             self,
-            component_type: Literal['date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox'],
+            component_type: Literal['date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox', 'country', 'countryMulti'],
             mask: Literal['fund', 'phoneNumber', 'bankAccount', 'landline', 'jst', 'ibanAccount', 'polishPostalCode'] = '',
             label: str = '',
             name: str = '',
@@ -197,7 +233,7 @@ class FormBuilderBase:
             help_text: str = '',
     ):
         # Check type
-        allowed_types = {'date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox'}
+        allowed_types = {'date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox', 'country', 'countryMulti'}
         if component_type not in allowed_types:
             raise ValueError(f"Invalid component_type '{component_type}'. Must be one of: {', '.join(allowed_types)}.")
         # Check mask
@@ -224,11 +260,16 @@ class FormBuilderBase:
             else:
                 if not any(v.get("name") in {"ExactValidator"} for v in validators):
                     validators.append(Validator.exact_validator(values=options))
+                if len(options) == 1:
+                    read_only = True
+                    value = options[0]
         else:
             options = []
 
         if component_type == "file" and not help_text:
             help_text = "Maksymalny rozmiar pliku to 50 MB"
+        if component_type == "file" and not label:
+            label = "Plik"
 
         if mask == "fund" and not unit:
             unit = "PLN"
@@ -283,24 +324,3 @@ class FormBuilderBase:
             kwargs["class_list"] = class_list
 
         return self.delete_unused_component_args(component=kwargs)
-
-    def create_part_by_sections(self, part: dict, sections: list):
-        layout_chapters = part["chapters"]
-
-        for section in sections:
-            data = section['data']
-
-            for key, value in data.items():
-                if isinstance(value, dict) and 'options' in value:
-                    options = value['options']
-                    data[key]['value'] = options[0] if len(options) == 1 else ""
-                    read_only = value.get('readOnly', False)
-                    data[key]['readOnly'] = read_only if read_only else True if len(options) == 1 else False
-
-            section_json = self.load_json(path=section['path'])
-            filled_section = self.replace_placeholders(section_json, data)
-
-            layout_chapters.append(filled_section)
-
-        part['chapters'] = layout_chapters
-        self.save_part(part)

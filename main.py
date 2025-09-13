@@ -91,38 +91,38 @@ def generate_applications():
 
 def main():
     generate_applications()
-
-    for department in ["DPF", "DUK", "DWM"]:
-        analyzer.report_duplicates(
-            base_dir=f"./output/json/{department}/application",
-            output_path=f"./output/analyzer/{department}/application",
-            file_name="duplicate_names"
-        )
-
-        analyzer.report_missing_validators(
-            base_dir=f"./output/json/{department}/application",
-            output_path=f"./output/analyzer/{department}/application",
-            file_name="missing_validators"
-        )
-
-        analyzer.report_unknown_rules(
-            base_dir=f"./output/json/{department}/application",
-            output_path=f"./output/analyzer/{department}/application",
-            file_name="unknown_rules"
-        )
-
-        analyzer.report_redundant_validators(
-            base_dir=f"./output/json/{department}/application",
-            output_path=f"./output/analyzer/{department}/application",
-            file_name="redundant_validators"
-        )
-
-        analyzer.report_many_validators(
-            base_dir=f"./output/json/{department}/application",
-            output_path=f"./output/analyzer/{department}/application",
-            file_name="many_validators",
-            validators_num=2
-        )
+    #
+    # for department in ["DPF", "DUK", "DWM"]:
+    #     analyzer.report_duplicates(
+    #         base_dir=f"./output/json/{department}/application",
+    #         output_path=f"./output/analyzer/{department}/application",
+    #         file_name="duplicate_names"
+    #     )
+    #
+    #     analyzer.report_missing_validators(
+    #         base_dir=f"./output/json/{department}/application",
+    #         output_path=f"./output/analyzer/{department}/application",
+    #         file_name="missing_validators"
+    #     )
+    #
+    #     analyzer.report_unknown_rules(
+    #         base_dir=f"./output/json/{department}/application",
+    #         output_path=f"./output/analyzer/{department}/application",
+    #         file_name="unknown_rules"
+    #     )
+    #
+    #     analyzer.report_redundant_validators(
+    #         base_dir=f"./output/json/{department}/application",
+    #         output_path=f"./output/analyzer/{department}/application",
+    #         file_name="redundant_validators"
+    #     )
+    #
+    #     analyzer.report_many_validators(
+    #         base_dir=f"./output/json/{department}/application",
+    #         output_path=f"./output/analyzer/{department}/application",
+    #         file_name="many_validators",
+    #         validators_num=2
+    #     )
 
 
 if __name__ == '__main__':

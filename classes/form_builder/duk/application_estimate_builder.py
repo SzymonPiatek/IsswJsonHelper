@@ -14,7 +14,7 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
         return {
             'chapters': {
                 'estimate': {
-                    'sections': estimate_sections,
+                    'section': estimate_sections,
                     'section_structure': estimate_section_structure,
                     'section_construct': {
                         'chapter_title': {
@@ -56,7 +56,7 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
                     }
                 },
                 'sum_estimate': {
-                    'sections': sum_estimate_sections,
+                    'section': sum_estimate_sections,
                     'section_structure': sum_estimate_section_structure,
                     'section_construct': {
                         'section_title': {
@@ -205,7 +205,7 @@ class DUKApplicationEstimateBuilder(FormBuilderBase):
         )
 
     def get_chapter_data(self, data):
-        sections = data["sections"]
+        sections = data["section"]
         structure = data["section_structure"]
         construct = data["section_construct"]
 

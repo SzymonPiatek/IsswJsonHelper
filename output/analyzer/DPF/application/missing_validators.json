@@ -1,7 +1,7 @@
 {
   "__summary__": {
-    "total_missing_required_validators": 35,
-    "total_unchecked": 35
+    "total_missing_required_validators": 29,
+    "total_unchecked": 29
   },
   "__ignored_names__": [],
   "directorResumeAttachment": {
@@ -29,51 +29,6 @@
     "type": "checkbox",
     "missing": [
       "Any required validator"
-    ]
-  },
-  "scriptScholarshipComments": {
-    "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "name": "scriptScholarshipComments",
-    "type": "textarea",
-    "missing": [
-      "Length validator"
-    ]
-  },
-  "scriptDevelopmentComments": {
-    "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "name": "scriptDevelopmentComments",
-    "type": "textarea",
-    "missing": [
-      "Length validator"
-    ]
-  },
-  "projectDevelopmentComments": {
-    "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "name": "projectDevelopmentComments",
-    "type": "textarea",
-    "missing": [
-      "Length validator"
-    ]
-  },
-  "productionComments": {
-    "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "name": "productionComments",
-    "type": "textarea",
-    "missing": [
-      "Length validator"
-    ]
-  },
-  "otherComments": {
-    "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "name": "otherComments",
-    "type": "textarea",
-    "missing": [
-      "Length validator"
     ]
   },
   "subjectOfObligation": {
@@ -108,15 +63,6 @@
     "file": "output/json/DPF/application/po1_pr2_application_2025.json",
     "name": "individualProducerCitizenship",
     "type": "country",
-    "missing": [
-      "Any required validator"
-    ]
-  },
-  "isProjectRatedInPISF": {
-    "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "name": "isProjectRatedInPISF",
-    "type": "select",
     "missing": [
       "Any required validator"
     ]
