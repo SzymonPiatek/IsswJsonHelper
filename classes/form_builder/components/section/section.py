@@ -165,15 +165,19 @@ class Section(FormBuilderBase):
             ]
         )
 
-    def applicant_address_base(self, build_name: str = '', poland: bool = True, foreign: bool = True):
+    def create_address_base(self, start_name: str, build_name: str = '', poland: bool = True, foreign: bool = True, is_local: bool = False):
         chapters = []
 
         if poland:
             chapters.append(
                 self.create_chapter(
                     visibility_rules=[
+                        self.visibility_rule.local_equals_value(
+                            field_name=f"{start_name}{build_name}Residence",
+                            values=["w Polsce"]
+                        ) if is_local else
                         self.visibility_rule.depends_on_value(
-                            field_name=f"applicant{build_name}Residence",
+                            field_name=f"{start_name}{build_name}Residence",
                             values=["w Polsce"]
                         )
                     ],
@@ -189,24 +193,24 @@ class Section(FormBuilderBase):
                     },
                     components=[
                         self.component.voivodeship_select(
-                            name=f"applicant{build_name}Voivodeship"
+                            name=f"{start_name}{build_name}Voivodeship"
                         ),
                         self.create_component(
                             component_type="text",
                             label="Powiat",
-                            name=f"applicant{build_name}County",
+                            name=f"{start_name}{build_name}County",
                             required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Gmina",
-                            name=f"applicant{build_name}Municipality",
+                            name=f"{start_name}{build_name}Municipality",
                             required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Identyfikator gminy (Kod JST)",
-                            name=f"applicant{build_name}Jst",
+                            name=f"{start_name}{build_name}Jst",
                             mask="jst",
                             required=True,
                             help_text="Kod JST gminy można znaleźć w wyszukiwarce pod adresem https://eteryt.stat.gov.pl"
@@ -214,49 +218,49 @@ class Section(FormBuilderBase):
                         self.create_component(
                             component_type="text",
                             label="Miejscowość",
-                            name=f"applicant{build_name}Location",
+                            name=f"{start_name}{build_name}Location",
                             required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Ulica",
-                            name=f"applicant{build_name}Street",
+                            name=f"{start_name}{build_name}Street",
                             required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Numer domu",
-                            name=f"applicant{build_name}HouseNum",
+                            name=f"{start_name}{build_name}HouseNum",
                             required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Numer lokalu",
-                            name=f"applicant{build_name}ApartmentNum"
+                            name=f"{start_name}{build_name}ApartmentNum"
                         ),
                         self.create_component(
                             component_type="text",
                             label="Kod pocztowy",
-                            name=f"applicant{build_name}ZipCode",
+                            name=f"{start_name}{build_name}ZipCode",
                             required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Poczta",
-                            name=f"applicant{build_name}PostOffice",
+                            name=f"{start_name}{build_name}PostOffice",
                             required=True
                         ),
                         self.create_component(
                             component_type="text",
                             mask="phoneNumber",
                             label="Numer telefonu",
-                            name=f"applicant{build_name}PhoneNum",
+                            name=f"{start_name}{build_name}PhoneNum",
                             required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Email kontaktowy",
-                            name=f"applicant{build_name}Email",
+                            name=f"{start_name}{build_name}Email",
                             required=True,
                             validators=[
                                 self.validator.email_validator()
@@ -270,8 +274,12 @@ class Section(FormBuilderBase):
             chapters.append(
                 self.create_chapter(
                     visibility_rules=[
+                        self.visibility_rule.local_equals_value(
+                            field_name=f"{start_name}{build_name}Residence",
+                            values=["za granicą"]
+                        ) if is_local else
                         self.visibility_rule.depends_on_value(
-                            field_name=f"applicant{build_name}Residence",
+                            field_name=f"{start_name}{build_name}Residence",
                             values=["za granicą"]
                         )
                     ],
@@ -289,54 +297,54 @@ class Section(FormBuilderBase):
                         self.create_component(
                             component_type="text",
                             label="Kraj",
-                            name=f"applicant{build_name}Country",
+                            name=f"{start_name}{build_name}Country",
                             required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Miejscowość",
-                            name=f"applicant{build_name}ForeignLocation",
+                            name=f"{start_name}{build_name}ForeignLocation",
                             required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Ulica",
-                            name=f"applicant{build_name}ForeignStreet",
+                            name=f"{start_name}{build_name}ForeignStreet",
                             required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Numer domu",
-                            name=f"applicant{build_name}ForeignHouseNum",
+                            name=f"{start_name}{build_name}ForeignHouseNum",
                             required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Numer lokalu",
-                            name=f"applicant{build_name}ForeignApartmentNum"
+                            name=f"{start_name}{build_name}ForeignApartmentNum"
                         ),
                         self.create_component(
                             component_type="text",
                             label="Kod pocztowy",
-                            name=f"applicant{build_name}ForeignZipCode",
+                            name=f"{start_name}{build_name}ForeignZipCode",
                             required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Poczta",
-                            name=f"applicant{build_name}ForeignPostOffice"
+                            name=f"{start_name}{build_name}ForeignPostOffice"
                         ),
                         self.create_component(
                             component_type="text",
                             mask="phoneNumber",
                             label="Numer telefonu",
-                            name=f"applicant{build_name}ForeignPhoneNum",
+                            name=f"{start_name}{build_name}ForeignPhoneNum",
                             required=True
                         ),
                         self.create_component(
                             component_type="text",
                             label="Email kontaktowy",
-                            name=f"applicant{build_name}ForeignEmail",
+                            name=f"{start_name}{build_name}ForeignEmail",
                             validators=[
                                 self.validator.email_validator()
                             ],
@@ -347,6 +355,14 @@ class Section(FormBuilderBase):
             )
 
         return chapters
+
+    def applicant_address_base(self, build_name: str = '', poland: bool = True, foreign: bool = True):
+        return self.create_address_base(
+            start_name="applicant",
+            build_name=build_name,
+            poland=poland,
+            foreign=foreign
+        )
 
     def applicant_address(self, number: int | str, main_poland: bool = True, main_foreign: bool = True, contact_poland: bool = True, contact_foreign: bool = True):
         return self.create_chapter(
