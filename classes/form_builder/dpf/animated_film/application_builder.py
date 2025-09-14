@@ -783,7 +783,7 @@ class AnimatedFilmApplicationBuilder(DPFApplicationBuilder):
 
         self.save_part(part=part)
 
-    def application_completion_date_data(self):
+    def create_application_completion_date_data(self):
         part = self.create_part(
             title="IV. Termin realizacji przedsięwzięcia",
             short_name="IV. Termin realizacji",
@@ -1068,6 +1068,383 @@ class AnimatedFilmApplicationBuilder(DPFApplicationBuilder):
                                     message="Planowany termin wprowadzenia filmu do obrotu musi nastąpić po planowanym terminie wykonania kopii wzorcowej."
                                 )
                             ],
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="OBLIGATORYJNE CZYNNOŚCI W PRZYPADKU ZAWARCIA UMOWY O DOFINANSOWANIE",
+                    components=[
+                        self.create_chapter(
+                            title="Termin doręczenia audytu (po okresie zdjęciowym) (jeśli dotyczy zgodnie z Programem Operacyjnym PISF - Produkcja)",
+                            class_list=[
+                                "grid",
+                                "grid-cols-2"
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="scheduleAuditDate",
+                                    required=True,
+                                    read_only=True,
+                                    calculation_rules=[
+                                        self.calculation_rule.relate_to_last_date(
+                                            field="scheduleAnimationPeriodEnd",
+                                            parameter=30
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Termin doręczenia materiałów promocyjnych",
+                            class_list=[
+                                "grid",
+                                "grid-cols-2"
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="schedulePromoMaterialsDate",
+                                    required=True,
+                                    read_only=True,
+                                    calculation_rules=[
+                                        self.calculation_rule.relate_to_last_date(
+                                            field="scheduleAnimationPeriodEnd",
+                                            parameter=30
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Termin, do którego należy zorganizować pierwszą kolaudację",
+                            class_list=[
+                                "grid",
+                                "grid-cols-2"
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="scheduleFirstPreReleaseReviewDate",
+                                    required=True,
+                                    read_only=True,
+                                    calculation_rules=[
+                                        self.calculation_rule.relate_to_last_date(
+                                            field="schedulePostProdPeriodEnd",
+                                            parameter=0
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Termin, do którego należy zorganizować drugą kolaudację",
+                            class_list=[
+                                "grid",
+                                "grid-cols-2"
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    label="Termin do",
+                                    name="scheduleSecondPreReleaseReviewDate",
+                                    required=True,
+                                    read_only=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Akceptacja zastosowania logo PISF oraz napisów",
+                            class_list=[
+                                "grid",
+                                "grid-cols-2"
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="scheduleLogoDate",
+                                    required=True,
+                                    read_only=True,
+                                    calculation_rules=[
+                                        self.calculation_rule.relate_to_last_date(
+                                            field="scheduleFinalCopyDate",
+                                            parameter=-15
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Termin doręczenia drugiego audytu (po okresie prac końcowych)",
+                            class_list=[
+                                "grid",
+                                "grid-cols-2"
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="scheduleSecondAutitDate",
+                                    help_text="Dotyczy filmów pełnometrażowych oraz serii animowanych.",
+                                    required=True,
+                                    read_only=True,
+                                    calculation_rules=[
+                                        self.calculation_rule.relate_to_last_date(
+                                            field="scheduleFinalWorksPeriodEnd",
+                                            parameter=30
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Termin doręczenia raportu końcowego",
+                            class_list=[
+                                "grid",
+                                "grid-cols-2"
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="scheduleFinalReportDate",
+                                    required=True,
+                                    read_only=True,
+                                    calculation_rules=[
+                                        self.calculation_rule.relate_to_last_date(
+                                            field="scheduleFinalWorksPeriodEnd",
+                                            parameter=30
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Akceptacja materiałów promocyjno-dystrybucyjnych z wykorzystaniem logo PISF",
+                            class_list=[
+                                "grid",
+                                "grid-cols-2"
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="schedulePromoMaterialsAcceptanceDate",
+                                    required=True,
+                                    read_only=True,
+                                    calculation_rules=[
+                                        self.calculation_rule.relate_to_last_date(
+                                            field="schedulePremiereDate",
+                                            parameter=-15
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Doręczenie do PISF umowy z dystrybutorem oraz kosztorysu P&A",
+                            class_list=[
+                                "grid",
+                                "grid-cols-2"
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="scheduleDistributorContractDate",
+                                    required=True,
+                                    read_only=True,
+                                    calculation_rules=[
+                                        self.calculation_rule.relate_to_last_date(
+                                            field="schedulePremiereDate",
+                                            parameter=-14
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                    ]
+                ),
+                self.create_chapter(
+                    title="Raporty z eksploatacji",
+                    components=[
+                        self.create_chapter(
+                            title=chapter["title"],
+                            class_list=[
+                                "grid",
+                                "grid-cols-2"
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name=chapter["component"]["name"],
+                                    required=True,
+                                    read_only=True,
+                                    calculation_rules=[
+                                        self.calculation_rule.relate_to_last_date(
+                                            field=chapter["component"]["field"],
+                                            parameter=chapter["component"]["parameter"]
+                                        )
+                                    ]
+                                )
+                            ]
+                        ) for chapter in [
+                            {
+                                "title": "I Raport",
+                                "component": {
+                                    "name": "scheduleFirstReportDate",
+                                    "field": "schedulePremiereDate",
+                                    "parameter": 182
+                                }
+                            },
+                            {
+                                "title": "II Raport",
+                                "component": {
+                                    "name": "scheduleSecondReportDate",
+                                    "field": "scheduleFirstReportDate",
+                                    "parameter": 182
+                                }
+                            },
+                            {
+                                "title": "III Raport",
+                                "component": {
+                                    "name": "scheduleThirdReportDate",
+                                    "field": "scheduleFirstReportDate",
+                                    "parameter": 364
+                                }
+                            },
+                            {
+                                "title": "IV Raport",
+                                "component": {
+                                    "name": "scheduleFourthReportDate",
+                                    "field": "scheduleFirstReportDate",
+                                    "parameter": 546
+                                }
+                            },
+                            {
+                                "title": "V Raport",
+                                "component": {
+                                    "name": "scheduleFifthReportDate",
+                                    "field": "scheduleFirstReportDate",
+                                    "parameter": 728
+                                }
+                            },
+                            {
+                                "title": "VI Raport",
+                                "component": {
+                                    "name": "scheduleSixthReportDate",
+                                    "field": "scheduleFirstReportDate",
+                                    "parameter": 910
+                                }
+                            },
+                            {
+                                "title": "VII Raport",
+                                "component": {
+                                    "name": "scheduleSeventhReportDate",
+                                    "field": "scheduleFirstReportDate",
+                                    "parameter": 1092
+                                }
+                            },
+                            {
+                                "title": "VIII Raport",
+                                "component": {
+                                    "name": "scheduleEighthReportDate",
+                                    "field": "scheduleFirstReportDate",
+                                    "parameter": 1274
+                                }
+                            },
+                            {
+                                "title": "IX Raport",
+                                "component": {
+                                    "name": "scheduleNinthReportDate",
+                                    "field": "scheduleFirstReportDate",
+                                    "parameter": 1456
+                                }
+                            },
+                            {
+                                "title": "X Raport",
+                                "component": {
+                                    "name": "scheduleTenthReportDate",
+                                    "field": "scheduleFirstReportDate",
+                                    "parameter": 1638
+                                }
+                            },
+                            {
+                                "title": "XI Raport",
+                                "component": {
+                                    "name": "scheduleEleventhReportDate",
+                                    "field": "scheduleFirstReportDate",
+                                    "parameter": 1820
+                                }
+                            },
+                            {
+                                "title": "XII Raport",
+                                "component": {
+                                    "name": "scheduleTwelfthReportDate",
+                                    "field": "scheduleFirstReportDate",
+                                    "parameter": 2002
+                                }
+                            }
+                        ]
+                    ]
+                ),
+                self.create_chapter(
+                    title="PLANOWANE MIEJSCA REALIZACJI FILMU",
+                    components=[
+                        self.create_chapter(
+                            title="Baza produkcyjna",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="plannedProductionBase",
+                                    required=True,
+                                    validators=[
+                                        self.validator.length_validator(max_value=200)
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Lokacje zdjęciowe",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="plannedShootingLocations",
+                                    required=True,
+                                    validators=[
+                                        self.validator.length_validator(max_value=200)
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Laboratorium",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="plannedLaboratory",
+                                    required=True,
+                                    validators=[
+                                        self.validator.length_validator(max_value=200)
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="OŚWIADCZENIA",
+                    components=[
+                        self.create_component(
+                            component_type="checkbox",
+                            label="Oświadczam, że przedsięwzięcie przed datą złożenia wniosku nie miało publicznego pokazu, premiery, pierwszej emisji, pokazu festiwalowego, przeglądu publicznego itp.",
+                            name="schedulePublicPremiereDeclaration",
                             required=True
                         )
                     ]
