@@ -742,112 +742,39 @@ class AnimatedFilmApplicationBuilder(DPFApplicationBuilder):
                     components=[
                         self.section.application_information_data.production_team_member(
                             title="Kierownik produkcji",
-                            name="productionSupervisor"
+                            name="productionSupervisor",
+                            is_vacant=True,
                         ),
                         self.section.application_information_data.production_team_member(
                             title="Operator obrazu",
-                            name="directorOfPhotography"
+                            name="directorOfPhotography",
+                            is_vacant=True,
                         ),
                         self.section.application_information_data.production_team_member(
                             title="Scenograf",
-                            name="sceneDesigner"
+                            name="sceneDesigner",
+                            is_vacant=True,
                         ),
                         self.section.application_information_data.production_team_member(
                             title="Montażysta",
-                            name="editor"
+                            name="editor",
+                            is_vacant=True,
                         ),
-                        self.create_chapter(
+                        self.section.application_information_data.production_team_member(
                             title="Kompozytor",
-                            components=[
-                                self.create_chapter(
-                                    components=[
-                                        self.create_component(
-                                            component_type="checkbox",
-                                            label="Nie występuje",
-                                            name="composerDoesntApply"
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    visibility_rules=[
-                                        self.visibility_rule.depends_on_value(
-                                            field_name="composerDoesntApply",
-                                            values=[False]
-                                        )
-                                    ],
-                                    components=[
-                                        self.create_chapter(
-                                            components=[
-                                                self.create_component(
-                                                    component_type="checkbox",
-                                                    label="WAKAT",
-                                                    name="composerIsVacant"
-                                                )
-                                            ]
-                                        ),
-                                        self.create_chapter(
-                                            visibility_rules=[
-                                                self.visibility_rule.depends_on_value(
-                                                    field_name="composerIsVacant",
-                                                    values=[
-                                                        False
-                                                    ]
-                                                )
-                                            ],
-                                            multiple_forms_rules={
-                                                "minCount": 1,
-                                                "maxCount": 10,
-                                            },
-                                            components=[
-                                                self.create_chapter(
-                                                    class_list=[
-                                                        "grid",
-                                                        "grid-cols-2"
-                                                    ],
-                                                    components=[
-                                                        self.create_component(
-                                                            component_type="text",
-                                                            label="Imię i nazwisko",
-                                                            name="composerFullname",
-                                                            required=True,
-                                                            class_list=[
-                                                                "col-span-2"
-                                                            ]
-                                                        ),
-                                                        self.create_component(
-                                                            component_type="country",
-                                                            label="Obywatelstwo",
-                                                            name="composerCitizenship",
-                                                            required=True
-                                                        ),
-                                                        self.create_component(
-                                                            component_type="select",
-                                                            label="Płeć",
-                                                            name="composerSex",
-                                                            options=[
-                                                                "Mężczyzna",
-                                                                "Kobieta",
-                                                                "Inna"
-                                                            ],
-                                                            required=True
-                                                        )
-                                                    ]
-                                                )
-                                            ]
-                                        )
-                                    ]
-                                )
-                            ]
+                            name="composer",
+                            is_vacant=True,
+                            is_not_applicable=True
                         ),
                         self.section.application_information_data.production_team_member(
                             title="Autor opracowania plastycznego",
-                            name="animationDesigner"
+                            name="animationDesigner",
+                            is_vacant=True,
                         ),
                         self.section.application_information_data.production_team_member(
                             title="Dodatkowi członkowie ekipy realizacyjnej",
                             name="additionalCrew",
-                            is_multi=True,
-                            is_vacant=False
+                            is_multi=True
                         ),
                     ]
                 )

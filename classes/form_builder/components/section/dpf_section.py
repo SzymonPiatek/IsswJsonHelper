@@ -1902,28 +1902,82 @@ class ApplicationInformationData(FormBuilderBase):
             ]
         )
 
-    def production_team_member(self, title: str, name: str, is_multi: bool = False, is_vacant: bool = True):
-        return self.create_chapter(
+    def production_team_member(self, title: str, name: str, is_multi: bool = False, is_vacant: bool = False, is_not_applicable: bool = False):
+        visibility_rules = []
+
+        main_chapter = self.create_chapter(
             title=title,
-            components=[
+        )
+
+        visibility_chapter = self.create_chapter(
+            class_list={
+                "main": [
+                    "table-1-2",
+                    "grid",
+                    "grid-cols-2"
+                ],
+                "sub": [
+                    "table-1-2__col"
+                ]
+            },
+        )
+
+        if is_not_applicable:
+            visibility_chapter["components"].append(
                 self.create_chapter(
                     components=[
                         self.create_component(
                             component_type="checkbox",
-                            label="WAKAT" if is_vacant else "Nie dotyczy",
-                            name=f"{name}IsVacant" if is_vacant else f"{name}NotApplicable"
+                            label="Nie dotyczy",
+                            name=f"{name}DoesntApply"
                         )
                     ]
-                ),
+                )
+            )
+            visibility_rules.append(
+                self.visibility_rule.depends_on_value(
+                    field_name=f"{name}DoesntApply",
+                    values=[
+                        False
+                    ]
+                )
+            )
+
+        if is_vacant:
+            visibility_chapter["components"].append(
                 self.create_chapter(
                     visibility_rules=[
                         self.visibility_rule.depends_on_value(
-                            field_name=f"{name}IsVacant" if is_vacant else f"{name}NotApplicable",
-                            values=[
-                                False
-                            ]
+                            field_name=f"{name}DoesntApply",
+                            values=[False]
                         )
-                    ],
+                    ] if is_not_applicable else [],
+                    components=[
+                        self.create_component(
+                            component_type="checkbox",
+                            label="WAKAT",
+                            name=f"{name}IsVacant"
+                        )
+                    ]
+                )
+            )
+            visibility_rules.append(
+                self.visibility_rule.depends_on_value(
+                    field_name=f"{name}IsVacant",
+                    values=[
+                        False
+                    ]
+                )
+            )
+
+        if is_vacant or is_not_applicable:
+            main_chapter["components"].append(visibility_chapter)
+
+        return self.create_chapter(
+            title=title,
+            components=[
+                self.create_chapter(
+                    visibility_rules=visibility_rules,
                     multiple_forms_rules={
                         "minCount": 1,
                         "maxCount": 10

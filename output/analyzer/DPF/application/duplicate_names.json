@@ -1,7 +1,7 @@
 {
   "__summary__": {
-    "total_duplicates": 555,
-    "total_unchecked": 555
+    "total_duplicates": 548,
+    "total_unchecked": 548
   },
   "__ignored_names__": [],
   "sessionYear": {
@@ -1214,10 +1214,15 @@
   },
   "fullLengthLong": {
     "isChecked": false,
-    "filesCount": 2,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "isFirstExploitedInCinemas": {
@@ -1234,11 +1239,14 @@
   },
   "exploitationFieldNotCinema": {
     "isChecked": false,
-    "filesCount": 3,
+    "filesCount": 6,
     "files": [
       "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "isDifficultPiece": {
@@ -1293,8 +1301,10 @@
   },
   "masterCopyMedium": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
+      "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
@@ -1304,8 +1314,9 @@
   },
   "digitalMediumFormat": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 6,
     "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
@@ -1328,8 +1339,9 @@
   },
   "distributor": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 6,
     "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
@@ -1404,8 +1416,9 @@
   },
   "adaptationRightsContract": {
     "isChecked": false,
-    "filesCount": 6,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
       "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
@@ -1439,7 +1452,28 @@
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
+  "tagsKetWords": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
   "movieScreenplayAttachmentDoc": {
+    "isChecked": false,
+    "filesCount": 3,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "tagsKetWordsDoc": {
     "isChecked": false,
     "filesCount": 3,
     "files": [
@@ -1450,17 +1484,20 @@
   },
   "seriesScreenplayAttachmentAdditional": {
     "isChecked": false,
-    "filesCount": 2,
+    "filesCount": 6,
     "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "tagsKeyWords": {
     "isChecked": false,
-    "filesCount": 7,
+    "filesCount": 6,
     "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
       "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
@@ -1471,10 +1508,15 @@
   },
   "screenwriterFullName": {
     "isChecked": false,
-    "filesCount": 2,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "screenwriterCitizenship": {
@@ -1492,10 +1534,15 @@
   },
   "screenwriterSex": {
     "isChecked": false,
-    "filesCount": 2,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "screenwriterRightsShare": {
@@ -1513,8 +1560,9 @@
   },
   "screenplayRightsContract": {
     "isChecked": false,
-    "filesCount": 6,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
       "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
@@ -1525,8 +1573,9 @@
   },
   "screenplayRightsContractType": {
     "isChecked": false,
-    "filesCount": 6,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
       "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
@@ -1537,8 +1586,9 @@
   },
   "scriptwriterPaymentConfirmation": {
     "isChecked": false,
-    "filesCount": 6,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
       "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
@@ -1562,10 +1612,15 @@
   },
   "directorFullName": {
     "isChecked": false,
-    "filesCount": 2,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "directorCitizenship": {
@@ -1765,8 +1820,9 @@
   },
   "directorExplanation": {
     "isChecked": false,
-    "filesCount": 6,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
       "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
@@ -1777,8 +1833,10 @@
   },
   "directorsStatementOtherFilm": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
+      "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
@@ -1788,8 +1846,10 @@
   },
   "otherProjectsTitlesOfDirector": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
+      "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
@@ -1799,8 +1859,10 @@
   },
   "availabilityStatementCompletion": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
+      "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
@@ -1918,10 +1980,14 @@
   },
   "coproducerDoesntApply": {
     "isChecked": false,
-    "filesCount": 2,
+    "filesCount": 6,
     "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "coproducerFullname": {
@@ -1998,10 +2064,14 @@
   },
   "coproducerJst": {
     "isChecked": false,
-    "filesCount": 2,
+    "filesCount": 6,
     "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "coproducerLocation": {
@@ -2030,26 +2100,38 @@
   },
   "coproducerHouseNum": {
     "isChecked": false,
-    "filesCount": 2,
+    "filesCount": 6,
     "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "coproducerApartmentNum": {
     "isChecked": false,
-    "filesCount": 2,
+    "filesCount": 6,
     "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "coproducerZipCode": {
     "isChecked": false,
-    "filesCount": 2,
+    "filesCount": 6,
     "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "coproducerPostOffice": {
@@ -2066,10 +2148,14 @@
   },
   "coproducerPhoneNum": {
     "isChecked": false,
-    "filesCount": 2,
+    "filesCount": 6,
     "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "coproducerEmail": {
@@ -2122,42 +2208,62 @@
   },
   "coproducerForeignHouseNum": {
     "isChecked": false,
-    "filesCount": 2,
+    "filesCount": 6,
     "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "coproducerForeignApartmentNum": {
     "isChecked": false,
-    "filesCount": 2,
+    "filesCount": 6,
     "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "coproducerForeignZipCode": {
     "isChecked": false,
-    "filesCount": 2,
+    "filesCount": 6,
     "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "coproducerForeignPostOffice": {
     "isChecked": false,
-    "filesCount": 2,
+    "filesCount": 6,
     "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "coproducerForeignPhoneNum": {
     "isChecked": false,
-    "filesCount": 2,
+    "filesCount": 6,
     "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "coproducerForeignEmail": {
@@ -2173,18 +2279,6 @@
     ]
   },
   "coproducerBodyOfWork": {
-    "isChecked": false,
-    "filesCount": 6,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "productionSupervisorIsVacant": {
     "isChecked": false,
     "filesCount": 6,
     "files": [
@@ -2232,17 +2326,6 @@
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
-  "directorOfPhotographyIsVacant": {
-    "isChecked": false,
-    "filesCount": 5,
-    "files": [
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
   "directorOfPhotographyFullname": {
     "isChecked": false,
     "filesCount": 5,
@@ -2266,17 +2349,6 @@
     ]
   },
   "directorOfPhotographySex": {
-    "isChecked": false,
-    "filesCount": 5,
-    "files": [
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "sceneDesignerIsVacant": {
     "isChecked": false,
     "filesCount": 5,
     "files": [
@@ -2320,17 +2392,6 @@
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
-  "editorIsVacant": {
-    "isChecked": false,
-    "filesCount": 5,
-    "files": [
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
   "editorFullname": {
     "isChecked": false,
     "filesCount": 5,
@@ -2354,26 +2415,6 @@
     ]
   },
   "editorSex": {
-    "isChecked": false,
-    "filesCount": 5,
-    "files": [
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "composerDoesntApply": {
-    "isChecked": false,
-    "filesCount": 3,
-    "files": [
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "composerIsVacant": {
     "isChecked": false,
     "filesCount": 5,
     "files": [
@@ -2417,16 +2458,6 @@
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
-  "animationDesignerIsVacant": {
-    "isChecked": false,
-    "filesCount": 4,
-    "files": [
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
   "animationDesignerFullname": {
     "isChecked": false,
     "filesCount": 4,
@@ -2451,18 +2482,6 @@
     "isChecked": false,
     "filesCount": 4,
     "files": [
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "additionalCrewNotApplicable": {
-    "isChecked": false,
-    "filesCount": 6,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
       "output/json/DPF/application/po1_pr6_application_2025.json",
@@ -2565,6 +2584,166 @@
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
+  "minorityCoproductionAtLeastOneDirectorFab": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastOneScreenwriterFab": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastOneLeadingActorFab": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastOneDirectorOfPhotographyFab": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastOneSceneDirectorFab": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastOneEditorFab": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastOneComposerFab": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastThreeVfxSupervisorFab": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastThreeMakeupArtistFab": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastThreeCostumeDesignerFab": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastThreeSoundDesignerFab": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastThreeSupportingActorFab": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastThreeSupportingActorsFab": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastOneDirectorAni": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastOneScreenwriterAni": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastOneEditorAni": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastOneComposerAni": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastOneAnimatorAni": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastOnePolishStoryboardCreatorAni": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastOnePolishAnimationDesignerAni": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
   "minorityCoproductionAtLeastOneDirectorDoc": {
     "isChecked": false,
     "filesCount": 2,
@@ -2598,6 +2777,30 @@
     ]
   },
   "minorityCoproductionAtLeastOneComposerDoc": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastOnePolishMaterialsFromArchivesDoc": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastOnePolishHeroTakePartDoc": {
+    "isChecked": false,
+    "filesCount": 2,
+    "files": [
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json"
+    ]
+  },
+  "minorityCoproductionAtLeastOneDominantTopicOfPolandDoc": {
     "isChecked": false,
     "filesCount": 2,
     "files": [
@@ -5988,217 +6191,20 @@
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
-  "fullLength": {
-    "isChecked": false,
-    "filesCount": 3,
-    "files": [
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "movieScreenplayAttachmentExplanationDoc": {
+  "fullLengthMedium": {
     "isChecked": false,
     "filesCount": 2,
     "files": [
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json"
     ]
   },
-  "tagsKeyWordsDoc": {
+  "fullLengthShort": {
     "isChecked": false,
     "filesCount": 2,
     "files": [
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "screenwriterFullname": {
-    "isChecked": false,
-    "filesCount": 5,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
       "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "screenwriter-sex": {
-    "isChecked": false,
-    "filesCount": 5,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "directorFullname": {
-    "isChecked": false,
-    "filesCount": 5,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "hasDirectorFullyGraduatedAni": {
-    "isChecked": false,
-    "filesCount": 3,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "notApplicableDebutingDirectorStatement": {
-    "isChecked": false,
-    "filesCount": 3,
-    "files": [
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "debutingDirectorStatement": {
-    "isChecked": false,
-    "filesCount": 3,
-    "files": [
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "coproducersDoesntApply": {
-    "isChecked": false,
-    "filesCount": 4,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "coproducerHouseNumber": {
-    "isChecked": false,
-    "filesCount": 4,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "coproducerApartmentNumber": {
-    "isChecked": false,
-    "filesCount": 4,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "coproducerZipcode": {
-    "isChecked": false,
-    "filesCount": 4,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "coproducerPhone": {
-    "isChecked": false,
-    "filesCount": 4,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "coproducerForeignCountry": {
-    "isChecked": false,
-    "filesCount": 4,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "coproducerForeignHouseNumber": {
-    "isChecked": false,
-    "filesCount": 4,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "coproducerForeignApartmentNumber": {
-    "isChecked": false,
-    "filesCount": 4,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "coproducerForeignZipcode": {
-    "isChecked": false,
-    "filesCount": 4,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "coproducerForeignPhone": {
-    "isChecked": false,
-    "filesCount": 4,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "additionalCrewFunction": {
-    "isChecked": false,
-    "filesCount": 4,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "protagonistDoesntApply": {
-    "isChecked": false,
-    "filesCount": 3,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "leadingActorDoesntApply": {
-    "isChecked": false,
-    "filesCount": 3,
-    "files": [
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
+      "output/json/DPF/application/po1_pr5_application_2025.json"
     ]
   },
   "numberOfEpisodes": {
@@ -6227,43 +6233,10 @@
   },
   "targetGroup": {
     "isChecked": false,
-    "filesCount": 3,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "movieScreenplayAttachmentSeries": {
-    "isChecked": false,
     "filesCount": 2,
     "files": [
       "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json"
-    ]
-  },
-  "screenwriterResume": {
-    "isChecked": false,
-    "filesCount": 2,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
-      "output/json/DPF/application/po1_pr2_application_2025.json"
-    ]
-  },
-  "screenwriterResumeAttachment": {
-    "isChecked": false,
-    "filesCount": 2,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
-      "output/json/DPF/application/po1_pr2_application_2025.json"
-    ]
-  },
-  "directorVacat": {
-    "isChecked": false,
-    "filesCount": 2,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
-      "output/json/DPF/application/po1_pr2_application_2025.json"
     ]
   },
   "ownFundsTotalShareToRequestedAmount": {

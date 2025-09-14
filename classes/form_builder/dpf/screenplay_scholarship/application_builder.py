@@ -264,3 +264,274 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         )
 
         self.save_part(part=part)
+
+    def create_application_information_data(self):
+        part = self.create_part(
+            title="III. Informacje o przedsięwzięciu",
+            short_name="III. Informacje",
+            chapters=[
+                self.create_chapter(
+                    title="A. Charakterystyka przedsięwzięcia",
+                    components=[
+                        # Długość filmu
+                        self.create_chapter(
+                            components=[
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="radio",
+                                            name="eventMovieDuration",
+                                            label="Metraż",
+                                            options=[
+                                                "pełnometrażowy",
+                                            ],
+                                            required=True
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="eventMovieDuration",
+                                            values=["pełnometrażowy"]
+                                        )
+                                    ],
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            unit="min.",
+                                            label="Liczba minut",
+                                            name="fullLengthLong",
+                                            help_text="Minimalna liczba minut dla wybranego metrażu to 71.",
+                                            validators=[
+                                                self.validator.range_validator(min_value=71)
+                                            ],
+                                            required=True
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            components=[
+                                self.create_chapter(
+                                    class_list=[
+                                        "grid",
+                                        "grid-cols-2"
+                                    ],
+                                    components=[
+                                        self.create_component(
+                                            component_type="select",
+                                            label="Cel realizacji przedsięwzięcia",
+                                            name="projectGoal",
+                                            options=[
+                                                "artystyczny",
+                                                "edukacyjny",
+                                                "historyczny"
+                                            ],
+                                            required=True,
+                                        ),
+                                        self.create_component(
+                                            component_type="select",
+                                            label="Gatunek filmu",
+                                            name="movieGenre",
+                                            options=[
+                                                "Dramat",
+                                                "Komedia",
+                                                "Horror",
+                                                "Thriller",
+                                                "Przygodowy",
+                                                "Familijny",
+                                                "Akcji",
+                                                "Wojenny",
+                                                "Biograficzny",
+                                                "Historyczny",
+                                                "Sensacyjny",
+                                                "Fantastyczny",
+                                                "Kostiumowy",
+                                                "Western",
+                                                "Film noir",
+                                                "Anime",
+                                                "Inny"
+                                            ],
+                                            required=True,
+                                        ),
+                                        self.create_component(
+                                            component_type="select",
+                                            label="Nośnik kopii wzorcowej",
+                                            name="masterCopyMedium",
+                                            options=[
+                                                "taśma 35 mm",
+                                                "cyfrowy"
+                                            ],
+                                            required=True,
+                                            class_list=[
+                                                "col-span-2"
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            components=[
+                                self.create_chapter(
+                                    class_list=[
+                                        'grid',
+                                        'grid-cols-2'
+                                    ],
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Główna wersja językowa",
+                                            name="mainLanguage",
+                                            validators=[
+                                                self.validator.length_validator(max_value=200)
+                                            ],
+                                            required=True
+                                        ),
+                                        self.create_component(
+                                            component_type="textarea",
+                                            label="Przyznane nagrody (jeśli dotyczy)",
+                                            name="receivedAwards",
+                                            validators=[
+                                                self.validator.length_validator(max_value=5400)
+                                            ],
+                                        ),
+                                        self.create_component(
+                                            component_type="textarea",
+                                            label="Dodatkowe informacje o przedsięwzięciu",
+                                            name="additionalInfo",
+                                            validators=[
+                                                self.validator.length_validator(max_value=5400)
+                                            ],
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="B. Scenariusz",
+                    components=[
+                        self.create_chapter(
+                            components=[
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="radio",
+                                            label="Typ scenariusza",
+                                            name="screenplayType",
+                                            options=[
+                                                "oryginalny",
+                                                "adaptowany"
+                                            ],
+                                            required=True,
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="screenplayType",
+                                            values=["adaptowany"]
+                                        )
+                                    ],
+                                    class_list=[
+                                        "grid",
+                                        "grid-cols-2"
+                                    ],
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Tytuł utworu adaptowanego",
+                                            name="adaptedWorkTitle",
+                                            required=True,
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Autor/Autorzy utworu adaptowanego",
+                                            name="adaptedWorkAuthor",
+                                            required=True,
+                                        ),
+                                        self.create_component(
+                                            component_type="file",
+                                            label="Umowa nabycia autorskich praw majątkowych do utworu pierwotnego lub odpowiednia umowa opcji (jeśli dotyczy) wraz z potwierdzeniem uiszczenia opłaty",
+                                            name="adaptationRightsContract",
+                                            required=True,
+                                            class_list=[
+                                                "col-span-2"
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            label="Streszczenie",
+                                            name="screenplaySynopsis",
+                                            validators=[
+                                                self.validator.length_validator(
+                                                    max_value=5400
+                                                )
+                                            ],
+                                            class_list=[
+                                                "full-width"
+                                            ],
+                                            required=True
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            components=[
+                                self.create_chapter(
+                                    title="Treatment",
+                                    components=[
+                                        self.create_chapter(
+                                            multiple_forms_rules={
+                                                "minCount": 1,
+                                                "maxCount": 10
+                                            },
+                                            components=[
+                                                self.create_chapter(
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="file",
+                                                            name="treatmentAttachment",
+                                                            required=True,
+                                                        )
+                                                    ]
+                                                )
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            components=[
+                                                self.create_component(
+                                                    component_type="textarea",
+                                                    label="Tagi/Słowa klucze",
+                                                    name="tagsKetWords",
+                                                    help_text="Wprowadź wartości oddzielone przecinkiem.",
+                                                    validators=[
+                                                        self.validator.length_validator(
+                                                            max_value=1000
+                                                        )
+                                                    ]
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                    ]
+                ),
+                self.section.application_information_data.screenwriter(number="C"),
+                self.section.application_information_data.director(number="D"),
+            ]
+        )
+
+        self.save_part(part=part)

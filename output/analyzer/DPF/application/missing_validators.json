@@ -1,7 +1,7 @@
 {
   "__summary__": {
-    "total_missing_required_validators": 32,
-    "total_unchecked": 32
+    "total_missing_required_validators": 27,
+    "total_unchecked": 27
   },
   "__ignored_names__": [],
   "scriptScholarshipComments": {
@@ -49,56 +49,11 @@
       "Length validator"
     ]
   },
-  "directorResumeAttachment": {
-    "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "name": "directorResumeAttachment",
-    "type": "file",
-    "missing": [
-      "Any required validator"
-    ]
-  },
-  "periodOfShootingEditingDeclaration": {
-    "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr4_application_2025.json",
-    "name": "periodOfShootingEditingDeclaration",
-    "type": "checkbox",
-    "missing": [
-      "Any required validator"
-    ]
-  },
-  "periodOfShootingAnimatingDeclaration": {
-    "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr4_application_2025.json",
-    "name": "periodOfShootingAnimatingDeclaration",
-    "type": "checkbox",
-    "missing": [
-      "Any required validator"
-    ]
-  },
   "registrationAuthority": {
     "isChecked": false,
     "file": "output/json/DPF/application/po1_pr5_application_2025.json",
     "name": "registrationAuthority",
     "type": "text",
-    "missing": [
-      "Any required validator"
-    ]
-  },
-  "individualProducerFullname": {
-    "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr2_application_2025.json",
-    "name": "individualProducerFullname",
-    "type": "text",
-    "missing": [
-      "Any required validator"
-    ]
-  },
-  "individualProducerCitizenship": {
-    "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr2_application_2025.json",
-    "name": "individualProducerCitizenship",
-    "type": "country",
     "missing": [
       "Any required validator"
     ]
