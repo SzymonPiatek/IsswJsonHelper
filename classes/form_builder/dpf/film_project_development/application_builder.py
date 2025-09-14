@@ -10,9 +10,7 @@ class FilmProjectDevelopmentApplicationBuilder(DPFApplicationBuilder):
         super().__init__()
 
         self.priority_data_path = self.department_data_path / 'film_project_development'
-
-    def create_application_metadata(self, task_type: str = 'Przygotowania projektów filmowych'):
-        DPFApplicationBuilder.create_application_metadata(self, task_type)
+        self.task_type = "Przygotowania projektów filmowych"
 
     def create_application_basic_data(self):
         part = self.create_part(

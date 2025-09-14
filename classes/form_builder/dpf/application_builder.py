@@ -17,7 +17,9 @@ class DPFApplicationBuilder(ApplicationBuilder):
         self.section = DPFSection()
         self.component = DPFComponent()
 
-    def create_application_metadata(self, task_type: str):
+        self.task_type = "Produkcja filmowa"
+
+    def create_application_metadata(self):
         part = self.create_part(
             title="Wniosek o dofinansowanie w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej",
             short_name="Metadane wniosku",
@@ -62,7 +64,7 @@ class DPFApplicationBuilder(ApplicationBuilder):
                         self.create_component(
                             component_type="text",
                             name="taskType",
-                            value=task_type,
+                            value=self.task_type,
                             read_only=True
                         )
                     ]
@@ -134,7 +136,7 @@ class DPFApplicationBuilder(ApplicationBuilder):
         self.create_application_base()
 
         # Metadane wniosku
-        self.create_application_metadata(task_type='Produkcja filmowa')
+        self.create_application_metadata()
 
         # I. Dane podstawowe
         self.create_application_basic_data()

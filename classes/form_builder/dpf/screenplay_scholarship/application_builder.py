@@ -9,10 +9,8 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
     def __init__(self):
         super().__init__()
 
+        self.task_type = "Stypendium scenariuszowe"
         self.priority_data_path = self.department_data_path / 'screenplay_scholarship'
-
-    def create_application_metadata(self, task_type: str = 'Stypendium scenariuszowe'):
-        DPFApplicationBuilder.create_application_metadata(self, task_type)
 
     def create_application_basic_data(self):
         part = self.create_part(
