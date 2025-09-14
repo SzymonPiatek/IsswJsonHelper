@@ -121,7 +121,7 @@ def main():
             base_dir=f"./output/json/{department}/application",
             output_path=f"./output/analyzer/{department}/application",
             file_name="many_validators",
-            validators_num=2
+            validators_num=3
         )
 
 

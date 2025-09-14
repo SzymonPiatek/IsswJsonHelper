@@ -80,9 +80,9 @@ class DPFApplicationBuilder(ApplicationBuilder):
         part = self.load_json(path=self.priority_data_path / '_pages' / 'application_applicant_data.json')
         self.save_part(part=part)
 
+    @not_implemented_func
     def create_application_information_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_information_data.json')
-        self.save_part(part=part)
+        pass
 
     def create_application_completion_date_data(self, **kwargs):
         part = self.load_json(path=self.priority_data_path / '_pages' / 'application_completion_date_data.json')
@@ -96,9 +96,9 @@ class DPFApplicationBuilder(ApplicationBuilder):
         part = self.load_json(path=self.priority_data_path / '_pages' / 'application_additional_data.json')
         self.save_part(part=part)
 
+    @not_implemented_func
     def create_application_attachments(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_attachments.json')
-        self.save_part(part=part)
+        pass
 
     def create_application_statements(self):
         part = self.create_part(

@@ -782,3 +782,297 @@ class AnimatedFilmApplicationBuilder(DPFApplicationBuilder):
         )
 
         self.save_part(part=part)
+
+    def application_completion_date_data(self):
+        part = self.create_part(
+            title="IV. Termin realizacji przedsięwzięcia",
+            short_name="IV. Termin realizacji",
+            chapters=[
+                self.create_chapter(
+                    title="Harmonogram produkcji filmowej",
+                    components=[
+                        self.create_chapter(
+                            title="Okres wstępny (jeśli dotyczy)",
+                            class_list={
+                                "main": [
+                                    "dates",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "dates-item"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin od",
+                                    name="scheduleInitialPeriodStart",
+                                    validators=[
+                                        self.validator.related_date_lte_validator(
+                                            field_name="scheduleInitialPeriodEnd",
+                                            message="Termin rozpoczęcia działania musi być wcześniejszy niż termin jego zakończenia."
+                                        )
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="scheduleInitialPeriodEnd",
+                                    validators=[
+                                        self.validator.related_date_gte_validator(
+                                            field_name="scheduleInitialPeriodStart",
+                                            message="Termin zakończenia działania musi być późniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Okres przygotowawczy",
+                            class_list={
+                                "main": [
+                                    "dates",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "dates-item"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin od",
+                                    name="schedulePrepPeriodStart",
+                                    validators=[
+                                        self.validator.related_date_lte_validator(
+                                            field_name="schedulePrepPeriodEnd",
+                                            message="Termin rozpoczęcia działania musi być wcześniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ],
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="schedulePrepPeriodEnd",
+                                    validators=[
+                                        self.validator.related_date_gte_validator(
+                                            field_name="schedulePrepPeriodStart",
+                                            message="Termin zakończenia działania musi być późniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Okres animacji",
+                            class_list={
+                                "main": [
+                                    "dates",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "dates-item"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin od",
+                                    name="scheduleAnimationPeriodStart",
+                                    calculation_rules=[
+                                        self.calculation_rule.relate_to_last_date(
+                                            field="schedulePrepPeriodEnd",
+                                            parameter=1
+                                        )
+                                    ],
+                                    read_only=True,
+                                    validators=[
+                                        self.validator.related_date_lte_validator(
+                                            field_name="scheduleAnimationPeriodEnd",
+                                            message="Termin rozpoczęcia działania musi być wcześniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ],
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="scheduleAnimationPeriodEnd",
+                                    validators=[
+                                        self.validator.related_date_gte_validator(
+                                            field_name="scheduleAnimationPeriodStart",
+                                            message="Termin zakończenia działania musi być późniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Okres obróbki cyfrowej obrazu i udźwiękowienia",
+                            class_list={
+                                "main": [
+                                    "dates",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "dates-item"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin od",
+                                    name="schedulePostProdPeriodStart",
+                                    calculation_rules=[
+                                        self.calculation_rule.relate_to_last_date(
+                                            field="scheduleAnimationPeriodEnd",
+                                            parameter=1
+                                        )
+                                    ],
+                                    read_only=True,
+                                    validators=[
+                                        self.validator.related_date_lte_validator(
+                                            field_name="schedulePostProdPeriodEnd",
+                                            message="Termin rozpoczęcia działania musi być wcześniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ],
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="schedulePostProdPeriodEnd",
+                                    validators=[
+                                        self.validator.related_date_gte_validator(
+                                            field_name="schedulePostProdPeriodStart",
+                                            message="Termin zakończenia działania musi być późniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Okres prac końcowych (w tym wykonanie kopii wzorcowej)",
+                            class_list={
+                                "main": [
+                                    "dates",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "dates-item"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin od",
+                                    name="scheduleFinalWorksPeriodStart",
+                                    calculation_rules=[
+                                        self.calculation_rule.relate_to_last_date(
+                                            field="schedulePostProdPeriodEnd",
+                                            parameter=1
+                                        )
+                                    ],
+                                    read_only=True,
+                                    validators=[
+                                        self.validator.related_date_lte_validator(
+                                            field_name="scheduleFinalWorksPeriodEnd",
+                                            message="Termin rozpoczęcia działania musi być wcześniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ],
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="scheduleFinalWorksPeriodEnd",
+                                    validators=[
+                                        self.validator.related_date_gte_validator(
+                                            field_name="scheduleFinalWorksPeriodStart",
+                                            message="Termin zakończenia działania musi być późniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                    ]
+                ),
+                self.create_chapter(
+                    title="Dni zdjęciowe",
+                    class_list=[
+                        "grid",
+                        "grid-cols-2"
+                    ],
+                    components=[
+                        self.create_component(
+                            component_type="number",
+                            label="Łączna liczba dni zdjęciowych",
+                            name="scheduleShootingDaysAll",
+                            required=True
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            label="Liczba dni zdjęciowych na terenie Polski",
+                            name="scheduleShootingDaysPoland",
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Planowany termin wykonania kopii wzorcowej",
+                    class_list=[
+                        "grid",
+                        "grid-cols-2"
+                    ],
+                    components=[
+                        self.create_component(
+                            component_type="date",
+                            name="scheduleFinalCopyDate",
+                            validators=[
+                                self.validator.related_date_gte_validator(
+                                    field_name="scheduleFinalWorksPeriodStart",
+                                    message="Wykonanie kopii wzorcowej nie może odbyć się wcześniej niż data początku prac końcowych."
+                                ),
+                                self.validator.related_date_lte_validator(
+                                    field_name="scheduleFinalWorksPeriodEnd",
+                                    message="Wykonanie kopii wzorcowej nie może odbyć się później niż data zakończenia prac końcowych."
+                                )
+                            ],
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Planowany termin wprowadzenia filmu do obrotu (premiera/eksploatacja)",
+                    class_list=[
+                        "grid",
+                        "grid-cols-2"
+                    ],
+                    components=[
+                        self.create_component(
+                            component_type="date",
+                            name="schedulePremiereDate",
+                            validators=[
+                                self.validator.related_date_gte_validator(
+                                    field_name="scheduleFinalCopyDate",
+                                    message="Planowany termin wprowadzenia filmu do obrotu musi nastąpić po planowanym terminie wykonania kopii wzorcowej."
+                                )
+                            ],
+                            required=True
+                        )
+                    ]
+                )
+            ]
+        )
+
+        self.save_part(part=part)

@@ -1,7 +1,7 @@
 {
   "__summary__": {
-    "total_missing_required_validators": 27,
-    "total_unchecked": 27
+    "total_missing_required_validators": 23,
+    "total_unchecked": 23
   },
   "__ignored_names__": [],
   "scriptScholarshipComments": {
@@ -63,42 +63,6 @@
     "file": "output/json/DPF/application/po1_pr1_application_2025.json",
     "name": "isProjectRatedInPISF",
     "type": "select",
-    "missing": [
-      "Any required validator"
-    ]
-  },
-  "scheduleShootingDaysAll": {
-    "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleShootingDaysAll",
-    "type": "number",
-    "missing": [
-      "Any required validator"
-    ]
-  },
-  "scheduleShootingDaysPoland": {
-    "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleShootingDaysPoland",
-    "type": "number",
-    "missing": [
-      "Any required validator"
-    ]
-  },
-  "scheduleFinalCopyDate": {
-    "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "scheduleFinalCopyDate",
-    "type": "date",
-    "missing": [
-      "Any required validator"
-    ]
-  },
-  "schedulePremiereDate": {
-    "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "schedulePremiereDate",
-    "type": "date",
     "missing": [
       "Any required validator"
     ]

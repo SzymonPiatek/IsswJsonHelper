@@ -1,35 +1,7 @@
 {
   "__summary__": {
-    "total_many_validators": 4,
-    "total_unchecked": 4
+    "total_many_validators": 0,
+    "total_unchecked": 0
   },
-  "__ignored_names__": [],
-  "scheduleFinalCopyDate": {
-    "isChecked": false,
-    "name": "scheduleFinalCopyDate",
-    "file": "output/json/DPF/application/po1_pr3_application_2025.json",
-    "type": "date",
-    "validatorsCount": 3
-  },
-  "eventMovieDuration": {
-    "isChecked": false,
-    "name": "eventMovieDuration",
-    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "type": "radio",
-    "validatorsCount": 3
-  },
-  "activityScheduleEndProject": {
-    "isChecked": false,
-    "name": "activityScheduleEndProject",
-    "file": "output/json/DPF/application/po1_pr2_application_2025.json",
-    "type": "date",
-    "validatorsCount": 3
-  },
-  "activityScheduleEnd": {
-    "isChecked": false,
-    "name": "activityScheduleEnd",
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
-    "type": "date",
-    "validatorsCount": 3
-  }
+  "__ignored_names__": []
 }

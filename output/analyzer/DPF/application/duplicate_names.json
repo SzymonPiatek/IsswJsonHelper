@@ -1,268 +1,31 @@
 {
   "__summary__": {
-    "total_duplicates": 548,
-    "total_unchecked": 548
+    "total_duplicates": 527,
+    "total_unchecked": 527
   },
-  "__ignored_names__": [],
-  "sessionYear": {
-    "isChecked": false,
-    "filesCount": 7,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "programName": {
-    "isChecked": false,
-    "filesCount": 7,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "priorityName": {
-    "isChecked": false,
-    "filesCount": 7,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "taskType": {
-    "isChecked": false,
-    "filesCount": 7,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "scopeOfProject": {
-    "isChecked": false,
-    "filesCount": 7,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "scopeOfProjectKind": {
-    "isChecked": false,
-    "filesCount": 6,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "movieKind": {
-    "isChecked": false,
-    "filesCount": 7,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "movieSubject": {
-    "isChecked": false,
-    "filesCount": 7,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "pieceTitle": {
-    "isChecked": false,
-    "filesCount": 7,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "shortMovieDescription": {
-    "isChecked": false,
-    "filesCount": 7,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "categoryOfProject": {
-    "isChecked": false,
-    "filesCount": 6,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "movieRights": {
-    "isChecked": false,
-    "filesCount": 6,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "coproductionCountries": {
-    "isChecked": false,
-    "filesCount": 6,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "coproductionKind": {
-    "isChecked": false,
-    "filesCount": 2,
-    "files": [
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
-    ]
-  },
-  "applicationRelates": {
-    "isChecked": false,
-    "filesCount": 7,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "kindOfSupport": {
-    "isChecked": false,
-    "filesCount": 7,
-    "files": [
-      "output/json/DPF/application/po1_pr1_application_2025.json",
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "methodOfSecuringTheLoan": {
-    "isChecked": false,
-    "filesCount": 6,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "proposedLoanPaymentInstallments": {
-    "isChecked": false,
-    "filesCount": 6,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "subjectOfObligation": {
-    "isChecked": false,
-    "filesCount": 6,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "amountAndPeriodOfGuarantee": {
-    "isChecked": false,
-    "filesCount": 6,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "securityOfGuarantee": {
-    "isChecked": false,
-    "filesCount": 6,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
+  "__ignored_names__": [
+    "amountAndPeriodOfGuarantee",
+    "applicationRelates",
+    "categoryOfProject",
+    "coproductionCountries",
+    "coproductionKind",
+    "kindOfSupport",
+    "methodOfSecuringTheLoan",
+    "movieKind",
+    "movieRights",
+    "movieSubject",
+    "pieceTitle",
+    "priorityName",
+    "programName",
+    "proposedLoanPaymentInstallments",
+    "scopeOfProject",
+    "scopeOfProjectKind",
+    "securityOfGuarantee",
+    "sessionYear",
+    "shortMovieDescription",
+    "subjectOfObligation",
+    "taskType"
+  ],
   "applicantName": {
     "isChecked": false,
     "filesCount": 6,
@@ -2810,44 +2573,40 @@
   },
   "scheduleInitialPeriodStart": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 4,
     "files": [
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
       "output/json/DPF/application/po1_pr6_application_2025.json",
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "scheduleInitialPeriodEnd": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 4,
     "files": [
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
       "output/json/DPF/application/po1_pr6_application_2025.json",
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "schedulePrepPeriodStart": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 4,
     "files": [
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
       "output/json/DPF/application/po1_pr6_application_2025.json",
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "schedulePrepPeriodEnd": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 4,
     "files": [
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
       "output/json/DPF/application/po1_pr6_application_2025.json",
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
@@ -2874,88 +2633,80 @@
   },
   "schedulePostProdPeriodStart": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 4,
     "files": [
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
       "output/json/DPF/application/po1_pr6_application_2025.json",
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "schedulePostProdPeriodEnd": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 4,
     "files": [
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
       "output/json/DPF/application/po1_pr6_application_2025.json",
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "scheduleFinalWorksPeriodStart": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 4,
     "files": [
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
       "output/json/DPF/application/po1_pr6_application_2025.json",
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "scheduleFinalWorksPeriodEnd": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 4,
     "files": [
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
       "output/json/DPF/application/po1_pr6_application_2025.json",
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "scheduleShootingDaysAll": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 4,
     "files": [
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
       "output/json/DPF/application/po1_pr6_application_2025.json",
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "scheduleShootingDaysPoland": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 4,
     "files": [
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
       "output/json/DPF/application/po1_pr6_application_2025.json",
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "scheduleFinalCopyDate": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 4,
     "files": [
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
       "output/json/DPF/application/po1_pr6_application_2025.json",
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "schedulePremiereDate": {
     "isChecked": false,
-    "filesCount": 5,
+    "filesCount": 4,
     "files": [
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
       "output/json/DPF/application/po1_pr6_application_2025.json",
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
