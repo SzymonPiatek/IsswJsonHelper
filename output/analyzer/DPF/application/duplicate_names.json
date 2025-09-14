@@ -1,7 +1,7 @@
 {
   "__summary__": {
-    "total_duplicates": 528,
-    "total_unchecked": 528
+    "total_duplicates": 527,
+    "total_unchecked": 527
   },
   "__ignored_names__": [
     "amountAndPeriodOfGuarantee",
@@ -2780,10 +2780,13 @@
   },
   "scheduleSecondAutitDate": {
     "isChecked": false,
-    "filesCount": 2,
+    "filesCount": 5,
     "files": [
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json"
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
   "scheduleFinalReportDate": {
@@ -5948,15 +5951,6 @@
       "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr5_application_2025.json",
       "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "scheduleSecondAuditDate": {
-    "isChecked": false,
-    "filesCount": 3,
-    "files": [
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },

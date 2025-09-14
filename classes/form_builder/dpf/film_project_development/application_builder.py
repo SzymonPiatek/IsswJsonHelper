@@ -866,3 +866,76 @@ class FilmProjectDevelopmentApplicationBuilder(DPFApplicationBuilder):
         )
 
         self.save_part(part=part)
+
+    def create_application_completion_date_data(self):
+        part = self.create_part(
+            title="IV. Termin realizacji przedsięwzięcia",
+            short_name="IV. Termin realizacji",
+            chapters=[
+                self.create_chapter(
+                    title="Rozwój projektu filmowego",
+                    components=[
+                        self.create_chapter(
+                            title="Termin realizacji rozwoju projektu do 36 miesięcy",
+                            class_list={
+                                "main": [
+                                    "dates",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "dates-item"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin od",
+                                    name="activityScheduleStartProject",
+                                    validators=[
+                                        self.validator.related_date_lte_validator(
+                                            field_name="activityScheduleEndProject",
+                                            message="Termin rozpoczęcia działania musi być wcześniejszy niż termin jego zakończenia."
+                                        )
+                                    ],
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="activityScheduleEndProject",
+                                    validators=[
+                                        self.validator.related_date_gte_validator(
+                                            field_name="activityScheduleStartProject",
+                                            message="Termin zakończenia działania musi być późniejszy niż termin jego rozpoczęcia."
+                                        ),
+                                        self.validator.related_date_offset_validator(
+                                            field_name="activityScheduleStartProject",
+                                            offset=1095,
+                                            message="Rozwój projektu nie może trwać dłużej niz trzy lata."
+                                        )
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="OBLIGATORYJNE CZYNNOŚCI W PRZYPADKU ZAWARCIA UMOWY O DOFINANSOWANIE",
+                    components=[
+                        self.create_chapter(
+                            title="Akceptacja scenariusza"
+                        ),
+                        self.create_chapter(
+                            title="Raport końcowy po zakończeniu rozwoju projektu filmowego"
+                        ),
+                        self.create_chapter(
+                            title="Wykonanie i udokumentowanie działań obligatoryjnych w ramach rozwoju projektu filmowego wymagane Programem operacyjnym PISF"
+                        )
+                    ]
+                )
+            ]
+        )
+
+        self.save_part(part=part)

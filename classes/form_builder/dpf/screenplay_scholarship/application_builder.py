@@ -100,39 +100,6 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
 
         self.save_part(part)
 
-    def create_application_completion_date_data(self, **kwargs):
-        priority_data_path = self.priority_data_path / '_pages' / 'application_completion_date_data'
-
-        part = self.create_part(
-            title="IV. Termin realizacji",
-            short_name="IV. Termin realizacji",
-            chapters=[
-                self.create_chapter(
-                    title='Stypendium scenariuszowe',
-                ),
-                self.create_chapter(
-                    title='Termin realizacji stypendium scenariuszowego 12 miesięcy od daty podpisania umowy',
-                    components=[
-                        self.load_json(path=priority_data_path / 'activity_schedule.json')
-                    ]
-                ),
-                self.create_chapter(
-                    title='OBLIGATORYJNE CZYNNOŚCI W PRZYPADKU ZAWARCIA UMOWY O DOFINANSOWANIE'
-                ),
-                self.create_chapter(
-                    title='Akceptacja scenariusza'
-                ),
-                self.create_chapter(
-                    title='Raport końcowy'
-                ),
-                self.create_chapter(
-                    title='Wykonanie i udokumentowanie działań obligatoryjnych wymaganych Programem operacyjnym PISF'
-                )
-            ]
-        )
-
-        self.save_part(part)
-
     def create_application_financial_data(self):
         part = self.load_json(path=self.priority_data_path / '_pages' / 'application_financial_data' / 'requested_pisf_support_amount.json')
         self.save_part(part)
@@ -531,6 +498,79 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
                 ),
                 self.section.application_information_data.screenwriter(number="C"),
                 self.section.application_information_data.director(number="D"),
+            ]
+        )
+
+        self.save_part(part=part)
+
+    def create_application_completion_date_data(self):
+        part = self.create_part(
+            title="IV. Termin realizacji przedsięwzięcia",
+            short_name="IV. Termin realizacji",
+            chapters=[
+                self.create_chapter(
+                    title="Stypendium scenariuszowe",
+                    components=[
+                        self.create_chapter(
+                            title="Termin realizacji stypendium scenariuszowego 12 miesięcy od daty podpisania umowy",
+                            class_list={
+                                "main": [
+                                    "dates",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "dates-item"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin od",
+                                    name="activityScheduleStart",
+                                    validators=[
+                                        self.validator.related_date_lte_validator(
+                                            field_name="activityScheduleEnd",
+                                            message="Termin rozpoczęcia działania musi być wcześniejszy niż termin jego zakończenia."
+                                        )
+                                    ],
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="activityScheduleEnd",
+                                    validators=[
+                                        self.validator.related_date_gte_validator(
+                                            field_name="activityScheduleStart",
+                                            message="Termin zakończenia działania musi być późniejszy niż termin jego zakończenia."
+                                        ),
+                                        self.validator.related_date_offset_validator(
+                                            field_name="activityScheduleStart",
+                                            offset=365,
+                                            message="Stypendium scenariuszowe nie może trwać dłużej niz rok."
+                                        )
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="OBLIGATORYJNE CZYNNOŚCI W PRZYPADKU ZAWARCIA UMOWY O DOFINANSOWANIE",
+                    components=[
+                        self.create_chapter(
+                            title="Akceptacja scenariusza"
+                        ),
+                        self.create_chapter(
+                            title="Raport końcowy po zakończeniu rozwoju projektu filmowego"
+                        ),
+                        self.create_chapter(
+                            title="Wykonanie i udokumentowanie działań obligatoryjnych w ramach rozwoju projektu filmowego wymagane Programem operacyjnym PISF"
+                        )
+                    ]
+                )
             ]
         )
 

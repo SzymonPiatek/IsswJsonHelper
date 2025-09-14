@@ -916,3 +916,370 @@ class DocumentaryFilmApplicationBuilder(DPFApplicationBuilder):
         )
 
         self.save_part(part=part)
+
+    def create_application_completion_date_data(self):
+        part = self.create_part(
+            title="IV. Termin realizacji przedsięwzięcia",
+            short_name="IV. Termin realizacji",
+            chapters=[
+                self.create_chapter(
+                    title="Harmonogram produkcji filmowej",
+                    components=[
+                        self.create_chapter(
+                            title="Okres wstępny (jeśli dotyczy)",
+                            class_list={
+                                "main": [
+                                    "dates",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "dates-item"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin od",
+                                    name="scheduleInitialPeriodStart",
+                                    validators=[
+                                        self.validator.related_date_lte_validator(
+                                            field_name="scheduleInitialPeriodEnd",
+                                            message="Termin rozpoczęcia działania musi być wcześniejszy niż termin jego zakończenia."
+                                        )
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="scheduleInitialPeriodEnd",
+                                    validators=[
+                                        self.validator.related_date_gte_validator(
+                                            field_name="scheduleInitialPeriodStart",
+                                            message="Termin zakończenia działania musi być późniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Okres przygotowawczy",
+                            class_list={
+                                "main": [
+                                    "dates",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "dates-item"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin od",
+                                    name="schedulePrepPeriodStart",
+                                    validators=[
+                                        self.validator.related_date_lte_validator(
+                                            field_name="schedulePrepPeriodEnd",
+                                            message="Termin rozpoczęcia działania musi być wcześniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ],
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="schedulePrepPeriodEnd",
+                                    validators=[
+                                        self.validator.related_date_gte_validator(
+                                            field_name="schedulePrepPeriodStart",
+                                            message="Termin zakończenia działania musi być późniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Okres zdjęciowy",
+                            class_list={
+                                "main": [
+                                    "dates",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "dates-item"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin od",
+                                    name="scheduleShootingPeriodStart",
+                                    calculation_rules=[
+                                        self.calculation_rule.relate_to_last_date(
+                                            field="schedulePrepPeriodEnd",
+                                            parameter=1
+                                        )
+                                    ],
+                                    read_only=True,
+                                    validators=[
+                                        self.validator.related_date_lte_validator(
+                                            field_name="scheduleShootingPeriodEnd",
+                                            message="Termin rozpoczęcia działania musi być wcześniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ],
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="scheduleShootingPeriodEnd",
+                                    validators=[
+                                        self.validator.related_date_gte_validator(
+                                            field_name="scheduleShootingPeriodStart",
+                                            message="Termin zakończenia działania musi być późniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Okres montażu i udźwiękowienia",
+                            class_list={
+                                "main": [
+                                    "dates",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "dates-item"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin od",
+                                    name="schedulePostProdPeriodStart",
+                                    calculation_rules=[
+                                        self.calculation_rule.relate_to_last_date(
+                                            field="scheduleShootingPeriodEnd",
+                                            parameter=1
+                                        )
+                                    ],
+                                    read_only=True,
+                                    validators=[
+                                        self.validator.related_date_lte_validator(
+                                            field_name="schedulePostProdPeriodEnd",
+                                            message="Termin rozpoczęcia działania musi być wcześniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ],
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="schedulePostProdPeriodEnd",
+                                    validators=[
+                                        self.validator.related_date_gte_validator(
+                                            field_name="schedulePostProdPeriodStart",
+                                            message="Termin zakończenia działania musi być późniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Okres prac końcowych (w tym wykonanie kopii wzorcowej)",
+                            class_list={
+                                "main": [
+                                    "dates",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "dates-item"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin od",
+                                    name="scheduleFinalWorksPeriodStart",
+                                    calculation_rules=[
+                                        self.calculation_rule.relate_to_last_date(
+                                            field="schedulePostProdPeriodEnd",
+                                            parameter=1
+                                        )
+                                    ],
+                                    read_only=True,
+                                    validators=[
+                                        self.validator.related_date_lte_validator(
+                                            field_name="scheduleFinalWorksPeriodEnd",
+                                            message="Termin rozpoczęcia działania musi być wcześniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ],
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="scheduleFinalWorksPeriodEnd",
+                                    validators=[
+                                        self.validator.related_date_gte_validator(
+                                            field_name="scheduleFinalWorksPeriodStart",
+                                            message="Termin zakończenia działania musi być późniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                    ]
+                ),
+                self.section.application_completion_date_data.shooting_days(),
+                self.section.application_completion_date_data.planned_date_of_master_copy(),
+                self.section.application_completion_date_data.planned_date_of_film_release(),
+                self.section.application_completion_date_data.mandatory_activities(),
+                self.section.application_completion_date_data.operational_reports(),
+                self.create_chapter(
+                    title="PLANOWANE MIEJSCA REALIZACJI FILMU",
+                    components=[
+                        self.create_chapter(
+                            title="Baza produkcyjna",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="plannedProductionBase",
+                                    required=True,
+                                    validators=[
+                                        self.validator.length_validator(max_value=200)
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Lokacje zdjęciowe",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="plannedShootingLocations",
+                                    required=True,
+                                    validators=[
+                                        self.validator.length_validator(max_value=200)
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Laboratorium",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="plannedLaboratory",
+                                    required=True,
+                                    validators=[
+                                        self.validator.length_validator(max_value=200)
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Baza produkcyjna producenta wiodącego (w przypadku koprodukcji międzynarodowych)",
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="categoryOfProject",
+                                    values=[
+                                        "koprodukcja międzynarodowa mniejszościowa"
+                                    ]
+                                )
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="plannedLeadProducerBase",
+                                    validators=[
+                                        self.validator.length_validator(max_value=200)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="OŚWIADCZENIA",
+                    components=[
+                        self.create_chapter(
+                            components=[
+                                self.create_component(
+                                    component_type="checkbox",
+                                    label="Oświadczam, że przedsięwzięcie przed datą złożenia wniosku nie miało publicznego pokazu, premiery, pierwszej emisji, pokazu festiwalowego, przeglądu publicznego itp.",
+                                    name="schedulePublicPremiereDeclaration",
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="categoryOfProject",
+                                    values=[
+                                        "koprodukcja międzynarodowa mniejszościowa"
+                                    ]
+                                )
+                            ],
+                            components=[
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="checkbox",
+                                            name="scheduleShootingPeriodDeclaration",
+                                            validators=[
+                                                self.validator.checkbox_true_date_lte_today(
+                                                    field_name="scheduleShootingPeriodStart"
+                                                )
+                                            ],
+                                            label="Oświadczam, że nie rozpoczął się jeszcze okres zdjęciowy dla przedsięwzięcia",
+                                            help_text="W przeciwnym razie należy załączyć do wniosku zgodę Dyrektora na złożenie wniosku"
+                                        ),
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Zgoda Dyrektora PISF",
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="scheduleShootingPeriodDeclaration",
+                                            values=[
+                                                False
+                                            ]
+                                        )
+                                    ],
+                                    multiple_forms_rules={
+                                        "minCount": 1,
+                                        "maxCount": 100
+                                    },
+                                    components=[
+                                        self.create_chapter(
+                                            components=[
+                                                self.create_component(
+                                                    component_type="file",
+                                                    name="schedulePisfDirectorAgreement",
+                                                    required=True,
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+
+        self.save_part(part=part)
