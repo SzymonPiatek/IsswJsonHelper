@@ -1,7 +1,7 @@
 {
   "__summary__": {
-    "total_missing_required_validators": 7,
-    "total_unchecked": 7
+    "total_missing_required_validators": 6,
+    "total_unchecked": 6
   },
   "__ignored_names__": [],
   "scriptScholarshipComments": {
@@ -47,15 +47,6 @@
     "type": "textarea",
     "missing": [
       "Length validator"
-    ]
-  },
-  "registrationAuthority": {
-    "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "registrationAuthority",
-    "type": "text",
-    "missing": [
-      "Any required validator"
     ]
   },
   "isProjectRatedInPISF": {

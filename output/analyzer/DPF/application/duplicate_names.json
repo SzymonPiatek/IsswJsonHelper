@@ -1,7 +1,7 @@
 {
   "__summary__": {
-    "total_duplicates": 527,
-    "total_unchecked": 527
+    "total_duplicates": 528,
+    "total_unchecked": 528
   },
   "__ignored_names__": [
     "amountAndPeriodOfGuarantee",
@@ -28,8 +28,9 @@
   ],
   "applicantName": {
     "isChecked": false,
-    "filesCount": 6,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
       "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
@@ -40,8 +41,9 @@
   },
   "applicantType": {
     "isChecked": false,
-    "filesCount": 6,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
       "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
@@ -124,8 +126,9 @@
   },
   "authPersonFirstName": {
     "isChecked": false,
-    "filesCount": 6,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
       "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
@@ -136,8 +139,9 @@
   },
   "authPersonLastName": {
     "isChecked": false,
-    "filesCount": 6,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
       "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
@@ -148,8 +152,9 @@
   },
   "authPersonPhoneNum": {
     "isChecked": false,
-    "filesCount": 6,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
       "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
@@ -160,8 +165,9 @@
   },
   "authPersonMobileNum": {
     "isChecked": false,
-    "filesCount": 6,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
       "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
@@ -172,8 +178,9 @@
   },
   "authPersonEmail": {
     "isChecked": false,
-    "filesCount": 6,
+    "filesCount": 7,
     "files": [
+      "output/json/DPF/application/po1_pr1_application_2025.json",
       "output/json/DPF/application/po1_pr2_application_2025.json",
       "output/json/DPF/application/po1_pr3_application_2025.json",
       "output/json/DPF/application/po1_pr4_application_2025.json",
@@ -218,7 +225,7 @@
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
-  "applicantLocation": {
+  "applicantMunicipality": {
     "isChecked": false,
     "filesCount": 6,
     "files": [
@@ -230,7 +237,19 @@
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
-  "applicantMunicipality": {
+  "applicantJst": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "applicantLocation": {
     "isChecked": false,
     "filesCount": 6,
     "files": [
@@ -278,7 +297,7 @@
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
-  "applicantZipcode": {
+  "applicantZipCode": {
     "isChecked": false,
     "filesCount": 6,
     "files": [
@@ -386,7 +405,7 @@
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
-  "applicantForeignZipcode": {
+  "applicantForeignZipCode": {
     "isChecked": false,
     "filesCount": 6,
     "files": [
@@ -482,7 +501,7 @@
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
-  "applicantContactLocation": {
+  "applicantContactMunicipality": {
     "isChecked": false,
     "filesCount": 6,
     "files": [
@@ -494,7 +513,19 @@
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
-  "applicantContactMunicipality": {
+  "applicantContactJst": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "applicantContactLocation": {
     "isChecked": false,
     "filesCount": 6,
     "files": [
@@ -542,7 +573,7 @@
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
-  "applicantContactZipcode": {
+  "applicantContactZipCode": {
     "isChecked": false,
     "filesCount": 6,
     "files": [
@@ -650,7 +681,7 @@
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
-  "applicantContactForeignZipcode": {
+  "applicantContactForeignZipCode": {
     "isChecked": false,
     "filesCount": 6,
     "files": [
@@ -711,18 +742,6 @@
     ]
   },
   "applicantRegon": {
-    "isChecked": false,
-    "filesCount": 6,
-    "files": [
-      "output/json/DPF/application/po1_pr2_application_2025.json",
-      "output/json/DPF/application/po1_pr3_application_2025.json",
-      "output/json/DPF/application/po1_pr4_application_2025.json",
-      "output/json/DPF/application/po1_pr5_application_2025.json",
-      "output/json/DPF/application/po1_pr6_application_2025.json",
-      "output/json/DPF/application/po1_pr7_application_2025.json"
-    ]
-  },
-  "applicantJst": {
     "isChecked": false,
     "filesCount": 6,
     "files": [
@@ -866,7 +885,7 @@
       "output/json/DPF/application/po1_pr7_application_2025.json"
     ]
   },
-  "registrationPeselNumber": {
+  "applicantPeselNum": {
     "isChecked": false,
     "filesCount": 6,
     "files": [

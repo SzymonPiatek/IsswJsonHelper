@@ -91,14 +91,118 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
 
         self.save_part(part)
 
-    def create_application_applicant_data(self, **kwargs):
+    def create_application_applicant_data(self):
         part = self.create_part(
             title="II. Dane wnioskodawcy",
             short_name="II. Dane wnioskodawcy",
-            chapters=[]
+            chapters=[
+                self.section.applicant_name(number="1"),
+                self.section.applicant_type(number="2"),
+                self.create_chapter(
+                    title="3. Dane wnioskodawcy",
+                    multiple_forms_rules={
+                        "minCount": 1,
+                        "maxCount": 5
+                    },
+                    components=[
+                        self.create_chapter(
+                            title="3.1. Dane identyfikacyjne wnioskodawcy",
+                            class_list={
+                                "main": [
+                                    "table-1-2",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    label="Imię",
+                                    name="applicantFirstName",
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Nazwisko",
+                                    name="applicantLastName",
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="select",
+                                    label="Płeć",
+                                    name="applicantSex",
+                                    required=True,
+                                    options=[
+                                        "Kobieta",
+                                        "Mężczyzna",
+                                        "Inna"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="country",
+                                    label="Obywatelstwo",
+                                    name="applicantCitizenship",
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Numer PESEL",
+                                    name="applicatnPeselNum",
+                                    validators=[
+                                        self.validator.pesel_validator()
+                                    ],
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Seria i numer dowodu osobistego",
+                                    required=True,
+                                    name="applicantIdCardSeries"
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Numer telefonu",
+                                    mask="phoneNumber",
+                                    required=True,
+                                    name="applicantPhoneNum",
+                                    validators=[
+                                        self.validator.phone_number_validator()
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Email",
+                                    name="applicantPersonalEmail",
+                                    required=True,
+                                    validators=[
+                                        self.validator.email_validator()
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.section.applicant_address(
+                            number="3.2",
+                            main_poland=True,
+                            main_foreign=False,
+                            contact_poland=True,
+                            contact_foreign=True,
+                            is_local=True
+                        ),
+                        self.section.applicant_bank_data(
+                            number="3.3",
+                            poland=True,
+                            foreign=False
+                        )
+                    ]
+                ),
+                self.section.responsible_person_data(number="4")
+            ]
         )
 
-        self.save_part(part)
+        self.save_part(part=part)
 
     def create_application_financial_data(self):
         part = self.load_json(path=self.priority_data_path / '_pages' / 'application_financial_data' / 'requested_pisf_support_amount.json')

@@ -31,6 +31,38 @@ class Section(FormBuilderBase):
             ]
         )
 
+    def applicant_type(self, number: int | str):
+        return self.create_chapter(
+            title=f"{number}. Rodzaj wnioskodawcy",
+            components=[
+                self.create_component(
+                    component_type="text",
+                    name="applicantType",
+                    required=True
+                )
+            ]
+        )
+
+    def eligible_person_attachments(self, number: int | str):
+        return self.create_chapter(
+            title=f"{number}. Pełnomocnictwa",
+            multiple_forms_rules={
+                "minCount": 1,
+                "maxCount": 10
+            },
+            components=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="file",
+                            name="eligiblePersonAttachments",
+                            help_text="Należy dołączyć pełnomocnictwo w przypadku, gdy wniosek podpisuje osoba inna niż wykazana w KRS lub CEIDG."
+                        )
+                    ]
+                )
+            ]
+        )
+
     def eligible_person_data(self, number: int | str):
         return self.create_chapter(
             title=f"{number}. Osoby upoważnione do reprezentowania wnioskodawcy, składania oświadczeń woli i zaciągania w jego imieniu zobowiązań finansowych",
@@ -356,15 +388,16 @@ class Section(FormBuilderBase):
 
         return chapters
 
-    def applicant_address_base(self, build_name: str = '', poland: bool = True, foreign: bool = True):
+    def applicant_address_base(self, build_name: str = '', poland: bool = True, foreign: bool = True, is_local: bool = False):
         return self.create_address_base(
             start_name="applicant",
             build_name=build_name,
             poland=poland,
-            foreign=foreign
+            foreign=foreign,
+            is_local=is_local
         )
 
-    def applicant_address(self, number: int | str, main_poland: bool = True, main_foreign: bool = True, contact_poland: bool = True, contact_foreign: bool = True):
+    def applicant_address(self, number: int | str, main_poland: bool = True, main_foreign: bool = True, contact_poland: bool = True, contact_foreign: bool = True, is_local: bool = False):
         return self.create_chapter(
             title=f"{number}. Adres i dane wnioskodawcy",
             components=[
@@ -386,6 +419,7 @@ class Section(FormBuilderBase):
                         *self.applicant_address_base(
                             poland=main_poland,
                             foreign=main_foreign,
+                            is_local=is_local
                         )
                     ]
                 ),
@@ -417,6 +451,7 @@ class Section(FormBuilderBase):
                             build_name="Contact",
                             poland=contact_poland,
                             foreign=contact_foreign,
+                            is_local=is_local
                         )
                     ]
                 )
@@ -460,7 +495,7 @@ class Section(FormBuilderBase):
 
     def applicant_bank_data(self, number: int | str, poland: bool = True, foreign: bool = True):
         chapter = self.create_chapter(
-            title=f"{number}. Dane identyfikacyjne"
+            title=f"{number}. Nazwa i numer rachunku bankowego"
         )
 
         if poland:

@@ -76,17 +76,33 @@ class DPFApplicationBuilder(ApplicationBuilder):
     def create_application_basic_data(self):
         pass
 
-    def create_application_applicant_data(self, **kwargs):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_applicant_data.json')
+    def create_application_applicant_data(self):
+        part = self.create_part(
+            title="II. Dane wnioskodawcy",
+            short_name="II. Dane wnioskodawcy",
+            chapters=[
+                self.section.applicant_name(number="1"),
+                self.section.applicant_type(number="2"),
+                self.section.eligible_person_data(number="3"),
+                self.section.eligible_person_attachments(number="4"),
+                self.section.responsible_person_data(number="5"),
+                self.section.applicant_address(number="6"),
+                self.section.applicant_identification_data(number="7"),
+                self.section.applicant_bank_data(number="8"),
+                self.section.applicant_legal_information(number="9"),
+                self.section.applicant_statistical_data(number="10"),
+            ]
+        )
+
         self.save_part(part=part)
 
     @not_implemented_func
     def create_application_information_data(self):
         pass
 
+    @not_implemented_func
     def create_application_completion_date_data(self, **kwargs):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_completion_date_data.json')
-        self.save_part(part=part)
+        pass
 
     def create_application_financial_data(self):
         part = self.load_json(path=self.priority_data_path / '_pages' / 'application_financial_data.json')
