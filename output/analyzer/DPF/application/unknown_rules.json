@@ -1,15 +1,4 @@
 {
-  "total_invalid_rules": 2,
-  "invalid_rules": [
-    {
-      "file": "output/json/DPF/application/po1_pr6_application_2025.json",
-      "invalid": "CheckboxTrueDateLTEToday",
-      "category": "validator"
-    },
-    {
-      "file": "output/json/DPF/application/po1_pr4_application_2025.json",
-      "invalid": "CheckboxTrueDateLTEToday",
-      "category": "validator"
-    }
-  ]
+  "total_invalid_rules": 0,
+  "invalid_rules": []
 }

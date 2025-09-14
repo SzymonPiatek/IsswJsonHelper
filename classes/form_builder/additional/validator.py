@@ -27,7 +27,8 @@ class Validator:
             "RelatedDateLTEValidator",
             "RelatedDateGTEValidator",
             "RelatedMultiplicationValidator",
-            "RelatedDateOffsetValidator"
+            "RelatedDateOffsetValidator",
+            "CheckboxTrueDateLTEToday"
         ]
 
     @staticmethod
@@ -401,4 +402,13 @@ class Validator:
                 "offset": offset,
             },
             "validationMsg": message if message else f"Dane wydarzenie nie może trwać dłużej niż {offset} dni."
+        }
+
+    @staticmethod
+    def checkbox_true_date_lte_today(field_name: str):
+        return {
+            "name": "CheckboxTrueDateLTEToday",
+            "kwargs": {
+                "field_name": field_name
+            }
         }
