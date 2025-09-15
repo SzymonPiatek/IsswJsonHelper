@@ -203,7 +203,81 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         self.save_part(part=part)
 
     def create_application_financial_data(self):
-        part = self.load_json(path=self.priority_data_path / '_pages' / 'application_financial_data' / 'requested_pisf_support_amount.json')
+        part = self.create_part(
+            title="V. Dane finansowe",
+            short_name="V. Dane finansowe",
+            class_list=[
+                "full-width-grid"
+            ],
+            chapters=[
+                self.create_chapter(
+                    class_list={
+                        "sub": [
+                            "table-1-2-top"
+                        ]
+                    },
+                    components=[
+                        self.create_chapter(
+                            title="1. Wnioskowana wysokość dofinansowania ze środków PISF",
+                            class_list={
+                                "main": [
+                                    "full-width"
+                                ],
+                                "sub": [
+                                    "full-width"
+                                ]
+                            },
+                            components=[
+                                self.create_chapter(
+                                    class_list={
+                                        "main": [
+                                            "table-1-3",
+                                            "grid",
+                                            "grid-cols-3"
+                                        ],
+                                        "sub": [
+                                            "table-1-3__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Kwota",
+                                            name="requestedPisfSupportAmount",
+                                            read_only=True,
+                                            unit="PLN",
+                                            calculation_rules=[
+                                                self.calculation_rule.assign_value(
+                                                    options=[
+                                                        {
+                                                            "fieldName": "movieKind",
+                                                            "value": "fabularny",
+                                                            "inputValue": 50000
+                                                        },
+                                                        {
+                                                            "fieldName": "movieKind",
+                                                            "value": "animowany",
+                                                            "inputValue": 50000
+                                                        },
+                                                        {
+                                                            "fieldName": "movieKind",
+                                                            "value": "dokumentalny",
+                                                            "inputValue": 35000
+                                                        }
+                                                    ]
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+
         self.save_part(part)
 
     def create_application_statements(self):
@@ -285,41 +359,6 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
                                     required=True
                                 )
                             ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    visibility_rules=[
-                        self.visibility_rule.depends_on_value(
-                            field_name="directorVacat",
-                            values=[False]
-                        )
-                    ],
-                    components=[
-                        self.create_component(
-                            component_type="checkbox",
-                            label="Nie dotyczy zgodnie z Programem Operacyjnym PISF - Produkcja Filmowa",
-                            name="notDirectorLetterOfIntention"
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    visibility_rules=[
-                        self.visibility_rule.depends_on_value(
-                            field_name="notDirectorLetterOfIntention",
-                            values=[False]
-                        ),
-                        self.visibility_rule.depends_on_value(
-                            field_name="directorVacat",
-                            values=[False]
-                        )
-                    ],
-                    components=[
-                        self.create_component(
-                            component_type="file",
-                            label="List intencyjny od reżysera",
-                            name="directorLetterOfIntention",
-                            required=True
                         )
                     ]
                 ),

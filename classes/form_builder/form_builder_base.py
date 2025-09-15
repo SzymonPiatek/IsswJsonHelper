@@ -313,14 +313,14 @@ class FormBuilderBase:
         if required:
             kwargs["required"] = required
         if read_only:
-            kwargs["read_only"] = read_only
+            kwargs["readOnly"] = read_only
         if help_text:
-            kwargs["help_text"] = help_text
+            kwargs["helpText"] = help_text
         if validators:
             kwargs["validators"] = validators
         if calculation_rules:
-            kwargs["calculation_rules"] = calculation_rules
+            kwargs["calculationRules"] = calculation_rules
         if class_list:
-            kwargs["class_list"] = class_list
+            kwargs["classList"] = class_list
 
         return self.delete_unused_component_args(component=kwargs)
