@@ -1,6 +1,6 @@
 from classes.form_builder.additional.decorators import not_implemented_func
 from classes.form_builder.application_builder import ApplicationBuilder
-from classes.form_builder.components.component.dpf_component import DPFComponent
+from classes.form_builder.components.component.dpf.dpf_component import DPFComponent
 from classes.form_builder.components.section.dpf.dpf_section import DPFSection
 
 

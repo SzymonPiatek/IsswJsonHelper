@@ -1,29 +1,34 @@
 # DPF
-from classes.form_builder.dpf.family_film.application_builder import FamilyFilmApplicationBuilder
-from classes.form_builder.dpf.feature_film.application_builder import FeatureFilmApplicationBuilder
-from classes.form_builder.dpf.animated_film.application_builder import AnimatedFilmApplicationBuilder
-from classes.form_builder.dpf.documentary_film.application_builder import DocumentaryFilmApplicationBuilder
-from classes.form_builder.dpf.coproduction_film.application_builder import CoproductionFilmApplicationBuilder
-from classes.form_builder.dpf.film_project_development.application_builder import FilmProjectDevelopmentApplicationBuilder
-from classes.form_builder.dpf.screenplay_scholarship.application_builder import ScreenplayScholarshipApplicationBuilder
+from classes.form_builder.dpf import (
+    AnimatedFilmApplicationBuilder,
+    CoproductionFilmApplicationBuilder,
+    DocumentaryFilmApplicationBuilder,
+    FamilyFilmApplicationBuilder,
+    FeatureFilmApplicationBuilder,
+    FilmProjectDevelopmentApplicationBuilder,
+    ScreenplayScholarshipApplicationBuilder
+)
+
 # DUK - EDUCATION
-from classes.form_builder.duk.education.postgraduate_schools.application_builder import PostgraduateSchoolsApplicationBuilder
-from classes.form_builder.duk.education.cinemas.application_builder import CinemasApplicationBuilder
-from classes.form_builder.duk.education.secondary_schools.application_builder import SecondarySchoolsApplicationBuilder
-from classes.form_builder.duk.education.professional_training.application_builder import ProfessionalTrainingApplicationBuilder
+from classes.form_builder.duk.education import (
+    CinemasApplicationBuilder,
+    PostgraduateSchoolsApplicationBuilder,
+    ProfessionalTrainingApplicationBuilder,
+    SecondarySchoolsApplicationBuilder
+)
 # DUK - DISSEMINATION
-from classes.form_builder.duk.dissemination.festivals.application_builder import FestivalsApplicationBuilder
-from classes.form_builder.duk.dissemination.documentary_distribution.application_builder import DocumentaryDistributionApplicationBuilder
-from classes.form_builder.duk.dissemination.initiatives.application_builder import InitiativesApplicationBuilder
-from classes.form_builder.duk.dissemination.literature.application_builder import LiteratueApplicationBuilder
-from classes.form_builder.duk.dissemination.reconstruction.application_builder import ReconstructionApplicationBuilder
-from classes.form_builder.duk.dissemination.research.application_builder import ResearchApplicationBuilder
+from classes.form_builder.duk.dissemination import (
+    DocumentaryDistributionApplicationBuilder,
+    FestivalsApplicationBuilder,
+    InitiativesApplicationBuilder,
+    LiteratueApplicationBuilder,
+    ReconstructionApplicationBuilder,
+    ResearchApplicationBuilder
+)
 # DUK - DEVELOPMENT
-from classes.form_builder.duk.development.modernization.application_builder import ModernizationApplicationBuilder
-from classes.form_builder.duk.development.digitalization.application_builder import DigitalizationApplicationBuilder
+from classes.form_builder.duk.development import ModernizationApplicationBuilder, DigitalizationApplicationBuilder
 # DWM
-from classes.form_builder.dwm.promotion.application_builder import PromotionApplicationBuilder
-from classes.form_builder.dwm.foreign_scholarship.application_builder import ForeignScholarshipApplicationBuilder
+from classes.form_builder.dwm import ForeignScholarshipApplicationBuilder, PromotionApplicationBuilder
 
 
 _builder_map = {

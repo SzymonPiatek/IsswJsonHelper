@@ -1,12 +1,4 @@
-from classes.form_builder.components.section.section import Section
 from classes.form_builder.form_builder_base import FormBuilderBase
-
-
-class DWMSection(Section):
-    def __init__(self):
-        super().__init__()
-
-        self.application_schedule = ApplicationSchedule()
 
 
 class ApplicationSchedule(FormBuilderBase):

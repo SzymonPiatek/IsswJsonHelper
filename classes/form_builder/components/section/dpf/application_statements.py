@@ -1,4 +1,4 @@
-from classes.form_builder.components.component.dpf_component import DPFComponent
+from classes.form_builder.components.component.dpf.dpf_component import DPFComponent
 from classes.form_builder.form_builder_base import FormBuilderBase
 
 

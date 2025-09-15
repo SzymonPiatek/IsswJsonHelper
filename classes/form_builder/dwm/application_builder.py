@@ -1,6 +1,6 @@
 from classes.form_builder.application_builder import ApplicationBuilder
 from classes.form_builder.additional.decorators import not_implemented_func
-from classes.form_builder.components.section.dwm_section import DWMSection
+from classes.form_builder.components.section.dwm.dwm_section import DWMSection
 
 
 class DWMApplicationBuilder(ApplicationBuilder):
