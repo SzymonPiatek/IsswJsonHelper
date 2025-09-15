@@ -42,7 +42,7 @@
   },
   "otherComments": {
     "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "file": "output/json/DPF/application/po1_pr3_application_2025.json",
     "name": "otherComments",
     "type": "textarea",
     "missing": [
@@ -51,7 +51,7 @@
   },
   "isProjectRatedInPISF": {
     "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
     "name": "isProjectRatedInPISF",
     "type": "select",
     "missing": [

@@ -716,3 +716,272 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
         )
 
         self.save_part(part=part)
+
+    def create_application_additional_data(self):
+        part = self.create_part(
+            title="VI. Dane dodatkowe",
+            short_name="VI. Dane dodatkowe",
+            chapters=[
+                self.create_chapter(
+                    title="Czy przedsięwzięcie było wcześniej ocenianie w PISF?",
+                    components=[
+                        self.create_component(
+                            component_type="select",
+                            name="isProjectRatedInPisf",
+                            options=[
+                                "Tak",
+                                "Nie"
+                            ],
+                            required=True,
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="isProjectRatedInPisf",
+                            values=["Tak"]
+                        )
+                    ],
+                    components=[
+                        self.create_chapter(
+                            title="Na etapie",
+                            components=[
+                                self.create_component(
+                                    component_type="checkbox",
+                                    label=comp["label"],
+                                    name=comp["name"],
+                                ) for comp in [
+                                    {
+                                        "label": "Stypendium scenariuszowe",
+                                        "name": "scriptScholarshipStage"
+                                    },
+                                    {
+                                        "label": "Dewelopmentu scenariuszowe",
+                                        "name": "scriptDevelopmentStage"
+                                    },
+                                    {
+                                        "label": "Rozwoju projektu",
+                                        "name": "projectDevelopmentStage"
+                                    },
+                                    {
+                                        "label": "Produkcji",
+                                        "name": "productionStage"
+                                    },
+                                    {
+                                        "label": "W ramach systemu wsparcia finansowego produkcji audiowizualnej tzw. Zachęt",
+                                        "name": "financialSupportSystemStage"
+                                    },
+                                    {
+                                        "label": "Inne dotyczące projektu w innym Programie Operacyjnym PISF",
+                                        "name": "otherStage"
+                                    }
+                                ]
+                            ]
+                        ),
+                        # Stypendium sceniurszowe
+                        self.create_chapter(
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="scriptScholarshipStage",
+                                    values=[True]
+                                )
+                            ],
+                            components=[
+                                self.create_chapter(
+                                    title="Na etapie stypendium scenariuszowego",
+                                    components=[
+                                        self.create_component(
+                                            component_type="select",
+                                            label="Decyzja Dyrektora",
+                                            name="scriptScholarshipDirectorDecision",
+                                            options=[
+                                                "Pozytywna",
+                                                "Negatywna"
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="scriptScholarshipDirectorDecision",
+                                            values=["Pozytywna"]
+                                        )
+                                    ],
+                                    components=[
+                                        self.create_chapter(
+                                            title="Autorzy scenariusza",
+                                            multiple_forms_rules={
+                                                "minCount": 1,
+                                                "maxCount": 20
+                                            },
+                                            components=[
+                                                self.create_chapter(
+                                                    class_list=[
+                                                        "grid",
+                                                        "grid-cols-2"
+                                                    ],
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Imię",
+                                                            name="scriptwriterName"
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Nazwisko",
+                                                            name="scriptwriterSurname"
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            mask="fund",
+                                                            label="Kwota",
+                                                            name="scriptwriterPLNAmount",
+                                                            unit="PLN"
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="number",
+                                                            label="Udział procentowy",
+                                                            name="scriptwriterPercentage",
+                                                            unit="%"
+                                                        )
+                                                    ]
+                                                )
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            class_list=[
+                                                "grid",
+                                                "grid-cols-4"
+                                            ],
+                                            components=[
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Suma udziałów",
+                                                    name="scriptwriterTotalShares",
+                                                    help_text="Suma udziałów musi być równa 100%.",
+                                                    calculation_rules=[
+                                                        self.calculation_rule.dynamic_sum_inputs(
+                                                            fields=["scriptwriterPercentage"]
+                                                        )
+                                                    ],
+                                                    validators=[
+                                                        self.validator.range_validator(
+                                                            min_value=100,
+                                                            max_value=100,
+                                                            message="Suma udziałów musi być równa 100%."
+                                                        )
+                                                    ],
+                                                    read_only=True,
+                                                    required=True,
+                                                    class_list=[
+                                                        "col-start-1",
+                                                        "col-end-2"
+                                                    ]
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                *self.section.application_additional_data.create_section_with_positive_and_negative_decision(
+                                    name="scriptScholarship"
+                                )
+                            ]
+                        ),
+                        # Dewelopment scenariuszowy
+                        self.create_chapter(
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="scriptDevelopmentStage",
+                                    values=[True]
+                                )
+                            ],
+                            components=[
+                                self.create_chapter(
+                                    title="Na etapie dewelopmentu scenariuszowego",
+                                    components=[
+                                        self.create_component(
+                                            component_type="select",
+                                            label="Decyzja Dyrektora",
+                                            name="scriptDevelopmentDirectorDecision",
+                                            options=[
+                                                "Pozytywna",
+                                                "Negatywna"
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                *self.section.application_additional_data.create_section_with_positive_and_negative_decision(
+                                    name="scriptDevelopment"
+                                )
+                            ]
+                        ),
+                        # Rozwój projektu
+                        self.create_chapter(
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="projectDevelopmentStage",
+                                    values=[True]
+                                )
+                            ],
+                            components=[
+                                self.create_chapter(
+                                    title="Na etapie rozwoju projektu",
+                                    components=[
+                                        self.create_component(
+                                            component_type="select",
+                                            label="Decyzja Dyrektora",
+                                            name="projectDevelopmentDirectorDecision",
+                                            options=[
+                                                "Pozytywna",
+                                                "Negatywna"
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                *self.section.application_additional_data.create_section_with_positive_and_negative_decision(
+                                    name="projectDevelopment"
+                                )
+                            ]
+                        ),
+                        # Produkcja
+                        self.create_chapter(
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="productionStage",
+                                    values=[True]
+                                )
+                            ],
+                            components=[
+                                self.create_chapter(
+                                    title="Na etapie rozwoju projektu",
+                                    components=[
+                                        self.create_component(
+                                            component_type="select",
+                                            label="Decyzja Dyrektora",
+                                            name="productionDirectorDecision",
+                                            options=[
+                                                "Pozytywna",
+                                                "Negatywna"
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                *self.section.application_additional_data.create_section_with_positive_and_negative_decision(
+                                    name="production"
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Wykaz wniosków podmiotu w PISF",
+                    components=[
+                        self.create_chapter()
+                    ]
+                )
+            ]
+        )
+
+        self.save_part(part=part)

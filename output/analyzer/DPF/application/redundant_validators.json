@@ -27,7 +27,7 @@
   "entityApplicationsListPriorityCurrentProductionContracts": {
     "isChecked": false,
     "name": "entityApplicationsListPriorityCurrentProductionContracts",
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "file": "output/json/DPF/application/po1_pr3_application_2025.json",
     "type": "select",
     "validators": [
       "ExactValidator",
@@ -37,7 +37,7 @@
   "entityApplicationsListPriorityCurrentProjectDevelopment": {
     "isChecked": false,
     "name": "entityApplicationsListPriorityCurrentProjectDevelopment",
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "file": "output/json/DPF/application/po1_pr3_application_2025.json",
     "type": "select",
     "validators": [
       "ExactValidator",
@@ -47,7 +47,7 @@
   "entityApplicationsListPriorityPreviousSessionProjectDevelopment": {
     "isChecked": false,
     "name": "entityApplicationsListPriorityPreviousSessionProjectDevelopment",
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "file": "output/json/DPF/application/po1_pr3_application_2025.json",
     "type": "select",
     "validators": [
       "ExactValidator",
@@ -57,7 +57,7 @@
   "entityApplicationsListPriorityPreviousSessionProduction": {
     "isChecked": false,
     "name": "entityApplicationsListPriorityPreviousSessionProduction",
-    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
+    "file": "output/json/DPF/application/po1_pr3_application_2025.json",
     "type": "select",
     "validators": [
       "ExactValidator",
