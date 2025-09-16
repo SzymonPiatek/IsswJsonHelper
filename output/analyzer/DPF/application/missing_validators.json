@@ -1,7 +1,7 @@
 {
   "__summary__": {
-    "total_missing_required_validators": 6,
-    "total_unchecked": 6
+    "total_missing_required_validators": 5,
+    "total_unchecked": 5
   },
   "__ignored_names__": [],
   "scriptScholarshipComments": {
@@ -42,20 +42,11 @@
   },
   "otherComments": {
     "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr3_application_2025.json",
+    "file": "output/json/DPF/application/po1_pr1_application_2025.json",
     "name": "otherComments",
     "type": "textarea",
     "missing": [
       "Length validator"
-    ]
-  },
-  "isProjectRatedInPISF": {
-    "isChecked": false,
-    "file": "output/json/DPF/application/po1_pr5_application_2025.json",
-    "name": "isProjectRatedInPISF",
-    "type": "select",
-    "missing": [
-      "Any required validator"
     ]
   }
 }

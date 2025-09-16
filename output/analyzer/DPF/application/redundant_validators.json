@@ -1,67 +1,7 @@
 {
   "__summary__": {
-    "total_redundant_validators": 6,
-    "total_unchecked": 6
+    "total_redundant_validators": 0,
+    "total_unchecked": 0
   },
-  "__ignored_names__": [],
-  "entityApplicationsListPriorityCurrentSession": {
-    "isChecked": false,
-    "name": "entityApplicationsListPriorityCurrentSession",
-    "file": "output/json/DPF/application/po1_pr4_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  },
-  "entityApplicationsListPriorityCurrentPromises": {
-    "isChecked": false,
-    "name": "entityApplicationsListPriorityCurrentPromises",
-    "file": "output/json/DPF/application/po1_pr4_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  },
-  "entityApplicationsListPriorityCurrentProductionContracts": {
-    "isChecked": false,
-    "name": "entityApplicationsListPriorityCurrentProductionContracts",
-    "file": "output/json/DPF/application/po1_pr3_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  },
-  "entityApplicationsListPriorityCurrentProjectDevelopment": {
-    "isChecked": false,
-    "name": "entityApplicationsListPriorityCurrentProjectDevelopment",
-    "file": "output/json/DPF/application/po1_pr3_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  },
-  "entityApplicationsListPriorityPreviousSessionProjectDevelopment": {
-    "isChecked": false,
-    "name": "entityApplicationsListPriorityPreviousSessionProjectDevelopment",
-    "file": "output/json/DPF/application/po1_pr3_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  },
-  "entityApplicationsListPriorityPreviousSessionProduction": {
-    "isChecked": false,
-    "name": "entityApplicationsListPriorityPreviousSessionProduction",
-    "file": "output/json/DPF/application/po1_pr3_application_2025.json",
-    "type": "select",
-    "validators": [
-      "ExactValidator",
-      "RequiredValidator"
-    ]
-  }
+  "__ignored_names__": []
 }
