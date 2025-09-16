@@ -978,7 +978,108 @@ class ScreenplayScholarshipApplicationBuilder(DPFApplicationBuilder):
                 self.create_chapter(
                     title="Wykaz wniosków podmiotu w PISF",
                     components=[
-                        self.create_chapter()
+                        self.create_chapter(
+                            components=[
+                                self.create_chapter(
+                                    title=chapter["title"],
+                                    components=[
+                                        self.create_chapter(
+                                            components=[
+                                                self.create_component(
+                                                    component_type="checkbox",
+                                                    label="Nie dotyczy",
+                                                    name=f"notApplicable{chapter["name"]}"
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name=f"notApplicable{chapter["name"]}",
+                                            values=[False]
+                                        )
+                                    ],
+                                    multiple_forms_rules={
+                                        "minCount": 1,
+                                        "maxCount": 30
+                                    },
+                                    components=[
+                                        self.create_chapter(
+                                            class_list=[
+                                                "grid",
+                                                "grid-cols-3"
+                                            ],
+                                            components=[
+                                                self.create_component(
+                                                    component_type="select",
+                                                    label="Priorytet",
+                                                    name=f"entityApplicationsListPriority{chapter["name"]}",
+                                                    options=[
+                                                        "rozwój projektu animowanego",
+                                                        "rozwój projektu fabularnego",
+                                                        "rozwój projektu dokumentalnego",
+                                                        "development scenariuszowy filmu animowanego",
+                                                        "development scenariuszowy filmu fabularnego",
+                                                        "development scenariuszowy filmu dokumentalnego",
+                                                        "produkcja filmu animowanego",
+                                                        "produkcja filmu fabularnego",
+                                                        "produkcja filmu dokumentalnego"
+                                                    ],
+                                                    required=True,
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Reżyser",
+                                                    name=f"entityApplicationsListDirector{chapter["name"]}",
+                                                    validators=[
+                                                        self.validator.length_validator(
+                                                            max_value=100
+                                                        )
+                                                    ]
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Tytuł",
+                                                    name=f"entityApplicationsListTitle{chapter["name"]}",
+                                                    validators=[
+                                                        self.validator.length_validator(
+                                                            max_value=100
+                                                        )
+                                                    ]
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        ) for chapter in [
+                            {
+                                "title": "Wnioski składane do PO Produkcja filmowa w bieżącej sesji",
+                                "name": "CurrentSession"
+                            },
+                            {
+                                "title": "Wykaz aktualnych promes (filmy przed umową z PISF)",
+                                "name": "CurrentPromises"
+                            },
+                            {
+                                "title": "Wykaz filmów w produkcji z umową na dofinansowanie PISF",
+                                "name": "CurrentProductionContracts"
+                            },
+                            {
+                                "title": "Projekty w realizacji z dofinansowaniem PISF w zakresie rozwoju projektu",
+                                "name": "CurrentProjectDevelopment"
+                            },
+                            {
+                                "title": "Wnioski dotyczące rozwoju projektu z poprzednich sesji, oczekujące na decyzję Dyrektora PISF",
+                                "name": "PreviousProjectDevelopment"
+                            },
+                            {
+                                "title": "Wnioski dotyczące produkcji filmowej z poprzednich sesji, oczekujące na decyzję Dyrektora PISF",
+                                "name": "PreviousSessionProduction"
+                            }
+                        ]
                     ]
                 )
             ]
