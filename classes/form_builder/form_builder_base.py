@@ -202,6 +202,19 @@ class FormBuilderBase:
                 start_title = start_chapter.get("title", "")
                 components = self.duplicate_chapter_with_indexing(start_chapter, mf_min_count, start_title)
 
+            def set_default_value(obj):
+                if isinstance(obj, dict):
+                    if obj.get("kind") == "component":
+                        if "value" in obj and "defaultValue" not in obj:
+                            obj["defaultValue"] = obj["value"]
+                    for v in obj.values():
+                        set_default_value(v)
+                elif isinstance(obj, list):
+                    for item in obj:
+                        set_default_value(item)
+
+            set_default_value(components)
+
         chapter = {
             "kind": "chapter",
             "title": title,
@@ -286,9 +299,6 @@ class FormBuilderBase:
             validators.append(Validator.phone_number_validator())
         if component_type == 'date' or component_type == 'checkbox':
             value = False
-
-        if not default_value and value == 0:
-            default_value = value
 
         if required and not any(v.get("name") in {"RelatedRequiredIfEqualValidator", "RequiredValidator", "ExactValidator"} for v in validators):
             validators.append(Validator.required_validator())
