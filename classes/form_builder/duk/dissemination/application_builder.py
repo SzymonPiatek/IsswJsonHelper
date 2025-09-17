@@ -4,7 +4,7 @@ from classes.form_builder.additional.decorators import not_implemented_func
 
 class DisseminationApplicationBuilder(DUKApplicationBuilder):
     OPERATION_NAME = 'III. Upowszechnianie kultury filmowej'
-    OPERATION_NUM = 3
+    OPERATION_NUM = "iii"
 
     def __init__(self):
         super().__init__()

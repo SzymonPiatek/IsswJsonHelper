@@ -6,7 +6,7 @@ from classes.form_builder.components.section.dwm.dwm_section import DWMSection
 class DWMApplicationBuilder(ApplicationBuilder):
     DEPARTMENT_NAME = 'DWM'
     OPERATION_NAME = 'V. Promocja polskiej twórczości filmowej za granicą'
-    OPERATION_NUM = 5
+    OPERATION_NUM = "v"
 
     def __init__(self):
         super().__init__()

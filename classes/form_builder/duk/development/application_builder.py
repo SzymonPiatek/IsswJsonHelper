@@ -3,7 +3,7 @@ from classes.form_builder.duk.application_builder import DUKApplicationBuilder
 
 class DevelopmentApplicationBuilder(DUKApplicationBuilder):
     OPERATION_NAME = 'IV. Rozwój kin'
-    OPERATION_NUM = 4
+    OPERATION_NUM = "iv"
 
     def __init__(self):
         super().__init__()

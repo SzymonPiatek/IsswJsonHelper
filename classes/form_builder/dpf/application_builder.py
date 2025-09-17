@@ -7,7 +7,7 @@ from classes.form_builder.components.section.dpf.dpf_section import DPFSection
 class DPFApplicationBuilder(ApplicationBuilder):
     DEPARTMENT_NAME = 'DPF'
     OPERATION_NAME = 'I. Produkcja filmowa'
-    OPERATION_NUM = 1
+    OPERATION_NUM = "i"
 
     def __init__(self):
         super().__init__()

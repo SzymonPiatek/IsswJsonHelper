@@ -397,9 +397,9 @@ class Section(FormBuilderBase):
             is_local=is_local
         )
 
-    def applicant_address(self, number: int | str, main_poland: bool = True, main_foreign: bool = True, contact_poland: bool = True, contact_foreign: bool = True, is_local: bool = False):
+    def create_full_address_section(self, who: str, name: str, number: int | str, main_poland: bool = True, main_foreign: bool = True, contact_poland: bool = True, contact_foreign: bool = True, is_local: bool = False):
         return self.create_chapter(
-            title=f"{number}. Adres i dane wnioskodawcy",
+            title=f"{number}. Adres i dane {who}",
             components=[
                 self.create_chapter(
                     title=f"{number}a. Adres siedziby",
@@ -408,7 +408,7 @@ class Section(FormBuilderBase):
                             components=[
                                 self.create_component(
                                     component_type="radio",
-                                    name="applicantResidence",
+                                    name=f"{name}Residence",
                                     value="" if main_poland and main_foreign else "w Polsce" if main_poland else "za granicą",
                                     options=["w Polsce", "za granicą"] if main_poland and main_foreign else ["w Polsce"] if main_poland else ["za granicą"],
                                     read_only=False if main_poland and main_foreign else True,
@@ -416,7 +416,8 @@ class Section(FormBuilderBase):
                                 )
                             ]
                         ),
-                        *self.applicant_address_base(
+                        *self.create_address_base(
+                            start_name=name,
                             poland=main_poland,
                             foreign=main_foreign,
                             is_local=is_local
@@ -428,18 +429,27 @@ class Section(FormBuilderBase):
                         self.create_component(
                             component_type="checkbox",
                             label="Należy zaznaczyć jeśli adres korespondencyjny jest inny",
-                            name="applicantHasDifferentContactAddress"
+                            name=f"{name}HasDifferentContactAddress"
                         )
                     ]
                 ),
                 self.create_chapter(
                     title=f"{number}b. Adres korespondencyjny",
+                    visibility_rules=[
+                        self.visibility_rule.local_equals_value(
+                            field_name=f"{name}HasDifferentContactAddress",
+                            values=[True]
+                        ) if is_local else self.visibility_rule.depends_on_value(
+                            field_name=f"{name}HasDifferentContactAddress",
+                            values=[True]
+                        )
+                    ],
                     components=[
                         self.create_chapter(
                             components=[
                                 self.create_component(
                                     component_type="radio",
-                                    name="applicantContactResidence",
+                                    name=f"{name}ContactResidence",
                                     value="" if contact_poland and contact_foreign else "w Polsce" if contact_poland else "za granicą",
                                     options=["w Polsce", "za granicą"] if contact_poland and contact_foreign else ["w Polsce"] if contact_poland else ["za granicą"],
                                     read_only=False if contact_poland and contact_foreign else True,
@@ -447,15 +457,28 @@ class Section(FormBuilderBase):
                                 )
                             ]
                         ),
-                        *self.applicant_address_base(
+                        *self.create_address_base(
+                            start_name=name,
                             build_name="Contact",
-                            poland=contact_poland,
-                            foreign=contact_foreign,
+                            poland=main_poland,
+                            foreign=main_foreign,
                             is_local=is_local
                         )
                     ]
                 )
             ]
+        )
+
+    def applicant_address(self, number: int | str, main_poland: bool = True, main_foreign: bool = True, contact_poland: bool = True, contact_foreign: bool = True, is_local: bool = False):
+        return self.create_full_address_section(
+            name="applicant",
+            who='Wnioskodawcy',
+            number=number,
+            main_poland=main_poland,
+            main_foreign=main_foreign,
+            contact_poland=contact_poland,
+            contact_foreign=contact_foreign,
+            is_local=is_local
         )
 
     def applicant_identification_data(self, number: int | str):
@@ -609,7 +632,6 @@ class Section(FormBuilderBase):
                         self.create_component(
                             component_type="select",
                             name="orgAndLegalStructure",
-                            label="Forma organizacyjno-prawna",
                             options=[
                                 "Spółka z ograniczoną odpowiedzialnością",
                                 "Spółka akcyjna",
@@ -640,7 +662,6 @@ class Section(FormBuilderBase):
                     components=[
                         self.create_component(
                             component_type="radio",
-                            label="Kod PKD zgodny z charakterem przedsięwzięcia, na realizację którego przeznaczona będzie pomoc z sektora kinematografii",
                             name="applicantPkd",
                             options=[
                                 "59.11 – Działalność związana z produkcją filmów, nagrań wideo i programów telewizyjnych",
@@ -655,6 +676,16 @@ class Section(FormBuilderBase):
                 ),
                 self.create_chapter(
                     title="Numer właściwego rejestru",
+                    class_list={
+                        "main": [
+                            "table-1-2",
+                            "grid",
+                            "grid-cols-2"
+                        ],
+                        "sub": [
+                            "table-1-2__col"
+                        ]
+                    },
                     components=[
                         self.create_chapter(
                             components=[

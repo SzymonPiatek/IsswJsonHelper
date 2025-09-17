@@ -191,7 +191,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                     ],
                     components=[
                         self.create_chapter(
-                            title="5. Projekt/film, z którym wnioskodawca bierze udział w wydarzeniu",
+                            title="5. Projekt/film, z którym Wnioskodawca bierze udział w wydarzeniu",
                             class_list={
                                 "main": [
                                     "table-1-2",
@@ -390,29 +390,34 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                 self.section.applicant_bank_data(number="5", poland=True, foreign=True),
                 self.create_chapter(
                     title="6. Waluta, z której dotacja PISF ma zostać przelana na w/w konto",
-                    class_list={
-                        "main": [
-                            "table-1-2",
-                            "grid",
-                            "grid-cols-2"
-                        ],
-                        "sub": [
-                            "table-1-2__col"
-                        ]
-                    },
                     components=[
-                        self.create_component(
-                            component_type="text",
-                            label="Waluta",
-                            name="applicantCurrency",
-                            required=True
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            label="Waluta rozliczenia",
-                            name="applicantCurrencySettlement",
-                            read_only=True,
-                            value="PLN"
+                        self.create_chapter(
+                            title="Uwaga, rozliczenie przedsięwzięcia musi zostać przedstawione w walucie PLN",
+                            class_list={
+                                "main": [
+                                    "table-1-2",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    label="Waluta, w której dotacja PISF ma zostać przelana na w/w konto",
+                                    name="applicantCurrency",
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Waluta rozliczenia",
+                                    name="applicantCurrencySettlement",
+                                    read_only=True,
+                                    value="PLN"
+                                )
+                            ]
                         )
                     ]
                 ),
@@ -428,7 +433,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
             short_name="IV. Dorobek wnioskodawcy",
             chapters=[
                 self.create_chapter(
-                    title="1. Przy wnioskodawca realizował już przedsięwzięćie w dziedzienie, której wniosek dotyczy?",
+                    title="1. Czy Wnioskodawca realizował już przedsięwzięćie w dziedzienie, której wniosek dotyczy?",
                     components=[
                         self.create_chapter(
                             components=[
@@ -716,6 +721,19 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                                 self.calculation_rule.copy_value(from_name="applicationTaskName")
                             ],
                             read_only=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="radio",
+                            name="applicantVatDeclaration",
+                            options=[
+                                "Wnioskodawca JEST płatnikiem VAT, dlatego kwoty zamieszczone w kosztach planowanego przedsięwzięcia we wniosku to KWOTY NETTO",
+                                "Wnioskodawca NIE JEST płatnikiem VAT, dlatego kwoty zamieszczone w kosztorysie wniosku to KWOTY BRUTTO"
+                            ],
+                            required=True
                         )
                     ]
                 ),
@@ -1475,7 +1493,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                 "name": "statementDeclareRead"
             },
             {
-                "label": "7. W przypadku uzyskania dofinansowania, zobowiązuję się do doręczenia do PISF aktualnego wypisu z właściwego rejestru (w zależności od formy prawnej: KRS – wystawionego nie wcześniej, niż trzy miesiące przed datą złożenia; RIK; RIF; zaświadczenia o wpisie do ewidencji działalności gospodarczej; lub innego), zaświadczenia o nadaniu numeru REGON, decyzji o nadaniu numeru NIP oraz umowy spółki cywilnej (jeśli dotyczy).",
+                "label": "7. W przypadku uzyskania dofinansowania, zobowiązuję się do doręczenia do PISF aktualnego wypisu z właściwego rejestru (w zależności od formy prawnej: KRS - wystawionego nie wcześniej, niż trzy miesięce przed datą złożenia; RIK; RIF; zaświadczenia o wpisie do ewidencji działalności gospodarczej; lub innego).",
                 "name": "statementDeliverPromise"
             },
             {
@@ -1616,7 +1634,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                     components=[
                         self.create_component(
                             component_type="checkbox",
-                            label="Zapoznałem/łam się z poniższymi zasadami.<br/>- Wnioskodawca jest zobowiązany do przedstawienia rozliczenia dofinansowania zgodnie z warunkami określonymi w umowie o dofinansowanie, w tym w szczególności do przedłożenia raportu końcowego, który zawiera finansowe rozliczenie przedsięwzięcia, ocenę jakościową jego realizacji oraz dodatkowe materiały w postaci raportów dotyczących frekwencji, promocji i sprawozdań medialnych (WAŻNE: W przypadku dokumentów wystawionych w walucie obcej, należy przyjąć średni kurs NBP z dnia roboczego poprzedzającego wystawienie dokumentu księgowego).<br/>- Procentowy wkład dofinansowania PISF w finalnym budżecie przedsięwzięcia nie może przekroczyć wkładu zakładanego, określonego w umowie o dofinansowanie. Jeżeli faktycznie poniesiony koszt całkowity przedsięwzięcia okazał się niższy od planowanego lub beneficjent nie wykorzystał całego dofinansowania, należy dokonać zwrotu na rachunek PISF i dostarczyć wraz z raportem potwierdzenie przelewu.<br/>- Jedynie koszty poniesione od daty złożenia wniosku o dofinansowanie w ISSW do daty zakończenia przedsięwzięcia określonej w harmonogramie, mogą zostać uznane za koszty kwalifikowalne i opłacone z dofinasowania PISF (koszty poniesione przed datą złożenia wniosku o dofinansowanie nie będą uznane za koszty kwalifikowalne).<br/>- Wniosek o dofinansowanie wraz z załącznikami należy podpisać przy użyciu kwalifikowanego podpisu elektronicznego lub profilu zaufanego platformy E-PUAP.<br/>- Wszelkie załączniki do wniosku o dofinansowanie (w tym listy intencyjne, umowy z partnerami, itp.) wymagają poświadczenia za zgodność z oryginałem. Podpisanie wniosku o dofinansowanie przez wnioskodawcę kwalifikowanym podpisem elektronicznym lub profilem zaufanym platformy E-PUAP jest równoznaczne z poświadczeniem przez wnioskodawcę załączników do wniosku o dofinansowanie za zgodne z oryginałem.<br/>- Linki do zasobów zewnętrznych umieszczane we wniosku o dofinansowanie powinny zachować ważność co najmniej do czasu wydania decyzji przez Dyrektora PISF.<br/>- Do dokumentów przedkładanych do wniosku o dofinansowanie sporządzonych w językach obcych należy obligatoryjnie dołączyć tłumaczenie na język polski. wnioskodawca, na wniosek PISF, ma obowiązek przedstawić tłumaczenie przysięgłe wskazanego dokumentu.",
+                            label="Zapoznałem/łam się z poniższymi zasadami.<br/>- Wnioskodawca jest zobowiązany do przedstawienia rozliczenia dofinansowania zgodnie z warunkami określonymi w umowie o dofinansowanie, w tym w szczególności do przedłożenia raportu końcowego, który zawiera finansowe rozliczenie przedsięwzięcia, ocenę jakościową jego realizacji oraz dodatkowe materiały w postaci raportów dotyczących frekwencji, promocji i sprawozdań medialnych (WAŻNE: W przypadku dokumentów wystawionych w walucie obcej, należy przyjąć średni kurs NBP z dnia roboczego poprzedzającego wystawienie dokumentu księgowego).<br/>- Procentowy wkład dofinansowania PISF w finalnym budżecie przedsięwzięcia nie może przekroczyć wkładu zakładanego, określonego w umowie o dofinansowanie. Jeżeli faktycznie poniesiony koszt całkowity przedsięwzięcia okazał się niższy od planowanego lub beneficjent nie wykorzystał całego dofinansowania, należy dokonać zwrotu na rachunek PISF i dostarczyć wraz z raportem potwierdzenie przelewu.<br/>- Jedynie koszty poniesione od daty złożenia wniosku o dofinansowanie w ISSW do daty zakończenia przedsięwzięcia określonej w harmonogramie, mogą zostać uznane za koszty kwalifikowalne i opłacone z dofinasowania PISF (koszty poniesione przed datą złożenia wniosku o dofinansowanie nie będą uznane za koszty kwalifikowalne).<br/>- Wniosek o dofinansowanie wraz z załącznikami należy podpisać przy użyciu kwalifikowanego podpisu elektronicznego lub profilu zaufanego platformy E-PUAP.<br/>- Wszelkie załączniki do wniosku o dofinansowanie (w tym listy intencyjne, umowy z partnerami, itp.) wymagają poświadczenia za zgodność z oryginałem. Podpisanie wniosku o dofinansowanie przez wnioskodawcę kwalifikowanym podpisem elektronicznym lub profilem zaufanym platformy E-PUAP jest równoznaczne z poświadczeniem przez wnioskodawcę załączników do wniosku o dofinansowanie za zgodne z oryginałem.<br/>- Linki do zasobów zewnętrznych umieszczane we wniosku o dofinansowanie powinny zachować ważność co najmniej do czasu wydania decyzji przez Dyrektora PISF.<br/>- Do dokumentów przedkładanych do wniosku o dofinansowanie sporządzonych w językach obcych należy obligatoryjnie dołączyć tłumaczenie na język polski. Wnioskodawca, na wniosek PISF, ma obowiązek przedstawić tłumaczenie przysięgłe wskazanego dokumentu.",
                             name="acknowledgeRules",
                             required=True
                         )
@@ -1645,7 +1663,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                     ]
                 ),
                 self.create_chapter(
-                    title="<normal>Uwaga!\n\n-Harmonogram przedsięwzięcia powinien uwzględniać etapy: przygotowawczy (np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie promocji wydarzenia itp.), realizacji przedsięwzięcia (np. wykonanie i/lub wysyłka materiałów promocyjnych, pokaz filmu na festiwalu) oraz podsumowania (ewaluacja i rozliczenie przedsięwzięcia – ostateczna data zakończenia realizacji przedsięwzięcia: dzień, miesiąc i rok). W zakresie każdego z tych etapów należy określić najważniejsze działania (tzw. „kamienie milowe” przedsięwzięcia) i terminy ich realizacji.\n- Harmonogram przedsięwzięcia powinien uwzględniać wszystkie działania wymienione w kosztorysie przedsięwzięcia.\n- Prosimy o chronologiczne ułożenie wszystkich pozycji harmonogramu.</normal>Wymagane jest uwzględnienie przynajmniej 3 etapów realizacji przedsięwzięcia.",
+                    title="<normal>Uwaga!\n\n-Harmonogram przedsięwzięcia powinien uwzględniać etapy: przygotowawczy (np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie promocji wydarzenia itp.), realizacji przedsięwzięcia (np. wykonanie i/lub wysyłka materiałów promocyjnych, pokaz filmu na festiwalu) oraz podsumowania (ewaluacja i rozliczenie przedsięwzięcia - ostateczna data zakończenia realizacji przedsięwzięcia: dzień, miesiąc i rok). W zakresie każdego z tych etapów należy określić najwazniejsze działania (tzw. \"kamienie milowe\" przedsięwzięcia) i terminy ich realizacji.\n\n- Harmonogram przedsięwzięcia powinien uwzględniać wszystkie działania wymienione w kosztorysie przedsięwzięcia i mieć charakter ciągły (brak przerw między kolejnymi pozycjami harmonogramu).\n\n- Prosimy o chronologiczne ułożenie wszystkich pozycji harmonogramu.\n\nWymagane jest uwzględnienie przynajmniej 3 etapów realizacji przedsięwzięcia.",
                     multiple_forms_rules={
                         "minCount": 3,
                         "maxCount": 20

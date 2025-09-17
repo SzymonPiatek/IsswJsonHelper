@@ -35,7 +35,7 @@ class FormBuilder(FormBuilderBase):
         self.session = self.SESSION
         self.form_id = self.FORM_ID
 
-        self.output_file_name = f'po{self.operation_num}_pr{self.priority_num}_{self.json_type}_{self.year}.json'
+        self.output_file_name = f'po_{self.operation_num}_pr_{self.priority_num}_{self.json_type}_{self.year}.json'
         self.output_file = self.main_dir / 'output' / 'json' / str(self.year) / self.department_name / self.json_type / self.output_file_name
 
         self.part = Part()
