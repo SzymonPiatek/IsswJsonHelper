@@ -1,4 +1,14 @@
-from typing import Dict, List
+from typing import Dict, List, TypedDict, Literal
+
+
+class RelatedMappedLimitCondition(TypedDict):
+    field_name: str
+    value: str
+
+
+class RelatedMappedLimitOption(TypedDict):
+    limit: int | float
+    conditions: list[RelatedMappedLimitCondition]
 
 
 class Validator:
@@ -329,16 +339,21 @@ class Validator:
         }
 
     @staticmethod
-    def related_mapped_limit_validator(default_limit: int | float):
+    def related_mapped_limit_validator(default_limit: int | float, options: list[RelatedMappedLimitOption] = None):
         """
         Walidator sprawdza, czy kwota nie przekracza danej wartości dla wybranej opcji (lub domyślny limit).
         """
 
+        kwargs = {
+            "default_limit": default_limit,
+        }
+
+        if options:
+            kwargs["options"] = options
+
         return {
             "name": "RelatedMappedLimitValidator",
-            "kwargs": {
-                "default_limit": default_limit
-            }
+            "kwargs": kwargs
         }
 
     @staticmethod

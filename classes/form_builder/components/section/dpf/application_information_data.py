@@ -692,7 +692,7 @@ class ApplicationInformationData(FormBuilderBase):
             title=title,
         )
 
-        visibility_chapter = self.create_chapter(
+        condition_chapter = self.create_chapter(
             class_list={
                 "main": [
                     "table-1-2",
@@ -702,11 +702,11 @@ class ApplicationInformationData(FormBuilderBase):
                 "sub": [
                     "table-1-2__col"
                 ]
-            },
+            } if is_vacant and is_not_applicable else []
         )
 
         if is_not_applicable:
-            visibility_chapter["components"].append(
+            condition_chapter["components"].append(
                 self.create_chapter(
                     components=[
                         self.create_component(
@@ -727,7 +727,7 @@ class ApplicationInformationData(FormBuilderBase):
             )
 
         if is_vacant:
-            visibility_chapter["components"].append(
+            condition_chapter["components"].append(
                 self.create_chapter(
                     visibility_rules=[
                         self.visibility_rule.depends_on_value(
@@ -753,54 +753,53 @@ class ApplicationInformationData(FormBuilderBase):
                 )
             )
 
-        if is_vacant or is_not_applicable:
-            main_chapter["components"].append(visibility_chapter)
+        if is_not_applicable or is_vacant:
+            main_chapter["components"].append(condition_chapter)
 
-        return self.create_chapter(
-            title=title,
+        visibility_chapter = self.create_chapter(
+            visibility_rules=visibility_rules,
+            multiple_forms_rules={
+                "minCount": 1,
+                "maxCount": 10
+            } if is_multi else {},
             components=[
                 self.create_chapter(
-                    visibility_rules=visibility_rules,
-                    multiple_forms_rules={
-                        "minCount": 1,
-                        "maxCount": 10
-                    } if is_multi else {},
+                    class_list=[
+                        "grid",
+                        "grid-cols-2"
+                    ],
                     components=[
-                        self.create_chapter(
+                        self.create_component(
+                            component_type="text",
+                            label="Imię i nazwisko",
+                            name=f"{name}Fullname",
+                            required=True,
                             class_list=[
-                                "grid",
-                                "grid-cols-2"
-                            ],
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    label="Imię i nazwisko",
-                                    name=f"{name}Fullname",
-                                    required=True,
-                                    class_list=[
-                                        "col-span-2"
-                                    ]
-                                ),
-                                self.create_component(
-                                    component_type="country",
-                                    label="Obywatelstwo",
-                                    name=f"{name}Citizenship",
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="select",
-                                    label="Płeć",
-                                    name=f"{name}Sex",
-                                    options=[
-                                        "Mężczyzna",
-                                        "Kobieta",
-                                        "Inna"
-                                    ],
-                                    required=True
-                                )
+                                "col-span-2"
                             ]
+                        ),
+                        self.create_component(
+                            component_type="country",
+                            label="Obywatelstwo",
+                            name=f"{name}Citizenship",
+                            required=True
+                        ),
+                        self.create_component(
+                            component_type="select",
+                            label="Płeć",
+                            name=f"{name}Sex",
+                            options=[
+                                "Mężczyzna",
+                                "Kobieta",
+                                "Inna"
+                            ],
+                            required=True
                         )
                     ]
                 )
             ]
         )
+
+        main_chapter["components"].append(visibility_chapter)
+
+        return main_chapter
