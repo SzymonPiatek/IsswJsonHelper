@@ -1,7 +1,8 @@
 {
   "__summary__": {
     "total_duplicates": 105,
-    "total_unchecked": 105
+    "total_unchecked": 105,
+    "total_ignored": 4
   },
   "__ignored_names__": [
     "applicationTaskName",

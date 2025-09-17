@@ -96,7 +96,8 @@ class Analyzer:
                               if isinstance(entry, dict) and not entry.get("isChecked"))
 
         summary = {"total_duplicates": total_duplicates,
-                   "total_unchecked": total_unchecked}
+                   "total_unchecked": total_unchecked,
+                   "total_ignored": len(ignored_names)}
         output_data = {
             "__summary__": summary,
             "__ignored_names__": sorted(ignored_names),

@@ -1,7 +1,8 @@
 {
   "__summary__": {
     "total_duplicates": 424,
-    "total_unchecked": 424
+    "total_unchecked": 424,
+    "total_ignored": 21
   },
   "__ignored_names__": [
     "amountAndPeriodOfGuarantee",

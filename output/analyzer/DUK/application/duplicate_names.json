@@ -1,7 +1,8 @@
 {
   "__summary__": {
     "total_duplicates": 620,
-    "total_unchecked": 620
+    "total_unchecked": 620,
+    "total_ignored": 0
   },
   "__ignored_names__": [],
   "sessionYear": {
