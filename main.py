@@ -14,13 +14,15 @@ login_data = {
     "password": os.getenv("LOGIN_PASSWORD"),
 }
 
+year = "2026"
+
 all_applications = {
     "2025": Applications2025(),
     "2026": Applications2026(),
 }
 
 analyzer = Analyzer()
-applications = all_applications["2026"]
+applications = all_applications[year]
 
 setup = {
     "autosave": True,
@@ -114,33 +116,33 @@ def main():
 
     if setup.get("analyze", False):
         for department in ["DPF", "DUK", "DWM"]:
-            analyzer.report_duplicates(
-                base_dir=f"./output/json/{department}/application",
-                output_path=f"./output/analyzer/{department}/application",
-                file_name="duplicate_names"
-            )
+            # analyzer.report_duplicates(
+            #     base_dir=f"./output/json/{year}/{department}/application",
+            #     output_path=f"./output/analyzer/{year}/{department}/application",
+            #     file_name="duplicate_names"
+            # )
 
             analyzer.report_missing_validators(
-                base_dir=f"./output/json/{department}/application",
-                output_path=f"./output/analyzer/{department}/application",
+                base_dir=f"./output/json/{year}/{department}/application",
+                output_path=f"./output/analyzer/{year}/{department}/application",
                 file_name="missing_validators"
             )
 
             analyzer.report_unknown_rules(
-                base_dir=f"./output/json/{department}/application",
-                output_path=f"./output/analyzer/{department}/application",
+                base_dir=f"./output/json/{year}/{department}/application",
+                output_path=f"./output/analyzer/{year}/{department}/application",
                 file_name="unknown_rules"
             )
 
             analyzer.report_redundant_validators(
-                base_dir=f"./output/json/{department}/application",
-                output_path=f"./output/analyzer/{department}/application",
+                base_dir=f"./output/json/{year}/{department}/application",
+                output_path=f"./output/analyzer/{year}/{department}/application",
                 file_name="redundant_validators"
             )
 
             analyzer.report_many_validators(
-                base_dir=f"./output/json/{department}/application",
-                output_path=f"./output/analyzer/{department}/application",
+                base_dir=f"./output/json/{year}/{department}/application",
+                output_path=f"./output/analyzer/{year}/{department}/application",
                 file_name="many_validators",
                 validators_num=3
             )
