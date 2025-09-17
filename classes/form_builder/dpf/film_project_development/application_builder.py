@@ -937,3 +937,6 @@ class FilmProjectDevelopmentApplicationBuilder(DPFApplicationBuilder):
         )
 
         self.save_part(part=part)
+
+    def create_application_financial_data(self):
+        pass

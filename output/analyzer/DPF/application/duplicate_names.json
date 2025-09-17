@@ -1,7 +1,7 @@
 {
   "__summary__": {
-    "total_duplicates": 463,
-    "total_unchecked": 463
+    "total_duplicates": 525,
+    "total_unchecked": 525
   },
   "__ignored_names__": [
     "amountAndPeriodOfGuarantee",
@@ -3514,6 +3514,750 @@
     ]
   },
   "bankReviewAttachments": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "isOtherPrivateFinancing": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "addOtherPrivateSourcesPolish": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntityCountryNamePoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingPrivateEntityNamePoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntityTypePoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntityFinancialInputAmountPoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntityInKindInputsAmountPoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntityTotalInputPoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntityTotalSharePoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "pledgePrivateFinancingAttachmentPoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "contractPrivateFinancingAttachmentPoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "addOtherPrivateSourcesNonPolish": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntityCountryNameOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingPrivateEntityNameOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntityTypeOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntityFinancialInputAmountOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntityInKindInputsAmountOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntityTotalInputOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntityTotalShareOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "pledgePrivateFinancingAttachmentOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "contractPrivateFinancingAttachmentOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntitiesFinancialInputAmountPolandSum": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntitiesFinancialInputAmountOtherSum": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntitiesFinancialInputAmountAltogether": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntitiesInKindInputAmountPolandSum": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntitiesInKindInputAmountOtherSum": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntitiesInKindInputAmountAltogether": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntitiesTotalAmountPoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntitiesTotalAmountOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntitiesTotalAmount": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "financingEntitiesTotalShare": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "isOtherPublicFinancing": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "addOtherPublicSourcesPolish": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntityCountryNamePoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicPrivateEntityNamePoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntityTypePoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntityFinancialInputAmountPoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntityInKindInputsAmountPoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntityTotalInputPoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntityTotalSharePoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "pledgePublicFinancingAttachmentPoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "contractPublicFinancingAttachmentPoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "addOtherPublicSourcesNonPolish": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntityCountryNameOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicPrivateEntityNameOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntityTypeOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntityFinancialInputAmountOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntityInKindInputsAmountOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntityTotalInputOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntityTotalShareOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "pledgePublicFinancingAttachmentOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "contractPublicFinancingAttachmentOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntitiesFinancialInputAmountPolandSum": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntitiesFinancialInputAmountOtherSum": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntitiesFinancialInputAmountAltogether": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntitiesInKindInputAmountPolandSum": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntitiesInKindInputAmountOtherSum": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntitiesInKindInputAmountAltogether": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntitiesTotalAmountPoland": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntitiesTotalAmountOther": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntitiesTotalAmount": {
+    "isChecked": false,
+    "filesCount": 6,
+    "files": [
+      "output/json/DPF/application/po1_pr2_application_2025.json",
+      "output/json/DPF/application/po1_pr3_application_2025.json",
+      "output/json/DPF/application/po1_pr4_application_2025.json",
+      "output/json/DPF/application/po1_pr5_application_2025.json",
+      "output/json/DPF/application/po1_pr6_application_2025.json",
+      "output/json/DPF/application/po1_pr7_application_2025.json"
+    ]
+  },
+  "publicEntitiesTotalShare": {
     "isChecked": false,
     "filesCount": 6,
     "files": [
