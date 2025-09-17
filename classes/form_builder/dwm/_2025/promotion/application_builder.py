@@ -1,7 +1,7 @@
-from classes.form_builder.dwm.application_builder import DWMApplicationBuilder
+from ..application_builder import DWMApplicationBuilder2025
 
 
-class PromotionApplicationBuilder(DWMApplicationBuilder):
+class PromotionApplicationBuilder(DWMApplicationBuilder2025):
     PRIORITY_NAME = 'I. Promocja polskiej twórczości filmowej za granicą'
     PRIORITY_NUM = 1
     FORM_ID = 9192

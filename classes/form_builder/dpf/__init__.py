@@ -8,11 +8,11 @@ from .screenplay_scholarship.application_builder import ScreenplayScholarshipApp
 
 
 __all__ = [
-    AnimatedFilmApplicationBuilder,
-    CoproductionFilmApplicationBuilder,
-    DocumentaryFilmApplicationBuilder,
-    FamilyFilmApplicationBuilder,
-    FeatureFilmApplicationBuilder,
-    FilmProjectDevelopmentApplicationBuilder,
-    ScreenplayScholarshipApplicationBuilder,
+    "AnimatedFilmApplicationBuilder",
+    "CoproductionFilmApplicationBuilder",
+    "DocumentaryFilmApplicationBuilder",
+    "FamilyFilmApplicationBuilder",
+    "FeatureFilmApplicationBuilder",
+    "FilmProjectDevelopmentApplicationBuilder",
+    "ScreenplayScholarshipApplicationBuilder",
 ]

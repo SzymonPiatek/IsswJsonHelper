@@ -1,7 +1,7 @@
-from classes.form_builder.dwm.application_builder import DWMApplicationBuilder
+from ..application_builder import DWMApplicationBuilder2025
 
 
-class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder):
+class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2025):
     PRIORITY_NAME = 'II. Stypendia zagraniczne'
     PRIORITY_NUM = 2
     FORM_ID = 9193

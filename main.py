@@ -3,7 +3,8 @@ from dotenv import load_dotenv
 from classes.web_scraper.web_scraper import WebScraper
 from classes.postman.postman import Postman
 from classes.analyzer.analyzer import Analyzer
-from classes.form_builder.additional import applications
+from classes.form_builder.applications._2025.applications import Applications2025
+from classes.form_builder.applications._2026.applications import Applications2026
 
 load_dotenv()
 
@@ -13,7 +14,20 @@ login_data = {
     "password": os.getenv("LOGIN_PASSWORD"),
 }
 
+all_applications = {
+    "2025": Applications2025(),
+    "2026": Applications2026(),
+}
+
 analyzer = Analyzer()
+applications = all_applications["2026"]
+
+setup = {
+    "autosave": True,
+    "pdf": True,
+    "web": False,
+    "analyze": False
+}
 
 
 def example():
@@ -65,64 +79,71 @@ def generate_application(department: str, program: str, priority: str):
     return application
 
 
-def generate_applications():
+def main():
     postman = Postman(
         base_url,
         login_data,
     )
 
-    for department, programs in applications._builder_map.items():
+    for department, programs in applications.builder_map.items():
         for program, priorities in programs.items():
             for priority in priorities:
                 print("====="*10)
                 print(f"[{department.upper()}] {program.upper()} {priority.upper()}")
+
                 # Generowanie
                 application = generate_application(
                     department=department,
                     program=program,
                     priority=priority
                 )
-                # Podmiana
-                postman.application_autosave(
-                    form_id=application.form_id,
-                    json=application.output_json
-                )
 
+                if setup.get("autosave", False):
+                    # Podmiana
+                    postman.application_autosave(
+                        form_id=application.form_id,
+                        json=application.output_json
+                    )
 
-def main():
-    generate_applications()
+                if setup.get("pdf", False):
+                    # PDF
+                    postman.application_pdf(
+                        output_path=f"output/pdf/{application.year}/{application.department_name}/{application.json_type}/po_{application.operation_num}_pr_{application.priority_num}",
+                        json=application.output_json
+                    )
 
-    for department in ["DPF", "DUK", "DWM"]:
-        analyzer.report_duplicates(
-            base_dir=f"./output/json/{department}/application",
-            output_path=f"./output/analyzer/{department}/application",
-            file_name="duplicate_names"
-        )
+    if setup.get("analyze", False):
+        for department in ["DPF", "DUK", "DWM"]:
+            analyzer.report_duplicates(
+                base_dir=f"./output/json/{department}/application",
+                output_path=f"./output/analyzer/{department}/application",
+                file_name="duplicate_names"
+            )
 
-        analyzer.report_missing_validators(
-            base_dir=f"./output/json/{department}/application",
-            output_path=f"./output/analyzer/{department}/application",
-            file_name="missing_validators"
-        )
+            analyzer.report_missing_validators(
+                base_dir=f"./output/json/{department}/application",
+                output_path=f"./output/analyzer/{department}/application",
+                file_name="missing_validators"
+            )
 
-        analyzer.report_unknown_rules(
-            base_dir=f"./output/json/{department}/application",
-            output_path=f"./output/analyzer/{department}/application",
-            file_name="unknown_rules"
-        )
+            analyzer.report_unknown_rules(
+                base_dir=f"./output/json/{department}/application",
+                output_path=f"./output/analyzer/{department}/application",
+                file_name="unknown_rules"
+            )
 
-        analyzer.report_redundant_validators(
-            base_dir=f"./output/json/{department}/application",
-            output_path=f"./output/analyzer/{department}/application",
-            file_name="redundant_validators"
-        )
+            analyzer.report_redundant_validators(
+                base_dir=f"./output/json/{department}/application",
+                output_path=f"./output/analyzer/{department}/application",
+                file_name="redundant_validators"
+            )
 
-        analyzer.report_many_validators(
-            base_dir=f"./output/json/{department}/application",
-            output_path=f"./output/analyzer/{department}/application",
-            file_name="many_validators",
-            validators_num=3
-        )
+            analyzer.report_many_validators(
+                base_dir=f"./output/json/{department}/application",
+                output_path=f"./output/analyzer/{department}/application",
+                file_name="many_validators",
+                validators_num=3
+            )
 
 
 if __name__ == '__main__':

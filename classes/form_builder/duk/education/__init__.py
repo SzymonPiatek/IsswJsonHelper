@@ -5,8 +5,8 @@ from .secondary_schools.application_builder import SecondarySchoolsApplicationBu
 
 
 __all__ = [
-    CinemasApplicationBuilder,
-    PostgraduateSchoolsApplicationBuilder,
-    ProfessionalTrainingApplicationBuilder,
-    SecondarySchoolsApplicationBuilder
+    "CinemasApplicationBuilder",
+    "PostgraduateSchoolsApplicationBuilder",
+    "ProfessionalTrainingApplicationBuilder",
+    "SecondarySchoolsApplicationBuilder"
 ]

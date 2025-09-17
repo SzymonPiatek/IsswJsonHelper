@@ -7,10 +7,10 @@ from .research.application_builder import ResearchApplicationBuilder
 
 
 __all__ = [
-    DocumentaryDistributionApplicationBuilder,
-    FestivalsApplicationBuilder,
-    InitiativesApplicationBuilder,
-    LiteratueApplicationBuilder,
-    ReconstructionApplicationBuilder,
-    ResearchApplicationBuilder
+    "DocumentaryDistributionApplicationBuilder",
+    "FestivalsApplicationBuilder",
+    "InitiativesApplicationBuilder",
+    "LiteratueApplicationBuilder",
+    "ReconstructionApplicationBuilder",
+    "ResearchApplicationBuilder"
 ]

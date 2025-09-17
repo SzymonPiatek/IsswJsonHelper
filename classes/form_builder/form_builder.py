@@ -36,7 +36,7 @@ class FormBuilder(FormBuilderBase):
         self.form_id = self.FORM_ID
 
         self.output_file_name = f'po{self.operation_num}_pr{self.priority_num}_{self.json_type}_{self.year}.json'
-        self.output_file = self.main_dir / 'output' / 'json' /self.department_name / self.json_type / self.output_file_name
+        self.output_file = self.main_dir / 'output' / 'json' / str(self.year) / self.department_name / self.json_type / self.output_file_name
 
         self.part = Part()
         self.component = Component()
@@ -58,7 +58,7 @@ class FormBuilder(FormBuilderBase):
         with self.output_file.open('w', encoding='utf-8') as f:
             json.dump(self.output_json, f, ensure_ascii=False, indent=2)
 
-        print(f'Zapisano output do {self.output_file}')
+        print(f'JSON zapisany do {self.output_file}')
 
     @not_implemented_func
     def generate(self):
