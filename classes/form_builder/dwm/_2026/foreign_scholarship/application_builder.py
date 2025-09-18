@@ -1359,71 +1359,9 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                 ),
                 self.create_chapter(
                     title="<normal>Uwaga!</br>-Harmonogram przedsięwzięcia powinien uwzględniać wszystkie działania wymienione w kosztorysie przedsięwzięcia z wyraźnie wyodrębnioną pozycją dotyczącą pobytu na wydarzeniu.</br>- Harmonogram powinien mieć charakter ciągły (brak przerw między kolejnymi pozycjami harmonogramu) w przypadku wydarzeń niezwiązanych z warsztatami.</br>- Prosimy o chronologiczne ułożenie wszystkich pozycji harmonogramu. Wymagane jest uwzględnienie przynajmniej 3 etapów realizacji przedsięwzięcia.",
-                    multiple_forms_rules={
-                        "minCount": 3,
-                        "maxCount": 20
-                    },
-                    components=[
-                        self.create_chapter(
-                            title="",
-                            components=[
-                                self.create_chapter(
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="date",
-                                            label="Termin od",
-                                            name=f"taskActionDateStart",
-                                            required=True,
-                                            validators=[
-                                                self.validator.related_local_date_lte_validator(
-                                                    field_name="taskActionDateEnd",
-                                                    message="Data początkowa musi być wcześniejsza od daty końcowej"
-                                                )
-                                            ]
-                                        ),
-                                        self.create_component(
-                                            component_type="date",
-                                            label="Termin do",
-                                            name=f"taskActionDateEnd",
-                                            required=True,
-                                            validators=[
-                                                self.validator.related_local_date_gte_validator(
-                                                    field_name="taskActionDateStart",
-                                                    message="Data końcowa musi być późniejsza od daty początkowej"
-                                                )
-                                            ]
-                                        ),
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    components=[
-                                        self.create_component(
-                                            component_type="textarea",
-                                            label="Działanie",
-                                            name=f"taskActionDesc",
-                                            help_text="Krótki opis działania",
-                                            validators=[
-                                                self.validator.length_validator(max_value=500)
-                                            ],
-                                            required=True
-                                        )
-                                    ]
-                                )
-                            ]
-                        )
-                    ]
                 ),
-                self.section.application_schedule.task_action_dates()
+                self.section.application_schedule.task_action_dates(),
+                self.section.application_schedule.task_action_dates_final()
             ]
         )
         self.save_part(part=part)

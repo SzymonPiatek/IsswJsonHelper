@@ -1436,60 +1436,9 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                 ),
                 self.create_chapter(
                     title="<normal>Uwaga!\n\n-Harmonogram przedsięwzięcia powinien uwzględniać etapy: przygotowawczy (np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie promocji wydarzenia itp.), realizacji przedsięwzięcia (np. wykonanie i/lub wysyłka materiałów promocyjnych, pokaz filmu na festiwalu) oraz podsumowania (ewaluacja i rozliczenie przedsięwzięcia - ostateczna data zakończenia realizacji przedsięwzięcia: dzień, miesiąc i rok). W zakresie każdego z tych etapów należy określić najwazniejsze działania (tzw. \"kamienie milowe\" przedsięwzięcia) i terminy ich realizacji.\n\n- Harmonogram przedsięwzięcia powinien uwzględniać wszystkie działania wymienione w kosztorysie przedsięwzięcia i mieć charakter ciągły (brak przerw między kolejnymi pozycjami harmonogramu).\n\n- Prosimy o chronologiczne ułożenie wszystkich pozycji harmonogramu.\n\nWymagane jest uwzględnienie przynajmniej 3 etapów realizacji przedsięwzięcia.",
-                    multiple_forms_rules={
-                        "minCount": 3,
-                        "maxCount": 20
-                    },
-                    components=[
-                        self.create_chapter(
-                            title=f"Pozycja {number}",
-                            components=[
-                                self.create_chapter(
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="date",
-                                            label="Termin od",
-                                            name=f"taskActionDateStart_{number}",
-                                            required=True
-                                        ),
-                                        self.create_component(
-                                            component_type="date",
-                                            label="Termin do",
-                                            name=f"taskActionDateEnd_{number}",
-                                            required=True
-                                        ),
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    components=[
-                                        self.create_component(
-                                            component_type="textarea",
-                                            label="Działanie",
-                                            name=f"taskActionDesc_{number}",
-                                            help_text="Krótki opis działania",
-                                            validators=[
-                                                self.validator.length_validator(max_value=500)
-                                            ],
-                                            required=True
-                                        )
-                                    ]
-                                )
-                            ]
-                        )
-                        for number in range(1, 4)
-                    ]
                 ),
-                self.section.application_schedule.task_action_dates()
+                self.section.application_schedule.task_action_dates(),
+                self.section.application_schedule.task_action_dates_final()
             ]
         )
         self.save_part(part=part)

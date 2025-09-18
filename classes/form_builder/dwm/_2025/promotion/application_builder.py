@@ -1699,7 +1699,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2025):
                         for number in range(1, 4)
                     ]
                 ),
-                self.section.application_schedule.task_action_dates()
+                self.section.application_schedule.task_action_dates_final()
             ]
         )
         self.save_part(part=part)
