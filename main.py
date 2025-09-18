@@ -22,10 +22,17 @@ all_applications = {
 }
 
 analyzer = Analyzer()
+
 applications = all_applications[year]
 
+postman = Postman(
+    base_url,
+    login_data,
+)
+
 setup = {
-    "autosave": True,
+    "autosave_or_update": True,
+    "force_autosave": False,
     "pdf": True,
     "web": False,
     "analyze": False
@@ -82,11 +89,6 @@ def generate_application(department: str, program: str, priority: str):
 
 
 def main():
-    postman = Postman(
-        base_url,
-        login_data,
-    )
-
     for department, programs in applications.builder_map.items():
         for program, priorities in programs.items():
             for priority in priorities:
@@ -100,12 +102,21 @@ def main():
                     priority=priority
                 )
 
-                if setup.get("autosave", False):
-                    # Podmiana
-                    postman.application_autosave(
-                        form_id=application.form_id,
-                        json=application.output_json
-                    )
+                if setup.get("autosave_or_update", False):
+                    is_success = False
+                    if not setup.get("force_autosave", False):
+                        # Aktualizacja
+                        is_success = postman.application_update_schema(
+                            form_id=application.form_id,
+                            json=application.output_json
+                        )
+
+                    if setup.get("force_autosave", False) or not is_success:
+                        # Podmiana
+                        postman.application_autosave(
+                            form_id=application.form_id,
+                            json=application.output_json
+                        )
 
                 if setup.get("pdf", False):
                     # PDF

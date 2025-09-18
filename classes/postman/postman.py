@@ -57,6 +57,26 @@ class Postman:
         else:
             raise Exception(f"Operacja nie powiodła się ({form_id}): {response.status_code}, {response.text}")
 
+    def application_update_schema(self, form_id: int, json: object):
+        url = f"{self.base_url}/api/v1/cms/applications/{form_id}/schema"
+
+        response = requests.patch(
+            url,
+            json=json,
+            headers={
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": f"Bearer {self.access_token}"
+            },
+            verify=False
+        )
+
+        if response.status_code == 200:
+            print(f"Zaktualizowano schemę wniosku: {form_id}")
+            return True
+        else:
+            raise Exception(f"Operacja nie powiodła się ({form_id}): {response.status_code}, {response.text}")
+
     def application_pdf(self, output_path: str, json: object):
         url = f"{self.base_url}:5000/pdf/"
         output_file_path = f"{output_path}/file.pdf"
