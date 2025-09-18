@@ -1187,6 +1187,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                     },
                     components=[
                         self.create_chapter(
+                            title="Plik",
                             components=[
                                 self.create_component(
                                     component_type="file",
