@@ -9,6 +9,13 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
     def __init__(self):
         super().__init__()
 
+    def create_application_base(self):
+        self.create_base(
+            intro_text=[
+                "Wniosek o ustanowaienie stypendium w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"
+            ]
+        )
+
     def create_application_metadata(self):
         part = self.create_part(
             title="I. Metadane wniosku",
@@ -59,111 +66,11 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
             title="II. Nazwa przedsięwzięcia, którego dotyczy wniosek",
             short_name="II. Nazwa przedsięwzięcia",
             chapters=[
+                self.section.application_name_data.application_task_name(number="1"),
+                self.section.application_name_data.events_names_and_dates(number="2"),
+                self.section.application_name_data.country_and_city_of_events(number="3"),
                 self.create_chapter(
-                    title="1. Nazwa przedsięwzięcia",
-                    components=[
-                        self.create_component(
-                            component_type="textarea",
-                            name="applicationTaskName",
-                            required=True,
-                            validators=[
-                                self.validator.length_validator(max_value=600)
-                            ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="2. Nazwa i termin docelowego wydarzenia",
-                    multiple_forms_rules={
-                        "minCount": 1,
-                        "maxCount": 20
-                    },
-                    components=[
-                        self.create_chapter(
-                            components=[
-                                self.create_chapter(
-                                    components=[
-                                        self.create_component(
-                                            component_type="text",
-                                            label="Nazwa wydarzenia",
-                                            name="eventName",
-                                            required=True
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="date",
-                                            label="Termin od",
-                                            name="eventDateStart",
-                                            required=True
-                                        ),
-                                        self.create_component(
-                                            component_type="date",
-                                            label="Termin do",
-                                            name="eventDateEnd",
-                                            required=True,
-                                            validators=[
-                                                self.validator.related_local_date_gte_validator(
-                                                    field_name="eventDateEnd",
-                                                    message="Data końcowa nie może być wcześniejsza niż data początkowa."
-                                                )
-                                            ]
-                                        )
-                                    ]
-                                )
-                            ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="3. Miasto i kraj, w którym odbywa sie wydarzenie",
-                    multiple_forms_rules={
-                        "minCount": 1,
-                        "maxCount": 20
-                    },
-                    components=[
-                        self.create_chapter(
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    label="Kraj",
-                                    name="eventCountry",
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Miasto",
-                                    name="eventLocation",
-                                    required=True
-                                )
-                            ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="4. Forma udziału wnioskodawcy w wydarzeniu",
+                    title="4. Forma udziału Wnioskodawcy w wydarzeniu",
                     components=[
                         self.create_component(
                             component_type="radio",
@@ -215,7 +122,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                     ]
                 ),
                 self.create_chapter(
-                    title="6. Główny cel udziały wnioskodawcy w wydarzeniu",
+                    title="6. Główny cel udziały Wnioskodawcy w wydarzeniu",
                     components=[
                         self.create_chapter(
                             components=[
@@ -256,68 +163,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                         )
                     ]
                 ),
-                self.create_chapter(
-                    title="7. Projekt/film z którym wnioskodawca bierze udział w wydarzeniu",
-                    class_list={
-                        "main": [
-                            "table-1-2",
-                            "grid",
-                            "grid-cols-2"
-                        ],
-                        "sub": [
-                            "table-1-2__col"
-                        ]
-                    },
-                    components=[
-                        self.create_component(
-                            component_type="text",
-                            label="Tytuł filmu",
-                            name="eventMovieTitle",
-                            required=True
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            label="Imię i nazwisko reżysera",
-                            name="eventMovieDirector",
-                            required=True
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            label="Metraż filmu w minutach",
-                            name="eventMovieDuration",
-                        ),
-                        self.create_component(
-                            component_type="select",
-                            label="Rodzaj filmu",
-                            name="movieType",
-                            options=[
-                                "fabularny",
-                                "dokumentalny",
-                                "animowany"
-                            ],
-                            required=True
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            label="Sekcja na festiwalu",
-                            name="eventEventSession",
-                            help_text="Podaj sekcję na festiwalu, w której odbędzie się prezentacja filmu.",
-                            required=True
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            label="Rodzaj premiery",
-                            name="eventMoviePremiereType",
-                            required=True
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            label="Rok produkcji",
-                            name="movieProdYear",
-                            required=True
-                        )
-                    ]
-                ),
+                self.section.application_name_data.project_for_event(number="7"),
                 self.create_chapter(
                     title="8. Czy projekt/film został wsparty przez PISF?",
                     components=[
@@ -398,8 +244,8 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
 
     def create_application_applicant_data(self):
         part = self.create_part(
-            title="III. Informacje o wnioskodawcy",
-            short_name="III. Informacje o wnioskodawcy",
+            title="III. Informacje o Wnioskodawcy",
+            short_name="III. Informacje o Wnioskodawcy",
             chapters=[
                 self.section.applicant_full_name(number="1"),
                 self.create_chapter(
@@ -450,71 +296,9 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                     ]
                 ),
                 self.section.responsible_person_data(number="3"),
+                self.section.applicant_address(number="4", main_poland=True, contact_poland=True, main_foreign=True, contact_foreign=True),
                 self.create_chapter(
-                    title="4. Adres i dane wnioskodawcy",
-                    components=[
-                        self.create_chapter(
-                            title="4a. Adres zamieszkania",
-                            components=[
-                                self.create_component(
-                                    component_type="radio",
-                                    name="applicantResidence",
-                                    options=[
-                                        "w Polsce",
-                                        "za granicą"
-                                    ],
-                                    required=True
-                                )
-                            ]
-                        ),
-                        *self.section.applicant_address_base(
-                            poland=True,
-                            foreign=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    components=[
-                        self.create_component(
-                            component_type="checkbox",
-                            label="Należy zaznaczyć jeśli adres korespondencyjny jest inny",
-                            name="applicantHasDifferentContactAddress"
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    visibility_rules=[
-                        self.visibility_rule.depends_on_value(
-                            field_name="applicantHasDifferentContactAddress",
-                            values=[
-                                True
-                            ]
-                        )
-                    ],
-                    components=[
-                        self.create_chapter(
-                            title="4b. Adres korespondencyjny",
-                            components=[
-                                self.create_component(
-                                    component_type="radio",
-                                    name="applicantContactResidence",
-                                    options=[
-                                        "w Polsce",
-                                        "za granicą"
-                                    ],
-                                    required=True
-                                )
-                            ]
-                        ),
-                        *self.section.applicant_address_base(
-                            build_name="Contact",
-                            poland=True,
-                            foreign=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="4c. Numery identyfikacyjne",
+                    title="5. Numery identyfikacyjne",
                     components=[
                         self.create_chapter(
                             visibility_rules=[
@@ -573,7 +357,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                     ]
                 ),
                 self.create_chapter(
-                    title="5. Nazwa i numer rachunku bankowego",
+                    title="6. Nazwa i numer rachunku bankowego",
                     components=[
                         self.create_chapter(
                             visibility_rules=[
@@ -651,6 +435,42 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                             ]
                         )
                     ]
+                ),
+                self.create_chapter(
+                    title="7. Waluta, z której dotacja PISF ma zostać przelana na w/w konto",
+                    components=[
+                        self.create_chapter(
+                            title="Uwaga, rozliczenie przedsięwzięcia musi zostać przedstawione w walucie PLN",
+                            class_list={
+                                "main": [
+                                    "table-1-2",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    label="Waluta, w której dotacja PISF ma zostać przelana na w/w konto",
+                                    name="applicantCurrency",
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Waluta rozliczenia",
+                                    name="applicantCurrencySettlement",
+                                    read_only=True,
+                                    value="PLN"
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="W przypadku otrzymania dofinansowania od PISF proszę o przygotowanie umowy:</br>- w formie papierowej (do podpisu odręcznego)</br>- w formie elektronicznej (do podpisu kwalifikowanym podpisem elektronycznym)</br>Uwaga! W przypadku zmiany formy podpisania umowy Instytut może odstąpić od zawarcia umowy.",
                 )
             ]
         )
@@ -658,18 +478,19 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
 
     def create_application_applicant_achievements_data(self):
         part = self.create_part(
-            title="IV. Dotychczasowy dorobek i doświadczenie wnioskodawcy w dziedzinie, której wniosek dotyczy",
-            short_name="IV. Dorobek wnioskodawcy",
+            title="IV. Dotychczasowy dorobek i doświadczenie Wnioskodawcy w dziedzinie, której wniosek dotyczy",
+            short_name="IV. Dorobek Wnioskodawcy",
             chapters=[
                 self.create_chapter(
+                    title="CV Wnioskodawcy",
                     components=[
                         self.create_component(
                             component_type="textarea",
-                            label="CV wnioskodawcy (należy podać filmografię z informacją o pełnionej funkcji w projekcie oraz ew. nagrody filmu lub/i nagrody dla wnioskodawcy)",
                             name="applicantCv",
                             validators=[
                                 self.validator.length_validator(max_value=10000)
                             ],
+                            help_text="Należy podać filmografię z informacją o pełnionej funkcji w projekcie oraz ew. nagrody filmu lub/i nagrody dla Wnioskodawcy.",
                             required=True
                         )
                     ]
@@ -684,14 +505,15 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
             short_name="V. Opis przedsięwzięcia",
             chapters=[
                 self.create_chapter(
+                    title="Opis przedsięwzięcia",
                     components=[
                         self.create_component(
                             component_type="textarea",
-                            label="Należy podać opis, charakter wydarzenia oraz cel uczestnictwa wnioskodawcy",
                             name="plannedTaskDesc",
                             validators=[
                                 self.validator.length_validator(max_value=20000)
                             ],
+                            help_text="Należy podać opis, charakter wydarzenia oraz cel uczestnictwa Wnioskodawcy.",
                             required=True
                         )
                     ]
@@ -709,7 +531,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                     components=[
                         self.create_component(
                             component_type="textarea",
-                            label="1. Synposis filmu / opis projektu",
+                            label="1. Synopsis filmu / opis projektu",
                             name="movieProjectSynopsis",
                             validators=[
                                 self.validator.length_validator(max_value=20000)
@@ -781,16 +603,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                 "full-width-grid"
             ],
             chapters=[
-                self.create_chapter(
-                    components=[
-                        self.create_component(
-                            component_type="text",
-                            label="Waluta, w której dotacja PISF ma zostać przelana na w/w konto",
-                            name="grantCurrency",
-                            required=True
-                        )
-                    ]
-                ),
                 self.create_chapter(
                     title="Nazwa przedsięwzięcia",
                     components=[
@@ -1090,7 +902,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                                         ),
                                         self.create_component(
                                             component_type="number",
-                                            label="Udział wnioskodawnej dotacji PISF w kosztach razem",
+                                            label="Udział wnioskowanej dotacji PISF w kosztach razem",
                                             name="costRequestPisfSumShare",
                                             calculation_rules=[
                                                 self.calculation_rule.share_calculator(
@@ -1121,7 +933,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                                             validators=[
                                                 self.validator.range_validator(
                                                     min_value=10,
-                                                    message="Minimalny wkład własny wnioskodawcy powinien wynosić 10% całości budżetu przedsięwzięcia."
+                                                    message="Minimalny wkład własny Wnioskodawcy powinien wynosić 10% całości budżetu przedsięwzięcia."
                                                 )
                                             ],
                                             unit="%"
@@ -1132,7 +944,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                                             name="costPartnersSponsorsSumShare",
                                             calculation_rules=[
                                                 self.calculation_rule.share_calculator(
-                                                    dividend_field="costPartnersSponsors",
+                                                    dividend_field="costPartnersSponsorsSum",
                                                     divisor_field="costTotalSum"
                                                 )
                                             ],
@@ -1381,6 +1193,16 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                             ]
                         )
                     ]
+                ),
+                self.create_chapter(
+                    title="4. Dodatkowe wyjaśnienia",
+                    components=[
+                        self.create_component(
+                            component_type="checkbox",
+                            label="Czy któryś z kosztów został zapewniony przez organizatora wydarzenia?",
+                            name="isCostsCoveredByEventOrganizer"
+                        )
+                    ]
                 )
             ]
         )
@@ -1411,7 +1233,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
         ]
 
         part = self.create_part(
-            title="X. Oświadczenia wnioskodawcy",
+            title="X. Oświadczenia Wnioskodawcy",
             short_name="X. Oświadczenia",
             chapters=[
                 self.create_chapter(
@@ -1507,7 +1329,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                     components=[
                         self.create_component(
                             component_type="checkbox",
-                            label="Zapoznałem/łam się z poniższymi zasadami.<br/>- Wnioskodawca jest zobowiązany do przedstawienia rozliczenia dofinansowania zgodnie z warunkami określonymi w umowie o dofinansowanie, w tym w szczególności do przedłożenia raportu końcowego, który zawiera finansowe rozliczenie przedsięwzięcia, ocenę jakościową jego realizacji (WAŻNE: W przypadku dokumentów wystawionych w walucie obcej, należy przyjąć średni kurs NBP z dnia roboczego poprzedzającego wystawienie dokumentu księgowego).<br/>- Do raportu końcowego należy załączyć dokumenty finansowo-księgowe potwierdzające wydatkowanie kosztów poniesionych z udzielonego dofinansowania w postaci faktur (WAŻNE: faktury muszą być wystawione na Beneficjenta jako osobę fizyczną) oraz biletów (jeśli z przyczyn obiektywnie niezależnych od Beneficjenta niemożliwe jest otrzymanie faktury) wraz z potwierdzeniem wykonania przelewów z rachunku bankowego Beneficjenta.<br/>- Procentowy wkład dofinansowania PISF w finalnym budżecie przedsięwzięcia nie może przekroczyć wkładu zakładanego, określonego w umowie o dofinansowanie. Jeżeli faktycznie poniesiony koszt całkowity przedsięwzięcia okazał się niższy od planowanego lub beneficjent nie wykorzystał całego dofinansowania, należy dokonać zwrotu na rachunek PISF i dostarczyć wraz z raportem potwierdzenie przelewu.<br/>- Jedynie koszty poniesione od daty złożenia wniosku o dofinansowanie w ISSW do daty zakończenia przedsięwzięcia określonej w harmonogramie, mogą zostać uznane za koszty kwalifikowalne i opłacone z dofinasowania PISF (koszty poniesione przed datą złożenia wniosku o dofinansowanie nie będą uznane za koszty kwalifikowalne).<br/>- Wniosek o dofinansowanie wraz z załącznikami należy podpisać przy użyciu kwalifikowanego podpisu elektronicznego lub profilu zaufanego platformy E-PUAP.<br/>- Wszelkie załączniki do wniosku o dofinansowanie (w tym listy intencyjne, umowy z partnerami, itp.) wymagają poświadczenia za zgodność z oryginałem. Podpisanie wniosku o dofinansowanie przez wnioskodawcę kwalifikowanym podpisem elektronicznym lub profilem zaufanym platformy E-PUAP jest równoznaczne z poświadczeniem przez wnioskodawcę załączników do wniosku o dofinansowanie za zgodne z oryginałem.<br/>- Linki do zasobów zewnętrznych umieszczane we wniosku o dofinansowanie powinny zachować ważność co najmniej do czasu wydania decyzji przez Dyrektora PISF.<br/>- Do dokumentów przedkładanych do wniosku o dofinansowanie sporządzonych w językach obcych należy obligatoryjnie dołączyć tłumaczenie na język polski. wnioskodawca, na wniosek PISF, ma obowiązek przedstawić tłumaczenie przysięgłe wskazanego dokumentu.",
+                            label="Zapoznałem/łam się z poniższymi zasadami.<br/>- Wnioskodawca jest zobowiązany do przedstawienia rozliczenia dofinansowania zgodnie z warunkami określonymi w umowie o dofinansowanie, w tym w szczególności do przedłożenia raportu końcowego, który zawiera finansowe rozliczenie przedsięwzięcia, ocenę jakościową jego realizacji.<br/>- Do raportu końcowego należy załączyć dokumenty finansowo-księgowe potwierdzające wydatkowanie kosztów poniesionych z udzielonego dofinansowania w postaci faktur (WAŻNE: faktury muszą być wystawione na Beneficjenta jako osobę fizyczną) oraz biletów (jeśli z przyczyn obiektywnie niezależnych od Beneficjenta niemożliwe jest otrzymanie faktury) wraz z potwierdzeniem wykonania przelewów z rachunku bankowego Beneficjenta, które zostało wskazane we wniosku o dofinansowanie.<br/>- Procentowy wkład dofinansowania PISF w finalnym budżecie przedsięwzięcia nie może przekroczyć wkładu zakładanego, określonego w umowie o dofinansowanie. Jeżeli faktycznie poniesiony koszt całkowity przedsięwzięcia okazał się niższy od planowanego lub beneficjent nie wykorzystał całego dofinansowania, należy dokonać zwrotu na rachunek PISF i dostarczyć wraz z raportem potwierdzenie przelewu.<br/>- Jedynie koszty poniesione od daty złożenia wniosku o dofinansowanie w ISSW do daty zakończenia przedsięwzięcia określonej w harmonogramie, mogą zostać uznane za koszty kwalifikowalne i opłacone z dofinasowania PISF (koszty poniesione przed datą złożenia wniosku o dofinansowanie nie będą uznane za koszty kwalifikowalne).<br/>- Wniosek o dofinansowanie wraz z załącznikami należy podpisać przy użyciu kwalifikowanego podpisu elektronicznego lub profilu zaufanego platformy E-PUAP.<br/>- Wszelkie załączniki do wniosku o dofinansowanie (w tym listy intencyjne, umowy z partnerami, itp.) wymagają poświadczenia za zgodność z oryginałem. Podpisanie wniosku o dofinansowanie przez Wnioskodawcę kwalifikowanym podpisem elektronicznym lub profilem zaufanym platformy E-PUAP jest równoznaczne z poświadczeniem przez Wnioskodawcę załączników do wniosku o dofinansowanie za zgodne z oryginałem.<br/>- Linki do zasobów zewnętrznych umieszczane we wniosku o dofinansowanie powinny zachować ważność co najmniej do czasu wydania decyzji przez Dyrektora PISF.<br/>- Do dokumentów przedkładanych do wniosku o dofinansowanie sporządzonych w językach obcych należy obligatoryjnie dołączyć tłumaczenie na język polski. Wnioskodawca, na wniosek PISF, ma obowiązek przedstawić tłumaczenie przysięgłe wskazanego dokumentu.",
                             name="acknowledgeRules",
                             required=True
                         )
@@ -1536,14 +1358,14 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                     ]
                 ),
                 self.create_chapter(
-                    title="<normal>Uwaga!\n\n- Harmonogram przedsięwzięcia powinien uwzględniać wszystkie działania wymienione w kosztorysie przedsięwzięcia.\n- Prosimy o chronologiczne ułożenie wszystkich pozycji harmonogramu.</normal>\nWymagane jest uwzględnienie przynajmniej 3 etapów realizacji przedsięwzięcia.",
+                    title="<normal>Uwaga!</br>-Harmonogram przedsięwzięcia powinien uwzględniać wszystkie działania wymienione w kosztorysie przedsięwzięcia z wyraźnie wyodrębnioną pozycją dotyczącą pobytu na wydarzeniu.</br>- Harmonogram powinien mieć charakter ciągły (brak przerw między kolejnymi pozycjami harmonogramu) w przypadku wydarzeń niezwiązanych z warsztatami.</br>- Prosimy o chronologiczne ułożenie wszystkich pozycji harmonogramu. Wymagane jest uwzględnienie przynajmniej 3 etapów realizacji przedsięwzięcia.",
                     multiple_forms_rules={
                         "minCount": 3,
                         "maxCount": 20
                     },
                     components=[
                         self.create_chapter(
-                            title=f"Pozycja {number}",
+                            title="",
                             components=[
                                 self.create_chapter(
                                     class_list={
@@ -1560,14 +1382,26 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                                         self.create_component(
                                             component_type="date",
                                             label="Termin od",
-                                            name=f"taskActionDateStart_{number}",
-                                            required=True
+                                            name=f"taskActionDateStart",
+                                            required=True,
+                                            validators=[
+                                                self.validator.related_local_date_lte_validator(
+                                                    field_name="taskActionDateEnd",
+                                                    message="Data początkowa musi być wcześniejsza od daty końcowej"
+                                                )
+                                            ]
                                         ),
                                         self.create_component(
                                             component_type="date",
                                             label="Termin do",
-                                            name=f"taskActionDateEnd_{number}",
-                                            required=True
+                                            name=f"taskActionDateEnd",
+                                            required=True,
+                                            validators=[
+                                                self.validator.related_local_date_gte_validator(
+                                                    field_name="taskActionDateStart",
+                                                    message="Data końcowa musi być późniejsza od daty początkowej"
+                                                )
+                                            ]
                                         ),
                                     ]
                                 ),
@@ -1576,7 +1410,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                                         self.create_component(
                                             component_type="textarea",
                                             label="Działanie",
-                                            name=f"taskActionDesc_{number}",
+                                            name=f"taskActionDesc",
                                             help_text="Krótki opis działania",
                                             validators=[
                                                 self.validator.length_validator(max_value=500)
@@ -1587,7 +1421,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                                 )
                             ]
                         )
-                        for number in range(1, 4)
                     ]
                 ),
                 self.section.application_schedule.task_action_dates()

@@ -62,109 +62,9 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
             title="II. Nazwa przedsięwzięcia, którego dotyczy wniosek",
             short_name="II. Nazwa przedsięwzięcia",
             chapters=[
-                self.create_chapter(
-                    title="1. Nazwa przedsięwzięcia",
-                    components=[
-                        self.create_component(
-                            component_type="textarea",
-                            name="applicationTaskName",
-                            required=True,
-                            validators=[
-                                self.validator.length_validator(max_value=600)
-                            ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="2. Nazwa i termin docelowego wydarzenia",
-                    multiple_forms_rules={
-                        "minCount": 1,
-                        "maxCount": 20
-                    },
-                    components=[
-                        self.create_chapter(
-                            components=[
-                                self.create_chapter(
-                                    components=[
-                                        self.create_component(
-                                            component_type="text",
-                                            label="Nazwa wydarzenia",
-                                            name="eventName",
-                                            required=True
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="date",
-                                            label="Termin od",
-                                            name="eventDateStart",
-                                            required=True
-                                        ),
-                                        self.create_component(
-                                            component_type="date",
-                                            label="Termin do",
-                                            name="eventDateEnd",
-                                            required=True,
-                                            validators=[
-                                                self.validator.related_local_date_gte_validator(
-                                                    field_name="eventDateEnd",
-                                                    message="Data końcowa nie może być wcześniejsza niż data początkowa."
-                                                )
-                                            ]
-                                        )
-                                    ]
-                                )
-                            ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="3. Miasto i kraj, w którym odbywa sie wydarzenie",
-                    multiple_forms_rules={
-                        "minCount": 1,
-                        "maxCount": 20
-                    },
-                    components=[
-                        self.create_chapter(
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    label="Kraj",
-                                    name="eventCountry",
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Miasto",
-                                    name="eventLocation",
-                                    required=True
-                                )
-                            ]
-                        )
-                    ]
-                ),
+                self.section.application_name_data.application_task_name(number="1"),
+                self.section.application_name_data.events_names_and_dates(number="2"),
+                self.section.application_name_data.country_and_city_of_events(number="3"),
                 self.create_chapter(
                     title="4. Forma udziału wnioskodawcy w wydarzeniu",
                     components=[
@@ -190,136 +90,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                         )
                     ],
                     components=[
-                        self.create_chapter(
-                            title="5. Projekt/film, z którym Wnioskodawca bierze udział w wydarzeniu",
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    label="Tytuł filmu",
-                                    name="eventMovieTitle",
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Imię i nazwisko reżysera",
-                                    name="eventMovieDirector",
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Metraż filmu w minutach",
-                                    name="eventMovieDuration",
-                                ),
-                                self.create_component(
-                                    component_type="select",
-                                    label="Rodzaj filmu",
-                                    name="movieType",
-                                    options=[
-                                        "fabularny",
-                                        "dokumentalny",
-                                        "animowany"
-                                    ],
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Sekcja na festiwalu",
-                                    name="eventEventSession",
-                                    help_text="Podaj sekcję na festiwalu, w której odbędzie się prezentacja filmu.",
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Rodzaj premiery",
-                                    name="eventMoviePremiereType",
-                                    required=True
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            title="6. Czy projekt/film został wsparty przez PISF?",
-                            components=[
-                                self.create_chapter(
-                                    components=[
-                                        self.create_component(
-                                            component_type="radio",
-                                            name="wasMovieProjectSupportedByPisf",
-                                            options=[
-                                                "Tak",
-                                                "Nie"
-                                            ],
-                                            required=True
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    visibility_rules=[
-                                        self.visibility_rule.depends_on_value(
-                                            field_name="wasMovieProjectSupportedByPisf",
-                                            values=[
-                                                "Tak"
-                                            ]
-                                        )
-                                    ],
-                                    components=[
-                                        self.create_component(
-                                            component_type="text",
-                                            label="Program operacyjny",
-                                            name="movieProjectSupportedByPisfProgram",
-                                            required=True,
-                                            class_list=[
-                                                "col-span-2",
-                                                "table-full"
-                                            ]
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            label="Priorytet",
-                                            name="movieProjectSupportedByPisfPriority",
-                                            required=True,
-                                            class_list=[
-                                                "col-span-2",
-                                                "table-full"
-                                            ]
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            label="Rok przyznania dofinansowania",
-                                            name="movieProjectSupportedPisfYear",
-                                            required=True
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            mask="fund",
-                                            label="Kwota dofinansowania",
-                                            name="movieProjectSupportedPisfAmount",
-                                            unit="PLN",
-                                            required=True
-                                        )
-                                    ]
-                                )
-                            ]
-                        )
+                        self.section.application_name_data.project_for_event(number="5"),
+                        self.section.application_name_data.project_is_supported_by_pisf(number="6", after_name="Pkt12"),
                     ]
                 ),
                 self.create_chapter(
@@ -620,7 +392,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                     components=[
                         self.create_component(
                             component_type="textarea",
-                            label="1. Synposis filmu / opis projektu",
+                            label="1. Synopsis filmu / opis projektu",
                             name="movieProjectDesc",
                             validators=[
                                 self.validator.length_validator(max_value=20000)

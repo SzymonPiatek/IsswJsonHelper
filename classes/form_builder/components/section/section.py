@@ -327,7 +327,7 @@ class Section(FormBuilderBase):
                     },
                     components=[
                         self.create_component(
-                            component_type="text",
+                            component_type="country",
                             label="Kraj",
                             name=f"{start_name}{build_name}Country",
                             required=True
