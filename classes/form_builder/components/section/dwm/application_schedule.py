@@ -13,7 +13,7 @@ class ApplicationSchedule(FormBuilderBase):
             },
             components=[
                 self.create_chapter(
-                    title="",
+                    title="Etap",
                     components=[
                         self.create_chapter(
                             class_list={

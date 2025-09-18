@@ -77,6 +77,7 @@ class Section(FormBuilderBase):
             },
             components=[
                 self.create_chapter(
+                    title="Osoba",
                     class_list={
                         "main": [
                             "table-1-2",
@@ -676,16 +677,6 @@ class Section(FormBuilderBase):
                 ),
                 self.create_chapter(
                     title="Numer właściwego rejestru",
-                    class_list={
-                        "main": [
-                            "table-1-2",
-                            "grid",
-                            "grid-cols-2"
-                        ],
-                        "sub": [
-                            "table-1-2__col"
-                        ]
-                    },
                     components=[
                         self.create_chapter(
                             components=[
