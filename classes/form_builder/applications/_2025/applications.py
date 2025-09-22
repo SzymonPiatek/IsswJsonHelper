@@ -11,41 +11,44 @@ class Applications2025(Applications):
         super().__init__()
 
         self.builder_map = {
-            "dpf": {
-                "po1": {
-                    "pr1": ScreenplayScholarshipApplicationBuilder,
-                    "pr2": FilmProjectDevelopmentApplicationBuilder,
-                    "pr3": FeatureFilmApplicationBuilder,
-                    "pr4": DocumentaryFilmApplicationBuilder,
-                    "pr5": AnimatedFilmApplicationBuilder,
-                    "pr6": CoproductionFilmApplicationBuilder,
-                    "pr7": FamilyFilmApplicationBuilder,
+            "application": {
+                "dpf": {
+                    "po1": {
+                        "pr1": ScreenplayScholarshipApplicationBuilder,
+                        "pr2": FilmProjectDevelopmentApplicationBuilder,
+                        "pr3": FeatureFilmApplicationBuilder,
+                        "pr4": DocumentaryFilmApplicationBuilder,
+                        "pr5": AnimatedFilmApplicationBuilder,
+                        "pr6": CoproductionFilmApplicationBuilder,
+                        "pr7": FamilyFilmApplicationBuilder,
+                    },
                 },
-            },
-            "duk": {
-                "po2": {
-                    "pr1": PostgraduateSchoolsApplicationBuilder,
-                    "pr2": SecondarySchoolsApplicationBuilder,
-                    "pr3": ProfessionalTrainingApplicationBuilder,
-                    "pr4": CinemasApplicationBuilder,
+                "duk": {
+                    "po2": {
+                        "pr1": PostgraduateSchoolsApplicationBuilder,
+                        "pr2": SecondarySchoolsApplicationBuilder,
+                        "pr3": ProfessionalTrainingApplicationBuilder,
+                        "pr4": CinemasApplicationBuilder,
+                    },
+                    "po3": {
+                        "pr1": FestivalsApplicationBuilder,
+                        "pr2": InitiativesApplicationBuilder,
+                        "pr3": LiteratueApplicationBuilder,
+                        "pr4": ReconstructionApplicationBuilder,
+                        "pr5": ResearchApplicationBuilder,
+                        "pr6": DocumentaryDistributionApplicationBuilder,
+                    },
+                    "po4": {
+                        "pr1": ModernizationApplicationBuilder,
+                        "pr2": DigitalizationApplicationBuilder,
+                    }
                 },
-                "po3": {
-                    "pr1": FestivalsApplicationBuilder,
-                    "pr2": InitiativesApplicationBuilder,
-                    "pr3": LiteratueApplicationBuilder,
-                    "pr4": ReconstructionApplicationBuilder,
-                    "pr5": ResearchApplicationBuilder,
-                    "pr6": DocumentaryDistributionApplicationBuilder,
-                },
-                "po4": {
-                    "pr1": ModernizationApplicationBuilder,
-                    "pr2": DigitalizationApplicationBuilder,
+                "dwm": {
+                    "po5": {
+                        "pr1": PromotionApplicationBuilder,
+                        "pr2": ForeignScholarshipApplicationBuilder,
+                    }
                 }
             },
-            "dwm": {
-                "po5": {
-                    "pr1": PromotionApplicationBuilder,
-                    "pr2": ForeignScholarshipApplicationBuilder,
-                }
-            }
+            "report": {}
         }

@@ -7,10 +7,20 @@ class Applications2026(Applications):
         super().__init__()
 
         self.builder_map = {
-            "dwm": {
-                "po5": {
-                    "pr1": PromotionApplicationBuilder,
-                    "pr2": ForeignScholarshipApplicationBuilder,
+            "application": {
+                "dwm": {
+                    "po5": {
+                        "pr1": PromotionApplicationBuilder,
+                        "pr2": ForeignScholarshipApplicationBuilder,
+                    }
+                }
+            },
+            "report": {
+                "dwm": {
+                    "po5": {
+                        "pr1": PromotionReportBuilder,
+                        "pr2": ForeignScholarshipReportBuilder,
+                    }
                 }
             }
         }

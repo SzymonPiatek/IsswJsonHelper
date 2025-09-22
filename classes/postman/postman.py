@@ -72,13 +72,19 @@ class Postman:
         )
 
         if response.status_code == 200:
-            print(f"Zaktualizowano schemę wniosku: {form_id}")
-            return True
+            message = response.json().get("message", "")
+            app_id = response.json().get("id", "")
+
+            if message == "Zaktualizowano scheme dla aplikacji." or app_id:
+                print(f"{message} ({app_id})")
+                return True
+            else:
+                return False
         else:
             raise Exception(f"Operacja nie powiodła się ({form_id}): {response.status_code}, {response.text}")
 
-    def application_pdf(self, output_path: str, json: object):
-        url = f"{self.base_url}:5000/pdf/"
+    def application_pdf(self, output_path: str, json: object, form_id: int):
+        url = f"{self.base_url}:5000/pdf"
         output_file_path = f"{output_path}/file.pdf"
         os.makedirs(output_path, exist_ok=True)
 
@@ -100,4 +106,4 @@ class Postman:
                 f.write(response.content)
             print(f"PDF zapisany do: {output_file_path}")
         else:
-            raise Exception(f"Generowanie PDF nie powiodło się: {response.status_code}, {response.text}")
+            raise Exception(f"Generowanie PDF nie powiodło się ({form_id}: {response.status_code}, {response.text}")

@@ -1,4 +1,4 @@
-from classes.form_builder.form_builder import FormBuilder, DepartmentType, SessionType
+from classes.form_builder.form_builder import FormBuilder
 
 
 class ReportBuilder(FormBuilder):

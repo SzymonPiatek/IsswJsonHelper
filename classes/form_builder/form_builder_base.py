@@ -244,11 +244,14 @@ class FormBuilderBase:
             required: bool = False,
             read_only: bool = False,
             help_text: str = '',
+            copyFrom: str = '',
     ):
         # Check type
         allowed_types = {'date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox', 'country', 'countryMulti'}
         if component_type not in allowed_types:
             raise ValueError(f"Invalid component_type '{component_type}'. Must be one of: {', '.join(allowed_types)}.")
+        if component_type == "header" and not name.startswith("headerComponent"):
+            name = f"headerComponent-{name}"
         # Check mask
         allowed_masks = {'fund', 'phoneNumber', 'bankAccount', 'landline', 'jst', 'ibanAccount', 'polishPostalCode'}
         if mask and mask not in allowed_masks:
@@ -330,5 +333,7 @@ class FormBuilderBase:
             kwargs["calculationRules"] = calculation_rules
         if class_list:
             kwargs["classList"] = class_list
+        if copyFrom:
+            kwargs["copyFrom"] = copyFrom
 
         return self.delete_unused_component_args(component=kwargs)

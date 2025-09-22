@@ -81,82 +81,101 @@ def example():
     scraper.close()
 
 
-def generate_application(department: str, program: str, priority: str):
-    application_class = applications.get_application_builder(department=department, program=program, priority=priority)
-    application = application_class()
-    application.generate()
-    return application
+def generate_json(data_type: str, department: str, program: str, priority: str):
+    if data_type == "application":
+        application_class = applications.get_application_builder(department=department, program=program, priority=priority)
+        application = application_class()
+        application.generate()
+        return application
+    elif data_type == "report":
+        application_class = applications.get_report_builder(department=department, program=program, priority=priority)
+        application = application_class()
+        application.generate()
+        return application
+    else:
+        raise ValueError(f"Nie obsługiwany typ formularza: {data_type}")
+
+
+def generate_process(data_type: str):
+    if data_type == "application" or data_type == "report":
+        for department, programs in applications.builder_map.get(data_type, {}).items():
+            for program, priorities in programs.items():
+                for priority in priorities:
+                    print("====="*10)
+                    print(f"[{department.upper()}] {program.upper()} {priority.upper()} - {data_type.upper()}")
+
+                    # Generowanie
+                    application = generate_json(
+                        data_type=data_type,
+                        department=department,
+                        program=program,
+                        priority=priority
+                    )
+
+                    if setup.get("autosave_or_update", False):
+                        is_success = False
+                        if not setup.get("force_autosave", False):
+                            # Aktualizacja
+                            is_success = postman.application_update_schema(
+                                form_id=application.form_id,
+                                json=application.output_json
+                            )
+
+                        if setup.get("force_autosave", False) or not is_success:
+                            # Podmiana
+                            postman.application_autosave(
+                                form_id=application.form_id,
+                                json=application.output_json
+                            )
+
+                    if setup.get("pdf", False):
+                        # PDF
+                        if application.json_type == "application":
+                            postman.application_pdf(
+                                output_path=f"output/pdf/{application.year}/{application.department_name}/{application.json_type}/po_{application.operation_num}_pr_{application.priority_num}",
+                                json=application.output_json,
+                                form_id=application.form_id
+                            )
+
+        if setup.get("analyze", False):
+            for department in ["DPF", "DUK", "DWM"]:
+                # analyzer.report_duplicates(
+                #     base_dir=f"./output/json/{year}/{department}/{data_type}",
+                #     output_path=f"./output/analyzer/{year}/{department}/{data_type}",
+                #     file_name="duplicate_names"
+                # )
+
+                analyzer.report_missing_validators(
+                    base_dir=f"./output/json/{year}/{department}/{data_type}",
+                    output_path=f"./output/analyzer/{year}/{department}/{data_type}",
+                    file_name="missing_validators"
+                )
+
+                analyzer.report_unknown_rules(
+                    base_dir=f"./output/json/{year}/{department}/{data_type}",
+                    output_path=f"./output/analyzer/{year}/{department}/{data_type}",
+                    file_name="unknown_rules"
+                )
+
+                analyzer.report_redundant_validators(
+                    base_dir=f"./output/json/{year}/{department}/{data_type}",
+                    output_path=f"./output/analyzer/{year}/{department}/{data_type}",
+                    file_name="redundant_validators"
+                )
+
+                analyzer.report_many_validators(
+                    base_dir=f"./output/json/{year}/{department}/{data_type}",
+                    output_path=f"./output/analyzer/{year}/{department}/{data_type}",
+                    file_name="many_validators",
+                    validators_num=3
+                )
+    else:
+        raise ValueError(f"Nie obsługiwany typ formularza: {data_type}")
 
 
 def main():
-    for department, programs in applications.builder_map.items():
-        for program, priorities in programs.items():
-            for priority in priorities:
-                print("====="*10)
-                print(f"[{department.upper()}] {program.upper()} {priority.upper()}")
-
-                # Generowanie
-                application = generate_application(
-                    department=department,
-                    program=program,
-                    priority=priority
-                )
-
-                if setup.get("autosave_or_update", False):
-                    is_success = False
-                    if not setup.get("force_autosave", False):
-                        # Aktualizacja
-                        is_success = postman.application_update_schema(
-                            form_id=application.form_id,
-                            json=application.output_json
-                        )
-
-                    if setup.get("force_autosave", False) or not is_success:
-                        # Podmiana
-                        postman.application_autosave(
-                            form_id=application.form_id,
-                            json=application.output_json
-                        )
-
-                if setup.get("pdf", False):
-                    # PDF
-                    postman.application_pdf(
-                        output_path=f"output/pdf/{application.year}/{application.department_name}/{application.json_type}/po_{application.operation_num}_pr_{application.priority_num}",
-                        json=application.output_json
-                    )
-
-    if setup.get("analyze", False):
-        for department in ["DPF", "DUK", "DWM"]:
-            # analyzer.report_duplicates(
-            #     base_dir=f"./output/json/{year}/{department}/application",
-            #     output_path=f"./output/analyzer/{year}/{department}/application",
-            #     file_name="duplicate_names"
-            # )
-
-            analyzer.report_missing_validators(
-                base_dir=f"./output/json/{year}/{department}/application",
-                output_path=f"./output/analyzer/{year}/{department}/application",
-                file_name="missing_validators"
-            )
-
-            analyzer.report_unknown_rules(
-                base_dir=f"./output/json/{year}/{department}/application",
-                output_path=f"./output/analyzer/{year}/{department}/application",
-                file_name="unknown_rules"
-            )
-
-            analyzer.report_redundant_validators(
-                base_dir=f"./output/json/{year}/{department}/application",
-                output_path=f"./output/analyzer/{year}/{department}/application",
-                file_name="redundant_validators"
-            )
-
-            analyzer.report_many_validators(
-                base_dir=f"./output/json/{year}/{department}/application",
-                output_path=f"./output/analyzer/{year}/{department}/application",
-                file_name="many_validators",
-                validators_num=3
-            )
+    # generate_process(data_type="application")
+    generate_process(data_type="report")
 
 
 if __name__ == '__main__':
