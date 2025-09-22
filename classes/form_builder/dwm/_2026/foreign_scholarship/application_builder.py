@@ -297,178 +297,9 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                 ),
                 self.section.responsible_person_data(number="3"),
                 self.section.applicant_address(number="4", main_poland=True, contact_poland=True, main_foreign=True, contact_foreign=True),
-                self.create_chapter(
-                    title="5. Numery identyfikacyjne",
-                    components=[
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="applicantResidence",
-                                    values=[
-                                        "w Polsce"
-                                    ]
-                                )
-                            ],
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    label="Numer PESEL",
-                                    name="applicantPesel",
-                                    required=True,
-                                    validators=[
-                                        self.validator.pesel_validator()
-                                    ]
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Właściwy urząd skarbowy",
-                                    name="applicantTaxOffice",
-                                    required=True
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="applicantResidence",
-                                    values=[
-                                        "za granicą"
-                                    ]
-                                )
-                            ],
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    label="Numer PESEL",
-                                    name="applicantForeignPesel",
-                                    required=True,
-                                    validators=[
-                                        self.validator.pesel_validator()
-                                    ]
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Właściwy urząd skarbowy",
-                                    name="applicantForeignTaxOffice",
-                                    required=True
-                                )
-                            ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="6. Nazwa i numer rachunku bankowego",
-                    components=[
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="applicantResidence",
-                                    values=[
-                                        "w Polsce"
-                                    ]
-                                )
-                            ],
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    label="Nazwa banku",
-                                    name="applicantBank",
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Numer konta bankowego",
-                                    mask="bankAccount",
-                                    name="applicantBankAccountNum",
-                                    required=True
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="applicantResidence",
-                                    values=[
-                                        "za granicą"
-                                    ]
-                                )
-                            ],
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    label="Nazwa banku",
-                                    name="applicantForeignBank",
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Numer IBAN",
-                                    name="applicantIban",
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Kod SWIFT banku",
-                                    name="applicantForeignBankSwift",
-                                    required=True
-                                )
-                            ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="7. Waluta, z której dotacja PISF ma zostać przelana na w/w konto",
-                    components=[
-                        self.create_chapter(
-                            title="Uwaga, rozliczenie przedsięwzięcia musi zostać przedstawione w walucie PLN",
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    label="Waluta, w której dotacja PISF ma zostać przelana na w/w konto",
-                                    name="applicantCurrency",
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Waluta rozliczenia",
-                                    name="applicantCurrencySettlement",
-                                    read_only=True,
-                                    value="PLN"
-                                )
-                            ]
-                        )
-                    ]
-                ),
+                self.section.application_applicant_data.identification_numbers(number="5"),
+                self.section.applicant_bank_data(number="6", poland=True, foreign=True),
+                self.section.application_applicant_data.pisf_transfer_currency(number="7"),
                 self.create_chapter(
                     title="W przypadku otrzymania dofinansowania od PISF proszę o przygotowanie umowy:</br>- w formie papierowej (do podpisu odręcznego)</br>- w formie elektronicznej (do podpisu kwalifikowanym podpisem elektronycznym)</br>Uwaga! W przypadku zmiany formy podpisania umowy Instytut może odstąpić od zawarcia umowy.",
                 )
@@ -899,7 +730,21 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                                                     ]
                                                 )
                                             ]
-                                        ),
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    class_list={
+                                        "main": [
+                                            "table-6",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-6__col"
+                                        ]
+                                    },
+                                    components=[
                                         self.create_component(
                                             component_type="number",
                                             label="Udział wnioskowanej dotacji PISF w kosztach razem",
@@ -940,7 +785,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                                         ),
                                         self.create_component(
                                             component_type="number",
-                                            label="Udział środków od partnerów/sponsorów w kosztach razem",
+                                            label="Udział środków innych partnerów/sponsorów w kosztach razem",
                                             name="costPartnersSponsorsSumShare",
                                             calculation_rules=[
                                                 self.calculation_rule.share_calculator(
@@ -963,7 +808,21 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                                             ],
                                             read_only=True,
                                             unit="%"
-                                        ),
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    class_list={
+                                        "main": [
+                                            "table-6",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-6__col"
+                                        ]
+                                    },
+                                    components=[
                                         self.create_component(
                                             component_type="number",
                                             label="Udział dotacji PISF oraz innych środków publicznych w kosztach razem",
@@ -989,7 +848,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                                         ),
                                         self.create_component(
                                             component_type="number",
-                                            label="Udział środków własnych oraz środków od partnerów/sponsorów w kosztach razem",
+                                            label="Udział środków własnych oraz środków innych partnerów/sponsorów w kosztach razem",
                                             name="costOwnPartnersSponsorsShareInTotal",
                                             calculation_rules=[
                                                 self.calculation_rule.sum_inputs(
@@ -1011,7 +870,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                                             ]
                                         )
                                     ]
-                                ),
+                                )
                             ]
                         )
                     ]
@@ -1091,7 +950,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                             components=[
                                 self.create_component(
                                     component_type="file",
-                                    label="Plik",
                                     name="invitationAttachment",
                                     required=True
                                 )
@@ -1111,7 +969,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                             components=[
                                 self.create_component(
                                     component_type="file",
-                                    label="Plik",
                                     name="foreignersListAttachment",
                                     validators=[
                                         self.validator.related_required_if_equal_validator(
@@ -1137,7 +994,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026):
                             components=[
                                 self.create_component(
                                     component_type="file",
-                                    label="Plik",
                                     name="qualifyConfirmAttachment",
                                     validators=[
                                         self.validator.related_required_if_equal_validator(

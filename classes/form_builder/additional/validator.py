@@ -1,4 +1,4 @@
-from typing import Dict, List, TypedDict, Literal
+from typing import Dict, List, TypedDict, Any, Optional
 
 
 class RelatedMappedLimitCondition(TypedDict):
@@ -9,6 +9,20 @@ class RelatedMappedLimitCondition(TypedDict):
 class RelatedMappedLimitOption(TypedDict):
     limit: int | float
     conditions: list[RelatedMappedLimitCondition]
+
+
+class RelatedConditionRatioCondition(TypedDict):
+    field_name: str
+    value: Any
+    max_ratio: Optional[float]
+    min_ratio: Optional[float]
+
+
+class RelatedConditionRangeCondition(TypedDict):
+    field_name: str
+    value: Any
+    max_range: Optional[float]
+    min_range: Optional[float]
 
 
 class Validator:
@@ -28,6 +42,7 @@ class Validator:
             "RangeValidator",
             "ExactValidator",
             "RelatedFractionGTEValidator",
+            "RelatedFractionLTEValidator",
             "RelatedShareValidator",
             "RelatedLocalDateLTEValidator",
             "RelatedLocalDateGTEValidator",
@@ -38,7 +53,9 @@ class Validator:
             "RelatedDateGTEValidator",
             "RelatedMultiplicationValidator",
             "RelatedDateOffsetValidator",
-            "CheckboxTrueDateLTEToday"
+            "CheckboxTrueDateLTEToday",
+            "RelatedConditionRatioValidator",
+            "RelatedConditionRangeValidator"
         ]
 
     @staticmethod
@@ -273,14 +290,37 @@ class Validator:
         Walidator sprawdza, czy wartość nie przekracza danej wartości procentowej wartości innego pola.
         """
 
-        return {
+        result = {
             "name": "RelatedFractionGTEValidator",
             "kwargs": {
                 "field_name": field_name,
                 "ratio": ratio
-            },
-            "validationMsg": message if message else f"Wartość nie może przekroczyć {ratio*100}% '{field_name}'."
+            }
         }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
+    @staticmethod
+    def related_fraction_lte_validator(field_name: str, ratio: float, message: str = None):
+        """
+        Walidator sprawdza, czy wartość nie przekracza danej wartości procentowej wartości innego pola.
+        """
+
+        result = {
+            "name": "RelatedFractionLTEValidator",
+            "kwargs": {
+                "field_name": field_name,
+                "ratio": ratio
+            }
+        }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
 
     @staticmethod
     def related_share_validator(dividend: str, divisor: str):
@@ -425,5 +465,32 @@ class Validator:
             "name": "CheckboxTrueDateLTEToday",
             "kwargs": {
                 "field_name": field_name
+            }
+        }
+
+    @staticmethod
+    def related_condition_ratio_validator(field_name: str, conditions: list[RelatedConditionRatioCondition]):
+        """
+        Walidator sprawdza, czy wartość jest w danym zakresie wartości pola field_name na podstawie warunków.
+        """
+
+        return {
+            "name": "RelatedConditionRatioValidator",
+            "kwargs": {
+                "field_name": field_name,
+                "conditions": conditions
+            }
+        }
+
+    @staticmethod
+    def related_condition_range_validator(conditions: list[RelatedConditionRangeCondition]):
+        """
+        Walidator sprawdza, czy wartość jest w danym zakresie wartości pola field_name na podstawie warunków.
+        """
+
+        return {
+            "name": "RelatedConditionRangeValidator",
+            "kwargs": {
+                "conditions": conditions
             }
         }

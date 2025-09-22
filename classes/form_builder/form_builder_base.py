@@ -281,8 +281,6 @@ class FormBuilderBase:
 
         if component_type == "file" and not help_text:
             help_text = "Maksymalny rozmiar pliku to 50 MB"
-        if component_type == "file" and not label:
-            label = "Plik"
 
         if mask == "fund" and not unit:
             unit = "PLN"

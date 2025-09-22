@@ -32,7 +32,7 @@ postman = Postman(
 
 setup = {
     "autosave_or_update": True,
-    "force_autosave": True,
+    "force_autosave": False,
     "pdf": True,
     "web": False,
     "analyze": False

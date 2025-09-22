@@ -160,39 +160,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                 self.section.responsible_person_data(number="3"),
                 self.section.applicant_address(number="4", main_poland=True, contact_poland=True, main_foreign=True, contact_foreign=True),
                 self.section.applicant_bank_data(number="5", poland=True, foreign=True),
-                self.create_chapter(
-                    title="6. Waluta, z której dotacja PISF ma zostać przelana na w/w konto",
-                    components=[
-                        self.create_chapter(
-                            title="Uwaga, rozliczenie przedsięwzięcia musi zostać przedstawione w walucie PLN",
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    label="Waluta, w której dotacja PISF ma zostać przelana na w/w konto",
-                                    name="applicantCurrency",
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Waluta rozliczenia",
-                                    name="applicantCurrencySettlement",
-                                    read_only=True,
-                                    value="PLN"
-                                )
-                            ]
-                        )
-                    ]
-                ),
+                self.section.application_applicant_data.pisf_transfer_currency(number="6"),
                 self.section.applicant_legal_information(number="7"),
                 self.section.applicant_statistical_data(number="8")
             ]
@@ -291,6 +259,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                 self.create_chapter(
                     components=[
                         self.create_chapter(
+                            title="Opis zaplanowanego przedsięwzięcia",
                             visibility_rules=[
                                 self.visibility_rule.depends_on_value(
                                     field_name="requestedSupportType",
@@ -303,12 +272,11 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                             components=[
                                 self.create_component(
                                     component_type="textarea",
-                                    label="Należy podać opis, charakter wydarzenia oraz cel uczestnictwa wnioskodawcy",
                                     name="plannedTaskDesc",
                                     validators=[
                                         self.validator.length_validator(max_value=20000)
                                     ],
-                                    help_text="Podaj opis innych przedsięwzięć z zakresu kinematografii, podejmowanych w przeszłości (z uwzględnieniem ich miejsca, zasięgu i partnerów).",
+                                    help_text="Należy podać opis, charakter wydarzenia oraz cel uczestnictwa wnioskodawcy. Podaj opis innych przedsięwzięć z zakresu kinematografii, podejmowanych w przeszłości (z uwzględnieniem ich miejsca, zasięgu i partnerów).",
                                     required=True
                                 )
                             ]
@@ -510,7 +478,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                     ]
                 ),
                 self.create_chapter(
-                    title="<normal>Uwaga! W przypadku braku automatycznego przeliczenia wartości finansowych prosimy o użycie przycisku „Przelicz i waliduj”, który znajduje się w prawym, dolnym rogu ekranu. Wymusi to dokonanie niezbędnych przeliczeń oraz podświetli nieuzupełnione pola formularza.</normal>"
+                    title="<normal>Uwaga!</br>W przypadku braku automatycznego przeliczenia wartości finansowych prosimy o użycie przycisku „Przelicz i waliduj”, który znajduje się w prawym, dolnym rogu ekranu. Wymusi to dokonanie niezbędnych przeliczeń oraz podświetli nieuzupełnione pola formularza.</normal>"
                 ),
                 self.create_chapter(
                     components=[
@@ -732,6 +700,36 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                                                     field_names=[
                                                         "costRequestPisf"
                                                     ]
+                                                ),
+                                                self.validator.related_condition_ratio_validator(
+                                                    field_name="costTotalSum",
+                                                    conditions=[
+                                                        {
+                                                            "field_name": "requestedSupportType",
+                                                            "value": "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 1",
+                                                            "max_ratio": 90,
+                                                        },
+                                                        {
+                                                            "field_name": "requestedSupportType",
+                                                            "value": "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 2",
+                                                            "max_ratio": 70
+                                                        },
+                                                        {
+                                                            "field_name": "requestedSupportType",
+                                                            "value": "Organizowanie albo współorganizowanie poza granicami Polski wydarzeń promujących dorobek polskich twórców filmowych oraz polską twórczość filmową, w tym przeglądów, retrospektyw, wystaw, konferencji zgodnie z ust. 2 pkt 3",
+                                                            "max_ratio": 70
+                                                        },
+                                                        {
+                                                            "field_name": "requestedSupportType",
+                                                            "value": "Organizowanie albo współorganizowanie w Polsce wizyt, spotkań zagranicznych inwestorów, producentów i twórców filmowych, które służą rozwojowi koprodukcji, usług filmowych oraz dystrybucji polskiej twórczości filmowej za granicą zgodnie z ust. 2 pkt 4",
+                                                            "max_ratio": 50
+                                                        },
+                                                        {
+                                                            "field_name": "requestedSupportType",
+                                                            "value": "Organizowanie albo współorganizowanie z partnerami zagranicznymi wydarzeń dla przedstawicieli branży filmowej w formie szkoleń, warsztatów, prezentacji zgodnie z ust. 2 pkt 5",
+                                                            "max_ratio": 50
+                                                        }
+                                                    ]
                                                 )
                                             ]
                                         ),
@@ -754,6 +752,10 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                                                     field_names=[
                                                         "costOwnFunds"
                                                     ]
+                                                ),
+                                                self.validator.related_fraction_lte_validator(
+                                                    field_name="costTotalSum",
+                                                    ratio=0.1
                                                 )
                                             ]
                                         ),
@@ -806,25 +808,19 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                                 self.create_chapter(
                                     class_list={
                                         "main": [
-                                            "table-6"
+                                            "table-6",
+                                            "grid",
+                                            "grid-cols-2"
                                         ],
                                         "sub": [
                                             "table-6__col"
                                         ]
                                     },
-                                    visibility_rules=[
-                                        self.visibility_rule.depends_on_value(
-                                            field_name="requestedSupportType",
-                                            values=[
-                                                "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 1"
-                                            ]
-                                        )
-                                    ],
                                     components=[
                                         self.create_component(
                                             component_type="number",
                                             label="Udział wnioskodawnej dotacji PISF w kosztach razem",
-                                            name="costRequestPisfSumShare1",
+                                            name="costRequestPisfSumShare",
                                             calculation_rules=[
                                                 self.calculation_rule.share_calculator(
                                                     dividend_field="costRequestPisfSum",
@@ -833,9 +829,39 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                                             ],
                                             read_only=True,
                                             validators=[
-                                                self.validator.range_validator(
-                                                    max_value=90,
-                                                    message="Przekroczono maksymalny limit dofinansowania, który dla wybranego przedsięwzięcia wynosi: 90%. Wymagana będzie zgoda dyrektora PISF."
+                                                self.validator.related_condition_range_validator(
+                                                    conditions=[
+                                                        {
+                                                            "field_name": "requestedSupportType",
+                                                            "value": "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 1",
+                                                            "max_range": 90,
+                                                            "message": "Przekroczono maksymalny limit dofinansowania, który dla wybranego przedsięwzięcia wynosi: 90%. Wymagana będzie zgoda dyrektora PISF."
+                                                        },
+                                                        {
+                                                            "field_name": "requestedSupportType",
+                                                            "value": "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 2",
+                                                            "max_range": 70,
+                                                            "message": "Przekroczono maksymalny limit dofinansowania, który dla wybranego przedsięwzięcia wynosi: 70%. Wymagana będzie zgoda dyrektora PISF."
+                                                        },
+                                                        {
+                                                            "field_name": "requestedSupportType",
+                                                            "value": "Organizowanie albo współorganizowanie poza granicami Polski wydarzeń promujących dorobek polskich twórców filmowych oraz polską twórczość filmową, w tym przeglądów, retrospektyw, wystaw, konferencji zgodnie z ust. 2 pkt 3",
+                                                            "max_range": 70,
+                                                            "message": "Przekroczono maksymalny limit dofinansowania, który dla wybranego przedsięwzięcia wynosi: 70%. Wymagana będzie zgoda dyrektora PISF."
+                                                        },
+                                                        {
+                                                            "field_name": "requestedSupportType",
+                                                            "value": "Organizowanie albo współorganizowanie w Polsce wizyt, spotkań zagranicznych inwestorów, producentów i twórców filmowych, które służą rozwojowi koprodukcji, usług filmowych oraz dystrybucji polskiej twórczości filmowej za granicą zgodnie z ust. 2 pkt 4",
+                                                            "max_range": 50,
+                                                            "message": "Przekroczono maksymalny limit dofinansowania, który dla wybranego przedsięwzięcia wynosi: 50%. Wymagana będzie zgoda dyrektora PISF."
+                                                        },
+                                                        {
+                                                            "field_name": "requestedSupportType",
+                                                            "value": "Organizowanie albo współorganizowanie z partnerami zagranicznymi wydarzeń dla przedstawicieli branży filmowej w formie szkoleń, warsztatów, prezentacji zgodnie z ust. 2 pkt 5",
+                                                            "max_range": 50,
+                                                            "message": "Przekroczono maksymalny limit dofinansowania, który dla wybranego przedsięwzięcia wynosi: 50%. Wymagana będzie zgoda dyrektora PISF."
+                                                        }
+                                                    ]
                                                 )
                                             ],
                                             unit="%"
@@ -843,7 +869,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                                         self.create_component(
                                             component_type="number",
                                             label="Udział środków własnych w kosztach razem",
-                                            name="costOwnFundsSumShare1",
+                                            name="costOwnFundsSumShare",
                                             calculation_rules=[
                                                 self.calculation_rule.share_calculator(
                                                     dividend_field="costOwnFundsSum",
@@ -861,8 +887,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                                         ),
                                         self.create_component(
                                             component_type="number",
-                                            label="Udział środków od partnerów/sponsorów w kosztach razem",
-                                            name="costPartnersSponsorsSumShare1",
+                                            label="Udział środków innych partnerów/sponsorów w kosztach razem",
+                                            name="costPartnersSponsorsSumShare",
                                             calculation_rules=[
                                                 self.calculation_rule.share_calculator(
                                                     dividend_field="costPartnersSponsors",
@@ -875,177 +901,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                                         self.create_component(
                                             component_type="number",
                                             label="Udział innych środków publicznych w kosztach razem",
-                                            name="costOtherSourcesSumShare1",
-                                            calculation_rules=[
-                                                self.calculation_rule.share_calculator(
-                                                    dividend_field="costOtherSourcesSum",
-                                                    divisor_field="costTotalSum"
-                                                )
-                                            ],
-                                            read_only=True,
-                                            unit="%"
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    class_list={
-                                        "main": [
-                                            "table-6"
-                                        ],
-                                        "sub": [
-                                            "table-6__col"
-                                        ]
-                                    },
-                                    visibility_rules=[
-                                        self.visibility_rule.depends_on_value(
-                                            field_name="requestedSupportType",
-                                            values=[
-                                                "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 2",
-                                                "Organizowanie albo współorganizowanie poza granicami Polski wydarzeń promujących dorobek polskich twórców filmowych oraz polską twórczość filmową, w tym przeglądów, retrospektyw, wystaw, konferencji zgodnie z ust. 2 pkt 3"
-                                            ]
-                                        )
-                                    ],
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Udział wnioskodawnej dotacji PISF w kosztach razem",
-                                            name="costRequestPisfSumShare23",
-                                            calculation_rules=[
-                                                self.calculation_rule.share_calculator(
-                                                    dividend_field="costRequestPisfSum",
-                                                    divisor_field="costTotalSum"
-                                                )
-                                            ],
-                                            read_only=True,
-                                            validators=[
-                                                self.validator.range_validator(
-                                                    max_value=70,
-                                                    message="Przekroczono maksymalny limit dofinansowania, który dla wybranego przedsięwzięcia wynosi: 70%. Wymagana będzie zgoda dyrektora PISF."
-                                                )
-                                            ],
-                                            unit="%"
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Udział środków własnych w kosztach razem",
-                                            name="costOwnFundsSumShare23",
-                                            calculation_rules=[
-                                                self.calculation_rule.share_calculator(
-                                                    dividend_field="costOwnFundsSum",
-                                                    divisor_field="costTotalSum"
-                                                )
-                                            ],
-                                            read_only=True,
-                                            validators=[
-                                                self.validator.range_validator(
-                                                    min_value=10,
-                                                    message="Minimalny wkład własny wnioskodawcy powinien wynosić 10% całości budżetu przedsięwzięcia."
-                                                )
-                                            ],
-                                            unit="%"
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Udział środków od partnerów/sponsorów w kosztach razem",
-                                            name="costPartnersSponsorsSumShare23",
-                                            calculation_rules=[
-                                                self.calculation_rule.share_calculator(
-                                                    dividend_field="costPartnersSponsors",
-                                                    divisor_field="costTotalSum"
-                                                )
-                                            ],
-                                            read_only=True,
-                                            unit="%"
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Udział innych środków publicznych w kosztach razem",
-                                            name="costOtherSourcesSumShare23",
-                                            calculation_rules=[
-                                                self.calculation_rule.share_calculator(
-                                                    dividend_field="costOtherSourcesSum",
-                                                    divisor_field="costTotalSum"
-                                                )
-                                            ],
-                                            read_only=True,
-                                            unit="%"
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    class_list={
-                                        "main": [
-                                            "table-6"
-                                        ],
-                                        "sub": [
-                                            "table-6__col"
-                                        ]
-                                    },
-                                    visibility_rules=[
-                                        self.visibility_rule.depends_on_value(
-                                            field_name="requestedSupportType",
-                                            values=[
-                                                "Organizowanie albo współorganizowanie w Polsce wizyt, spotkań zagranicznych inwestorów, producentów i twórców filmowych, które służą rozwojowi koprodukcji, usług filmowych oraz dystrybucji polskiej twórczości filmowej za granicą zgodnie z ust. 2 pkt 4",
-                                                "Organizowanie albo współorganizowanie z partnerami zagranicznymi wydarzeń dla przedstawicieli branży filmowej w formie szkoleń, warsztatów, prezentacji zgodnie z ust. 2 pkt 5"
-                                            ]
-                                        )
-                                    ],
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Udział wnioskodawnej dotacji PISF w kosztach razem",
-                                            name="costRequestPisfSumShare45",
-                                            calculation_rules=[
-                                                self.calculation_rule.share_calculator(
-                                                    dividend_field="costRequestPisfSum",
-                                                    divisor_field="costTotalSum"
-                                                )
-                                            ],
-                                            read_only=True,
-                                            validators=[
-                                                self.validator.range_validator(
-                                                    max_value=50,
-                                                    message="Przekroczono maksymalny limit dofinansowania, który dla wybranego przedsięwzięcia wynosi: 50%. Wymagana będzie zgoda dyrektora PISF."
-                                                )
-                                            ],
-                                            unit="%"
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Udział środków własnych w kosztach razem",
-                                            name="costOwnFundsSumShare45",
-                                            calculation_rules=[
-                                                self.calculation_rule.share_calculator(
-                                                    dividend_field="costOwnFundsSum",
-                                                    divisor_field="costTotalSum"
-                                                )
-                                            ],
-                                            read_only=True,
-                                            validators=[
-                                                self.validator.range_validator(
-                                                    min_value=10,
-                                                    message="Minimalny wkład własny wnioskodawcy powinien wynosić 10% całości budżetu przedsięwzięcia."
-                                                )
-                                            ],
-                                            unit="%"
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Udział środków od partnerów/sponsorów w kosztach razem",
-                                            name="costPartnersSponsorsSumShare45",
-                                            calculation_rules=[
-                                                self.calculation_rule.share_calculator(
-                                                    dividend_field="costPartnersSponsors",
-                                                    divisor_field="costTotalSum"
-                                                )
-                                            ],
-                                            read_only=True,
-                                            unit="%"
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Udział innych środków publicznych w kosztach razem",
-                                            name="costOtherSourcesSumShare45",
+                                            name="costOtherSourcesSumShare",
                                             calculation_rules=[
                                                 self.calculation_rule.share_calculator(
                                                     dividend_field="costOtherSourcesSum",
@@ -1191,7 +1047,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                             components=[
                                 self.create_component(
                                     component_type="file",
-                                    label="Plik",
                                     name="inputAttachments",
                                     required=True
                                 )
@@ -1220,7 +1075,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                             components=[
                                 self.create_component(
                                     component_type="file",
-                                    label="Plik",
                                     name="invitationAttachment",
                                     required=True
                                 )
@@ -1262,7 +1116,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026):
                     ]
                 ),
                 self.create_chapter(
-                    title="<normal>Uwaga!\n\n-Harmonogram przedsięwzięcia powinien uwzględniać etapy: przygotowawczy (np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie promocji wydarzenia itp.), realizacji przedsięwzięcia (np. wykonanie i/lub wysyłka materiałów promocyjnych, pokaz filmu na festiwalu) oraz podsumowania (ewaluacja i rozliczenie przedsięwzięcia - ostateczna data zakończenia realizacji przedsięwzięcia: dzień, miesiąc i rok). W zakresie każdego z tych etapów należy określić najwazniejsze działania (tzw. \"kamienie milowe\" przedsięwzięcia) i terminy ich realizacji.\n\n- Harmonogram przedsięwzięcia powinien uwzględniać wszystkie działania wymienione w kosztorysie przedsięwzięcia i mieć charakter ciągły (brak przerw między kolejnymi pozycjami harmonogramu).\n\n- Prosimy o chronologiczne ułożenie wszystkich pozycji harmonogramu.\n\nWymagane jest uwzględnienie przynajmniej 3 etapów realizacji przedsięwzięcia.",
+                    title="<normal>Uwaga!</br></br>-Harmonogram przedsięwzięcia powinien uwzględniać etapy: przygotowawczy (np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie promocji wydarzenia itp.), realizacji przedsięwzięcia (np. wykonanie i/lub wysyłka materiałów promocyjnych, pokaz filmu na festiwalu) oraz podsumowania (ewaluacja i rozliczenie przedsięwzięcia - ostateczna data zakończenia realizacji przedsięwzięcia: dzień, miesiąc i rok). W zakresie każdego z tych etapów należy określić najwazniejsze działania (tzw. \"kamienie milowe\" przedsięwzięcia) i terminy ich realizacji.</br>- Harmonogram przedsięwzięcia powinien uwzględniać wszystkie działania wymienione w kosztorysie przedsięwzięcia i mieć charakter ciągły (brak przerw między kolejnymi pozycjami harmonogramu).</br>- Prosimy o chronologiczne ułożenie wszystkich pozycji harmonogramu.</br></br>Wymagane jest uwzględnienie przynajmniej 3 etapów realizacji przedsięwzięcia.",
                 ),
                 self.section.application_schedule.task_action_dates(),
                 self.section.application_schedule.task_action_dates_final()
