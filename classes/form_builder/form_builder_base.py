@@ -1,11 +1,11 @@
-from typing import Literal, Optional, Sequence
+from typing import Literal, Sequence
 import json
 import copy
 import ast
 from pathlib import Path
-from classes.form_builder.additional.validator import Validator
-from classes.form_builder.additional.visibility_rule import VisibilityRule
-from classes.form_builder.additional.calculation_rule import CalculationRule
+from classes.form_builder.additional.rules.validator import Validator
+from classes.form_builder.additional.rules.visibility_rule import VisibilityRule
+from classes.form_builder.additional.rules.calculation_rule import CalculationRule
 
 
 class FormBuilderBase:
@@ -244,7 +244,7 @@ class FormBuilderBase:
             required: bool = False,
             read_only: bool = False,
             help_text: str = '',
-            copyFrom: str = '',
+            copy_from: str = '',
     ):
         # Check type
         allowed_types = {'date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox', 'country', 'countryMulti'}
@@ -333,7 +333,7 @@ class FormBuilderBase:
             kwargs["calculationRules"] = calculation_rules
         if class_list:
             kwargs["classList"] = class_list
-        if copyFrom:
-            kwargs["copyFrom"] = copyFrom
+        if copy_from:
+            kwargs["copyFrom"] = copy_from
 
         return self.delete_unused_component_args(component=kwargs)

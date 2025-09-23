@@ -73,10 +73,9 @@ class Postman:
 
         if response.status_code == 200:
             message = response.json().get("message", "")
-            app_id = response.json().get("id", "")
 
-            if message == "Zaktualizowano scheme dla aplikacji." or app_id:
-                print(f"{message} ({app_id})")
+            if message == "Zaktualizowano scheme dla aplikacji.":
+                print(f"{message} ({form_id})")
                 return True
             else:
                 return False

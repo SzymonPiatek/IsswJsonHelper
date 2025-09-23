@@ -7,8 +7,6 @@ class ApplicationBuilder(FormBuilder):
     def __init__(self):
         super().__init__()
 
-        self.application_data_path = self.data_path / 'application'
-
     def create_application_base(self):
         self.create_base(
             intro_text=[

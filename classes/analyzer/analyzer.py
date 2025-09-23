@@ -2,9 +2,9 @@ import json
 from pathlib import Path
 from collections import defaultdict
 import os
-from classes.form_builder.additional.validator import Validator
-from classes.form_builder.additional.calculation_rule import CalculationRule
-from classes.form_builder.additional.visibility_rule import VisibilityRule
+from classes.form_builder.additional.rules.validator import Validator
+from classes.form_builder.additional.rules.calculation_rule import CalculationRule
+from classes.form_builder.additional.rules.visibility_rule import VisibilityRule
 
 
 class Analyzer:

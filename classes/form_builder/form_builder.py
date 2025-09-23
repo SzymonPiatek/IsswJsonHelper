@@ -1,14 +1,14 @@
 from typing import Literal, ClassVar
 import json
-
-from classes.form_builder.components.part import Part
-from classes.form_builder.components.component.component import Component
+from classes.form_builder.additional.components.part import Part
+from classes.form_builder.additional.components.component.component import Component
 from classes.form_builder.form_builder_base import FormBuilderBase
-from classes.form_builder.additional.decorators import not_implemented_func
+from classes.form_builder.additional.rules.decorators import not_implemented_func
+
 
 JSONType = Literal['application', 'report']
-DepartmentType = Literal['DPF', 'DUK', 'DWM']
 SessionType = Literal['I', 'II', 'III', 'IV']
+DepartmentType = Literal['DPF', 'DUK', 'DWM']
 
 
 class FormBuilder(FormBuilderBase):
@@ -41,16 +41,8 @@ class FormBuilder(FormBuilderBase):
         self.part = Part()
         self.component = Component()
 
-    def info(self):
-        return f'''
-            Typ formularza: {'Wniosek' if self.json_type == 'application' else 'Raport'}
-            Dział: {self.department_name}
-            Program oparacyjny: {self.operation_name}
-            Priorytet: {self.priority_name}
-            Rok: {self.year}
-            Sesja: {self.session}
-            ID: {self.form_id}
-            '''
+        self.application_data_path = self.data_path / 'application'
+        self.report_data_path = self.data_path / 'report'
 
     def save_output(self) -> None:
         self.output_file.parent.mkdir(parents=True, exist_ok=True)

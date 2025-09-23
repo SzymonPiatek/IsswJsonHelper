@@ -3,8 +3,8 @@ from dotenv import load_dotenv
 from classes.web_scraper.web_scraper import WebScraper
 from classes.postman.postman import Postman
 from classes.analyzer.analyzer import Analyzer
-from classes.form_builder.applications._2025.applications import Applications2025
-from classes.form_builder.applications._2026.applications import Applications2026
+from classes.form_builder.additional.applications._2025.applications import Applications2025
+from classes.form_builder.additional.applications._2026.applications import Applications2026
 
 load_dotenv()
 

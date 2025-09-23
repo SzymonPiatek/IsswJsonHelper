@@ -7,8 +7,6 @@ class ReportBuilder(FormBuilder):
     def __init__(self):
         super().__init__()
 
-        self.application_data_path = self.data_path / 'report'
-
     def create_report_base(self):
         self.create_base(
             intro_text=[
