@@ -193,6 +193,9 @@ class FormBuilderBase:
         else:
             is_multiple_forms = True
 
+            if multiple_forms_rules.get("maxCount", 1) > 5:
+                is_paginated = True
+
             mf_min_count = multiple_forms_rules.get("minCount", 1)
 
             if len(components) == 0:
