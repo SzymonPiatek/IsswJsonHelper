@@ -166,6 +166,9 @@ class ReportBasicData(Section):
                         "minCount": 1,
                         "maxCount": 10,
                     },
+                    class_list=[
+                        "swappable-bg"
+                    ],
                     components=[
                         self.create_chapter(
                             title="Aneks",

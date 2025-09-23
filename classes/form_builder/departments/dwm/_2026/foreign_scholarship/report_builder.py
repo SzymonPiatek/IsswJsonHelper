@@ -13,7 +13,7 @@ class ForeignScholarshipReportBuilder(DWMReportBuilder2026, ForeignScholarshipPr
         self.create_base(
             intro_text=[
                 "Raport końcowy",
-                "<small>z wykonania przedsięwzięcia realizowanego w ramach Programu Operacyjnego \"Promocja polskiej twórczości filmowej za granicą\"</small> <br> Priorytet I \"Stypendia Zagraniczne\""
+                "<small>z wykonania przedsięwzięcia realizowanego w ramach Programu Operacyjnego \"Promocja polskiej twórczości filmowej za granicą\"</small> <br> Priorytet II \"Stypendia Zagraniczne\""
             ]
         )
 
