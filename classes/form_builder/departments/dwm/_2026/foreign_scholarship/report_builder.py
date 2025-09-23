@@ -1,9 +1,9 @@
+from .priority import ForeignScholarshipPriority
 from ..report_builder import DWMReportBuilder2026
+from .priority import ForeignScholarshipPriority
 
 
-class ForeignScholarshipReportBuilder(DWMReportBuilder2026):
-    PRIORITY_NAME = 'II. Stypendia zagraniczne'
-    PRIORITY_NUM = 2
+class ForeignScholarshipReportBuilder(DWMReportBuilder2026, ForeignScholarshipPriority):
     FORM_ID = 9227
 
     def __init__(self):

@@ -1,6 +1,6 @@
 from typing import Literal, ClassVar
-
 from classes.form_builder.form_builder import FormBuilder
+
 
 DepartmentType = Literal['DPF', 'DUK', 'DWM']
 
