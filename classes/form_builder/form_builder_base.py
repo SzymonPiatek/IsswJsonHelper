@@ -8,13 +8,31 @@ from classes.form_builder.additional.rules.visibility_rule import VisibilityRule
 from classes.form_builder.additional.rules.calculation_rule import CalculationRule
 
 
+COMPONENT_TYPE_VALUES = (
+    "date", "file", "radio", "header", "checkbox",
+    "number", "select", "country", "countryMulti",
+    "currency", "text", "textarea",
+)
+ComponentType = Literal[*COMPONENT_TYPE_VALUES]
+COMPONENT_TYPES = set(COMPONENT_TYPE_VALUES)
+
+MASK_TYPE_VALUES = (
+    "fund", "phoneNumber", "bankAccount", "landline",
+    "jst", "ibanAccount", "polishPostalCode", "share"
+)
+MaskType = Literal[*MASK_TYPE_VALUES]
+MASK_TYPES = set(MASK_TYPE_VALUES)
+
+VALUE_TYPES = (str, int, float, bool, list)
+
+
 class FormBuilderBase:
     def __init__(self):
         self.main_dir = Path(__file__).resolve().parents[2]
         self.data_path = self.main_dir / 'data'
         self.main_dir.mkdir(parents=True, exist_ok=True)
-        self.output_json = None
 
+        self.output_json = None
         self.parts = []
         self.names = set()
 
@@ -32,19 +50,12 @@ class FormBuilderBase:
         drop_if_equal = {
             "required": False,
             "readOnly": False,
-            "helpText": '',
-            "unit": '',
-            "defaultValue": '',
-            "mask": ''
+            "helpText": "",
+            "unit": "",
+            "defaultValue": "",
+            "mask": "",
         }
-
-        drop_if_empty = [
-            "validators",
-            "calculationRules",
-            "classList",
-            "options"
-        ]
-
+        drop_if_empty = ["validators", "calculationRules", "classList", "options"]
 
         for key, val in drop_if_equal.items():
             if component.get(key) == val:
@@ -58,37 +69,23 @@ class FormBuilderBase:
 
     @staticmethod
     def delete_unused_chapter_args(chapter: dict):
-        drop_if_equal = {
-            "isMultipleForms": False,
-            "isPaginated": False
-        }
-
-        drop_if_empty = [
-            "visibilityRules",
-            "multipleFormsRules",
-            "classList"
-        ]
+        drop_if_equal = {"isMultipleForms": False, "isPaginated": False}
+        drop_if_empty = ["visibilityRules", "multipleFormsRules", "classList"]
 
         for key, val in drop_if_equal.items():
             if chapter.get(key) == val:
                 chapter.pop(key, None)
 
         for key in drop_if_empty:
-            if key in chapter and not chapter[key]:
+            if not chapter.get(key):
                 chapter.pop(key, None)
 
         return chapter
 
     @staticmethod
     def delete_unused_part_args(part: dict):
-        drop_if_empty = [
-            "classList"
-        ]
-
-        for key in drop_if_empty:
-            if key in part and not part[key]:
-                part.pop(key, None)
-
+        if not part.get("classList"):
+            part.pop("classList", None)
         return part
 
     def replace_placeholders(self, obj: dict, values: dict):
@@ -105,59 +102,44 @@ class FormBuilderBase:
                     return result
             except KeyError:
                 return obj
-        else:
-            return obj
+        return obj
 
     def save_part(self, part: dict):
         self.parts = self.output_json.setdefault('parts', [])
         self.parts.append(part)
 
     def create_base(self, intro_text: Sequence[str]):
-        self.output_json = {
-            "kind": "form",
-            "jrwa": "",
-            "expert": {
-                "name": "",
-                "email": "",
-                "avatar": ""
-            },
-            "status": "",
-            "applicant": {},
-            "title": "",
-            "introText": [],
-            "blanks": [],
-            "parts": []
-        }
-
         if not intro_text or not isinstance(intro_text, list):
             raise ValueError("intro_text musi być niepustą listą tekstów")
 
-        self.output_json["introText"] = [{"text": text} for text in intro_text]
+        self.output_json = {
+            "kind": "form",
+            "jrwa": "",
+            "expert": {"name": "", "email": "", "avatar": ""},
+            "status": "",
+            "applicant": {},
+            "title": "",
+            "introText": [{"text": text} for text in intro_text],
+            "blanks": [],
+            "parts": [],
+        }
 
     def create_part(self, title: str = None, short_name: str = None, class_list: list | dict = None, chapters: list = None):
-        if title is None:
+        if not title:
             raise ValueError("title musi być podane")
-        if short_name is None:
-            short_name = title
-        if class_list is None:
-            class_list = []
-        if chapters is None:
-            chapters = []
 
         part = {
             "kind": "part",
             "title": title,
-            "shortName": short_name,
-            "classList": class_list,
-            "chapters": chapters
+            "shortName": short_name or title,
+            "classList": class_list or ["full-width-grid"],
+            "chapters": chapters or [],
         }
-
-        return self.delete_unused_part_args(part=part)
+        return self.delete_unused_part_args(part)
 
     @staticmethod
     def duplicate_chapter_with_indexing(start_chapter: dict, mf_min_count: int, start_title: str = "") -> list:
-        if start_title == "":
-            start_title = "Pozycja"
+        start_title = start_title or "Pozycja"
 
         def update_names_recursively(obj, index):
             if isinstance(obj, dict):
@@ -181,18 +163,9 @@ class FormBuilderBase:
         return new_chapters
 
     def create_chapter(self, title: str = '', class_list: list | dict = None, visibility_rules: list = None, components: list = None, multiple_forms_rules: dict = None, is_paginated: bool = False):
-        if class_list is None:
-            class_list = []
-        if visibility_rules is None:
-            visibility_rules = []
-        if components is None:
-            components = []
-        if multiple_forms_rules is None:
-            multiple_forms_rules = {}
-            is_multiple_forms = False
-        else:
-            is_multiple_forms = True
+        components = components or []
 
+        if multiple_forms_rules:
             if multiple_forms_rules.get("maxCount", 1) > 5:
                 is_paginated = True
 
@@ -218,27 +191,32 @@ class FormBuilderBase:
 
             set_default_value(components)
 
-        chapter = {
+        kwargs = {
             "kind": "chapter",
             "title": title,
-            "classList": class_list,
-            "visibilityRules": visibility_rules,
-            "isMultipleForms": is_multiple_forms,
-            "multipleFormsRules": multiple_forms_rules,
-            "isPaginated": is_paginated,
-            "components": components
+            "components": components,
         }
 
-        return self.delete_unused_chapter_args(chapter=chapter)
+        if class_list:
+            kwargs["classList"] = class_list
+        if visibility_rules:
+            kwargs["visibilityRules"] = visibility_rules
+        if multiple_forms_rules:
+            kwargs["isMultipleForms"] = True
+            kwargs["multipleFormsRules"] = multiple_forms_rules
+        if is_paginated:
+            kwargs["isPaginated"] = is_paginated
+
+        return self.delete_unused_chapter_args(kwargs)
 
     def create_component(
             self,
-            component_type: Literal['date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox', 'country', 'countryMulti'],
-            mask: Literal['fund', 'phoneNumber', 'bankAccount', 'landline', 'jst', 'ibanAccount', 'polishPostalCode'] = '',
+            component_type: ComponentType,
+            mask: MaskType = '',
             label: str = '',
             name: str = '',
-            value: str | int | bool = '',
-            default_value: str | int | bool = '',
+            value: VALUE_TYPES = '',
+            default_value: VALUE_TYPES = '',
             unit: str = '',
             options: list = None,
             validators: list = None,
@@ -250,48 +228,63 @@ class FormBuilderBase:
             copy_from: str = '',
     ):
         # Check type
-        allowed_types = {'date', 'number', 'select', 'text', 'textarea', 'file', 'radio', 'header', 'checkbox', 'country', 'countryMulti'}
-        if component_type not in allowed_types:
-            raise ValueError(f"Invalid component_type '{component_type}'. Must be one of: {', '.join(allowed_types)}.")
-        if component_type == "header" and not name.startswith("headerComponent"):
-            name = f"headerComponent-{name}"
+        if component_type not in COMPONENT_TYPES:
+            raise ValueError(f"Invalid component_type: '{component_type}'")
+
         # Check mask
-        allowed_masks = {'fund', 'phoneNumber', 'bankAccount', 'landline', 'jst', 'ibanAccount', 'polishPostalCode'}
-        if mask and mask not in allowed_masks:
-            raise ValueError(f"Invalid mask '{mask}'. Must be one of: {', '.join(allowed_masks)}")
+        if mask and mask not in MASK_TYPES:
+            raise ValueError(f"Invalid mask: '{mask}'")
+
         # Check name
         if not name:
             raise ValueError("Component 'name' must be provided and non-empty.")
+
+        # Header component
+        if component_type == "header" and not name.startswith("headerComponent"):
+            name = f"headerComponent-{name}"
+
+        # Save and check name
         if name in self.names:
             raise ValueError(f"Duplicate component name detected: {name}")
         self.names.add(name)
 
-        if validators is None:
-            validators = []
-        if calculation_rules is None:
-            calculation_rules = []
-        if class_list is None:
-            class_list = []
+        # Check value
+        if value and not isinstance(value, VALUE_TYPES):
+            raise ValueError(f"Invalid value type: '{value}'")
 
-        if component_type == 'select' or component_type == 'radio':
-            if options is None:
-                raise ValueError("Component 'options' must be provided and non-empty.")
-            else:
-                if not any(v.get("name") in {"ExactValidator"} for v in validators):
-                    validators.append(Validator.exact_validator(values=options))
-                if len(options) == 1:
-                    read_only = True
-                    value = options[0]
-        else:
-            options = []
+        # Check default_value
+        if default_value and not isinstance(default_value, VALUE_TYPES):
+            raise ValueError(f"Invalid default_value type: '{default_value}'")
 
-        if component_type == "file" and not help_text:
-            help_text = "Maksymalny rozmiar pliku to 50 MB"
+        validators = validators or []
+        calculation_rules = calculation_rules or []
+        class_list = class_list or []
 
-        if mask == "fund" and not unit:
-            unit = "PLN"
+        # Select & Radio
+        if component_type in {"select", "radio"}:
+            if not options:
+                raise ValueError("Component 'options' must be provided for select/radio.")
+            if not any(v.get("name") == "ExactValidator" for v in validators):
+                validators.append(Validator.exact_validator(values=options))
+            if len(options) == 1:
+                read_only = True
+                value = options[0]
+
+        # File
+        if component_type == "file":
+            message = "Maksymalny rozmiar pliku to 50 MB"
+            if not help_text:
+                help_text = message
+            elif message not in help_text:
+                help_text += f" {message}"
+
+        # Date
+        if component_type in {"date", "checkbox"}:
+            value = False
+
+        # Fund & Number
         if mask == "fund" or component_type == "number":
-            if not (isinstance(value, int) or (isinstance(value, str) and value.isdigit())):
+            if not (isinstance(value, int) or not isinstance(value, float)) or (isinstance(value, str) and value.isdigit()):
                 value = 0
             if mask == "fund":
                 validators.append(
@@ -301,8 +294,6 @@ class FormBuilderBase:
                 )
         elif mask == "phoneNumber":
             validators.append(Validator.phone_number_validator())
-        if component_type == 'date' or component_type == 'checkbox':
-            value = False
 
         if required and not any(v.get("name") in {"RelatedRequiredIfEqualValidator", "RequiredValidator", "ExactValidator"} for v in validators):
             validators.append(Validator.required_validator())
@@ -316,7 +307,7 @@ class FormBuilderBase:
             "value": value
         }
 
-        if default_value:
+        if default_value is not None:
             kwargs["defaultValue"] = default_value
         if mask:
             kwargs["mask"] = mask

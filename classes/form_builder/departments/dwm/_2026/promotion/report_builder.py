@@ -924,7 +924,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                         self.create_component(
                                             component_type="header",
                                             name="otherPartners",
-                                            value="Środki własne",
+                                            value="Środki partnerów prywatnych i publicznych łącznie",
                                             class_list=[
                                                 "col-span-2",
                                                 "displayNoneFrontend"
@@ -1029,6 +1029,1077 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                             ]
                                         )
                                     ]
+                                ),
+                                self.create_chapter(
+                                    title="Środki innych partnerów/sponsorów. Podać nazwę. Na jekij podstawie przekazano środki?",
+                                    class_list={
+                                        "sub": [
+                                            "table-4-top"
+                                        ],
+                                        "main": [
+                                            "no-title",
+                                            "chapter-bg-grey"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_chapter(
+                                            title="Razem",
+                                            class_list={
+                                                "main": [
+                                                    "table-4",
+                                                    "grid",
+                                                    "grid-cols-6",
+                                                    "no-title"
+                                                ],
+                                                "sub": [
+                                                    "table-4__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="header",
+                                                    name="totalPartnersSponsors",
+                                                    value="Środki innych partnerów/sponsorów łącznie",
+                                                    class_list=[
+                                                        "col-span-2",
+                                                        "displayNoneFrontend"
+                                                    ]
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    label="Preliminarz",
+                                                    name="budgetInputPartnersSponsorsAmount",
+                                                    read_only=True,
+                                                    unit="PLN",
+                                                    class_list=[
+                                                        "no-label"
+                                                    ],
+                                                    calculation_rules=[
+                                                        self.calculation_rule.dynamic_sum_inputs(
+                                                            fields=[
+                                                                "budgetInputPartnerSponsorAmount"
+                                                            ]
+                                                        )
+                                                    ],
+                                                    validators=[
+                                                        self.validator.related_sum_validator(
+                                                            field_names=[
+                                                                "budgetInputPartnerSponsorAmount"
+                                                            ]
+                                                        )
+                                                    ]
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Preliminarz: udział w całym budżecie",
+                                                    name="budgetInputPartnersSponsorsShare",
+                                                    read_only=True,
+                                                    calculation_rules=[
+                                                        self.calculation_rule.share_calculator(
+                                                            dividend_field="budgetInputPartnersSponsorsAmount",
+                                                            divisor_field="reportingCostsTotal"
+                                                        )
+                                                    ],
+                                                    validators=[
+                                                        self.validator.related_share_validator(
+                                                            dividend="budgetInputPartnersSponsorsAmount",
+                                                            divisor="reportingCostsTotal"
+                                                        )
+                                                    ],
+                                                    unit="%",
+                                                    class_list=[
+                                                        "no-label"
+                                                    ]
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    label="Koszty bieżące",
+                                                    name="budgetInputPartnersSponsorsCurrentAmount",
+                                                    unit="PLN",
+                                                    class_list=[
+                                                        "no-label"
+                                                    ],
+                                                    read_only=True,
+                                                    calculation_rules=[
+                                                        self.calculation_rule.dynamic_sum_inputs(
+                                                            fields=[
+                                                                "budgetInputPartnerSponsorCurrentAmount"
+                                                            ]
+                                                        )
+                                                    ],
+                                                    validators=[
+                                                        self.validator.related_sum_validator(
+                                                            field_names=[
+                                                                "budgetInputPartnerSponsorCurrentAmount"
+                                                            ]
+                                                        )
+                                                    ]
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Koszty bieżące: udział w całym budżecie",
+                                                    name="budgetInputPartnersSponsorsCurrentShare",
+                                                    read_only=True,
+                                                    unit="%",
+                                                    class_list=[
+                                                        "no-label"
+                                                    ],
+                                                    calculation_rules=[
+                                                        self.calculation_rule.share_calculator(
+                                                            dividend_field="budgetInputPartnersSponsorsCurrentAmount",
+                                                            divisor_field="reportingCostsTotal"
+                                                        )
+                                                    ],
+                                                    validators=[
+                                                        self.validator.related_share_validator(
+                                                            dividend="budgetInputPartnersSponsorsCurrentAmount",
+                                                            divisor="reportingCostsTotal"
+                                                        )
+                                                    ]
+                                                )
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            multiple_forms_rules={
+                                                "minCount": 1,
+                                                "maxCount": 20
+                                            },
+                                            class_list={
+                                                "sub": [
+                                                    "table-4-top"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_chapter(
+                                                    title="Partner lub sponsor",
+                                                    class_list={
+                                                        "main": [
+                                                            "table-4",
+                                                            "table-invoice",
+                                                            "grid",
+                                                            "grid-cols-6",
+                                                        ],
+                                                        "sub": [
+                                                            "table-4-2__col"
+                                                        ]
+                                                    },
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Nazwa partnera lub sponsora",
+                                                            name="partnerSponsorName",
+                                                            validators=[
+                                                                self.validator.length_validator(max_value=100)
+                                                            ],
+                                                            class_list=[
+                                                                "col-start-2",
+                                                                "no-label"
+                                                            ]
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            mask="fund",
+                                                            label="Preliminarz",
+                                                            name="budgetInputPartnerSponsorAmount",
+                                                            read_only=True,
+                                                            unit="PLN",
+                                                            class_list=[
+                                                                "no-label"
+                                                            ]
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="number",
+                                                            label="Preliminarz: udział w całym budżecie",
+                                                            name="budgetInputPartnerSponsorShare",
+                                                            read_only=True,
+                                                            calculation_rules=[
+                                                                self.calculation_rule.share_calculator(
+                                                                    dividend_field="budgetInputPartnerSponsorAmount",
+                                                                    divisor_field="reportingCostsTotal"
+                                                                )
+                                                            ],
+                                                            validators=[
+                                                                self.validator.related_share_validator(
+                                                                    dividend="budgetInputPartnerSponsorAmount",
+                                                                    divisor="reportingCostsTotal"
+                                                                )
+                                                            ],
+                                                            unit="%",
+                                                            class_list=[
+                                                                "no-label"
+                                                            ]
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            mask="fund",
+                                                            label="Koszty bieżące",
+                                                            name="budgetInputPartnerSponsorCurrentAmount",
+                                                            unit="PLN",
+                                                            class_list=[
+                                                                "no-label"
+                                                            ]
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="number",
+                                                            label="Koszty bieżące: udział w całym budżecie",
+                                                            name="budgetInputPartnerSponsorCurrentShare",
+                                                            read_only=True,
+                                                            unit="%",
+                                                            class_list=[
+                                                                "no-label"
+                                                            ],
+                                                            calculation_rules=[
+                                                                self.calculation_rule.share_calculator(
+                                                                    dividend_field="budgetInputPartnerSponsorCurrentAmount",
+                                                                    divisor_field="reportingCostsTotal"
+                                                                )
+                                                            ],
+                                                            validators=[
+                                                                self.validator.related_share_validator(
+                                                                    dividend="budgetInputPartnerSponsorCurrentAmount",
+                                                                    divisor="reportingCostsTotal"
+                                                                )
+                                                            ]
+                                                        )
+                                                    ]
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Pozostałe źródła publiczne. Podać nazwę, Na jakiej podstawie przekazano środki?",
+                                    class_list={
+                                        "sub": [
+                                            "table-4-top"
+                                        ],
+                                        "main": [
+                                            "no-title",
+                                            "chapter-bg-grey"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_chapter(
+                                            title="Razem",
+                                            class_list={
+                                                "main": [
+                                                    "table-4",
+                                                    "grid",
+                                                    "grid-cols-6",
+                                                    "no-title"
+                                                ],
+                                                "sub": [
+                                                    "table-4__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="header",
+                                                    name="totalPublicSources",
+                                                    value="Pozostałe źródła publiczne łącznie",
+                                                    class_list=[
+                                                        "col-span-2",
+                                                        "displayNoneFrontend"
+                                                    ]
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    label="Preliminarz",
+                                                    name="budgetInputPublicSourcesAmount",
+                                                    read_only=True,
+                                                    unit="PLN",
+                                                    class_list=[
+                                                        "no-label"
+                                                    ],
+                                                    calculation_rules=[
+                                                        self.calculation_rule.dynamic_sum_inputs(
+                                                            fields=[
+                                                                "budgetInputPublicSourceAmount"
+                                                            ]
+                                                        )
+                                                    ],
+                                                    validators=[
+                                                        self.validator.related_sum_validator(
+                                                            field_names=[
+                                                                "budgetInputPublicSourceAmount"
+                                                            ]
+                                                        )
+                                                    ]
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Preliminarz: udział w całym budżecie",
+                                                    name="budgetInputPublicSourcesShare",
+                                                    read_only=True,
+                                                    calculation_rules=[
+                                                        self.calculation_rule.share_calculator(
+                                                            dividend_field="budgetInputPublicSourcesAmount",
+                                                            divisor_field="reportingCostsTotal"
+                                                        )
+                                                    ],
+                                                    validators=[
+                                                        self.validator.related_share_validator(
+                                                            dividend="budgetInputPublicSourcesAmount",
+                                                            divisor="reportingCostsTotal"
+                                                        )
+                                                    ],
+                                                    unit="%",
+                                                    class_list=[
+                                                        "no-label"
+                                                    ]
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    label="Koszty bieżące",
+                                                    name="budgetInputPublicSourcesCurrentAmount",
+                                                    unit="PLN",
+                                                    class_list=[
+                                                        "no-label"
+                                                    ],
+                                                    read_only=True,
+                                                    calculation_rules=[
+                                                        self.calculation_rule.dynamic_sum_inputs(
+                                                            fields=[
+                                                                "budgetInputPublicSourceCurrentAmount"
+                                                            ]
+                                                        )
+                                                    ],
+                                                    validators=[
+                                                        self.validator.related_sum_validator(
+                                                            field_names=[
+                                                                "budgetInputPublicSourceCurrentAmount"
+                                                            ]
+                                                        )
+                                                    ]
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Koszty bieżące: udział w całym budżecie",
+                                                    name="budgetInputPublicSourcesCurrentShare",
+                                                    read_only=True,
+                                                    unit="%",
+                                                    class_list=[
+                                                        "no-label"
+                                                    ],
+                                                    calculation_rules=[
+                                                        self.calculation_rule.share_calculator(
+                                                            dividend_field="budgetInputPublicSourcesCurrentAmount",
+                                                            divisor_field="reportingCostsTotal"
+                                                        )
+                                                    ],
+                                                    validators=[
+                                                        self.validator.related_share_validator(
+                                                            dividend="budgetInputPublicSourcesCurrentAmount",
+                                                            divisor="reportingCostsTotal"
+                                                        )
+                                                    ]
+                                                )
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            multiple_forms_rules={
+                                                "minCount": 1,
+                                                "maxCount": 20
+                                            },
+                                            class_list={
+                                                "sub": [
+                                                    "table-4-top"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_chapter(
+                                                    title="Źródła publiczne",
+                                                    class_list={
+                                                        "main": [
+                                                            "table-4",
+                                                            "table-invoice",
+                                                            "grid",
+                                                            "grid-cols-6",
+                                                        ],
+                                                        "sub": [
+                                                            "table-4-2__col"
+                                                        ]
+                                                    },
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Nazwa partnera lub sponsora",
+                                                            name="publicSourceName",
+                                                            validators=[
+                                                                self.validator.length_validator(max_value=100)
+                                                            ],
+                                                            class_list=[
+                                                                "col-start-2",
+                                                                "no-label"
+                                                            ]
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            mask="fund",
+                                                            label="Preliminarz",
+                                                            name="budgetInputPublicSourceAmount",
+                                                            read_only=True,
+                                                            unit="PLN",
+                                                            class_list=[
+                                                                "no-label"
+                                                            ]
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="number",
+                                                            label="Preliminarz: udział w całym budżecie",
+                                                            name="budgetInputPublicSourceShare",
+                                                            read_only=True,
+                                                            calculation_rules=[
+                                                                self.calculation_rule.share_calculator(
+                                                                    dividend_field="budgetInputPublicSourceAmount",
+                                                                    divisor_field="reportingCostsTotal"
+                                                                )
+                                                            ],
+                                                            validators=[
+                                                                self.validator.related_share_validator(
+                                                                    dividend="budgetInputPublicSourceAmount",
+                                                                    divisor="reportingCostsTotal"
+                                                                )
+                                                            ],
+                                                            unit="%",
+                                                            class_list=[
+                                                                "no-label"
+                                                            ]
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            mask="fund",
+                                                            label="Koszty bieżące",
+                                                            name="budgetInputPublicSourceCurrentAmount",
+                                                            unit="PLN",
+                                                            class_list=[
+                                                                "no-label"
+                                                            ]
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="number",
+                                                            label="Koszty bieżące: udział w całym budżecie",
+                                                            name="budgetInputPublicSourceCurrentShare",
+                                                            read_only=True,
+                                                            unit="%",
+                                                            class_list=[
+                                                                "no-label"
+                                                            ],
+                                                            calculation_rules=[
+                                                                self.calculation_rule.share_calculator(
+                                                                    dividend_field="budgetInputPublicSourceCurrentAmount",
+                                                                    divisor_field="reportingCostsTotal"
+                                                                )
+                                                            ],
+                                                            validators=[
+                                                                self.validator.related_share_validator(
+                                                                    dividend="budgetInputPublicSourceCurrentAmount",
+                                                                    divisor="reportingCostsTotal"
+                                                                )
+                                                            ]
+                                                        )
+                                                    ]
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Źródła finansowania ogółem",
+                                    class_list={
+                                        "main": [
+                                            "table-4",
+                                            "grid",
+                                            "grid-cols-6",
+                                            "no-title",
+                                            "chapter-bg-grey"
+                                        ],
+                                        "sub": [
+                                            "table-4__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="header",
+                                            name="fundingSourcesOverall",
+                                            value="Źródła finansowania ogółem",
+                                            class_list=[
+                                                "col-span-2",
+                                                "displayNoneFrontend"
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Preliminarz",
+                                            name="budgetTotalSumAmount",
+                                            read_only=True,
+                                            unit="PLN",
+                                            class_list=[
+                                                "no-label"
+                                            ],
+                                            calculation_rules=[
+                                                self.calculation_rule.dynamic_sum_inputs(
+                                                    fields=[
+                                                        "budgetInputPisfSupportAmount",
+                                                        "budgetInputOwnFundsAmount",
+                                                        "budgetInputAllPartnersAmount"
+                                                    ]
+                                                )
+                                            ],
+                                            validators=[
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "budgetInputPisfSupportAmount",
+                                                        "budgetInputOwnFundsAmount",
+                                                        "budgetInputAllPartnersAmount"
+                                                    ]
+                                                ),
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "costTotalSum"
+                                                    ]
+                                                )
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Preliminarz: udział w całym budżecie",
+                                            name="budgetTotalSumShare",
+                                            read_only=True,
+                                            calculation_rules=[
+                                                self.calculation_rule.share_calculator(
+                                                    dividend_field="budgetTotalSumAmount",
+                                                    divisor_field="budgetTotalSumAmount"
+                                                )
+                                            ],
+                                            validators=[
+                                                self.validator.related_share_validator(
+                                                    dividend="budgetTotalSumAmount",
+                                                    divisor="budgetTotalSumAmount"
+                                                )
+                                            ],
+                                            unit="%",
+                                            class_list=[
+                                                "no-label"
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Koszty bieżące",
+                                            name="budgetTotalCurrentSumAmount",
+                                            unit="PLN",
+                                            class_list=[
+                                                "no-label"
+                                            ],
+                                            read_only=True,
+                                            calculation_rules=[
+                                                self.calculation_rule.dynamic_sum_inputs(
+                                                    fields=[
+                                                        "budgetInputPisfSupportCurrentAmount",
+                                                        "budgetInputOwnFundsCurrentAmount",
+                                                        "budgetInputAllPartnersCurrentAmount"
+                                                    ]
+                                                )
+                                            ],
+                                            validators=[
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "budgetInputPisfSupportCurrentAmount",
+                                                        "budgetInputOwnFundsCurrentAmount",
+                                                        "budgetInputAllPartnersCurrentAmount"
+                                                    ]
+                                                ),
+                                                self.validator.related_sum_validator(
+                                                    field_names=[
+                                                        "costActualTotalSum"
+                                                    ]
+                                                )
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Koszty bieżące: udział w całym budżecie",
+                                            name="budgetTotalCurrentSumShare",
+                                            read_only=True,
+                                            unit="%",
+                                            class_list=[
+                                                "no-label"
+                                            ],
+                                            calculation_rules=[
+                                                self.calculation_rule.share_calculator(
+                                                    dividend_field="budgetTotalCurrentSumAmount",
+                                                    divisor_field="budgetTotalCurrentSumAmount"
+                                                )
+                                            ],
+                                            validators=[
+                                                self.validator.related_share_validator(
+                                                    dividend="budgetTotalCurrentSumAmount",
+                                                    divisor="budgetTotalCurrentSumAmount"
+                                                ),
+                                                self.validator.related_fraction_lte_validator(
+                                                    field_name="reportingCostsTotal",
+                                                    ratio=0.1,
+                                                    message="Minimalny wkład własny wnioskodawcy powinien wynosić 10% całości budżetu przedsięwzięcia."
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="header",
+                                            name="budgetComments",
+                                            value="Wyjaśnienie dotyczące różnic pomiędzy kosztem planowanym a poniesionym",
+                                            class_list=[
+                                                "displayNoneFrontend"
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="textarea",
+                                            label="Uwagi",
+                                            name="budgetComments",
+                                            validators=[
+                                                self.validator.length_validator(max_value=10000)
+                                            ],
+                                            class_list=[
+                                                "no-label"
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="B. Zestawienie faktur/rachunków",
+                    class_list={
+                        "sub": [
+                            "table-invoice-top"
+                        ]
+                    },
+                    components=[
+                        self.create_chapter(
+                            components=[
+                                self.create_component(
+                                    component_type="header",
+                                    name="invoiceDescription",
+                                    value="Zestawienie to spis wszystkich faktur/rachunków/biletów, które dotyczą przedsięwzięcia i zostały pokryte z dofinansowania PISF. Spis zawierać powinien: rodzaj dokumentu (faktura/rachunek), nr faktury/rachunku (w przypadku rachunku należy podać jego nr i datę oraz podać nr i datę umowy, której dotyczy), datę wystawienia dokumentu, nazwę wydatku (rodzaj towaru/usługi), wysokość wydatkowanej kwoty ze wskazaniem części, w jakiej została ona pokryta z dofinansowania PISF. Uwaga: Każda z faktur/rachunków opłaconych z otrzymanego dofinansowania powinna być opatrzona na odwrocie pieczęcią Beneficjenta oraz zawierać sporządzony w sposób trwały opis zawierający informacje: z jakich środków wydatkowana kwota została pokryta oraz jakie było przeznaczenie zakupionych towarów, usług lub innego rodzaju opłaconej należności. Informacja ta powinna być podpisana przez osobę odpowiedzialną za sprawy dotyczące rozliczeń finansowych Beneficjenta. Do raportu nie zalicza się faktur/rachunków, które należy przechowywać zgodnie z obowiązującymi przepisami i udostępniać podczas przeprowadzanych czynności kontrolnych. W przypadku faktur za akredytacje, noclegi, bilety lub umów o dzieło należy podać imię i nazwisko osoby, której dotyczą (z funkcji PISF mogą to być tylko osoby wskazane w umowie) oraz numer i datę zawartej umowy o dofinansowanie PISF (w wersji elektronicznej). Do zakończenia zadania przedsięwzięcia określonego w harmonogramie stanowiącym załącznik nr 11/A do Umowy. Przeliczeń z waluty obcej na PLN należy dokonywać dla każdej pozycji osobno, wg średniego kursu NBP z dnia poprzedzającego dzień wystawienia faktury. Uwzględniaj należy wartość przelicznika do 4. miejsca po przecinku, a otrzymaną wartość w PLN – zaokrąglić do 2. miejsca po przecinku. Kolejność wpisywania faktur powinna być taka sama jak kolejność pozycji kosztorysu."
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            class_list=[
+                                "grid",
+                                "grid-cols-12",
+                                "table-header"
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="header",
+                                    name="invoiceTotalCost",
+                                    value="Kwota całkowita",
+                                    class_list=[
+                                        "text-center",
+                                        "col-start-9",
+                                        "col-span-2",
+                                        "displayNoneFrontend"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="header",
+                                    name="invoicePISFRefund",
+                                    value="W tym z dofinansowania PISF",
+                                    class_list=[
+                                        "text-center",
+                                        "col-start-11",
+                                        "col-span-2",
+                                        "displayNoneFrontend"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="header",
+                                    name="invoiceLp",
+                                    value="Lp.",
+                                    class_list=[
+                                        "text-center",
+                                        "displayNoneFrontend"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="header",
+                                    name="invoiceNumber",
+                                    value="Nr i nazwa dokument księgowego",
+                                    class_list=[
+                                        "text-center",
+                                        "displayNoneFrontend"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="header",
+                                    name="invoiceCurrency",
+                                    value="Waluta PLN",
+                                    class_list=[
+                                        "text-center",
+                                        "displayNoneFrontend"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="header",
+                                    name="invoicePositionNumber",
+                                    value="Nr pozycji kosztorysu",
+                                    class_list=[
+                                        "text-center",
+                                        "displayNoneFrontend"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="header",
+                                    name="invoiceIssuedDate",
+                                    value="Data wystawienia",
+                                    class_list=[
+                                        "text-center",
+                                        "displayNoneFrontend"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="header",
+                                    name="invoicePaymentDate",
+                                    value="Data zapłaty",
+                                    class_list=[
+                                        "text-center",
+                                        "displayNoneFrontend"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="header",
+                                    name="invoiceDesc",
+                                    value="Waluta",
+                                    class_list=[
+                                        "text-center",
+                                        "displayNoneFrontend"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="header",
+                                    name="invoicePriceNBP",
+                                    value="Średni kurs NBP",
+                                    class_list=[
+                                        "text-center",
+                                        "displayNoneFrontend"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="header",
+                                    name="totalInvoiceOtherCurrency",
+                                    value="W walucie obcej",
+                                    class_list=[
+                                        "text-center",
+                                        "displayNoneFrontend"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="header",
+                                    name="totalInvoicePLN",
+                                    value="PLN",
+                                    class_list=[
+                                        "text-center",
+                                        "displayNoneFrontend"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="header",
+                                    name="supportInvoiceOtherCurrency",
+                                    value="W walucie obcej",
+                                    class_list=[
+                                        "text-center",
+                                        "displayNoneFrontend"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="header",
+                                    name="supportInvoicePLN",
+                                    value="PLN",
+                                    class_list=[
+                                        "text-center",
+                                        "displayNoneFrontend"
+                                    ]
+                                ),
+                            ]
+                        ),
+                        self.create_chapter(
+                            multiple_forms_rules={
+                                "minCount": 1,
+                                "maxCount": 60
+                            },
+                            class_list={
+                                "sub": [
+                                    "table-invoice-top"
+                                ],
+                                "main": [
+                                    "no-title",
+                                    "swappable-bg",
+                                    "lp-table"
+                                ]
+                            },
+                            components=[
+                                self.create_chapter(
+                                    title="Faktura/rachunek",
+                                    class_list={
+                                        "sub": [
+                                            "table-invoice__col"
+                                        ],
+                                        "main": [
+                                            "table-invoice",
+                                            "grid",
+                                            "grid-cols-12"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            label="Lp.",
+                                            name="lp-number-invoice",
+                                            class_list=[
+                                                "displayNoneFrontend",
+                                                "lp-number",
+                                                "no-label"
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="textarea",
+                                            label="Nazwa i opis wydatku",
+                                            name="costExpenditureDesc",
+                                            validators=[
+                                                self.validator.length_validator(
+                                                    max_value=200
+                                                )
+                                            ],
+                                            required=True,
+                                            class_list=[
+                                                "col-span-11",
+                                                "text-bold",
+                                                "no-label",
+                                                "text-left"
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="textarea",
+                                            label="Rodzaj i numer dokumentu księgowego",
+                                            name="accountingDocTypeNum",
+                                            validators=[
+                                                self.validator.length_validator(
+                                                    max_value=150
+                                                )
+                                            ],
+                                            required=True,
+                                            class_list=[
+                                                "table-invoice__full",
+                                                "no-label",
+                                                "col-start-2"
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="checkbox",
+                                            label="Waluta PLN",
+                                            name="expenditureInPln",
+                                            help_text="Zaznacz jeśli wydatek poniesiono w złotych.",
+                                            class_list=[
+                                                "no-label"
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Numer pozycji kosztorysu",
+                                            name="costEstimateItemNum",
+                                            validators=[
+                                                self.validator.length_validator(
+                                                    max_value=10
+                                                )
+                                            ],
+                                            required=True,
+                                            class_list=[
+                                                "no-label"
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="date",
+                                            label="Data wystawienia",
+                                            name="accountingDocDateIssued",
+                                            validators=[
+                                                self.validator.related_date_gte_validator(
+                                                    field_name="taskDateStart",
+                                                    message="Data wystawienia nie może być wcześniejsza niż data wpłynięcia wniosku."
+                                                ),
+                                                self.validator.related_date_lte_validator(
+                                                    field_name="taskDateEnd",
+                                                    message="Data wystawienia nie może być późniejsza niż data zakończenia przedsięwzięcia"
+                                                )
+                                            ],
+                                            required=True,
+                                            class_list=[
+                                                "no-label"
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="date",
+                                            label="Data zapłaty",
+                                            name="costPaymentDate",
+                                            validators=[
+                                                self.validator.related_date_gte_validator(
+                                                    field_name="taskDateStart",
+                                                    message="Data zapłaty nie może być wcześniejsza niż data wpłynięcia wniosku."
+                                                ),
+                                                self.validator.related_date_lte_validator(
+                                                    field_name="taskDateEnd",
+                                                    message="Data zapłaty nie może być późniejsza niż data zakończenia przedsięwzięcia"
+                                                )
+                                            ],
+                                            required=True,
+                                            class_list=[
+                                                "no-label"
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="currency",
+                                            label="Waluta",
+                                            name="costCurrency",
+                                            class_list=[
+                                                "no-label",
+                                                "table-1-2"
+                                            ],
+                                            required=True
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Kurs średni NBP",
+                                            name="costCurrencyNbpExchRate",
+                                            calculation_rules=[
+                                                self.calculation_rule.get_nbp_currency(
+                                                    date_field="accountingDocDateIssued",
+                                                    currency_field="costCurrency",
+                                                )
+                                            ],
+                                            validators=[
+                                                self.validator.length_validator(
+                                                    max_value=20
+                                                )
+                                            ],
+                                            read_only=True,
+                                            class_list=[
+                                                "no-label",
+                                                "table-1-2"
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Kwota całkowita w walucie obcej",
+                                            name="costInCurrency",
+                                            class_list=[
+                                                "no-label",
+                                                "table-1-2"
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Kwota całkowita w PLN",
+                                            name="costInPln",
+                                            class_list=[
+                                                "no-label"
+                                            ],
+                                            unit="PLN"
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="W tym ze środków pochodzących z dofinansowania PISF w PLN",
+                                            name="costInPlnPisf",
+                                            required=True,
+                                            class_list=[
+                                                "no-label"
+                                            ],
+                                            unit="PLN"
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Łącznie PLN",
+                            class_list={
+                                "main": [
+                                    "table-2-sum",
+                                    "grid",
+                                    "grid-cols-4",
+                                    "no-title"
+                                ],
+                                "sub": [
+                                    "table-2-sum__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    mask="fund",
+                                    label="Suma wydatków w PLN",
+                                    name="costInPlnTotalSum",
+                                    calculation_rules=[
+                                        self.calculation_rule.dynamic_sum_inputs(
+                                            fields=[
+                                                "costInPln"
+                                            ]
+                                        )
+                                    ],
+                                    validators=[
+                                        self.validator.related_sum_validator(
+                                            field_names=[
+                                                "costInPln"
+                                            ]
+                                        )
+                                    ],
+                                    read_only=True,
+                                    unit="PLN",
+                                    class_list=[
+                                        "default-margin",
+                                        "col-start-3",
+                                        "userInput-border"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    mask="fund",
+                                    label="W tym z dofinansowania PISF w PLN",
+                                    name="costInPlnPisfTogether",
+                                    calculation_rules=[
+                                        self.calculation_rule.dynamic_sum_inputs(
+                                            fields=[
+                                                "costInPlnPisf"
+                                            ]
+                                        )
+                                    ],
+                                    validators=[
+                                        self.validator.related_sum_validator(
+                                            field_names=[
+                                                "costInPlnPisf"
+                                            ]
+                                        )
+                                    ],
+                                    read_only=True,
+                                    unit="PLN",
+                                    class_list=[
+                                        "default-margin",
+                                        "userInput-border"
+                                    ]
                                 )
                             ]
                         )
@@ -1115,23 +2186,29 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                         ),
                         self.create_chapter(
                             title="Lista załączników",
-                            multiple_forms_rules={
-                                "minCount": 1,
-                                "maxCount": 20
-                            },
-                            class_list=[
-                                "swappable-bg"
-                            ],
                             components=[
                                 self.create_chapter(
-                                    title="Załącznik",
-                                    class_list=[
-                                        "no-title"
-                                    ],
+                                    multiple_forms_rules={
+                                        "minCount": 1,
+                                        "maxCount": 20
+                                    },
+                                    class_list={
+                                        "main": [
+                                            "swappable-bg",
+                                        ]
+                                    },
                                     components=[
-                                        self.create_component(
-                                            component_type="file",
-                                            name="reportAttachment"
+                                        self.create_chapter(
+                                            title="Załącznik",
+                                            class_list=[
+                                                "no-title",
+                                            ],
+                                            components=[
+                                                self.create_component(
+                                                    component_type="file",
+                                                    name="reportAttachment"
+                                                )
+                                            ]
                                         )
                                     ]
                                 )

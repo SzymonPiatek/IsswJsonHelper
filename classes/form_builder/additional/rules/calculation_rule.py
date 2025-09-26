@@ -190,3 +190,13 @@ class CalculationRule:
                 "fields": fields
             }
         }
+
+    @staticmethod
+    def get_nbp_currency(date_field: str, currency_field: str):
+        return {
+            "name": "getNBPCurrency",
+            "kwargs": {
+                "dateField": date_field,
+                "currencyField": currency_field
+            }
+        }
