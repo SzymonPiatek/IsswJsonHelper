@@ -8,7 +8,7 @@ class ReportBuilder(FormBuilder):
         super().__init__()
 
     def create_report_base(self):
-        self.create_base(
+        self.create_form(
             intro_text=[
                 "Raport końcowy"
             ]
