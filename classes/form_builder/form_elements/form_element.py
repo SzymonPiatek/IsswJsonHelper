@@ -10,8 +10,6 @@ class FormElement:
     def __init__(self, kind: Literal["form", "part", "chapter", "component"]):
         self.kind = kind
 
-        self.names = set()
-
         self.validator = Validator()
         self.visibility_rule = VisibilityRule()
         self.calculation_rule = CalculationRule()

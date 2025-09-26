@@ -1,5 +1,5 @@
 from .form_element import FormElement
-from typing import Literal
+from typing import Literal, Union
 
 
 COMPONENT_TYPE_VALUES = (
@@ -17,7 +17,8 @@ MASK_TYPE_VALUES = (
 MaskType = Literal[*MASK_TYPE_VALUES]
 MASK_TYPES = set(MASK_TYPE_VALUES)
 
-ValueType = (str, int, float, bool, list)
+VALUE_TYPE_VALUES = (str, int, float, bool, list[str])
+ValueType = Literal[*VALUE_TYPE_VALUES]
 
 
 class FormComponent(FormElement):
@@ -38,6 +39,7 @@ class FormComponent(FormElement):
             read_only: bool = False,
             help_text: str = None,
             copy_from: str = None,
+            names: list[str] = None,
     ):
         super().__init__(kind="component")
 
@@ -56,6 +58,8 @@ class FormComponent(FormElement):
         self.read_only = read_only
         self.help_text = help_text
         self.copy_from = copy_from
+
+        self.names = names
 
     def generate(self):
         # Check type
@@ -80,11 +84,11 @@ class FormComponent(FormElement):
         self.names.add(self.name)
 
         # Check value
-        if self.value and not isinstance(self.value, ValueType):
+        if self.value and not isinstance(self.value, VALUE_TYPE_VALUES):
             raise ValueError(f"Invalid value type: '{self.value}'")
 
         # Check default_value
-        if self.default_value and not isinstance(self.default_value, ValueType):
+        if self.default_value and not isinstance(self.default_value, VALUE_TYPE_VALUES):
             raise ValueError(f"Invalid default_value type: '{self.default_value}'")
 
         self.validators = self.validators or []

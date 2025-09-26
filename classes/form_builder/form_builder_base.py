@@ -109,6 +109,7 @@ class FormBuilderBase:
             read_only=read_only,
             help_text=help_text,
             copy_from=copy_from,
+            names=self.names,
         )
 
         return component.generate()
