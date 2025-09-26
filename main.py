@@ -174,7 +174,7 @@ def generate_process(data_type: str):
 
 
 def main():
-    # generate_process(data_type="application")
+    generate_process(data_type="application")
     generate_process(data_type="report")
 
 

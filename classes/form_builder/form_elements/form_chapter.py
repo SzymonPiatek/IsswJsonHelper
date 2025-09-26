@@ -1,3 +1,5 @@
+import copy
+
 from .form_element import FormElement
 
 
