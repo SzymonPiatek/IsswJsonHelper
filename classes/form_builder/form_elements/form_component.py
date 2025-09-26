@@ -1,5 +1,5 @@
 from .form_element import FormElement
-from typing import Literal, Union
+from typing import Literal
 
 
 COMPONENT_TYPE_VALUES = (
@@ -61,7 +61,7 @@ class FormComponent(FormElement):
 
         self.names = names
 
-    def generate(self):
+    def _validate_basic(self):
         # Check type
         if self.component_type not in COMPONENT_TYPES:
             raise ValueError(f"Invalid component_type: '{self.component_type}'")
@@ -95,7 +95,7 @@ class FormComponent(FormElement):
         self.calculation_rules = self.calculation_rules or []
         self.class_list = self.class_list or []
 
-        # Select & Radio
+    def _process_select_radio(self):
         if self.component_type in {"select", "radio"}:
             if not self.options:
                 raise ValueError("Component 'options' must be provided for select/radio.")
@@ -105,7 +105,7 @@ class FormComponent(FormElement):
                 self.read_only = True
                 self.value = self.options[0]
 
-        # File
+    def _process_file(self):
         if self.component_type == "file":
             message = "Maksymalny rozmiar pliku to 50 MB"
             if not self.help_text:
@@ -113,11 +113,11 @@ class FormComponent(FormElement):
             elif message not in self.help_text:
                 self.help_text += f" {message}"
 
-        # Date
+    def _process_date_checkbox(self):
         if self.component_type in {"date", "checkbox"}:
             self.value = False
 
-        # Fund & Number
+    def _process_number_fund(self):
         if self.mask == "fund" or self.component_type == "number":
             if not (isinstance(self.value, int) or not isinstance(self.value, float)) or (isinstance(self.value, str) and self.value.isdigit()):
                 self.value = 0
@@ -132,8 +132,17 @@ class FormComponent(FormElement):
         elif self.mask == "phoneNumber":
             self.validators.append(self.validator.phone_number_validator())
 
+    def _process_required(self):
         if self.required and not any(v.get("name") in {"RelatedRequiredIfEqualValidator", "RequiredValidator", "ExactValidator"} for v in self.validators):
             self.validators.append(self.validator.required_validator())
+
+    def generate(self):
+        self._validate_basic()
+        self._process_select_radio()
+        self._process_file()
+        self._process_date_checkbox()
+        self._process_number_fund()
+        self._process_required()
 
         kwargs = {
             "kind": self.kind,
