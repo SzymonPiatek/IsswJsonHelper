@@ -1,15 +1,9 @@
-from typing import Literal, ClassVar
+from typing import ClassVar
 import json
-
-from classes.form_builder.components.part import Part
-from classes.form_builder.components.duk_section import DUKSection
-from classes.form_builder.components.component import Component
-from classes.form_builder.form_builder_base import FormBuilderBase
-from classes.form_builder.additional.decorators import not_implemented_func
-
-JSONType = Literal['application', 'report']
-DepartmentType = Literal['DPF', 'DUK', 'DWM']
-SessionType = Literal['I', 'II', 'III', 'IV']
+from ..form_components import Part, Component, Section
+from .additional.decorators import not_implemented_func
+from .form_builder_base import FormBuilderBase
+from classes.types import *
 
 
 class FormBuilder(FormBuilderBase):
@@ -19,7 +13,7 @@ class FormBuilder(FormBuilderBase):
     OPERATION_NUM: str
     PRIORITY_NAME: str
     PRIORITY_NUM: str
-    YEAR: int = 2025
+    YEAR: YearType = 2026
     SESSION: ClassVar[SessionType] = 'I'
     FORM_ID: int
 
@@ -36,22 +30,29 @@ class FormBuilder(FormBuilderBase):
         self.session = self.SESSION
         self.form_id = self.FORM_ID
 
-        self.output_file_name = f'po{self.operation_num}_pr{self.priority_num}_{self.json_type}_{self.year}.json'
-        self.output_file = self.main_dir / 'output' / 'json' /self.department_name / self.json_type / self.output_file_name
+        self.output_file = self._prepare_output_path()
 
         self.part = Part()
+        self.section = Section()
         self.component = Component()
 
-    def info(self):
-        return f'''
-            Typ formularza: {'Wniosek' if self.json_type == 'application' else 'Raport'}
-            Dział: {self.department_name}
-            Program oparacyjny: {self.operation_name}
-            Priorytet: {self.priority_name}
-            Rok: {self.year}
-            Sesja: {self.session}
-            ID: {self.form_id}
-            '''
+        self.application_data_path = self.data_path / 'application'
+        self.report_data_path = self.data_path / 'report'
+
+    def _prepare_output_path(self):
+        output_file_name = (
+            f'po_{self.operation_num}_pr_{self.priority_num}_{self.json_type}_{self.year}.json'
+        )
+        return (
+                self.main_dir
+                / 'output'
+                / 'json'
+                / str(self.year)
+                / self.department_name
+                / self.json_type
+                / output_file_name
+        )
+
 
     def save_output(self) -> None:
         self.output_file.parent.mkdir(parents=True, exist_ok=True)
@@ -59,8 +60,12 @@ class FormBuilder(FormBuilderBase):
         with self.output_file.open('w', encoding='utf-8') as f:
             json.dump(self.output_json, f, ensure_ascii=False, indent=2)
 
-        print(f'Zapisano output do {self.output_file}')
+        print(f'JSON zapisany do {self.output_file}')
 
     @not_implemented_func
     def generate(self):
+        pass
+
+    @not_implemented_func
+    def create_base(self):
         pass

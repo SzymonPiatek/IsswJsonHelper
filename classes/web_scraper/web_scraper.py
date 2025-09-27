@@ -8,7 +8,6 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 import os
 from functools import wraps
-import base64
 
 
 def delay_after(seconds=3):

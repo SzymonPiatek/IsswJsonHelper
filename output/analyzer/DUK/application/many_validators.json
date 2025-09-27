@@ -1,42 +1,7 @@
 {
   "__summary__": {
-    "total_many_validators": 5,
-    "total_unchecked": 5
+    "total_many_validators": 0,
+    "total_unchecked": 0
   },
-  "__ignored_names__": [],
-  "eligiblePersonPhoneNum": {
-    "isChecked": false,
-    "name": "eligiblePersonPhoneNum",
-    "file": "output/json/DUK/application/po2_pr2_application_2025.json",
-    "type": "text",
-    "validatorsCount": 3
-  },
-  "authPersonMobileNum": {
-    "isChecked": false,
-    "name": "authPersonMobileNum",
-    "file": "output/json/DUK/application/po2_pr2_application_2025.json",
-    "type": "text",
-    "validatorsCount": 3
-  },
-  "publicSupportAltogether": {
-    "isChecked": false,
-    "name": "publicSupportAltogether",
-    "file": "output/json/DUK/application/po2_pr2_application_2025.json",
-    "type": "text",
-    "validatorsCount": 3
-  },
-  "pisfSupportAmount": {
-    "isChecked": false,
-    "name": "pisfSupportAmount",
-    "file": "output/json/DUK/application/po2_pr2_application_2025.json",
-    "type": "text",
-    "validatorsCount": 3
-  },
-  "distirbutedCost": {
-    "isChecked": false,
-    "name": "distirbutedCost",
-    "file": "output/json/DUK/application/po3_pr6_application_2025.json",
-    "type": "text",
-    "validatorsCount": 3
-  }
+  "__ignored_names__": []
 }

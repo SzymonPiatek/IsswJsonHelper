@@ -55,7 +55,3 @@ Generuje raport w czytelnym formacie oraz w postaci pliku `.json`, wspierając k
    ```
 
 ---
-
-## 📝 Licencja
-
-Projekt dostępny na zasadach licencji MIT.

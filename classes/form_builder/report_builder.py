@@ -1,4 +1,4 @@
-from classes.form_builder.form_builder import FormBuilder, DepartmentType, SessionType
+from classes.form_builder.form_builder import FormBuilder
 
 
 class ReportBuilder(FormBuilder):
@@ -7,10 +7,8 @@ class ReportBuilder(FormBuilder):
     def __init__(self):
         super().__init__()
 
-        self.application_data_path = self.data_path / 'report'
-
-    def create_report_base(self):
-        self.create_base(
+    def create_base(self):
+        self.create_form(
             intro_text=[
                 "Raport końcowy"
             ]

@@ -7,10 +7,8 @@ class ApplicationBuilder(FormBuilder):
     def __init__(self):
         super().__init__()
 
-        self.application_data_path = self.data_path / 'application'
-
-    def create_application_base(self):
-        self.create_base(
+    def create_base(self):
+        self.create_form(
             intro_text=[
                 "Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"
             ]

@@ -57,8 +57,33 @@ class Postman:
         else:
             raise Exception(f"Operacja nie powiodła się ({form_id}): {response.status_code}, {response.text}")
 
-    def application_pdf(self, output_path: str, json: object):
-        url = f"{self.base_url}:5000/pdf/"
+    def application_update_schema(self, form_id: int, json: object):
+        url = f"{self.base_url}/api/v1/cms/applications/{form_id}/schema"
+
+        response = requests.patch(
+            url,
+            json=json,
+            headers={
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": f"Bearer {self.access_token}"
+            },
+            verify=False
+        )
+
+        if response.status_code == 200:
+            message = response.json().get("message", "")
+
+            if message == "Zaktualizowano scheme dla aplikacji.":
+                print(f"{message} ({form_id})")
+                return True
+            else:
+                return False
+        else:
+            raise Exception(f"Operacja nie powiodła się ({form_id}): {response.status_code}, {response.text}")
+
+    def application_pdf(self, output_path: str, json: object, form_id: int):
+        url = f"{self.base_url}:5000/pdf"
         output_file_path = f"{output_path}/file.pdf"
         os.makedirs(output_path, exist_ok=True)
 
@@ -80,4 +105,4 @@ class Postman:
                 f.write(response.content)
             print(f"PDF zapisany do: {output_file_path}")
         else:
-            raise Exception(f"Generowanie PDF nie powiodło się: {response.status_code}, {response.text}")
+            raise Exception(f"Generowanie PDF nie powiodło się ({form_id}: {response.status_code}, {response.text}")

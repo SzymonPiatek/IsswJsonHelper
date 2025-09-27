@@ -2,9 +2,6 @@ import json
 from pathlib import Path
 from collections import defaultdict
 import os
-from classes.form_builder.additional.validator import Validator
-from classes.form_builder.additional.calculation_rule import CalculationRule
-from classes.form_builder.additional.visibility_rule import VisibilityRule
 
 
 class Analyzer:
@@ -96,7 +93,8 @@ class Analyzer:
                               if isinstance(entry, dict) and not entry.get("isChecked"))
 
         summary = {"total_duplicates": total_duplicates,
-                   "total_unchecked": total_unchecked}
+                   "total_unchecked": total_unchecked,
+                   "total_ignored": len(ignored_names)}
         output_data = {
             "__summary__": summary,
             "__ignored_names__": sorted(ignored_names),

@@ -1,41 +1,15 @@
 {
   "__summary__": {
-    "total_duplicates": 109,
-    "total_unchecked": 109
+    "total_duplicates": 105,
+    "total_unchecked": 105,
+    "total_ignored": 4
   },
-  "__ignored_names__": [],
-  "programName": {
-    "isChecked": false,
-    "filesCount": 2,
-    "files": [
-      "output/json/DWM/application/po5_pr1_application_2025.json",
-      "output/json/DWM/application/po5_pr2_application_2025.json"
-    ]
-  },
-  "priorityName": {
-    "isChecked": false,
-    "filesCount": 2,
-    "files": [
-      "output/json/DWM/application/po5_pr1_application_2025.json",
-      "output/json/DWM/application/po5_pr2_application_2025.json"
-    ]
-  },
-  "applicationTaskName": {
-    "isChecked": false,
-    "filesCount": 2,
-    "files": [
-      "output/json/DWM/application/po5_pr1_application_2025.json",
-      "output/json/DWM/application/po5_pr2_application_2025.json"
-    ]
-  },
-  "eventName": {
-    "isChecked": false,
-    "filesCount": 2,
-    "files": [
-      "output/json/DWM/application/po5_pr1_application_2025.json",
-      "output/json/DWM/application/po5_pr2_application_2025.json"
-    ]
-  },
+  "__ignored_names__": [
+    "applicationTaskName",
+    "eventName",
+    "priorityName",
+    "programName"
+  ],
   "eventDateStart": {
     "isChecked": false,
     "filesCount": 2,
