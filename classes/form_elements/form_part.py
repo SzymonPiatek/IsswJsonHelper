@@ -1,4 +1,4 @@
-from  .form_element import FormElement
+from .form_element import FormElement
 
 
 class FormPart(FormElement):
