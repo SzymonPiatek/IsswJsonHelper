@@ -11,7 +11,7 @@ class FormComponent(FormElement):
             name: str = '',
             value: ValueType = '',
             default_value: ValueType = None,
-            unit: str = '',
+            unit: str = None,
             options: list = None,
             validators: list = None,
             calculation_rules: list = None,
@@ -69,7 +69,7 @@ class FormComponent(FormElement):
             raise ValueError(f"Invalid value type: '{self.value}'")
 
         # Check default_value
-        if self.default_value and not isinstance(self.default_value, VALUE_TYPE_VALUES):
+        if self.default_value is not None and not isinstance(self.default_value, VALUE_TYPE_VALUES):
             raise ValueError(f"Invalid default_value type: '{self.default_value}'")
 
         self.validators = self.validators or []
