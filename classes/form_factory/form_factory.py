@@ -1,66 +1,41 @@
-import json
-import ast
-from pathlib import Path
-from classes.form_rules import CalculationRule, Validator, VisibilityRule
 from classes.form_elements import FormForm, FormPart, FormChapter, FormComponent
-from classes.types import *
 
 
-class FormBuilderBase:
+class FormFactory:
     def __init__(self):
-        self.main_dir = Path(__file__).resolve().parents[2]
-        self.data_path = self.main_dir / 'data'
-        self.main_dir.mkdir(parents=True, exist_ok=True)
-
         self.output_json: dict = None
-        self.parts = []
-        self.names = set()
-
-        self.validator = Validator()
-        self.visibility_rule = VisibilityRule()
-        self.calculation_rule = CalculationRule()
+        self.parts: list = []
+        self.names = set[str] = set()
 
     @staticmethod
-    def load_json(path: str):
-        with path.open('r', encoding='utf-8') as f:
-            return json.load(f)
-
-    def replace_placeholders(self, obj: dict, values: dict):
-        if isinstance(obj, dict):
-            return {k: self.replace_placeholders(v, values) for k, v in obj.items()}
-        elif isinstance(obj, list):
-            return [self.replace_placeholders(item, values) for item in obj]
-        elif isinstance(obj, str):
-            try:
-                result = obj.format(**values)
-                try:
-                    return ast.literal_eval(result)
-                except (ValueError, SyntaxError):
-                    return result
-            except KeyError:
-                return obj
-        return obj
-
-    def save_part(self, part: dict):
-        self.parts = self.output_json.setdefault('parts', [])
-        self.parts.append(part)
-
-    def create_form(self, intro_text: list[str]):
+    def create_form(intro_text: list[str]):
         form = FormForm(intro_text)
+        return form.generate()
 
-        self.output_json = form.generate()
-
-    def create_part(self, title: str = None, short_name: str = None, class_list: list | dict = None, chapters: list = None):
+    @staticmethod
+    def create_part(
+            title: str = None,
+            short_name: str = None,
+            class_list: list | dict = None,
+            chapters: list = None,
+    ):
         part = FormPart(
             title=title,
             short_name=short_name,
             class_list=class_list,
             chapters=chapters,
         )
-
         return part.generate()
 
-    def create_chapter(self, title: str = '', class_list: list | dict = None, visibility_rules: list = None, components: list = None, multiple_forms_rules: dict = None, is_paginated: bool = False):
+    @staticmethod
+    def create_chapter(
+            title: str = '',
+            class_list: list | dict = None,
+            visibility_rules: list = None,
+            components: list = None,
+            multiple_forms_rules: dict = None,
+            is_paginated: bool = False,
+    ):
         chapter = FormChapter(
             title=title,
             class_list=class_list,
@@ -71,8 +46,8 @@ class FormBuilderBase:
         )
         return chapter.generate()
 
+    @staticmethod
     def create_component(
-            self,
             component_type: ComponentType,
             mask: MaskType = '',
             label: str = '',
@@ -107,5 +82,4 @@ class FormBuilderBase:
             copy_from=copy_from,
             names=self.names,
         )
-
         return component.generate()

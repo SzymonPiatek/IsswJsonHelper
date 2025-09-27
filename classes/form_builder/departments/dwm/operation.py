@@ -1,4 +1,4 @@
-from classes.form_builder.pisf_structure.operation import Operation
+from classes.pisf_structure.operation import Operation
 
 
 class DWMOperation(Operation):

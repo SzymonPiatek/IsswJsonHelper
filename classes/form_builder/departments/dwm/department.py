@@ -1,6 +1,6 @@
-from classes.form_builder.additional.components.component.dwm.dwm_component import DWMComponent
-from classes.form_builder.pisf_structure.department import Department
-from classes.form_builder.additional.components.section.dwm.dwm_section import DWMSection
+
+from classes.form_components import DWMComponent, DWMSection
+from classes.pisf_structure.department import Department
 
 
 class DWMDepartment(Department):

@@ -1,4 +1,4 @@
-from classes.form_builder.pisf_structure.priority import Priority
+from classes.pisf_structure.priority import Priority
 
 
 class PromotionPriority(Priority):

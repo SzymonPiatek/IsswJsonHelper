@@ -1,16 +1,9 @@
-from typing import Literal, ClassVar
+from typing import ClassVar
 import json
-from .additional.components.part.part import Part
-from .additional.components.section.section import Section
-from .additional.components.component.component import Component
+from ..form_components import Part, Component, Section
 from .additional.decorators import not_implemented_func
 from .form_builder_base import FormBuilderBase
-
-
-JSONType = Literal['application', 'report']
-SessionType = Literal['I', 'II', 'III', 'IV']
-DepartmentType = Literal['DPF', 'DUK', 'DWM', 'ZACHĘTY']
-YearType = Literal[2025, 2026]
+from classes.types import *
 
 
 class FormBuilder(FormBuilderBase):
