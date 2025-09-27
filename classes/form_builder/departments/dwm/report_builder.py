@@ -8,7 +8,7 @@ class DWMReportBuilder(ReportBuilder, DWMDepartment, DWMOperation):
     def __init__(self):
         super().__init__()
 
-    def create_report_base(self):
+    def create_base(self):
         self.create_form(
             intro_text=[
                 "Raport końcowy",
@@ -34,7 +34,7 @@ class DWMReportBuilder(ReportBuilder, DWMDepartment, DWMOperation):
 
     def generate(self):
         # Base
-        self.create_report_base()
+        self.create_base()
 
         # 1. Dane podstawowe
         self.create_report_basic_data()

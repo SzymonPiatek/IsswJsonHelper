@@ -12,7 +12,7 @@ class EducationReportBuilder(DUKReportBuilder):
 
     def generate(self):
         # Base
-        self.create_report_base()
+        self.create_base()
 
         # Dane podstawowe
         self.create_application_basic_data()

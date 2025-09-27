@@ -96,7 +96,7 @@ class DWMApplicationBuilder(ApplicationBuilder, DWMDepartment, DWMOperation):
 
     def generate(self):
         # Base
-        self.create_application_base()
+        self.create_base()
 
         # 1. Nazwa programu i priorytetu
         self.create_application_metadata()

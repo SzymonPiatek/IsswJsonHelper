@@ -9,7 +9,7 @@ class ForeignScholarshipReportBuilder(DWMReportBuilder2026, ForeignScholarshipPr
     def __init__(self):
         super().__init__()
 
-    def create_report_base(self):
+    def create_base(self):
         self.create_form(
             intro_text=[
                 "Raport końcowy",

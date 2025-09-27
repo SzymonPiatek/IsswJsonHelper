@@ -8,7 +8,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
     def __init__(self):
         super().__init__()
 
-    def create_application_base(self):
+    def create_base(self):
         self.create_form(
             intro_text=[
                 "Wniosek o ustanowaienie stypendium w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"

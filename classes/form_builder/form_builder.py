@@ -2,8 +2,8 @@ from typing import Literal, ClassVar
 import json
 from classes.form_builder.additional.components.part import Part
 from classes.form_builder.additional.components.component.component import Component
-from classes.form_builder.form_builder_base import FormBuilderBase
 from classes.form_builder.additional.decorators import not_implemented_func
+from classes.form_builder.form_builder_base import FormBuilderBase
 
 
 JSONType = Literal['application', 'report']
@@ -18,7 +18,7 @@ class FormBuilder(FormBuilderBase):
     OPERATION_NUM: str
     PRIORITY_NAME: str
     PRIORITY_NUM: str
-    YEAR: int = 2025
+    YEAR: int = 2026
     SESSION: ClassVar[SessionType] = 'I'
     FORM_ID: int
 
@@ -54,4 +54,8 @@ class FormBuilder(FormBuilderBase):
 
     @not_implemented_func
     def generate(self):
+        pass
+
+    @not_implemented_func
+    def create_base(self):
         pass

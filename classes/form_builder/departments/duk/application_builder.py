@@ -640,7 +640,7 @@ class DUKApplicationBuilder(ApplicationBuilder):
 
     def generate(self):
         # Base
-        self.create_application_base()
+        self.create_base()
 
         # Metadane wniosku
         self.create_application_metadata()
