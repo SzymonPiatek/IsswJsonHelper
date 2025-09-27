@@ -1,12 +1,10 @@
 from typing import Literal
+from abc import ABC, abstractmethod
 
-from ..additional.rules.decorators import not_implemented_func
-from ..additional.rules.validator import Validator
-from ..additional.rules.visibility_rule import VisibilityRule
-from ..additional.rules.calculation_rule import CalculationRule
+from ..additional.rules import CalculationRule, Validator, VisibilityRule
 
 
-class FormElement:
+class FormElement(ABC):
     def __init__(self, kind: Literal["form", "part", "chapter", "component"]):
         self.kind = kind
 
@@ -14,6 +12,6 @@ class FormElement:
         self.visibility_rule = VisibilityRule()
         self.calculation_rule = CalculationRule()
 
-    @not_implemented_func
+    @abstractmethod
     def generate(self):
         pass

@@ -3,7 +3,7 @@ import json
 from classes.form_builder.additional.components.part import Part
 from classes.form_builder.additional.components.component.component import Component
 from classes.form_builder.form_builder_base import FormBuilderBase
-from classes.form_builder.additional.rules.decorators import not_implemented_func
+from classes.form_builder.additional.decorators import not_implemented_func
 
 
 JSONType = Literal['application', 'report']

@@ -1,5 +1,5 @@
 from classes.form_builder.application_builder import ApplicationBuilder
-from classes.form_builder.additional.rules.decorators import not_implemented_func
+from classes.form_builder.additional.decorators import not_implemented_func
 from classes.form_builder.departments.dwm.department import DWMDepartment
 from classes.form_builder.departments.dwm.operation import DWMOperation
 

@@ -1,13 +1,9 @@
 import json
 import ast
 from pathlib import Path
-from .additional.rules.validator import Validator
-from .additional.rules.visibility_rule import VisibilityRule
-from .additional.rules.calculation_rule import CalculationRule
-from .form_elements.form_chapter import FormChapter
-from .form_elements.form_component import FormComponent, ComponentType, MaskType, ValueType
-from .form_elements.form_form import FormForm
-from .form_elements.form_part import FormPart
+from .additional.rules import CalculationRule, Validator, VisibilityRule
+from .form_elements import FormForm, FormPart, FormChapter, FormComponent
+from .form_elements.form_component import ComponentType, MaskType, ValueType
 
 
 class FormBuilderBase:
