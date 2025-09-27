@@ -22,8 +22,8 @@ class FormFactory:
     def create_part(
             title: str = None,
             short_name: str = None,
-            class_list: list | dict = None,
-            chapters: list = None,
+            class_list: ClassListType = None,
+            chapters: list[dict] = None,
     ):
         part = FormPart(
             title=title,
@@ -36,9 +36,9 @@ class FormFactory:
     @staticmethod
     def create_chapter(
             title: str = '',
-            class_list: list | dict = None,
-            visibility_rules: list = None,
-            components: list = None,
+            class_list: ClassListType = None,
+            visibility_rules: list[dict] = None,
+            components: list[dict] = None,
             multiple_forms_rules: dict = None,
             is_paginated: bool = False,
     ):
@@ -62,9 +62,9 @@ class FormFactory:
             default_value: ValueType = None,
             unit: str = None,
             options: list = None,
-            validators: list = None,
-            calculation_rules: list = None,
-            class_list: list | dict = None,
+            validators: list[dict] = None,
+            calculation_rules: list[dict] = None,
+            class_list: ClassListType = None,
             required: bool = False,
             read_only: bool = False,
             help_text: str = None,

@@ -1,4 +1,4 @@
-from typing import Literal
+from typing import Literal, TypedDict
 
 
 JSONType = Literal['application', 'report']
@@ -23,3 +23,11 @@ MASK_TYPES = set(MASK_TYPE_VALUES)
 
 VALUE_TYPE_VALUES = (str, int, float, bool, list[str])
 ValueType = Literal[*VALUE_TYPE_VALUES]
+
+
+class ClassListDictType(TypedDict):
+    main: list[str]
+    sub: list[str]
+
+
+ClassListType = Literal[list[str], ClassListDictType]
