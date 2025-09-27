@@ -58,7 +58,7 @@ class FormFactory:
             mask: MaskType = '',
             label: str = '',
             name: str = '',
-            value: ValueType = '',
+            value: ValueType = None,
             default_value: ValueType = None,
             unit: str = None,
             options: list = None,

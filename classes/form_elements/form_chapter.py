@@ -1,16 +1,16 @@
 import copy
-
 from .form_element import FormElement
+from classes.types import *
 
 
 class FormChapter(FormElement):
     def __init__(
             self,
             title: str = '',
-            class_list: list | dict = None,
-            visibility_rules: list = None,
-            components: list = None,
-            multiple_forms_rules: dict = None,
+            class_list: ClassListType = None,
+            visibility_rules: list[dict] = None,
+            components: list[dict] = None,
+            multiple_forms_rules: MultipleFormsRulesType = None,
             is_paginated: bool = False,
     ):
         super().__init__(kind="chapter")

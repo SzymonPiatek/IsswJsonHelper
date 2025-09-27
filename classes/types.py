@@ -1,5 +1,4 @@
-from typing import Literal, TypedDict
-
+from typing import Literal, TypedDict, Optional
 
 JSONType = Literal['application', 'report']
 SessionType = Literal['I', 'II', 'III', 'IV']
@@ -31,3 +30,8 @@ class ClassListDictType(TypedDict):
 
 
 ClassListType = Literal[list[str], ClassListDictType]
+
+
+class MultipleFormsRulesType(TypedDict):
+    minCount: Optional[int]
+    maxCount: Optional[int]

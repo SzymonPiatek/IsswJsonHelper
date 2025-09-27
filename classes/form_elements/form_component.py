@@ -13,9 +13,9 @@ class FormComponent(FormElement):
             default_value: ValueType = None,
             unit: str = None,
             options: list = None,
-            validators: list = None,
-            calculation_rules: list = None,
-            class_list: list | dict = None,
+            validators: list[dict] = None,
+            calculation_rules: list[dict] = None,
+            class_list: ClassListType = None,
             required: bool = False,
             read_only: bool = False,
             help_text: str = None,
@@ -65,7 +65,7 @@ class FormComponent(FormElement):
         self.names.add(self.name)
 
         # Check value
-        if self.value and not isinstance(self.value, VALUE_TYPE_VALUES):
+        if self.value is not None and not isinstance(self.value, VALUE_TYPE_VALUES):
             raise ValueError(f"Invalid value type: '{self.value}'")
 
         # Check default_value
@@ -100,10 +100,8 @@ class FormComponent(FormElement):
 
     def _process_number_fund(self):
         if self.mask == "fund" or self.component_type == "number":
-            if not (isinstance(self.value, int) or not isinstance(self.value, float)) or (isinstance(self.value, str) and self.value.isdigit()):
+            if self.value is None:
                 self.value = 0
-                if self.read_only:
-                    self.default_value = 0
             if self.mask == "fund":
                 self.validators.append(
                     self.validator.range_validator(
