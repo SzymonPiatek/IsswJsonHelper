@@ -23,6 +23,14 @@ class FormChapter(FormElement):
         self.is_paginated = is_paginated
 
     def generate(self):
+        if self.components:
+            kinds = {c.get("kind") for c in self.components if isinstance(c, dict)}
+            if not kinds.issubset({"chapter", "component"}):
+                raise ValueError("W components mogą być tylko obiekty typu chapter lub component")
+
+            if len(kinds) > 1:
+                raise ValueError("Nie można mieszać chapterów i componentów w jednym zbiorze 'components'")
+
         if self.multiple_forms_rules:
             if self.multiple_forms_rules.get("maxCount", 1) > 5:
                 self.is_paginated = True

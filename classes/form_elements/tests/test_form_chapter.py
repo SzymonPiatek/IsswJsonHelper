@@ -69,3 +69,28 @@ def test_duplicate_chapter_with_indexing_standalone():
     assert result[0]["components"][0]["name"] == "f1_1"
     assert result[1]["components"][0]["name"] == "f1_2"
     assert result[0]["components"][1]["components"][0]["name"] == "nested_1"
+
+
+def test_generate_with_mixed_components_and_chapters_raises():
+    components = [
+        {"kind": "component", "name": "c1"},
+        {"kind": "chapter", "title": "Sub", "components": []},
+    ]
+    chapter = FormChapter(title="Invalid mix", components=components)
+
+    with pytest.raises(ValueError) as exc:
+        chapter.generate()
+
+    assert "Nie można mieszać" in str(exc.value)
+
+
+def test_generate_with_only_components_ok_when_last_is_component():
+    components = [
+        {"kind": "component", "name": "c1"},
+        {"kind": "component", "name": "c2"},
+    ]
+    chapter = FormChapter(title="Valid components", components=components)
+    generated = chapter.generate()
+
+    assert all(c["kind"] == "component" for c in generated["components"])
+    assert generated["components"][-1]["kind"] == "component"
