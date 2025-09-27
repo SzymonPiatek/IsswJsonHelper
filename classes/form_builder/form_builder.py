@@ -1,14 +1,15 @@
 from typing import Literal, ClassVar
 import json
-from classes.form_builder.additional.components.part import Part
-from classes.form_builder.additional.components.component.component import Component
-from classes.form_builder.additional.decorators import not_implemented_func
-from classes.form_builder.form_builder_base import FormBuilderBase
+from .additional.components.part import Part
+from .additional.components.component.component import Component
+from .additional.decorators import not_implemented_func
+from .form_builder_base import FormBuilderBase
 
 
 JSONType = Literal['application', 'report']
 SessionType = Literal['I', 'II', 'III', 'IV']
-DepartmentType = Literal['DPF', 'DUK', 'DWM']
+DepartmentType = Literal['DPF', 'DUK', 'DWM', 'ZACHĘTY']
+YearType = Literal[2025, 2026]
 
 
 class FormBuilder(FormBuilderBase):
@@ -18,7 +19,7 @@ class FormBuilder(FormBuilderBase):
     OPERATION_NUM: str
     PRIORITY_NAME: str
     PRIORITY_NUM: str
-    YEAR: int = 2026
+    YEAR: YearType = 2026
     SESSION: ClassVar[SessionType] = 'I'
     FORM_ID: int
 
