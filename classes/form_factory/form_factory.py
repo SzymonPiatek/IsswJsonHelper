@@ -1,11 +1,17 @@
 from classes.form_elements import FormForm, FormPart, FormChapter, FormComponent
+from classes.form_rules import CalculationRule, Validator, VisibilityRule
+from classes.types import *
 
 
 class FormFactory:
     def __init__(self):
         self.output_json: dict = None
-        self.parts: list = []
-        self.names = set[str] = set()
+        self.parts: list[dict] = []
+        self.names = set()
+
+        self.validator = Validator()
+        self.visibility_rule = VisibilityRule()
+        self.calculation_rule = CalculationRule()
 
     @staticmethod
     def create_form(intro_text: list[str]):
@@ -46,8 +52,8 @@ class FormFactory:
         )
         return chapter.generate()
 
-    @staticmethod
     def create_component(
+            self,
             component_type: ComponentType,
             mask: MaskType = '',
             label: str = '',

@@ -1,8 +1,8 @@
 from classes.form_components.component import DPFComponent
-from classes.form_builder.form_builder_base import FormBuilderBase
+from classes.form_factory.form_factory import FormFactory
 
 
-class ApplicationAttachments(FormBuilderBase):
+class ApplicationAttachments(FormFactory):
     def __init__(self):
         super().__init__()
 

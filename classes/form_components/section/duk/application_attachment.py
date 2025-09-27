@@ -1,8 +1,8 @@
-from classes.form_builder.form_builder_base import FormBuilderBase
 from classes.form_components.component import Component
+from classes.form_factory.form_factory import FormFactory
 
 
-class ApplicationAttachment(FormBuilderBase):
+class ApplicationAttachment(FormFactory):
     def __init__(self):
         super().__init__()
 

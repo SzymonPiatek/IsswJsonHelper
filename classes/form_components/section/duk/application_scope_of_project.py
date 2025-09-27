@@ -1,7 +1,7 @@
-from classes.form_builder.form_builder_base import FormBuilderBase
+from classes.form_factory.form_factory import FormFactory
 
 
-class ApplicationScopeOfProject(FormBuilderBase):
+class ApplicationScopeOfProject(FormFactory):
     def __init__(self):
         super().__init__()
 
