@@ -1,6 +1,7 @@
 from typing import Literal, ClassVar
 import json
-from .additional.components.part import Part
+from .additional.components.part.part import Part
+from .additional.components.section.section import Section
 from .additional.components.component.component import Component
 from .additional.decorators import not_implemented_func
 from .form_builder_base import FormBuilderBase
@@ -36,14 +37,29 @@ class FormBuilder(FormBuilderBase):
         self.session = self.SESSION
         self.form_id = self.FORM_ID
 
-        self.output_file_name = f'po_{self.operation_num}_pr_{self.priority_num}_{self.json_type}_{self.year}.json'
-        self.output_file = self.main_dir / 'output' / 'json' / str(self.year) / self.department_name / self.json_type / self.output_file_name
+        self.output_file = self._prepare_output_path()
 
         self.part = Part()
+        self.section = Section()
         self.component = Component()
 
         self.application_data_path = self.data_path / 'application'
         self.report_data_path = self.data_path / 'report'
+
+    def _prepare_output_path(self):
+        output_file_name = (
+            f'po_{self.operation_num}_pr_{self.priority_num}_{self.json_type}_{self.year}.json'
+        )
+        return (
+                self.main_dir
+                / 'output'
+                / 'json'
+                / str(self.year)
+                / self.department_name
+                / self.json_type
+                / output_file_name
+        )
+
 
     def save_output(self) -> None:
         self.output_file.parent.mkdir(parents=True, exist_ok=True)

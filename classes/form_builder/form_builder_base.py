@@ -12,7 +12,7 @@ class FormBuilderBase:
         self.data_path = self.main_dir / 'data'
         self.main_dir.mkdir(parents=True, exist_ok=True)
 
-        self.output_json = None
+        self.output_json: dict = None
         self.parts = []
         self.names = set()
 
