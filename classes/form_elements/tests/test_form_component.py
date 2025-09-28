@@ -10,7 +10,6 @@ def names_registry():
 def test_basic_component_generation(names_registry):
     comp = FormComponent(
         component_type="text",
-        mask="",
         label="Label",
         name="field1",
         value="hello",
@@ -18,11 +17,14 @@ def test_basic_component_generation(names_registry):
     )
     result = comp.generate()
 
-    assert result["kind"] == "component"
-    assert result["type"] == "text"
-    assert result["name"] == "field1"
-    assert result["value"] == "hello"
-    assert result["dataBDD"] == "field1"
+    assert result == {
+        "kind": "component",
+        "type": "text",
+        "label": "Label",
+        "name": "field1",
+        "dataBDD": "field1",
+        "value": "hello"
+    }
 
 
 def test_invalid_component_type_raises(names_registry):
@@ -122,7 +124,6 @@ def test_file_component_sets_help_text(names_registry):
 def test_date_component_sets_value_false(names_registry):
     comp = FormComponent(
         component_type="date",
-        mask="",
         name="d1",
         names=names_registry
     )

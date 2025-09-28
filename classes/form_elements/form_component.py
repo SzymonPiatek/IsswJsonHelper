@@ -6,10 +6,10 @@ class FormComponent(FormElement):
     def __init__(
             self,
             component_type: ComponentType,
-            mask: MaskType,
+            mask: MaskType = '',
             label: str = '',
             name: str = '',
-            value: ValueType = '',
+            value: ValueType = None,
             default_value: ValueType = None,
             unit: str = None,
             options: list = None,
@@ -76,6 +76,23 @@ class FormComponent(FormElement):
         self.calculation_rules = self.calculation_rules or []
         self.class_list = self.class_list or []
 
+    def _process_value(self):
+        if self.value is None:
+            match self.component_type:
+                case "date" | "checkbox":
+                    self.value = False
+                case "file" | "radio" | "header" | "select" | "country" | "countryMulti" | "currency" | "textarea":
+                    self.value = ''
+                case "number":
+                    self.value = 0
+                case "text":
+                    if self.mask == "fund":
+                        self.value = 0
+                    else:
+                        self.value = ''
+                case _:
+                    self.value = ''
+
     def _process_select_radio(self):
         if self.component_type in {"select", "radio"}:
             if not self.options:
@@ -88,9 +105,6 @@ class FormComponent(FormElement):
                 self.read_only = True
                 self.value = self.options[0]
 
-            if self.value is None:
-                self.value = ''
-
     def _process_file(self):
         if self.component_type == "file":
 
@@ -100,33 +114,17 @@ class FormComponent(FormElement):
             elif message not in self.help_text:
                 self.help_text += f" {message}"
 
-            if self.value is None:
-                self.value = ''
-
-    def _process_date_checkbox(self):
-        if self.component_type in {"date", "checkbox"} and self.value is None:
-            self.value = False
-
-    def _process_text_textarea(self):
-        if (self.component_type == "textarea" or (self.component_type == "text" and self.mask != "fund")) and self.value is None:
-            self.value = ''
-
-    def _process_other(self):
-        if self.component_type in {"header", "country", "countryMulti", "currency"} and self.value is None:
-            self.value = ''
-
     def _process_number_fund(self):
         if self.mask == "fund" or self.component_type == "number":
-            if self.value is None:
-                self.value = 0
-            if self.mask == "fund":
+            if not any(v.get("name") == "RangeValidator" for v in self.validators):
                 self.validators.append(
                     self.validator.range_validator(
                         min_value=0
                     )
                 )
         elif self.mask == "phoneNumber":
-            self.validators.append(self.validator.phone_number_validator())
+            if not any(v.get("name") == "PhoneNumberValidator" for v in self.validators):
+                self.validators.append(self.validator.phone_number_validator())
 
     def _process_required(self):
         if self.required and not any(v.get("name") in {"RelatedRequiredIfEqualValidator", "RequiredValidator", "ExactValidator"} for v in self.validators):
@@ -134,13 +132,14 @@ class FormComponent(FormElement):
 
     def generate(self):
         self._validate_basic()
-        self._process_text_textarea()
+        self._process_value()
         self._process_select_radio()
         self._process_file()
-        self._process_date_checkbox()
         self._process_number_fund()
-        self._process_other()
         self._process_required()
+
+        if self.value is None:
+            raise ValueError("Value nie może być nullem")
 
         kwargs = {
             "kind": self.kind,
