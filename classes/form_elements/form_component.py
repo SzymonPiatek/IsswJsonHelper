@@ -80,23 +80,40 @@ class FormComponent(FormElement):
         if self.component_type in {"select", "radio"}:
             if not self.options:
                 raise ValueError("Component 'options' must be provided for select/radio.")
+
             if not any(v.get("name") == "ExactValidator" for v in self.validators):
                 self.validators.append(self.validator.exact_validator(values=self.options))
+
             if len(self.options) == 1:
                 self.read_only = True
                 self.value = self.options[0]
 
+            if self.value is None:
+                self.value = ''
+
     def _process_file(self):
         if self.component_type == "file":
+
             message = "Maksymalny rozmiar pliku to 50 MB"
             if not self.help_text:
                 self.help_text = message
             elif message not in self.help_text:
                 self.help_text += f" {message}"
 
+            if self.value is None:
+                self.value = ''
+
     def _process_date_checkbox(self):
-        if self.component_type in {"date", "checkbox"}:
+        if self.component_type in {"date", "checkbox"} and self.value is None:
             self.value = False
+
+    def _process_text_textarea(self):
+        if (self.component_type == "textarea" or (self.component_type == "text" and self.mask != "fund")) and self.value is None:
+            self.value = ''
+
+    def _process_other(self):
+        if self.component_type in {"header", "country", "countryMulti", "currency"} and self.value is None:
+            self.value = ''
 
     def _process_number_fund(self):
         if self.mask == "fund" or self.component_type == "number":
@@ -117,10 +134,12 @@ class FormComponent(FormElement):
 
     def generate(self):
         self._validate_basic()
+        self._process_text_textarea()
         self._process_select_radio()
         self._process_file()
         self._process_date_checkbox()
         self._process_number_fund()
+        self._process_other()
         self._process_required()
 
         kwargs = {

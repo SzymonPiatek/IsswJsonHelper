@@ -18,7 +18,7 @@ class FormPart(FormElement):
         return {
             "kind": self.kind,
             "title": self.title,
-            "short_name": self.short_name,
-            "class_list": self.class_list,
+            "shortName": self.short_name,
+            "classList": self.class_list,
             "chapters": self.chapters,
         }
