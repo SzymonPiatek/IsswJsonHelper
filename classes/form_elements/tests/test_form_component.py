@@ -30,7 +30,6 @@ def test_basic_component_generation(names_registry):
 def test_invalid_component_type_raises(names_registry):
     comp = FormComponent(
         component_type="invalid",
-        mask="",
         name="bad",
         names=names_registry
     )
@@ -54,7 +53,6 @@ def test_invalid_mask_raises(names_registry):
 def test_missing_name_raises(names_registry):
     comp = FormComponent(
         component_type="text",
-        mask="",
         name="",
         names=names_registry
     )
@@ -66,7 +64,6 @@ def test_duplicate_name_raises(names_registry):
     names_registry.add("dup")
     comp = FormComponent(
         component_type="text",
-        mask="",
         name="dup",
         names=names_registry
     )
@@ -77,7 +74,6 @@ def test_duplicate_name_raises(names_registry):
 def test_header_component_name_auto_prefixed(names_registry):
     comp = FormComponent(
         component_type="header",
-        mask="",
         name="myHeader",
         names=names_registry
     )
@@ -88,7 +84,6 @@ def test_header_component_name_auto_prefixed(names_registry):
 def test_select_component_requires_options(names_registry):
     comp = FormComponent(
         component_type="select",
-        mask="",
         name="sel1",
         options=None,
         names=names_registry
@@ -100,7 +95,6 @@ def test_select_component_requires_options(names_registry):
 def test_select_component_with_single_option_sets_readonly_and_value(names_registry):
     comp = FormComponent(
         component_type="select",
-        mask="",
         name="sel2",
         options=["only-one"],
         names=names_registry
@@ -113,7 +107,6 @@ def test_select_component_with_single_option_sets_readonly_and_value(names_regis
 def test_file_component_sets_help_text(names_registry):
     comp = FormComponent(
         component_type="file",
-        mask="",
         name="file1",
         names=names_registry
     )
@@ -147,7 +140,6 @@ def test_fund_mask_adds_range_validator(names_registry):
 def test_required_component_adds_validator(names_registry):
     comp = FormComponent(
         component_type="text",
-        mask="",
         name="req1",
         required=True,
         names=names_registry
