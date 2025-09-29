@@ -1,16 +1,16 @@
 import copy
-
 from .form_element import FormElement
+from classes.types import *
 
 
 class FormChapter(FormElement):
     def __init__(
             self,
             title: str = '',
-            class_list: list | dict = None,
-            visibility_rules: list = None,
-            components: list = None,
-            multiple_forms_rules: dict = None,
+            class_list: ClassListType = None,
+            visibility_rules: list[dict] = None,
+            components: list[dict] = None,
+            multiple_forms_rules: MultipleFormsRulesType = None,
             is_paginated: bool = False,
     ):
         super().__init__(kind="chapter")
@@ -23,6 +23,14 @@ class FormChapter(FormElement):
         self.is_paginated = is_paginated
 
     def generate(self):
+        if self.components:
+            kinds = {c.get("kind") for c in self.components if isinstance(c, dict)}
+            if not kinds.issubset({"chapter", "component"}):
+                raise ValueError("W components mogą być tylko obiekty typu chapter lub component")
+
+            if len(kinds) > 1:
+                raise ValueError("Nie można mieszać chapterów i componentów w jednym zbiorze 'components'")
+
         if self.multiple_forms_rules:
             if self.multiple_forms_rules.get("maxCount", 1) > 5:
                 self.is_paginated = True

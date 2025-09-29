@@ -1,11 +1,17 @@
 from classes.form_elements import FormForm, FormPart, FormChapter, FormComponent
+from classes.form_rules import CalculationRule, Validator, VisibilityRule
+from classes.types import *
 
 
 class FormFactory:
     def __init__(self):
         self.output_json: dict = None
-        self.parts: list = []
-        self.names = set[str] = set()
+        self.parts: list[dict] = []
+        self.names = set()
+
+        self.validator = Validator()
+        self.visibility_rule = VisibilityRule()
+        self.calculation_rule = CalculationRule()
 
     @staticmethod
     def create_form(intro_text: list[str]):
@@ -16,8 +22,8 @@ class FormFactory:
     def create_part(
             title: str = None,
             short_name: str = None,
-            class_list: list | dict = None,
-            chapters: list = None,
+            class_list: ClassListType = None,
+            chapters: list[dict] = None,
     ):
         part = FormPart(
             title=title,
@@ -30,9 +36,9 @@ class FormFactory:
     @staticmethod
     def create_chapter(
             title: str = '',
-            class_list: list | dict = None,
-            visibility_rules: list = None,
-            components: list = None,
+            class_list: ClassListType = None,
+            visibility_rules: list[dict] = None,
+            components: list[dict] = None,
             multiple_forms_rules: dict = None,
             is_paginated: bool = False,
     ):
@@ -46,23 +52,23 @@ class FormFactory:
         )
         return chapter.generate()
 
-    @staticmethod
     def create_component(
+            self,
             component_type: ComponentType,
             mask: MaskType = '',
             label: str = '',
             name: str = '',
-            value: ValueType = '',
-            default_value: ValueType = '',
-            unit: str = '',
+            value: ValueType = None,
+            default_value: ValueType = None,
+            unit: str = None,
             options: list = None,
-            validators: list = None,
-            calculation_rules: list = None,
-            class_list: list | dict = None,
+            validators: list[dict] = None,
+            calculation_rules: list[dict] = None,
+            class_list: ClassListType = None,
             required: bool = False,
             read_only: bool = False,
-            help_text: str = '',
-            copy_from: str = '',
+            help_text: str = None,
+            copy_from: str = None,
     ):
         component = FormComponent(
             component_type=component_type,

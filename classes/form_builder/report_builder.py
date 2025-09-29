@@ -8,7 +8,7 @@ class ReportBuilder(FormBuilder):
         super().__init__()
 
     def create_base(self):
-        self.create_form(
+        self.output_json = self.create_form(
             intro_text=[
                 "Raport końcowy"
             ]

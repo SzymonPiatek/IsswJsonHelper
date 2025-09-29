@@ -1,8 +1,9 @@
 from .form_element import FormElement
+from classes.types import *
 
 
 class FormPart(FormElement):
-    def __init__(self, title: str = None, short_name: str = None, class_list: list | dict = None, chapters: list = None):
+    def __init__(self, title: str = None, short_name: str = None, class_list: ClassListType = None, chapters: list[dict] = None):
         super().__init__(kind="part")
 
         if not title:
@@ -17,7 +18,7 @@ class FormPart(FormElement):
         return {
             "kind": self.kind,
             "title": self.title,
-            "short_name": self.short_name,
-            "class_list": self.class_list,
+            "shortName": self.short_name,
+            "classList": self.class_list,
             "chapters": self.chapters,
         }

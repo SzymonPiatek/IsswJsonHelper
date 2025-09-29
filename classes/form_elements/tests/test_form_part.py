@@ -44,7 +44,7 @@ def test_generate_returns_correct_dict():
     assert generated == {
         "kind": "part",
         "title": "Form Part",
-        "short_name": "FP",
-        "class_list": ["grid"],
+        "shortName": "FP",
+        "classList": ["grid"],
         "chapters": chapters,
     }

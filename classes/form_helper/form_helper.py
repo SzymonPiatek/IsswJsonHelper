@@ -30,7 +30,7 @@ class FormHelper:
 
         self.setup = {
             "autosave_or_update": True,
-            "force_autosave": False,
+            "force_autosave": True,
             "pdf": True,
             "web": False,
             "analyze": False,

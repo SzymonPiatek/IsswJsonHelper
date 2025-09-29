@@ -1,5 +1,4 @@
-from typing import Literal
-
+from typing import Literal, TypedDict, Optional
 
 JSONType = Literal['application', 'report']
 SessionType = Literal['I', 'II', 'III', 'IV']
@@ -23,3 +22,16 @@ MASK_TYPES = set(MASK_TYPE_VALUES)
 
 VALUE_TYPE_VALUES = (str, int, float, bool, list[str])
 ValueType = Literal[*VALUE_TYPE_VALUES]
+
+
+class ClassListDictType(TypedDict):
+    main: list[str]
+    sub: list[str]
+
+
+ClassListType = Literal[list[str], ClassListDictType]
+
+
+class MultipleFormsRulesType(TypedDict):
+    minCount: Optional[int]
+    maxCount: Optional[int]

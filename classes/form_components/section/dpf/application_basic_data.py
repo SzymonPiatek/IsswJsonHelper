@@ -1,8 +1,8 @@
-from classes.form_builder.form_builder_base import FormBuilderBase
 from typing import List, Optional
+from classes.form_factory.form_factory import FormFactory
 
 
-class ApplicationBasicData(FormBuilderBase):
+class ApplicationBasicData(FormFactory):
     def __init__(self):
         super().__init__()
 

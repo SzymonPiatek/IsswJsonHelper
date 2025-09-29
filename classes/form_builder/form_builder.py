@@ -1,12 +1,13 @@
 from typing import ClassVar
 import json
+from pathlib import Path
 from ..form_components import Part, Component, Section
 from .additional.decorators import not_implemented_func
-from .form_builder_base import FormBuilderBase
+from ..form_factory.form_factory import FormFactory
 from classes.types import *
 
 
-class FormBuilder(FormBuilderBase):
+class FormBuilder(FormFactory):
     JSON_TYPE: ClassVar[JSONType]
     DEPARTMENT_NAME: ClassVar[DepartmentType]
     OPERATION_NAME: str
@@ -30,7 +31,14 @@ class FormBuilder(FormBuilderBase):
         self.session = self.SESSION
         self.form_id = self.FORM_ID
 
+        self.main_dir = Path(__file__).resolve().parents[2]
+        self.data_path = self.main_dir / 'data'
+        self.main_dir.mkdir(parents=True, exist_ok=True)
         self.output_file = self._prepare_output_path()
+
+        self.output_json: dict = {}
+        self.parts = []
+        self.names = set()
 
         self.part = Part()
         self.section = Section()
@@ -44,13 +52,13 @@ class FormBuilder(FormBuilderBase):
             f'po_{self.operation_num}_pr_{self.priority_num}_{self.json_type}_{self.year}.json'
         )
         return (
-                self.main_dir
-                / 'output'
-                / 'json'
-                / str(self.year)
-                / self.department_name
-                / self.json_type
-                / output_file_name
+            self.main_dir
+            / 'output'
+            / 'json'
+            / str(self.year)
+            / self.department_name
+            / self.json_type
+            / output_file_name
         )
 
 
@@ -69,3 +77,28 @@ class FormBuilder(FormBuilderBase):
     @not_implemented_func
     def create_base(self):
         pass
+
+    @staticmethod
+    def load_json(path: str):
+        with path.open('r', encoding='utf-8') as f:
+            return json.load(f)
+
+    def replace_placeholders(self, obj: dict, values: dict):
+        if isinstance(obj, dict):
+            return {k: self.replace_placeholders(v, values) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [self.replace_placeholders(item, values) for item in obj]
+        elif isinstance(obj, str):
+            try:
+                result = obj.format(**values)
+                try:
+                    return ast.literal_eval(result)
+                except (ValueError, SyntaxError):
+                    return result
+            except KeyError:
+                return obj
+        return obj
+
+    def save_part(self, part: dict):
+        self.parts = self.output_json.setdefault('parts', [])
+        self.parts.append(part)

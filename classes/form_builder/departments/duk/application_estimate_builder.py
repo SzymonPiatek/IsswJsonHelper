@@ -1,9 +1,9 @@
-from classes.form_builder.form_builder_base import FormBuilderBase
 from classes.form_builder.departments.duk.estimate_data import estimate_section_structure, sum_estimate_section_structure, \
     sum_estimate_sections
+from classes.form_factory.form_factory import FormFactory
 
 
-class DUKApplicationEstimateBuilder(FormBuilderBase):
+class DUKApplicationEstimateBuilder(FormFactory):
     def __init__(self, estimate_sections: list, after_name: str = ''):
         super().__init__()
 
