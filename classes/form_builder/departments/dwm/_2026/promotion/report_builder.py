@@ -749,6 +749,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                             read_only=True,
                                             copy_from="costRequestPisfSumShare",
                                             unit="%",
+                                            mask="share",
                                             class_list=[
                                                 "no-label"
                                             ],
@@ -787,6 +788,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                             name="budgetInputPisfSupportCurrentShare",
                                             read_only=True,
                                             unit="%",
+                                            mask="share",
                                             class_list=[
                                                 "no-label"
                                             ],
@@ -863,6 +865,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                 )
                                             ],
                                             unit="%",
+                                            mask="share",
                                             class_list=[
                                                 "no-label"
                                             ]
@@ -883,6 +886,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                             name="budgetInputOwnFundsCurrentShare",
                                             read_only=True,
                                             unit="%",
+                                            mask="share",
                                             class_list=[
                                                 "no-label"
                                             ],
@@ -975,6 +979,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                 )
                                             ],
                                             unit="%",
+                                            mask="share",
                                             class_list=[
                                                 "no-label"
                                             ]
@@ -1012,6 +1017,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                             name="budgetInputAllPartnersCurrentShare",
                                             read_only=True,
                                             unit="%",
+                                            mask="share",
                                             class_list=[
                                                 "no-label"
                                             ],
@@ -1108,6 +1114,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                         )
                                                     ],
                                                     unit="%",
+                                                    mask="share",
                                                     class_list=[
                                                         "no-label"
                                                     ]
@@ -1143,6 +1150,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                     name="budgetInputPartnersSponsorsCurrentShare",
                                                     read_only=True,
                                                     unit="%",
+                                                    mask="share",
                                                     class_list=[
                                                         "no-label"
                                                     ],
@@ -1227,6 +1235,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                                 )
                                                             ],
                                                             unit="%",
+                                                            mask="share",
                                                             class_list=[
                                                                 "no-label"
                                                             ]
@@ -1247,6 +1256,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                             name="budgetInputPartnerSponsorCurrentShare",
                                                             read_only=True,
                                                             unit="%",
+                                                            mask="share",
                                                             class_list=[
                                                                 "no-label"
                                                             ],
@@ -1347,6 +1357,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                         )
                                                     ],
                                                     unit="%",
+                                                    mask="share",
                                                     class_list=[
                                                         "no-label"
                                                     ]
@@ -1382,6 +1393,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                     name="budgetInputPublicSourcesCurrentShare",
                                                     read_only=True,
                                                     unit="%",
+                                                    mask="share",
                                                     class_list=[
                                                         "no-label"
                                                     ],
@@ -1466,6 +1478,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                                 )
                                                             ],
                                                             unit="%",
+                                                            mask="share",
                                                             class_list=[
                                                                 "no-label"
                                                             ]
@@ -1486,6 +1499,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                             name="budgetInputPublicSourceCurrentShare",
                                                             read_only=True,
                                                             unit="%",
+                                                            mask="share",
                                                             class_list=[
                                                                 "no-label"
                                                             ],
@@ -1584,6 +1598,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                 )
                                             ],
                                             unit="%",
+                                            mask="share",
                                             class_list=[
                                                 "no-label"
                                             ]
@@ -1628,6 +1643,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                             name="budgetTotalCurrentSumShare",
                                             read_only=True,
                                             unit="%",
+                                            mask="share",
                                             class_list=[
                                                 "no-label"
                                             ],
