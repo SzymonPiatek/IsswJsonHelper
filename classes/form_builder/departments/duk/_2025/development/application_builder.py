@@ -1,7 +1,7 @@
-from classes.form_builder.departments.duk.application_builder import DUKApplicationBuilder
+from classes.form_builder.departments.duk._2025.application_builder import DUKApplicationBuilder2025
 
 
-class DevelopmentApplicationBuilder(DUKApplicationBuilder):
+class DevelopmentApplicationBuilder(DUKApplicationBuilder2025):
     OPERATION_NAME = 'IV. Rozwój kin'
     OPERATION_NUM = "iv"
 

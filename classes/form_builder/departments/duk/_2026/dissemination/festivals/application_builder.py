@@ -8,7 +8,7 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
     def __init__(self):
         super().__init__()
 
-    def create_application_basic_data(self, **kwargs):
+    def create_application_basic_data(self):
         part = self.create_part(
             title="I. Dane podstawowe",
             short_name="I. Dane podstawowe",
