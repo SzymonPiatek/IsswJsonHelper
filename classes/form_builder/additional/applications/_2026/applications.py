@@ -1,5 +1,6 @@
 from classes.form_builder.additional.applications.applications import Applications
 from classes.form_builder.departments.dwm._2026 import *
+from classes.form_builder.departments.duk._2026.dissemination import *
 
 
 class Applications2026(Applications):
@@ -8,6 +9,13 @@ class Applications2026(Applications):
 
         self.builder_map = {
             "application": {
+                "duk": {
+                    "po2": {},
+                    "po3": {
+                        "pr1": FestivalsApplicationBuilder
+                    },
+                    "po4": {}
+                },
                 "dwm": {
                     "po5": {
                         "pr1": PromotionApplicationBuilder,

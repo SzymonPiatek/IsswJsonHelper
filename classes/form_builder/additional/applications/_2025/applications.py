@@ -1,8 +1,8 @@
 from classes.form_builder.additional.applications.applications import Applications
 from classes.form_builder.departments.dpf import *
-from classes.form_builder.departments.duk.education import *
-from classes.form_builder.departments.duk.development import *
-from classes.form_builder.departments.duk.dissemination import *
+from classes.form_builder.departments.duk._2025.education import *
+from classes.form_builder.departments.duk._2025.development import *
+from classes.form_builder.departments.duk._2025.dissemination import *
 from classes.form_builder.departments.dwm._2025 import *
 
 

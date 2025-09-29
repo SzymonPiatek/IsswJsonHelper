@@ -1,20 +1,14 @@
 from classes.form_builder.application_builder import ApplicationBuilder
 from classes.form_builder.departments.duk.application_estimate_builder import DUKApplicationEstimateBuilder
 from classes.form_builder.additional.decorators import not_implemented_func
-from classes.form_components.section import DUKSection
+from classes.form_builder.departments.duk.department import DUKDepartment
 
 
-class DUKApplicationBuilder(ApplicationBuilder):
-    DEPARTMENT_NAME = 'DUK'
-
+class DUKApplicationBuilder(ApplicationBuilder, DUKDepartment):
     def __init__(self):
         super().__init__()
 
-        self.department_data_path = self.application_data_path / 'duk'
-        self.program_data_path = None
-        self.priority_data_path = None
         self.estimate_sections = []
-        self.section = DUKSection()
 
     def create_application_metadata(self):
         part = self.create_part(
