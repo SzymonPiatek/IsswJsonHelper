@@ -60,21 +60,21 @@ class DUKApplicationBuilder(ApplicationBuilder, DUKDepartment):
 
         # III. Zakres przedsięwzięcia
         self.create_application_scope_of_project()
-        #
-        # # IV. Źródła finansowania
-        # self.create_application_sources_of_financing()
-        #
-        # # V. Oświaczenia
-        # self.create_application_statements()
-        #
-        # # VI. Załączniki
-        # self.create_application_attachments()
-        #
-        # # VII. Kosztorys przedsięwzięcia
+
+        # IV. Źródła finansowania
+        self.create_application_sources_of_financing()
+
+        # V. Oświaczenia
+        self.create_application_statements()
+
+        # VI. Załączniki
+        self.create_application_attachments()
+
+        # VII. Kosztorys przedsięwzięcia
         # self.create_application_project_costs()
-        #
-        # # VIII. Harmonogram
-        # self.create_application_schedule()
-        #
-        # # Zapis
-        # self.save_output()
+
+        # VIII. Harmonogram
+        self.create_application_schedule()
+
+        # Zapis
+        self.save_output()
