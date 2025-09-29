@@ -1,6 +1,5 @@
-from .priority import ForeignScholarshipPriority
 from ..report_builder import DWMReportBuilder2026
-from .priority import ForeignScholarshipPriority
+from ..priority import ForeignScholarshipPriority
 
 
 class ForeignScholarshipReportBuilder(DWMReportBuilder2026, ForeignScholarshipPriority):

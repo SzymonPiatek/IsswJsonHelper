@@ -1,5 +1,5 @@
 from classes.form_builder.departments.duk._2026.dissemination.application_builder import DisseminationApplicationBuilder
-from .priority import FestivalsPriority
+from classes.form_builder.departments.duk._2026.dissemination.priority import FestivalsPriority
 
 
 class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPriority):

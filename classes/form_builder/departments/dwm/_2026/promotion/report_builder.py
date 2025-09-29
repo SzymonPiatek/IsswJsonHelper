@@ -1,5 +1,5 @@
-from .priority import PromotionPriority
 from ..report_builder import DWMReportBuilder2026
+from ..priority import PromotionPriority
 
 
 class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):

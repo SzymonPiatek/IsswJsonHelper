@@ -1,5 +1,5 @@
 from ..application_builder import DWMApplicationBuilder2026
-from .priority import PromotionPriority
+from ..priority import PromotionPriority
 
 
 class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):

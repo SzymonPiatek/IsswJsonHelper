@@ -1,5 +1,5 @@
 from ..application_builder import DWMApplicationBuilder2026
-from .priority import ForeignScholarshipPriority
+from ..priority import ForeignScholarshipPriority
 
 
 class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignScholarshipPriority):
