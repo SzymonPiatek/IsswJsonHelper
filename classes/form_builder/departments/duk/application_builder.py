@@ -57,9 +57,9 @@ class DUKApplicationBuilder(ApplicationBuilder, DUKDepartment):
 
         # II. Dane wnioskodawcy
         self.create_application_applicant_data()
-        #
-        # # III. Zakres przedsięwzięcia
-        # self.create_application_scope_of_project()
+
+        # III. Zakres przedsięwzięcia
+        self.create_application_scope_of_project()
         #
         # # IV. Źródła finansowania
         # self.create_application_sources_of_financing()

@@ -7,7 +7,6 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
     def __init__(self):
         super().__init__()
 
-
     def create_application_metadata(self):
         part = self.create_part(
             title="Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej",
