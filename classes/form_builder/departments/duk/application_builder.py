@@ -54,9 +54,9 @@ class DUKApplicationBuilder(ApplicationBuilder, DUKDepartment):
 
         # I. Dane podstawowe
         self.create_application_basic_data()
-        #
-        # # II. Dane wnioskodawcy
-        # self.create_application_applicant_data()
+
+        # II. Dane wnioskodawcy
+        self.create_application_applicant_data()
         #
         # # III. Zakres przedsięwzięcia
         # self.create_application_scope_of_project()

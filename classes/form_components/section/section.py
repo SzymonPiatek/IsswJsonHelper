@@ -103,9 +103,12 @@ class Section(FormFactory):
                         ),
                         self.create_component(
                             component_type="text",
-                            label="Stanowisko zgodnie z reprezentacją/ załączonym upoważnieniem",
-                            name="eligiblePersonPosition",
-                            required=True
+                            label="Email",
+                            name="eligiblePersonEmail",
+                            required=True,
+                            validators=[
+                                self.validator.email_validator()
+                            ]
                         ),
                         self.create_component(
                             component_type="text",
@@ -119,11 +122,11 @@ class Section(FormFactory):
                         ),
                         self.create_component(
                             component_type="text",
-                            label="Email",
-                            name="eligiblePersonEmail",
+                            label="Stanowisko zgodnie z reprezentacją/ załączonym upoważnieniem",
+                            name="eligiblePersonPosition",
                             required=True,
-                            validators=[
-                                self.validator.email_validator()
+                            class_list=[
+                                "table-full"
                             ]
                         )
                     ]

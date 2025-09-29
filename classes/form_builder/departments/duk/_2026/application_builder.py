@@ -54,4 +54,19 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
         self.save_part(part=part)
 
     def create_application_applicant_data(self):
-        pass
+        part = self.create_part(
+            title="III. Dane wnioskodawcy",
+            short_name="III. Dane wnioskodawcy",
+            chapters=[
+                self.section.applicant_name(number="1"),
+                self.section.eligible_person_data(number="2"),
+                self.section.responsible_person_data(number="3"),
+                self.section.applicant_address(number="4", main_poland=True, main_foreign=True, contact_poland=True, contact_foreign=True),
+                self.section.applicant_identification_data(number="5"),
+                self.section.applicant_bank_data(number="6"),
+                self.section.applicant_legal_information(number="7"),
+                self.section.applicant_statistical_data(number="8"),
+            ]
+        )
+
+        self.save_part(part=part)

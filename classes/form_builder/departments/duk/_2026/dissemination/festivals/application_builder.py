@@ -10,8 +10,8 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
 
     def create_application_basic_data(self):
         part = self.create_part(
-            title="I. Dane podstawowe",
-            short_name="I. Dane podstawowe",
+            title="II. Dane podstawowe",
+            short_name="II. Dane podstawowe",
             chapters=[
                 self.create_chapter(
                     title="1. Nazwa przedsięwzięcia",
