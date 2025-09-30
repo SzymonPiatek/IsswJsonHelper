@@ -1,5 +1,5 @@
 from classes.form_builder.departments.duk._2026.dissemination.application_builder import DisseminationApplicationBuilder
-from .estimate_data import estimate_sections_pt_123, estimate_sections_pt_4
+from .estimate_data import estimate_sections_pt124, estimate_sections_pt3
 from classes.form_builder.departments.duk._2026.application_estimate_builder import DUKApplicationEstimateBuilder
 from classes.form_builder.departments.duk._2026.dissemination.priority import InitiativesPriority
 
@@ -17,13 +17,13 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder, Initiatives
             "Inne działania realizujące cele priorytetu."
         ]
 
-        estimate_builder_pt123 = DUKApplicationEstimateBuilder(
-            estimate_sections=estimate_sections_pt_123,
-            after_name="pt123"
+        estimate_builder_pt124 = DUKApplicationEstimateBuilder(
+            estimate_sections=estimate_sections_pt124,
+            after_name="pt124"
         )
-        estimate_builder_pt4 = DUKApplicationEstimateBuilder(
-            estimate_sections=estimate_sections_pt_4,
-            after_name="pt4"
+        estimate_builder_pt3 = DUKApplicationEstimateBuilder(
+            estimate_sections=estimate_sections_pt3,
+            after_name="pt3"
         )
         self.estimate_chapters = [
             self.create_chapter(
@@ -38,7 +38,7 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder, Initiatives
                     )
                 ],
                 components=[
-                    estimate_builder_pt123.generate_estimate(),
+                    estimate_builder_pt124.generate_estimate(),
                 ]
             ),
             self.create_chapter(
@@ -51,7 +51,7 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder, Initiatives
                     )
                 ],
                 components=[
-                    estimate_builder_pt4.generate_estimate(),
+                    estimate_builder_pt3.generate_estimate(),
                 ]
             )
         ]

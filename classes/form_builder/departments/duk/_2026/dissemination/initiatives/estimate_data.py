@@ -2,7 +2,7 @@ from classes.form_rules import Validator
 
 validators = Validator()
 
-estimate_sections_pt_123 = [
+estimate_sections_pt124 = [
     {
         "title": "Koszty osobowe i merytoryczne",
         "costs": [
@@ -185,4 +185,4 @@ estimate_sections_pt_123 = [
     }
 ]
 
-estimate_sections_pt_4 = []
+estimate_sections_pt3 = []

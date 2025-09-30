@@ -302,11 +302,37 @@ class DUKApplicationEstimateBuilder(FormFactory):
                 )
             )
 
-        return self.create_chapter(
-            title=f'<p style="color: red">{title}<p>',
-            class_list=construct["chapter_title"]["classList"],
-            components=components
+        help_text = section.get('helpText', '')
+
+        final_chapter = self.create_chapter()
+
+        if help_text:
+            final_chapter["components"].append(
+                self.create_chapter(
+                    title=f'<p style="color: red">{title}<p></br><normal><small>{section["helpText"]}</small></normal>',
+                    class_list=[
+                        "no-title"
+                    ]
+                ),
+            )
+
+        final_chapter["components"].append(
+            self.create_chapter(
+                title=f'<p style="color: red">{title}<p>',
+                class_list=[
+                    "displayNoneFrontend"
+                ]
+            )
         )
+
+        final_chapter["components"].append(
+            self.create_chapter(
+                class_list=construct["chapter_title"]["classList"],
+                components=components
+            )
+        )
+
+        return final_chapter
 
     def build_summary_chapter(self, section, structure_list, construct, all_costs):
         components = [
