@@ -11,7 +11,6 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder):
     def __init__(self):
         super().__init__()
 
-        self.priority_data_path = self.program_data_path / 'festivals'
         self.estimate_sections = estimate_sections
 
     def create_application_basic_data(self, **kwargs):

@@ -1,5 +1,7 @@
 from classes.form_builder.departments.duk._2026.dissemination.application_builder import DisseminationApplicationBuilder
 from classes.form_builder.departments.duk._2026.dissemination.priority import FestivalsPriority
+from classes.form_builder.departments.duk._2026.application_estimate_builder import DUKApplicationEstimateBuilder
+from .estimate_data import estimate_sections
 
 
 class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPriority):
@@ -7,6 +9,8 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
 
     def __init__(self):
         super().__init__()
+
+        self.estimate_sections = estimate_sections
 
     def create_application_basic_data(self):
         part = self.create_part(
@@ -1245,3 +1249,21 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
             ]
         )
         self.save_part(part)
+
+    def create_application_project_costs(self):
+        estimate_builder = DUKApplicationEstimateBuilder(
+            estimate_sections=self.estimate_sections,
+        )
+
+        part = self.create_part(
+            title="VIII. Kosztorys przedsięwzięcia",
+            short_name="VIII. Kosztorys przedsięwzięcia",
+            chapters=[
+                estimate_builder.generate_estimate_top(),
+                estimate_builder.generate_estimate_headers(),
+                estimate_builder.generate_estimate(),
+                estimate_builder.generate_estimate_bottom()
+            ]
+        )
+
+        self.save_part(part=part)
