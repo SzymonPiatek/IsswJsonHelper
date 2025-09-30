@@ -20,6 +20,9 @@ class DUKApplicationEstimateBuilder(FormFactory):
                     'section_construct': {
                         'chapter_title': {
                             'classList': {
+                                "main": [
+                                    "no-title"
+                                ],
                                 "sub": [
                                     "table-1-2-top",
                                 ]
@@ -302,19 +305,8 @@ class DUKApplicationEstimateBuilder(FormFactory):
                 )
             )
 
-        help_text = section.get('helpText', '')
 
         final_chapter = self.create_chapter()
-
-        if help_text:
-            final_chapter["components"].append(
-                self.create_chapter(
-                    title=f'<p style="color: red">{title}<p></br><normal><small>{section["helpText"]}</small></normal>',
-                    class_list=[
-                        "no-title"
-                    ]
-                ),
-            )
 
         final_chapter["components"].append(
             self.create_chapter(
@@ -327,9 +319,10 @@ class DUKApplicationEstimateBuilder(FormFactory):
 
         final_chapter["components"].append(
             self.create_chapter(
+                title=f'<p style="color: red">{title}<p></br><normal><small>{section.get("helpText", "")}</small></normal>',
                 class_list=construct["chapter_title"]["classList"],
                 components=components
-            )
+            ),
         )
 
         return final_chapter
