@@ -10,9 +10,13 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
     def __init__(self):
         super().__init__()
 
-        self.estimate_sections = estimate_sections
         self.project_type = [
             "Organizacja festiwali filmowych o charakterze ogólnopolskim lub międzynarodowym, będących wydarzeniami cyklicznymi, obejmujących szeroki program filmowy, sekcje konkursowe oceniane przez jury oraz wydarzenia towarzyszące, takie jak spotkania z twórcami, panele dyskusyjne czy warsztaty."
+        ]
+
+        estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
+        self.estimate_chapters = [
+            estimate_builder.generate_estimate()
         ]
 
     def create_application_scope_of_project(self):
@@ -1177,26 +1181,3 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
             ]
         )
         self.save_part(part)
-
-    def create_application_project_costs(self):
-        estimate_builder = DUKApplicationEstimateBuilder(
-            estimate_sections=self.estimate_sections,
-        )
-
-        part = self.create_part(
-            title="VIII. Kosztorys przedsięwzięcia",
-            short_name="VIII. Kosztorys przedsięwzięcia",
-            chapters=[
-                estimate_builder.generate_estimate_top(),
-                self.create_chapter(
-                    title="Koszty z podziałem na źródło finansowania",
-                    components=[
-                        estimate_builder.generate_estimate_headers(),
-                        estimate_builder.generate_estimate(),
-                    ]
-                ),
-                estimate_builder.generate_estimate_bottom()
-            ]
-        )
-
-        self.save_part(part=part)

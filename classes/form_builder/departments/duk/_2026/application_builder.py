@@ -1,4 +1,5 @@
 from classes.form_builder.departments.duk.application_builder import DUKApplicationBuilder
+from classes.form_builder.departments.duk._2026.application_estimate_builder import DUKApplicationEstimateBuilder
 
 
 class DUKApplicationBuilder2026(DUKApplicationBuilder):
@@ -8,6 +9,7 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
         super().__init__()
 
         self.project_type = []
+        self.estimate_chapters = []
 
     def create_application_metadata(self):
         part = self.create_part(
@@ -567,3 +569,24 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
             ]
         )
         self.save_part(part)
+
+    def create_application_project_costs(self):
+        estimate_base = DUKApplicationEstimateBuilder(estimate_sections=[])
+
+        part = self.create_part(
+            title="VIII. Kosztorys przedsięwzięcia",
+            short_name="VIII. Kosztorys przedsięwzięcia",
+            chapters=[
+                estimate_base.generate_estimate_top(),
+                self.create_chapter(
+                    title="Koszty z podziałem na źródło finansowania",
+                    components=[
+                        estimate_base.generate_estimate_headers(),
+                        *self.estimate_chapters
+                    ]
+                ),
+                estimate_base.generate_estimate_bottom()
+            ]
+        )
+
+        self.save_part(part=part)

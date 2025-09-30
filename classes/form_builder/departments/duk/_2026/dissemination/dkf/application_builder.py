@@ -10,9 +10,13 @@ class DkfApplicationBuilder(DisseminationApplicationBuilder, DkfPriority):
     def __init__(self):
         super().__init__()
 
-        self.estimate_sections = estimate_sections
         self.project_type = [
             ""
+        ]
+
+        estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
+        self.estimate_chapters = [
+            estimate_builder.generate_estimate()
         ]
 
     def create_application_scope_of_project(self):
