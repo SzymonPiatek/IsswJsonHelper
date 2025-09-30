@@ -1,7 +1,7 @@
 from classes.pisf_structure import Operation
 
 
-class DUKDisseminationOperation(Operation):
+class DisseminationOperation(Operation):
     OPERATION_NAME = 'III. Upowszechnianie kultury filmowej'
     OPERATION_NUM = "iii"
     

@@ -1,7 +1,7 @@
 from classes.pisf_structure import Operation
 
 
-class DUKDevelopmentOperation(Operation):
+class DevelopmentOperation(Operation):
     OPERATION_NAME = 'IV. Rozwój kin'
     OPERATION_NUM = "iv"
 

@@ -1,13 +1,11 @@
 from classes.form_builder.application_builder import ApplicationBuilder
-from classes.form_builder.additional.decorators import not_implemented_func
+from classes.decorators import not_implemented_func
 from classes.form_builder.departments.duk.department import DUKDepartment
 
 
 class DUKApplicationBuilder(ApplicationBuilder, DUKDepartment):
     def __init__(self):
         super().__init__()
-
-        self.estimate_sections = []
 
     @not_implemented_func
     def create_application_metadata(self):

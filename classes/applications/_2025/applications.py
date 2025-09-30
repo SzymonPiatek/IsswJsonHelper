@@ -1,4 +1,4 @@
-from classes.form_builder.additional.applications.applications import Applications
+from classes.applications.applications import Applications
 from classes.form_builder.departments.dpf import *
 from classes.form_builder.departments.duk._2025.education import *
 from classes.form_builder.departments.duk._2025.development import *

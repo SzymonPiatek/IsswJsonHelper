@@ -1,11 +1,9 @@
 import os
 from dotenv import load_dotenv
-
-from ..analyzer.analyzer import Analyzer
-from ..postman.postman import Postman
-from ..web_scraper.web_scraper import WebScraper
-from ..form_builder.additional.applications._2025.applications import Applications2025
-from ..form_builder.additional.applications._2026.applications import Applications2026
+from classes.analyzer.analyzer import Analyzer
+from classes.postman.postman import Postman
+from classes.web_scraper.web_scraper import WebScraper
+from classes.applications import Applications2025, Applications2026
 
 
 class FormHelper:

@@ -1,7 +1,13 @@
 from classes.pisf_structure.priority import Priority
+from .operation import DisseminationOperation
 
 
-class FestivalsPriority(Priority):
+class DisseminationPriority(DisseminationOperation, Priority):
+    def __init__(self):
+        super().__init__()
+
+
+class FestivalsPriority(DisseminationPriority):
     PRIORITY_NAME = 'I. Festiwale filmowe'
     PRIORITY_NUM = 1
 
@@ -9,7 +15,7 @@ class FestivalsPriority(Priority):
         super().__init__()
 
 
-class InitiativesPriority(Priority):
+class InitiativesPriority(DisseminationPriority):
     PRIORITY_NAME = 'II. Inicjatywy filmowe'
     PRIORITY_NUM = 2
 
@@ -17,7 +23,7 @@ class InitiativesPriority(Priority):
         super().__init__()
 
 
-class LiteraturePriority(Priority):
+class LiteraturePriority(DisseminationPriority):
     PRIORITY_NAME = 'III. Literatura i czasopisma o filmie'
     PRIORITY_NUM = 3
 
@@ -25,7 +31,7 @@ class LiteraturePriority(Priority):
         super().__init__()
 
 
-class ReconstructionPriority(Priority):
+class ReconstructionPriority(DisseminationPriority):
     PRIORITY_NAME = 'IV. Rekonstrukcja cyfrowa'
     PRIORITY_NUM = 4
 
@@ -33,7 +39,7 @@ class ReconstructionPriority(Priority):
         super().__init__()
 
 
-class ResearchPriority(Priority):
+class ResearchPriority(DisseminationPriority):
     PRIORITY_NAME = 'V. Badania rynku audiowizualnego'
     PRIORITY_NUM = 5
 
@@ -41,7 +47,7 @@ class ResearchPriority(Priority):
         super().__init__()
 
 
-class DkfPriority(Priority):
+class DkfPriority(DisseminationPriority):
     PRIORITY_NAME = 'VI. Działalność dyskusyjnych klubów filmowych'
     PRIORITY_NUM = 6
 

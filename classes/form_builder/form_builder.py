@@ -2,7 +2,7 @@ from typing import ClassVar
 import json
 from pathlib import Path
 from ..form_components import Part, Component, Section
-from .additional.decorators import not_implemented_func
+from classes.decorators import not_implemented_func
 from ..form_factory.form_factory import FormFactory
 from classes.types import *
 
