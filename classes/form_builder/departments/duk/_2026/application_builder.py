@@ -7,6 +7,8 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
     def __init__(self):
         super().__init__()
 
+        self.project_type = []
+
     def create_application_metadata(self):
         part = self.create_part(
             title="Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej",
@@ -51,6 +53,81 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
             ]
         )
         self.save_part(part=part)
+
+    def create_application_basic_data(self):
+        part = self.create_part(
+            title="II. Dane podstawowe",
+            short_name="II. Dane podstawowe",
+            chapters=[
+                self.create_chapter(
+                    title="1. Nazwa przedsięwzięcia",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="applicationTaskName",
+                            validators=[
+                                self.validator.length_validator(max_value=1000)
+                            ],
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="2. Rodzaj przedsięwzięcia",
+                    components=[
+                        self.create_component(
+                            component_type="radio",
+                            name="projectType",
+                            options=self.project_type
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="3. Poprzednia edycja przedsięwzięcia",
+                    components=[
+                        self.create_chapter(
+                            components=[
+                                self.create_component(
+                                    component_type="radio",
+                                    label="Czy poprzednia edycja przedsięwzięcia została dofinansowana przez PISF?",
+                                    name="previousApplicationForProject",
+                                    options=[
+                                        "Tak", "Nie"
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="previousApplicationForProject",
+                                    values=[
+                                        "Tak"
+                                    ]
+                                )
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    name="fiveDigitNumberOfApplication",
+                                    label="Numer wniosku dotyczący poprzedniej edycji przedsięwzięcia",
+                                    validators=[
+                                        self.validator.related_required_if_equal_validator(
+                                            field_name="previousApplicationForProject",
+                                            value="Tak"
+                                        )
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+
+        self.save_part(part)
 
     def create_application_applicant_data(self):
         part = self.create_part(

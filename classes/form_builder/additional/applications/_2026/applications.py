@@ -12,7 +12,12 @@ class Applications2026(Applications):
                 "duk": {
                     "po2": {},
                     "po3": {
-                        "pr1": FestivalsApplicationBuilder
+                        "pr1": FestivalsApplicationBuilder,
+                        "pr2": InitiativesApplicationBuilder,
+                        "pr3": LiteratureApplicationBuilder,
+                        "pr4": ReconstructionApplicationBuilder,
+                        "pr5": ResearchApplicationBuilder,
+                        "pr6": DkfApplicationBuilder,
                     },
                     "po4": {}
                 },
