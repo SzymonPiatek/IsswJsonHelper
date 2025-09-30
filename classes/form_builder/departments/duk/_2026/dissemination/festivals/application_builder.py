@@ -1260,8 +1260,13 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
             short_name="VIII. Kosztorys przedsięwzięcia",
             chapters=[
                 estimate_builder.generate_estimate_top(),
-                estimate_builder.generate_estimate_headers(),
-                estimate_builder.generate_estimate(),
+                self.create_chapter(
+                    title="Koszty z podziałem na źródło finansowania",
+                    components=[
+                        estimate_builder.generate_estimate_headers(),
+                        estimate_builder.generate_estimate(),
+                    ]
+                ),
                 estimate_builder.generate_estimate_bottom()
             ]
         )

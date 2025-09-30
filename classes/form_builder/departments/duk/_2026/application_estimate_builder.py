@@ -20,9 +20,6 @@ class DUKApplicationEstimateBuilder(FormFactory):
                     'section_construct': {
                         'chapter_title': {
                             'classList': {
-                                "main": [
-                                    "no-title"
-                                ],
                                 "sub": [
                                     "table-1-2-top",
                                 ]
@@ -97,7 +94,6 @@ class DUKApplicationEstimateBuilder(FormFactory):
                 all_cost_names.append(cost.get('name', ''))
 
         return self.create_chapter(
-            title="Koszty z podziałem na źródło finansowania",
             components=[
                 *[
                     self.build_section_chapter(
@@ -272,7 +268,7 @@ class DUKApplicationEstimateBuilder(FormFactory):
                         self.create_component(
                             component_type="text",
                             name=field_name,
-                            value=f'{section["title"]} - {cost["title"]}' if is_sum else cost["title"],
+                            value=f'{index}. {cost['title']}',
                             read_only=True,
                             class_list=construct["cost_desc"]["classList"]
                         )
@@ -293,9 +289,14 @@ class DUKApplicationEstimateBuilder(FormFactory):
                     component["classList"] = construct["cost"]["classList"]
                     cost_components.append(component)
 
+            chapter_title = f'{index}. {cost["title"]}'
+            help_text = cost.get('helpText', '')
+            if help_text:
+                chapter_title += f'<br/><normal><small>{help_text}</normal></small>'
+
             components.append(
                 self.create_chapter(
-                    title=f'{index}. {cost["title"]}',
+                    title=chapter_title,
                     class_list=construct["section_title"]["classList"],
                     components=cost_components
                 )
