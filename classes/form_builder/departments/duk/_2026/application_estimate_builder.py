@@ -241,7 +241,7 @@ class DUKApplicationEstimateBuilder(FormFactory):
             read_only=True if structure.get("isShare") else structure.get("readOnly", True if is_sum and sub_fields else False),
         )
 
-        for key in ("validators", "calculationRules", "read_only", "required"):
+        for key in ("validators", "calculationRules", "readOnly", "required"):
             if key in field_overrides:
                 if isinstance(field_overrides[key], list):
                     component.setdefault(key, []).extend(field_overrides[key])
