@@ -237,7 +237,7 @@ class DUKApplicationEstimateBuilder(FormFactory):
 
         component = self.create_component(
             component_type="number" if structure.get("isShare") else "text",
-            mask='' if structure.get("isShare") else "fund",
+            mask='share' if structure.get("isShare") else "fund",
             label=label,
             name=f"{name}{structure['name']}{self.after_name}",
             unit=structure.get("unit", "PLN"),
