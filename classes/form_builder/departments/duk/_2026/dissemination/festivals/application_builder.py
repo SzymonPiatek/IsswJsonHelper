@@ -87,144 +87,64 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                         )
                     ]
                 ),
-                self.section.application_scope_of_project.expected_type_and_number_of_films_presented(),
                 self.create_chapter(
-                    title="Repertuar",
-                    class_list={
-                        "sub": [
-                            "table-1-2-top"
-                        ]
-                    },
+                    title="Cele strategiczne festiwalu",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="strategicFestivalGoals",
+                            validators=[
+                                self.validator.length_validator(max_value=500)
+                            ],
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Profil artystyczny festiwalu",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="artisticFestivalProfile",
+                            validators=[
+                                self.validator.length_validator(max_value=500)
+                            ],
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
                     components=[
                         self.create_chapter(
-                            class_list={
-                                "main": [
-                                    "table-1-3-narrow",
-                                    "grid",
-                                    "grid-cols-3"
-                                ],
-                                "sub": [
-                                    "table-1-3__col"
-                                ]
-                            },
+                            title="Program festiwalu",
+                            class_list=[
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Program festiwalu<br/><normal><small>Repertuar, konkursy, sekcje, jury</normal></small>",
+                            class_list=[
+                                "no-title"
+                            ],
                             components=[
                                 self.create_component(
-                                    component_type="number",
-                                    label="Udział filmów z ostatnich pięciu lat",
-                                    name="lastFiveYearsFilms",
-                                    required=True,
-                                    mask="share",
-                                    unit="%"
-                                ),
-                                self.create_component(
-                                    component_type="number",
-                                    label="Udział starszych filmów",
-                                    name="olderFilms",
-                                    required=True,
-                                    mask="share",
-                                    unit="%"
-                                ),
-                                self.create_component(
-                                    component_type="number",
-                                    label="Łącznie",
-                                    name="filmsAltogether",
-                                    required=True,
-                                    read_only=True,
-                                    calculation_rules=[
-                                        self.calculation_rule.dynamic_sum_inputs(
-                                            fields=[
-                                                "lastFiveYearsFilms",
-                                                "olderFilms"
-                                            ]
-                                        )
-                                    ],
+                                    component_type="textarea",
+                                    name="festivalProgram",
                                     validators=[
-                                        self.validator.exact_validator(
-                                            values=[
-                                                100,
-                                                100.0,
-                                                "100",
-                                                "100.00"
-                                            ],
-                                            message="Suma udziałów filmów musi się równać 100%"
-                                        )
-                                    ]
+                                        self.validator.length_validator(max_value=5000)
+                                    ],
+                                    required=True
                                 )
                             ]
                         )
                     ]
                 ),
                 self.create_chapter(
-                    title="Przyznawane nagrody w ramach przedsięwzięcia (ile, jakie, jakie kwoty)",
+                    title="Przyznane nagrody",
                     components=[
                         self.create_component(
                             component_type="textarea",
-                            label="Przyznawane nagrody w ramach przedsięwzięcia (ile, jakie, jakie kwoty)",
-                            name="grantedProjectAwards",
-                            validators=[
-                                self.validator.length_validator(max_value=500)
-                            ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="Cel przedsięwzięcia",
-                    components=[
-                        self.create_component(
-                            component_type="textarea",
-                            required=True,
-                            name="projectPurpose",
-                            validators=[
-                                self.validator.length_validator(max_value=200)
-                            ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="Zakres i wartość merytoryczna, w tym - celowość, innowacyjność i wieloaspektowość podjętej tematyki oraz sposób realizacji przedsięwzięcia",
-                    components=[
-                        self.create_component(
-                            component_type="textarea",
-                            name="scopeAndValueOfContent",
-                            validators=[
-                                self.validator.length_validator(max_value=500)
-                            ],
-                            required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="Wydarzenia towarzyszące (np. spotkania z twórcami, koncerty)",
-                    components=[
-                        self.create_component(
-                            component_type="textarea",
-                            name="accompanyingEvents",
-                            validators=[
-                                self.validator.length_validator(max_value=500)
-                            ],
-                            required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="Udział specjalistów w przygotowaniu i realizacji przedsięwzięcia",
-                    components=[
-                        self.create_component(
-                            component_type="textarea",
-                            name="participationOfSpecialist",
-                            validators=[
-                                self.validator.length_validator(max_value=500)
-                            ],
-                            required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="Promocja wydarzenia",
-                    components=[
-                        self.create_component(
-                            component_type="textarea",
-                            name="promotionOfTheProject",
+                            name="prizesAwarded",
                             validators=[
                                 self.validator.length_validator(max_value=1000)
                             ],
@@ -233,12 +153,37 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                     ]
                 ),
                 self.create_chapter(
-                    title="Dostępność wydarzenia",
+                    components=[
+                        self.create_chapter(
+                            title="Wydarzenia towarzyszące",
+                            class_list=[
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Wydarzenia towarzyszące<br/><normal><small>Np. spotkania z twórcami, warsztaty, retrospektywy, prelekcje</normal></small>",
+                            class_list=[
+                                "no-title"
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="accompanyingEvents",
+                                    validators=[
+                                        self.validator.length_validator(max_value=5000)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Doświadczenie wnioskodawcy i kompetencje zespołu",
                     components=[
                         self.create_component(
                             component_type="textarea",
-                            name="eventAvailability",
-                            label="Działania podejmowane na rzecz osób ze szczególnymi potrzebami oraz wspierania inkluzywności.",
+                            name="applicantExperienceAndTeamCompetences",
                             validators=[
                                 self.validator.length_validator(max_value=500)
                             ],
@@ -247,32 +192,67 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                     ]
                 ),
                 self.create_chapter(
-                    title="Zróżnicowanie struktury i liczba uczestników",
-                    class_list={
-                        "main": [
-                            "table-1-3-narrow",
-                            "grid",
-                            "grid-cols-3"
-                        ],
-                        "sub": [
-                            "table-1-3__col"
-                        ]
-                    },
+                    components=[
+                        self.create_chapter(
+                            title="Promocja festiwalu",
+                            class_list=[
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Promocja festiwalu<br/><normal><small>Plan promocji, działania marketingowe, współprace, partnerzy i patroni medialni</normal></small>",
+                            class_list=[
+                                "no-title"
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="festivalPromotion",
+                                    validators=[
+                                        self.validator.length_validator(max_value=500)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    components=[
+                        self.create_chapter(
+                            title="Dostępność wydarzenia",
+                            class_list=[
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Dostępność wydarzenia<br/><normal><small>Działania podejmowane na rzecz osób ze szczególnymi potrzebami oraz wspieranie inkluzywności</normal></small>",
+                            class_list=[
+                                "no-title"
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="eventAccessibility",
+                                    validators=[
+                                        self.validator.length_validator(max_value=500)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Profil publiczności",
                     components=[
                         self.create_component(
-                            component_type="number",
-                            label="dzieci (do 12 lat)",
-                            name="kidsToTwelve"
-                        ),
-                        self.create_component(
-                            component_type="number",
-                            label="młodzież (13-18 lat)",
-                            name="adolescents"
-                        ),
-                        self.create_component(
-                            component_type="number",
-                            label="dorośli (powyżej 18 lat)",
-                            name="grownups"
+                            component_type="textarea",
+                            name="audienceProfile",
+                            validators=[
+                                self.validator.length_validator(max_value=500)
+                            ],
+                            required=True
                         )
                     ]
                 ),
@@ -293,11 +273,11 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                     ]
                 ),
                 self.create_chapter(
-                    title="Dotychczasowe doświadczenia Wnioskodawcy w działaniach będących przedmiotem przedsięwzięcia. </br><normal>Proszę o wyszczególnienie przedsięwzięć z zakresu kinematografii realizowanych przez wnioskodawcę w ostatnich 2 latach</normal>",
+                    title="Planowane efekty realizacji przedsięwzięcia",
                     components=[
                         self.create_component(
                             component_type="textarea",
-                            name="applicantsPastExperience",
+                            name="plannedEffects",
                             validators=[
                                 self.validator.length_validator(max_value=1000)
                             ],
@@ -306,626 +286,583 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                     ]
                 ),
                 self.create_chapter(
-                    title="Planowane efekty realizacji przedsięwzięcia",
+                    title="Podstawowe dane liczbowe i wskaźniki",
+                    class_list={
+                        "main": [
+                            "table-1-2",
+                            "grid",
+                            "grid-cols-2"
+                        ],
+                        "sub": [
+                            "table-1-2__col"
+                        ]
+                    },
                     components=[
                         self.create_component(
-                            component_type="textarea",
-                            name="plannedEffects",
-                            validators=[
-                                self.validator.length_validator(max_value=300)
-                            ],
-                            required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="Podstawowe dane liczbowe na temat bieżącej i poprzedniej edycji przedsięwzięcia",
-                    components=[
-                        self.create_chapter(
-                            class_list={
-                                "sub": [
-                                    "table-1-2-top"
-                                ]
-                            },
-                            components=[
-                                self.create_chapter(
-                                    title="Liczba akredytacji",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Poprzednia edycja",
-                                            name="numberOfAccreditationPreviousEdition",
-                                            read_only=True,
-                                            calculation_rules=[
-                                                self.calculation_rule.dynamic_sum_inputs(
-                                                    fields=[
-                                                        "numberOfAccreditationPreviousEditionPaid",
-                                                        "numberOfAccreditationPreviousEditionNotPaid"
-                                                    ]
-                                                )
-                                            ],
-                                            validators=[
-                                                self.validator.related_sum_validator(
-                                                    field_names=[
-                                                        "numberOfAccreditationPreviousEdition"
-                                                    ]
-                                                ),
-                                                self.validator.related_sum_validator(
-                                                    field_names=[
-                                                        "numberOfAccreditationPreviousEditionPaid",
-                                                        "numberOfAccreditationPreviousEditionNotPaid"
-                                                    ]
-                                                )
-                                            ],
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Planowane",
-                                            name="numberOfAccreditationPlanned",
-                                            read_only=True,
-                                            calculation_rules=[
-                                                self.calculation_rule.dynamic_sum_inputs(
-                                                    fields=[
-                                                        "numberOfAccreditationPlannedNotPaid",
-                                                        "numberOfAccreditationPlannedPaid"
-                                                    ]
-                                                )
-                                            ],
-                                            validators=[
-                                                self.validator.related_sum_validator(
-                                                    field_names=[
-                                                        "numberOfAccreditationPlanned"
-                                                    ]
-                                                ),
-                                                self.validator.related_sum_validator(
-                                                    field_names=[
-                                                        "numberOfAccreditationPlannedNotPaid",
-                                                        "numberOfAccreditationPlannedPaid"
-                                                    ]
-                                                )
-                                            ],
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Poprzednia edycja płatne",
-                                            name="numberOfAccreditationPreviousEditionPaid",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Planowane płatne",
-                                            name="numberOfAccreditationPlannedPaid",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Poprzednia edycja bezpłatne",
-                                            name="numberOfAccreditationPreviousEditionNotPaid",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Planowane bezpłatne",
-                                            name="numberOfAccreditationPlannedNotPaid",
-                                            unit="szt."
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="Liczba biletów",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Poprzednia edycja",
-                                            name="numberOfTicketsPreviousEdition",
-                                            read_only=True,
-                                            calculation_rules=[
-                                                self.calculation_rule.dynamic_sum_inputs(
-                                                    fields=[
-                                                        "numberOfTicketsPreviousEditionPaid",
-                                                        "numberOfTicketsPreviousEditionNotPaid"
-                                                    ]
-                                                )
-                                            ],
-                                            validators=[
-                                                self.validator.related_sum_validator(
-                                                    field_names=[
-                                                        "numberOfTicketsPreviousEdition"
-                                                    ]
-                                                ),
-                                                self.validator.related_sum_validator(
-                                                    field_names=[
-                                                        "numberOfTicketsPreviousEditionPaid",
-                                                        "numberOfTicketsPreviousEditionNotPaid"
-                                                    ]
-                                                )
-                                            ],
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Planowane",
-                                            name="numberOfTicketsPlanned",
-                                            read_only=True,
-                                            calculation_rules=[
-                                                self.calculation_rule.dynamic_sum_inputs(
-                                                    fields=[
-                                                        "numberOfTicketsPlannedPaid",
-                                                        "numberOfTicketsPlannedNotPaid"
-                                                    ]
-                                                )
-                                            ],
-                                            validators=[
-                                                self.validator.related_sum_validator(
-                                                    field_names=[
-                                                        "numberOfTicketsPlanned"
-                                                    ]
-                                                ),
-                                                self.validator.related_sum_validator(
-                                                    field_names=[
-                                                        "numberOfTicketsPlannedPaid",
-                                                        "numberOfTicketsPlannedNotPaid"
-                                                    ]
-                                                )
-                                            ],
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Poprzednia edycja płatne",
-                                            name="numberOfTicketsPreviousEditionPaid",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Planowane płatne",
-                                            name="numberOfTicketsPlannedPaid",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Poprzednia edycja bezpłatne",
-                                            name="numberOfTicketsPreviousEditionNotPaid",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Planowane bezpłatne",
-                                            name="numberOfTicketsPlannedNotPaid",
-                                            unit="szt."
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="Liczba seansów",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Poprzednia edycja",
-                                            name="numberOfScreeningsPreviousEdition",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Planowane",
-                                            name="numberOfScreeningsPlanned",
-                                            unit="szt."
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="Liczba prezentowanych filmów",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Poprzednia edycja",
-                                            name="numberOfPresentedFilmsPreviousEdition",
-                                            read_only=True,
-                                            calculation_rules=[
-                                                self.calculation_rule.dynamic_sum_inputs(
-                                                    fields=[
-                                                        "numberOfPresentedPolishFilmsPreviousEdition",
-                                                        "numberOfForeignPresentedFilmsPreviousEdition"
-                                                    ]
-                                                )
-                                            ],
-                                            validators=[
-                                                self.validator.related_sum_validator(
-                                                    field_names=[
-                                                        "numberOfPresentedFilmsPreviousEdition"
-                                                    ]
-                                                ),
-                                                self.validator.related_sum_validator(
-                                                    field_names=[
-                                                        "numberOfPresentedPolishFilmsPreviousEdition",
-                                                        "numberOfForeignPresentedFilmsPreviousEdition"
-                                                    ]
-                                                )
-                                            ],
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Planowane",
-                                            name="numberOfPresentedFilmsPlanned",
-                                            read_only=True,
-                                            calculation_rules=[
-                                                self.calculation_rule.dynamic_sum_inputs(
-                                                    fields=[
-                                                        "numberOfPresentedPolishFilmsPlanned",
-                                                        "numberOfForeignPresentedFilmsPlanned"
-                                                    ]
-                                                )
-                                            ],
-                                            validators=[
-                                                self.validator.related_sum_validator(
-                                                    field_names=[
-                                                        "numberOfPresentedFilmsPlanned"
-                                                    ]
-                                                ),
-                                                self.validator.related_sum_validator(
-                                                    field_names=[
-                                                        "numberOfPresentedPolishFilmsPlanned",
-                                                        "numberOfForeignPresentedFilmsPlanned"
-                                                    ]
-                                                )
-                                            ],
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Liczba filmów polskich w poprzedniej edycji",
-                                            name="numberOfPresentedPolishFilmsPreviousEdition",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Liczba filmów polskich w planowanej edycji",
-                                            name="numberOfPresentedPolishFilmsPlanned",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Liczba filmów zagranicznych w poprzedniej edycji",
-                                            name="numberOfForeignPresentedFilmsPreviousEdition",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Liczba filmów zagranicznych w planowanej edycji",
-                                            name="numberOfForeignPresentedFilmsPlanned",
-                                            unit="szt."
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="Liczba nowości filmowych (z ostatnich 2 lat)",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Poprzednia edycja",
-                                            name="numberOfNewFilmsLastTwoYearsPreviousEdition",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Planowane",
-                                            name="numberOfNewFilmsLastTwoYearsPlanned",
-                                            unit="szt."
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="Liczba retrospektyw",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Poprzednia edycja",
-                                            name="numberOfRetrospectivesPreviousEdition",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Planowane",
-                                            name="numberOfRetrospectivesPlanned",
-                                            unit="szt."
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="Liczba filmów z audiodeskrypcją",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Poprzednia edycja",
-                                            name="audiodescriptionFilmsCountPreviousEdition",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Planowane",
-                                            name="audiodescriptionFilmsCountPlaned",
-                                            unit="szt."
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="Nakład materiałów promocyjnych (katalogi, plakaty)",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Poprzednia edycja",
-                                            name="promotionalMaterialsCountPreviousEdition",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Planowane",
-                                            name="promotionalMaterialsCountPlanned",
-                                            unit="szt."
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="Liczba przyznanych nagród",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Poprzednia edycja",
-                                            name="grantedAwardsPreviousEdition",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Planowane",
-                                            name="grantedAwardsPlanned",
-                                            unit="szt."
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="Liczba publikacji w mediach na temat wydarzenia",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Poprzednia edycja",
-                                            name="mediaPublicationCountPreviousEdition",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Planowane",
-                                            name="mediaPublicationCountPlanned",
-                                            unit="szt."
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="Liczba osób zaangażowanych w realizacje przedsięwzięcia",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Poprzednia edycja",
-                                            name="numberOfPeopleInvolvedPreviousEdition",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Planowane",
-                                            name="numberOfPeopleInvolvedPlanned",
-                                            unit="szt."
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="Liczba widzów",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Poprzednia edycja",
-                                            name="numberOfViewersPreviousEdition",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Planowane",
-                                            name="numberOfViewersPlanned",
-                                            unit="szt."
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="Liczba gości zagranicznych",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Poprzednia edycja",
-                                            name="numberOfForeignVisitorsPreviousEdition",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Planowane",
-                                            name="numberOfForeignVisitorsPlanned",
-                                            unit="szt."
-                                        )
-                                    ]
-                                ),
-                            ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="Czy przedsięwzięcie, na które składany jest wniosek jest powiązane z innymi przedsięwzięciami, o dofinansowanie których ubiega się Wnioskodawca w bieżącym roku z innych programów operacyjnych PISF? Jeżeli tak, proszę podać nazwę przedsięwzięcia, program oraz wnioskowaną kwotę dofinansowania",
-                    components=[
-                        self.create_chapter(
-                            components=[
-                                self.create_component(
-                                    component_type="radio",
-                                    name="wasSubmittedBefore",
-                                    options=["Tak", "Nie"],
-                                )
+                            component_type="number",
+                            label="Filmy polskie i koprodukcje",
+                            name="polishFilmsAndCoproductions"
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            label="Filmy zagraniczne",
+                            name="foreignFilms"
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            label="Filmy z audiodeskrypcją",
+                            name="audioDescriptionFilms",
+                            class_list=[
+                                "table-full"
                             ]
                         ),
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="wasSubmittedBefore",
-                                    values=["Tak"])
+                        self.create_component(
+                            component_type="number",
+                            label="Ogólna liczba seansów",
+                            name="screeningNumberTotal"
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            label="Liczba premier",
+                            name="premieresNumber"
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            label="Akredytacje płatne",
+                            name="paidAccreditations"
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            label="Akredytacje bezpłatne",
+                            name="freeAccreditations"
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            label="Liczba biletów",
+                            name="ticketsNumber"
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            label="Szacowana liczba widzów",
+                            name="viewersEstimatedNumber"
+                        ),
+                    ]
+                )
+            ]
+        )
+
+        self.save_part(part)
+
+    def create_application_sources_of_financing(self):
+        sources_of_financing_chapters = {
+            "c": [
+                {
+                    "checkbox_title": "Czy występują środki z budżetów jednostek samorządu terytorialnego lub innych środków publicznych za wyjątkiem MKiDN?",
+                    "checkbox_name": "isLocalGovernmentFunding",
+                    "section_title": "<normal>a) z budżetów jednostek samorządu terytorialnego lub innych środków publicznych za wyjątkiem MKiDN </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+                    "section_name": "localGovernments",
+                },
+                {
+                    "checkbox_title": "Czy występują środki MKiDN w ramach Programów Ministra?",
+                    "checkbox_name": "isMinistryFunding",
+                    "section_title": "<normal>b) ze środków MKiDN w ramach Programów Ministra </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+                    "section_name": "ministry",
+                },
+                {
+                    "checkbox_title": "Czy występują środki od sponsorów lub innych podmiotów niezaliczanych do sektora finansów publicznych?",
+                    "checkbox_name": "isOtherSponsorFunding",
+                    "section_title": "<normal>c) od sponsorów lub innych podmiotów niezaliczanych do sektora finansów publicznych </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+                    "section_name": "otherSponsors",
+                },
+                {
+                    "checkbox_title": "Czy występują środki zagraniczne, w tym europejskie?",
+                    "checkbox_name": "isForeignFunding",
+                    "section_title": "<normal>d) ze środków zagranicznych, w tym europejskich </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+                    "section_name": "foreign",
+                }
+            ]
+        }
+
+        part = self.create_part(
+            title="V. Źródła finansowania",
+            short_name="V. Źródła finansowania",
+            chapters=[
+                self.create_chapter(
+                    title="1. Podstawowe dane finansowe",
+                    class_list={
+                        "main": [
+                            "table-1-3-narrow",
+                            "grid",
+                            "grid-cols-3"
+                        ],
+                        "sub": [
+                            "table-1-3__col"
+                        ]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            label="Kwota całkowita",
+                            name="totalProjectCost",
+                            calculation_rules=[
+                                self.calculation_rule.sum_inputs(
+                                    fields=[
+                                        "ownFundsSumAmount",
+                                        "pisfSupportAmount",
+                                        "localGovernmentsFundsSumAmount",
+                                        "ministryFundsSumAmount",
+                                        "otherSponsorsFundsSumAmount",
+                                        "foreignFundsSumAmount"
+                                    ]
+                                )
                             ],
-                            multiple_forms_rules={"minCount": 1, "maxCount": 20},
+                            validators=[
+                                self.validator.related_sum_validator(
+                                    field_names=[
+                                        "ownFundsSumAmount",
+                                        "pisfSupportAmount",
+                                        "localGovernmentsFundsSumAmount",
+                                        "ministryFundsSumAmount",
+                                        "otherSponsorsFundsSumAmount",
+                                        "foreignFundsSumAmount"
+                                    ]
+                                )
+                            ],
+                            read_only=True,
+                            unit="PLN"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            label="Wnioskowana dotacja z PISF",
+                            name="pisfSupportAmounRepeat",
+                            calculation_rules=[
+                                self.calculation_rule.copy_value(
+                                    from_name="pisfSupportAmountInput"
+                                )
+                            ],
+                            validators=[
+                                self.validator.related_sum_validator(
+                                    field_names=[
+                                        "pisfSupportAmountInput",
+                                    ]
+                                )
+                            ],
+                            read_only=True,
+                            unit="PLN"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            label="Środki publiczne razem",
+                            name="publicSupportAltogether",
+                            read_only=True,
+                            unit="PLN"
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    components=[
+                        self.create_chapter(
+                            title="2. Wyszczególnienie źródeł finansowaniania",
                             components=[
                                 self.create_chapter(
+                                    title="<normal>1) Wkład własny</normal><br/><normal><small>Minimum 10% budżetu przedsięwzięcia. Wkład rzeczowy nie może być wyższy niż 50% całkowitego wkładu własnego.</small></normal>",
+                                    class_list=[
+                                        "displayNoneFrontend"
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="<normal>1) Wkład własny</normal>",
+                                    components=[
+                                        self.create_chapter(
+                                            title="<small>a) Wkład finansowy</small>",
+                                            class_list={
+                                                "main": [
+                                                    "table-1-2",
+                                                    "grid",
+                                                    "grid-cols-2"
+                                                ],
+                                                "sub": [
+                                                    "table-1-2__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    name="ownFinancialFundsAmount",
+                                                    label="Kwota",
+                                                    unit="PLN"
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    mask="share",
+                                                    name="ownFinancialFundsShare",
+                                                    label="Udział w koszcie całkowitym",
+                                                    calculation_rules=[
+                                                        self.calculation_rule.share_calculator(
+                                                            dividend_field="ownFinancialFundsAmount",
+                                                            divisor_field="totalProjectCost"
+                                                        )
+                                                    ],
+                                                    validators=[
+                                                        self.validator.related_share_validator(
+                                                            dividend="ownFinancialFundsAmount",
+                                                            divisor="totalProjectCost"
+                                                        )
+                                                    ],
+                                                    required=True,
+                                                    read_only=True,
+                                                    unit="%"
+                                                )
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            components=[
+                                                self.create_component(
+                                                    component_type="checkbox",
+                                                    label="Należy zaznaczyć, jeśli częścią wkładu finansowego są wpływy z biletów, akredytacji itp.",
+                                                    name="isTicketRevenues"
+                                                )
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            class_list={
+                                                "main": [
+                                                    "table-1-2",
+                                                    "grid",
+                                                    "grid-cols-2"
+                                                ],
+                                                "sub": [
+                                                    "table-1-2__col"
+                                                ]
+                                            },
+                                            visibility_rules=[
+                                                self.visibility_rule.depends_on_value(
+                                                    field_name="isTicketRevenues",
+                                                    values=[
+                                                        True
+                                                    ]
+                                                )
+                                            ],
+                                            components=[
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    name="proceedsFromSales",
+                                                    label="Wpływy ze sprzedaży",
+                                                    validators=[
+                                                        self.validator.related_fraction_lte_validator(
+                                                            field_name="ownFinancialFundsAmount",
+                                                            ratio=1
+                                                        )
+                                                    ],
+                                                    unit="PLN"
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    name="otherFinancialResources",
+                                                    label="Pozostałe środki finansowe",
+                                                    validators=[
+                                                        self.validator.related_fraction_lte_validator(
+                                                            field_name="ownFinancialFundsAmount",
+                                                            ratio=1
+                                                        )
+                                                    ],
+                                                    unit="PLN"
+                                                )
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            title="<small>b) Wkład rzeczowy</small>"
+                                        ),
+                                        self.create_chapter(
+                                            class_list={
+                                                "main": [
+                                                    "table-1-2",
+                                                    "grid",
+                                                    "grid-cols-2"
+                                                ],
+                                                "sub": [
+                                                    "table-1-2__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    name="ownInKindFundsAmount",
+                                                    label="Kwota",
+                                                    unit="PLN"
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    mask="share",
+                                                    name="ownInKindFundsShare",
+                                                    label="Udział w koszcie całkowitym",
+                                                    calculation_rules=[
+                                                        self.calculation_rule.share_calculator(
+                                                            dividend_field="ownInKindFundsAmount",
+                                                            divisor_field="totalProjectCost"
+                                                        )
+                                                    ],
+                                                    validators=[
+                                                        self.validator.related_share_validator(
+                                                            dividend="ownInKindFundsAmount",
+                                                            divisor="totalProjectCost"
+                                                        )
+                                                    ],
+                                                    required=True,
+                                                    read_only=True,
+                                                    unit="%"
+                                                )
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            title="<small>Łączny wkład własny</small>",
+                                            class_list={
+                                                "main": [
+                                                    "table-1-2",
+                                                    "grid",
+                                                    "grid-cols-2"
+                                                ],
+                                                "sub": [
+                                                    "table-1-2__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    name="ownFundsSumAmount",
+                                                    read_only=True,
+                                                    unit="PLN",
+                                                    calculation_rules=[
+                                                        self.calculation_rule.dynamic_sum_inputs(
+                                                            fields=[
+                                                                "ownFinancialFundsAmount",
+                                                                "ownInKindFundsAmount"
+                                                            ]
+                                                        )
+                                                    ],
+                                                    validators=[
+                                                        self.validator.related_sum_validator(
+                                                            field_names=[
+                                                                "ownFinancialFundsAmount",
+                                                                "ownInKindFundsAmount"
+                                                            ]
+                                                        )
+                                                    ]
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="<normal>2) Dotacja PISF</normal>",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
                                     components=[
                                         self.create_component(
                                             component_type="text",
-                                            label="Nazwa przedsięwzięcia",
-                                            name="otherProjectName"
+                                            mask="fund",
+                                            label="Wnioskowana dotacja z PISF",
+                                            name="pisfSupportAmountInput",
+                                            validators=[
+                                                self.validator.related_fraction_gte_validator(
+                                                    field_name="totalProjectCost",
+                                                    ratio=0.9,
+                                                    message="Dotacja PISF nie może przekroczyć 90% kosztu realizacji przedsięwzięcia."
+                                                )
+                                            ],
+                                            required=True,
+                                            unit="PLN"
                                         ),
                                         self.create_component(
-                                            component_type="text",
-                                            label="Program operacyjny",
-                                            name="programmeName"
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            label="Wnioskowana kwota",
-                                            name="otherProjectFundingAmount",
-                                            unit="PLN",
-                                            mask="fund"
+                                            component_type="number",
+                                            label="Udział w koszcie całkowitym",
+                                            name="pisfSupportShare",
+                                            calculation_rules=[
+                                                self.calculation_rule.share_calculator(
+                                                    dividend_field="pisfSupportAmountInput",
+                                                    divisor_field="totalProjectCost"
+                                                )
+                                            ],
+                                            read_only=True,
+                                            validators=[
+                                                self.validator.related_share_validator(
+                                                    dividend="pisfSupportAmountInput",
+                                                    divisor="totalProjectCost"
+                                                )
+                                            ],
+                                            required=True,
+                                            mask="share",
+                                            unit="%"
                                         )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="<normal>3) Pozostałe źródła finansowania</normal>",
+                                    components=[
+                                        *[self.create_chapter(
+                                            components=[
+                                                self.create_chapter(
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="checkbox",
+                                                            label=chapter["checkbox_title"],
+                                                            name=chapter["checkbox_name"]
+                                                        )
+                                                    ]
+                                                ),
+                                                self.create_chapter(
+                                                    visibility_rules=[
+                                                        self.visibility_rule.depends_on_value(
+                                                            field_name=chapter["checkbox_name"],
+                                                            values=[
+                                                                True
+                                                            ]
+                                                        )
+                                                    ],
+                                                    components=[
+                                                        self.create_chapter(
+                                                            title=chapter["section_title"],
+                                                            components=[
+                                                                self.create_chapter(
+                                                                    multiple_forms_rules={
+                                                                        "minCount": 1,
+                                                                        "maxCount": 20
+                                                                    },
+                                                                    components=[
+                                                                        self.create_chapter(
+                                                                            class_list={
+                                                                                "main": [
+                                                                                    "table-1-2",
+                                                                                    "grid",
+                                                                                    "grid-cols-2"
+                                                                                ],
+                                                                                "sub": [
+                                                                                    "table-1-2__col"
+                                                                                ]
+                                                                            },
+                                                                            components=[
+                                                                                self.create_component(
+                                                                                    component_type="text",
+                                                                                    label="Nazwa podmiotu finansującego",
+                                                                                    name=f"{chapter["section_name"]}Name",
+                                                                                    class_list=[
+                                                                                        "table-full"
+                                                                                    ],
+                                                                                    required=True,
+                                                                                    validators=[
+                                                                                        self.validator.related_required_if_equal_validator(
+                                                                                            field_name=chapter["checkbox_name"],
+                                                                                            value=True
+                                                                                        )
+                                                                                    ]
+                                                                                ),
+                                                                                self.create_component(
+                                                                                    component_type="text",
+                                                                                    mask="fund",
+                                                                                    label="Kwota",
+                                                                                    name=f"{chapter["section_name"]}FundingAmount",
+                                                                                    required=True,
+                                                                                    unit="PLN",
+                                                                                    validators=[
+                                                                                        self.validator.related_required_if_equal_validator(
+                                                                                            field_name=chapter["checkbox_name"],
+                                                                                            value=True
+                                                                                        )
+                                                                                    ]
+                                                                                ),
+                                                                                self.create_component(
+                                                                                    component_type="number",
+                                                                                    label="Udział w koszcie całkowitym",
+                                                                                    name=f"{chapter["section_name"]}FundingShare",
+                                                                                    calculation_rules=[
+                                                                                        self.calculation_rule.single_position_share_calculator(
+                                                                                            dividend_field=f"{chapter["section_name"]}FundingAmount",
+                                                                                            divisor_field="totalProjectCost"
+                                                                                        )
+                                                                                    ],
+                                                                                    read_only=True,
+                                                                                    required=True,
+                                                                                    unit="%",
+                                                                                    mask="share",
+                                                                                    validators=[
+                                                                                        self.validator.related_required_if_equal_validator(
+                                                                                            field_name=chapter["checkbox_name"],
+                                                                                            value=True
+                                                                                        )
+                                                                                    ]
+                                                                                )
+                                                                            ]
+                                                                        )
+                                                                    ]
+                                                                ),
+                                                                self.create_chapter(
+                                                                    title="<normal>Łącznie</normal>",
+                                                                    class_list={
+                                                                        "main": [
+                                                                            "table-1-2",
+                                                                            "grid",
+                                                                            "grid-cols-2"
+                                                                        ],
+                                                                        "sub": [
+                                                                            "table-1-2__col"
+                                                                        ]
+                                                                    },
+                                                                    components=[
+                                                                        self.create_component(
+                                                                            component_type="text",
+                                                                            mask="fund",
+                                                                            label="Kwota",
+                                                                            name=f"{chapter["section_name"]}FundsSumAmount",
+                                                                            calculation_rules=[
+                                                                                self.calculation_rule.dynamic_sum_inputs(
+                                                                                    fields=[
+                                                                                        f"{chapter["section_name"]}FundingAmount"
+                                                                                    ]
+                                                                                )
+                                                                            ],
+                                                                            read_only=True,
+                                                                            required=True,
+                                                                            unit="PLN"
+                                                                        ),
+                                                                        self.create_component(
+                                                                            component_type="number",
+                                                                            label="Udział w koszcie całkowitym",
+                                                                            name=f"{chapter["section_name"]}FundsShare",
+                                                                            calculation_rules=[
+                                                                                self.calculation_rule.single_position_share_calculator(
+                                                                                    dividend_field=f"{chapter["section_name"]}FundsSumAmount",
+                                                                                    divisor_field="totalProjectCost"
+                                                                                )
+                                                                            ],
+                                                                            read_only=True,
+                                                                            required=True,
+                                                                            mask="share",
+                                                                            unit="%"
+                                                                        )
+                                                                    ]
+                                                                )
+                                                            ]
+                                                        )
+                                                    ]
+                                                )
+                                            ]
+                                        ) for chapter in sources_of_financing_chapters["c"]]
                                     ]
                                 )
                             ]
@@ -934,7 +871,6 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                 )
             ]
         )
-
         self.save_part(part)
 
     def create_application_attachments(self):
@@ -1130,6 +1066,7 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                     ]
                 ),
                 self.create_chapter(
+                    title="Podsumowanie",
                     class_list={
                         "main": [
                             "dates"

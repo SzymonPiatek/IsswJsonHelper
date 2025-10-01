@@ -136,14 +136,271 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
             title="III. Dane wnioskodawcy",
             short_name="III. Dane wnioskodawcy",
             chapters=[
-                self.section.applicant_name(number="1"),
-                self.section.eligible_person_data(number="2"),
-                self.section.responsible_person_data(number="3"),
-                self.section.applicant_address(number="4", main_poland=True, main_foreign=True, contact_poland=True, contact_foreign=True),
-                self.section.applicant_identification_data(number="5"),
-                self.section.applicant_bank_data(number="6"),
-                self.section.applicant_legal_information(number="7"),
-                self.section.applicant_statistical_data(number="8"),
+                self.create_chapter(
+                    components=[
+                        self.create_chapter(
+                            title="Pełna nazwa wnioskodawcy",
+                            class_list=["displayNoneFrontend"]
+                        ),
+                        self.create_chapter(
+                            title="Pełna nazwa wnioskodawcy<br/><normal><small>Oficjalna nazwa firmy lub podmiotu wpisana do odpowiedniego rejestru (KRS, CEiDG, Rejestr instytucji kultury, Rejestr Instytucji Filmowych itp.</small></normal>",
+                            class_list=["no-title"],
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    name="applicantName",
+                                    required=True
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Forma organizacyjno-prawna",
+                    components=[
+                        self.component.org_and_legal_structure_select()
+                    ]
+                ),
+                self.section.eligible_person_data(number="1"),
+                self.section.responsible_person_data(number="2"),
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="orgAndLegalStructure",
+                            values=[
+                                "Spółka z ograniczoną odpowiedzialnością",
+                                "Spółka akcyjna",
+                            ]
+                        )
+                    ],
+                    components=[
+                        self.create_chapter(
+                            title="3. Adres siedziby wnioskodawcy",
+                            components=[
+                                self.create_chapter(
+                                    title="Siedziba",
+                                    components=[
+                                        self.create_chapter(
+                                            components=[
+                                                self.create_component(
+                                                    component_type="radio",
+                                                    name=f"applicantResidence",
+                                                    options=["w Polsce", "za granicą"],
+                                                    required=True
+                                                )
+                                            ]
+                                        ),
+                                        *self.section.application_applicant_data.create_address_base(
+                                            start_name="applicant",
+                                            poland=True,
+                                            foreign=True
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="checkbox",
+                                            label="Należy zaznaczyć jeśli adres korespondencyjny jest inny",
+                                            name=f"applicantHasDifferentContactAddress"
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Adres korespondencyjny",
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="applicantHasDifferentContactAddress",
+                                            values=[True]
+                                        )
+                                    ],
+                                    components=[
+                                        self.create_chapter(
+                                            components=[
+                                                self.create_component(
+                                                    component_type="radio",
+                                                    name=f"applicantContactResidence",
+                                                    options=["w Polsce", "za granicą"],
+                                                    required=True
+                                                )
+                                            ]
+                                        ),
+                                        *self.section.application_applicant_data.create_address_base(
+                                            start_name="applicant",
+                                            build_name="Contact",
+                                            poland=True,
+                                            foreign=True
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="4. Dane identyfikacyjne wnioskodawcy oraz informacje prawne",
+                            components=[
+                                self.create_chapter(
+                                    title="Dane identyfikacyjne",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Numer NIP",
+                                            name="applicantNip",
+                                            required=True,
+                                            validators=[
+                                                self.validator.nip_validator()
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Numer REGON",
+                                            name="applicantRegon",
+                                            required=True,
+                                            validators=[
+                                                self.validator.regon_validator()
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Numer KRS",
+                                            name="applicantKrs",
+                                            required=True,
+                                            validators=[
+                                                self.validator.length_validator(
+                                                    min_value=10,
+                                                    max_value=10
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Oznaczenia sądu rejonowego",
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Nazwa sądu",
+                                            name="courtName",
+                                            required=True
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Numer wydziału",
+                                            name="courtNumber",
+                                            required=True
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Nazwa rejestru",
+                                            name="courtRegisterName",
+                                            required=True
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Wysokość kapitału zakładowego (opłaconego)",
+                                            name="shareCapitalAmount",
+                                            required=True,
+                                            unit="PLN",
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Reprezentacja",
+                                    components=[
+                                        self.create_chapter(
+                                            multiple_forms_rules={
+                                                "minCount": 1,
+                                                "maxCount": 10
+                                            },
+                                            components=[
+                                                self.create_chapter(
+                                                    title="Osoba reprezentująca",
+                                                    class_list={
+                                                        "main": [
+                                                            "table-1-2",
+                                                            "grid",
+                                                            "grid-cols-2"
+                                                        ],
+                                                        "sub": [
+                                                            "table-1-2__col"
+                                                        ]
+                                                    },
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Imię",
+                                                            name="applicantRepresentativeFirstName",
+                                                            required=True
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Nazwisko",
+                                                            name="applicantRepresentativeLastName",
+                                                            required=True
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Stanowisko",
+                                                            name="applicantRepresentativePosition",
+                                                            required=True,
+                                                            class_list=[
+                                                                "table-full"
+                                                            ]
+                                                        )
+                                                    ]
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Identyfikator gminy (Kod JST)",
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            name="applicantJst",
+                                            mask="jst",
+                                            required=True,
+                                            help_text="Kod JST gminy można znaleźć w wyszukiwarce pod adresem https://eteryt.stat.gov.pl"
+                                        ),
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Kod PKD",
+                                    components=[
+                                        self.create_component(
+                                            component_type="radio",
+                                            name="applicantPkd",
+                                            options=[
+                                                "59.11 – Działalność związana z produkcją filmów, nagrań wideo i programów telewizyjnych",
+                                                "59.12 - Działalność postprodukcyjna związana z filmami, nagraniami wideo i programami telewizyjnymi",
+                                                "59.13 - Działalność związana z dystrybucją filmów, nagrań wideo i programów telewizyjnych",
+                                                "59.14 - Działalność związana z projekcją filmów",
+                                                "59.20 - Działalność w zakresie nagrań dźwiękowych i muzycznych"
+                                            ],
+                                            required=True
+                                        )
+                                    ]
+                                ),
+                            ]
+                        )
+                    ]
+                ),
+                self.section.applicant_bank_data(number="5"),
+                self.create_chapter(
+                    title="Uwaga!<br/><br/><normal>Wszystkie koszty danego przedsięwzięcia muszą być opłacane z rachunku bankowego podanego we Wniosku o dofinansowanie. Na ten sam rachunek powinny też wpływać środki od innych podmiotów współfinansujących dane przedsięwzięcie. Możliwe są dwa rozwiązania:<br/>a) rachunek służący do rozliczeń przedsięwzięcia, którego dotyczy Wniosek o dofinansowanie, w tym wpływów i wydatków związanych z dotacją PISF,<br/>b) rachunek przeznaczony wyłącznie do obsługi środków z dotacji PISF, na który mogą trafiać środki z różnych dofinansowań udzielonych przez PISF.</normal>"
+                ),
+                self.section.applicant_statistical_data(number="6"),
             ]
         )
 

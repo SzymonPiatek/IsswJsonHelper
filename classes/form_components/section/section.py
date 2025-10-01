@@ -5,6 +5,7 @@ from classes.form_factory.form_factory import FormFactory
 class Section(FormFactory):
     def __init__(self):
         super().__init__()
+
         self.component = Component()
 
     def applicant_name(self, number: int | str):
@@ -66,67 +67,71 @@ class Section(FormFactory):
     def eligible_person_data(self, number: int | str):
         return self.create_chapter(
             title=f"{number}. Osoby upoważnione do reprezentowania wnioskodawcy, składania oświadczeń woli i zaciągania w jego imieniu zobowiązań finansowych",
-            multiple_forms_rules={
-                "minCount": 1,
-                "maxCount": 8
-            },
-            class_list={
-                "sub": [
-                    "table-1-2-top"
-                ]
-            },
             components=[
                 self.create_chapter(
-                    title="Osoba",
+                    multiple_forms_rules={
+                        "minCount": 1,
+                        "maxCount": 8
+                    },
                     class_list={
-                        "main": [
-                            "table-1-2",
-                            "grid",
-                            "grid-cols-2"
-                        ],
                         "sub": [
-                            "table-1-2__col"
+                            "table-1-2-top"
                         ]
                     },
                     components=[
-                        self.create_component(
-                            component_type="text",
-                            label="Imię",
-                            name="eligiblePersonFirstName",
-                            required=True
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            label="Nazwisko",
-                            name="eligiblePersonLastName",
-                            required=True
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            label="Email",
-                            name="eligiblePersonEmail",
-                            required=True,
-                            validators=[
-                                self.validator.email_validator()
-                            ]
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            label="Numer telefonu",
-                            name="eligiblePersonPhoneNum",
-                            required=True,
-                            mask="phoneNumber",
-                            validators=[
-                                self.validator.phone_number_validator()
-                            ]
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            label="Stanowisko zgodnie z reprezentacją/ załączonym upoważnieniem",
-                            name="eligiblePersonPosition",
-                            required=True,
-                            class_list=[
-                                "table-full"
+                        self.create_chapter(
+                            title="Osoba",
+                            class_list={
+                                "main": [
+                                    "table-1-2",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    label="Imię",
+                                    name="eligiblePersonFirstName",
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Nazwisko",
+                                    name="eligiblePersonLastName",
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Email",
+                                    name="eligiblePersonEmail",
+                                    required=True,
+                                    validators=[
+                                        self.validator.email_validator()
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Numer telefonu",
+                                    name="eligiblePersonPhoneNum",
+                                    required=True,
+                                    mask="phoneNumber",
+                                    validators=[
+                                        self.validator.phone_number_validator()
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Stanowisko zgodnie z reprezentacją/ załączonym upoważnieniem",
+                                    name="eligiblePersonPosition",
+                                    required=True,
+                                    class_list=[
+                                        "table-full"
+                                    ]
+                                )
                             ]
                         )
                     ]
