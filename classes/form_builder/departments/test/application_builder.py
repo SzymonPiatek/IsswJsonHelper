@@ -25,10 +25,10 @@ class TestApplicationBuilder(ApplicationBuilder):
         [x] RelatedDateOffsetValidator
         [x] RelatedDateIncrementValidator
         [x] RelatedSumValidator
-        [ ] RelatedMultiplicationValidator
-        [ ] RelatedShareValidator
+        [x] RelatedMultiplicationValidator
+        [x] RelatedShareValidator
         [x] RelatedLocalDivisionValidator
-        [ ] RelatedMapValidator
+        [x] RelatedMapValidator
         [ ] RelatedBooleanSumValidator
         [ ] RelatedSumOfWeightsValidator
         [ ] RelatedEqualIfInRangeValidator
@@ -84,7 +84,9 @@ class TestApplicationBuilder(ApplicationBuilder):
         self.create_related_date_increment_validator()
         self.create_related_sum_validator()
         self.create_related_multiplication_validator()
+        self.create_related_share_validator()
         self.create_related_local_division_validator()
+        self.create_related_map_validator()
 
         self.save_output()
 
@@ -983,6 +985,106 @@ class TestApplicationBuilder(ApplicationBuilder):
                             value="Walidator sprawdza, czy poprawnie przemnożono wartości."
                         )
                     ]
+                ),
+                self.create_chapter(
+                    title="Test",
+                    class_list={
+                        "main": ["table-1-3-narrow"],
+                        "sub": ["table-1-3__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="number",
+                            label="Liczba odcinków",
+                            name="numberOfEpisodes",
+                            unit="szt."
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            label="Średnia liczba minut odcinka",
+                            name="lengthOfEpisode",
+                            unit="min."
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            label="Łączna liczba minut",
+                            name="multiplicationResult",
+                            calculation_rules=[
+                                self.calculation_rule.multiply_inputs(
+                                    fields=[
+                                        "numberOfEpisodes",
+                                        "lengthOfEpisode",
+                                    ]
+                                )
+                            ],
+                            validators=[
+                                self.validator.related_multiplication_validator(
+                                    field_names=[
+                                        "numberOfEpisodes",
+                                        "lengthOfEpisode",
+                                    ]
+                                )
+                            ],
+                            read_only=True,
+                            unit="min."
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_share_validator(self):
+        part = self.create_part(
+            title="RelatedShareValidator",
+            short_name="Related Share Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedShareValidator",
+                            value="Walidator sprawdza, czy poprawnie wyliczono wartość procentową."
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Test",
+                    class_list={
+                        "main": ["table-1-3-narrow"],
+                        "sub": ["table-1-3__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            name="shareCostTotal"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            name="shareCost"
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            mask="share",
+                            name="shareResult",
+                            calculation_rules=[
+                                self.calculation_rule.share_calculator(
+                                    dividend_field="shareCost",
+                                    divisor_field="shareCostTotal",
+                                )
+                            ],
+                            validators=[
+                                self.validator.related_share_validator(
+                                    dividend="shareCost",
+                                    divisor="shareCostTotal",
+                                )
+                            ],
+                            read_only=True,
+                            unit="%"
+                        )
+                    ]
                 )
             ]
         )
@@ -998,7 +1100,7 @@ class TestApplicationBuilder(ApplicationBuilder):
                         self.create_component(
                             component_type="header",
                             name="relatedLocalDivisionValidator",
-                            value="Walidator sprawdza poprawność wyliczonej wartości procentowej - lokalnie."
+                            value="Walidator sprawdza, czy poprawnie wyliczono wartość procentową - lokalnie."
                         )
                     ]
                 ),
@@ -1128,6 +1230,56 @@ class TestApplicationBuilder(ApplicationBuilder):
                                 )
                             ],
                             read_only=True
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_map_validator(self):
+        part = self.create_part(
+            title="RelatedMapValidator",
+            short_name="Related Map Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedMapValidator",
+                            value="Walidator sprawdza, czy wartość pola odpowiada wartości zdefiniowanej dla wybranej opcji innego pola."
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Test",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="select",
+                            name="relatedMapText",
+                            label="Kraj",
+                            options=[
+                                "Polska",
+                                "Niemcy"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            name="secondRelatedMapText",
+                            label="Stolica",
+                            validators=[
+                                self.validator.related_map_validator(
+                                    field_name="relatedMapText",
+                                    mapping={
+                                        "Polska": "Warszawa",
+                                        "Niemcy": "Berlin"
+                                    }
+                                )
+                            ]
                         )
                     ]
                 )

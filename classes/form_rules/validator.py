@@ -60,7 +60,8 @@ class Validator:
             "RelatedEqualityValidator",
             "RelatedLocalEqualityValidator",
             "RelatedNumericEqualityValidator",
-            "RelatedDateIncrementValidator"
+            "RelatedDateIncrementValidator",
+            "RelatedMapValidator"
         ]
 
     @staticmethod
@@ -545,6 +546,21 @@ class Validator:
             "kwargs": {
                 "field_name": field_name,
                 "amount": amount
+            },
+            "validationMsg": message
+        }
+
+    @staticmethod
+    def related_map_validator(field_name: str, mapping: dict, message: str = None):
+        """
+        Walidator sprawdza, czy wartość pola odpowiada wartości zdefiniowanej dla wybranej opcji innego pola.
+        """
+
+        return {
+            "name": "RelatedMapValidator",
+            "kwargs": {
+                "field_name": field_name,
+                "mapping": mapping,
             },
             "validationMsg": message
         }
