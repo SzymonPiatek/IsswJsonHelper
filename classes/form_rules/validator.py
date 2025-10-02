@@ -55,7 +55,8 @@ class Validator:
             "RelatedDateOffsetValidator",
             "CheckboxTrueDateLTEToday",
             "RelatedConditionRatioValidator",
-            "RelatedConditionRangeValidator"
+            "RelatedConditionRangeValidator",
+            "RelatedLocalDivisionValidator"
         ]
 
     @staticmethod
@@ -494,3 +495,18 @@ class Validator:
                 "conditions": conditions
             }
         }
+
+    @staticmethod
+    def related_local_division_validator(dividend: str, divisor: str):
+        """
+        Walidator sprawdza, czy wartość udziału jest poprawna - lokalnie.
+        """
+
+        return {
+            "name": "RelatedLocalDivisionValidator",
+            "kwargs": {
+                "dividend": dividend,
+                "divisor": divisor
+            }
+        }
+
