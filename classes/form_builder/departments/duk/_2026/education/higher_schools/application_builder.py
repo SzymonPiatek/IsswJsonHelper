@@ -19,14 +19,14 @@ class HigherSchoolsApplicationBuilder(EducationApplicationBuilder, HigherSchools
             estimate_builder.generate_estimate()
         ]
 
-    def create_application_scope_of_project(self):
+    def create_application_scope_of_project(self, number):
         pass
 
-    def create_application_attachments(self):
+    def create_application_attachments(self, number):
         pass
 
-    def create_application_statements(self):
+    def create_application_statements(self, number):
         pass
 
-    def create_application_schedule(self):
+    def create_application_schedule(self, number):
         pass

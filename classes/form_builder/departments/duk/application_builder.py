@@ -42,37 +42,3 @@ class DUKApplicationBuilder(ApplicationBuilder, DUKDepartment):
     @not_implemented_func
     def create_application_schedule(self):
         pass
-
-    def generate(self):
-        # Base
-        self.create_base()
-
-        # Metadane wniosku
-        self.create_application_metadata()
-
-        # I. Dane podstawowe
-        self.create_application_basic_data()
-
-        # II. Dane wnioskodawcy
-        self.create_application_applicant_data()
-
-        # III. Zakres przedsięwzięcia
-        self.create_application_scope_of_project()
-
-        # IV. Źródła finansowania
-        self.create_application_sources_of_financing()
-
-        # V. Oświaczenia
-        self.create_application_statements()
-
-        # VI. Załączniki
-        self.create_application_attachments()
-
-        # VII. Kosztorys przedsięwzięcia
-        self.create_application_project_costs()
-
-        # VIII. Harmonogram
-        self.create_application_schedule()
-
-        # Zapis
-        self.save_output()

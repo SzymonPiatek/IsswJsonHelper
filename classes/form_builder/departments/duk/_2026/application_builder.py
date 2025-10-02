@@ -11,8 +11,19 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
 
         self.project_type = []
         self.estimate_chapters = []
+        self.parts: list = [
+            self.create_application_metadata,
+            self.create_application_basic_data,
+            self.create_application_applicant_data,
+            self.create_application_scope_of_project,
+            self.create_application_sources_of_financing,
+            self.create_application_statements,
+            self.create_application_attachments,
+            self.create_application_project_costs,
+            self.create_application_schedule
+        ]
 
-    def create_application_metadata(self, number: int = 1):
+    def create_application_metadata(self, number: int):
         part = self.create_part(
             title="Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej",
             short_name=f"{int_to_roman(number)}. Metadane wniosku",
@@ -57,7 +68,7 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
         )
         self.save_part(part=part)
 
-    def create_application_basic_data(self, number: int = 2):
+    def create_application_basic_data(self, number: int):
         part = self.create_part(
             title=f"{int_to_roman(number)}. Dane podstawowe",
             short_name=f"{int_to_roman(number)}. Dane podstawowe",
@@ -132,7 +143,7 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
 
         self.save_part(part)
 
-    def create_application_applicant_data(self, number: int = 3):
+    def create_application_applicant_data(self, number: int):
         part = self.create_part(
             title=f"{int_to_roman(number)}. Dane wnioskodawcy",
             short_name=f"{int_to_roman(number)}. Dane wnioskodawcy",
@@ -407,7 +418,7 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
 
         self.save_part(part=part)
 
-    def create_application_sources_of_financing(self, number: int = 5):
+    def create_application_sources_of_financing(self, number: int):
         sources_of_financing_chapters = {
             "a": [
                 {
@@ -828,7 +839,7 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
         )
         self.save_part(part)
 
-    def create_application_project_costs(self, number: int = 8):
+    def create_application_project_costs(self, number: int):
         estimate_base = DUKApplicationEstimateBuilder(estimate_sections=[])
 
         part = self.create_part(
@@ -848,3 +859,16 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
         )
 
         self.save_part(part=part)
+
+    def generate(self):
+        # Base
+        self.create_base()
+
+        index = 0
+
+        for part in self.parts:
+            index += 1
+            part(number=index)
+
+        # Zapis
+        self.save_output()
