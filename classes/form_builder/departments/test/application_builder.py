@@ -19,18 +19,54 @@ class TestApplicationBuilder(ApplicationBuilder):
         [x] RelatedNumericEqualityValidator
         [x] RelatedRequiredIfEqualValidator
         [x] RelatedDateLTEValidator
-        [ ]
-        [ ]
-        [ ]
+        [x] RelatedLocalDateLTEValidator
+        [x] RelatedDateGTEValidator
+        [x] RelatedLocalDateGTEValidator
+        [x] RelatedDateOffsetValidator
+        [ ] RelatedDateIncrementValidator
+        [ ] RelatedSumValidator
+        [ ] RelatedMultiplicationValidator
+        [ ] RelatedShareValidator
         [x] RelatedLocalDivisionValidator
+        [ ] RelatedMapValidator
+        [ ] RelatedBooleanSumValidator
+        [ ] RelatedSumOfWeightsValidator
+        [ ] RelatedEqualIfInRangeValidator
+        [ ] RelatedEmptyIfValidator
+        [ ] RelatedFractionValidator
+        [ ] RelatedFractionGTEValidator
+        [ ] RelatedFractionLTEValidator
+        [ ] RelatedLocalSumValidator
+        [ ] RelatedAnyOfValidator
+        [ ] RelatedMappedLimitValidator
+        [ ] RelatedAllowedOptionsValidator
+        [ ] RelatedUniqueValueValidator
+        [ ] RelatedConditionRatioValidator
+        [ ] RelatedConditionRangeValidator
         
         CalculationRules:
-        [ ] 
-        [ ] 
-        [ ] 
-        [ ] 
-        [ ] 
-        [ ] 
+        [ ] sumInputs
+        [ ] multiplyInputs
+        [ ] copyValue
+        [ ] copyLocalValue
+        [ ] copyTitle
+        [ ] sumsShareCalculator
+        [ ] shareCalculator
+        [ ] localShareCalculator
+        [ ] singlePositionShareCalculator
+        [ ] assignValue
+        [ ] lastDate
+        [ ] firstDate
+        [ ] relateToDate
+        [ ] relateToLastDate
+        [ ] halfwayDate
+        [ ] dynamicSumInputs
+        [ ] multiplyValues
+        [ ] localSum
+        [ ] getNBPCurrency
+        [ ] conditionalCopyValue
+        [ ] copyCompanyData
+        [ ] sumInvoiceCosts
         """
 
     def generate(self):
@@ -40,7 +76,11 @@ class TestApplicationBuilder(ApplicationBuilder):
         self.create_related_local_equality_validator()
         self.create_related_numeric_equality_validator()
         self.create_related_required_if_equal_validator()
-        self.create_related_lte_validator()
+        self.create_related_date_lte_validator()
+        self.create_related_local_date_lte_validator()
+        self.create_related_date_gte_validator()
+        self.create_related_local_date_gte_validator()
+        self.create_related_date_offset_validator()
         self.create_related_local_division_validator()
 
         self.save_output()
@@ -48,6 +88,7 @@ class TestApplicationBuilder(ApplicationBuilder):
     def create_related_equality_validator(self):
         part = self.create_part(
             title="RelatedEqualityValidator",
+            short_name="Related Equality Validator",
             chapters=[
                 self.create_chapter(
                     title="Text to text",
@@ -153,6 +194,7 @@ class TestApplicationBuilder(ApplicationBuilder):
     def create_related_local_equality_validator(self):
         part = self.create_part(
             title="RelatedLocalEqualityValidator",
+            short_name="Related Local Equality Validator",
             chapters=[
                 self.create_chapter(
                     title="Text to text",
@@ -310,6 +352,7 @@ class TestApplicationBuilder(ApplicationBuilder):
     def create_related_numeric_equality_validator(self):
         part = self.create_part(
             title="RelatedNumericEqualityValidator",
+            short_name="Related Numeric Equality Validator",
             chapters=[
                 self.create_chapter(
                     title="Number to number",
@@ -393,6 +436,7 @@ class TestApplicationBuilder(ApplicationBuilder):
     def create_related_required_if_equal_validator(self):
         part = self.create_part(
             title="RelatedRequiredIfEqualValidator",
+            short_name="Related Required If Equal Validator",
             chapters=[
                 self.create_chapter(
                     title="Test",
@@ -451,9 +495,10 @@ class TestApplicationBuilder(ApplicationBuilder):
         )
         self.save_part(part)
 
-    def create_related_lte_validator(self):
+    def create_related_date_lte_validator(self):
         part = self.create_part(
             title="RelatedDateLTEValidator",
+            short_name="Related Date LTE Validator",
             chapters=[
                 self.create_chapter(
                     title="Test",
@@ -483,9 +528,169 @@ class TestApplicationBuilder(ApplicationBuilder):
         )
         self.save_part(part)
 
+    def create_related_local_date_lte_validator(self):
+        part = self.create_part(
+            title="RelatedLocalDateLTEValidator",
+            short_name="Related Local Date LTE Validator",
+            chapters=[
+                self.create_chapter(
+                    title="Test",
+                    components=[
+                        self.create_chapter(
+                            multiple_forms_rules={
+                                "minCount": 2,
+                                "maxCount": 10
+                            },
+                            components=[
+                                self.create_chapter(
+                                    title="Zakres dat",
+                                    class_list={
+                                        "main": ["table-1-2"],
+                                        "sub": ["table-1-2__col"],
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="date",
+                                            label="Data od",
+                                            name="startDateLocal",
+                                            validators=[
+                                                self.validator.related_local_date_lte_validator(
+                                                    field_name="endDateLocal"
+                                                )
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="date",
+                                            label="Data do",
+                                            name="endDateLocal"
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_date_gte_validator(self):
+        part = self.create_part(
+            title="RelatedDateGTEValidator",
+            short_name="Related Date GTE Validator",
+            chapters=[
+                self.create_chapter(
+                    title="Test",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="date",
+                            label="Data od",
+                            name="startDateGte"
+                        ),
+                        self.create_component(
+                            component_type="date",
+                            label="Data do",
+                            name="endDateGte",
+                            validators=[
+                                self.validator.related_date_gte_validator(
+                                    field_name="startDateGte"
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_local_date_gte_validator(self):
+        part = self.create_part(
+            title="RelatedLocalDateGTEValidator",
+            short_name="Related Local Date GTE Validator",
+            chapters=[
+                self.create_chapter(
+                    title="Test",
+                    components=[
+                        self.create_chapter(
+                            multiple_forms_rules={
+                                "minCount": 2,
+                                "maxCount": 10
+                            },
+                            components=[
+                                self.create_chapter(
+                                    title="Zakres dat",
+                                    class_list={
+                                        "main": ["table-1-2"],
+                                        "sub": ["table-1-2__col"],
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="date",
+                                            label="Data od",
+                                            name="startDateLocalGte"
+                                        ),
+                                        self.create_component(
+                                            component_type="date",
+                                            label="Data do",
+                                            name="endDateLocalGte",
+                                            validators=[
+                                                self.validator.related_local_date_gte_validator(
+                                                    field_name="startDateLocalGte"
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_date_offset_validator(self):
+        part = self.create_part(
+            title="RelatedDateOffsetValidator",
+            short_name="Related Date Offset Validator",
+            chapters=[
+                self.create_chapter(
+                    title="Test (+5 dni)",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="date",
+                            label="Data od",
+                            name="startDateOffset"
+                        ),
+                        self.create_component(
+                            component_type="date",
+                            label="Data do",
+                            name="endDateOffset",
+                            validators=[
+                                self.validator.related_date_offset_validator(
+                                    field_name="startDateOffset",
+                                    offset=5
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
     def create_related_local_division_validator(self):
         part = self.create_part(
             title="RelatedLocalDivisionValidator",
+            short_name="Related Local Division Validator",
             chapters=[
                 self.create_chapter(
                     title="Costs with shares",

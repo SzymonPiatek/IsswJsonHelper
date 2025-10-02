@@ -341,7 +341,7 @@ class Validator:
         }
 
     @staticmethod
-    def related_local_date_lte_validator(field_name: str, message: str):
+    def related_local_date_lte_validator(field_name: str, message: str = None):
         """
         Walidator sprawdza, czy wartość daty jest mniejsza lub równa wartości daty innego pola.
         """
@@ -351,11 +351,11 @@ class Validator:
             "kwargs": {
                 "field_name": field_name
             },
-            "validationMsg": message if message else f"Podana data musi być wcześniejsza niż data z pola '{field_name}.'"
+            "validationMsg": message
         }
 
     @staticmethod
-    def related_local_date_gte_validator(field_name: str, message: str):
+    def related_local_date_gte_validator(field_name: str, message: str = None):
         """
         Walidator sprawdza, czy wartość daty jest większa lub równa wartości daty innego pola.
         """
@@ -365,7 +365,7 @@ class Validator:
             "kwargs": {
                 "field_name": field_name
             },
-            "validationMsg": message if message else f"Podana data musi być pożniejsza niż data z pola '{field_name}.'"
+            "validationMsg": message
         }
 
     @staticmethod
@@ -435,11 +435,11 @@ class Validator:
             "kwargs": {
                 "field_name": field_name
             },
-            "validationMsg": message or None
+            "validationMsg": message
         }
 
     @staticmethod
-    def related_date_gte_validator(field_name: str, message: str):
+    def related_date_gte_validator(field_name: str, message: str = None):
         """
         Walidator sprawdza, czy podana data jest późniejsza niż data ze wskazanego pola.
         """
@@ -449,18 +449,18 @@ class Validator:
             "kwargs": {
                 "field_name": field_name
             },
-            "validationMsg": message if message else f"Podana data musi być pożniejsza niż data z pola '{field_name}.'"
+            "validationMsg": message
         }
 
     @staticmethod
-    def related_date_offset_validator(field_name: str, offset: int, message: str):
+    def related_date_offset_validator(field_name: str, offset: int, message: str = None):
         return {
             "name": "RelatedDateOffsetValidator",
             "kwargs": {
                 "field_name": field_name,
                 "offset": offset,
             },
-            "validationMsg": message if message else f"Dane wydarzenie nie może trwać dłużej niż {offset} dni."
+            "validationMsg": message
         }
 
     @staticmethod
@@ -522,7 +522,7 @@ class Validator:
         return {
             "name": "RelatedEqualityValidator",
             "kwargs": {"field_name": field_name},
-            "validationMsg": message or None
+            "validationMsg": message
         }
 
     @staticmethod
@@ -534,7 +534,7 @@ class Validator:
         return {
             "name": "RelatedLocalEqualityValidator",
             "kwargs": {"field_name": field_name},
-            "validationMsg": message or None
+            "validationMsg": message
         }
 
     @staticmethod
@@ -546,5 +546,5 @@ class Validator:
         return {
             "name": "RelatedNumericEqualityValidator",
             "kwargs": {"field_name": field_name},
-            "validationMsg": message or None
+            "validationMsg": message
         }
