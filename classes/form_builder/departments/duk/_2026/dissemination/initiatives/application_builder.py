@@ -14,7 +14,7 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder, Initiatives
             "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową.",
             "Organizacja kongresów, konferencji, sympozjów i inne działania edukacyjne pogłębiające wiedzę o filmie.",
             "Działalność Sieci Kin Studyjnych.",
-            "Inne działania realizujące cele priorytetu."
+            "Inne działania realizujące cele Priorytetu II."
         ]
 
         estimate_builder_pt124 = DUKApplicationEstimateBuilder(
@@ -33,7 +33,7 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder, Initiatives
                         values=[
                             "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową.",
                             "Organizacja kongresów, konferencji, sympozjów i inne działania edukacyjne pogłębiające wiedzę o filmie.",
-                            "Inne działania realizujące cele priorytetu."
+                            "Inne działania realizujące cele Priorytetu II."
                         ]
                     )
                 ],

@@ -2,6 +2,7 @@ from classes.form_builder.departments.duk._2026.dissemination.application_builde
 from classes.form_builder.departments.duk._2026.dissemination.priority import FestivalsPriority
 from classes.form_builder.departments.duk._2026.application_estimate_builder import DUKApplicationEstimateBuilder
 from .estimate_data import estimate_sections
+from classes.helpers import int_to_roman
 
 
 class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPriority):
@@ -19,10 +20,10 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
             estimate_builder.generate_estimate()
         ]
 
-    def create_application_scope_of_project(self):
+    def create_application_scope_of_project(self, number: int = 4):
         part = self.create_part(
-            title="IV. Zakres przedsięwzięcia",
-            short_name="IV. Zakres przedsięwzięcia",
+            title=f"{int_to_roman(number)}. Zakres przedsięwzięcia",
+            short_name=f"{int_to_roman(number)}. Zakres przedsięwzięcia",
             chapters=[
                 self.create_chapter(
                     title="Zakres i charakterystyka przedsięwzięcia",
@@ -353,7 +354,7 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
 
         self.save_part(part)
 
-    def create_application_sources_of_financing(self):
+    def create_application_sources_of_financing(self, number: int = 5):
         sources_of_financing_chapters = {
             "c": [
                 {
@@ -384,8 +385,8 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
         }
 
         part = self.create_part(
-            title="V. Źródła finansowania",
-            short_name="V. Źródła finansowania",
+            title=f"{int_to_roman(number)}. Źródła finansowania",
+            short_name=f"{int_to_roman(number)}. Źródła finansowania",
             chapters=[
                 self.create_chapter(
                     title="1. Podstawowe dane finansowe",
@@ -873,10 +874,10 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
         )
         self.save_part(part)
 
-    def create_application_attachments(self):
+    def create_application_attachments(self, number: int = 7):
         part = self.create_part(
-            title="VII. Załączniki",
-            short_name="VII. Załączniki",
+            title=f"{int_to_roman(number)}. Załączniki",
+            short_name=f"{int_to_roman(number)}. Załączniki",
             chapters=[
                 self.create_chapter(
                     title="Obowiązkowe załączniki",
@@ -890,7 +891,7 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
         )
         self.save_part(part)
 
-    def create_application_statements(self):
+    def create_application_statements(self, number: int = 6):
         nature_of_project = [
             {
                 "label": "krajowy",
@@ -938,8 +939,8 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
         ]
 
         part = self.create_part(
-            title="VI. Oświadczenia",
-            short_name="VI. Oświadczenia",
+            title=f"{int_to_roman(number)}. Oświadczenia",
+            short_name=f"{int_to_roman(number)}. Oświadczenia",
             chapters=[
                 self.create_chapter(
                     title="Oświadczenia Wnioskodawcy co do charakteru przedsięwzięcia",
@@ -980,10 +981,10 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
 
         self.save_part(part)
 
-    def create_application_schedule(self):
+    def create_application_schedule(self, number: int = 9):
         part = self.create_part(
-            title="IX. Harmonogram realizacji zadania",
-            short_name="IX. Harmonogram",
+            title=f"{int_to_roman(number)}. Harmonogram realizacji zadania",
+            short_name=f"{int_to_roman(number)}. Harmonogram",
             chapters=[
                 self.create_chapter(
                     components=[
@@ -1118,3 +1119,37 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
             ]
         )
         self.save_part(part)
+
+    def generate(self):
+        # Base
+        self.create_base()
+
+        # Metadane wniosku
+        self.create_application_metadata()
+
+        # I. Dane podstawowe
+        self.create_application_basic_data()
+
+        # II. Dane wnioskodawcy
+        self.create_application_applicant_data()
+
+        # III. Zakres przedsięwzięcia
+        self.create_application_scope_of_project()
+
+        # IV. Źródła finansowania
+        self.create_application_sources_of_financing()
+
+        # V. Oświaczenia
+        self.create_application_statements()
+
+        # VI. Załączniki
+        self.create_application_attachments()
+
+        # VII. Kosztorys przedsięwzięcia
+        self.create_application_project_costs()
+
+        # VIII. Harmonogram
+        self.create_application_schedule()
+
+        # Zapis
+        self.save_output()

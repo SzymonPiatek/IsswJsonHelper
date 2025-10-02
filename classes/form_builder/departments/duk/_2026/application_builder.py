@@ -1,5 +1,6 @@
 from classes.form_builder.departments.duk.application_builder import DUKApplicationBuilder
 from classes.form_builder.departments.duk._2026.application_estimate_builder import DUKApplicationEstimateBuilder
+from classes.helpers import int_to_roman
 
 
 class DUKApplicationBuilder2026(DUKApplicationBuilder):
@@ -11,10 +12,10 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
         self.project_type = []
         self.estimate_chapters = []
 
-    def create_application_metadata(self):
+    def create_application_metadata(self, number: int = 1):
         part = self.create_part(
             title="Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej",
-            short_name="I. Metadane wniosku",
+            short_name=f"{int_to_roman(number)}. Metadane wniosku",
             chapters=[
                 self.create_chapter(
                     title="1. Tryb naboru",
@@ -56,10 +57,10 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
         )
         self.save_part(part=part)
 
-    def create_application_basic_data(self):
+    def create_application_basic_data(self, number: int = 2):
         part = self.create_part(
-            title="II. Dane podstawowe",
-            short_name="II. Dane podstawowe",
+            title=f"{int_to_roman(number)}. Dane podstawowe",
+            short_name=f"{int_to_roman(number)}. Dane podstawowe",
             chapters=[
                 self.create_chapter(
                     title="1. Nazwa przedsięwzięcia",
@@ -131,10 +132,10 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
 
         self.save_part(part)
 
-    def create_application_applicant_data(self):
+    def create_application_applicant_data(self, number: int = 3):
         part = self.create_part(
-            title="III. Dane wnioskodawcy",
-            short_name="III. Dane wnioskodawcy",
+            title=f"{int_to_roman(number)}. Dane wnioskodawcy",
+            short_name=f"{int_to_roman(number)}. Dane wnioskodawcy",
             chapters=[
                 self.create_chapter(
                     components=[
@@ -406,7 +407,7 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
 
         self.save_part(part=part)
 
-    def create_application_sources_of_financing(self):
+    def create_application_sources_of_financing(self, number: int = 5):
         sources_of_financing_chapters = {
             "a": [
                 {
@@ -447,8 +448,8 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
         }
 
         part = self.create_part(
-            title="V. Źródła finansowania",
-            short_name="V. Źródła finansowania",
+            title=f"{int_to_roman(number)}. Źródła finansowania",
+            short_name=f"{int_to_roman(number)}. Źródła finansowania",
             chapters=[
                 self.create_chapter(
                     title="1. Całkowity przewidywany koszt realizacji przedsięwzięcia",
@@ -827,12 +828,12 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
         )
         self.save_part(part)
 
-    def create_application_project_costs(self):
+    def create_application_project_costs(self, number: int = 8):
         estimate_base = DUKApplicationEstimateBuilder(estimate_sections=[])
 
         part = self.create_part(
-            title="VIII. Kosztorys przedsięwzięcia",
-            short_name="VIII. Kosztorys przedsięwzięcia",
+            title=f"{int_to_roman(number)}. Kosztorys przedsięwzięcia",
+            short_name=f"{int_to_roman(number)}. Kosztorys przedsięwzięcia",
             chapters=[
                 estimate_base.generate_estimate_top(),
                 self.create_chapter(
