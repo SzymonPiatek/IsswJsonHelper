@@ -23,8 +23,8 @@ class TestApplicationBuilder(ApplicationBuilder):
         [x] RelatedDateGTEValidator
         [x] RelatedLocalDateGTEValidator
         [x] RelatedDateOffsetValidator
-        [ ] RelatedDateIncrementValidator
-        [ ] RelatedSumValidator
+        [x] RelatedDateIncrementValidator
+        [x] RelatedSumValidator
         [ ] RelatedMultiplicationValidator
         [ ] RelatedShareValidator
         [x] RelatedLocalDivisionValidator
@@ -81,6 +81,9 @@ class TestApplicationBuilder(ApplicationBuilder):
         self.create_related_date_gte_validator()
         self.create_related_local_date_gte_validator()
         self.create_related_date_offset_validator()
+        self.create_related_date_increment_validator()
+        self.create_related_sum_validator()
+        self.create_related_multiplication_validator()
         self.create_related_local_division_validator()
 
         self.save_output()
@@ -786,6 +789,198 @@ class TestApplicationBuilder(ApplicationBuilder):
                                     offset=-5
                                 )
                             ]
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_date_increment_validator(self):
+        part = self.create_part(
+            title="RelatedDateIncrementValidator",
+            short_name="Related Date Increment Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedDateIncrementValidator",
+                            value="Walidator sprawdza, czy data jest równa dacie z danego pola + amount (liczba dni)."
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Test (+5 dni)",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="date",
+                            label="Data od",
+                            name="startDateIncrement"
+                        ),
+                        self.create_component(
+                            component_type="date",
+                            label="Data do",
+                            name="endDateIncrement",
+                            validators=[
+                                self.validator.related_date_increment_validator(
+                                    field_name="startDateIncrement",
+                                    amount=5
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Test (-5 dni)",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="date",
+                            label="Data od",
+                            name="secondStartDateIncrement"
+                        ),
+                        self.create_component(
+                            component_type="date",
+                            label="Data do",
+                            name="secondEndDateIncrement",
+                            validators=[
+                                self.validator.related_date_increment_validator(
+                                    field_name="secondStartDateIncrement",
+                                    amount=-5
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_sum_validator(self):
+        part = self.create_part(
+            title="RelatedSumValidator",
+            short_name="Related Sum Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedSumValidator",
+                            value="Walidator sprawdza sumę danych pól."
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Single",
+                    class_list={
+                        "main": ["table-1-3-narrow"],
+                        "sub": ["table-1-3__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            name="firstSum",
+                            label="firstSum"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            name="secondSum",
+                            label="secondSum"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            label="totalSum",
+                            name="totalSum",
+                            read_only=True,
+                            calculation_rules=[
+                                self.calculation_rule.dynamic_sum_inputs(
+                                    fields=[
+                                        "firstSum",
+                                        "secondSum",
+                                    ]
+                                )
+                            ],
+                            validators=[
+                              self.validator.related_sum_validator(
+                                  field_names=[
+                                      "firstSum",
+                                      "secondSum",
+                                  ]
+                              )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Mutli",
+                    components=[
+                        self.create_chapter(
+                            multiple_forms_rules={
+                                "minCount": 2,
+                                "maxCount": 10,
+                            },
+                            components=[
+                                self.create_chapter(
+                                    title="Wartość",
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            name="firstSumMulti",
+                                            label="firstSumMulti"
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Suma",
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    mask="fund",
+                                    name="firstSumMultiTotal",
+                                    calculation_rules=[
+                                        self.calculation_rule.dynamic_sum_inputs(
+                                            fields=["firstSumMulti"]
+                                        )
+                                    ],
+                                    validators=[
+                                        self.validator.related_sum_validator(
+                                            field_names=["firstSumMulti"]
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_multiplication_validator(self):
+        part = self.create_part(
+            title="RelatedMultiplicationValidator",
+            short_name="Related Multiplication Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedMultiplicationValidator",
+                            value="Walidator sprawdza, czy poprawnie przemnożono wartości."
                         )
                     ]
                 )

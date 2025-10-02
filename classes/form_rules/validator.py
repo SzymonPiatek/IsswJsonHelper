@@ -59,7 +59,8 @@ class Validator:
             "RelatedLocalDivisionValidator",
             "RelatedEqualityValidator",
             "RelatedLocalEqualityValidator",
-            "RelatedNumericEqualityValidator"
+            "RelatedNumericEqualityValidator",
+            "RelatedDateIncrementValidator"
         ]
 
     @staticmethod
@@ -272,21 +273,13 @@ class Validator:
         Walidator sprawdza, czy wybrana opcja jest jedną z możliwych do wyboru.
         """
 
-        if message:
-            return {
-                "name": "ExactValidator",
-                "kwargs": {
-                    "values": values,
-                    "validationMsg": message
-                }
-            }
-        else:
-            return {
-                "name": "ExactValidator",
-                "kwargs": {
-                    "values": values,
-                }
-            }
+        return {
+            "name": "ExactValidator",
+            "kwargs": {
+                "values": values,
+            },
+            "validationMsg": message
+        }
 
     @staticmethod
     def related_fraction_gte_validator(field_name: str, ratio: float, message: str = None):
@@ -294,18 +287,14 @@ class Validator:
         Walidator sprawdza, czy wartość nie przekracza danej wartości procentowej wartości innego pola.
         """
 
-        result = {
+        return {
             "name": "RelatedFractionGTEValidator",
             "kwargs": {
                 "field_name": field_name,
                 "ratio": ratio
-            }
+            },
+            "validationMsg": message
         }
-
-        if message:
-            result["validationMsg"] = message
-
-        return result
 
     @staticmethod
     def related_fraction_lte_validator(field_name: str, ratio: float, message: str = None):
@@ -313,18 +302,14 @@ class Validator:
         Walidator sprawdza, czy wartość nie przekracza danej wartości procentowej wartości innego pola.
         """
 
-        result = {
+        return {
             "name": "RelatedFractionLTEValidator",
             "kwargs": {
                 "field_name": field_name,
                 "ratio": ratio
-            }
+            },
+            "validationMsg": message
         }
-
-        if message:
-            result["validationMsg"] = message
-
-        return result
 
     @staticmethod
     def related_share_validator(dividend: str, divisor: str):
@@ -546,5 +531,20 @@ class Validator:
         return {
             "name": "RelatedNumericEqualityValidator",
             "kwargs": {"field_name": field_name},
+            "validationMsg": message
+        }
+
+    @staticmethod
+    def related_date_increment_validator(field_name: str, amount: int, message: str = None):
+        """
+        Walidator sprawdza, czy data jest równa dacie z danego pola + amount (liczba dni).
+        """
+
+        return {
+            "name": "RelatedDateIncrementValidator",
+            "kwargs": {
+                "field_name": field_name,
+                "amount": amount
+            },
             "validationMsg": message
         }
