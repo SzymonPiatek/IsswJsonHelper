@@ -57,7 +57,9 @@ class Validator:
             "RelatedConditionRatioValidator",
             "RelatedConditionRangeValidator",
             "RelatedLocalDivisionValidator",
-            "RelatedEqualityValidator"
+            "RelatedEqualityValidator",
+            "RelatedLocalEqualityValidator",
+            "RelatedNumericEqualityValidator"
         ]
 
     @staticmethod
@@ -423,7 +425,7 @@ class Validator:
         }
 
     @staticmethod
-    def related_date_lte_validator(field_name: str, message: str):
+    def related_date_lte_validator(field_name: str, message: str = None):
         """
         Walidator sprawdza, czy podana data jest wcześniejsza niż data ze wskazanego pola.
         """
@@ -433,7 +435,7 @@ class Validator:
             "kwargs": {
                 "field_name": field_name
             },
-            "validationMsg": message if message else f"Podana data musi być wcześniejsza niż data z pola '{field_name}.'"
+            "validationMsg": message or None
         }
 
     @staticmethod
@@ -517,15 +519,32 @@ class Validator:
         Walidator sprawdza, czy wartość danego pola jest równa wartości innego pola.
         """
 
-        kwargs = {
-            "field_name": field_name,
-        }
-
-        if message:
-            kwargs["validationMsg"] = message
-
         return {
             "name": "RelatedEqualityValidator",
-            "kwargs": kwargs
+            "kwargs": {"field_name": field_name},
+            "validationMsg": message or None
         }
 
+    @staticmethod
+    def related_local_equality_validator(field_name: str, message: str = None):
+        """
+        Walidator sprawdza, czy wartość danego pola jest równa wartości innego pola - lokalnie.
+        """
+
+        return {
+            "name": "RelatedLocalEqualityValidator",
+            "kwargs": {"field_name": field_name},
+            "validationMsg": message or None
+        }
+
+    @staticmethod
+    def related_numeric_equality_validator(field_name: str, message: str = None):
+        """
+        Walidator sprawdza, czy wartość numeryczna danego pola jest równa wartości innego pola - lokalnie.
+        """
+
+        return {
+            "name": "RelatedNumericEqualityValidator",
+            "kwargs": {"field_name": field_name},
+            "validationMsg": message or None
+        }
