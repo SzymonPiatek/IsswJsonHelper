@@ -56,7 +56,8 @@ class Validator:
             "CheckboxTrueDateLTEToday",
             "RelatedConditionRatioValidator",
             "RelatedConditionRangeValidator",
-            "RelatedLocalDivisionValidator"
+            "RelatedLocalDivisionValidator",
+            "RelatedEqualityValidator"
         ]
 
     @staticmethod
@@ -508,5 +509,23 @@ class Validator:
                 "dividend": dividend,
                 "divisor": divisor
             }
+        }
+
+    @staticmethod
+    def related_equality_validator(field_name: str, message: str = None):
+        """
+        Walidator sprawdza, czy wartość danego pola jest równa wartości innego pola.
+        """
+
+        kwargs = {
+            "field_name": field_name,
+        }
+
+        if message:
+            kwargs["validationMsg"] = message
+
+        return {
+            "name": "RelatedEqualityValidator",
+            "kwargs": kwargs
         }
 
