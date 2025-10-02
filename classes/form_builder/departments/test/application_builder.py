@@ -91,6 +91,15 @@ class TestApplicationBuilder(ApplicationBuilder):
             short_name="Related Equality Validator",
             chapters=[
                 self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedEqualityValidator",
+                            value="Walidator sprawdza, czy wartości są sobie równe."
+                        )
+                    ]
+                ),
+                self.create_chapter(
                     title="Text to text",
                     class_list={
                         "main": ["table-1-2"],
@@ -196,6 +205,15 @@ class TestApplicationBuilder(ApplicationBuilder):
             title="RelatedLocalEqualityValidator",
             short_name="Related Local Equality Validator",
             chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedLocalEqualityValidator",
+                            value="Walidator sprawdza, czy wartości lokalne są sobie równe."
+                        )
+                    ]
+                ),
                 self.create_chapter(
                     title="Text to text",
                     components=[
@@ -355,6 +373,15 @@ class TestApplicationBuilder(ApplicationBuilder):
             short_name="Related Numeric Equality Validator",
             chapters=[
                 self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedNumericEqualityValidator",
+                            value="Walidator sprawdza, czy wartości numeryczne są sobie równe."
+                        )
+                    ]
+                ),
+                self.create_chapter(
                     title="Number to number",
                     class_list={
                         "main": ["table-1-2"],
@@ -439,6 +466,15 @@ class TestApplicationBuilder(ApplicationBuilder):
             short_name="Related Required If Equal Validator",
             chapters=[
                 self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedRequiredIfEqualValidator",
+                            value="Walidator sprawdza, czy pole jest obowiązkowe po spełnieniu warunku."
+                        )
+                    ]
+                ),
+                self.create_chapter(
                     title="Test",
                     components=[
                         self.create_chapter(
@@ -501,6 +537,15 @@ class TestApplicationBuilder(ApplicationBuilder):
             short_name="Related Date LTE Validator",
             chapters=[
                 self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedDateLTEValidator",
+                            value="Walidator sprawdza, czy data jest mniejsza lub równa dacie z danego pola."
+                        )
+                    ]
+                ),
+                self.create_chapter(
                     title="Test",
                     class_list={
                         "main": ["table-1-2"],
@@ -533,6 +578,15 @@ class TestApplicationBuilder(ApplicationBuilder):
             title="RelatedLocalDateLTEValidator",
             short_name="Related Local Date LTE Validator",
             chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedLocalDateLTEValidator",
+                            value="Walidator sprawdza, czy data jest mniejsza lub równa dacie z danego pola - lokalnie."
+                        )
+                    ]
+                ),
                 self.create_chapter(
                     title="Test",
                     components=[
@@ -580,6 +634,15 @@ class TestApplicationBuilder(ApplicationBuilder):
             short_name="Related Date GTE Validator",
             chapters=[
                 self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedDateGTEValidator",
+                            value="Walidator sprawdza, czy data jest większa lub równa dacie z danego pola."
+                        )
+                    ]
+                ),
+                self.create_chapter(
                     title="Test",
                     class_list={
                         "main": ["table-1-2"],
@@ -612,6 +675,15 @@ class TestApplicationBuilder(ApplicationBuilder):
             title="RelatedLocalDateGTEValidator",
             short_name="Related Local Date GTE Validator",
             chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedLocalDateGTEValidator",
+                            value="Walidator sprawdza, czy data jest większa lub równa dacie z danego pola - lokalnie."
+                        )
+                    ]
+                ),
                 self.create_chapter(
                     title="Test",
                     components=[
@@ -659,6 +731,15 @@ class TestApplicationBuilder(ApplicationBuilder):
             short_name="Related Date Offset Validator",
             chapters=[
                 self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedDateOffsetValidator",
+                            value="Walidator sprawdza, czy data nie jest późniejsza niż data z danego pola + offest (liczba dni)."
+                        )
+                    ]
+                ),
+                self.create_chapter(
                     title="Test (+5 dni)",
                     class_list={
                         "main": ["table-1-2"],
@@ -682,6 +763,31 @@ class TestApplicationBuilder(ApplicationBuilder):
                             ]
                         )
                     ]
+                ),
+                self.create_chapter(
+                    title="Test (-5 dni)",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="date",
+                            label="Data od",
+                            name="secondStartDateOffset"
+                        ),
+                        self.create_component(
+                            component_type="date",
+                            label="Data do",
+                            name="secondEndDateOffset",
+                            validators=[
+                                self.validator.related_date_offset_validator(
+                                    field_name="secondStartDateOffset",
+                                    offset=-5
+                                )
+                            ]
+                        )
+                    ]
                 )
             ]
         )
@@ -692,6 +798,15 @@ class TestApplicationBuilder(ApplicationBuilder):
             title="RelatedLocalDivisionValidator",
             short_name="Related Local Division Validator",
             chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedLocalDivisionValidator",
+                            value="Walidator sprawdza poprawność wyliczonej wartości procentowej - lokalnie."
+                        )
+                    ]
+                ),
                 self.create_chapter(
                     title="Costs with shares",
                     components=[
