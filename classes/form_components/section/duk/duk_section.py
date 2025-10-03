@@ -1,6 +1,7 @@
 from classes.form_components.section.section import Section
-from .application_attachment import ApplicationAttachment
-from .application_scope_of_project import ApplicationScopeOfProject
+from classes.form_components.section.duk.application.application_applicant_data import ApplicationApplicantData
+from classes.form_components.section.duk.application.application_attachment import ApplicationAttachment
+from classes.form_components.section.duk.application.application_scope_of_project import ApplicationScopeOfProject
 
 
 class DUKSection(Section):
@@ -9,3 +10,4 @@ class DUKSection(Section):
 
         self.application_attachment = ApplicationAttachment()
         self.application_scope_of_project = ApplicationScopeOfProject()
+        self.application_applicant_data = ApplicationApplicantData()

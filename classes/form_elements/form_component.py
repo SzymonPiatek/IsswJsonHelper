@@ -93,6 +93,9 @@ class FormComponent(FormElement):
                 case _:
                     self.value = ''
 
+        if self.mask == "share" and not self.unit:
+            self.unit = "%"
+
     def _process_select_radio(self):
         if self.component_type in {"select", "radio"}:
             if not self.options:

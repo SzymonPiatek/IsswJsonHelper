@@ -2,7 +2,7 @@ from typing import ClassVar
 import json
 from pathlib import Path
 from ..form_components import Part, Component, Section
-from .additional.decorators import not_implemented_func
+from classes.decorators import not_implemented_func
 from ..form_factory.form_factory import FormFactory
 from classes.types import *
 
@@ -17,6 +17,7 @@ class FormBuilder(FormFactory):
     YEAR: YearType = 2026
     SESSION: ClassVar[SessionType] = 'I'
     FORM_ID: int
+    MAIN_DIR = Path(__file__).resolve().parents[2]
 
     def __init__(self) -> None:
         super().__init__()
@@ -31,7 +32,7 @@ class FormBuilder(FormFactory):
         self.session = self.SESSION
         self.form_id = self.FORM_ID
 
-        self.main_dir = Path(__file__).resolve().parents[2]
+        self.main_dir = self.MAIN_DIR
         self.data_path = self.main_dir / 'data'
         self.main_dir.mkdir(parents=True, exist_ok=True)
         self.output_file = self._prepare_output_path()
