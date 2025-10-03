@@ -34,7 +34,7 @@ class TestApplicationBuilder(ApplicationBuilder):
         [x] RelatedBooleanSumValidator
         [x] RelatedSumOfWeightsValidator
         [x] RelatedEqualIfInRangeValidator
-        [ ] RelatedEmptyIfValidator
+        [x] RelatedEmptyIfValidator
         [ ] RelatedFractionValidator
         [ ] RelatedFractionGTEValidator
         [ ] RelatedFractionLTEValidator
@@ -93,6 +93,7 @@ class TestApplicationBuilder(ApplicationBuilder):
         self.create_related_boolean_sum_validator()
         self.create_related_sum_of_weights_validator()
         self.create_related_equal_if_in_range_validator()
+        self.create_related_empty_if_validator()
 
         self.create_related_last_date_validator()
 
@@ -1420,7 +1421,9 @@ class TestApplicationBuilder(ApplicationBuilder):
                             validators=[
                                 self.validator.related_equal_if_in_range_validator(
                                     field_name="firstEqualNumber",
-                                    required_value=0
+                                    required_value=True,
+                                    min_value=0,
+                                    max_value=100
                                 )
                             ]
                         )
@@ -1447,7 +1450,66 @@ class TestApplicationBuilder(ApplicationBuilder):
                             validators=[
                                 self.validator.related_equal_if_in_range_validator(
                                     field_name="firstEqualNumberText",
-                                    required_value=0
+                                    required_value=42,
+                                    min_value=0,
+                                    max_value=100
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_empty_if_validator(self):
+        part = self.create_part(
+            title="RelatedEmptyIfValidator",
+            short_name="Related Empty IF Validator",
+            chapters=[
+                self.create_chapter(
+                    title="Checkbox",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="checkbox",
+                            name="emptyCheckbox",
+                            label="Value"
+                        ),
+                        self.create_component(
+                            component_type="checkbox",
+                            name="emptyCheckboxCheck",
+                            label="Check",
+                            validators=[
+                                self.validator.related_empty_if_validator(
+                                    field_name="emptyCheckbox",
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Text",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            name="emptyText",
+                            label="Value"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            name="emptyTextCheck",
+                            label="Check",
+                            validators=[
+                                self.validator.related_empty_if_validator(
+                                    field_name="emptyText",
                                 )
                             ]
                         )

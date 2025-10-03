@@ -65,7 +65,8 @@ class Validator:
             "RelatedBooleanSumValidator",
             "RelatedSumOfWeightsValidator",
             "RelatedLastDateValidator",
-            "RelatedEqualIfInRangeValidator"
+            "RelatedEqualIfInRangeValidator",
+            "RelatedEmptyIfValidator"
         ]
 
     @staticmethod
@@ -629,8 +630,31 @@ class Validator:
         if max_value:
             kwargs["max"] = max_value
 
-        return {
+        result = {
             "name": "RelatedEqualIfInRangeValidator",
             "kwargs": kwargs,
-            "validationMsg": message
         }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
+    @staticmethod
+    def related_empty_if_validator(field_name: str, message: str = None):
+        """
+
+        """
+
+        result = {
+            "name": "RelatedEmptyIfValidator",
+            "kwargs": {
+                "field_name": field_name,
+            }
+        }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
