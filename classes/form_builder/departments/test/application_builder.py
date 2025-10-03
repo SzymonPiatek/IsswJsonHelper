@@ -29,8 +29,8 @@ class TestApplicationBuilder(ApplicationBuilder):
         [x] RelatedShareValidator
         [x] RelatedLocalDivisionValidator
         [x] RelatedMapValidator
-        [ ] RelatedBooleanSumValidator
-        [ ] RelatedSumOfWeightsValidator
+        [x] RelatedBooleanSumValidator
+        [x] RelatedSumOfWeightsValidator
         [ ] RelatedEqualIfInRangeValidator
         [ ] RelatedEmptyIfValidator
         [ ] RelatedFractionValidator
@@ -87,6 +87,8 @@ class TestApplicationBuilder(ApplicationBuilder):
         self.create_related_share_validator()
         self.create_related_local_division_validator()
         self.create_related_map_validator()
+        self.create_related_boolean_sum_validator()
+        self.create_related_sum_of_weights_validator()
 
         self.save_output()
 
@@ -1277,6 +1279,107 @@ class TestApplicationBuilder(ApplicationBuilder):
                                     mapping={
                                         "Polska": "Warszawa",
                                         "Niemcy": "Berlin"
+                                    }
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_boolean_sum_validator(self):
+        part = self.create_part(
+            title="RelatedBooleanSumValidator",
+            short_name="Related Boolean Sum Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedBooleanSumValidator",
+                            value="Walidator sprawdza, czy co najmniej jedna z badanych wartości jest prawdziwa. Jeśli tak, wymaga, aby wartość komponentu również była prawdziwa. Jeżeli natomiast żadna z badanych wartości nie jest prawdziwa, walidator wymaga, aby wartość komponentu była fałszywa."
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Only booleans",
+                    class_list={
+                        "main": ["table-1-3-narrow"],
+                        "sub": ["table-1-3__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="checkbox",
+                            name="firstBooleanValue",
+                            label="firstBoolean"
+                        ),
+                        self.create_component(
+                            component_type="checkbox",
+                            name="secondBooleanValue",
+                            label="secondBoolean"
+                        ),
+                        self.create_component(
+                            component_type="checkbox",
+                            name="thirdBooleanValue",
+                            label="checkValue",
+                            validators=[
+                                self.validator.related_boolean_sum_validator(
+                                    field_names=[
+                                        "firstBooleanValue",
+                                        "secondBooleanValue",
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_sum_of_weights_validator(self):
+        part = self.create_part(
+            title="RelatedSumOfWeightsValidator",
+            short_name="Related Sum of Weights Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedSumOfWeightsValidator",
+                            value=""
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Test",
+                    class_list={
+                        "main": ["table-1-3-narrow"],
+                        "sub": ["table-1-3__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="checkbox",
+                            name="firstWeightCheckbox",
+                            label="Tak (1 punkt)"
+                        ),
+                        self.create_component(
+                            component_type="checkbox",
+                            name="secondWeightCheckbox",
+                            label="Tak (2 punkty)"
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            name="weightCheck",
+                            label="Check",
+                            value="3",
+                            validators=[
+                                self.validator.related_sum_of_weights_validator(
+                                    weights={
+                                        "firstWeightCheckbox": 1,
+                                        "secondWeightCheckbox": 2
                                     }
                                 )
                             ]

@@ -61,7 +61,9 @@ class Validator:
             "RelatedLocalEqualityValidator",
             "RelatedNumericEqualityValidator",
             "RelatedDateIncrementValidator",
-            "RelatedMapValidator"
+            "RelatedMapValidator",
+            "RelatedBooleanSumValidator",
+            "RelatedSumOfWeightsValidator"
         ]
 
     @staticmethod
@@ -561,6 +563,36 @@ class Validator:
             "kwargs": {
                 "field_name": field_name,
                 "mapping": mapping,
+            },
+            "validationMsg": message
+        }
+
+    @staticmethod
+    def related_boolean_sum_validator(field_names: list[str], message: str = None):
+        """
+        Walidator sprawdza, czy co najmniej jedna z badanych wartości jest prawdziwa.
+        Jeśli tak, wymaga, aby wartość komponentu również była prawdziwa.
+        Jeżeli natomiast żadna z badanych wartości nie jest prawdziwa, walidator wymaga, aby wartość komponentu była fałszywa.
+        """
+
+        return {
+            "name": "RelatedBooleanSumValidator",
+            "kwargs": {
+                "field_names": field_names,
+            },
+            "validationMsg": message
+        }
+
+    @staticmethod
+    def related_sum_of_weights_validator(weights: dict[str, float], message: str = None):
+        """
+
+        """
+
+        return {
+            "name": "RelatedSumOfWeightsValidator",
+            "kwargs": {
+                "weights": weights,
             },
             "validationMsg": message
         }
