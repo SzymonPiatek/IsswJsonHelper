@@ -64,7 +64,8 @@ class Validator:
             "RelatedMapValidator",
             "RelatedBooleanSumValidator",
             "RelatedSumOfWeightsValidator",
-            "RelatedLastDateValidator"
+            "RelatedLastDateValidator",
+            "RelatedEqualIfInRangeValidator"
         ]
 
     @staticmethod
@@ -609,5 +610,27 @@ class Validator:
             "kwargs": {
                 "field_name": field_name,
             },
+            "validationMsg": message
+        }
+
+    @staticmethod
+    def related_equal_if_in_range_validator(field_name: str, required_value: Any, min_value: float = None, max_value: float = None, message: str = None):
+        """
+
+        """
+
+        kwargs = {
+            "field_name": field_name,
+            "required_value": required_value,
+        }
+
+        if min_value:
+            kwargs["min"] = min_value
+        if max_value:
+            kwargs["max"] = max_value
+
+        return {
+            "name": "RelatedEqualIfInRangeValidator",
+            "kwargs": kwargs,
             "validationMsg": message
         }

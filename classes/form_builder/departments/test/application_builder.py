@@ -12,6 +12,8 @@ class TestApplicationBuilder(ApplicationBuilder):
     def __init__(self):
         super().__init__()
 
+        self.output_file = self.main_dir / 'output' / 'json' / 'test' / 'test.json'
+
         """ 
         Validators:
         [x] RelatedEqualityValidator
@@ -31,7 +33,7 @@ class TestApplicationBuilder(ApplicationBuilder):
         [x] RelatedMapValidator
         [x] RelatedBooleanSumValidator
         [x] RelatedSumOfWeightsValidator
-        [ ] RelatedEqualIfInRangeValidator
+        [x] RelatedEqualIfInRangeValidator
         [ ] RelatedEmptyIfValidator
         [ ] RelatedFractionValidator
         [ ] RelatedFractionGTEValidator
@@ -90,6 +92,7 @@ class TestApplicationBuilder(ApplicationBuilder):
         self.create_related_map_validator()
         self.create_related_boolean_sum_validator()
         self.create_related_sum_of_weights_validator()
+        self.create_related_equal_if_in_range_validator()
 
         self.create_related_last_date_validator()
 
@@ -1384,6 +1387,67 @@ class TestApplicationBuilder(ApplicationBuilder):
                                         "firstWeightCheckbox": 1,
                                         "secondWeightCheckbox": 2
                                     }
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_equal_if_in_range_validator(self):
+        part = self.create_part(
+            title="RelatedEqualIfInRangeValidator",
+            short_name="Related Equal If In Range Validator",
+            chapters=[
+                self.create_chapter(
+                    title="Number",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="number",
+                            label="Number",
+                            name="firstEqualNumber"
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            label="Check",
+                            name="firstEqualNumberCheck",
+                            validators=[
+                                self.validator.related_equal_if_in_range_validator(
+                                    field_name="firstEqualNumber",
+                                    required_value=0
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Text (fund)",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            label="Text",
+                            name="firstEqualNumberText"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            label="Check",
+                            name="firstEqualNumberCheckText",
+                            validators=[
+                                self.validator.related_equal_if_in_range_validator(
+                                    field_name="firstEqualNumberText",
+                                    required_value=0
                                 )
                             ]
                         )
