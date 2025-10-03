@@ -63,7 +63,8 @@ class Validator:
             "RelatedDateIncrementValidator",
             "RelatedMapValidator",
             "RelatedBooleanSumValidator",
-            "RelatedSumOfWeightsValidator"
+            "RelatedSumOfWeightsValidator",
+            "RelatedLastDateValidator"
         ]
 
     @staticmethod
@@ -593,6 +594,20 @@ class Validator:
             "name": "RelatedSumOfWeightsValidator",
             "kwargs": {
                 "weights": weights,
+            },
+            "validationMsg": message
+        }
+
+    @staticmethod
+    def related_last_date_validator(field_name: str, message: str = None):
+        """
+        Walidator sprawdza, czy data jest większa lub równa najpóźniejszej dacie z danego pola.
+        """
+
+        return {
+            "name": "RelatedLastDateValidator",
+            "kwargs": {
+                "field_name": field_name,
             },
             "validationMsg": message
         }

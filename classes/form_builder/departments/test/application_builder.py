@@ -43,6 +43,7 @@ class TestApplicationBuilder(ApplicationBuilder):
         [ ] RelatedUniqueValueValidator
         [ ] RelatedConditionRatioValidator
         [ ] RelatedConditionRangeValidator
+        [ ] RelatedLastDateValidator
         
         CalculationRules:
         [ ] sumInputs

@@ -89,6 +89,11 @@ class ApplicationSchedule(FormFactory):
                     calculation_rules=[
                         self.calculation_rule.last_date(field="taskActionDateEnd")
                     ],
+                    validators=[
+                        self.validator.related_last_date_validator(
+                            field_name="taskActionDateEnd"
+                        )
+                    ],
                     required=True
                 ),
                 self.create_component(
