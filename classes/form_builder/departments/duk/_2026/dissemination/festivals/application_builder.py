@@ -35,11 +35,10 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
 
     def create_application_scope_of_project(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Zakres przedsięwzięcia",
+            title=f"{int_to_roman(number)}. Zakres i charakterystyka przedsięwzięcia",
             short_name=f"{int_to_roman(number)}. Zakres przedsięwzięcia",
             chapters=[
                 self.create_chapter(
-                    title="Zakres i charakterystyka przedsięwzięcia",
                     class_list={
                         "main": [
                             "table-1-2",
@@ -98,183 +97,122 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                             class_list=[
                                 "table-full"
                             ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="Cele strategiczne festiwalu",
-                    components=[
+                        ),
                         self.create_component(
                             component_type="textarea",
+                            label="Cele strategiczne festiwalu",
                             name="strategicFestivalGoals",
                             validators=[
                                 self.validator.length_validator(max_value=500)
                             ],
-                            required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="Profil artystyczny festiwalu",
-                    components=[
+                            required=True,
+                            class_list=[
+                                "table-full"
+                            ]
+                        ),
                         self.create_component(
                             component_type="textarea",
+                            label="Profil artystyczny festiwalu",
                             name="artisticFestivalProfile",
                             validators=[
                                 self.validator.length_validator(max_value=500)
                             ],
-                            required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    components=[
-                        self.create_chapter(
-                            title="Program festiwalu",
+                            required=True,
                             class_list=[
-                                "displayNoneFrontend"
+                                "table-full"
                             ]
                         ),
-                        self.create_chapter(
-                            title="Program festiwalu<br/><normal><small>Repertuar, konkursy, sekcje, jury</normal></small>",
-                            class_list=[
-                                "no-title"
+                        self.create_component(
+                            component_type="textarea",
+                            label="Program festiwalu",
+                            name="festivalProgram",
+                            validators=[
+                                self.validator.length_validator(max_value=5000)
                             ],
-                            components=[
-                                self.create_component(
-                                    component_type="textarea",
-                                    name="festivalProgram",
-                                    validators=[
-                                        self.validator.length_validator(max_value=5000)
-                                    ],
-                                    required=True
-                                )
+                            required=True,
+                            help_text="Repertuar, konkursy, sekcje, jury",
+                            class_list=[
+                                "table-full"
                             ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="Przyznane nagrody",
-                    components=[
+                        ),
                         self.create_component(
                             component_type="textarea",
                             name="prizesAwarded",
+                            label="Przyznane nagrody",
                             validators=[
                                 self.validator.length_validator(max_value=1000)
                             ],
-                            required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    components=[
-                        self.create_chapter(
-                            title="Wydarzenia towarzyszące",
+                            required=True,
                             class_list=[
-                                "displayNoneFrontend"
+                                "table-full"
                             ]
                         ),
-                        self.create_chapter(
-                            title="Wydarzenia towarzyszące<br/><normal><small>Np. spotkania z twórcami, warsztaty, retrospektywy, prelekcje</normal></small>",
-                            class_list=[
-                                "no-title"
-                            ],
-                            components=[
-                                self.create_component(
-                                    component_type="textarea",
-                                    name="accompanyingEvents",
-                                    validators=[
-                                        self.validator.length_validator(max_value=5000)
-                                    ],
-                                    required=True
-                                )
-                            ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="Doświadczenie wnioskodawcy i kompetencje zespołu",
-                    components=[
                         self.create_component(
                             component_type="textarea",
+                            label="Wydarzenia towarzyszące",
+                            name="accompanyingEvents",
+                            validators=[
+                                self.validator.length_validator(max_value=5000)
+                            ],
+                            required=True,
+                            help_text="Np. spotkania z twórcami, warsztaty, retrospektywy, prelekcje",
+                            class_list=[
+                                "table-full"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="textarea",
+                            label="Doświadczenie wnioskodawcy i kompetencje zespołu",
                             name="applicantExperienceAndTeamCompetences",
                             validators=[
                                 self.validator.length_validator(max_value=500)
                             ],
-                            required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    components=[
-                        self.create_chapter(
-                            title="Promocja festiwalu",
+                            required=True,
                             class_list=[
-                                "displayNoneFrontend"
+                                "table-full"
                             ]
                         ),
-                        self.create_chapter(
-                            title="Promocja festiwalu<br/><normal><small>Plan promocji, działania marketingowe, współprace, partnerzy i patroni medialni</normal></small>",
-                            class_list=[
-                                "no-title"
-                            ],
-                            components=[
-                                self.create_component(
-                                    component_type="textarea",
-                                    name="festivalPromotion",
-                                    validators=[
-                                        self.validator.length_validator(max_value=500)
-                                    ],
-                                    required=True
-                                )
-                            ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    components=[
-                        self.create_chapter(
-                            title="Dostępność wydarzenia",
-                            class_list=[
-                                "displayNoneFrontend"
-                            ]
-                        ),
-                        self.create_chapter(
-                            title="Dostępność wydarzenia<br/><normal><small>Działania podejmowane na rzecz osób ze szczególnymi potrzebami oraz wspieranie inkluzywności</normal></small>",
-                            class_list=[
-                                "no-title"
-                            ],
-                            components=[
-                                self.create_component(
-                                    component_type="textarea",
-                                    name="eventAccessibility",
-                                    validators=[
-                                        self.validator.length_validator(max_value=500)
-                                    ],
-                                    required=True
-                                )
-                            ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="Profil publiczności",
-                    components=[
                         self.create_component(
                             component_type="textarea",
+                            label="Promocja festiwalu",
+                            name="festivalPromotion",
+                            validators=[
+                                self.validator.length_validator(max_value=500)
+                            ],
+                            required=True,
+                            help_text="Plan promocji, działania marketingowe, współprace, partnerzy i patroni medialni",
+                            class_list=[
+                                "table-full"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="textarea",
+                            label="Dostępność wydarzenia",
+                            name="eventAccessibility",
+                            validators=[
+                                self.validator.length_validator(max_value=500)
+                            ],
+                            required=True,
+                            help_text="Działania podejmowane na rzecz osób ze szczególnymi potrzebami oraz wspieranie inkluzywności",
+                            class_list=[
+                                "table-full"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="textarea",
+                            label="Profil publiczności",
                             name="audienceProfile",
                             validators=[
                                 self.validator.length_validator(max_value=500)
                             ],
-                            required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="Udział w przedsięwzięciach jest",
-                    components=[
+                            required=True,
+                            class_list=[
+                                "table-full"
+                            ]
+                        ),
                         self.create_component(
                             component_type="radio",
+                            label="Udział w przedsięwzięciach jest",
                             name="participationInVentureIs",
                             options=[
                                 "bezpłatny",
@@ -282,20 +220,22 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                                 "w większości płatny",
                                 "płatny"
                             ],
-                            required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="Planowane efekty realizacji przedsięwzięcia",
-                    components=[
+                            required=True,
+                            class_list=[
+                                "table-full"
+                            ]
+                        ),
                         self.create_component(
                             component_type="textarea",
+                            label="Planowane efekty realizacji przedsięwzięcia",
                             name="plannedEffects",
                             validators=[
                                 self.validator.length_validator(max_value=1000)
                             ],
-                            required=True
+                            required=True,
+                            class_list=[
+                                "table-full"
+                            ]
                         )
                     ]
                 )
