@@ -43,7 +43,7 @@ class TestApplicationBuilder(ApplicationBuilder):
         [ ] RelatedUniqueValueValidator
         [ ] RelatedConditionRatioValidator
         [ ] RelatedConditionRangeValidator
-        [ ] RelatedLastDateValidator
+        [x] RelatedLastDateValidator
         
         CalculationRules:
         [ ] sumInputs
@@ -90,6 +90,8 @@ class TestApplicationBuilder(ApplicationBuilder):
         self.create_related_map_validator()
         self.create_related_boolean_sum_validator()
         self.create_related_sum_of_weights_validator()
+
+        self.create_related_last_date_validator()
 
         self.save_output()
 
@@ -1350,7 +1352,7 @@ class TestApplicationBuilder(ApplicationBuilder):
                         self.create_component(
                             component_type="header",
                             name="relatedSumOfWeightsValidator",
-                            value=""
+                            value="Walidator sprawdza, czy dana wartość jest równa wartości po spełnieniu wszystkich warunków."
                         )
                     ]
                 ),
@@ -1384,6 +1386,85 @@ class TestApplicationBuilder(ApplicationBuilder):
                                     }
                                 )
                             ]
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+
+
+    def create_related_last_date_validator(self):
+        part = self.create_part(
+            title="RelatedLastDateValidator",
+            short_name="Related Last Date Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedLastDateValidator",
+                            value="Walidator sprawdza, czy data jest większa lub równa najpóźniejszej dacie z danego pola."
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Harmonogram",
+                    components=[
+                        self.create_chapter(
+                            multiple_forms_rules={
+                                "minCount": 2,
+                                "maxCount": 10
+                            },
+                            components=[
+                                self.create_chapter(
+                                    class_list={
+                                        "main": ["table-1-2"],
+                                        "sub": ["table-1-2__col"],
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="date",
+                                            label="Data od",
+                                            name="lastStartDate",
+                                            required=True,
+                                            validators=[
+                                                self.validator.related_local_date_lte_validator(
+                                                    field_name="lastEndDate"
+                                                )
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="date",
+                                            label="Data do",
+                                            name="lastEndDate",
+                                            required=True,
+                                            validators=[
+                                                self.validator.related_local_date_gte_validator(
+                                                    field_name="lastStartDate"
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Podsumowanie",
+                    components=[
+                        self.create_component(
+                            component_type="date",
+                            label="Data premiery",
+                            name="premiereDate",
+                            validators=[
+                                self.validator.related_last_date_validator(
+                                    field_name="lastEndDate"
+                                )
+                            ],
+                            required=True
                         )
                     ]
                 )

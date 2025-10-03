@@ -587,7 +587,7 @@ class Validator:
     @staticmethod
     def related_sum_of_weights_validator(weights: dict[str, float], message: str = None):
         """
-
+        Walidator sprawdza, czy dana wartość jest równa wartości po spełnieniu wszystkich warunków.
         """
 
         return {
