@@ -938,7 +938,6 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                                                 )
                                             ],
                                             required=True,
-                                            mask="share",
                                             unit="%"
                                         )
                                     ]
@@ -1031,7 +1030,6 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                                                 )
                                             ],
                                             required=True,
-                                            mask="share",
                                             unit="%"
                                         )
                                     ]
@@ -1122,7 +1120,6 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                                                                     read_only=True,
                                                                     required=True,
                                                                     unit="%",
-                                                                    mask="share",
                                                                     validators=[
                                                                         self.validator.related_required_if_equal_validator(
                                                                             field_name=chapter["checkbox_name"],
@@ -1175,7 +1172,6 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                                                             ],
                                                             read_only=True,
                                                             required=True,
-                                                            mask="share",
                                                             unit="%"
                                                         )
                                                     ]

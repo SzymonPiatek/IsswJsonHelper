@@ -15,7 +15,7 @@ COMPONENT_TYPES = set(COMPONENT_TYPE_VALUES)
 
 MASK_TYPE_VALUES = (
     "fund", "phoneNumber", "bankAccount", "landline",
-    "jst", "ibanAccount", "polishPostalCode", "share"
+    "jst", "ibanAccount", "polishPostalCode"
 )
 MaskType = Literal[*MASK_TYPE_VALUES]
 MASK_TYPES = set(MASK_TYPE_VALUES)

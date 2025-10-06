@@ -462,7 +462,6 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                                                 ),
                                                 self.create_component(
                                                     component_type="number",
-                                                    mask="share",
                                                     name="ownFinancialFundsShare",
                                                     label="Udział w koszcie całkowitym",
                                                     calculation_rules=[
@@ -564,7 +563,6 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                                                 ),
                                                 self.create_component(
                                                     component_type="number",
-                                                    mask="share",
                                                     name="ownInKindFundsShare",
                                                     label="Udział w koszcie całkowitym",
                                                     calculation_rules=[
@@ -671,7 +669,6 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                                                 )
                                             ],
                                             required=True,
-                                            mask="share",
                                             unit="%"
                                         )
                                     ]
@@ -763,7 +760,6 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                                                                                     read_only=True,
                                                                                     required=True,
                                                                                     unit="%",
-                                                                                    mask="share",
                                                                                     validators=[
                                                                                         self.validator.related_required_if_equal_validator(
                                                                                             field_name=chapter["checkbox_name"],
@@ -816,7 +812,6 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                                                                             ],
                                                                             read_only=True,
                                                                             required=True,
-                                                                            mask="share",
                                                                             unit="%"
                                                                         )
                                                                     ]

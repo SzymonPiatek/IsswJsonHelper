@@ -543,7 +543,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                             label="Udział wnioskowanej dotacji PISF we wskazanym rodzaju kosztów",
                                             name=f"{chapter["name"]}CostRequestPisfShare",
                                             unit="%",
-                                            mask="share",
                                             calculation_rules=[
                                                 self.calculation_rule.share_calculator(
                                                     dividend_field=f"{chapter["name"]}CostRequestPisf",
@@ -557,7 +556,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                             label="Udział środków własnych we wskazanym rodzaju kosztów",
                                             name=f"{chapter["name"]}CostOwnFundsShare",
                                             unit="%",
-                                            mask="share",
                                             calculation_rules=[
                                                 self.calculation_rule.share_calculator(
                                                     dividend_field=f"{chapter["name"]}CostOwnFunds",
@@ -571,7 +569,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                             label="Udział środków od partnerów/sponsorów we wskazanym rodzaju kosztów",
                                             name=f"{chapter["name"]}CostPartnersSponsorsShare",
                                             unit="%",
-                                            mask="share",
                                             calculation_rules=[
                                                 self.calculation_rule.share_calculator(
                                                     dividend_field=f"{chapter["name"]}CostPartnersSponsors",
@@ -585,7 +582,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                             label="Udział innych środków publicznych we wskazanym rodzaju kosztów",
                                             name=f"{chapter["name"]}CostOtherSourcesShare",
                                             unit="%",
-                                            mask="share",
                                             calculation_rules=[
                                                 self.calculation_rule.share_calculator(
                                                     dividend_field=f"{chapter["name"]}CostOtherSources",
@@ -765,8 +761,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                                     message="Przekroczono maksymalny limit dofinansowania, który dla wybranego przedsięwzięcia wynosi: 90%. Wymagana będzie zgoda dyrektora PISF."
                                                 )
                                             ],
-                                            unit="%",
-                                            mask="share"
+                                            unit="%"
                                         ),
                                         self.create_component(
                                             component_type="number",
@@ -799,7 +794,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                             ],
                                             read_only=True,
                                             unit="%",
-                                            mask="share"
                                         ),
                                         self.create_component(
                                             component_type="number",
@@ -813,7 +807,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                             ],
                                             read_only=True,
                                             unit="%",
-                                            mask="share"
                                         )
                                     ]
                                 ),
@@ -843,7 +836,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                             ],
                                             read_only=True,
                                             unit="%",
-                                            mask="share",
                                             validators=[
                                                 self.validator.related_sum_validator(
                                                     field_names=[
@@ -867,7 +859,6 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                             ],
                                             read_only=True,
                                             unit="%",
-                                            mask="share",
                                             validators=[
                                                 self.validator.related_sum_validator(
                                                     field_names=[

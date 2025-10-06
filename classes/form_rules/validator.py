@@ -67,7 +67,9 @@ class Validator:
             "RelatedLastDateValidator",
             "RelatedEqualIfInRangeValidator",
             "RelatedEmptyIfValidator",
-            "RelatedFractionValidator"
+            "RelatedFractionValidator",
+            "RelatedAnyOfValidator",
+            "RelatedUniqueValueValidator"
         ]
 
     @staticmethod
@@ -75,6 +77,10 @@ class Validator:
         """
         Walidator sprawdza długość tekstu (min-max).
         """
+
+        result = {
+            "name": "LengthValidator",
+        }
 
         if min_value is None and max_value is None:
             raise ValueError("Musisz podać co najmniej jedną wartość: min_value lub max_value")
@@ -93,11 +99,14 @@ class Validator:
         else:
             default_msg = "Nieprawidłowe ograniczenia długości tekstu."
 
-        return {
-            "name": "LengthValidator",
-            "kwargs": kwargs,
-            "validationMsg": message if message is not None else default_msg,
-        }
+        result["kwargs"] = kwargs
+
+        if default_msg:
+            result["validationMsg"] = default_msg
+        elif message:
+            result["validationMsg"] = message
+
+        return result
 
     @staticmethod
     def required_validator():
@@ -110,18 +119,23 @@ class Validator:
         }
 
     @staticmethod
-    def related_required_if_equal_validator(field_name: str, value: str):
+    def related_required_if_equal_validator(field_name: str, value: str, message: str = None):
         """
         Walidator oznacza komponent jako obowiązkowy po spełnieniu warunku.
         """
 
-        return {
+        result = {
             "name": "RelatedRequiredIfEqualValidator",
             "kwargs": {
                 "field_name": field_name,
                 "value": value
             }
         }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
 
     @staticmethod
     def phone_number_validator():
@@ -294,14 +308,18 @@ class Validator:
         Walidator sprawdza, czy wartość nie przekracza danej wartości procentowej wartości innego pola.
         """
 
-        return {
+        result = {
             "name": "RelatedFractionGTEValidator",
             "kwargs": {
                 "field_name": field_name,
-                "ratio": ratio
-            },
-            "validationMsg": message
+                "ratio": ratio,
+            }
         }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
 
     @staticmethod
     def related_fraction_lte_validator(field_name: str, ratio: float, message: str = None):
@@ -309,14 +327,18 @@ class Validator:
         Walidator sprawdza, czy wartość nie przekracza danej wartości procentowej wartości innego pola.
         """
 
-        return {
+        result = {
             "name": "RelatedFractionLTEValidator",
             "kwargs": {
                 "field_name": field_name,
-                "ratio": ratio
-            },
-            "validationMsg": message
+                "ratio": ratio,
+            }
         }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
 
     @staticmethod
     def related_share_validator(dividend: str, divisor: str):
@@ -675,6 +697,45 @@ class Validator:
 
         if max_value:
             result["kwargs"]["max"] = max_value
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
+    @staticmethod
+    def related_any_of_validator(field_names: list[str], message: str = None):
+        """
+
+        """
+
+        result = {
+            "name": "RelatedAnyOfValidator",
+            "kwargs": {
+                "field_names": field_names,
+            }
+        }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
+    @staticmethod
+    def related_unique_value_validator(field_name: str, normalize: bool = None, message: str = None):
+        """
+
+        """
+
+        result = {
+            "name": "RelatedUniqueValueValidator",
+            "kwargs": {
+                "field_name": field_name,
+            }
+        }
+
+        if normalize:
+            result["kwargs"]["normalize"] = normalize
 
         if message:
             result["validationMsg"] = message

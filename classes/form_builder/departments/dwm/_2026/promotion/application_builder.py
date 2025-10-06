@@ -581,7 +581,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                             label="Udział wnioskowanej dotacji PISF we wskazanym rodzaju kosztów",
                                             name="costRequestPisfShare",
                                             unit="%",
-                                            mask="share",
                                             calculation_rules=[
                                                 self.calculation_rule.local_share_calculator(
                                                     dividend_field="costRequestPisf",
@@ -595,7 +594,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                             label="Udział środków własnych we wskazanym rodzaju kosztów",
                                             name="costOwnFundsShare",
                                             unit="%",
-                                            mask="share",
                                             calculation_rules=[
                                                 self.calculation_rule.local_share_calculator(
                                                     dividend_field="costOwnFunds",
@@ -609,7 +607,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                             label="Udział środków od partnerów/sponsorów we wskazanym rodzaju kosztów",
                                             name="costPartnersSponsorsShare",
                                             unit="%",
-                                            mask="share",
                                             calculation_rules=[
                                                 self.calculation_rule.local_share_calculator(
                                                     dividend_field="costPartnersSponsors",
@@ -623,7 +620,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                             label="Udział innych środków publicznych we wskazanym rodzaju kosztów",
                                             name="costOtherSourcesShare",
                                             unit="%",
-                                            mask="share",
                                             calculation_rules=[
                                                 self.calculation_rule.local_share_calculator(
                                                     dividend_field="costOtherSources",
@@ -867,7 +863,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                                     ]
                                                 )
                                             ],
-                                            mask="share",
                                             unit="%"
                                         ),
                                         self.create_component(
@@ -887,7 +882,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                                     message="Minimalny wkład własny wnioskodawcy powinien wynosić 10% całości budżetu przedsięwzięcia."
                                                 )
                                             ],
-                                            mask="share",
                                             unit="%"
                                         ),
                                         self.create_component(
@@ -901,7 +895,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                                 )
                                             ],
                                             read_only=True,
-                                            mask="share",
                                             unit="%"
                                         ),
                                         self.create_component(
@@ -915,7 +908,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                                 )
                                             ],
                                             read_only=True,
-                                            mask="share",
                                             unit="%"
                                         )
                                     ]

@@ -36,12 +36,12 @@ class TestApplicationBuilder(ApplicationBuilder):
         [x] RelatedEqualIfInRangeValidator
         [x] RelatedEmptyIfValidator
         [x] RelatedFractionValidator
-        [ ] RelatedFractionGTEValidator
-        [ ] RelatedFractionLTEValidator
-        [ ] RelatedLocalSumValidator
-        [ ] RelatedAnyOfValidator
-        [ ] RelatedMappedLimitValidator
-        [ ] RelatedAllowedOptionsValidator
+        [x] RelatedFractionGTEValidator
+        [x] RelatedFractionLTEValidator
+        [x] RelatedLocalSumValidator
+        [x] RelatedAnyOfValidator
+        [x] RelatedMappedLimitValidator
+        [x] RelatedAllowedOptionsValidator
         [ ] RelatedUniqueValueValidator
         [ ] RelatedConditionRatioValidator
         [ ] RelatedConditionRangeValidator
@@ -95,6 +95,13 @@ class TestApplicationBuilder(ApplicationBuilder):
         self.create_related_equal_if_in_range_validator()
         self.create_related_empty_if_validator()
         self.create_related_fraction_validator()
+        self.create_related_gte_fraction_validator()
+        self.create_related_lte_fraction_validator()
+        self.create_related_local_sum_validator()
+        self.create_related_any_of_validator()
+        self.create_related_mapped_limit_validator()
+        self.create_related_allowed_options_validator()
+        self.create_related_unique_value_validator()
 
         self.create_related_last_date_validator()
 
@@ -406,7 +413,8 @@ class TestApplicationBuilder(ApplicationBuilder):
                         self.create_component(
                             component_type="number",
                             label="Value 1",
-                            name="numberNumeric"
+                            name="numberNumeric",
+                            default_value=0
                         ),
                         self.create_component(
                             component_type="number",
@@ -1076,8 +1084,8 @@ class TestApplicationBuilder(ApplicationBuilder):
                             name="shareCost"
                         ),
                         self.create_component(
-                            component_type="number",
-                            mask="share",
+                            component_type="text",
+                            mask="fund",
                             name="shareResult",
                             calculation_rules=[
                                 self.calculation_rule.share_calculator(
@@ -1150,7 +1158,6 @@ class TestApplicationBuilder(ApplicationBuilder):
                                         ),
                                         self.create_component(
                                             component_type="number",
-                                            mask="share",
                                             name="share",
                                             label="Udział",
                                             unit="%",
@@ -1546,14 +1553,10 @@ class TestApplicationBuilder(ApplicationBuilder):
                             mask="fund",
                             name="fractionTotal",
                             label="Kwota całkowita",
-                            unit="PLN"
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            mask="fund",
-                            name="fractionFund",
-                            label="Kwota",
-                            unit="PLN"
+                            unit="PLN",
+                            class_list=[
+                                "table-full"
+                            ]
                         ),
                         self.create_component(
                             component_type="number",
@@ -1579,6 +1582,450 @@ class TestApplicationBuilder(ApplicationBuilder):
                                 )
                             ],
                             unit="PLN"
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_gte_fraction_validator(self):
+        part = self.create_part(
+            title="RelatedFractionGTEValidator",
+            short_name="Related Fraction GTE Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedFractionGTEValidator",
+                            value="Walidator sprawdza, czy wartość nie jest większa niż wyliczona proporcja wartości danego pola, z uwzględnieniem limitu maksymalnego."
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Test",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            name="fractionGteTotal",
+                            label="Kwota całkowita",
+                            unit="PLN"
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            name="fractionGteShare",
+                            label="Udział (max 80%)",
+                            validators=[
+                                self.validator.related_fraction_gte_validator(
+                                    field_name="fractionGteTotal",
+                                    ratio=0.8
+                                )
+                            ],
+                            unit="PLN"
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_lte_fraction_validator(self):
+        part = self.create_part(
+            title="RelatedFractionLTEValidator",
+            short_name="Related Fraction LTE Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedFractionLTEValidator",
+                            value="Walidator sprawdza, czy wartość nie jest mniejsza niż wyliczona proporcja wartości danego pola, z uwzględnieniem limitu maksymalnego."
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Test",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            name="fractionLteTotal",
+                            label="Kwota całkowita",
+                            unit="PLN"
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            name="fractionLteShare",
+                            label="Udział (max 80%)",
+                            validators=[
+                                self.validator.related_fraction_gte_validator(
+                                    field_name="fractionLteTotal",
+                                    ratio=0.8
+                                )
+                            ],
+                            unit="PLN"
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_local_sum_validator(self):
+        part = self.create_part(
+            title="RelatedLocalSumValidator",
+            short_name="Related Local Sum Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedLocalSumValidator",
+                            value="Walidator sprawdza, czy suma wartości pól jest poprawna."
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Kwoty",
+                    class_list={
+                        "main": ["table-1-3-narrow"],
+                        "sub": ["table-1-3__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            name="firstLocalSumCost",
+                            unit="PLN",
+                            label="Koszt 1"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            name="secondLocalSumCost",
+                            unit="PLN",
+                            label="Koszt 2"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            name="localSumTotal",
+                            calculation_rules=[
+                                self.calculation_rule.dynamic_sum_inputs(
+                                    fields=["firstLocalSumCost", "secondLocalSumCost"]
+                                )
+                            ],
+                            validators=[
+                                self.validator.related_local_sum_validator(
+                                    field_names=["firstLocalSumCost", "secondLocalSumCost"]
+                                )
+                            ],
+                            label="Suma",
+                            unit="PLN",
+                            read_only=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Udziały",
+                    components=[
+                        self.create_chapter(
+                            multiple_forms_rules={
+                                "minCount": 2,
+                                "maxCount": 10
+                            },
+                            components=[
+                                self.create_chapter(
+                                    title="Pozycja",
+                                    class_list={
+                                        "main": ["table-1-3-narrow"],
+                                        "sub": ["table-1-3__col"],
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            name="firstLocalShare",
+                                            unit="PLN",
+                                            label="Koszt 1"
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            name="secondLocalShare",
+                                            unit="PLN",
+                                            label="Koszt 2"
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            name="localSumTotalShare",
+                                            calculation_rules=[
+                                                self.calculation_rule.local_share_calculator(
+                                                    dividend_field="secondLocalShare",
+                                                    divisor_field="firstLocalShare",
+                                                )
+                                            ],
+                                            label="Udział",
+                                            unit="%",
+                                            read_only=True
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Podsumowanie",
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    mask="fund",
+                                    name="localSumTotalShareTotal",
+                                    calculation_rules=[
+                                        self.calculation_rule.dynamic_sum_inputs(
+                                            fields=["localSumTotalShare"]
+                                        )
+                                    ],
+                                    validators=[
+                                        self.validator.related_sum_validator(
+                                            field_names=["localSumTotalShare"]
+                                        )
+                                    ],
+                                    label="Suma",
+                                    unit="PLN",
+                                    read_only=True
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_any_of_validator(self):
+        part = self.create_part(
+            title="RelatedAnyOfValidator",
+            short_name="Related Any Of Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedAnyOfValidator",
+                            value="Walidator sprawdza, czy została zaznaczona chociaż jedna z wartości."
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Test",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="checkbox",
+                            name="firstAnyCheckbox",
+                            label="Opcja 1",
+                            validators=[
+                                self.validator.related_any_of_validator(
+                                    field_names=[
+                                        "firstAnyCheckbox",
+                                        "secondAnyCheckbox",
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="checkbox",
+                            name="secondAnyCheckbox",
+                            label="Opcja 2",
+                            validators=[
+                                self.validator.related_any_of_validator(
+                                    field_names=[
+                                        "firstAnyCheckbox",
+                                        "secondAnyCheckbox",
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_mapped_limit_validator(self):
+        part = self.create_part(
+            title="RelatedMappedLimitValidator",
+            short_name="Related Mapped Limit Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedMappedLimitValidator",
+                            value="Walidator sprawdza, czy wartość dla wybranej opcji nie przekracza danego limitu."
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Test",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="select",
+                            name="mappedSelect",
+                            options=[
+                                "Opcja A",
+                                "Opcja B",
+                                "Opcja C"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            name="mappedSelectFinal",
+                            validators=[
+                                self.validator.related_mapped_limit_validator(
+                                    default_limit=0,
+                                    options=[
+                                        {
+                                            "limit": 10000,
+                                            "conditions": [
+                                                {
+                                                    "field_name": "mappedSelect",
+                                                    "value": "Opcja A"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "limit": 20000,
+                                            "conditions": [
+                                                {
+                                                    "field_name": "mappedSelect",
+                                                    "value": "Opcja B"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_allowed_options_validator(self):
+        part = self.create_part(
+            title="RelatedAllowedOptionsValidator",
+            short_name="Related Allowed Options Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedAllowedOptionsValidator",
+                            value="Walidator sprawdza, czy dana wartość jest dozwolona na podstawie wartości innego pola."
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Test",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="select",
+                            name="allowedSelect",
+                            options=[
+                                "Polska",
+                                "Niemcy"
+                            ],
+                            label="Kraj"
+                        ),
+                        self.create_component(
+                            component_type="select",
+                            name="allowedOptionsSelect",
+                            options=[
+                                "Warszawa",
+                                "Berlin",
+                                "Kraków"
+                            ],
+                            validators=[
+                                self.validator.related_allowed_options_validator(
+                                    field_name="allowedSelect",
+                                    mapping={
+                                        "Polska": ["Warszawa", "Kraków"],
+                                        "Niemcy": ["Berlin"],
+                                    }
+                                )
+                            ],
+                            label="Miasto"
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_unique_value_validator(self):
+        part = self.create_part(
+            title="RelatedUniqueValueValidator",
+            short_name="Related Unique Value Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedUniqueValueValidator",
+                            value="Walidator sprawdza, czy dana wartość jest unikalna w polach o danej nazwie."
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Lista gości - normalized",
+                    components=[
+                        self.create_chapter(
+                            multiple_forms_rules={
+                                "minCount": 2,
+                                "maxCount": 10
+                            },
+                            components=[
+                                self.create_chapter(
+                                    title="Gość",
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            name="questName",
+                                            validators=[
+                                                self.validator.related_unique_value_validator(
+                                                    field_name="questName",
+                                                    normalize=True
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
                         )
                     ]
                 )
