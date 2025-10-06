@@ -66,7 +66,8 @@ class Validator:
             "RelatedSumOfWeightsValidator",
             "RelatedLastDateValidator",
             "RelatedEqualIfInRangeValidator",
-            "RelatedEmptyIfValidator"
+            "RelatedEmptyIfValidator",
+            "RelatedFractionValidator"
         ]
 
     @staticmethod
@@ -658,3 +659,24 @@ class Validator:
 
         return result
 
+    @staticmethod
+    def related_fraction_validator(field_name: str, ratio: float, max_value: float = None, message: str = None):
+        """
+
+        """
+
+        result = {
+            "name": "RelatedFractionValidator",
+            "kwargs": {
+                "field_name": field_name,
+                "ratio": ratio,
+            }
+        }
+
+        if max_value:
+            result["kwargs"]["max"] = max_value
+
+        if message:
+            result["validationMsg"] = message
+
+        return result

@@ -35,7 +35,7 @@ class TestApplicationBuilder(ApplicationBuilder):
         [x] RelatedSumOfWeightsValidator
         [x] RelatedEqualIfInRangeValidator
         [x] RelatedEmptyIfValidator
-        [ ] RelatedFractionValidator
+        [x] RelatedFractionValidator
         [ ] RelatedFractionGTEValidator
         [ ] RelatedFractionLTEValidator
         [ ] RelatedLocalSumValidator
@@ -94,6 +94,7 @@ class TestApplicationBuilder(ApplicationBuilder):
         self.create_related_sum_of_weights_validator()
         self.create_related_equal_if_in_range_validator()
         self.create_related_empty_if_validator()
+        self.create_related_fraction_validator()
 
         self.create_related_last_date_validator()
 
@@ -1512,6 +1513,72 @@ class TestApplicationBuilder(ApplicationBuilder):
                                     field_name="emptyText",
                                 )
                             ]
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_fraction_validator(self):
+        part = self.create_part(
+            title="RelatedFractionValidator",
+            short_name="Related Fraction Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedFractionValidator",
+                            value="Walidator sprawdza, czy wartość jest dokładnie równa wyliczonej proporcji wartości danego pola, z uwzględnieniem limitu maksymalnego."
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Test",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"],
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            name="fractionTotal",
+                            label="Kwota całkowita",
+                            unit="PLN"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            name="fractionFund",
+                            label="Kwota",
+                            unit="PLN"
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            name="fractionShare",
+                            label="Udział (80%)",
+                            validators=[
+                                self.validator.related_fraction_validator(
+                                    field_name="fractionTotal",
+                                    ratio=0.8
+                                )
+                            ],
+                            unit="PLN"
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            name="fractionShareMax",
+                            label="Udział (80% lub 1000 PLN)",
+                            validators=[
+                                self.validator.related_fraction_validator(
+                                    field_name="fractionTotal",
+                                    ratio=0.8,
+                                    max_value=1000
+                                )
+                            ],
+                            unit="PLN"
                         )
                     ]
                 )
