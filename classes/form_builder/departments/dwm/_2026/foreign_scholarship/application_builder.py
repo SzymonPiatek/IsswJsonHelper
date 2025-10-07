@@ -949,18 +949,22 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
             chapters=[
                 self.create_chapter(
                     title="A. Oficjalne zaproszenie filmu/twórcy na festiwal",
-                    multiple_forms_rules={
-                        "minCount": 1,
-                        "maxCount": 20
-                    },
                     components=[
                         self.create_chapter(
-                            title="Plik",
+                            multiple_forms_rules={
+                                "minCount": 1,
+                                "maxCount": 20
+                            },
                             components=[
-                                self.create_component(
-                                    component_type="file",
-                                    name="invitationAttachment",
-                                    required=True
+                                self.create_chapter(
+                                    title="Plik",
+                                    components=[
+                                        self.create_component(
+                                            component_type="file",
+                                            name="invitationAttachment",
+                                            required=True
+                                        )
+                                    ]
                                 )
                             ]
                         )
@@ -968,24 +972,28 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                 ),
                 self.create_chapter(
                     title="B. Lista gości zagranicznych",
-                    multiple_forms_rules={
-                        "minCount": 1,
-                        "maxCount": 20
-                    },
                     components=[
                         self.create_chapter(
-                            title="Plik",
+                            multiple_forms_rules={
+                                "minCount": 1,
+                                "maxCount": 20
+                            },
                             components=[
-                                self.create_component(
-                                    component_type="file",
-                                    name="foreignersListAttachment",
-                                    validators=[
-                                        self.validator.related_required_if_equal_validator(
-                                            field_name="wasRelatedToParticipation",
-                                            value="Nie"
+                                self.create_chapter(
+                                    title="Plik",
+                                    components=[
+                                        self.create_component(
+                                            component_type="file",
+                                            name="foreignersListAttachment",
+                                            validators=[
+                                                self.validator.related_required_if_equal_validator(
+                                                    field_name="wasRelatedToParticipation",
+                                                    value="Nie"
+                                                )
+                                            ],
+                                            required=True
                                         )
-                                    ],
-                                    required=True
+                                    ]
                                 )
                             ]
                         )
@@ -993,24 +1001,28 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                 ),
                 self.create_chapter(
                     title="C. Zaświadczenie o zakwalifikowaniu się do udziału w przedsięwzięciu",
-                    multiple_forms_rules={
-                        "minCount": 1,
-                        "maxCount": 20
-                    },
                     components=[
                         self.create_chapter(
-                            title="Plik",
+                            multiple_forms_rules={
+                                "minCount": 1,
+                                "maxCount": 20
+                            },
                             components=[
-                                self.create_component(
-                                    component_type="file",
-                                    name="qualifyConfirmAttachment",
-                                    validators=[
-                                        self.validator.related_required_if_equal_validator(
-                                            field_name="wasRelatedToParticipation",
-                                            value="Nie"
+                                self.create_chapter(
+                                    title="Plik",
+                                    components=[
+                                        self.create_component(
+                                            component_type="file",
+                                            name="qualifyConfirmAttachment",
+                                            validators=[
+                                                self.validator.related_required_if_equal_validator(
+                                                    field_name="wasRelatedToParticipation",
+                                                    value="Nie"
+                                                )
+                                            ],
+                                            required=True
                                         )
-                                    ],
-                                    required=True
+                                    ]
                                 )
                             ]
                         )
