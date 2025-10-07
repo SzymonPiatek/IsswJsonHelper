@@ -11,7 +11,7 @@ class DkfApplicationBuilder(DisseminationApplicationBuilder, DkfPriority):
         super().__init__()
 
         self.project_type = [
-            ""
+            "Działalność dyskusyjnych klubów filmowych."
         ]
 
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
