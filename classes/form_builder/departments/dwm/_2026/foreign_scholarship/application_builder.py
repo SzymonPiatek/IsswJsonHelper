@@ -539,7 +539,8 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                             unit="PLN"
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział wnioskowanej dotacji PISF we wskazanym rodzaju kosztów",
                                             name=f"{chapter["name"]}CostRequestPisfShare",
                                             unit="%",
@@ -552,7 +553,8 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                             read_only=True
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział środków własnych we wskazanym rodzaju kosztów",
                                             name=f"{chapter["name"]}CostOwnFundsShare",
                                             unit="%",
@@ -565,7 +567,8 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                             read_only=True
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział środków od partnerów/sponsorów we wskazanym rodzaju kosztów",
                                             name=f"{chapter["name"]}CostPartnersSponsorsShare",
                                             unit="%",
@@ -578,7 +581,8 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                             read_only=True
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział innych środków publicznych we wskazanym rodzaju kosztów",
                                             name=f"{chapter["name"]}CostOtherSourcesShare",
                                             unit="%",
@@ -745,7 +749,8 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                     },
                                     components=[
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział wnioskowanej dotacji PISF w kosztach razem",
                                             name="costRequestPisfSumShare",
                                             calculation_rules=[
@@ -764,7 +769,8 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                             unit="%"
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział środków własnych w kosztach razem",
                                             name="costOwnFundsSumShare",
                                             calculation_rules=[
@@ -783,7 +789,8 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                             unit="%"
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział środków innych partnerów/sponsorów w kosztach razem",
                                             name="costPartnersSponsorsSumShare",
                                             calculation_rules=[
@@ -796,7 +803,8 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                             unit="%",
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział innych środków publicznych w kosztach razem",
                                             name="costOtherSourcesSumShare",
                                             calculation_rules=[
@@ -823,7 +831,8 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                     },
                                     components=[
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział dotacji PISF oraz innych środków publicznych w kosztach razem",
                                             name="costPisfPublicShareInTotal",
                                             calculation_rules=[
@@ -846,7 +855,8 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                                             ]
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział środków własnych oraz środków innych partnerów/sponsorów w kosztach razem",
                                             name="costOwnPartnersSponsorsShareInTotal",
                                             calculation_rules=[

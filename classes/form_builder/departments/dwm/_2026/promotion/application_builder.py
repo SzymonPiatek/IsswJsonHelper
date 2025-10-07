@@ -577,7 +577,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                             unit="PLN"
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział wnioskowanej dotacji PISF we wskazanym rodzaju kosztów",
                                             name="costRequestPisfShare",
                                             unit="%",
@@ -590,7 +591,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                             read_only=True
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział środków własnych we wskazanym rodzaju kosztów",
                                             name="costOwnFundsShare",
                                             unit="%",
@@ -603,7 +605,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                             read_only=True
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział środków od partnerów/sponsorów we wskazanym rodzaju kosztów",
                                             name="costPartnersSponsorsShare",
                                             unit="%",
@@ -616,7 +619,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                             read_only=True
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział innych środków publicznych we wskazanym rodzaju kosztów",
                                             name="costOtherSourcesShare",
                                             unit="%",
@@ -817,7 +821,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                     },
                                     components=[
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział wnioskodawnej dotacji PISF w kosztach razem",
                                             name="costRequestPisfSumShare",
                                             calculation_rules=[
@@ -866,7 +871,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                             unit="%"
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział środków własnych w kosztach razem",
                                             name="costOwnFundsSumShare",
                                             calculation_rules=[
@@ -885,7 +891,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                             unit="%"
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział środków innych partnerów/sponsorów w kosztach razem",
                                             name="costPartnersSponsorsSumShare",
                                             calculation_rules=[
@@ -898,7 +905,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                             unit="%"
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział innych środków publicznych w kosztach razem",
                                             name="costOtherSourcesSumShare",
                                             calculation_rules=[
