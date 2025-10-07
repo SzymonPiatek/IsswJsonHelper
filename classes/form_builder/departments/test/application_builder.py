@@ -42,7 +42,7 @@ class TestApplicationBuilder(ApplicationBuilder):
         [x] RelatedAnyOfValidator
         [x] RelatedMappedLimitValidator
         [x] RelatedAllowedOptionsValidator
-        [ ] RelatedUniqueValueValidator
+        [x] RelatedUniqueValueValidator
         [ ] RelatedConditionRatioValidator
         [ ] RelatedConditionRangeValidator
         [x] RelatedLastDateValidator
@@ -2002,7 +2002,7 @@ class TestApplicationBuilder(ApplicationBuilder):
                     ]
                 ),
                 self.create_chapter(
-                    title="Lista gości - normalized",
+                    title="Lista gości",
                     components=[
                         self.create_chapter(
                             multiple_forms_rules={
@@ -2018,7 +2018,34 @@ class TestApplicationBuilder(ApplicationBuilder):
                                             name="questName",
                                             validators=[
                                                 self.validator.related_unique_value_validator(
-                                                    field_name="questName",
+                                                    field_name="questName"
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Lista gości - normalized",
+                    components=[
+                        self.create_chapter(
+                            multiple_forms_rules={
+                                "minCount": 2,
+                                "maxCount": 10
+                            },
+                            components=[
+                                self.create_chapter(
+                                    title="Gość",
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            name="questNameNormalized",
+                                            validators=[
+                                                self.validator.related_unique_value_validator(
+                                                    field_name="questNameNormalized",
                                                     normalize=True
                                                 )
                                             ]
