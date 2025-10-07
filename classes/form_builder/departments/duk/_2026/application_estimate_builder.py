@@ -317,12 +317,17 @@ class DUKApplicationEstimateBuilder(FormFactory):
             )
         )
 
+        title = f'<p style="color: red">{title}<p>'
+        help_text = section.get('helpText', False)
+        if help_text:
+            title += f'</br><normal><small>{help_text}</small></normal>'
+
         final_chapter["components"].append(
             self.create_chapter(
-                title=f'<p style="color: red">{title}<p></br><normal><small>{section.get("helpText", "")}</small></normal>',
+                title=title,
                 class_list=construct["chapter_title"]["classList"],
                 components=components
-            ),
+            )
         )
 
         return final_chapter
