@@ -743,7 +743,8 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                             ]
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Preliminarz: udział w całym budżecie",
                                             name="budgetInputPisfSupportShare",
                                             read_only=True,
@@ -782,7 +783,8 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                             ]
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Koszty bieżące: udział w całym budżecie",
                                             name="budgetInputPisfSupportCurrentShare",
                                             read_only=True,
@@ -846,7 +848,8 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                             ]
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Preliminarz: udział w całym budżecie",
                                             name="budgetInputOwnFundsShare",
                                             read_only=True,
@@ -878,7 +881,8 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                             ]
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Koszty bieżące: udział w całym budżecie",
                                             name="budgetInputOwnFundsCurrentShare",
                                             read_only=True,
@@ -958,7 +962,8 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                             ]
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Preliminarz: udział w całym budżecie",
                                             name="budgetInputAllPartnersShare",
                                             read_only=True,
@@ -1007,7 +1012,8 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                             ]
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Koszty bieżące: udział w całym budżecie",
                                             name="budgetInputAllPartnersCurrentShare",
                                             read_only=True,
@@ -1091,7 +1097,8 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                     ]
                                                 ),
                                                 self.create_component(
-                                                    component_type="number",
+                                                    component_type="text",
+                                                    mask="fund",
                                                     label="Preliminarz: udział w całym budżecie",
                                                     name="budgetInputPartnersSponsorsShare",
                                                     read_only=True,
@@ -1138,7 +1145,8 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                     ]
                                                 ),
                                                 self.create_component(
-                                                    component_type="number",
+                                                    component_type="text",
+                                                    mask="fund",
                                                     label="Koszty bieżące: udział w całym budżecie",
                                                     name="budgetInputPartnersSponsorsCurrentShare",
                                                     read_only=True,
@@ -1210,7 +1218,8 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                             ]
                                                         ),
                                                         self.create_component(
-                                                            component_type="number",
+                                                            component_type="text",
+                                                            mask="fund",
                                                             label="Preliminarz: udział w całym budżecie",
                                                             name="budgetInputPartnerSponsorShare",
                                                             read_only=True,
@@ -1242,7 +1251,8 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                             ]
                                                         ),
                                                         self.create_component(
-                                                            component_type="number",
+                                                            component_type="text",
+                                                            mask="fund",
                                                             label="Koszty bieżące: udział w całym budżecie",
                                                             name="budgetInputPartnerSponsorCurrentShare",
                                                             read_only=True,
@@ -1330,7 +1340,8 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                     ]
                                                 ),
                                                 self.create_component(
-                                                    component_type="number",
+                                                    component_type="text",
+                                                    mask="fund",
                                                     label="Preliminarz: udział w całym budżecie",
                                                     name="budgetInputPublicSourcesShare",
                                                     read_only=True,
@@ -1377,7 +1388,8 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                     ]
                                                 ),
                                                 self.create_component(
-                                                    component_type="number",
+                                                    component_type="text",
+                                                    mask="fund",
                                                     label="Koszty bieżące: udział w całym budżecie",
                                                     name="budgetInputPublicSourcesCurrentShare",
                                                     read_only=True,
@@ -1449,7 +1461,8 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                             ]
                                                         ),
                                                         self.create_component(
-                                                            component_type="number",
+                                                            component_type="text",
+                                                            mask="fund",
                                                             label="Preliminarz: udział w całym budżecie",
                                                             name="budgetInputPublicSourceShare",
                                                             read_only=True,
@@ -1481,7 +1494,8 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                                             ]
                                                         ),
                                                         self.create_component(
-                                                            component_type="number",
+                                                            component_type="text",
+                                                            mask="fund",
                                                             label="Koszty bieżące: udział w całym budżecie",
                                                             name="budgetInputPublicSourceCurrentShare",
                                                             read_only=True,
@@ -1567,7 +1581,8 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                             ]
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Preliminarz: udział w całym budżecie",
                                             name="budgetTotalSumShare",
                                             read_only=True,
@@ -1623,7 +1638,8 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                             ]
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Koszty bieżące: udział w całym budżecie",
                                             name="budgetTotalCurrentSumShare",
                                             read_only=True,
