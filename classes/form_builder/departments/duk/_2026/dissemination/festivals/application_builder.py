@@ -461,7 +461,8 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                                                     unit="PLN"
                                                 ),
                                                 self.create_component(
-                                                    component_type="number",
+                                                    component_type="text",
+                                                    mask="fund",
                                                     name="ownFinancialFundsShare",
                                                     label="Udział w koszcie całkowitym",
                                                     calculation_rules=[
@@ -562,7 +563,8 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                                                     unit="PLN"
                                                 ),
                                                 self.create_component(
-                                                    component_type="number",
+                                                    component_type="text",
+                                                    mask="fund",
                                                     name="ownInKindFundsShare",
                                                     label="Udział w koszcie całkowitym",
                                                     calculation_rules=[
@@ -652,7 +654,8 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                                             unit="PLN"
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział w koszcie całkowitym",
                                             name="pisfSupportShare",
                                             calculation_rules=[
@@ -748,7 +751,8 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                                                                                     ]
                                                                                 ),
                                                                                 self.create_component(
-                                                                                    component_type="number",
+                                                                                    component_type="text",
+                                                                                    mask="fund",
                                                                                     label="Udział w koszcie całkowitym",
                                                                                     name=f"{chapter["section_name"]}FundingShare",
                                                                                     calculation_rules=[
@@ -801,7 +805,8 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                                                                             unit="PLN"
                                                                         ),
                                                                         self.create_component(
-                                                                            component_type="number",
+                                                                            component_type="text",
+                                                                            mask="fund",
                                                                             label="Udział w koszcie całkowitym",
                                                                             name=f"{chapter["section_name"]}FundsShare",
                                                                             calculation_rules=[
