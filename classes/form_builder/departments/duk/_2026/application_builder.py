@@ -773,39 +773,29 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
 
     def create_application_sources_of_financing(self, number: int):
         sources_of_financing_chapters = {
-            "a": [
-                {
-                    "section_title": "<normal>- wkład finansowy</normal>",
-                    "name": "ownFinancial"
-                },
-                {
-                    "section_title": "<normal>- wkład rzeczowy</normal>",
-                    "name": "ownInKind"
-                }
-            ],
             "c": [
                 {
-                    "checkbox_title": "Czy występują środki z budżetów jednostek samorządu terytorialnego lub innych środków publicznych za wyjątkiem MKiDN?",
+                    "checkbox_title": "Czy występują środki z budżetów jednostek samorządu terytorialnego lub innych środków publicznych za wyjątkiem Ministerstwa Kultury i Dziedzictwa Narodowego?",
                     "checkbox_name": "isLocalGovernmentFunding",
-                    "section_title": "<normal>c) z budżetów jednostek samorządu terytorialnego lub innych środków publicznych za wyjątkiem MKiDN </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+                    "section_title": "<normal>a) z budżetów jednostek samorządu terytorialnego lub innych środków publicznych za wyjątkiem Ministerstwa Kultury i Dziedzictwa Narodowego </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
                     "section_name": "localGovernments",
                 },
                 {
-                    "checkbox_title": "Czy występują środki MKiDN w ramach Programów Ministra?",
+                    "checkbox_title": "Czy występują środki Ministerstwa Kultury i Dziedzictwa Narodowego w ramach Programów Ministra?",
                     "checkbox_name": "isMinistryFunding",
-                    "section_title": "<normal>d) ze środków MKiDN w ramach Programów Ministra </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+                    "section_title": "<normal>b) ze środków Ministerstwa Kultury i Dziedzictwa Narodowego w ramach Programów Ministra </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
                     "section_name": "ministry",
                 },
                 {
                     "checkbox_title": "Czy występują środki od sponsorów lub innych podmiotów niezaliczanych do sektora finansów publicznych?",
                     "checkbox_name": "isOtherSponsorFunding",
-                    "section_title": "<normal>e) od sponsorów lub innych podmiotów niezaliczanych do sektora finansów publicznych </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+                    "section_title": "<normal>c) od sponsorów lub innych podmiotów niezaliczanych do sektora finansów publicznych </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
                     "section_name": "otherSponsors",
                 },
                 {
                     "checkbox_title": "Czy występują środki zagraniczne, w tym europejskie?",
                     "checkbox_name": "isForeignFunding",
-                    "section_title": "<normal>f) ze środków zagranicznych, w tym europejskich </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+                    "section_title": "<normal>d) ze środków zagranicznych, w tym europejskich </normal><br /><small>Uwaga! <normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
                     "section_name": "foreign",
                 }
             ]
@@ -816,22 +806,22 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
             short_name=f"{int_to_roman(number)}. Źródła finansowania",
             chapters=[
                 self.create_chapter(
-                    title="1. Całkowity przewidywany koszt realizacji przedsięwzięcia",
+                    title="1. Podstawowe dane finansowe",
                     class_list={
                         "main": [
-                            "table-1-2",
+                            "table-1-3-narrow",
                             "grid",
-                            "grid-cols-2"
+                            "grid-cols-3"
                         ],
                         "sub": [
-                            "table-1-2__col"
+                            "table-1-3__col"
                         ]
                     },
                     components=[
                         self.create_component(
                             component_type="text",
                             mask="fund",
-                            label="Kwota kosztu całkowitego",
+                            label="Kwota całkowita",
                             name="totalProjectCost",
                             calculation_rules=[
                                 self.calculation_rule.sum_inputs(
@@ -863,87 +853,177 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                         self.create_component(
                             component_type="text",
                             mask="fund",
-                            label="Finansowanie ze źródeł publicznych razem",
-                            name="publicSupportAltogether",
+                            label="Wnioskowana dotacja z PISF",
+                            name="pisfSupportAmounRepeat",
                             calculation_rules=[
-                                self.calculation_rule.sum_inputs(
-                                    fields=[
-                                        "pisfSupportAmount",
-                                        "localGovernmentsFundsSumAmount",
-                                        "ministryFundsSumAmount"
-                                    ]
+                                self.calculation_rule.copy_value(
+                                    from_name="pisfSupportAmountInput"
                                 )
                             ],
                             validators=[
                                 self.validator.related_sum_validator(
                                     field_names=[
-                                        "pisfSupportAmount",
-                                        "localGovernmentsFundsSumAmount",
-                                        "ministryFundsSumAmount"
+                                        "pisfSupportAmountInput",
                                     ]
-                                ),
-                                self.validator.related_fraction_gte_validator(
-                                    field_name="totalProjectCost",
-                                    ratio=0.9,
-                                    message="Suma środków publicznych nie może przekroczyć 90% kosztu realizacji przedsięwzięcia."
                                 )
                             ],
+                            read_only=True,
+                            unit="PLN"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            label="Środki publiczne razem",
+                            name="publicSupportAltogether",
                             read_only=True,
                             unit="PLN"
                         )
                     ]
                 ),
                 self.create_chapter(
-                    title="2. Wyszczególnienie źródeł finansowania",
                     components=[
                         self.create_chapter(
-                            title="<normal>a) środki własne z podziałem na: wkład finansowy (np.: wpływy z biletów, ze sprzedaży publikacji, akredytacji, opłat uczestników itp.) i ewentualnie wyceniony wkład rzeczowy </normal>",
+                            title="2. Wyszczególnienie źródeł finansowaniania",
                             components=[
-                                *[self.create_chapter(
-                                    title=chapter["section_title"],
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
+                                self.create_chapter(
+                                    title="<normal>1) Wkład własny</normal><br/><normal><small>Minimum 10% budżetu przedsięwzięcia. Wkład rzeczowy nie może być wyższy niż 50% całkowitego wkładu własnego.</small></normal>",
+                                    class_list=[
+                                        "displayNoneFrontend"
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="<normal>1) Wkład własny</normal>",
                                     components=[
-                                        self.create_component(
-                                            component_type="text",
-                                            mask="fund",
-                                            label="Kwota",
-                                            name=f"{chapter["name"]}FundsAmount",
-                                            required=True,
-                                            unit="PLN"
+                                        self.create_chapter(
+                                            title="<small>a) Wkład finansowy</small>",
+                                            class_list={
+                                                "main": [
+                                                    "table-1-2",
+                                                    "grid",
+                                                    "grid-cols-2"
+                                                ],
+                                                "sub": [
+                                                    "table-1-2__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    name="ownFinancialFundsAmount",
+                                                    label="Kwota",
+                                                    unit="PLN"
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    name="ownFinancialFundsShare",
+                                                    label="Udział w koszcie całkowitym",
+                                                    calculation_rules=[
+                                                        self.calculation_rule.share_calculator(
+                                                            dividend_field="ownFinancialFundsAmount",
+                                                            divisor_field="totalProjectCost"
+                                                        )
+                                                    ],
+                                                    validators=[
+                                                        self.validator.related_share_validator(
+                                                            dividend="ownFinancialFundsAmount",
+                                                            divisor="totalProjectCost"
+                                                        )
+                                                    ],
+                                                    required=True,
+                                                    read_only=True,
+                                                    unit="%"
+                                                )
+                                            ]
                                         ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Udział w koszcie całkowitym",
-                                            name=f"{chapter["name"]}FundsShare",
-                                            calculation_rules=[
-                                                self.calculation_rule.share_calculator(
-                                                    dividend_field=f"{chapter["name"]}FundsAmount",
-                                                    divisor_field="totalProjectCost"
+                                        self.create_chapter(
+                                            title="<small>b) Wkład rzeczowy</small>"
+                                        ),
+                                        self.create_chapter(
+                                            class_list={
+                                                "main": [
+                                                    "table-1-2",
+                                                    "grid",
+                                                    "grid-cols-2"
+                                                ],
+                                                "sub": [
+                                                    "table-1-2__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    name="ownInKindFundsAmount",
+                                                    label="Kwota",
+                                                    unit="PLN"
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    name="ownInKindFundsShare",
+                                                    label="Udział w koszcie całkowitym",
+                                                    calculation_rules=[
+                                                        self.calculation_rule.share_calculator(
+                                                            dividend_field="ownInKindFundsAmount",
+                                                            divisor_field="totalProjectCost"
+                                                        )
+                                                    ],
+                                                    validators=[
+                                                        self.validator.related_share_validator(
+                                                            dividend="ownInKindFundsAmount",
+                                                            divisor="totalProjectCost"
+                                                        )
+                                                    ],
+                                                    required=True,
+                                                    read_only=True,
+                                                    unit="%"
                                                 )
-                                            ],
-                                            read_only=True,
-                                            validators=[
-                                                self.validator.related_share_validator(
-                                                    dividend=f"{chapter["name"]}FundsAmount",
-                                                    divisor="totalProjectCost"
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            title="<small>Łączny wkład własny</small>",
+                                            class_list={
+                                                "main": [
+                                                    "table-1-2",
+                                                    "grid",
+                                                    "grid-cols-2"
+                                                ],
+                                                "sub": [
+                                                    "table-1-2__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    name="ownFundsSumAmount",
+                                                    read_only=True,
+                                                    unit="PLN",
+                                                    calculation_rules=[
+                                                        self.calculation_rule.dynamic_sum_inputs(
+                                                            fields=[
+                                                                "ownFinancialFundsAmount",
+                                                                "ownInKindFundsAmount"
+                                                            ]
+                                                        )
+                                                    ],
+                                                    validators=[
+                                                        self.validator.related_sum_validator(
+                                                            field_names=[
+                                                                "ownFinancialFundsAmount",
+                                                                "ownInKindFundsAmount"
+                                                            ]
+                                                        )
+                                                    ]
                                                 )
-                                            ],
-                                            required=True,
-                                            unit="%"
+                                            ]
                                         )
                                     ]
-                                ) for chapter in sources_of_financing_chapters["a"]],
+                                ),
                                 self.create_chapter(
-                                    title="<normal>Suma środków własnych</normal>",
+                                    title="<normal>2) Dotacja PISF</normal>",
                                     class_list={
                                         "main": [
                                             "table-1-2",
@@ -958,50 +1038,8 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                                         self.create_component(
                                             component_type="text",
                                             mask="fund",
-                                            label="Kwota",
-                                            name="ownFundsSumAmount",
-                                            calculation_rules=[
-                                                self.calculation_rule.sum_inputs(
-                                                    fields=[
-                                                        f"{chapter["name"]}FundsAmount" for chapter in sources_of_financing_chapters["a"]
-                                                    ]
-                                                )
-                                            ],
-                                            read_only=True,
-                                            validators=[
-                                                self.validator.related_sum_validator(
-                                                    field_names=[
-                                                        f"{chapter["name"]}FundsAmount" for chapter in sources_of_financing_chapters["a"]
-                                                    ]
-                                                )
-                                            ],
-                                            unit="PLN"
-                                        )
-                                    ]
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            title="<normal>b) ze środków PISF </normal>",
-                            components=[
-                                self.create_chapter(
-                                    title="<normal>- dotacja PISF </normal>",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="text",
-                                            mask="fund",
-                                            label="Kwota",
-                                            name="pisfSupportAmount",
+                                            label="Wnioskowana dotacja z PISF",
+                                            name="pisfSupportAmountInput",
                                             validators=[
                                                 self.validator.related_fraction_gte_validator(
                                                     field_name="totalProjectCost",
@@ -1013,19 +1051,20 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                                             unit="PLN"
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział w koszcie całkowitym",
                                             name="pisfSupportShare",
                                             calculation_rules=[
                                                 self.calculation_rule.share_calculator(
-                                                    dividend_field="pisfSupportAmount",
+                                                    dividend_field="pisfSupportAmountInput",
                                                     divisor_field="totalProjectCost"
                                                 )
                                             ],
                                             read_only=True,
                                             validators=[
                                                 self.validator.related_share_validator(
-                                                    dividend="pisfSupportAmount",
+                                                    dividend="pisfSupportAmountInput",
                                                     divisor="totalProjectCost"
                                                 )
                                             ],
@@ -1033,155 +1072,162 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                                             unit="%"
                                         )
                                     ]
-                                )
-                            ]
-                        ),
-                        *[self.create_chapter(
-                            components=[
-                                self.create_chapter(
-                                    components=[
-                                        self.create_component(
-                                            component_type="checkbox",
-                                            label=chapter["checkbox_title"],
-                                            name=chapter["checkbox_name"]
-                                        )
-                                    ]
                                 ),
                                 self.create_chapter(
-                                    visibility_rules=[
-                                        self.visibility_rule.depends_on_value(
-                                            field_name=chapter["checkbox_name"],
-                                            values=[
-                                                True
-                                            ]
-                                        )
-                                    ],
+                                    title="<normal>3) Pozostałe źródła finansowania</normal>",
                                     components=[
-                                        self.create_chapter(
-                                            title=chapter["section_title"],
+                                        *[self.create_chapter(
                                             components=[
                                                 self.create_chapter(
-                                                    multiple_forms_rules={
-                                                        "minCount": 1,
-                                                        "maxCount": 20
-                                                    },
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="checkbox",
+                                                            label=chapter["checkbox_title"],
+                                                            name=chapter["checkbox_name"]
+                                                        )
+                                                    ]
+                                                ),
+                                                self.create_chapter(
+                                                    visibility_rules=[
+                                                        self.visibility_rule.depends_on_value(
+                                                            field_name=chapter["checkbox_name"],
+                                                            values=[
+                                                                True
+                                                            ]
+                                                        )
+                                                    ],
                                                     components=[
                                                         self.create_chapter(
-                                                            class_list={
-                                                                "main": [
-                                                                    "table-1-2",
-                                                                    "grid",
-                                                                    "grid-cols-2"
-                                                                ],
-                                                                "sub": [
-                                                                    "table-1-2__col"
-                                                                ]
-                                                            },
+                                                            title=chapter["section_title"],
                                                             components=[
-                                                                self.create_component(
-                                                                    component_type="text",
-                                                                    label="Nazwa podmiotu finansującego",
-                                                                    name=f"{chapter["section_name"]}Name",
-                                                                    class_list=[
-                                                                        "table-full"
-                                                                    ],
-                                                                    required=True,
-                                                                    validators=[
-                                                                        self.validator.related_required_if_equal_validator(
-                                                                            field_name=chapter["checkbox_name"],
-                                                                            value=True
+                                                                self.create_chapter(
+                                                                    multiple_forms_rules={
+                                                                        "minCount": 1,
+                                                                        "maxCount": 20
+                                                                    },
+                                                                    components=[
+                                                                        self.create_chapter(
+                                                                            class_list={
+                                                                                "main": [
+                                                                                    "table-1-2",
+                                                                                    "grid",
+                                                                                    "grid-cols-2"
+                                                                                ],
+                                                                                "sub": [
+                                                                                    "table-1-2__col"
+                                                                                ]
+                                                                            },
+                                                                            components=[
+                                                                                self.create_component(
+                                                                                    component_type="text",
+                                                                                    label="Nazwa podmiotu finansującego",
+                                                                                    name=f"{chapter["section_name"]}Name",
+                                                                                    class_list=[
+                                                                                        "table-full"
+                                                                                    ],
+                                                                                    required=True,
+                                                                                    validators=[
+                                                                                        self.validator.related_required_if_equal_validator(
+                                                                                            field_name=chapter["checkbox_name"],
+                                                                                            value=True
+                                                                                        )
+                                                                                    ]
+                                                                                ),
+                                                                                self.create_component(
+                                                                                    component_type="text",
+                                                                                    mask="fund",
+                                                                                    label="Kwota",
+                                                                                    name=f"{chapter["section_name"]}FundingAmount",
+                                                                                    required=True,
+                                                                                    unit="PLN",
+                                                                                    validators=[
+                                                                                        self.validator.related_required_if_equal_validator(
+                                                                                            field_name=chapter["checkbox_name"],
+                                                                                            value=True
+                                                                                        )
+                                                                                    ]
+                                                                                ),
+                                                                                self.create_component(
+                                                                                    component_type="text",
+                                                                                    mask="fund",
+                                                                                    label="Udział w koszcie całkowitym",
+                                                                                    name=f"{chapter["section_name"]}FundingShare",
+                                                                                    calculation_rules=[
+                                                                                        self.calculation_rule.single_position_share_calculator(
+                                                                                            dividend_field=f"{chapter["section_name"]}FundingAmount",
+                                                                                            divisor_field="totalProjectCost"
+                                                                                        )
+                                                                                    ],
+                                                                                    read_only=True,
+                                                                                    required=True,
+                                                                                    unit="%",
+                                                                                    validators=[
+                                                                                        self.validator.related_required_if_equal_validator(
+                                                                                            field_name=chapter["checkbox_name"],
+                                                                                            value=True
+                                                                                        )
+                                                                                    ]
+                                                                                )
+                                                                            ]
                                                                         )
                                                                     ]
                                                                 ),
-                                                                self.create_component(
-                                                                    component_type="text",
-                                                                    mask="fund",
-                                                                    label="Kwota",
-                                                                    name=f"{chapter["section_name"]}FundingAmount",
-                                                                    required=True,
-                                                                    unit="PLN",
-                                                                    validators=[
-                                                                        self.validator.related_required_if_equal_validator(
-                                                                            field_name=chapter["checkbox_name"],
-                                                                            value=True
-                                                                        )
-                                                                    ]
-                                                                ),
-                                                                self.create_component(
-                                                                    component_type="number",
-                                                                    label="Udział w koszcie całkowitym",
-                                                                    name=f"{chapter["section_name"]}FundingShare",
-                                                                    calculation_rules=[
-                                                                        self.calculation_rule.single_position_share_calculator(
-                                                                            dividend_field=f"{chapter["section_name"]}FundingAmount",
-                                                                            divisor_field="totalProjectCost"
-                                                                        )
-                                                                    ],
-                                                                    read_only=True,
-                                                                    required=True,
-                                                                    unit="%",
-                                                                    validators=[
-                                                                        self.validator.related_required_if_equal_validator(
-                                                                            field_name=chapter["checkbox_name"],
-                                                                            value=True
+                                                                self.create_chapter(
+                                                                    title="<normal>Łącznie</normal>",
+                                                                    class_list={
+                                                                        "main": [
+                                                                            "table-1-2",
+                                                                            "grid",
+                                                                            "grid-cols-2"
+                                                                        ],
+                                                                        "sub": [
+                                                                            "table-1-2__col"
+                                                                        ]
+                                                                    },
+                                                                    components=[
+                                                                        self.create_component(
+                                                                            component_type="text",
+                                                                            mask="fund",
+                                                                            label="Kwota",
+                                                                            name=f"{chapter["section_name"]}FundsSumAmount",
+                                                                            calculation_rules=[
+                                                                                self.calculation_rule.dynamic_sum_inputs(
+                                                                                    fields=[
+                                                                                        f"{chapter["section_name"]}FundingAmount"
+                                                                                    ]
+                                                                                )
+                                                                            ],
+                                                                            read_only=True,
+                                                                            required=True,
+                                                                            unit="PLN"
+                                                                        ),
+                                                                        self.create_component(
+                                                                            component_type="text",
+                                                                            mask="fund",
+                                                                            label="Udział w koszcie całkowitym",
+                                                                            name=f"{chapter["section_name"]}FundsShare",
+                                                                            calculation_rules=[
+                                                                                self.calculation_rule.single_position_share_calculator(
+                                                                                    dividend_field=f"{chapter["section_name"]}FundsSumAmount",
+                                                                                    divisor_field="totalProjectCost"
+                                                                                )
+                                                                            ],
+                                                                            read_only=True,
+                                                                            required=True,
+                                                                            unit="%"
                                                                         )
                                                                     ]
                                                                 )
                                                             ]
                                                         )
                                                     ]
-                                                ),
-                                                self.create_chapter(
-                                                    title="<normal>Łącznie</normal>",
-                                                    class_list={
-                                                        "main": [
-                                                            "table-1-2",
-                                                            "grid",
-                                                            "grid-cols-2"
-                                                        ],
-                                                        "sub": [
-                                                            "table-1-2__col"
-                                                        ]
-                                                    },
-                                                    components=[
-                                                        self.create_component(
-                                                            component_type="text",
-                                                            mask="fund",
-                                                            label="Kwota",
-                                                            name=f"{chapter["section_name"]}FundsSumAmount",
-                                                            calculation_rules=[
-                                                                self.calculation_rule.dynamic_sum_inputs(
-                                                                    fields=[
-                                                                        f"{chapter["section_name"]}FundingAmount"
-                                                                    ]
-                                                                )
-                                                            ],
-                                                            read_only=True,
-                                                            required=True,
-                                                            unit="PLN"
-                                                        ),
-                                                        self.create_component(
-                                                            component_type="number",
-                                                            label="Udział w koszcie całkowitym",
-                                                            name=f"{chapter["section_name"]}FundsShare",
-                                                            calculation_rules=[
-                                                                self.calculation_rule.single_position_share_calculator(
-                                                                    dividend_field=f"{chapter["section_name"]}FundsSumAmount",
-                                                                    divisor_field="totalProjectCost"
-                                                                )
-                                                            ],
-                                                            read_only=True,
-                                                            required=True,
-                                                            unit="%"
-                                                        )
-                                                    ]
                                                 )
                                             ]
-                                        )
+                                        ) for chapter in sources_of_financing_chapters["c"]]
                                     ]
                                 )
                             ]
-                        ) for chapter in sources_of_financing_chapters["c"]]
+                        )
                     ]
                 )
             ]
