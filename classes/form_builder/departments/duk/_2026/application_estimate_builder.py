@@ -116,7 +116,8 @@ class DUKApplicationEstimateBuilder(FormFactory):
         return self.create_chapter(
             class_list=[
                 "grid",
-                "grid-cols-5"
+                "grid-cols-5",
+                "displayNoneFrontend",
             ],
             components=[
                 self.create_component(
@@ -173,17 +174,15 @@ class DUKApplicationEstimateBuilder(FormFactory):
                             read_only=True,
                             required=True,
                         ),
-                    ]
-                ),
-                self.create_chapter(
-                    title="<small>Wszystkie kwoty zaznaczone w kosztorysie są kwotami:<br/><normal>W przypadku kosztów wynagrodzeń rozliczanych listą płac lub rachunkiem do umowy o dzieło lub umowy zlecenie należy wykazać kwotę brutto z uwzględnieniem narzutów ZUS pracodawcy.</normal></small>",
-                    components=[
                         self.create_component(
-                            component_type='radio',
-                            name='isVatPayer',
+                            component_type="radio",
+                            name="isVatPayer",
+                            label="Status wnioskodawcy w zakresie podatku VAT:",
+                            help_text="W przypadku wynagrodzeń rozliczanych listą płac lub rachunkiem do umowy o dzieło lub umowy zlecenie należy wykazać kwotą brutto z uwzględnieniem narzutów ZUS pracodawcy.",
                             options=[
-                                "netto (zaznacza Wnioskodawca, który jest podatnikiem VAT)",
-                                "brutto (zaznacza Wnioskodawca, który NIE jest podatnikiem VAT)"
+                                "Wnioskodawca jest czynnym podatnikiem VAT i ma prawo do odliczenia podatku VAT od wydatków ponoszonych w ramach przedsięwzięcia. Wydatki będą rozliczane w kwotach netto.",
+                                "Wnioskodawca jest czynnym podatnikiem VAT, ale nie ma możliwości odliczenia podatku VAT w odniesieniu do wydatków ponoszonych w ramach przedsięwzięcia. Wydatki będą rozliczane w kwotach brutto.",
+                                "Wnioskodawca nie jest podatnikiem VAT. Wydatki będą rozliczane w kwotach brutto."
                             ]
                         )
                     ]
@@ -345,7 +344,7 @@ class DUKApplicationEstimateBuilder(FormFactory):
         ]
 
         return self.create_chapter(
-            title=section["title"],
+            title=f'<p style="color: red">{section["title"]}</p>',
             class_list=construct["section_title"]["classList"],
             components=components
         )

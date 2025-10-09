@@ -50,13 +50,5 @@ sum_estimate_section_structure = [
         'label': 'Pozostałe środki ogółem',
         'name': 'OtherFundsAmount',
         'unit': 'PLN'
-    },
-    {
-        'isShare': True,
-        'label': 'Udział wsparcia PISF w kosztach ogółem',
-        'name': 'RequestedAmountShareInTotal',
-        'unit': '%',
-        'dividend': 'totalRequestedAmount',
-        'divisor': 'totalSumAmount',
     }
 ]
