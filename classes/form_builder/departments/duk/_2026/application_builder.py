@@ -1480,6 +1480,160 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
 
         self.save_part(part)
 
+    def create_application_attachments(self, number):
+        part = self.create_part(
+            title=f"{int_to_roman(number)}. Załączniki",
+            short_name=f"{int_to_roman(number)}. Załączniki",
+            chapters=[
+                self.create_chapter(
+                    title="Obowiązkowe załączniki",
+                    components=[
+                        self.section.application_attachment.document_confirming_represent_applicant(),
+                        self.section.application_attachment.schedule_information()
+                    ]
+                ),
+                self.section.application_attachment.other_attachments(),
+                self.section.application_attachment.storage_of_blanks()
+            ]
+        )
+        self.save_part(part)
+
+    def create_application_schedule(self, number):
+        part = self.create_part(
+            title=f"{int_to_roman(number)}. Harmonogram realizacji przedsięwzięcia",
+            short_name=f"{int_to_roman(number)}. Harmonogram",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            label="Nazwa przedsięwzięcia",
+                            name="projectNameRepeatSchedule",
+                            read_only=True,
+                            required=True,
+                            calculation_rules=[
+                                self.calculation_rule.copy_value(
+                                    from_name="applicationTaskName"
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    multiple_forms_rules={
+                        "minCount": 1,
+                        "maxCount": 20
+                    },
+                    components=[
+                        self.create_chapter(
+                            class_list={
+                                "main": [
+                                    "table-1-2",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin od",
+                                    name="taskActionDateStart",
+                                    validators=[
+                                        self.validator.related_local_date_lte_validator(
+                                            field_name="taskActionDateEnd",
+                                            message="Termin rozpoczęcia działania musi być wcześniejszy niż termin jego zakończenia."
+                                        )
+                                    ],
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="taskActionDateEnd",
+                                    validators=[
+                                        self.validator.related_local_date_gte_validator(
+                                            field_name="taskActionDateStart",
+                                            message="Termin zakończenia działania musi być późniejszy niż termin jego rozpoczęcia."
+                                        )
+                                    ],
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="textarea",
+                                    label="Działanie",
+                                    name="taskActionDesc",
+                                    help_text="Krótki opis działania",
+                                    class_list=[
+                                        "table-full",
+                                        "col-span-2"
+                                    ],
+                                    validators=[
+                                        self.validator.length_validator(max_value=250)
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    class_list={
+                        "main": [
+                            "dates"
+                        ],
+                        "sub": [
+                            "dates-item"
+                        ]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="date",
+                            label="Rozpoczęcie realizacji przedsięwzięcia",
+                            name="projectCommencement",
+                            read_only=True,
+                            required=True,
+                            calculation_rules=[
+                                self.calculation_rule.first_date(
+                                    field="taskActionDateStart"
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="date",
+                            label="Zakończenie realizacji przedsięwzięcia",
+                            name="projectCompletion",
+                            read_only=True,
+                            required=True,
+                            calculation_rules=[
+                                self.calculation_rule.last_date(
+                                    field="taskActionDateStart"
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="date",
+                            label="Termin rozliczenia z PISF",
+                            name="settlementDeadline",
+                            read_only=True,
+                            required=True,
+                            calculation_rules=[
+                                self.calculation_rule.relate_to_last_date(
+                                    field="projectCompletion",
+                                    parameter=30
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Uwaga! <br /><small>Harmonogram przedsięwzięcia powinien uwzględniać etapy: <normal><br />1. przygotowawczy (np. zaproszenie uczestników, rekrutacja, rezerwacja noclegów itp.), <br />2. realizacji przedsięwzięcia (np. przeprowadzenie warsztatów, festiwal itp.), <br />3. zakończenie przedsięwzięcia (data zakończenia realizacji przedsięwzięcia (dzień, miesiąc, rok). <br />Prosimy o chronologiczne ułożenie wszystkich pozycji harmonogramu. </normal></small>"
+                )
+            ]
+        )
+        self.save_part(part)
+
     def generate(self):
         # Base
         self.create_base()

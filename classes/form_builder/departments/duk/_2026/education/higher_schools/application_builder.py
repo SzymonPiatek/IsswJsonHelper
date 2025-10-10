@@ -21,9 +21,3 @@ class HigherSchoolsApplicationBuilder(EducationApplicationBuilder, HigherSchools
         self.estimate_chapters = [
             estimate_builder.generate_estimate()
         ]
-
-    def create_application_attachments(self, number):
-        pass
-
-    def create_application_schedule(self, number):
-        pass

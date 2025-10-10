@@ -10,18 +10,23 @@ class ApplicationAttachment(FormFactory):
 
     def document_confirming_represent_applicant(self):
         return self.create_chapter(
-            multiple_forms_rules={
-                "minCount": 1,
-                "maxCount": 10
-            },
+            title="Dokumenty potwierdzające uprawnienie do reprezentacji Wnioskodawcy przy składaniu wniosku (np. KRS, RIK, statut, pełnomocnictwo)",
             components=[
                 self.create_chapter(
+                    multiple_forms_rules={
+                        "minCount": 1,
+                        "maxCount": 10
+                    },
                     components=[
-                        self.create_component(
-                            component_type="file",
-                            label="Dokumenty potwierdzające uprawnienie do reprezentacji Wnioskodawcy przy składaniu wniosku (np. KRS, RIK, statut, pełnomocnictwo)",
-                            name="documentConfirmingRepresentApplicant",
-                            required=True
+                        self.create_chapter(
+                            title="Dokument",
+                            components=[
+                                self.create_component(
+                                    component_type="file",
+                                    name="documentConfirmingRepresentApplicant",
+                                    required=True
+                                )
+                            ]
                         )
                     ]
                 )

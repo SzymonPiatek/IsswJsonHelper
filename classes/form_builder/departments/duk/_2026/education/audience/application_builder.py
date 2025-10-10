@@ -261,7 +261,69 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
         self.save_part(part)
 
     def create_application_attachments(self, number):
-        pass
-
-    def create_application_schedule(self, number):
-        pass
+        part = self.create_part(
+            title=f"{int_to_roman(number)}. Załączniki",
+            short_name=f"{int_to_roman(number)}. Załączniki",
+            chapters=[
+                self.create_chapter(
+                    title="Obowiązkowe załączniki",
+                    components=[
+                        self.section.application_attachment.document_confirming_represent_applicant(),
+                        self.section.application_attachment.schedule_information()
+                    ]
+                ),
+                self.create_chapter(
+                    title="1. Lista filmów pokazywanych podczas zajęć",
+                    components=[
+                        self.create_component(
+                            component_type="file",
+                            name="movieListAttachment",
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="2. Lista szkół biorących udział w przedsięwzięciu (nazwa, adres)",
+                    components=[
+                        self.create_component(
+                            component_type="file",
+                            name="schoolsParticipatingAttachment",
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="3. Program edukacyjny, w tym materiały dydaktyczne",
+                    components=[
+                        self.create_component(
+                            component_type="file",
+                            name="educationMaterialsAttachment",
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="4. Lista prelegentów/edukatorów oraz ich biogramy",
+                    components=[
+                        self.create_component(
+                            component_type="file",
+                            name="cinemaListAttachment",
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="5. Szczegółowy wykaz kin studyjnych,w których prowadzone będą zajęcia",
+                    components=[
+                        self.create_component(
+                            component_type="file",
+                            name="detailedListOfCinemas",
+                            required=True
+                        )
+                    ]
+                ),
+                self.section.application_attachment.other_attachments(),
+                self.section.application_attachment.storage_of_blanks()
+            ]
+        )
+        self.save_part(part)
