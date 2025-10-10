@@ -36,6 +36,8 @@ class LiteratureApplicationBuilder(DisseminationApplicationBuilder, LiteraturePr
             self.create_application_attachments
         ]
 
+        self.source_of_financing_tickets = True
+
     def create_application_attachments(self, number):
         pass
 

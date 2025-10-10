@@ -24,6 +24,8 @@ class ResearchApplicationBuilder(DisseminationApplicationBuilder, ResearchPriori
             estimate_builder.generate_estimate()
         ]
 
+        self.source_of_financing_tickets = True
+
     def create_application_scope_of_project(self, number):
         pass
 
