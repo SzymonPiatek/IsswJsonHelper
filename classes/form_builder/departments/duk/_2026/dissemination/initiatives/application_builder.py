@@ -5,7 +5,7 @@ from classes.form_builder.departments.duk._2026.dissemination.priority import In
 
 
 class InitiativesApplicationBuilder(DisseminationApplicationBuilder, InitiativesPriority):
-    FORM_ID = 9185
+    FORM_ID = 21
 
     def __init__(self):
         super().__init__()

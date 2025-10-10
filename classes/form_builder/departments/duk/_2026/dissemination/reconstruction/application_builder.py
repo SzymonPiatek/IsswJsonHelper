@@ -5,7 +5,7 @@ from ..priority import ReconstructionPriority
 
 
 class ReconstructionApplicationBuilder(DisseminationApplicationBuilder, ReconstructionPriority):
-    FORM_ID = 9187
+    FORM_ID = 23
 
     def __init__(self):
         super().__init__()

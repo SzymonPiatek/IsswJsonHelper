@@ -5,7 +5,7 @@ from classes.form_builder.departments.duk._2026.application_estimate_builder imp
 
 
 class DkfApplicationBuilder(DisseminationApplicationBuilder, DkfPriority):
-    FORM_ID = 9189
+    FORM_ID = 25
 
     def __init__(self):
         super().__init__()

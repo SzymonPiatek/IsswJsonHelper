@@ -6,7 +6,7 @@ from ..application_builder import EducationApplicationBuilder
 
 
 class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, ProfessionalTrainingPriority):
-    FORM_ID = 9182
+    FORM_ID = 18
 
     def __init__(self):
         super().__init__()

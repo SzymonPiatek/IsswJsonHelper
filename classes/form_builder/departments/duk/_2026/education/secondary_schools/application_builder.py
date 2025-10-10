@@ -6,7 +6,7 @@ from classes.helpers import int_to_roman
 
 
 class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder, SecondarySchoolsPriority):
-    FORM_ID = 9181
+    FORM_ID = 17
 
     def __init__(self):
         super().__init__()

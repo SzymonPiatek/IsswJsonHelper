@@ -6,7 +6,7 @@ from classes.helpers import int_to_roman
 
 
 class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPriority):
-    FORM_ID = 9184
+    FORM_ID = 20
 
     def __init__(self):
         super().__init__()

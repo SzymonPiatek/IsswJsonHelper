@@ -2,7 +2,7 @@ from classes.form_builder.application_builder import ApplicationBuilder
 
 
 class TestApplicationBuilder(ApplicationBuilder):
-    FORM_ID = 9228
+    FORM_ID = 32
     DEPARTMENT_NAME = "TEST"
     OPERATION_NAME = "TEST"
     OPERATION_NUM = "test"

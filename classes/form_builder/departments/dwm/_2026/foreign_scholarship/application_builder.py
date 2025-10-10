@@ -3,7 +3,7 @@ from ..priority import ForeignScholarshipPriority
 
 
 class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignScholarshipPriority):
-    FORM_ID = 9193
+    FORM_ID = 29
 
     def __init__(self):
         super().__init__()

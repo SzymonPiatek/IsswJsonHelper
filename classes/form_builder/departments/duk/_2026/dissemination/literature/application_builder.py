@@ -5,7 +5,7 @@ from ..priority import LiteraturePriority
 
 
 class LiteratureApplicationBuilder(DisseminationApplicationBuilder, LiteraturePriority):
-    FORM_ID = 9186
+    FORM_ID = 22
 
     def __init__(self):
         super().__init__()

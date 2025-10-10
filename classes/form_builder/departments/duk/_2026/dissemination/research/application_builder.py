@@ -5,7 +5,7 @@ from ..priority import ResearchPriority
 
 
 class ResearchApplicationBuilder(DisseminationApplicationBuilder, ResearchPriority):
-    FORM_ID = 9188
+    FORM_ID = 24
 
     def __init__(self):
         super().__init__()

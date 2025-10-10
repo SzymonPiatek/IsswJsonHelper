@@ -3,7 +3,7 @@ from ..priority import PromotionPriority
 
 
 class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
-    FORM_ID = 9192
+    FORM_ID = 28
 
     def __init__(self):
         super().__init__()

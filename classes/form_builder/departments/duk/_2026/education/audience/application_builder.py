@@ -6,7 +6,7 @@ from ..application_builder import EducationApplicationBuilder
 
 
 class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
-    FORM_ID = 9183
+    FORM_ID = 19
 
     def __init__(self):
         super().__init__()
@@ -37,10 +37,10 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
 
     def create_application_scope_of_project(self, number):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Zakres przedsięwzięcia",
+            title=f"{int_to_roman(number)}. Zakres przedsięwzięcia i jego charakterystyka",
+            short_name=f"{int_to_roman(number)}. Zakres przedsięwzięcia",
             chapters=[
                 self.create_chapter(
-                    title="Zakres przedsięwzięcia i jego charakterystyka",
                     components=[
                         self.create_component(
                             label="Miejsce realizacji przedsięwzięcia",
@@ -64,12 +64,7 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                             ],
                             required=True,
                             help_text="Cel i zakres merytoryczny, zastosowane technologie, sposób realizacji przedsięwzięcia, promocja."
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="Opis szczegółowy przedsięwzięcia",
-                    components=[
+                        ),
                         self.create_component(
                             component_type="textarea",
                             name="offerEducationalValue",
@@ -114,15 +109,11 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                                 )
                             ],
                             required=True,
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="Doświadczenie wnioskodawcy i kompetencje zespołu",
-                    components=[
+                        ),
                         self.create_component(
                             component_type="textarea",
                             name="applicantAndTeamExperience",
+                            label="Doświadczenie wnioskodawcy i kompetencje zespołu",
                             help_text="Proszę o wyszczególnienie przedsięwzięć z zakresu kinematografii realizowanych przez wnioskodawcę w ostatnich 2 latach.",
                             validators=[
                                 self.validator.length_validator(
@@ -130,15 +121,11 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                                 )
                             ],
                             required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="Dostępność przedsięwzięcia",
-                    components=[
+                        ),
                         self.create_component(
                             component_type="textarea",
                             name="projectAccessibility",
+                            label="Dostępność przedsięwzięcia",
                             help_text="Działania podejmowane na rzecz osób ze szczególnymi potrzebami oraz wspierania inkluzywności.",
                             validators=[
                                 self.validator.length_validator(
