@@ -11,7 +11,12 @@ class ResearchApplicationBuilder(DisseminationApplicationBuilder, ResearchPriori
         super().__init__()
 
         self.project_type = [
-            ""
+            "Badania ilościowe i jakościowe o charakterze cyklicznym, dotyczące widza kinowego oraz bilansu kompetencji.",
+            "Badania rynkowe w sferze kinematografii.",
+            "Przygotowanie analiz w zakresie organizacji i finansowania rynku kinematograficznego w Polsce, a także przedsięwzięć wspierających jego systemowy rozwój.",
+            "Przygotowanie innowacyjnych przedsięwzięć o szczególnym znaczeniu dla rozwoju rynku audiowizualnego.",
+            "Badania i analizy zjawiska piractwa w sferze kinematografii oraz wdrażanie przedsięwzięć, których celem jest zwalczanie piractwa i zapobieganie łamaniu praw autorskich.",
+            "Inne działania realizujące cele Priorytetu V."
         ]
 
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
@@ -23,9 +28,6 @@ class ResearchApplicationBuilder(DisseminationApplicationBuilder, ResearchPriori
         pass
 
     def create_application_attachments(self, number):
-        pass
-
-    def create_application_statements(self, number):
         pass
 
     def create_application_schedule(self, number):

@@ -89,21 +89,11 @@ class Validator:
         if min_value is not None and min_value > 0:
             kwargs["min"] = min_value
         if max_value is not None and max_value > 0:
-            kwargs["max"] = max_value + 1
-        if min_value is not None and min_value > 0 and max_value is not None and max_value > 0:
-            default_msg = f"Ilość znaków musi zawierać się w przedziale od {min_value} do {max_value}."
-        elif min_value is not None and min_value > 0:
-            default_msg = f"Ilość znaków musi wynosić co najmniej {min_value}."
-        elif max_value is not None and max_value > 0:
-            default_msg = f"Ilość znaków nie może przekroczyć {max_value}."
-        else:
-            default_msg = "Nieprawidłowe ograniczenia długości tekstu."
+            kwargs["max"] = max_value
 
         result["kwargs"] = kwargs
 
-        if default_msg:
-            result["validationMsg"] = default_msg
-        elif message:
+        if message:
             result["validationMsg"] = message
 
         return result

@@ -25,8 +25,5 @@ class DkfApplicationBuilder(DisseminationApplicationBuilder, DkfPriority):
     def create_application_attachments(self, number):
         pass
 
-    def create_application_statements(self, number):
-        pass
-
     def create_application_schedule(self, number):
         pass

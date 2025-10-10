@@ -11,7 +11,12 @@ class LiteratureApplicationBuilder(DisseminationApplicationBuilder, LiteraturePr
         super().__init__()
 
         self.project_type = [
-            ""
+            "Publikacja opracowań naukowych, książek, czasopism z dziedziny kinematografii, w formatach takich jak: książka drukowana, e-book, audiobook, książka dla niewidomych i słabowidzących.",
+            "Publikacja opracowań naukowych, książel, czasopism z dziedziny kinematografii, w formatach takich jak: albumy.",
+            "Publikacja opracowań naukowych, książel, czasopism z dziedziny kinematografii, w formatach takich jak: publikacje popularno-naukowe.",
+            "Publikacja opracowań naukowych, książel, czasopism z dziedziny kinematografii, w formatach takich jak: czasopisma - w ramach Priorytetu III można finansować wyłącznie czasopisma funkcjonujące na rynku wydawniczym lub w formie publikacji elektronicznej.",
+            "Działalność portali, serwisów, baz z zakresu wiedzy o filmie.",
+            "Inne działanie realizujące cele Priorytetu III."
         ]
 
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
@@ -23,9 +28,6 @@ class LiteratureApplicationBuilder(DisseminationApplicationBuilder, LiteraturePr
         pass
 
     def create_application_attachments(self, number):
-        pass
-
-    def create_application_statements(self, number):
         pass
 
     def create_application_schedule(self, number):

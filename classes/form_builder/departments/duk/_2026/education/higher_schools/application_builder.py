@@ -11,7 +11,10 @@ class HigherSchoolsApplicationBuilder(EducationApplicationBuilder, HigherSchools
         super().__init__()
 
         self.project_type = [
-            ""
+            "Programy edukacyjne wchodzące w skład edukacji ciągłej.",
+            "Realizacja szkolnych i pozaszkolnych filmów krótko- i średniometrażowych.",
+            "Kształcenie zawodowe i podnoszenie kompetencji poprzez organizację studiów podyplomowych.",
+            "Inne działania realizujące cele Priorytetu I."
         ]
 
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
@@ -20,9 +23,6 @@ class HigherSchoolsApplicationBuilder(EducationApplicationBuilder, HigherSchools
         ]
 
     def create_application_attachments(self, number):
-        pass
-
-    def create_application_statements(self, number):
         pass
 
     def create_application_schedule(self, number):

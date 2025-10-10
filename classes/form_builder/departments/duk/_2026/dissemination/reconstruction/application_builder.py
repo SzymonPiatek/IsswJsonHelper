@@ -11,7 +11,8 @@ class ReconstructionApplicationBuilder(DisseminationApplicationBuilder, Reconstr
         super().__init__()
 
         self.project_type = [
-            ""
+            "Rekonstrukcja cyfrowa i digitalizacja filmów polskich oraz ich przygotowanie do rozpowszechniania.",
+            "Systemowe przedsięwzięcia, mające na celu zabezpieczenie materiałów filmowych."
         ]
 
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
@@ -23,9 +24,6 @@ class ReconstructionApplicationBuilder(DisseminationApplicationBuilder, Reconstr
         pass
 
     def create_application_attachments(self, number):
-        pass
-
-    def create_application_statements(self, number):
         pass
 
     def create_application_schedule(self, number):
