@@ -11,19 +11,33 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
 
         self.project_type = []
         self.estimate_chapters = []
+
+        self.source_of_financing_tickets: bool = False
+        self.is_basic_number_data: bool = False
+
         self.parts: list = [
             self.create_application_metadata,
             self.create_application_basic_data,
             self.create_application_applicant_data,
             self.create_application_scope_of_project,
+            self.create_application_basic_number_data,
             self.create_application_sources_of_financing,
-            self.create_application_statements,
-            self.create_application_attachments,
             self.create_application_project_costs,
-            self.create_application_schedule
+            self.create_application_schedule,
+            self.create_application_statements,
+            self.create_application_attachments
+        ] if self.is_basic_number_data else [
+            self.create_application_metadata,
+            self.create_application_basic_data,
+            self.create_application_applicant_data,
+            self.create_application_scope_of_project,
+            self.create_application_sources_of_financing,
+            self.create_application_project_costs,
+            self.create_application_schedule,
+            self.create_application_statements,
+            self.create_application_attachments
         ]
 
-        self.source_of_financing_tickets: bool = False
 
     def create_application_metadata(self, number: int):
         part = self.create_part(

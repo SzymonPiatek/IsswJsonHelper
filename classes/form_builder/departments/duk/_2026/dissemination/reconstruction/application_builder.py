@@ -216,9 +216,3 @@ class ReconstructionApplicationBuilder(DisseminationApplicationBuilder, Reconstr
             ]
         )
         self.save_part(part)
-
-    def create_application_attachments(self, number):
-        pass
-
-    def create_application_schedule(self, number):
-        pass

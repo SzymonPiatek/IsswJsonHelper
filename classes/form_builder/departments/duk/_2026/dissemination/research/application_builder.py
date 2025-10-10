@@ -25,12 +25,3 @@ class ResearchApplicationBuilder(DisseminationApplicationBuilder, ResearchPriori
         ]
 
         self.source_of_financing_tickets = True
-
-    def create_application_scope_of_project(self, number):
-        pass
-
-    def create_application_attachments(self, number):
-        pass
-
-    def create_application_schedule(self, number):
-        pass

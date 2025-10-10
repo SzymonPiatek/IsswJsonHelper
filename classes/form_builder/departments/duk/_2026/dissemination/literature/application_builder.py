@@ -24,22 +24,4 @@ class LiteratureApplicationBuilder(DisseminationApplicationBuilder, LiteraturePr
             estimate_builder.generate_estimate()
         ]
 
-        self.parts = [
-            self.create_application_metadata,
-            self.create_application_basic_data,
-            self.create_application_applicant_data,
-            self.create_application_scope_of_project,
-            self.create_application_sources_of_financing,
-            self.create_application_project_costs,
-            self.create_application_schedule,
-            self.create_application_statements,
-            self.create_application_attachments
-        ]
-
         self.source_of_financing_tickets = True
-
-    def create_application_attachments(self, number):
-        pass
-
-    def create_application_schedule(self, number):
-        pass
