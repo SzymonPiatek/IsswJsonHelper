@@ -1,4 +1,5 @@
 from classes.form_builder.departments.duk._2026.dissemination.application_builder import DisseminationApplicationBuilder
+from classes.helpers import int_to_roman
 from .estimate_data import estimate_sections
 from classes.form_builder.departments.duk._2026.application_estimate_builder import DUKApplicationEstimateBuilder
 from ..priority import ReconstructionPriority
@@ -21,7 +22,200 @@ class ReconstructionApplicationBuilder(DisseminationApplicationBuilder, Reconstr
         ]
 
     def create_application_scope_of_project(self, number):
-        pass
+        part = self.create_part(
+            title=f"{int_to_roman(number)}. Zakres przedsięwzięcia i jego charakterystyka",
+            short_name=f"{int_to_roman(number)}. Zakres przedsięwziecia",
+            chapters=[
+                self.create_chapter(
+                    title="1. Typ przedsięwzięcia",
+                    components=[
+                        self.create_chapter(
+                            components=[
+                                self.create_component(
+                                    component_type="checkbox",
+                                    name="isDigitizationOrReconstructionIndividualFilm",
+                                    label="Digitalizacja/rekonstrukcja pojedynczych tytułów filmowych"
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="isDigitizationOrReconstructionIndividualFilm",
+                                    values=[True]
+                                )
+                            ],
+                            components=[
+                                self.create_chapter(
+                                    multiple_forms_rules={
+                                        "minCount": 1,
+                                        "maxCount": 10
+                                    },
+                                    components=[
+                                        self.create_chapter(
+                                            title="Pozycja",
+                                            class_list={
+                                                "main": [
+                                                    "table-1-2",
+                                                    "grid",
+                                                    "grid-cols-2"
+                                                ],
+                                                "sub": [
+                                                    "table-1-2__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="text",
+                                                    name="projectTitle",
+                                                    label="Tytuł",
+                                                    required=True,
+                                                    class_list=[
+                                                        "table-full"
+                                                    ]
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    name="projectDirector",
+                                                    label="Reżyser",
+                                                    required=True
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    name="projectYear",
+                                                    label="Rok",
+                                                    required=True
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            components=[
+                                self.create_component(
+                                    component_type="checkbox",
+                                    name="isDigitizationOrReconstructionArchiveMaterial",
+                                    label="Digitalizacja/rekonstrukcja zbiorów i materiałów archiwalnych"
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="isDigitizationOrReconstructionArchiveMaterial",
+                                    values=[True]
+                                )
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="collectionNameAndChronologicalScope",
+                                    label="Nazwa zbioru i zakres chronologiczny",
+                                    required=True,
+                                    validators=[
+                                        self.validator.length_validator(max_value=500)
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="2. Opis przedsięwzięcia i uzasadnienie rekonstrukcji<br/><normal><small>Cel, wartość merytoryczna przedsięwzięcia, w tym uzasadnienie wyboru filmu lub pilność ze względów konserwatorskich, zastosowane technologie i standardy, sposób realizacji.</small></normal>",
+                    class_list=[
+                        "no-title"
+                    ],
+                    components=[
+                        self.create_chapter(
+                            title="2. Opis przedsięwzięcia i uzasadnienie rekonstrukcji",
+                            class_list=[
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_chapter(
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="descriptionOfProjectAndJustificationOfReconstruction",
+                                    validators=[
+                                        self.validator.length_validator(max_value=5000)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="3. Rodzaj i stan materiałów źródłowych oraz pilność rekonstrukcji<br/><normal><small>Proszę o wyszczególnienie przedsięwzięć z zakresu kinematografii realizowanych przez Wnioskodawcę w ostatnich 2 latach.</small></normal>",
+                    class_list=[
+                        "no-title"
+                    ],
+                    components=[
+                        self.create_chapter(
+                            title="3. Rodzaj i stan materiałów źródłowych oraz pilność rekonstrukcji",
+                            class_list=[
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_chapter(
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="reconstructionMaterialsAndUrgency",
+                                    validators=[
+                                        self.validator.length_validator(max_value=3000)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="4. Zastosowane technologie i standardy",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="usedTechnologiesAndStandards",
+                            validators=[
+                                self.validator.length_validator(max_value=3000)
+                            ],
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="5. Planowane efekty realizacji przedsięwzięcia",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="plannedImplementationAndEvaluationEffects",
+                            validators=[
+                                self.validator.length_validator(max_value=3000)
+                            ],
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="6. Doświadczenie wnioskodawcy i kompetencje zespołu",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="applicantAndTeamExperience",
+                            validators=[
+                                self.validator.length_validator(max_value=3000)
+                            ],
+                            required=True
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
 
     def create_application_attachments(self, number):
         pass

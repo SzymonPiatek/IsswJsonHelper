@@ -56,9 +56,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder, Initiatives
             )
         ]
 
-    def create_application_scope_of_project(self, number):
-        pass
-
     def create_application_attachments(self, number):
         pass
 
