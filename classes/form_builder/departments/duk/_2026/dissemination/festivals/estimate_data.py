@@ -108,7 +108,8 @@ estimate_sections = [
         title="Koszty związane z dostępnością",
         costs=[
             CostItem(
-                title="Koszty związane z dostępnością cyfrową (dostępne strony internetowe)",
+                title="Koszty związane z dostępnością cyfrową",
+                helpText="Dostępne strony internetowe.",
                 name="digitalAccessibility",
             ),
             CostItem(

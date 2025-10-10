@@ -1597,8 +1597,7 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                         estimate_base.generate_estimate_headers(),
                         *self.estimate_chapters
                     ]
-                ),
-                estimate_base.generate_estimate_bottom()
+                )
             ]
         )
 

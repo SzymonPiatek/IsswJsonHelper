@@ -327,13 +327,58 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
             short_name=f"{int_to_roman(number)}. Załączniki",
             chapters=[
                 self.create_chapter(
-                    title="Obowiązkowe załączniki",
+                    title="1. Obowiązkowe załączniki",
                     components=[
-                        self.section.application_attachment.schedule_information()
+                        self.create_chapter(
+                            components=[
+                                self.create_component(
+                                    component_type="header",
+                                    value="Harmonogram i kosztorys stanowią integralną część wniosku",
+                                    name="scheduleAndCostEstimateIntegralPartOfApplication"
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            multiple_forms_rules={
+                                "minCount": 1,
+                                "maxCount": 20
+                            },
+                            components=[
+                                self.create_chapter(
+                                    title="Załącznik",
+                                    components=[
+                                        self.create_component(
+                                            component_type="file",
+                                            name="requiredAttachment",
+                                            required=True
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
                     ]
                 ),
-                self.section.application_attachment.other_attachments(),
-                self.section.application_attachment.storage_of_blanks()
+                self.create_chapter(
+                    title="2. Inne załączniki",
+                    components=[
+                        self.create_chapter(
+                            multiple_forms_rules={
+                                "minCount": 1,
+                                "maxCount": 20
+                            },
+                            components=[
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="file",
+                                            name="additionalAttachment"
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                )
             ]
         )
         self.save_part(part)
