@@ -980,30 +980,32 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
         self.save_part(part=part)
 
     def create_application_sources_of_financing(self, number: int):
+        source_of_financing_help_text = "<small>Uwaga! </br><normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </normal>"
+
         sources_of_financing_chapters = {
             "c": [
                 {
                     "checkbox_title": "Środki z budżetów jednostek samorządu terytorialnego lub inne środki publiczne z wyjątkiem środków Ministerstwa Kultury i Dziedzictwa Narodowego",
                     "checkbox_name": "isLocalGovernmentFunding",
-                    "section_title": "<normal>a) z budżetów jednostek samorządu terytorialnego lub innych środków publicznych za wyjątkiem Ministerstwa Kultury i Dziedzictwa Narodowego </normal><br /><small>Uwaga! </br><normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+                    "section_title": f"<normal>a) z budżetów jednostek samorządu terytorialnego lub innych środków publicznych za wyjątkiem Ministerstwa Kultury i Dziedzictwa Narodowego </normal><br />{source_of_financing_help_text}</small>",
                     "section_name": "localGovernments",
                 },
                 {
                     "checkbox_title": "Środki Ministerstwa Kultury i Dziedzictwa Narodowego",
                     "checkbox_name": "isMinistryFunding",
-                    "section_title": "<normal>b) ze środków Ministerstwa Kultury i Dziedzictwa Narodowego w ramach Programów Ministra </normal><br /><small>Uwaga! </br><normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+                    "section_title": f"<normal>b) ze środków Ministerstwa Kultury i Dziedzictwa Narodowego w ramach Programów Ministra </normal><br />{source_of_financing_help_text}</small>",
                     "section_name": "ministry",
                 },
                 {
                     "checkbox_title": "Środki od sponsorów lub innych podmiotów niezaliczanych do sektora finansów publicznych",
                     "checkbox_name": "isOtherSponsorFunding",
-                    "section_title": "<normal>c) od sponsorów lub innych podmiotów niezaliczanych do sektora finansów publicznych </normal><br /><small>Uwaga! </br><normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+                    "section_title": f"<normal>c) od sponsorów lub innych podmiotów niezaliczanych do sektora finansów publicznych </normal><br />{source_of_financing_help_text}</small>",
                     "section_name": "otherSponsors",
                 },
                 {
                     "checkbox_title": "Środki zagraniczne, w tym europejskie",
                     "checkbox_name": "isForeignFunding",
-                    "section_title": "<normal>d) ze środków zagranicznych, w tym europejskich </normal><br /><small>Uwaga! </br><normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </small></normal>",
+                    "section_title": f"<normal>d) ze środków zagranicznych, w tym europejskich </normal><br />{source_of_financing_help_text}</small>",
                     "section_name": "foreign",
                 }
             ]
@@ -1577,18 +1579,14 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                                     fields=[
                                         "localGovernmentsFundsSumAmount",
                                         "ministryFundsSumAmount",
-                                        "otherSponsorsFundsSumAmount",
-                                        "foreignFundsSumAmount",
-                                        "pisfSupportAmountInput"
+                                        "pisfSupportAmountTotal"
                                     ]
                                 ),
                                 self.validator.related_sum_validator(
                                     field_names=[
                                         "localGovernmentsFundsSumAmount",
                                         "ministryFundsSumAmount",
-                                        "otherSponsorsFundsSumAmount",
-                                        "foreignFundsSumAmount",
-                                        "pisfSupportAmountInput"
+                                        "pisfSupportAmountTotal"
                                     ]
                                 )
                             ],
@@ -1609,6 +1607,48 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                             validators=[
                                 self.validator.related_share_validator(
                                     dividend="publicSupportAltogether",
+                                    divisor="totalProjectCost"
+                                )
+                            ],
+                            read_only=True,
+                            unit="%"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            label="Pozostałe środki razem",
+                            name="otherFundsAltogether",
+                            calculation_rules=[
+                                self.calculation_rule.dynamic_sum_inputs(
+                                    fields=[
+                                        "otherSponsorsFundsSumAmount",
+                                        "foreignFundsSumAmount",
+                                    ]
+                                ),
+                                self.validator.related_sum_validator(
+                                    field_names=[
+                                        "otherSponsorsFundsSumAmount",
+                                        "foreignFundsSumAmount",
+                                    ]
+                                )
+                            ],
+                            read_only=True,
+                            unit="PLN"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            label="Udział w koszcie całkowitym",
+                            name="otherFundsAltogetherShare",
+                            calculation_rules=[
+                                self.calculation_rule.share_calculator(
+                                    dividend_field="otherFundsAltogether",
+                                    divisor_field="totalProjectCost"
+                                )
+                            ],
+                            validators=[
+                                self.validator.related_share_validator(
+                                    dividend="otherFundsAltogether",
                                     divisor="totalProjectCost"
                                 )
                             ],
