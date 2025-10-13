@@ -32,9 +32,6 @@ class FormChapter(FormElement):
                 raise ValueError("Nie można mieszać chapterów i componentów w jednym zbiorze 'components'")
 
         if self.multiple_forms_rules:
-            if self.multiple_forms_rules.get("maxCount", 1) > 5:
-                self.is_paginated = True
-
             mf_min_count = self.multiple_forms_rules.get("minCount", 1)
 
             if len(self.components) == 0:

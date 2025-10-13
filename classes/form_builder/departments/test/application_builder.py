@@ -2098,8 +2098,9 @@ class TestApplicationBuilder(ApplicationBuilder):
                                 self.create_component(
                                     component_type="number",
                                     name="visualityNumber",
-                                    label="Number"
-                                ),
+                                    label="Number",
+                                    help_text="Test"
+                                )
                             ]
                         ),
                         self.create_chapter(
@@ -2119,14 +2120,14 @@ class TestApplicationBuilder(ApplicationBuilder):
                                     label="Select"
                                 ),
                                 self.create_component(
-                                    component_type="currency",
-                                    name="visualityCurrencySelect",
-                                    label="Currency"
-                                ),
-                                self.create_component(
                                     component_type="country",
                                     name="visualityCountrySelect",
                                     label="Country"
+                                ),
+                                self.create_component(
+                                    component_type="currency",
+                                    name="visualityCurrencySelect",
+                                    label="Currency"
                                 ),
                                 self.create_component(
                                     component_type="countryMulti",
@@ -2145,7 +2146,8 @@ class TestApplicationBuilder(ApplicationBuilder):
                                 self.create_component(
                                     component_type="checkbox",
                                     name="visualityCheckbox",
-                                    label="Checkbox"
+                                    label="Checkbox",
+                                    help_text="Test"
                                 ),
                                 self.create_component(
                                     component_type="radio",

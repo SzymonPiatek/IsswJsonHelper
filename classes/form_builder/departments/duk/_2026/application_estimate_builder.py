@@ -309,14 +309,14 @@ class DUKApplicationEstimateBuilder(FormFactory):
 
         final_chapter["components"].append(
             self.create_chapter(
-                title=f'<p style="color: red">{title}<p>',
+                title=f'<p style="color: #e00d1d">{title}<p>',
                 class_list=[
                     "displayNoneFrontend"
                 ]
             )
         )
 
-        title = f'<p style="color: red">{title}<p>'
+        title = f'<p style="color: #e00d1d">{title}<p>'
         help_text = section.get('helpText', False)
         if help_text:
             title += f'</br><normal><small>{help_text}</small></normal>'
@@ -344,7 +344,7 @@ class DUKApplicationEstimateBuilder(FormFactory):
         ]
 
         return self.create_chapter(
-            title=f'<p style="color: red">{section["title"]}</p>',
+            title=f'<p style="color: #e00d1d">{section["title"]}</p>',
             class_list=construct["section_title"]["classList"],
             components=components
         )

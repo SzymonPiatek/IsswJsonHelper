@@ -38,7 +38,7 @@ class ApplicationAttachment(FormFactory):
             title="Inne załączniki",
             components=[
                 self.create_chapter(
-                    title="Plik",
+                    title="Załącznik",
                     multiple_forms_rules={
                         "minCount": 1,
                         "maxCount": 50

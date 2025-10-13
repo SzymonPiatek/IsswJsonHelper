@@ -21,7 +21,7 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
         ]
 
         self.source_of_financing_tickets = True
-        self.is_basic_number_data = True
+
 
     def create_application_scope_of_project(self, number: int):
         part = self.create_part(
@@ -29,6 +29,7 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
             short_name=f"{int_to_roman(number)}. Zakres przedsięwzięcia",
             chapters=[
                 self.create_chapter(
+                    title="1. Termin i miejsce realizacji przedsięwzięcia",
                     class_list={
                         "main": [
                             "table-1-2",
@@ -87,10 +88,25 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                             class_list=[
                                 "table-full"
                             ]
-                        ),
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="2. Zakres przedsięwzięcia i jego charakterystyka",
+                    class_list={
+                        "main": [
+                            "table-1-2",
+                            "grid",
+                            "grid-cols-2"
+                        ],
+                        "sub": [
+                            "table-1-2__col"
+                        ]
+                    },
+                    components=[
                         self.create_component(
                             component_type="textarea",
-                            label="Cele strategiczne festiwalu",
+                            label="Idea i profil artystyczny festiwalu",
                             name="strategicFestivalGoals",
                             validators=[
                                 self.validator.length_validator(max_value=500)
@@ -201,21 +217,6 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                             ]
                         ),
                         self.create_component(
-                            component_type="radio",
-                            label="Udział w przedsięwzięciach jest",
-                            name="participationInVentureIs",
-                            options=[
-                                "bezpłatny",
-                                "w większości bezpłatny",
-                                "w większości płatny",
-                                "płatny"
-                            ],
-                            required=True,
-                            class_list=[
-                                "table-full"
-                            ]
-                        ),
-                        self.create_component(
                             component_type="textarea",
                             label="Planowane efekty realizacji przedsięwzięcia",
                             name="plannedEffects",
@@ -228,19 +229,28 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                             ]
                         )
                     ]
-                )
-            ]
-        )
-
-        self.save_part(part)
-
-    def create_application_basic_number_data(self, number: int):
-        part = self.create_part(
-            title=f"{int_to_roman(number)}. Podstawowe dane liczbowe i wskaźniki",
-            short_name=f"{int_to_roman(number)}. Dane liczbowe",
-            chapters=[
+                ),
                 self.create_chapter(
-                    title="Podstawowe dane liczbowe i wskaźniki",
+                    title="<normal>Udział w przedsięwzięciach jest</normal>",
+                    components=[
+                        self.create_component(
+                            component_type="radio",
+                            name="participationInVentureIs",
+                            options=[
+                                "bezpłatny",
+                                "w większości bezpłatny",
+                                "w większości płatny",
+                                "płatny"
+                            ],
+                            required=True,
+                            class_list=[
+                                "table-full"
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="3. Podstawowe dane liczbowe i wskaźniki",
                     class_list={
                         "main": [
                             "table-1-2",
@@ -350,6 +360,7 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                     title="2. Inne załączniki",
                     components=[
                         self.create_chapter(
+                            title="Załącznik",
                             multiple_forms_rules={
                                 "minCount": 1,
                                 "maxCount": 20
@@ -393,7 +404,7 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                     ]
                 ),
                 self.create_chapter(
-                    title="Uwaga!<br/>Harmonogram zadania powinien uwzględniać etapy: przygotowawczy (np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie promocji wydarzenia itp.), realizacji zadania (np. wykonanie i/lub wysyłka materiałów promocyjnych, pokaz filmu na festiwalu) oraz podsumowania (ewaluacja i rozliczenie zadania – ostateczna data zakończenia realizacji zadania: dzień, miesiąc i rok). <br/>W zakresie każdego z tych etapów należy określić najważniejsze działania (tzw. „kamienie milowe” zadania) i terminy ich realizacji. <br/>- Harmonogram zadania powinien uwzględniać wszystkie działania wymienione w kosztorysie zadania.<br/>- Prosimy o chronologiczne ułożenie wszystkich pozycji harmonogramu.",
+                    title="<small>Uwaga!<br/><normal>Harmonogram zadania powinien uwzględniać etapy: przygotowawczy (np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie promocji wydarzenia itp.), realizacji zadania (np. wykonanie i/lub wysyłka materiałów promocyjnych, pokaz filmu na festiwalu) oraz podsumowania (ewaluacja i rozliczenie zadania – ostateczna data zakończenia realizacji zadania: dzień, miesiąc i rok). <br/>W zakresie każdego z tych etapów należy określić najważniejsze działania (tzw. „kamienie milowe” zadania) i terminy ich realizacji. <br/>- Harmonogram zadania powinien uwzględniać wszystkie działania wymienione w kosztorysie zadania.<br/>- Prosimy o chronologiczne ułożenie wszystkich pozycji harmonogramu.</normal></small>",
                     components=[]
                 ),
                 self.create_chapter(
@@ -403,7 +414,7 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                     },
                     components=[
                         self.create_chapter(
-                            title="Wydarzenie",
+                            title="Pozycja",
                             class_list={
                                 "main": [
                                     "table-1-2",
@@ -483,7 +494,6 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                             component_type="date",
                             label="Zakończenie realizacji przedsięwzięcia",
                             name="projectCompletion",
-                            read_only=True,
                             required=True,
                             calculation_rules=[
                                 self.calculation_rule.last_date(
