@@ -1,5 +1,5 @@
 from .estimate_data import estimate_sections
-from classes.form_builder.departments.duk._2026.application_estimate_builder import DUKApplicationEstimateBuilder
+from classes.form_builder.departments.duk._2026.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
 from ..priority import SecondarySchoolsPriority
 from ..application_builder import EducationApplicationBuilder
 from classes.helpers import int_to_roman

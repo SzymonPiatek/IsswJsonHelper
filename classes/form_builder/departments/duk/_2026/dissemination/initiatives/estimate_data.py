@@ -1,27 +1,6 @@
 from dataclasses import asdict
-from classes.form_rules import Validator
-from classes.form_estimate_builder.dataclasses_definitions import EstimateSection, CostItem, CostOverride
-
-validators = Validator()
-
-
-def fraction_cost(title: str, name: str, ratio: float) -> CostItem:
-    percent = ratio * 100
-    help_text = (
-        f"Koszty {title.lower()} nie mogą przekroczyć {percent:.2f}% ogólnej kwoty wnioskowanej. "
-        f"W przypadku uzyskania dofinansowania koszty {title.lower()} nie mogą przekroczyć {percent:.2f}% przyznanej dotacji."
-    )
-    validator = validators.related_fraction_gte_validator(
-        field_name="pisfSupportAmount",
-        ratio=ratio,
-        message=f"Kwota dofinansowania dla tego kosztu nie może przekroczyć {percent:.2f}% kwoty wnioskowanej."
-    )
-    return CostItem(
-        title=f"Koszty {title}",
-        name=name,
-        helpText=help_text,
-        overrides={"RequestedAmount": CostOverride(validators=[validator])},
-    )
+from classes.form_estimate_builder.dataclasses_definitions import EstimateSection, CostItem
+from classes.form_builder.departments.duk._2026.estimate.helpers import fraction_cost
 
 
 estimate_sections_pt124 = [

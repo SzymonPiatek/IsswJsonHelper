@@ -1,8 +1,6 @@
 from dataclasses import asdict
-from classes.form_rules import Validator
 from classes.form_estimate_builder.dataclasses_definitions import EstimateSection, CostItem, CostOverride
 
-validators = Validator()
 
 estimate_sections = [
     EstimateSection(

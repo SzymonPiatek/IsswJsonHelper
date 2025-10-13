@@ -1,6 +1,6 @@
 from classes.form_builder.departments.duk._2026.dissemination.application_builder import DisseminationApplicationBuilder
 from classes.form_builder.departments.duk._2026.dissemination.priority import FestivalsPriority
-from classes.form_builder.departments.duk._2026.application_estimate_builder import DUKApplicationEstimateBuilder
+from classes.form_builder.departments.duk._2026.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
 from .estimate_data import estimate_sections
 from classes.helpers import int_to_roman
 

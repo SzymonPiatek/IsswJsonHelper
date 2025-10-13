@@ -1,6 +1,6 @@
 from classes.form_builder.departments.duk._2026.dissemination.application_builder import DisseminationApplicationBuilder
 from .estimate_data import estimate_sections_pt124, estimate_sections_pt3
-from classes.form_builder.departments.duk._2026.application_estimate_builder import DUKApplicationEstimateBuilder
+from classes.form_builder.departments.duk._2026.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
 from classes.form_builder.departments.duk._2026.dissemination.priority import InitiativesPriority
 
 
