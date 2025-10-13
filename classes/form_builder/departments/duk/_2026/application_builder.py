@@ -1504,6 +1504,13 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                                     from_name="ownFundsSumAmount"
                                 )
                             ],
+                            validators=[
+                                self.validator.related_sum_validator(
+                                    field_names=[
+                                        "ownFundsSumAmount"
+                                    ]
+                                )
+                            ],
                             read_only=True,
                             unit="PLN"
                         ),
@@ -1582,13 +1589,20 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                                         "pisfSupportAmountTotal"
                                     ]
                                 ),
+                            ],
+                            validators=[
+                                self.validator.related_fraction_gte_validator(
+                                    field_name="totalProjectCost",
+                                    ratio=0.9,
+                                    message="Kwota środków publicznych nie może przekroczyć 90% kwoty całkowitej."
+                                ),
                                 self.validator.related_sum_validator(
                                     field_names=[
                                         "localGovernmentsFundsSumAmount",
                                         "ministryFundsSumAmount",
                                         "pisfSupportAmountTotal"
                                     ]
-                                )
+                                ),
                             ],
                             read_only=True,
                             unit="PLN"
@@ -1624,7 +1638,9 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                                         "otherSponsorsFundsSumAmount",
                                         "foreignFundsSumAmount",
                                     ]
-                                ),
+                                )
+                            ],
+                            validators=[
                                 self.validator.related_sum_validator(
                                     field_names=[
                                         "otherSponsorsFundsSumAmount",
