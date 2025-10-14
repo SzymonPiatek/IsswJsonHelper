@@ -7,6 +7,7 @@ class FormChapter(FormElement):
     def __init__(
             self,
             title: str = '',
+            help_text: str = None,
             class_list: ClassListType = None,
             visibility_rules: list[dict] = None,
             components: list[dict] = None,
@@ -16,6 +17,7 @@ class FormChapter(FormElement):
         super().__init__(kind="chapter")
 
         self.title = title
+        self.help_text = help_text
         self.class_list = class_list
         self.visibility_rules = visibility_rules
         self.components = components or []
@@ -60,6 +62,8 @@ class FormChapter(FormElement):
             "components": self.components,
         }
 
+        if self.help_text:
+            kwargs["helpText"] = self.help_text
         if self.class_list:
             kwargs["classList"] = self.class_list
         if self.visibility_rules:

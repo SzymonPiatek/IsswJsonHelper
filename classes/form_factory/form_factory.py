@@ -36,6 +36,7 @@ class FormFactory:
     @staticmethod
     def create_chapter(
             title: str = '',
+            help_text: str = None,
             class_list: ClassListType = None,
             visibility_rules: list[dict] = None,
             components: list[dict] = None,
@@ -44,6 +45,7 @@ class FormFactory:
     ):
         chapter = FormChapter(
             title=title,
+            help_text=help_text,
             class_list=class_list,
             visibility_rules=visibility_rules,
             components=components,

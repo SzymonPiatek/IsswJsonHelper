@@ -93,141 +93,133 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                 ),
                 self.create_chapter(
                     title="2. Zakres przedsięwzięcia i jego charakterystyka",
-                    class_list={
-                        "main": [
-                            "table-1-2",
-                            "grid",
-                            "grid-cols-2"
-                        ],
-                        "sub": [
-                            "table-1-2__col"
-                        ]
-                    },
                     components=[
-                        self.create_component(
-                            component_type="textarea",
-                            label="Idea i profil artystyczny festiwalu",
-                            name="strategicFestivalGoals",
-                            validators=[
-                                self.validator.length_validator(max_value=500)
-                            ],
-                            required=True,
-                            class_list=[
-                                "table-full"
+                        self.create_chapter(
+                            title="Idea i profil artystyczny festiwalu",
+                            help_text="Misja i wartości festiwalu oraz charakter przezentowanego kina",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="strategicFestivalGoals",
+                                    validators=[
+                                        self.validator.length_validator(max_value=2000)
+                                    ],
+                                    required=True
+                                )
                             ]
                         ),
-                        self.create_component(
-                            component_type="textarea",
-                            label="Profil artystyczny festiwalu",
-                            name="artisticFestivalProfile",
-                            validators=[
-                                self.validator.length_validator(max_value=500)
-                            ],
-                            required=True,
-                            class_list=[
-                                "table-full"
-                            ]
-                        ),
-                        self.create_component(
-                            component_type="textarea",
-                            label="Program festiwalu",
-                            name="festivalProgram",
-                            validators=[
-                                self.validator.length_validator(max_value=5000)
-                            ],
-                            required=True,
+                        self.create_chapter(
+                            title="Program festiwalu",
                             help_text="Repertuar, konkursy, sekcje, jury",
-                            class_list=[
-                                "table-full"
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="festivalProgram",
+                                    validators=[
+                                        self.validator.length_validator(max_value=5000)
+                                    ],
+                                    required=True,
+                                )
                             ]
                         ),
-                        self.create_component(
-                            component_type="textarea",
-                            name="prizesAwarded",
-                            label="Przyznane nagrody",
-                            validators=[
-                                self.validator.length_validator(max_value=1000)
-                            ],
-                            required=True,
-                            class_list=[
-                                "table-full"
+                        self.create_chapter(
+                            title="Przyznane nagrody",
+                            help_text="Liczba, rodzaj i wysokość przyznawanych nagród",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="prizesAwarded",
+                                    validators=[
+                                        self.validator.length_validator(max_value=1000)
+                                    ],
+                                    required=True,
+                                ),
                             ]
                         ),
-                        self.create_component(
-                            component_type="textarea",
-                            label="Wydarzenia towarzyszące",
-                            name="accompanyingEvents",
-                            validators=[
-                                self.validator.length_validator(max_value=5000)
-                            ],
-                            required=True,
+                        self.create_chapter(
+                            title="Wydarzenia towarzyszące",
                             help_text="Np. spotkania z twórcami, warsztaty, retrospektywy, prelekcje",
-                            class_list=[
-                                "table-full"
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="accompanyingEvents",
+                                    validators=[
+                                        self.validator.length_validator(max_value=5000)
+                                    ],
+                                    required=True,
+                                ),
                             ]
                         ),
-                        self.create_component(
-                            component_type="textarea",
-                            label="Doświadczenie wnioskodawcy i kompetencje zespołu",
-                            name="applicantExperienceAndTeamCompetences",
-                            validators=[
-                                self.validator.length_validator(max_value=500)
-                            ],
-                            required=True,
-                            class_list=[
-                                "table-full"
+                        self.create_chapter(
+                            title="Doświadczenie wnioskodawcy i kompetencje zespołu",
+                            help_text="Doświadczenie wnioskodawcy w organizacji wydarzeń filmowych i kulturalnych oraz kompetencje zespołu odpowiedzialnego za realizację festiwalu",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="applicantExperienceAndTeamCompetences",
+                                    validators=[
+                                        self.validator.length_validator(max_value=1500)
+                                    ],
+                                    required=True,
+                                ),
                             ]
                         ),
-                        self.create_component(
-                            component_type="textarea",
-                            label="Promocja festiwalu",
-                            name="festivalPromotion",
-                            validators=[
-                                self.validator.length_validator(max_value=500)
-                            ],
-                            required=True,
+                        self.create_chapter(
+                            title="Promocja festiwalu",
                             help_text="Plan promocji, działania marketingowe, współprace, partnerzy i patroni medialni",
-                            class_list=[
-                                "table-full"
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="festivalPromotion",
+                                    validators=[
+                                        self.validator.length_validator(max_value=1500)
+                                    ],
+                                    required=True,
+                                ),
                             ]
                         ),
-                        self.create_component(
-                            component_type="textarea",
-                            label="Dostępność wydarzenia",
-                            name="eventAccessibility",
-                            validators=[
-                                self.validator.length_validator(max_value=500)
-                            ],
-                            required=True,
+                        self.create_chapter(
+                            title="Dostępność wydarzenia",
                             help_text="Działania podejmowane na rzecz osób ze szczególnymi potrzebami oraz wspieranie inkluzywności",
-                            class_list=[
-                                "table-full"
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="eventAccessibility",
+                                    validators=[
+                                        self.validator.length_validator(max_value=1000)
+                                    ],
+                                    required=True,
+                                ),
                             ]
                         ),
-                        self.create_component(
-                            component_type="textarea",
-                            label="Profil publiczności",
-                            name="audienceProfile",
-                            validators=[
-                                self.validator.length_validator(max_value=500)
-                            ],
-                            required=True,
-                            class_list=[
-                                "table-full"
+                        self.create_chapter(
+                            title="Profil publiczności i odbiory festiwalu",
+                            help_text="Do kogo kierowane jest wydarzenie oraz jakie grupy uczestników stanowią jego główną widownię (np. studenci szkół filmowych, seniorzy, widzowie zainteresowani kinem niezależnym)",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="audienceProfile",
+                                    validators=[
+                                        self.validator.length_validator(max_value=1000)
+                                    ],
+                                    required=True,
+                                ),
                             ]
                         ),
-                        self.create_component(
-                            component_type="textarea",
-                            label="Planowane efekty realizacji przedsięwzięcia",
-                            name="plannedEffects",
-                            validators=[
-                                self.validator.length_validator(max_value=1000)
-                            ],
-                            required=True,
-                            class_list=[
-                                "table-full"
+                        self.create_chapter(
+                            title="Planowane efekty realizacji przedsięwzięcia",
+                            help_text="Spodziewane rezultaty realizacji festiwalu w ujęciu jakościowym",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="plannedEffects",
+                                    validators=[
+                                        self.validator.length_validator(max_value=1000)
+                                    ],
+                                    required=True,
+                                )
                             ]
-                        )
+                        ),
                     ]
                 ),
                 self.create_chapter(
@@ -404,71 +396,206 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                     ]
                 ),
                 self.create_chapter(
-                    title="<small>Uwaga!<br/><normal>Harmonogram zadania powinien uwzględniać etapy: przygotowawczy (np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie promocji wydarzenia itp.), realizacji zadania (np. wykonanie i/lub wysyłka materiałów promocyjnych, pokaz filmu na festiwalu) oraz podsumowania (ewaluacja i rozliczenie zadania – ostateczna data zakończenia realizacji zadania: dzień, miesiąc i rok). <br/>W zakresie każdego z tych etapów należy określić najważniejsze działania (tzw. „kamienie milowe” zadania) i terminy ich realizacji. <br/>- Harmonogram zadania powinien uwzględniać wszystkie działania wymienione w kosztorysie zadania.<br/>- Prosimy o chronologiczne ułożenie wszystkich pozycji harmonogramu.</normal></small>",
+                    title="<small>Uwaga!<br/><normal>Harmonogram zadania powinien uwzględniać wszystkie działania wymienione w kosztorysie.</br>Proszimy o chronologiczne ułożenie wszystkich pozycji harmonogramu.</br></br>Harmonogram zadania powinien uwzględniać etapy:</br>- przygotowawczy (np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie promocji wydarzenia itp.);</br>- realizacji zadania (np. wykonanie i/lub wysyłka materiałów promocyjnych, pokaz filmu na festiwalu);</br>- podsumowanie (ewaluacja i rozliczenie zadania - ostateczna data zakończenia realizacji zadania: dzień, miesiąc i rok).</br></br>Wszystkie wydatki (w tym faktury, rachunki oraz inne dokumenty księgowe) muszą być poniesione i opłacone <b>w terminie realizacji zadania określonym w harmonogramie</b> - to znaczy <b>nie wcześniej niż od dnia rozpoczęcia naboru wniosków oraz nie później niż do dnia zakończenia realizacji zadania.</b></normal></small>",
                     components=[]
                 ),
                 self.create_chapter(
-                    multiple_forms_rules={
-                        "minCount": 1,
-                        "maxCount": 20
-                    },
+                    title="Etap przygotowawczy",
                     components=[
                         self.create_chapter(
-                            title="Pozycja",
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
+                            multiple_forms_rules={
+                                "minCount": 1,
+                                "maxCount": 20
                             },
                             components=[
-                                self.create_component(
-                                    component_type="date",
-                                    label="Termin od",
-                                    name="taskActionDateStart",
-                                    validators=[
-                                        self.validator.related_local_date_lte_validator(
-                                            field_name="taskActionDateEnd",
-                                            message="Termin rozpoczęcia działania musi być wcześniejszy niż termin jego zakończenia."
+                                self.create_chapter(
+                                    title="Pozycja",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="date",
+                                            label="Termin od",
+                                            name="preparatoryStageStartDate",
+                                            validators=[
+                                                self.validator.related_local_date_lte_validator(
+                                                    field_name="preparatoryStageEndDate",
+                                                    message="Termin rozpoczęcia działania musi być wcześniejszy niż termin jego zakończenia."
+                                                )
+                                            ],
+                                            required=True
+                                        ),
+                                        self.create_component(
+                                            component_type="date",
+                                            label="Termin do",
+                                            name="preparatoryStageEndDate",
+                                            validators=[
+                                                self.validator.related_local_date_gte_validator(
+                                                    field_name="preparatoryStageStartDate",
+                                                    message="Termin zakończenia działania musi być późniejszy niż termin jego rozpoczęcia."
+                                                )
+                                            ],
+                                            required=True
+                                        ),
+                                        self.create_component(
+                                            component_type="textarea",
+                                            label="Działanie",
+                                            name="preparatoryStageDescription",
+                                            help_text="Krótki opis działania",
+                                            class_list=[
+                                                "table-full",
+                                                "col-span-2"
+                                            ],
+                                            validators=[
+                                                self.validator.length_validator(max_value=250)
+                                            ]
                                         )
-                                    ],
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="date",
-                                    label="Termin do",
-                                    name="taskActionDateEnd",
-                                    validators=[
-                                        self.validator.related_local_date_gte_validator(
-                                            field_name="taskActionDateStart",
-                                            message="Termin zakończenia działania musi być późniejszy niż termin jego rozpoczęcia."
-                                        )
-                                    ],
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="textarea",
-                                    label="Działanie",
-                                    name="taskActionDesc",
-                                    help_text="Krótki opis działania",
-                                    class_list=[
-                                        "table-full",
-                                        "col-span-2"
-                                    ],
-                                    validators=[
-                                        self.validator.length_validator(max_value=250)
                                     ]
                                 )
                             ]
-                        )
+                        ),
                     ]
                 ),
                 self.create_chapter(
-                    title="Podsumowanie",
+                    title="Etap realizacji zadania",
+                    components=[
+                        self.create_chapter(
+                            multiple_forms_rules={
+                                "minCount": 1,
+                                "maxCount": 20
+                            },
+                            components=[
+                                self.create_chapter(
+                                    title="Pozycja",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="date",
+                                            label="Termin od",
+                                            name="implementationStageStartDate",
+                                            validators=[
+                                                self.validator.related_local_date_lte_validator(
+                                                    field_name="implementationStageEndDate",
+                                                    message="Termin rozpoczęcia działania musi być wcześniejszy niż termin jego zakończenia."
+                                                )
+                                            ],
+                                            required=True
+                                        ),
+                                        self.create_component(
+                                            component_type="date",
+                                            label="Termin do",
+                                            name="implementationStageEndDate",
+                                            validators=[
+                                                self.validator.related_local_date_gte_validator(
+                                                    field_name="implementationStageStartDate",
+                                                    message="Termin zakończenia działania musi być późniejszy niż termin jego rozpoczęcia."
+                                                )
+                                            ],
+                                            required=True
+                                        ),
+                                        self.create_component(
+                                            component_type="textarea",
+                                            label="Działanie",
+                                            name="implementationStageDescription",
+                                            help_text="Krótki opis działania",
+                                            class_list=[
+                                                "table-full",
+                                                "col-span-2"
+                                            ],
+                                            validators=[
+                                                self.validator.length_validator(max_value=250)
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                    ]
+                ),
+                self.create_chapter(
+                    title="Etap podsumowania zadania",
+                    components=[
+                        self.create_chapter(
+                            multiple_forms_rules={
+                                "minCount": 1,
+                                "maxCount": 20
+                            },
+                            components=[
+                                self.create_chapter(
+                                    title="Pozycja",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="date",
+                                            label="Termin od",
+                                            name="summaryStageStartDate",
+                                            validators=[
+                                                self.validator.related_local_date_lte_validator(
+                                                    field_name="summaryStageEndDate",
+                                                    message="Termin rozpoczęcia działania musi być wcześniejszy niż termin jego zakończenia."
+                                                )
+                                            ],
+                                            required=True
+                                        ),
+                                        self.create_component(
+                                            component_type="date",
+                                            label="Termin do",
+                                            name="summaryStageEndDate",
+                                            validators=[
+                                                self.validator.related_local_date_gte_validator(
+                                                    field_name="summaryStageStartDate",
+                                                    message="Termin zakończenia działania musi być późniejszy niż termin jego rozpoczęcia."
+                                                )
+                                            ],
+                                            required=True
+                                        ),
+                                        self.create_component(
+                                            component_type="textarea",
+                                            label="Działanie",
+                                            name="summaryStageDescription",
+                                            help_text="Krótki opis działania",
+                                            class_list=[
+                                                "table-full",
+                                                "col-span-2"
+                                            ],
+                                            validators=[
+                                                self.validator.length_validator(max_value=250)
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                    ]
+                ),
+                self.create_chapter(
+                    title="Podsumowanie harmonogramu",
                     class_list={
                         "main": [
                             "dates"
@@ -486,7 +613,7 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                             required=True,
                             calculation_rules=[
                                 self.calculation_rule.first_date(
-                                    field="taskActionDateStart"
+                                    field="preparatoryStageStartDate",
                                 )
                             ]
                         ),
@@ -494,12 +621,7 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                             component_type="date",
                             label="Zakończenie realizacji przedsięwzięcia",
                             name="projectCompletion",
-                            required=True,
-                            calculation_rules=[
-                                self.calculation_rule.last_date(
-                                    field="taskActionDateStart"
-                                )
-                            ]
+                            required=True
                         ),
                         self.create_component(
                             component_type="date",

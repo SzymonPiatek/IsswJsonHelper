@@ -292,41 +292,24 @@ class DUKApplicationEstimateBuilder(FormFactory):
                     cost_components.append(component)
 
             chapter_title = f'{index}. {cost["title"]}'
-            help_text = cost.get('helpText', '')
-            if help_text:
-                chapter_title += f'<br/><normal><small>{help_text}</normal></small>'
+            help_text = cost.get('helpText', None)
 
             components.append(
                 self.create_chapter(
-                    title=chapter_title,
+                    title=f"{chapter_title}",
                     class_list=construct["section_title"]["classList"],
-                    components=cost_components
+                    components=cost_components,
+                    help_text=help_text
                 )
             )
 
-
-        final_chapter = self.create_chapter()
-
-        final_chapter["components"].append(
-            self.create_chapter(
-                title=f'<p style="color: #e00d1d">{title}<p>',
-                class_list=[
-                    "displayNoneFrontend"
-                ]
-            )
-        )
-
         title = f'<p style="color: #e00d1d">{title}<p>'
-        help_text = section.get('helpText', False)
-        if help_text:
-            title += f'</br><normal><small>{help_text}</small></normal>'
 
-        final_chapter["components"].append(
-            self.create_chapter(
-                title=title,
-                class_list=construct["chapter_title"]["classList"],
-                components=components
-            )
+        final_chapter = self.create_chapter(
+            title=title,
+            help_text=section.get('helpText', None),
+            class_list=construct["chapter_title"]["classList"],
+            components=components
         )
 
         return final_chapter

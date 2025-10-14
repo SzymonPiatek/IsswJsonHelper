@@ -463,8 +463,8 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                     components=[
                         self.create_component(
                             component_type="header",
-                            name="attention",
-                            value="<small>Uwaga!<br/><normal>Wszystkie koszty danego przedsięwzięcia muszą być opłacane z rachunku bankowego podanego we Wniosku o dofinansowanie. Na ten sam rachunek powinny też wpływać środki od innych podmiotów współfinansujących dane przedsięwzięcie. Możliwe są dwa rozwiązania:<br/>a) rachunek służący do rozliczeń przedsięwzięcia, którego dotyczy Wniosek o dofinansowanie, w tym wpływów i wydatków związanych z dotacją PISF,<br/>b) rachunek przeznaczony wyłącznie do obsługi środków z dotacji PISF, na który mogą trafiać środki z różnych dofinansowań udzielonych przez PISF.</normal></small>"
+                            name="identificationData",
+                            value="<small><b>Uwaga!</b><br/><normal>Wszystkie koszty danego przedsięwzięcia muszą być opłacane z rachunku bankowego podanego we Wniosku o dofinansowanie. Na ten sam rachunek powinny też wpływać środki od innych podmiotów współfinansujących dane przedsięwzięcie. Możliwe są dwa rozwiązania:<br/>a) rachunek służący do rozliczeń przedsięwzięcia, którego dotyczy Wniosek o dofinansowanie, w tym wpływów i wydatków związanych z dotacją PISF,<br/>b) rachunek przeznaczony wyłącznie do obsługi środków z dotacji PISF, na który mogą trafiać środki z różnych dofinansowań udzielonych przez PISF.</normal></small>"
                         )
                     ]
                 ),
@@ -933,7 +933,132 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                             ],
                             title="Reprezentacja",
                             components=[
-                                # TODO - Reprezentacja dla spółki komandytowej
+                                self.create_chapter(
+                                    title="Sposób reprezentacji",
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            name="limitedPartnershipRepresentation",
+                                            required=True
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Dane komplementariusza reprezentującego spółkę",
+                                    components=[
+                                        self.create_chapter(
+                                            components=[
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Forma prawna",
+                                                    name="limitedPartnershipLegalForm",
+                                                    required=True,
+                                                    help_text="np. osoba fizyczna, sp. z o.o."
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Firma/imię i nazwisko",
+                                                    name="limitedPartnershipName",
+                                                    required=True,
+                                                )
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            title="Adres siedziby",
+                                            class_list={
+                                                "main": [
+                                                    "table-1-2",
+                                                    "grid",
+                                                    "grid-cols-2"
+                                                ],
+                                                "sub": [
+                                                    "table-1-2__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Ulica",
+                                                    name="limitedPartnershipStreet",
+                                                    required=True
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Nr budynku",
+                                                    name="limitedPartnershipHouseNum",
+                                                    required=True
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Nr lokalu",
+                                                    name="limitedPartnershipApartmentNum",
+                                                    required=True
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Kod pocztowy",
+                                                    name="limitedPartnershipZipCode",
+                                                    required=True
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Miasto",
+                                                    name="limitedPartnershipCity",
+                                                    required=True
+                                                )
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            class_list={
+                                                "main": [
+                                                    "table-1-2",
+                                                    "grid",
+                                                    "grid-cols-2"
+                                                ],
+                                                "sub": [
+                                                    "table-1-2__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Nr NIP (jeśli dotyczy)",
+                                                    name="limitedPartnershipNip"
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Nr KRS (jeśli dotyczy)",
+                                                    name="limitedPartnershipKrs"
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Dane pełnomocnika (jeśli dotyczy)",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            name="limitedPartnershipFullRepresentativeFirstName",
+                                            label="Imię"
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            name="limitedPartnershipFullRepresentativeLastName",
+                                            label="Nazwisko"
+                                        )
+                                    ]
+                                )
                             ]
                         ),
                         self.create_chapter(

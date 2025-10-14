@@ -48,7 +48,7 @@ class ResearchPriority(DisseminationPriority):
 
 
 class DkfPriority(DisseminationPriority):
-    PRIORITY_NAME = 'VI. Działalność dyskusyjnych klubów filmowych'
+    PRIORITY_NAME = 'VI. Działalność klubów filmowych'
     PRIORITY_NUM = 6
 
     def __init__(self):
