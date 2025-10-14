@@ -1064,13 +1064,13 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                         ),
                         self.create_chapter(
                             title="Identyfikator gminy (Kod JST)",
+                            help_text="Kod JST gminy można znaleźć w wyszukiwarce pod adresem https://eteryt.stat.gov.pl",
                             components=[
                                 self.create_component(
                                     component_type="text",
                                     name="applicantJst",
                                     mask="jst",
                                     required=True,
-                                    help_text="Kod JST gminy można znaleźć w wyszukiwarce pod adresem https://eteryt.stat.gov.pl",
                                     validators=[
                                         self.validator.length_validator(
                                             min_value=7,
