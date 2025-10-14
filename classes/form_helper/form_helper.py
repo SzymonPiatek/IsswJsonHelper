@@ -23,16 +23,18 @@ class FormHelper:
         }
         self.applications = self.all_applications[self.year]
 
-        self.postman = Postman(base_url=self.base_url, login_data=self.login_data)
-        self.analyzer = Analyzer()
-
         self.setup = {
             "autosave_or_update": True,
             "force_autosave": True,
             "pdf": True,
-            "web": False,
+            "web": True,
             "analyze": False,
         }
+
+        self.postman = Postman(base_url=self.base_url, login_data=self.login_data)
+        self.analyzer = Analyzer()
+        self.scraper = WebScraper(self.base_url, self.login_data)
+        self.scraper.login()
 
     def generate_json(self, data_type: str, department: str, program: str, priority: str):
         if data_type == "application":
@@ -82,6 +84,9 @@ class FormHelper:
                             json=app.output_json,
                             form_id=app.form_id,
                         )
+
+                    if self.setup["web"]:
+                        self.scraper.screenshot_pages_of_form(application=app, output_path=f"output/png/{app.department_name}/{app.json_type}/po_{app.operation_num}_pr_{app.priority_num}")
 
         if self.setup["analyze"]:
             self.run_analysis(data_type)

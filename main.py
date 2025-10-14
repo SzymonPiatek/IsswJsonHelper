@@ -11,6 +11,8 @@ def main():
 
     end_time = time.time()
     elapsed = end_time - start_time
+    helper.scraper.close()
+
     print(f"Time elapsed: {elapsed:.2f} seconds")
 
 
