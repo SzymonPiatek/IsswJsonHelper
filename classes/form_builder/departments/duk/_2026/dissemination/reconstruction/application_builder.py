@@ -1,8 +1,8 @@
 from classes.form_builder.departments.duk._2026.dissemination.application_builder import DisseminationApplicationBuilder
 from classes.helpers import int_to_roman
 from .estimate_data import estimate_sections, estimate_section_structure
-from classes.form_builder.departments.duk._2026.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
 from ..priority import ReconstructionPriority
+from .application_estimate_builder import ReconstructionApplicationEstimateBuilder
 
 
 class ReconstructionApplicationBuilder(DisseminationApplicationBuilder, ReconstructionPriority):
@@ -16,10 +16,30 @@ class ReconstructionApplicationBuilder(DisseminationApplicationBuilder, Reconstr
             "Systemowe przedsięwzięcia, mające na celu zabezpieczenie materiałów filmowych."
         ]
 
-        estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections, estimate_section_structure=estimate_section_structure)
+        estimate_builder = ReconstructionApplicationEstimateBuilder(estimate_sections=estimate_sections, estimate_section_structure=estimate_section_structure)
         self.estimate_chapters = [
             estimate_builder.generate_estimate()
         ]
+
+
+    def create_application_project_costs(self, number):
+        estimate_base = ReconstructionApplicationEstimateBuilder(estimate_sections=[])
+
+        part = self.create_part(
+            title=f"{int_to_roman(number)}. Kosztorys przedsięwzięcia",
+            short_name=f"{int_to_roman(number)}. Kosztorys przedsięwzięcia",
+            chapters=[
+                estimate_base.generate_estimate_top(),
+                self.create_chapter(
+                    title="<p style='text-align: center;'>Koszty z podziałem na źródło finansowania<p>",
+                    components=[
+                        *self.estimate_chapters
+                    ]
+                )
+            ]
+        )
+
+        self.save_part(part=part)
 
     def create_application_scope_of_project(self, number):
         part = self.create_part(
