@@ -143,54 +143,30 @@ class ReconstructionApplicationBuilder(DisseminationApplicationBuilder, Reconstr
                     ]
                 ),
                 self.create_chapter(
-                    title="2. Opis przedsięwzięcia i uzasadnienie rekonstrukcji<br/><normal><small>Cel, wartość merytoryczna przedsięwzięcia, w tym uzasadnienie wyboru filmu lub pilność ze względów konserwatorskich, zastosowane technologie i standardy, sposób realizacji.</small></normal>",
-                    class_list=[
-                        "no-title"
-                    ],
+                    title="2. Opis przedsięwzięcia i uzasadnienie rekonstrukcji",
+                    help_text="Cel, wartość merytoryczna przedsięwzięcia, w tym uzasadnienie wyboru filmu lub pilność ze względów konserwatorskich, zastosowane technologie i standardy, sposób realizacji.",
                     components=[
-                        self.create_chapter(
-                            title="2. Opis przedsięwzięcia i uzasadnienie rekonstrukcji",
-                            class_list=[
-                                "displayNoneFrontend"
-                            ]
-                        ),
-                        self.create_chapter(
-                            components=[
-                                self.create_component(
-                                    component_type="textarea",
-                                    name="descriptionOfProjectAndJustificationOfReconstruction",
-                                    validators=[
-                                        self.validator.length_validator(max_value=5000)
-                                    ],
-                                    required=True
-                                )
-                            ]
+                        self.create_component(
+                            component_type="textarea",
+                            name="descriptionOfProjectAndJustificationOfReconstruction",
+                            validators=[
+                                self.validator.length_validator(max_value=5000)
+                            ],
+                            required=True
                         )
                     ]
                 ),
                 self.create_chapter(
-                    title="3. Rodzaj i stan materiałów źródłowych oraz pilność rekonstrukcji<br/><normal><small>Proszę o wyszczególnienie przedsięwzięć z zakresu kinematografii realizowanych przez Wnioskodawcę w ostatnich 2 latach.</small></normal>",
-                    class_list=[
-                        "no-title"
-                    ],
+                    title="3. Rodzaj i stan materiałów źródłowych oraz pilność rekonstrukcji",
+                    help_text="Proszę o wyszczególnienie przedsięwzięć z zakresu kinematografii realizowanych przez Wnioskodawcę w ostatnich 2 latach.",
                     components=[
-                        self.create_chapter(
-                            title="3. Rodzaj i stan materiałów źródłowych oraz pilność rekonstrukcji",
-                            class_list=[
-                                "displayNoneFrontend"
-                            ]
-                        ),
-                        self.create_chapter(
-                            components=[
-                                self.create_component(
-                                    component_type="textarea",
-                                    name="reconstructionMaterialsAndUrgency",
-                                    validators=[
-                                        self.validator.length_validator(max_value=3000)
-                                    ],
-                                    required=True
-                                )
-                            ]
+                        self.create_component(
+                            component_type="textarea",
+                            name="reconstructionMaterialsAndUrgency",
+                            validators=[
+                                self.validator.length_validator(max_value=3000)
+                            ],
+                            required=True
                         )
                     ]
                 ),
