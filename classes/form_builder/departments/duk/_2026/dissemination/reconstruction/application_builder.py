@@ -1,6 +1,6 @@
 from classes.form_builder.departments.duk._2026.dissemination.application_builder import DisseminationApplicationBuilder
 from classes.helpers import int_to_roman
-from .estimate_data import estimate_sections
+from .estimate_data import estimate_sections, estimate_section_structure
 from classes.form_builder.departments.duk._2026.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
 from ..priority import ReconstructionPriority
 
@@ -16,7 +16,7 @@ class ReconstructionApplicationBuilder(DisseminationApplicationBuilder, Reconstr
             "Systemowe przedsięwzięcia, mające na celu zabezpieczenie materiałów filmowych."
         ]
 
-        estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
+        estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections, estimate_section_structure=estimate_section_structure)
         self.estimate_chapters = [
             estimate_builder.generate_estimate()
         ]

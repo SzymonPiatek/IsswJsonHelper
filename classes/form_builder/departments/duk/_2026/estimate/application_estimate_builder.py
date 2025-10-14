@@ -5,18 +5,21 @@ from classes.helpers import int_to_roman
 
 
 class DUKApplicationEstimateBuilder(FormFactory):
-    def __init__(self, estimate_sections: list, after_name: str = ''):
+    def __init__(self, estimate_sections: list, after_name: str = '', estimate_section_structure: list = estimate_section_structure):
         super().__init__()
 
-        self.data = self.convert_data(estimate_sections=estimate_sections)
+
+        self.estimate_section_structure = estimate_section_structure
+        self.estimate_sections = estimate_sections
+        self.data = self.convert_data()
         self.after_name = after_name
 
-    def convert_data(self, estimate_sections: list):
+    def convert_data(self):
         return {
             'chapters': {
                 'estimate': {
-                    'section': estimate_sections,
-                    'section_structure': estimate_section_structure,
+                    'section': self.estimate_sections,
+                    'section_structure': self.estimate_section_structure,
                     'section_construct': {
                         'chapter_title': {
                             'classList': {

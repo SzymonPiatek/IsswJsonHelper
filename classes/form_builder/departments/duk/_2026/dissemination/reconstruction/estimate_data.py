@@ -1,6 +1,47 @@
 from dataclasses import asdict
 from classes.form_estimate_builder.dataclasses_definitions import EstimateSection, CostItem, CostOverride
 
+estimate_section_structure = [
+    {
+        'type': 'text',
+        'mask': 'fund',
+        'label': 'Koszt jednostkowy',
+        'name': 'CostSingle',
+        'unit': 'PLN'
+    },
+    {
+        'type': 'number',
+        'label': 'Liczba',
+        'name': 'Amount',
+    },
+    {
+        'type': 'select',
+        'label': 'Jednostka',
+        'name': 'Unit'
+    },
+    {
+        'type': 'text',
+        'mask': 'fund',
+        'label': 'Koszt łączny',
+        'name': 'CostTotal',
+        'unit': 'PLN',
+        'readOnly': True
+    },
+    {
+        'type': 'text',
+        'mask': 'fund',
+        'label': 'Wnioskowana dotacja PISF',
+        'name': 'RequestedAmount',
+        'unit': 'PLN'
+    },
+    {
+        'type': 'text',
+        'mask': 'fund',
+        'label': 'Pozostałe środki',
+        'name': 'OtherFundsAmount',
+        'unit': 'PLN'
+    }
+]
 
 estimate_sections = [
     EstimateSection(
