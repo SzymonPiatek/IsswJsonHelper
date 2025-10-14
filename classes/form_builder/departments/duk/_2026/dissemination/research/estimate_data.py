@@ -7,18 +7,17 @@ estimate_sections = [
     EstimateSection(
         title="Koszty osobowe i merytoryczne",
         costs=[
-            fraction_cost("zarządzania przedsięwzięciem", "projectManagement", 0.15),
-            fraction_cost("osobowe", "personal", 0.35),
+            fraction_cost(title="zarządzania przedsięwzięciem", name="projectManagement", ratio=0.15),
             CostItem(
-                title="Koszty osób współpracujących (np. ekspertów, prelegentów, artystów)",
+                title="Koszty osób współpracujących",
                 name="cooperatingPeople",
                 helpText=(
-                    "Wyłącznie koszty udokumentowane umowami wraz z odpowiednimi dokumentami księgowymi "
-                    "(faktura lub rachunek)."
+                    "Zespół badawaczy, eksperci, współpracownicy merytoryczni. "
+                    "Wyłącznie koszty udokumentowane umowami wraz z odpowiednimi dokumentami księgowymi (faktura lub rachunek)."
                 ),
             ),
             CostItem(
-                title="Koszty konsultacji eksperckich",
+                title="Ekspertyzy, konsultacje specjalistyczne",
                 name="expertConsultation",
             ),
         ],

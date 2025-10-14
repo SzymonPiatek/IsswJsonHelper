@@ -5,6 +5,7 @@ from classes.form_estimate_builder.dataclasses_definitions import EstimateSectio
 estimate_sections = [
     EstimateSection(
         title="ETAP",
+        helpText="Wyłącznie koszty finansowane w oparciu o umowy wraz z fakturami/rachunkami oraz umowy zlecenie lub o dzieło wraz z rachunkami.",
         costs=[
             CostItem(
                 title="Wypożyczenie materiałów wyjściowych",
