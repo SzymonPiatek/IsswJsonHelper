@@ -57,9 +57,9 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
             )
         ]
 
-        self.is_basic_number_data = True
+        self.basic_number_data = self.create_application_basic_number_data()
 
-    def create_application_basic_number_data(self, number):
+    def create_application_basic_number_data(self):
         chapters_data = [
             {
                 "label": "szkoleń",
@@ -75,10 +75,9 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
             }
         ]
 
-        part = self.create_part(
-            title=f"{int_to_roman(number)}. Podstawowe dane liczbowe i wskaźniki",
-            short_name=f"{int_to_roman(number)}. Dane liczbowe",
-            chapters=[
+        final_chapter = self.create_chapter(
+            title="3. Podstawowe dane liczbowe i wskaźniki",
+            components=[
                 self.create_chapter(
                     title="<normal>1. Liczba wydarzeń w ramach realizowanego przedsięwzięcia (pola obowiązkowe do wypełnienia):</normal>",
                     class_list={"sub": ["table-1-2-top"]},
@@ -557,4 +556,5 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                 )
             ]
         )
-        self.save_part(part)
+
+        return final_chapter

@@ -22,40 +22,31 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder, SecondaryS
             estimate_builder.generate_estimate()
         ]
 
-        self.is_basic_number_data = True
-
-    def create_application_basic_number_data(self, number):
-        part = self.create_part(
-            title=f"{int_to_roman(number)}. Podstawowe dabe liczbowe i wskaźniki",
-            short_name="Dane liczbowe",
-            chapters=[
-                self.create_chapter(
-                    components=[
-                        self.create_component(
-                            component_type="number",
-                            name="numberOfStudents",
-                            label="Liczba uczniów (studia stacjonarne)",
-                            unit="osoby",
-                            required=True
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            mask="fund",
-                            name="averageTuitionFee",
-                            label="Średnia wysokość czesnego (w rozrachunku rocznym, studia stacjonarne)",
-                            unit="PLN",
-                            required=True
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            mask="fund",
-                            name="averageCostOfEducatingStudent",
-                            label="Średni koszt kształcenia ucznia (w roku i w tys. zł, studia stacjonarne)",
-                            unit="PLN",
-                            required=True
-                        )
-                    ]
+        self.basic_number_data = self.create_chapter(
+            title="3. Podstawowe dane liczbowe i wskaźniki",
+            components=[
+                self.create_component(
+                    component_type="number",
+                    name="numberOfStudents",
+                    label="Liczba uczniów (studia stacjonarne)",
+                    unit="osoby",
+                    required=True
+                ),
+                self.create_component(
+                    component_type="text",
+                    mask="fund",
+                    name="averageTuitionFee",
+                    label="Średnia wysokość czesnego (w rozrachunku rocznym, studia stacjonarne)",
+                    unit="PLN",
+                    required=True
+                ),
+                self.create_component(
+                    component_type="text",
+                    mask="fund",
+                    name="averageCostOfEducatingStudent",
+                    label="Średni koszt kształcenia ucznia (w roku i w tys. zł, studia stacjonarne)",
+                    unit="PLN",
+                    required=True
                 )
             ]
         )
-        self.save_part(part)

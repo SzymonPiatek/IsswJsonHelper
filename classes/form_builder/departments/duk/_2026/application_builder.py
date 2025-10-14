@@ -322,7 +322,8 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                             class_list=["displayNoneFrontend"]
                         ),
                         self.create_chapter(
-                            title="Pełna nazwa wnioskodawcy<br/><normal><small>Oficjalna nazwa firmy lub podmiotu wpisana do odpowiedniego rejestru (KRS, CEiDG, Rejestr instytucji kultury, Rejestr Instytucji Filmowych itp.</small></normal>",
+                            title="Pełna nazwa wnioskodawcy",
+                            help_text="Oficjalna nazwa firmy lub podmiotu wpisana do odpowiedniego rejestru (KRS, CEiDG, Rejestr instytucji kultury, Rejestr Instytucji Filmowych itp.",
                             class_list=["no-title"],
                             components=[
                                 self.create_component(
