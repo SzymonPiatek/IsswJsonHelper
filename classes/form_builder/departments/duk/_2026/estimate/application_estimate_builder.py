@@ -23,9 +23,6 @@ class DUKApplicationEstimateBuilder(FormFactory):
                     'section_construct': {
                         'chapter_title': {
                             'classList': {
-                                "main": [
-                                    "no-title"
-                                ],
                                 "sub": [
                                     "table-1-2-top",
                                 ]
