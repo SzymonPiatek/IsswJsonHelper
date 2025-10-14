@@ -365,6 +365,9 @@ estimate_sections = [
                 name="promotionalMaterials",
                 helpText="Pokrywane wyłącznie ze środków własnych lub innych źródeł finansowania.",
                 overrides={
+                    "RequestedAmount": CostOverride(
+                        readOnly=True,
+                    ),
                     "Unit": {
                         "options": [
                             "---",
