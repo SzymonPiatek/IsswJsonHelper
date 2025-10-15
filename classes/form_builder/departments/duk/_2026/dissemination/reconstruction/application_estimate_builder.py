@@ -23,9 +23,6 @@ class ReconstructionApplicationEstimateBuilder(FormFactory):
                     'section_construct': {
                         'chapter_title': {
                             'classList': {
-                                "main": [
-                                    "no-title"
-                                ],
                                 "sub": [
                                     "table-1-2-top",
                                 ]
@@ -36,8 +33,7 @@ class ReconstructionApplicationEstimateBuilder(FormFactory):
                                 "main": [
                                     "table-1-3-narrow",
                                     "grid",
-                                    "grid-cols-5",
-                                    "no-title"
+                                    "grid-cols-3"
                                 ],
                                 "sub": [
                                     "table-1-3__col"
@@ -262,7 +258,6 @@ class ReconstructionApplicationEstimateBuilder(FormFactory):
                 component["dataBDD"] = f"{cost['name']}-{structure['name'].lower()}"
                 cost_components.append(component)
 
-            # pojedynczy koszt — np. “1. Wypożyczenie materiałów wyjściowych”
             single_cost_chapter = self.create_chapter(
                 title="",
                 class_list=construct["section_title"].get("classList", {}),
@@ -275,16 +270,19 @@ class ReconstructionApplicationEstimateBuilder(FormFactory):
                     "sub": construct["chapter_title"]["classList"]["sub"]
                 },
                 components=[single_cost_chapter],
-                help_text=cost.get("helpText")
+                help_text=cost.get("helpText", '')
             )
 
             components.append(full_cost_chapter)
 
-        # cały etap
+        title = f'<p style="color: #e00d1d">{title}<p>'
+
+        # np. Etap I
         final_chapter = self.create_chapter(
-            title=f"{title} <br /><normal><small>{section.get('helpText', '')}</small></normal>",
+            title=title,
             components=components,
-            class_list=construct["chapter_title"]["classList"]
+            class_list=construct["chapter_title"]["classList"],
+            help_text=section.get("helpText", '')
         )
 
         return final_chapter

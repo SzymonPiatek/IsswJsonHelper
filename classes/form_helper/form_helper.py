@@ -27,14 +27,16 @@ class FormHelper:
             "autosave_or_update": True,
             "force_autosave": True,
             "pdf": True,
-            "web": True,
+            "web": False,
             "analyze": False,
         }
 
         self.postman = Postman(base_url=self.base_url, login_data=self.login_data)
         self.analyzer = Analyzer()
-        self.scraper = WebScraper(self.base_url, self.login_data)
-        self.scraper.login()
+        self.scraper = None
+        if self.setup["web"]:
+            self.scraper = WebScraper(self.base_url, self.login_data)
+            self.scraper.login()
 
     def generate_json(self, data_type: str, department: str, program: str, priority: str):
         if data_type == "application":
