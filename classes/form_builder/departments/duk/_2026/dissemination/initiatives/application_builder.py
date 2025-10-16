@@ -84,6 +84,14 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder, Initiatives
                             ]
                         ),
                         self.create_chapter(
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="projectType",
+                                    values=[
+                                        "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową.",
+                                    ]
+                                )
+                            ],
                             title="Forma przedsięwzięcia",
                             components=[
                                 self.create_component(
@@ -175,16 +183,6 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder, Initiatives
                         ),
                         self.create_chapter(
                             title="2. Zakres przedsięwzięcia i jego charakterystyka",
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="projectType",
-                                    values=[
-                                        "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową.",
-                                        "Organizacja kongresów, konferencji, sympozjów i inne działania edukacyjne pogłębiające wiedzę o filmie.",
-                                        "Inne działania realizujące cele Priorytetu II."
-                                    ]
-                                )
-                            ],
                             components=[
                                 self.create_chapter(
                                     title="Idea i charakter przedsięwzięcia",
@@ -317,33 +315,261 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder, Initiatives
                                         self.visibility_rule.depends_on_value(
                                             field_name="projectType",
                                             values=[
-                                                "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową."
+                                                "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową.",
+                                            ]
+                                        ),
+                                    ],
+                                    components=[
+                                        self.create_chapter(
+                                            visibility_rules=[
+                                                self.visibility_rule.depends_on_value(
+                                                    field_name="undertakingForm",
+                                                    values=[
+                                                        "Przegląd"
+                                                    ]
+                                                ),
+                                            ],
+                                            components=[
+                                                self.create_chapter(
+                                                    class_list={
+                                                        "main": [
+                                                            "table-1-2",
+                                                            "grid",
+                                                            "grid-cols-2"
+                                                        ],
+                                                        "sub": [
+                                                            "table-1-2__col"
+                                                        ]
+                                                    },
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="number",
+                                                            label="Filmy polskie i koprodukcje",
+                                                            name="polishFilmsAndCoproductionsPt1",
+                                                            unit="szt."
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="number",
+                                                            label="Filmy zagraniczne",
+                                                            name="foreignFilmsPt1",
+                                                            unit="szt."
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="number",
+                                                            label="Filmy z audiodeskrypcją",
+                                                            name="filmsWithAudioDescriptionPt1",
+                                                            unit="szt."
+                                                        ),
+                                                    ]
+                                                ),
+                                                self.create_chapter(
+                                                    class_list={
+                                                        "main": [
+                                                            "table-1-2",
+                                                            "grid",
+                                                            "grid-cols-2"
+                                                        ],
+                                                        "sub": [
+                                                            "table-1-2__col"
+                                                        ]
+                                                    },
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="number",
+                                                            label="Szacowana liczba widzów",
+                                                            name="estimatedNumberOfViewersPt1",
+                                                            unit="osoby"
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="number",
+                                                            label="Ogólna liczba seansów",
+                                                            name="totalNumberOfSeasonsPt1",
+                                                            unit="szt."
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="number",
+                                                            label="Liczba płatnych akredytacji",
+                                                            name="numberOfPaidAccreditationsPt1",
+                                                            unit="szt."
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="number",
+                                                            label="Liczba bezpłatnych akredytacji",
+                                                            name="numberOfFreeAccreditationsPt1",
+                                                            unit="szt."
+                                                        )
+                                                    ]
+                                                )
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            visibility_rules=[
+                                                self.visibility_rule.depends_on_value(
+                                                    field_name="undertakingForm",
+                                                    values=[
+                                                        "Wystawa"
+                                                    ]
+                                                )
+                                            ],
+                                            class_list={
+                                                "main": [
+                                                    "table-1-2",
+                                                    "grid",
+                                                    "grid-cols-2"
+                                                ],
+                                                "sub": [
+                                                    "table-1-2__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Liczba prezentowanych prac/obiektów",
+                                                    name="numberOfPresentedObjectsPt1",
+                                                    unit="szt."
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Liczba twórców, instytucji lub partnerów, których prace/obiekty są prezentowane",
+                                                    name="numberOfPresentedInstitutionsOrPartnersPt1",
+                                                    unit="szt."
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Szacowana liczba zwiedzających",
+                                                    name="estimatedNumberOfVisitorsPt1",
+                                                    unit="szt."
+                                                )
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            visibility_rules=[
+                                                self.visibility_rule.depends_on_value(
+                                                    field_name="undertakingForm",
+                                                    values=[
+                                                        "Przegląd",
+                                                        "Wystawa"
+                                                    ]
+                                                )
+                                            ],
+                                            class_list={
+                                                "main": [
+                                                    "table-1-2",
+                                                    "grid",
+                                                    "grid-cols-2"
+                                                ],
+                                                "sub": [
+                                                    "table-1-2__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Liczba płatnych biletów",
+                                                    name="numberOfPaidTicketsPt1",
+                                                    unit="szt."
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Liczba bezpłatnych biletów",
+                                                    name="numberOfFreeTicketsPt1",
+                                                    unit="szt."
+                                                )
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            visibility_rules=[
+                                                self.visibility_rule.depends_on_value(
+                                                    field_name="undertakingForm",
+                                                    values=[
+                                                        "Konkurs"
+                                                    ]
+                                                )
+                                            ],
+                                            class_list={
+                                                "main": [
+                                                    "table-1-2",
+                                                    "grid",
+                                                    "grid-cols-2"
+                                                ],
+                                                "sub": [
+                                                    "table-1-2__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Liczba nadesłanych prac",
+                                                    name="numberOfSubmittedWorks",
+                                                    unit="szt."
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Liczba uczestników",
+                                                    name="numberOfParticipantsPt1",
+                                                    unit="szt."
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Liczba przyznawanych nagród finansowych",
+                                                    name="numberOfFinancialPrizesAwardedPt1",
+                                                    unit="szt."
+                                                )
                                             ]
                                         )
-                                    ],
-                                    components=[]
+                                    ]
                                 ),
                                 self.create_chapter(
                                     visibility_rules=[
                                         self.visibility_rule.depends_on_value(
                                             field_name="projectType",
                                             values=[
-                                                "Organizacja kongresów, konferencji, sympozjów i inne działania edukacyjne pogłębiające wiedzę o filmie."
+                                                "Organizacja kongresów, konferencji, sympozjów i inne działania edukacyjne pogłębiające wiedzę o filmie.",
                                             ]
-                                        )
+                                        ),
                                     ],
-                                    components=[]
-                                ),
-                                self.create_chapter(
-                                    visibility_rules=[
-                                        self.visibility_rule.depends_on_value(
-                                            field_name="projectType",
-                                            values=[
-                                                "Działalność Sieci Kin Studyjnych."
-                                            ]
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Szacowana liczba uczestników",
+                                            name="estimatedNumberOfParticipantsPt2",
+                                            unit="osoby"
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Liczba paneli, wykładów, warsztatów",
+                                            name="numberOfPanelsPt2",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Liczba prelegentów i ekspertów biorących udział",
+                                            name="numberOfSpeakersAndExpertsPt2",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Liczba płatnych akredytacji",
+                                            name="numberOfPaidAccreditationsPt2",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Liczba bezpłatnych akredytacji",
+                                            name="numberOfFreeAccreditationsPt2",
+                                            unit="szt."
                                         )
-                                    ],
-                                    components=[]
+                                    ]
                                 ),
                                 self.create_chapter(
                                     visibility_rules=[
@@ -352,9 +578,113 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder, Initiatives
                                             values=[
                                                 "Inne działania realizujące cele Priorytetu II."
                                             ]
-                                        )
+                                        ),
                                     ],
-                                    components=[]
+                                    components=[
+                                        self.create_chapter(
+                                            class_list={
+                                                "main": [
+                                                    "table-1-2",
+                                                    "grid",
+                                                    "grid-cols-2"
+                                                ],
+                                                "sub": [
+                                                    "table-1-2__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Filmy polskie i koprodukcje",
+                                                    name="polishFilmsAndCoproductionsPt4",
+                                                    unit="szt."
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Filmy zagraniczne",
+                                                    name="foreignFilmsPt4",
+                                                    unit="szt."
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Filmy z audiodeskrypcją",
+                                                    name="filmsWithAudioDescriptionPt4",
+                                                    unit="szt."
+                                                ),
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            class_list={
+                                                "main": [
+                                                    "table-1-2",
+                                                    "grid",
+                                                    "grid-cols-2"
+                                                ],
+                                                "sub": [
+                                                    "table-1-2__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Szacowana liczba widzów",
+                                                    name="estimatedNumberOfViewersPt4",
+                                                    unit="osoby"
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Ogólna liczba seansów",
+                                                    name="totalNumberOfSeasonsPt4",
+                                                    unit="szt."
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Liczba płatnych akredytacji",
+                                                    name="numberOfPaidAccreditationsPt4",
+                                                    unit="szt."
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Liczba bezpłatnych akredytacji",
+                                                    name="numberOfFreeAccreditationsPt4",
+                                                    unit="szt."
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Liczba płatnych biletów",
+                                                    name="numberOfPaidTicketsPt4",
+                                                    unit="szt."
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Liczba bezpłatnych biletów",
+                                                    name="numberOfFreeTicketsPt4",
+                                                    unit="szt."
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Zakres zastosowanych udogodnień zwiększających dostępność wydarzenia",
+                                            name="rangeOfFacilitiesUsedToIncreaseEventAccessibility",
+                                            required=True,
+                                            unit="%"
+                                        )
+                                    ]
                                 )
                             ]
                         )
@@ -370,7 +700,130 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder, Initiatives
                         )
                     ],
                     components=[
-
+                        self.create_chapter(
+                            title="Liczba zrzeszonych kin",
+                            class_list={
+                                "main": [
+                                    "table-1-2",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="number",
+                                    name="affiliatedCinemasNumber",
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Zakres i kluczowe obszary programu Sieci Kin Studyjnych",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="scopeofArthouseCinemaNetworkProgram",
+                                    validators=[
+                                        self.validator.length_validator(max_value=5000)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Realizowane projekty filmowe",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="filmProjectsInProgress",
+                                    validators=[
+                                        self.validator.length_validator(max_value=5000)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Organizowane wydarzenia branżowe",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="organizedIndustryEvents",
+                                    validators=[
+                                        self.validator.length_validator(max_value=5000)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Działania na rzecz profesjonalizacji i reprezentacji zrzeszonych kin",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="activitiesForProfessionalizationAndRepresentation",
+                                    validators=[
+                                        self.validator.length_validator(max_value=5000)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Działania promocyjne Sieci Kin Studyjnych",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="promotionalActivitiesOfArthouseCinemaNetwork",
+                                    validators=[
+                                        self.validator.length_validator(max_value=5000)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Działania na rzecz dostępnych seansów i wydarzeń",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="actionsForAccessibleScreeningsAndEvents",
+                                    validators=[
+                                        self.validator.length_validator(max_value=5000)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Doświadczenie wnioskodawcy i kompetencje zespołu",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="applicantExperienceAndTeamCompetencesDsks",
+                                    validators=[
+                                        self.validator.length_validator(max_value=5000)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Planowane efekty realizowanych działań",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="plannedEffectsOfImplementedActivitiesDsks",
+                                    validators=[
+                                        self.validator.length_validator(max_value=5000)
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        )
                     ]
                 ),
                 self.create_chapter(
