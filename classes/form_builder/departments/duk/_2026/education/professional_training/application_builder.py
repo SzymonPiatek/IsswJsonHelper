@@ -80,6 +80,18 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                             },
                             components=[
                                 self.create_component(
+                                    component_type='textarea',
+                                    label="Rodzaj planowanego przedsięwzięcia",
+                                    name="plannedProjectType",
+                                    validators=[
+                                        self.validator.length_validator(max_value=1000)
+                                    ],
+                                    required=True,
+                                    class_list=[
+                                        "table-full"
+                                    ]
+                                ),
+                                self.create_component(
                                     component_type="date",
                                     label="Planowany termin realizacji od",
                                     name="plannedCompletionDateFrom",
@@ -225,6 +237,19 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                                     required=True
                                 ),
                             ]
+                        ),
+                        self.create_chapter(
+                            title="Planowane efekty realizacji przedsięwzięcia",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="plannedEffects",
+                                    validators=[
+                                        self.validator.length_validator(max_value=1000)
+                                    ],
+                                    required=True,
+                                )
+                            ]
                         )
                     ]
                 ),
@@ -232,18 +257,18 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                     title="2. Podstawowe dane liczbowe i prognozowane wskaźniki",
                     components=[
                         self.create_chapter(
-                            title="1. Planowana liczba wydarzeń organizowanych w ramach przedsięwzięcia oraz liczba uczestników",
+                            title="Liczba prognozowanych wydarzeń, liczba uczestników oraz wpływy ze sprzedaży",
                             components=[
                                 self.create_chapter(
                                     title="<normal>a) Szkolenia</normal>",
                                     class_list={
                                         "main": [
-                                            "table-1-2",
+                                            "table-1-3-narrow",
                                             "grid",
-                                            "grid-cols-2"
+                                            "grid-cols-3"
                                         ],
                                         "sub": [
-                                            "table-1-2__col"
+                                            "table-1-3__col"
                                         ]
                                     },
                                     components=[
@@ -258,6 +283,13 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                                             label="Liczba osób",
                                             name="peopleNumberTraining",
                                             unit="osoby"
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            name="forecastedSalesRevenuesTraining",
+                                            label="Koszt jednostkowy",
+                                            unit="PLN"
                                         )
                                     ]
                                 ),
@@ -265,12 +297,12 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                                     title="<normal>b) Warsztaty</normal>",
                                     class_list={
                                         "main": [
-                                            "table-1-2",
+                                            "table-1-3-narrow",
                                             "grid",
-                                            "grid-cols-2"
+                                            "grid-cols-3"
                                         ],
                                         "sub": [
-                                            "table-1-2__col"
+                                            "table-1-3__col"
                                         ]
                                     },
                                     components=[
@@ -285,6 +317,13 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                                             label="Liczba osób",
                                             name="peopleNumberWorkshops",
                                             unit="osoby"
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            name="forecastedSalesRevenuesWorkshops",
+                                            label="Koszt jednostkowy",
+                                            unit="PLN"
                                         )
                                     ]
                                 ),
@@ -292,12 +331,12 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                                     title="<normal>c) Kursy</normal>",
                                     class_list={
                                         "main": [
-                                            "table-1-2",
+                                            "table-1-3-narrow",
                                             "grid",
-                                            "grid-cols-2"
+                                            "grid-cols-3"
                                         ],
                                         "sub": [
-                                            "table-1-2__col"
+                                            "table-1-3__col"
                                         ]
                                     },
                                     components=[
@@ -312,106 +351,7 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                                             label="Liczba osób",
                                             name="peopleNumberCourses",
                                             unit="osoby"
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="<normal>d) Inne</normal>",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="text",
-                                            label="Rodzaj",
-                                            name="otherEventType",
-                                            class_list=[
-                                                "table-full"
-                                            ]
                                         ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Liczba wydarzeń",
-                                            name="eventsNumberOther",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Liczba osób",
-                                            name="peopleNumberOther",
-                                            unit="osoby"
-                                        )
-                                    ]
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            title="Prognozowane wpływy ze sprzedaży",
-                            components=[
-                                self.create_chapter(
-                                    title="<normal>a) Szkolenia</normal>",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="text",
-                                            mask="fund",
-                                            name="forecastedSalesRevenuesTraining",
-                                            label="Koszt jednostkowy",
-                                            unit="PLN"
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="<normal>b) Warsztaty</normal>",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="text",
-                                            mask="fund",
-                                            name="forecastedSalesRevenuesWorkshops",
-                                            label="Koszt jednostkowy",
-                                            unit="PLN"
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="<normal>c) Kursy</normal>",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
                                         self.create_component(
                                             component_type="text",
                                             mask="fund",
@@ -423,31 +363,51 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                                 ),
                                 self.create_chapter(
                                     title="<normal>d) Inne</normal>",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
                                     components=[
-                                        self.create_component(
-                                            component_type="text",
-                                            name="forecastedSalesRevenuesOtherType",
-                                            label="Rodzaj",
-                                            class_list=[
-                                                "table-full"
+                                        self.create_chapter(
+                                            components=[
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Rodzaj",
+                                                    name="otherEventType",
+                                                    class_list=[
+                                                        "table-full"
+                                                    ]
+                                                ),
                                             ]
                                         ),
-                                        self.create_component(
-                                            component_type="text",
-                                            mask="fund",
-                                            name="forecastedSalesRevenuesOther",
-                                            label="Koszt jednostkowy",
-                                            unit="PLN"
+                                        self.create_chapter(
+                                            class_list={
+                                                "main": [
+                                                    "table-1-3-narrow",
+                                                    "grid",
+                                                    "grid-cols-3"
+                                                ],
+                                                "sub": [
+                                                    "table-1-3__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Liczba wydarzeń",
+                                                    name="eventsNumberOther",
+                                                    unit="szt."
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Liczba osób",
+                                                    name="peopleNumberOther",
+                                                    unit="osoby"
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    name="forecastedSalesRevenuesOther",
+                                                    label="Koszt jednostkowy",
+                                                    unit="PLN"
+                                                )
+                                            ]
                                         )
                                     ]
                                 )

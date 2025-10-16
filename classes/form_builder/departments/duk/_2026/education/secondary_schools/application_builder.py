@@ -48,6 +48,7 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder, SecondaryS
                         ),
                         self.create_chapter(
                             title="Program nauczania i wartość merytoryczna oferty dydaktycznej",
+                            help_text="Ogólny charakter programu nauczania ukierunkowany na realizację celów i osiąganie zakładanych efektów kształcenia, bez uszczegółowienia treści poszczególnych zajęć.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -94,7 +95,7 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder, SecondaryS
                             ]
                         ),
                         self.create_chapter(
-                            title="Liczba i zróżnicowanie struktury studentów",
+                            title="Liczba i zróżnicowanie struktury uczniów",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -126,7 +127,7 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder, SecondaryS
                         ),
                         self.create_chapter(
                             title="Profil absolwenta",
-                            help_text="Umiejętności lub kompetencje zawodowe nabywane przez studentów",
+                            help_text="Umiejętności lub kompetencje zawodowe nabywane przez uczniów.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -146,153 +147,157 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder, SecondaryS
                     title="2. Podstawowe dane liczbowe i prognozowane wskaźniki",
                     components=[
                         self.create_chapter(
-                            title="1. Prognozowana liczba studentów",
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
-                            components=[
-                                self.create_component(
-                                    component_type="number",
-                                    label="Studia stacjonarne",
-                                    name="estimatedNumberOfStudentsFullTimeStudies",
-                                    unit="osoby"
-                                ),
-                                self.create_component(
-                                    component_type="number",
-                                    label="Studia niestacjonarne",
-                                    name="estimatedNumberOfStudentsPartTimeStudies",
-                                    unit="osoby"
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            title="2. Średnia wysokość czesnego w rozrachunku rocznym",
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    mask="fund",
-                                    label="Studia stacjonarne",
-                                    name="averageTuitionFeeFullTimeStudies",
-                                    unit="PLN"
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    mask="fund",
-                                    label="Studia niestacjonarne",
-                                    name="averageTuitionFeePartTimeStudies",
-                                    unit="PLN"
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            title="3. Średni koszt kształcenia studenta w rozrachunku rocznym",
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    mask="fund",
-                                    label="Studia stacjonarne",
-                                    name="averageCostOfEducatingStudentFullTimeStudies",
-                                    unit="PLN"
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    mask="fund",
-                                    label="Studia niestacjonarne",
-                                    name="averageCostOfEducatingStudentPartTimeStudies",
-                                    unit="PLN"
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            title="4. Liczba wyprodukowanych filmów",
+                            title="Liczba prognozowanych wydarzeń, liczba uczestników oraz wpływy ze sprzedaży",
                             components=[
                                 self.create_chapter(
-                                    title="<normal>a) Filmy fabularne</normal>",
+                                    title="<normal>a) Szkolenia</normal>",
                                     class_list={
-                                        "main": ["table-1-2", "grid", "grid-cols-2"],
-                                        "sub": ["table-1-2__col"]
+                                        "main": [
+                                            "table-1-3-narrow",
+                                            "grid",
+                                            "grid-cols-3"
+                                        ],
+                                        "sub": [
+                                            "table-1-3__col"
+                                        ]
                                     },
                                     components=[
                                         self.create_component(
                                             component_type="number",
-                                            label="Studia stacjonarne",
-                                            name="producedFilmsFabFullTimeStudies",
+                                            label="Liczba wydarzeń",
+                                            name="eventsNumberTraining",
                                             unit="szt."
                                         ),
                                         self.create_component(
                                             component_type="number",
-                                            label="Studia niestacjonarne",
-                                            name="producedFilmsFabPartTimeStudies",
-                                            unit="szt."
+                                            label="Liczba osób",
+                                            name="peopleNumberTraining",
+                                            unit="osoby"
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            name="forecastedSalesRevenuesTraining",
+                                            label="Koszt jednostkowy",
+                                            unit="PLN"
                                         )
                                     ]
                                 ),
                                 self.create_chapter(
-                                    title="<normal>b) Filmy dokumentalne</normal>",
+                                    title="<normal>b) Warsztaty</normal>",
                                     class_list={
-                                        "main": ["table-1-2", "grid", "grid-cols-2"],
-                                        "sub": ["table-1-2__col"]
+                                        "main": [
+                                            "table-1-3-narrow",
+                                            "grid",
+                                            "grid-cols-3"
+                                        ],
+                                        "sub": [
+                                            "table-1-3__col"
+                                        ]
                                     },
                                     components=[
                                         self.create_component(
                                             component_type="number",
-                                            label="Studia stacjonarne",
-                                            name="producedFilmsDocFullTimeStudies",
+                                            label="Liczba wydarzeń",
+                                            name="eventsNumberWorkshops",
                                             unit="szt."
                                         ),
                                         self.create_component(
                                             component_type="number",
-                                            label="Studia niestacjonarne",
-                                            name="producedFilmsDocPartTimeStudies",
-                                            unit="szt."
+                                            label="Liczba osób",
+                                            name="peopleNumberWorkshops",
+                                            unit="osoby"
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            name="forecastedSalesRevenuesWorkshops",
+                                            label="Koszt jednostkowy",
+                                            unit="PLN"
                                         )
                                     ]
                                 ),
                                 self.create_chapter(
-                                    title="<normal>c) Filmy animowane</normal>",
+                                    title="<normal>c) Kursy</normal>",
                                     class_list={
-                                        "main": ["table-1-2", "grid", "grid-cols-2"],
-                                        "sub": ["table-1-2__col"]
+                                        "main": [
+                                            "table-1-3-narrow",
+                                            "grid",
+                                            "grid-cols-3"
+                                        ],
+                                        "sub": [
+                                            "table-1-3__col"
+                                        ]
                                     },
                                     components=[
                                         self.create_component(
                                             component_type="number",
-                                            label="Studia stacjonarne",
-                                            name="producedFilmsAniFullTimeStudies",
+                                            label="Liczba wydarzeń",
+                                            name="eventsNumberCourses",
                                             unit="szt."
                                         ),
                                         self.create_component(
                                             component_type="number",
-                                            label="Studia niestacjonarne",
-                                            name="producedFilmsAniPartTimeStudies",
-                                            unit="szt."
+                                            label="Liczba osób",
+                                            name="peopleNumberCourses",
+                                            unit="osoby"
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            name="forecastedSalesRevenuesCourses",
+                                            label="Koszt jednostkowy",
+                                            unit="PLN"
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="<normal>d) Inne</normal>",
+                                    components=[
+                                        self.create_chapter(
+                                            components=[
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Rodzaj",
+                                                    name="otherEventType",
+                                                    class_list=[
+                                                        "table-full"
+                                                    ]
+                                                ),
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            class_list={
+                                                "main": [
+                                                    "table-1-3-narrow",
+                                                    "grid",
+                                                    "grid-cols-3"
+                                                ],
+                                                "sub": [
+                                                    "table-1-3__col"
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Liczba wydarzeń",
+                                                    name="eventsNumberOther",
+                                                    unit="szt."
+                                                ),
+                                                self.create_component(
+                                                    component_type="number",
+                                                    label="Liczba osób",
+                                                    name="peopleNumberOther",
+                                                    unit="osoby"
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    name="forecastedSalesRevenuesOther",
+                                                    label="Koszt jednostkowy",
+                                                    unit="PLN"
+                                                )
+                                            ]
                                         )
                                     ]
                                 )
