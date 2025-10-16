@@ -97,7 +97,21 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder, Initiatives
                                     ]
                                 )
                             ]
-                        ),
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="projectType",
+                            values=[
+                                "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową.",
+                                "Organizacja kongresów, konferencji, sympozjów i inne działania edukacyjne pogłębiające wiedzę o filmie.",
+                                "Inne działania realizujące cele Priorytetu II."
+                            ]
+                        )
+                    ],
+                    components=[
                         self.create_chapter(
                             title="1. Termin i miejsce realizacji przedsięwzięcia",
                             class_list={
@@ -158,105 +172,205 @@ class InitiativesApplicationBuilder(DisseminationApplicationBuilder, Initiatives
                                     ]
                                 )
                             ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="2. Zakres przedsięwzięcia i jego charakterystyka",
-                    components=[
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="projectType",
-                                    values=[
-                                        "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową."
-                                    ]
-                                )
-                            ],
-                            components=[]
                         ),
                         self.create_chapter(
+                            title="2. Zakres przedsięwzięcia i jego charakterystyka",
                             visibility_rules=[
                                 self.visibility_rule.depends_on_value(
                                     field_name="projectType",
                                     values=[
-                                        "Organizacja kongresów, konferencji, sympozjów i inne działania edukacyjne pogłębiające wiedzę o filmie."
-                                    ]
-                                )
-                            ],
-                            components=[]
-                        ),
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="projectType",
-                                    values=[
-                                        "Działalność Sieci Kin Studyjnych."
-                                    ]
-                                )
-                            ],
-                            components=[]
-                        ),
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="projectType",
-                                    values=[
+                                        "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową.",
+                                        "Organizacja kongresów, konferencji, sympozjów i inne działania edukacyjne pogłębiające wiedzę o filmie.",
                                         "Inne działania realizujące cele Priorytetu II."
                                     ]
                                 )
                             ],
-                            components=[]
+                            components=[
+                                self.create_chapter(
+                                    title="Idea i charakter przedsięwzięcia",
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            name="characterAndGoalsOfProject",
+                                            validators=[
+                                                self.validator.length_validator(max_value=2000)
+                                            ],
+                                            required=True
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Program przedsięwzięcia",
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            name="projectProgram",
+                                            validators=[
+                                                self.validator.length_validator(max_value=5000)
+                                            ],
+                                            required=True,
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Wydarzenia towarzyszące",
+                                    help_text="Np. spotkania z twórcami, warsztaty, retrospektywy, prelekcje",
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            name="accompanyingEvents",
+                                            validators=[
+                                                self.validator.length_validator(max_value=5000)
+                                            ],
+                                            required=True,
+                                        ),
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Promocja przedsięwzięcia",
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            name="projectPromotion",
+                                            validators=[
+                                                self.validator.length_validator(max_value=1500)
+                                            ],
+                                            required=True,
+                                        ),
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Dostępność przedsięwzięcia",
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            name="projectAccessibility",
+                                            validators=[
+                                                self.validator.length_validator(max_value=1000)
+                                            ],
+                                            required=True,
+                                        ),
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Odbiorcy i uczestnicy",
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            name="audienceProfile",
+                                            validators=[
+                                                self.validator.length_validator(max_value=1000)
+                                            ],
+                                            required=True,
+                                        ),
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Planowane efekty realizacji przedsięwzięcia",
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            name="plannedEffects",
+                                            validators=[
+                                                self.validator.length_validator(max_value=1000)
+                                            ],
+                                            required=True,
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Doświadczenie wnioskodawcy i kompetencje zespołu",
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            name="applicantExperienceAndTeamCompetences",
+                                            validators=[
+                                                self.validator.length_validator(max_value=1500)
+                                            ],
+                                            required=True,
+                                        ),
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Udział w przedsięwzięciach jest",
+                                    components=[
+                                        self.create_component(
+                                            component_type="radio",
+                                            name="participationInVentureIs",
+                                            options=[
+                                                "bezpłatny",
+                                                "w większości bezpłatny",
+                                                "w większości płatny",
+                                                "płatny"
+                                            ],
+                                            required=True
+                                        )
+                                    ]
+                                ),
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="3. Podstawowe dane liczbowe i wskaźniki",
+                            components=[
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="projectType",
+                                            values=[
+                                                "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową."
+                                            ]
+                                        )
+                                    ],
+                                    components=[]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="projectType",
+                                            values=[
+                                                "Organizacja kongresów, konferencji, sympozjów i inne działania edukacyjne pogłębiające wiedzę o filmie."
+                                            ]
+                                        )
+                                    ],
+                                    components=[]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="projectType",
+                                            values=[
+                                                "Działalność Sieci Kin Studyjnych."
+                                            ]
+                                        )
+                                    ],
+                                    components=[]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="projectType",
+                                            values=[
+                                                "Inne działania realizujące cele Priorytetu II."
+                                            ]
+                                        )
+                                    ],
+                                    components=[]
+                                )
+                            ]
                         )
                     ]
                 ),
                 self.create_chapter(
-                    title="3. Podstawowe dane liczbowe i wskaźniki",
-                    components=[
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="projectType",
-                                    values=[
-                                        "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową."
-                                    ]
-                                )
-                            ],
-                            components=[]
-                        ),
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="projectType",
-                                    values=[
-                                        "Organizacja kongresów, konferencji, sympozjów i inne działania edukacyjne pogłębiające wiedzę o filmie."
-                                    ]
-                                )
-                            ],
-                            components=[]
-                        ),
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="projectType",
-                                    values=[
-                                        "Działalność Sieci Kin Studyjnych."
-                                    ]
-                                )
-                            ],
-                            components=[]
-                        ),
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="projectType",
-                                    values=[
-                                        "Inne działania realizujące cele Priorytetu II."
-                                    ]
-                                )
-                            ],
-                            components=[]
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="projectType",
+                            values=[
+                                "Działalność Sieci Kin Studyjnych."
+                            ]
                         )
+                    ],
+                    components=[
+
                     ]
                 ),
                 self.create_chapter(

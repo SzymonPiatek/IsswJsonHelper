@@ -10,8 +10,9 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
         super().__init__()
 
         # Variables
-        self.project_type = []
+        self.project_type: list[str] = []
         self.source_of_financing_tickets: bool = False
+        self.is_dkf: bool = False
 
         # Estimate
         self.estimate_chapters = []
@@ -1378,6 +1379,7 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
             chapters=[
                 self.create_chapter(
                     title="1. Wyszczególnienie źródeł finansowaniania",
+                    help_text="Maksymalna kwota dofinansowania PISF wynosi 15 000 zł." if self.is_dkf else "",
                     components=[
                         own_financial_and_in_kind_chapter,
                         self.create_chapter(
@@ -1690,6 +1692,15 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                                 )
                             ],
                             validators=[
+                                self.validator.related_sum_validator(
+                                    field_names=[
+                                        "pisfSupportAmountInput",
+                                    ]
+                                ),
+                                self.validator.range_validator(
+                                    max_value=15000
+                                )
+                            ] if self.is_dkf else [
                                 self.validator.related_sum_validator(
                                     field_names=[
                                         "pisfSupportAmountInput",

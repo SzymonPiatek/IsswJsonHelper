@@ -10,13 +10,15 @@ class DkfApplicationBuilder(DisseminationApplicationBuilder, DkfPriority):
     def __init__(self):
         super().__init__()
 
+        # Variables
         self.project_type = [
             "Działalność dyskusyjnych klubów filmowych."
         ]
+        self.source_of_financing_tickets = True
+        self.is_dkf = True
 
+        # Estimate
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
         self.estimate_chapters = [
             estimate_builder.generate_estimate()
         ]
-
-        self.source_of_financing_tickets = True
