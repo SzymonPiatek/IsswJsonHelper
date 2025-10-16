@@ -22,34 +22,69 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
             estimate_builder.generate_estimate()
         ]
 
-        self.basic_number_data = self.create_application_basic_number_data()
-
     def create_application_scope_of_project(self, number):
         part = self.create_part(
             title=f"{int_to_roman(number)}. Zakres przedsięwzięcia i jego charakterystyka",
             short_name=f"{int_to_roman(number)}. Zakres przedsięwzięcia",
             chapters=[
                 self.create_chapter(
-                    title="1. Miejsce realizacji przedsięwzięcia",
-                    components=[
-                        self.create_component(
-                            name="projectLocation",
-                            component_type="textarea",
-                            validators=[
-                                self.validator.length_validator(
-                                    max_value=3000
-                                )
-                            ],
-                            required=True
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="2. Zakres przedsięwzięcia i jego charakterystyka",
+                    title="1. Zakres przedsięwzięcia i jego charakterystyka",
                     components=[
                         self.create_chapter(
-                            title="Opis ogólny przedsięwzięcia",
-                            help_text="Cel i zakres merytoryczny, zastosowane technologie, sposób realizacji przedsięwzięcia, promocja.",
+                            title="Rodzaj planowanego przedsięwzięcia",
+                            help_text="Np. kurs, warsztat, szkolenie itp.",
+                            class_list={
+                                "main": [
+                                    "table-1-2",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="date",
+                                    label="Planowany termin realizacji od",
+                                    name="plannedCompletionDateFrom",
+                                    validators=[
+                                        self.validator.related_date_lte_validator(
+                                            field_name="plannedCompletionDateTo",
+                                        )
+                                    ],
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Planowany termin raelizacji do",
+                                    name="plannedCompletionDateTo",
+                                    validators=[
+                                        self.validator.related_date_gte_validator(
+                                            field_name="plannedCompletionDateFrom",
+                                        )
+                                    ],
+                                    required=True
+                                ),
+                                self.create_component(
+                                    name="projectLocation",
+                                    component_type="textarea",
+                                    label="Miejsce realizacji przedsięwzięcia",
+                                    validators=[
+                                        self.validator.length_validator(
+                                            max_value=3000
+                                        )
+                                    ],
+                                    required=True,
+                                    class_list=[
+                                        "table-full"
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Opis przedsięwzięcia",
+                            help_text="Tematyka, tryb, metody dydaktyczne, liczba godzin, modułów, bloków tematycznych.",
                             components=[
                                 self.create_component(
                                     name="generalProjectDescription",
@@ -64,12 +99,11 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                             ]
                         ),
                         self.create_chapter(
-                            title="Wartość edukacyjna przedsięwzięcia",
-                            help_text="W tym ciągłość realizacji oraz wartość edukacyjna przedsięwzięcia.",
+                            title="Idea i cel edukacyjny",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
-                                    name="offerEducationalValue",
+                                    name="educationalIdeaAndGoal",
                                     validators=[
                                         self.validator.length_validator(
                                             max_value=3000
@@ -80,11 +114,12 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                             ]
                         ),
                         self.create_chapter(
-                            title="Praktyczne umiejętności nabywane przez uczestników",
+                            title="Grupa docelowa",
+                            help_text="Sposób rekrutacji i kryteria wyboru uczestników",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
-                                    name="skillsAcquiredByStudents",
+                                    name="targetGroup",
                                     validators=[
                                         self.validator.length_validator(
                                             max_value=3000
@@ -95,11 +130,11 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                             ]
                         ),
                         self.create_chapter(
-                            title="Liczba i zróżnicowanie struktury studentów",
+                            title="Liczba i zróżnicowanie struktury uczestników",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
-                                    name="numberAndDiversityOfStudents",
+                                    name="numberAndDiversityOfParticipants",
                                     validators=[
                                         self.validator.length_validator(
                                             max_value=3000
@@ -111,7 +146,6 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                         ),
                         self.create_chapter(
                             title="Doświadczenie wnioskodawcy i kompetencje zespołu",
-                            help_text="Proszę o wyszczególnienie przedsięwzięć z zakresu kinematografii realizowanych przez wnioskodawcę w ostatnich 2 latach.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -126,8 +160,8 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                             ]
                         ),
                         self.create_chapter(
-                            title="Dostępność przedsięwzięcia",
-                            help_text="Działania podejmowane na rzecz osób ze szczególnymi potrzebami oraz wspierania inkluzywności.",
+                            title="Dostępność oferty edukacyjnej",
+                            help_text="Podjęte działania w celu zapewnienia dostępności oferty kształcenia dla osób ze szczególnymi potrzebami oraz wspieranie inkluzywności.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -138,75 +172,31 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                                         )
                                     ],
                                     required=True
-                                )
+                                ),
                             ]
                         ),
                         self.create_chapter(
-                            title="Planowane efekty realizacji przedsięwzięcia oraz jego ewaluacja",
+                            title="Planowane efekty realizacji przedsięwzięcia",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
-                                    name="plannedImplementationAndEvaluationEffects",
+                                    name="plannedEffectsOfProjectImplementation",
                                     validators=[
                                         self.validator.length_validator(
                                             max_value=3000
                                         )
                                     ],
-                                    required=True,
+                                    required=True
                                 ),
                             ]
                         )
                     ]
                 ),
-            ]
-        )
-
-        if self.basic_number_data:
-            part["chapters"].append(self.basic_number_data)
-
-        self.save_part(part)
-
-    def create_application_basic_number_data(self):
-        basic_number_data_chapters = [
-            {
-                "section_title": "1. Liczba zajęć edukacyjnych",
-                "name": "educationalActivities",
-                "unit": "szt."
-            },
-            {
-                "section_title": "2. Liczba uczestników (uczniów szkół podstawowych)",
-                "name": "primarySchoolPupils",
-                "unit": "os."
-            },
-            {
-                "section_title": "3. Liczba uczestników (uczniów szkół ponadpodstawowych)",
-                "name": "secondarySchoolPupils",
-                "unit": "os."
-            },
-            {
-                "section_title": "4. Liczba szkół podstawowych uczestniczących w przedsięwzięciu",
-                "name": "primarySchools",
-                "unit": "szt."
-            },
-            {
-                "section_title": "5. Liczba szkół ponadpodstawowych uczestniczących w przedsięwzięciu",
-                "name": "secondarySchools",
-                "unit": "szt."
-            }
-        ]
-
-        final_chapter = self.create_chapter(
-            title="3. Podstawowe dane liczbowe i wskaźniki",
-            components=[
                 self.create_chapter(
-                    class_list={
-                        "sub": [
-                            "table-1-2-top"
-                        ]
-                    },
+                    title="2. Podstawowe dane liczbowe i wskaźniki",
                     components=[
-                        *[self.create_chapter(
-                            title=f"<normal>{chapter["section_title"]}</normal>",
+                        self.create_chapter(
+                            title="<normal>1. Planowana liczba zajęć edukacyjnych</normal>",
                             class_list={
                                 "main": [
                                     "table-1-2",
@@ -219,25 +209,84 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                             },
                             components=[
                                 self.create_component(
-                                    component_type='number',
-                                    label="Poprzednia edycja przedsięwzięcia",
-                                    unit=chapter["unit"],
-                                    name=f'{chapter["name"]}CountPreviousEdition'
-                                ),
-                                self.create_component(
-                                    component_type='number',
-                                    label="Bieżąca edycja przedsięwzięcia (przewidywane wielkości)",
-                                    unit=chapter["unit"],
-                                    name=f'{chapter["name"]}CountCurrentEdition'
+                                    component_type="number",
+                                    name="plannedNumberOfEducationalActivities",
+                                    unit="szt."
                                 )
                             ]
-                        ) for chapter in basic_number_data_chapters]
+                        ),
+                        self.create_chapter(
+                            title="<normal>2. Prognozowana liczba uczestników</normal>",
+                            class_list={
+                                "main": [
+                                    "table-1-2",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="number",
+                                    name="estimatedNumberOfParticipantsPrimarySchools",
+                                    unit="osoby",
+                                    label="a) Uczniowie szkół podstawowych"
+                                ),
+                                self.create_component(
+                                    component_type="number",
+                                    name="estimatedNumberOfParticipantsSecondarySchools",
+                                    unit="osoby",
+                                    label="b) Uczniowie szkół ponadpodstawowych"
+                                ),
+                                self.create_component(
+                                    component_type="number",
+                                    name="estimatedNumberOfParticipantsAdults",
+                                    unit="osoby",
+                                    label="c) Dorośli"
+                                ),
+                                self.create_component(
+                                    component_type="number",
+                                    name="estimatedNumberOfParticipantsSeniors",
+                                    unit="osoby",
+                                    label="d) Seniorzy"
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="<normal>3. Planowana liczba szkół biorących udział w zajęciach</normal>",
+                            class_list={
+                                "main": [
+                                    "table-1-2",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="number",
+                                    name="plannedNumberOfSchoolsParticipatingPrimarySchools",
+                                    unit="szt.",
+                                    label="a) Szkoły podstawowe"
+                                ),
+                                self.create_component(
+                                    component_type="number",
+                                    name="plannedNumberOfSchoolsParticipatingSecondarySchools",
+                                    unit="szt.",
+                                    label="b) Szkoły ponadpodstawowe"
+                                )
+                            ]
+                        )
                     ]
                 )
             ]
         )
 
-        return final_chapter
+        self.save_part(part)
 
     def create_application_attachments(self, number):
         part = self.create_part(
