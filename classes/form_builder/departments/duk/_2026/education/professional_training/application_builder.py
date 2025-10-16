@@ -57,105 +57,17 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
             )
         ]
 
-        self.basic_number_data = self.create_application_basic_number_data()
-
-    def create_application_basic_number_data(self):
-        chapters_data = [
-            {
-                "label": "szkoleń",
-                "name": "Trainings"
-            },
-            {
-                "label": "warsztatów",
-                "name": "Workshops"
-            },
-            {
-                "label": "kursów",
-                "name": "Courses"
-            }
-        ]
-
-        final_chapter = self.create_chapter(
-            title="3. Podstawowe dane liczbowe i wskaźniki",
-            components=[
+    def create_application_scope_of_project(self, number):
+        part = self.create_part(
+            title=f"{int_to_roman(number)}. Zakres przedsięwzięcia i jego charakterystyka",
+            short_name=f"{int_to_roman(number)}. Zakres przedsięwzięcia",
+            chapters=[
                 self.create_chapter(
-                    title="<normal>1. Liczba wydarzeń w ramach realizowanego przedsięwzięcia (pola obowiązkowe do wypełnienia):</normal>",
-                    class_list={"sub": ["table-1-2-top"]},
+                    title="1. Zakres przedsięwzięcia i jego charakterystyka",
                     components=[
-                        *[
-                            self.create_chapter(
-                                title=f"<small>- {chapter["label"]}</small>",
-                                class_list={
-                                    "main": ["table-1-2", "grid", "grid-cols-2"],
-                                    "sub": ["table-1-2__col"]
-                                },
-                                components=[
-                                    self.create_component(
-                                        component_type="number",
-                                        label="Poprzednia edycja przedsięwzięcia",
-                                        name=f"numberOfEvents{chapter["name"]}PreviousEdition",
-                                        unit="szt.",
-                                        value=0
-                                    ),
-                                    self.create_component(
-                                        component_type="number",
-                                        label="Bieżąca edycja przedsięwzięcia (przewidywane wielkości)",
-                                        name=f"numberOfEvents{chapter["name"]}CurrentEdition",
-                                        unit="szt.",
-                                        value=0
-                                    )
-                                ]
-                            )
-                            for chapter in chapters_data
-                        ],
                         self.create_chapter(
-                            title="<small>- inne</small>",
-                            components=[
-                                self.create_chapter(
-                                    multiple_forms_rules={"minCount": 1, "maxCount": 20},
-                                    components=[
-                                        self.create_chapter(
-                                            title="Pozycja",
-                                            components=[
-                                                self.create_chapter(
-                                                    components=[
-                                                        self.create_component(
-                                                            component_type="text",
-                                                            label="Rodzaj",
-                                                            name="numberOfEventsOtherKind"
-                                                        )
-                                                    ]
-                                                ),
-                                                self.create_chapter(
-                                                    class_list={
-                                                        "main": ["table-1-2", "grid", "grid-cols-2"],
-                                                        "sub": ["table-1-2__col"]
-                                                    },
-                                                    components=[
-                                                        self.create_component(
-                                                            component_type="number",
-                                                            label="Poprzednia edycja przedsięwzięcia",
-                                                            name="numberOfEventsOtherPreviousEdition",
-                                                            unit="szt.",
-                                                            value=0
-                                                        ),
-                                                        self.create_component(
-                                                            component_type="number",
-                                                            label="Bieżąca edycja przedsięwzięcia (przewidywane wielkości)",
-                                                            name="numberOfEventsOtherCurrentEdition",
-                                                            unit="szt.",
-                                                            value=0
-                                                        )
-                                                    ]
-                                                )
-                                            ]
-                                        )
-                                    ]
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            title="<normal>Suma</normal>",
+                            title="Rodzaj planowanego przedsięwzięcia",
+                            help_text="Np. kurs, warsztat, szkolenie itp.",
                             class_list={
                                 "main": [
                                     "table-1-2",
@@ -168,387 +80,376 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                             },
                             components=[
                                 self.create_component(
-                                    component_type="number",
-                                    label="Poprzednia edycja przedsięwzięcia",
-                                    name="numerOfEventsPreviousEditionSum",
-                                    read_only=True,
-                                    calculation_rules=[
-                                        self.calculation_rule.dynamic_sum_inputs(
-                                            fields=[
-                                                *[f"numberOfEvents{chapter["name"]}PreviousEdition" for chapter in chapters_data],
-                                                "numberOfEventsOtherPreviousEdition"
-                                            ]
-                                        )
-                                    ],
+                                    component_type="date",
+                                    label="Planowany termin realizacji od",
+                                    name="plannedCompletionDateFrom",
                                     validators=[
-                                        self.validator.related_sum_validator(
-                                            field_names=[
-                                                *[f"numberOfEvents{chapter["name"]}PreviousEdition" for chapter in chapters_data],
-                                                "numberOfEventsOtherPreviousEdition"
-                                            ]
+                                        self.validator.related_date_lte_validator(
+                                            field_name="plannedCompletionDateTo",
                                         )
                                     ],
-                                    unit="szt."
+                                    required=True
                                 ),
                                 self.create_component(
-                                    component_type="number",
-                                    label="Bieżąca edycja przedsięwzięcia (przewidywane wielkości)",
-                                    name="numberOfEventsCurrentEditionSum",
-                                    read_only=True,
-                                    calculation_rules=[
-                                        self.calculation_rule.dynamic_sum_inputs(
-                                            fields=[
-                                                *[f"numberOfEvents{chapter["name"]}CurrentEdition" for chapter in chapters_data],
-                                                "numberOfEventsOtherCurrentEdition"
-                                            ]
-                                        )
-                                    ],
+                                    component_type="date",
+                                    label="Planowany termin raelizacji do",
+                                    name="plannedCompletionDateTo",
                                     validators=[
-                                        self.validator.related_sum_validator(
-                                            field_names=[
-                                                *[f"numberOfEvents{chapter["name"]}CurrentEdition" for chapter in chapters_data],
-                                                "numberOfEventsOtherCurrentEdition"
-                                            ]
+                                        self.validator.related_date_gte_validator(
+                                            field_name="plannedCompletionDateFrom",
                                         )
                                     ],
-                                    unit="szt."
+                                    required=True
+                                ),
+                                self.create_component(
+                                    name="projectLocation",
+                                    component_type="textarea",
+                                    label="Miejsce realizacji przedsięwzięcia",
+                                    validators=[
+                                        self.validator.length_validator(
+                                            max_value=3000
+                                        )
+                                    ],
+                                    required=True,
+                                    class_list=[
+                                        "table-full"
+                                    ]
                                 )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Opis przedsięwzięcia",
+                            help_text="Tematyka, tryb, metody dydaktyczne, liczba godzin, modułów, bloków tematycznych.",
+                            components=[
+                                self.create_component(
+                                    name="generalProjectDescription",
+                                    component_type="textarea",
+                                    validators=[
+                                        self.validator.length_validator(
+                                            max_value=3000
+                                        )
+                                    ],
+                                    required=True,
+                                ),
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Idea i cel edukacyjny",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="educationalIdeaAndGoal",
+                                    validators=[
+                                        self.validator.length_validator(
+                                            max_value=3000
+                                        )
+                                    ],
+                                    required=True,
+                                ),
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Analiza potrzeb rynku pracy",
+                            help_text="Wpływ proponowanej oferty edukacyjnej na rozwój naukowy z uwzględnieniem praktycznych wymagań rynku pracy.",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="marketLaborAnalysis",
+                                    validators=[
+                                        self.validator.length_validator(
+                                            max_value=3000
+                                        )
+                                    ],
+                                    required=True,
+                                ),
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Grupa docelowa",
+                            help_text="Sposób rekrutacji i kryteria wyboru uczestników",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="targetGroup",
+                                    validators=[
+                                        self.validator.length_validator(
+                                            max_value=3000
+                                        )
+                                    ],
+                                    required=True,
+                                ),
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Liczba i zróżnicowanie struktury uczestników",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="numberAndDiversityOfParticipants",
+                                    validators=[
+                                        self.validator.length_validator(
+                                            max_value=3000
+                                        )
+                                    ],
+                                    required=True,
+                                ),
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Doświadczenie wnioskodawcy i kompetencje zespołu",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="applicantAndTeamExperience",
+                                    validators=[
+                                        self.validator.length_validator(
+                                            max_value=3000
+                                        )
+                                    ],
+                                    required=True
+                                ),
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Dostępność oferty edukacyjnej",
+                            help_text="Podjęte działania w celu zapewnienia dostępności oferty kształcenia dla osób ze szczególnymi potrzebami oraz wspieranie inkluzywności.",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="projectAccessibility",
+                                    validators=[
+                                        self.validator.length_validator(
+                                            max_value=3000
+                                        )
+                                    ],
+                                    required=True
+                                ),
                             ]
                         )
                     ]
                 ),
                 self.create_chapter(
-                    title="<normal>2. Liczba uczestników w ramach realizowanego przedsięwzięcia:</normal>",
-                    class_list={"sub": ["table-1-2-top"]},
+                    title="2. Podstawowe dane liczbowe i prognozowane wskaźniki",
                     components=[
-                        *[
-                            self.create_chapter(
-                                title=f"<small>- {chapter["label"]}</small>",
-                                class_list={
-                                    "main": ["table-1-2", "grid", "grid-cols-2"],
-                                    "sub": ["table-1-2__col"]
-                                },
-                                components=[
-                                    self.create_component(
-                                        component_type="number",
-                                        label="Poprzednia edycja przedsięwzięcia",
-                                        name=f"participantsCountPreviousEdition{chapter["name"]}",
-                                        unit="os."
-                                    ),
-                                    self.create_component(
-                                        component_type="number",
-                                        label="Bieżąca edycja przedsięwzięcia (przewidywane wielkości)",
-                                        name=f"participantsCountCurrentEdition{chapter["name"]}",
-                                        unit="os."
-                                    )
-                                ]
-                            )
-                            for chapter in chapters_data
-                        ],
                         self.create_chapter(
-                            title="<small>- inne</small>",
+                            title="1. Planowana liczba wydarzeń organizowanych w ramach przedsięwzięcia oraz liczba uczestników",
                             components=[
                                 self.create_chapter(
-                                    multiple_forms_rules={"minCount": 1, "maxCount": 20},
+                                    title="<normal>a) Szkolenia</normal>",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
                                     components=[
-                                        self.create_chapter(
-                                            title="Pozycja",
-                                            components=[
-                                                self.create_chapter(
-                                                    components=[
-                                                        self.create_component(
-                                                            component_type="text",
-                                                            label="Rodzaj",
-                                                            name="participantsCountOtherKind",
-                                                            validators=[
-                                                                self.validator.length_validator(
-                                                                    max_value=100
-                                                                )
-                                                            ]
-                                                        )
-                                                    ]
-                                                ),
-                                                self.create_chapter(
-                                                    class_list={
-                                                        "main": ["table-1-2", "grid", "grid-cols-2"],
-                                                        "sub": ["table-1-2__col"]
-                                                    },
-                                                    components=[
-                                                        self.create_component(
-                                                            component_type="number",
-                                                            label="Poprzednia edycja przedsięwzięcia",
-                                                            name="participantsCountPreviousEditionOther",
-                                                            unit="os."
-                                                        ),
-                                                        self.create_component(
-                                                            component_type="number",
-                                                            label="Bieżąca edycja przedsięwzięcia (przewidywane wielkości)",
-                                                            name="participantsCountCurrentEditionOther",
-                                                            unit="os."
-                                                        )
-                                                    ]
-                                                )
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Liczba wydarzeń",
+                                            name="eventsNumberTraining",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Liczba osób",
+                                            name="peopleNumberTraining",
+                                            unit="osoby"
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="<normal>b) Warsztaty</normal>",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Liczba wydarzeń",
+                                            name="eventsNumberWorkshops",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Liczba osób",
+                                            name="peopleNumberWorkshops",
+                                            unit="osoby"
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="<normal>c) Kursy</normal>",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Liczba wydarzeń",
+                                            name="eventsNumberCourses",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Liczba osób",
+                                            name="peopleNumberCourses",
+                                            unit="osoby"
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="<normal>d) Inne</normal>",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Rodzaj",
+                                            name="otherEventType",
+                                            class_list=[
+                                                "table-full"
                                             ]
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Liczba wydarzeń",
+                                            name="eventsNumberOther",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Liczba osób",
+                                            name="peopleNumberOther",
+                                            unit="osoby"
                                         )
                                     ]
                                 )
                             ]
                         ),
                         self.create_chapter(
-                            title="<normal>Suma</normal>",
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
-                            components=[
-                                self.create_component(
-                                    component_type="number",
-                                    label="Poprzednia edycja przedsięwzięcia",
-                                    name="participantsCountCurrentEditionSum",
-                                    read_only=True,
-                                    calculation_rules=[
-                                        self.calculation_rule.dynamic_sum_inputs(
-                                            fields=[
-                                                *[f"participantsCountPreviousEdition{chapter["name"]}" for chapter in chapters_data],
-                                                "participantsCountPreviousEditionOther"
-                                            ]
-                                        )
-                                    ],
-                                    validators=[
-                                        self.validator.related_sum_validator(
-                                            field_names=[
-                                                *[f"participantsCountPreviousEdition{chapter["name"]}" for chapter in chapters_data],
-                                                "participantsCountPreviousEditionOther"
-                                            ]
-                                        )
-                                    ],
-                                    unit="os."
-                                )
-                            ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="<normal>3. Wpływy ze sprzedaży:</normal>",
-                    class_list={
-                        "main": ["w-full"],
-                        "sub": ["table-4-top"]
-                    },
-                    components=[
-                        *[
-                            self.create_chapter(
-                                title=f"<small>- {chapter["label"]}</small>",
-                                class_list={
-                                    "main": ["table-4", "grid", "grid-cols-4"],
-                                    "sub": ["table-4__col"]
-                                },
-                                components=[
-                                    self.create_component(
-                                        component_type="text",
-                                        label="Poprzednia edycja przedsięwzięcia",
-                                        name=f"proceedsOfSalePreviousEdition{chapter["name"]}",
-                                        unit="PLN",
-                                        mask="fund"
-                                    ),
-                                    self.create_component(
-                                        component_type="text",
-                                        label="Koszt jednostkowy",
-                                        name=f"proceedsOfSalePreviousEdition{chapter["name"]}UnitCost",
-                                        unit="PLN",
-                                        mask="fund"
-                                    ),
-                                    self.create_component(
-                                        component_type="text",
-                                        label="Bieżąca edycja przedsięwzięcia (przewidywane wielkości)",
-                                        name=f"proceedsOfSaleCurrentEdition{chapter["name"]}",
-                                        unit="PLN",
-                                        mask="fund"
-                                    ),
-                                    self.create_component(
-                                        component_type="text",
-                                        label="Koszt jednostkowy",
-                                        name=f"proceedsOfSaleCurrentEdition{chapter["name"]}UnitCost",
-                                        unit="PLN",
-                                        mask="fund"
-                                    )
-                                ]
-                            )
-                            for chapter in chapters_data
-                        ],
-                        self.create_chapter(
-                            title="<small>- inne</small>",
+                            title="Prognozowane wpływy ze sprzedaży",
                             components=[
                                 self.create_chapter(
-                                    multiple_forms_rules={"minCount": 1, "maxCount": 20},
+                                    title="<normal>a) Szkolenia</normal>",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
                                     components=[
-                                        self.create_chapter(
-                                            title="Pozycja",
-                                            components=[
-                                                self.create_chapter(
-                                                    components=[
-                                                        self.create_component(
-                                                            component_type="text",
-                                                            label="Rodzaj",
-                                                            name="proceedsOfSalePreviousEditionKind"
-                                                        )
-                                                    ]
-                                                ),
-                                                self.create_chapter(
-                                                    class_list={
-                                                        "main": ["table-4", "grid", "grid-cols-4"],
-                                                        "sub": ["table-4__col"]
-                                                    },
-                                                    components=[
-                                                        self.create_component(
-                                                            component_type="text",
-                                                            label="Poprzednia edycja przedsięwzięcia",
-                                                            name="proceedsOfSalePreviousEditionOther",
-                                                            unit="PLN",
-                                                            mask="fund"
-                                                        ),
-                                                        self.create_component(
-                                                            component_type="text",
-                                                            label="Koszt jednostkowy",
-                                                            name="proceedsOfSalePreviousEditionOtherUnitCost",
-                                                            unit="PLN",
-                                                            mask="fund"
-                                                        ),
-                                                        self.create_component(
-                                                            component_type="text",
-                                                            label="Bieżąca edycja przedsięwzięcia (przewidywane wielkości)",
-                                                            name="proceedsOfSaleCurrentEditionOther",
-                                                            unit="PLN",
-                                                            mask="fund"
-                                                        ),
-                                                        self.create_component(
-                                                            component_type="text",
-                                                            label="Koszt jednostkowy",
-                                                            name="proceedsOfSaleCurrentEditionOtherUnitCost",
-                                                            unit="PLN",
-                                                            mask="fund"
-                                                        )
-                                                    ]
-                                                )
-                                            ]
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            name="forecastedSalesRevenuesTraining",
+                                            label="Koszt jednostkowy",
+                                            unit="PLN"
                                         )
                                     ]
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            title="<normal>Suma</normal>",
-                            class_list={
-                                "main": [
-                                    "table-4",
-                                    "grid",
-                                    "grid-cols-4"
-                                ],
-                                "sub": [
-                                    "table-4__col"
-                                ]
-                            },
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    mask="fund",
-                                    label="Poprzednia edycja przedsięwzięcia",
-                                    name="proceedsOfSalePreviousSum",
-                                    read_only=True,
-                                    calculation_rules=[
-                                        self.calculation_rule.dynamic_sum_inputs(
-                                            fields=[
-                                                *[f"proceedsOfSalePreviousEdition{chapter["name"]}" for chapter in chapters_data],
-                                                "proceedsOfSalePreviousEditionOther"
-                                            ]
-                                        )
-                                    ],
-                                    validators=[
-                                        self.validator.related_sum_validator(
-                                            field_names=[
-                                                *[f"proceedsOfSalePreviousEdition{chapter["name"]}" for chapter in chapters_data],
-                                                "proceedsOfSalePreviousEditionOther"
-                                            ]
-                                        )
-                                    ],
-                                    unit="PLN"
                                 ),
-                                self.create_component(
-                                    component_type="text",
-                                    mask="fund",
-                                    label="Koszt jednostkowy",
-                                    name="proceedsOfSalePreviousEditionSumUnitCost",
-                                    read_only=True,
-                                    calculation_rules=[
-                                        self.calculation_rule.dynamic_sum_inputs(
-                                            fields=[
-                                                *[f"proceedsOfSalePreviousEdition{chapter["name"]}UnitCost" for chapter in chapters_data],
-                                                "proceedsOfSalePreviousEditionOtherUnitCost"
-                                            ]
+                                self.create_chapter(
+                                    title="<normal>b) Warsztaty</normal>",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            name="forecastedSalesRevenuesWorkshops",
+                                            label="Koszt jednostkowy",
+                                            unit="PLN"
                                         )
-                                    ],
-                                    validators=[
-                                        self.validator.related_sum_validator(
-                                            field_names=[
-                                                *[f"proceedsOfSaleCurrentEdition{chapter["name"]}UnitCost" for chapter in chapters_data],
-                                                "proceedsOfSaleCurrentEditionOtherUnitCost"
-                                            ]
-                                        )
-                                    ],
-                                    unit="PLN"
+                                    ]
                                 ),
-                                self.create_component(
-                                    component_type="text",
-                                    mask="fund",
-                                    label="Bieżąca edycja przedsięwzięcia (przewidywane wielkości)",
-                                    name="proceedsOfSaleCurrentSum",
-                                    read_only=True,
-                                    calculation_rules=[
-                                        self.calculation_rule.dynamic_sum_inputs(
-                                            fields=[
-                                                *[f"proceedsOfSaleCurrentEdition{chapter["name"]}" for chapter in chapters_data],
-                                                "proceedsOfSaleCurrentEditionOther"
-                                            ]
+                                self.create_chapter(
+                                    title="<normal>c) Kursy</normal>",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            name="forecastedSalesRevenuesCourses",
+                                            label="Koszt jednostkowy",
+                                            unit="PLN"
                                         )
-                                    ],
-                                    validators=[
-                                        self.validator.related_sum_validator(
-                                            field_names=[
-                                                *[f"proceedsOfSaleCurrentEdition{chapter["name"]}" for chapter in chapters_data],
-                                                "proceedsOfSaleCurrentEditionOther"
-                                            ]
-                                        )
-                                    ],
-                                    unit="PLN"
+                                    ]
                                 ),
-                                self.create_component(
-                                    component_type="text",
-                                    mask="fund",
-                                    label="Koszt jednostkowy",
-                                    name="proceedsOfSaleCurrentEditionSumUnitCost",
-                                    read_only=True,
-                                    calculation_rules=[
-                                        self.calculation_rule.dynamic_sum_inputs(
-                                            fields=[
-                                                *[f"proceedsOfSaleCurrentEdition{chapter["name"]}UnitCost" for chapter in chapters_data],
-                                                "proceedsOfSaleCurrentEditionOtherUnitCost"
+                                self.create_chapter(
+                                    title="<normal>d) Inne</normal>",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            name="forecastedSalesRevenuesOtherType",
+                                            label="Rodzaj",
+                                            class_list=[
+                                                "table-full"
                                             ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            name="forecastedSalesRevenuesOther",
+                                            label="Koszt jednostkowy",
+                                            unit="PLN"
                                         )
-                                    ],
-                                    validators=[
-                                        self.validator.related_sum_validator(
-                                            field_names=[
-                                                *[f"proceedsOfSaleCurrentEdition{chapter["name"]}UnitCost" for chapter in chapters_data],
-                                                "proceedsOfSaleCurrentEditionOtherUnitCost"
-                                            ]
-                                        )
-                                    ],
-                                    unit="PLN"
+                                    ]
                                 )
                             ]
                         )
@@ -557,4 +458,4 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
             ]
         )
 
-        return final_chapter
+        self.save_part(part)
