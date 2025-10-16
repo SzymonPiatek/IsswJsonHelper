@@ -465,57 +465,13 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                         self.create_component(
                             component_type="header",
                             name="identificationData",
-                            value="<small><b>Uwaga!</b><br/><normal>Wszystkie koszty danego przedsięwzięcia muszą być opłacane z rachunku bankowego podanego we Wniosku o dofinansowanie. Na ten sam rachunek powinny też wpływać środki od innych podmiotów współfinansujących dane przedsięwzięcie. Możliwe są dwa rozwiązania:<br/>a) rachunek służący do rozliczeń przedsięwzięcia, którego dotyczy Wniosek o dofinansowanie, w tym wpływów i wydatków związanych z dotacją PISF,<br/>b) rachunek przeznaczony wyłącznie do obsługi środków z dotacji PISF, na który mogą trafiać środki z różnych dofinansowań udzielonych przez PISF.</normal></small>"
+                            value="<small><b>Uwaga!</b><br/><br/><normal>Wszystkie koszty danego przedsięwzięcia muszą być opłacane z rachunku bankowego podanego we Wniosku o dofinansowanie. Na ten sam rachunek powinny też wpływać środki od innych podmiotów współfinansujących dane przedsięwzięcie. Możliwe są dwa rozwiązania:<br/>a) rachunek służący do rozliczeń przedsięwzięcia, którego dotyczy Wniosek o dofinansowanie, w tym wpływów i wydatków związanych z dotacją PISF,<br/>b) rachunek przeznaczony wyłącznie do obsługi środków z dotacji PISF, na który mogą trafiać środki z różnych dofinansowań udzielonych przez PISF.</br></br>Wybrany wariant rachunku obowiązuje przez cały okres trwania umowy. Rachunek ten powinien zapewniać pełną przejrzystość przepływów finansowych związanych z realizacją projektu oraz być ujęty w wykazie podatników VAT lub zgłoszony do właściwego urzędu skarbowego - o ile Wnioskodawca podlega obowiązkowi zgłoszenia, zgodnie z obowiązującymi przepisami prawa.</normal></small>"
                         )
                     ]
                 ),
                 self.create_chapter(
                     title="5. Dane identyfikacyjne wnioskodawcy oraz informacje prawne",
                     components=[
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="orgAndLegalStructure",
-                                    values=[
-                                        "Osoba fizyczna prowadząca działalność gospodarczą"
-                                    ]
-                                )
-                            ],
-                            title="Dane osobowe",
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    label="Imię",
-                                    name="applicantFirstName",
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Nazwisko",
-                                    name="applicantLastName",
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="PESEL",
-                                    name="applicantPesel",
-                                    required=True,
-                                    validators=[
-                                        self.validator.pesel_validator()
-                                    ]
-                                )
-                            ]
-                        ),
                         self.create_chapter(
                             visibility_rules=[
                                 self.visibility_rule.depends_on_value(
@@ -539,9 +495,17 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                                     ]
                                 )
                             ],
-                            title="Dane identyfikacyjne",
                             components=[
                                 self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="orgAndLegalStructure",
+                                            values=[
+                                                "Osoba fizyczna prowadząca działalność gospodarczą"
+                                            ]
+                                        )
+                                    ],
+                                    title="Dane osobowe",
                                     class_list={
                                         "main": [
                                             "table-1-2",
@@ -553,109 +517,397 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                                         ]
                                     },
                                     components=[
-                                        self.create_chapter(
-                                            components=[
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Numer NIP",
-                                                    name="applicantNip",
-                                                    required=True,
-                                                    validators=[
-                                                        self.validator.nip_validator()
-                                                    ]
-                                                )
-                                            ]
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Imię",
+                                            name="applicantFirstName",
+                                            required=True
                                         ),
-                                        self.create_chapter(
-                                            visibility_rules=[
-                                                self.visibility_rule.depends_on_value(
-                                                    field_name="orgAndLegalStructure",
-                                                    values=[
-                                                        "Spółka z ograniczoną odpowiedzialnością",
-                                                        "Spółka akcyjna",
-                                                        "Spółka jawna",
-                                                        "Spółka komandytowa",
-                                                        "Spółka komandytowo-akcyjna",
-                                                        "Osoba fizyczna prowadząca działalność gospodarczą",
-                                                        "Fundacja",
-                                                        "Stowarzyszenie",
-                                                        "Instytucja kultury",
-                                                        "Instytucja filmowa",
-                                                        "Publiczna szkoła lub uczelnia artystyczna",
-                                                        "Niepubliczna szkoła lub uczelnia artystyczna",
-                                                        "Kościół lub związek wyznaniowy",
-                                                        "Jednostka samorządu terytorialnego",
-                                                    ]
-                                                )
-                                            ],
-                                            components=[
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Numer REGON",
-                                                    name="applicantRegon",
-                                                    required=True,
-                                                    validators=[
-                                                        self.validator.regon_validator()
-                                                    ]
-                                                )
-                                            ]
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Nazwisko",
+                                            name="applicantLastName",
+                                            required=True
                                         ),
+                                        self.create_component(
+                                            component_type="text",
+                                            label="PESEL",
+                                            name="applicantPesel",
+                                            required=True,
+                                            validators=[
+                                                self.validator.pesel_validator()
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="orgAndLegalStructure",
+                                            values=[
+                                                "Spółka z ograniczoną odpowiedzialnością",
+                                                "Spółka akcyjna",
+                                                "Spółka jawna",
+                                                "Spółka komandytowa",
+                                                "Spółka komandytowo-akcyjna",
+                                                "Osoba fizyczna prowadząca działalność gospodarczą",
+                                                "Spółka cywilna",
+                                                "Fundacja",
+                                                "Stowarzyszenie",
+                                                "Instytucja kultury",
+                                                "Instytucja filmowa",
+                                                "Publiczna szkoła lub uczelnia artystyczna",
+                                                "Niepubliczna szkoła lub uczelnia artystyczna",
+                                                "Kościół lub związek wyznaniowy",
+                                                "Jednostka samorządu terytorialnego",
+                                            ]
+                                        )
+                                    ],
+                                    title="Dane identyfikacyjne",
+                                    components=[
                                         self.create_chapter(
-                                            visibility_rules=[
-                                                self.visibility_rule.depends_on_value(
-                                                    field_name="orgAndLegalStructure",
-                                                    values=[
-                                                        "Spółka z ograniczoną odpowiedzialnością",
-                                                        "Spółka akcyjna",
-                                                        "Spółka jawna",
-                                                        "Spółka komandytowa",
-                                                        "Spółka komandytowo-akcyjna",
-                                                        "Fundacja",
-                                                        "Stowarzyszenie"
-                                                    ]
-                                                )
-                                            ],
+                                            class_list={
+                                                "main": [
+                                                    "table-1-2",
+                                                    "grid",
+                                                    "grid-cols-2"
+                                                ],
+                                                "sub": [
+                                                    "table-1-2__col"
+                                                ]
+                                            },
                                             components=[
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Numer KRS",
-                                                    name="applicantKrs",
-                                                    required=True,
-                                                    validators=[
-                                                        self.validator.length_validator(
-                                                            min_value=10,
-                                                            max_value=10
+                                                self.create_chapter(
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Numer NIP",
+                                                            name="applicantNip",
+                                                            required=True,
+                                                            validators=[
+                                                                self.validator.nip_validator()
+                                                            ]
+                                                        )
+                                                    ]
+                                                ),
+                                                self.create_chapter(
+                                                    visibility_rules=[
+                                                        self.visibility_rule.depends_on_value(
+                                                            field_name="orgAndLegalStructure",
+                                                            values=[
+                                                                "Spółka z ograniczoną odpowiedzialnością",
+                                                                "Spółka akcyjna",
+                                                                "Spółka jawna",
+                                                                "Spółka komandytowa",
+                                                                "Spółka komandytowo-akcyjna",
+                                                                "Osoba fizyczna prowadząca działalność gospodarczą",
+                                                                "Fundacja",
+                                                                "Stowarzyszenie",
+                                                                "Instytucja kultury",
+                                                                "Instytucja filmowa",
+                                                                "Publiczna szkoła lub uczelnia artystyczna",
+                                                                "Niepubliczna szkoła lub uczelnia artystyczna",
+                                                                "Kościół lub związek wyznaniowy",
+                                                                "Jednostka samorządu terytorialnego",
+                                                            ]
+                                                        )
+                                                    ],
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Numer REGON",
+                                                            name="applicantRegon",
+                                                            required=True,
+                                                            validators=[
+                                                                self.validator.regon_validator()
+                                                            ]
+                                                        )
+                                                    ]
+                                                ),
+                                                self.create_chapter(
+                                                    visibility_rules=[
+                                                        self.visibility_rule.depends_on_value(
+                                                            field_name="orgAndLegalStructure",
+                                                            values=[
+                                                                "Spółka z ograniczoną odpowiedzialnością",
+                                                                "Spółka akcyjna",
+                                                                "Spółka jawna",
+                                                                "Spółka komandytowa",
+                                                                "Spółka komandytowo-akcyjna",
+                                                                "Fundacja",
+                                                                "Stowarzyszenie"
+                                                            ]
+                                                        )
+                                                    ],
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Numer KRS",
+                                                            name="applicantKrs",
+                                                            required=True,
+                                                            validators=[
+                                                                self.validator.length_validator(
+                                                                    min_value=10,
+                                                                    max_value=10
+                                                                )
+                                                            ]
                                                         )
                                                     ]
                                                 )
                                             ]
                                         )
                                     ]
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="orgAndLegalStructure",
-                                    values=[
-                                        "Spółka cywilna"
-                                    ]
-                                )
-                            ],
-                            title="Dane wszystkich wspólników spółki cywilnej",
-                            components=[
+                                ),
                                 self.create_chapter(
-                                    multiple_forms_rules={
-                                        "minCount": 1,
-                                        "maxCount": 50
-                                    },
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="orgAndLegalStructure",
+                                            values=[
+                                                "Spółka cywilna"
+                                            ]
+                                        )
+                                    ],
+                                    title="Dane wszystkich wspólników spółki cywilnej",
                                     components=[
                                         self.create_chapter(
-                                            title="Wspólnik",
+                                            multiple_forms_rules={
+                                                "minCount": 1,
+                                                "maxCount": 50
+                                            },
                                             components=[
                                                 self.create_chapter(
-                                                    title="Dane identyfikacyjne",
+                                                    title="Wspólnik",
+                                                    components=[
+                                                        self.create_chapter(
+                                                            title="Dane identyfikacyjne",
+                                                            class_list={
+                                                                "main": [
+                                                                    "table-1-2",
+                                                                    "grid",
+                                                                    "grid-cols-2"
+                                                                ],
+                                                                "sub": [
+                                                                    "table-1-2__col"
+                                                                ]
+                                                            },
+                                                            components=[
+                                                                self.create_component(
+                                                                    component_type="text",
+                                                                    label="Imię",
+                                                                    name="partnerFirstName",
+                                                                    required=True
+                                                                ),
+                                                                self.create_component(
+                                                                    component_type="text",
+                                                                    label="Nazwisko",
+                                                                    name="partnerLastName",
+                                                                    required=True
+                                                                ),
+                                                                self.create_component(
+                                                                    component_type="text",
+                                                                    label="PESEL",
+                                                                    name="partnerPesel",
+                                                                    required=True,
+                                                                    validators=[
+                                                                        self.validator.pesel_validator()
+                                                                    ]
+                                                                ),
+                                                                self.create_component(
+                                                                    component_type="text",
+                                                                    label="NIP",
+                                                                    name="partnerNip",
+                                                                    required=True,
+                                                                    validators=[
+                                                                        self.validator.nip_validator()
+                                                                    ]
+                                                                ),
+                                                                self.create_component(
+                                                                    component_type="text",
+                                                                    label="REGON",
+                                                                    name="partnerRegon",
+                                                                    required=True,
+                                                                    validators=[
+                                                                        self.validator.regon_validator()
+                                                                    ]
+                                                                )
+                                                            ]
+                                                        ),
+                                                        self.create_chapter(
+                                                            title="Adres wykonania działalności gospodarczej",
+                                                            class_list={
+                                                                "main": [
+                                                                    "table-1-2",
+                                                                    "grid",
+                                                                    "grid-cols-2"
+                                                                ],
+                                                                "sub": [
+                                                                    "table-1-2__col"
+                                                                ]
+                                                            },
+                                                            components=[
+                                                                self.create_component(
+                                                                    component_type="text",
+                                                                    label="Ulica",
+                                                                    name="partnerStreet",
+                                                                    required=True,
+                                                                ),
+                                                                self.create_component(
+                                                                    component_type="text",
+                                                                    label="Nr domu",
+                                                                    name="partnerHouseNum",
+                                                                    required=True,
+                                                                ),
+                                                                self.create_component(
+                                                                    component_type="text",
+                                                                    label="Nr lokalu",
+                                                                    name="partnerApartmentNum",
+                                                                    required=True,
+                                                                ),
+                                                                self.create_component(
+                                                                    component_type="text",
+                                                                    label="Kod pocztowy",
+                                                                    mask="polishPostalCode",
+                                                                    name="partnerPostalCode",
+                                                                    required=True,
+                                                                    validators=[
+                                                                        self.validator.zip_code_validator()
+                                                                    ]
+                                                                ),
+                                                                self.create_component(
+                                                                    component_type="text",
+                                                                    label="Miasto",
+                                                                    name="partnerCity",
+                                                                    required=True
+                                                                )
+                                                            ]
+                                                        )
+                                                    ]
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="orgAndLegalStructure",
+                                            values=[
+                                                "Spółka z ograniczoną odpowiedzialnością",
+                                                "Spółka akcyjna",
+                                                "Spółka jawna",
+                                                "Spółka komandytowa",
+                                                "Spółka komandytowo-akcyjna",
+                                                "Fundacja",
+                                                "Stowarzyszenie",
+                                            ]
+                                        )
+                                    ],
+                                    title="Oznaczenia sądu rejonowego",
+                                    components=[
+                                        self.create_chapter(
+                                            components=[
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Nazwa sądu",
+                                                    name="courtName",
+                                                    required=True
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Numer wydziału",
+                                                    name="courtNumber",
+                                                    required=True
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="Nazwa rejestru",
+                                                    name="courtRegisterName",
+                                                    required=True
+                                                )
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            visibility_rules=[
+                                                self.visibility_rule.depends_on_value(
+                                                    field_name="orgAndLegalStructure",
+                                                    values=[
+                                                        "Spółka z ograniczoną odpowiedzialnością",
+                                                        "Spółka akcyjna",
+                                                    ]
+                                                )
+                                            ],
+                                            components=[
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    label="Wysokość kapitału zakładowego (opłaconego)",
+                                                    name="shareCapitalAmount",
+                                                    required=True,
+                                                    unit="PLN",
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="orgAndLegalStructure",
+                                            values=[
+                                                "Publiczna szkoła lub uczelnia artystyczna",
+                                                "Niepubliczna szkoła lub uczelnia artystyczna",
+                                            ]
+                                        )
+                                    ],
+                                    title="Organ prowadzący/nadzorujący (jeśli dotyczy)",
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Organ prowadzący/nadzorujący",
+                                            name="governingBody"
+                                        ),
+                                        self.create_component(
+                                            component_type="textarea",
+                                            label="Podstawa utworzenia",
+                                            name="basisOfCreation",
+                                            validators=[
+                                                self.validator.length_validator(
+                                                    max_value=500
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="orgAndLegalStructure",
+                                            values=[
+                                                "Spółka z ograniczoną odpowiedzialnością",
+                                                "Spółka akcyjna",
+                                                "Spółka jawna",
+                                                "Spółka cywilna",
+                                                "Fundacja",
+                                                "Stowarzyszenie",
+                                                "Instytucja kultury",
+                                                "Instytucja filmowa",
+                                                "Publiczna szkoła lub uczelnia artystyczna",
+                                                "Niepubliczna szkoła lub uczelnia artystyczna",
+                                                "Kościół lub związek wyznaniowy",
+                                                "Jednostka samorządu terytorialnego",
+                                            ]
+                                        )
+                                    ],
+                                    title="Reprezentacja",
+                                    components=[
+                                        self.create_chapter(
+                                            multiple_forms_rules={
+                                                "minCount": 1,
+                                                "maxCount": 10
+                                            },
+                                            components=[
+                                                self.create_chapter(
+                                                    title="Osoba reprezentująca",
                                                     class_list={
                                                         "main": [
                                                             "table-1-2",
@@ -670,46 +922,74 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                                                         self.create_component(
                                                             component_type="text",
                                                             label="Imię",
-                                                            name="partnerFirstName",
+                                                            name="applicantRepresentativeFirstName",
                                                             required=True
                                                         ),
                                                         self.create_component(
                                                             component_type="text",
                                                             label="Nazwisko",
-                                                            name="partnerLastName",
+                                                            name="applicantRepresentativeLastName",
                                                             required=True
                                                         ),
                                                         self.create_component(
                                                             component_type="text",
-                                                            label="PESEL",
-                                                            name="partnerPesel",
+                                                            label="Stanowisko",
+                                                            name="applicantRepresentativePosition",
                                                             required=True,
-                                                            validators=[
-                                                                self.validator.pesel_validator()
+                                                            class_list=[
+                                                                "table-full"
                                                             ]
+                                                        )
+                                                    ]
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="orgAndLegalStructure",
+                                            values=[
+                                                "Spółka komandytowa",
+                                                "Spółka komandytowo-akcyjna",
+                                            ]
+                                        )
+                                    ],
+                                    title="Reprezentacja",
+                                    components=[
+                                        self.create_chapter(
+                                            title="Sposób reprezentacji",
+                                            components=[
+                                                self.create_component(
+                                                    component_type="text",
+                                                    name="limitedPartnershipRepresentation",
+                                                    required=True
+                                                )
+                                            ]
+                                        ),
+                                        self.create_chapter(
+                                            title="Dane komplementariusza reprezentującego spółkę",
+                                            components=[
+                                                self.create_chapter(
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Forma prawna",
+                                                            name="limitedPartnershipLegalForm",
+                                                            required=True,
+                                                            help_text="np. osoba fizyczna, sp. z o.o."
                                                         ),
                                                         self.create_component(
                                                             component_type="text",
-                                                            label="NIP",
-                                                            name="partnerNip",
+                                                            label="Firma/imię i nazwisko",
+                                                            name="limitedPartnershipName",
                                                             required=True,
-                                                            validators=[
-                                                                self.validator.nip_validator()
-                                                            ]
-                                                        ),
-                                                        self.create_component(
-                                                            component_type="text",
-                                                            label="REGON",
-                                                            name="partnerRegon",
-                                                            required=True,
-                                                            validators=[
-                                                                self.validator.regon_validator()
-                                                            ]
                                                         )
                                                     ]
                                                 ),
                                                 self.create_chapter(
-                                                    title="Adres wykonania działalności gospodarczej",
+                                                    title="Adres siedziby",
                                                     class_list={
                                                         "main": [
                                                             "table-1-2",
@@ -724,166 +1004,63 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                                                         self.create_component(
                                                             component_type="text",
                                                             label="Ulica",
-                                                            name="partnerStreet",
-                                                            required=True,
+                                                            name="limitedPartnershipStreet",
+                                                            required=True
                                                         ),
                                                         self.create_component(
                                                             component_type="text",
-                                                            label="Nr domu",
-                                                            name="partnerHouseNum",
-                                                            required=True,
+                                                            label="Nr budynku",
+                                                            name="limitedPartnershipHouseNum",
+                                                            required=True
                                                         ),
                                                         self.create_component(
                                                             component_type="text",
                                                             label="Nr lokalu",
-                                                            name="partnerApartmentNum",
-                                                            required=True,
+                                                            name="limitedPartnershipApartmentNum",
+                                                            required=True
                                                         ),
                                                         self.create_component(
                                                             component_type="text",
                                                             label="Kod pocztowy",
-                                                            mask="polishPostalCode",
-                                                            name="partnerPostalCode",
-                                                            required=True,
-                                                            validators=[
-                                                                self.validator.zip_code_validator()
-                                                            ]
+                                                            name="limitedPartnershipZipCode",
+                                                            required=True
                                                         ),
                                                         self.create_component(
                                                             component_type="text",
                                                             label="Miasto",
-                                                            name="partnerCity",
+                                                            name="limitedPartnershipCity",
                                                             required=True
+                                                        )
+                                                    ]
+                                                ),
+                                                self.create_chapter(
+                                                    class_list={
+                                                        "main": [
+                                                            "table-1-2",
+                                                            "grid",
+                                                            "grid-cols-2"
+                                                        ],
+                                                        "sub": [
+                                                            "table-1-2__col"
+                                                        ]
+                                                    },
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Nr NIP (jeśli dotyczy)",
+                                                            name="limitedPartnershipNip"
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Nr KRS (jeśli dotyczy)",
+                                                            name="limitedPartnershipKrs"
                                                         )
                                                     ]
                                                 )
                                             ]
-                                        )
-                                    ]
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="orgAndLegalStructure",
-                                    values=[
-                                        "Spółka z ograniczoną odpowiedzialnością",
-                                        "Spółka akcyjna",
-                                        "Spółka jawna",
-                                        "Spółka komandytowa",
-                                        "Spółka komandytowo-akcyjna",
-                                        "Fundacja",
-                                        "Stowarzyszenie",
-                                    ]
-                                )
-                            ],
-                            title="Oznaczenia sądu rejonowego",
-                            components=[
-                                self.create_chapter(
-                                    components=[
-                                        self.create_component(
-                                            component_type="text",
-                                            label="Nazwa sądu",
-                                            name="courtName",
-                                            required=True
                                         ),
-                                        self.create_component(
-                                            component_type="text",
-                                            label="Numer wydziału",
-                                            name="courtNumber",
-                                            required=True
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            label="Nazwa rejestru",
-                                            name="courtRegisterName",
-                                            required=True
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    visibility_rules=[
-                                        self.visibility_rule.depends_on_value(
-                                            field_name="orgAndLegalStructure",
-                                            values=[
-                                                "Spółka z ograniczoną odpowiedzialnością",
-                                                "Spółka akcyjna",
-                                            ]
-                                        )
-                                    ],
-                                    components=[
-                                        self.create_component(
-                                            component_type="text",
-                                            mask="fund",
-                                            label="Wysokość kapitału zakładowego (opłaconego)",
-                                            name="shareCapitalAmount",
-                                            required=True,
-                                            unit="PLN",
-                                        )
-                                    ]
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="orgAndLegalStructure",
-                                    values=[
-                                        "Publiczna szkoła lub uczelnia artystyczna",
-                                        "Niepubliczna szkoła lub uczelnia artystyczna",
-                                    ]
-                                )
-                            ],
-                            title="Organ prowadzący/nadzorujący (jeśli dotyczy)",
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    label="Organ prowadzący/nadzorujący",
-                                    name="governingBody"
-                                ),
-                                self.create_component(
-                                    component_type="textarea",
-                                    label="Podstawa utworzenia",
-                                    name="basisOfCreation",
-                                    validators=[
-                                        self.validator.length_validator(
-                                            max_value=500
-                                        )
-                                    ]
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="orgAndLegalStructure",
-                                    values=[
-                                        "Spółka z ograniczoną odpowiedzialnością",
-                                        "Spółka akcyjna",
-                                        "Spółka jawna",
-                                        "Spółka cywilna",
-                                        "Fundacja",
-                                        "Stowarzyszenie",
-                                        "Instytucja kultury",
-                                        "Instytucja filmowa",
-                                        "Publiczna szkoła lub uczelnia artystyczna",
-                                        "Niepubliczna szkoła lub uczelnia artystyczna",
-                                        "Kościół lub związek wyznaniowy",
-                                        "Jednostka samorządu terytorialnego",
-                                    ]
-                                )
-                            ],
-                            title="Reprezentacja",
-                            components=[
-                                self.create_chapter(
-                                    multiple_forms_rules={
-                                        "minCount": 1,
-                                        "maxCount": 10
-                                    },
-                                    components=[
                                         self.create_chapter(
-                                            title="Osoba reprezentująca",
+                                            title="Dane pełnomocnika (jeśli dotyczy)",
                                             class_list={
                                                 "main": [
                                                     "table-1-2",
@@ -897,169 +1074,18 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                                             components=[
                                                 self.create_component(
                                                     component_type="text",
-                                                    label="Imię",
-                                                    name="applicantRepresentativeFirstName",
-                                                    required=True
+                                                    name="limitedPartnershipFullRepresentativeFirstName",
+                                                    label="Imię"
                                                 ),
                                                 self.create_component(
                                                     component_type="text",
-                                                    label="Nazwisko",
-                                                    name="applicantRepresentativeLastName",
-                                                    required=True
-                                                ),
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Stanowisko",
-                                                    name="applicantRepresentativePosition",
-                                                    required=True,
-                                                    class_list=[
-                                                        "table-full"
-                                                    ]
-                                                )
-                                            ]
-                                        )
-                                    ]
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            visibility_rules=[
-                                self.visibility_rule.depends_on_value(
-                                    field_name="orgAndLegalStructure",
-                                    values=[
-                                        "Spółka komandytowa",
-                                        "Spółka komandytowo-akcyjna",
-                                    ]
-                                )
-                            ],
-                            title="Reprezentacja",
-                            components=[
-                                self.create_chapter(
-                                    title="Sposób reprezentacji",
-                                    components=[
-                                        self.create_component(
-                                            component_type="text",
-                                            name="limitedPartnershipRepresentation",
-                                            required=True
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="Dane komplementariusza reprezentującego spółkę",
-                                    components=[
-                                        self.create_chapter(
-                                            components=[
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Forma prawna",
-                                                    name="limitedPartnershipLegalForm",
-                                                    required=True,
-                                                    help_text="np. osoba fizyczna, sp. z o.o."
-                                                ),
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Firma/imię i nazwisko",
-                                                    name="limitedPartnershipName",
-                                                    required=True,
-                                                )
-                                            ]
-                                        ),
-                                        self.create_chapter(
-                                            title="Adres siedziby",
-                                            class_list={
-                                                "main": [
-                                                    "table-1-2",
-                                                    "grid",
-                                                    "grid-cols-2"
-                                                ],
-                                                "sub": [
-                                                    "table-1-2__col"
-                                                ]
-                                            },
-                                            components=[
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Ulica",
-                                                    name="limitedPartnershipStreet",
-                                                    required=True
-                                                ),
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Nr budynku",
-                                                    name="limitedPartnershipHouseNum",
-                                                    required=True
-                                                ),
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Nr lokalu",
-                                                    name="limitedPartnershipApartmentNum",
-                                                    required=True
-                                                ),
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Kod pocztowy",
-                                                    name="limitedPartnershipZipCode",
-                                                    required=True
-                                                ),
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Miasto",
-                                                    name="limitedPartnershipCity",
-                                                    required=True
-                                                )
-                                            ]
-                                        ),
-                                        self.create_chapter(
-                                            class_list={
-                                                "main": [
-                                                    "table-1-2",
-                                                    "grid",
-                                                    "grid-cols-2"
-                                                ],
-                                                "sub": [
-                                                    "table-1-2__col"
-                                                ]
-                                            },
-                                            components=[
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Nr NIP (jeśli dotyczy)",
-                                                    name="limitedPartnershipNip"
-                                                ),
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Nr KRS (jeśli dotyczy)",
-                                                    name="limitedPartnershipKrs"
+                                                    name="limitedPartnershipFullRepresentativeLastName",
+                                                    label="Nazwisko"
                                                 )
                                             ]
                                         )
                                     ]
                                 ),
-                                self.create_chapter(
-                                    title="Dane pełnomocnika (jeśli dotyczy)",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="text",
-                                            name="limitedPartnershipFullRepresentativeFirstName",
-                                            label="Imię"
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            name="limitedPartnershipFullRepresentativeLastName",
-                                            label="Nazwisko"
-                                        )
-                                    ]
-                                )
                             ]
                         ),
                         self.create_chapter(
@@ -1201,47 +1227,55 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
 
         own_financial_chapter = self.create_chapter(
             title="<small>a) Wkład finansowy</small>",
-            class_list={
-                "main": [
-                    "table-1-2",
-                    "grid",
-                    "grid-cols-2"
-                ],
-                "sub": [
-                    "table-1-2__col"
-                ]
-            },
             components=[
-                self.create_component(
-                    component_type="text",
-                    mask="fund",
-                    name="ownFinancialFundsAmount",
-                    label="Kwota",
-                    unit="PLN"
-                ),
-                self.create_component(
-                    component_type="text",
-                    mask="fund",
-                    name="ownFinancialFundsShare",
-                    label="Udział w koszcie całkowitym",
-                    calculation_rules=[
-                        self.calculation_rule.share_calculator(
-                            dividend_field="ownFinancialFundsAmount",
-                            divisor_field="totalProjectCost"
+                self.create_chapter(
+                    class_list={
+                        "main": [
+                            "table-1-2",
+                            "grid",
+                            "grid-cols-2"
+                        ],
+                        "sub": [
+                            "table-1-2__col"
+                        ]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            name="ownFinancialFundsAmount",
+                            label="Kwota",
+                            unit="PLN"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            name="ownFinancialFundsShare",
+                            label="Udział w koszcie całkowitym",
+                            calculation_rules=[
+                                self.calculation_rule.share_calculator(
+                                    dividend_field="ownFinancialFundsAmount",
+                                    divisor_field="totalProjectCost"
+                                )
+                            ],
+                            validators=[
+                                self.validator.related_share_validator(
+                                    dividend="ownFinancialFundsAmount",
+                                    divisor="totalProjectCost"
+                                )
+                            ],
+                            required=True,
+                            read_only=True,
+                            unit="%"
                         )
-                    ],
-                    validators=[
-                        self.validator.related_share_validator(
-                            dividend="ownFinancialFundsAmount",
-                            divisor="totalProjectCost"
-                        )
-                    ],
-                    required=True,
-                    read_only=True,
-                    unit="%"
+                    ]
                 )
             ]
         )
+        if self.source_of_financing_tickets:
+            own_financial_chapter["components"].append(
+                tickets_chapter
+            )
 
         own_in_kind_chapter = self.create_chapter(
             title="<small>b) Wkład rzeczowy</small>",
@@ -1327,33 +1361,14 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
         )
 
         own_financial_and_in_kind_chapter = self.create_chapter(
-            title="<normal>1) Wkład własny</normal><br/><normal><small>Minimum 10% budżetu przedsięwzięcia. Wkład rzeczowy nie może być wyższy niż 50% całkowitego wkładu własnego.</small></normal>",
-            class_list=[
-                "no-title"
-            ],
+            title="<normal>1) Wkład własny</normal>",
+            help_text="Minimum 10% budżetu przedsięwzięcia. Wkład rzeczowy nie może być wyższy niż 50% całkowitego wkładu własnego.",
             components=[
-                self.create_chapter(
-                    title="<normal>1) Wkład własny</normal>",
-                    class_list=[
-                        "displayNoneFrontend"
-                    ]
-                )
+                own_financial_chapter,
+                own_in_kind_chapter,
+                own_financial_and_in_kind_total_chapter
             ]
         )
-        own_financial_and_in_kind_chapter["components"].append(
-            own_financial_chapter
-        )
-        if self.source_of_financing_tickets:
-            own_financial_and_in_kind_chapter["components"].append(
-                tickets_chapter
-            )
-        own_financial_and_in_kind_chapter["components"].append(
-            own_in_kind_chapter
-        )
-        own_financial_and_in_kind_chapter["components"].append(
-            own_financial_and_in_kind_total_chapter
-        )
-
 
         part = self.create_part(
             title=f"{int_to_roman(number)}. Źródła finansowania",
@@ -1798,6 +1813,20 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                             unit="%"
                         )
                     ]
+                ),
+                self.create_chapter(
+                    title="3. Informacje uzupełniające",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="supplementaryInformationAboutFinancing",
+                            validators=[
+                                self.validator.length_validator(
+                                    max_value=500
+                                )
+                            ]
+                        )
+                    ]
                 )
             ]
         )
@@ -1925,7 +1954,7 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                     ]
                 ),
                 self.create_chapter(
-                    title="<small>Uwaga!<br/></br><normal>Harmonogram powinien uwzględniać trzy główne etapy realizacji projektu:</br><b>- etap przygotowawczy</b> - np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie i zaplanowanie promocji wydarzenia, inne czynności niezbędne do rozpoczęcia realizacji zadania;</br><b>- etap realizacji</b> - wszystkie działania związane z bezpośrednim wykonaniem projektu, np. przygotowanie i przeprowadzenie przedsięwzięcia oraz realizacja pozostałych zadań przewidzianych w kosztorysie;</br><b>- etap podsumowania</b> - ewaluacja rezultatów projektu, rozliczenie końcowe.</br></br>Harmonogram powinien być <b>ułożony chronologicznie</b>, obejmować <b>wszystkie działania ujęte w kosztorysie</b>, wyróżniać <b>kluczowe kamienie milowe</b>, tj. najważniejsze momenty realizacji projektu.</br></br>Ostateczny termin zakończenia realizacji zadania (z uwzględnieniem etapu podsumowania) powinien zostać wskazany poprzez podanie dokładnej daty: dzień, miesiąc i rok.</normal></small>",
+                    title="<small>Uwaga!</br><normal>Harmonogram powinien uwzględniać trzy główne etapy realizacji projektu:</br><b>- etap przygotowawczy</b> - np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie i zaplanowanie promocji wydarzenia, inne czynności niezbędne do rozpoczęcia realizacji zadania;</br><b>- etap realizacji</b> - wszystkie działania związane z bezpośrednim wykonaniem projektu, np. przygotowanie i przeprowadzenie przedsięwzięcia oraz realizacja pozostałych zadań przewidzianych w kosztorysie;</br><b>- etap podsumowania</b> - ewaluacja rezultatów projektu, rozliczenie końcowe.</br></br>Harmonogram powinien być <b>ułożony chronologicznie</b>, obejmować <b>wszystkie działania ujęte w kosztorysie</b>, wyróżniać <b>kluczowe kamienie milowe</b>, tj. najważniejsze momenty realizacji projektu.</br></br>Ostateczny termin zakończenia realizacji zadania (z uwzględnieniem etapu podsumowania) powinien zostać wskazany poprzez podanie dokładnej daty: dzień, miesiąc i rok.</normal></small>",
                     components=[]
                 ),
                 self.create_chapter(

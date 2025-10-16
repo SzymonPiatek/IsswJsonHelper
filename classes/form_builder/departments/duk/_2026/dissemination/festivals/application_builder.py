@@ -193,7 +193,7 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
                             ]
                         ),
                         self.create_chapter(
-                            title="Profil publiczności i odbiory festiwalu",
+                            title="Profil publiczności i odbioru festiwalu",
                             help_text="Do kogo kierowane jest wydarzenie oraz jakie grupy uczestników stanowią jego główną widownię (np. studenci szkół filmowych, seniorzy, widzowie zainteresowani kinem niezależnym)",
                             components=[
                                 self.create_component(
