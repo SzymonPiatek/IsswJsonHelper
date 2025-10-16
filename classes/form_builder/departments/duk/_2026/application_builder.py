@@ -9,11 +9,14 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
     def __init__(self):
         super().__init__()
 
+        # Variables
         self.project_type = []
-        self.estimate_chapters = []
-
         self.source_of_financing_tickets: bool = False
 
+        # Estimate
+        self.estimate_chapters = []
+
+        # Parts
         self.parts: list = [
             self.create_application_metadata,
             self.create_application_basic_data,
@@ -25,7 +28,6 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
             self.create_application_statements,
             self.create_application_attachments
         ]
-
 
     def create_application_metadata(self, number: int):
         part = self.create_part(

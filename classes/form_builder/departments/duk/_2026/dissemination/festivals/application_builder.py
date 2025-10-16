@@ -11,17 +11,17 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
     def __init__(self):
         super().__init__()
 
+        # Variables
         self.project_type = [
             "Organizacja festiwali filmowych o charakterze ogólnopolskim lub międzynarodowym, będących wydarzeniami cyklicznymi, obejmujących szeroki program filmowy, sekcje konkursowe oceniane przez jury oraz wydarzenia towarzyszące, takie jak spotkania z twórcami, panele dyskusyjne czy warsztaty."
         ]
+        self.source_of_financing_tickets = True
 
+        # Estimate
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
         self.estimate_chapters = [
             estimate_builder.generate_estimate()
         ]
-
-        self.source_of_financing_tickets = True
-
 
     def create_application_scope_of_project(self, number: int):
         part = self.create_part(
