@@ -49,13 +49,14 @@ class HigherSchoolsApplicationBuilder(EducationApplicationBuilder, HigherSchools
                         ),
                         self.create_chapter(
                             title="Program nauczania i wartość merytoryczna oferty dydaktycznej",
+                            help_text="Ogólny charakter programu nauczania ukierunkowany na realizację celów i osiąganie zakładanych efektów kształcenia, bez uszczegółowienia treści poszczególnych zajęć.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
                                     name="offerEducationalValue",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=5000
                                         )
                                     ],
                                     required=True,
@@ -174,65 +175,7 @@ class HigherSchoolsApplicationBuilder(EducationApplicationBuilder, HigherSchools
                             ]
                         ),
                         self.create_chapter(
-                            title="2. Średnia wysokość czesnego w rozrachunku rocznym",
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    mask="fund",
-                                    label="Studia stacjonarne",
-                                    name="averageTuitionFeeFullTimeStudies",
-                                    unit="PLN"
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    mask="fund",
-                                    label="Studia niestacjonarne",
-                                    name="averageTuitionFeePartTimeStudies",
-                                    unit="PLN"
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            title="3. Średni koszt kształcenia studenta w rozrachunku rocznym",
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
-                            components=[
-                                self.create_component(
-                                    component_type="text",
-                                    mask="fund",
-                                    label="Studia stacjonarne",
-                                    name="averageCostOfEducatingStudentFullTimeStudies",
-                                    unit="PLN"
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    mask="fund",
-                                    label="Studia niestacjonarne",
-                                    name="averageCostOfEducatingStudentPartTimeStudies",
-                                    unit="PLN"
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
-                            title="4. Liczba wyprodukowanych filmów",
+                            title="2. Liczba wyprodukowanych filmów",
                             components=[
                                 self.create_chapter(
                                     title="<normal>a) Filmy fabularne</normal>",

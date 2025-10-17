@@ -146,6 +146,7 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                         ),
                         self.create_chapter(
                             title="Doświadczenie wnioskodawcy i kompetencje zespołu",
+                            help_text="W tym udział specjalistów w realizacji przedsięwzięcia.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -177,6 +178,7 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                         ),
                         self.create_chapter(
                             title="Planowane efekty realizacji przedsięwzięcia",
+                            help_text="Spodziewane rezultaty w ujęciu jakościowym.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",

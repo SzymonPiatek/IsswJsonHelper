@@ -209,6 +209,7 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                         ),
                         self.create_chapter(
                             title="Doświadczenie wnioskodawcy i kompetencje zespołu",
+                            help_text="W tym udział specjalistów w realizacji przedsięwzięcia.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -240,6 +241,7 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                         ),
                         self.create_chapter(
                             title="Planowane efekty realizacji przedsięwzięcia",
+                            help_text="Spodziewane efekty w ujęciu jakościowym.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
