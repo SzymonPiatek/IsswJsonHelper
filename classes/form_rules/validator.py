@@ -263,30 +263,40 @@ class Validator:
         return result
 
     @staticmethod
-    def related_local_sum_validator(field_names: List[str]):
+    def related_local_sum_validator(field_names: List[str], message: str = None):
         """
         Walidator sprawdza poprawność sumy wartości (lokalnie).
         """
 
-        return {
+        result = {
             "name": "RelatedLocalSumValidator",
             "kwargs": {
                 "field_names": field_names
             }
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def related_sum_validator(field_names: List[str]):
+    def related_sum_validator(field_names: List[str], message: str = None):
         """
         Walidator sprawdza poprawność sumy wartości.
         """
 
-        return {
+        result = {
             "name": "RelatedSumValidator",
             "kwargs": {
                 "field_names": field_names
             }
         }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
 
     @staticmethod
     def range_validator(min_value: int | float = None, max_value: int | float = None, message: str = None):
@@ -377,12 +387,12 @@ class Validator:
         return result
 
     @staticmethod
-    def related_share_validator(dividend: str, divisor: str):
+    def related_share_validator(dividend: str, divisor: str, message: str = None):
         """
         Walidator sprawdza, czy wartość udziału jest poprawna.
         """
 
-        return {
+        result = {
             "name": "RelatedShareValidator",
             "kwargs": {
                 "dividend": dividend,
@@ -390,19 +400,28 @@ class Validator:
             }
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
     def related_local_date_lte_validator(field_name: str, message: str = None):
         """
         Walidator sprawdza, czy wartość daty jest mniejsza lub równa wartości daty innego pola.
         """
 
-        return {
+        result = {
             "name": "RelatedLocalDateLTEValidator",
             "kwargs": {
                 "field_name": field_name
-            },
-            "validationMsg": message
+            }
         }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
 
     @staticmethod
     def related_local_date_gte_validator(field_name: str, message: str = None):
@@ -410,13 +429,17 @@ class Validator:
         Walidator sprawdza, czy wartość daty jest większa lub równa wartości daty innego pola.
         """
 
-        return {
+        result = {
             "name": "RelatedLocalDateGTEValidator",
             "kwargs": {
                 "field_name": field_name
-            },
-            "validationMsg": message
+            }
         }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
 
     @staticmethod
     def related_allowed_options_validator(field_name: str, mapping: Dict[str, List[str]]):
@@ -665,13 +688,17 @@ class Validator:
         Walidator sprawdza, czy data jest większa lub równa najpóźniejszej dacie z danego pola.
         """
 
-        return {
+        result = {
             "name": "RelatedLastDateValidator",
             "kwargs": {
                 "field_name": field_name,
-            },
-            "validationMsg": message
+            }
         }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
 
     @staticmethod
     def related_equal_if_in_range_validator(field_name: str, required_value: Any, min_value: float = None, max_value: float = None, message: str = None):
@@ -760,7 +787,7 @@ class Validator:
     @staticmethod
     def related_unique_value_validator(field_name: str, normalize: bool = None, message: str = None):
         """
-
+        Walidator sprawdza, czy wartość w polach o danej nazwie jest unikalna.
         """
 
         result = {
