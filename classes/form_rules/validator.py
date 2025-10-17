@@ -99,14 +99,19 @@ class Validator:
         return result
 
     @staticmethod
-    def required_validator():
+    def required_validator(message: str = None):
         """
         Walidator oznacza komponent jako obowiązkowy.
         """
 
-        return {
+        result = {
             "name": "RequiredValidator"
         }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
 
     @staticmethod
     def related_required_if_equal_validator(field_name: str, value: str, message: str = None):
@@ -128,97 +133,134 @@ class Validator:
         return result
 
     @staticmethod
-    def phone_number_validator():
+    def phone_number_validator(message: str = None):
         """
         Walidator sprawdza poprawność numeru telefonu komórkowego.
         """
 
-        return {
+        result = {
             "name": "PhoneNumberValidator",
-            "validationMsg": "Wprowadź numer telefonu w formie: +kod kraju oraz pozostałe cyfry numeru. Dla numeru polskiego przykładowo +48123456789."
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def email_validator():
+    def email_validator(message: str = None):
         """
         Walidator sprawdza poprawność adresu mailowego.
         """
 
-        return {
+        result = {
             "name": "EmailValidator",
-            "validationMsg": "Podaj prawidłowy adres email."
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def pesel_validator():
+    def pesel_validator(message: str = None):
         """
         Walidator sprawdza poprawność numeru PESEL.
         """
 
-        return {
+        result = {
             "name": "PeselValidator"
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def iban_validator():
+    def iban_validator(message: str = None):
         """
         Walidator sprawdza poprawność numeru IBAN.
         """
 
-        return {
+        result = {
             "name": "IBANValidator"
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def swift_validator():
+    def swift_validator(message: str = None):
         """
         Walidator sprawdza poprawność numeru Swift.
         """
 
-        return {
+        result = {
             "name": "SwiftValidator"
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def regon_validator():
+    def regon_validator(message: str = None):
         """
         Walidator sprawdza poprawność numeru REGON.
         """
 
-        return {
+        result = {
             "name": "RegonValidator",
-            "validationMsg": "Niepoprawny numer REGON."
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def bank_account_validator():
+    def bank_account_validator(message: str = None):
         """
         Walidator sprawdza poprawność numeru konta bankowego.
         """
 
-        return {
+        result = {
             "name": "LengthValidator",
             "kwargs": {
                 "min": 26,
-                "max": 27
+                "max": 26
             },
             "validationMsg": "Numer konta bankowego musi liczyć 26 cyfr."
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def nip_validator():
+    def nip_validator(message: str = None):
         """
         Walidator sprawdza poprawność numeru NIP.
         """
 
-        return {
+        result = {
             "name": "LengthValidator",
             "kwargs": {
-                "min": 9,
-                "max": 11
+                "min": 10,
+                "max": 10
             },
             "validationMsg": "Niepoprawny numer NIP."
         }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
 
     @staticmethod
     def related_local_sum_validator(field_names: List[str]):
@@ -284,13 +326,17 @@ class Validator:
         Walidator sprawdza, czy wybrana opcja jest jedną z możliwych do wyboru.
         """
 
-        return {
+        result = {
             "name": "ExactValidator",
             "kwargs": {
                 "values": values,
             },
-            "validationMsg": message
         }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
 
     @staticmethod
     def related_fraction_gte_validator(field_name: str, ratio: float, message: str = None):
