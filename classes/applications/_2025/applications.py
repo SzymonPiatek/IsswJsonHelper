@@ -3,7 +3,6 @@ from classes.form_builder.departments.dpf import *
 from classes.form_builder.departments.duk._2025.education import *
 from classes.form_builder.departments.duk._2025.development import *
 from classes.form_builder.departments.duk._2025.dissemination import *
-from classes.form_builder.departments.dwm._2025 import *
 
 
 class Applications2025(Applications):
