@@ -2,6 +2,7 @@ from classes.applications.applications import Applications
 from classes.form_builder.departments.dwm._2026 import *
 from classes.form_builder.departments.duk._2026.education import *
 from classes.form_builder.departments.duk._2026.dissemination import *
+from classes.form_builder.departments.duk._2026.development import *
 from classes.form_builder.departments.test.application_builder import TestApplicationBuilder
 
 
@@ -26,7 +27,10 @@ class Applications2026(Applications):
                         "pr5": ResearchApplicationBuilder,
                         "pr6": DkfApplicationBuilder,
                     },
-                    "po4": {}
+                    "po4": {
+                        "pr1": ModernizationApplicationBuilder,
+                        # "pr2": DigitalizationApplicationBuilder,
+                    }
                 },
                 "dwm": {
                     "po5": {
