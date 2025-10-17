@@ -42,12 +42,6 @@ class Applications2025(Applications):
                         "pr1": ModernizationApplicationBuilder,
                         "pr2": DigitalizationApplicationBuilder,
                     }
-                },
-                "dwm": {
-                    "po5": {
-                        "pr1": PromotionApplicationBuilder,
-                        "pr2": ForeignScholarshipApplicationBuilder,
-                    }
                 }
             },
             "report": {}
