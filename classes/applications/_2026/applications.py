@@ -29,7 +29,7 @@ class Applications2026(Applications):
                     },
                     "po4": {
                         "pr1": ModernizationApplicationBuilder,
-                        # "pr2": DigitalizationApplicationBuilder,
+                        "pr2": DigitalizationApplicationBuilder,
                     }
                 },
                 "dwm": {

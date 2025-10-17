@@ -11,7 +11,7 @@ class DigitalizationApplicationBuilder(DevelopmentApplicationBuilder, Digitaliza
         super().__init__()
 
         self.project_type = [
-            ""
+            "Współfinansowanie zakupu sprzętu do projekcji cyfrowych o minimalnej rozdzielczości 2K w standardzie DCI."
         ]
 
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
