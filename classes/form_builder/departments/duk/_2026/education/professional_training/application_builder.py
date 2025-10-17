@@ -81,7 +81,6 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                             components=[
                                 self.create_component(
                                     component_type='textarea',
-                                    label="Rodzaj planowanego przedsięwzięcia",
                                     name="plannedProjectType",
                                     validators=[
                                         self.validator.length_validator(max_value=1000)
@@ -90,28 +89,6 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                                     class_list=[
                                         "table-full"
                                     ]
-                                ),
-                                self.create_component(
-                                    component_type="date",
-                                    label="Planowany termin realizacji od",
-                                    name="plannedCompletionDateFrom",
-                                    validators=[
-                                        self.validator.related_date_lte_validator(
-                                            field_name="plannedCompletionDateTo",
-                                        )
-                                    ],
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="date",
-                                    label="Planowany termin raelizacji do",
-                                    name="plannedCompletionDateTo",
-                                    validators=[
-                                        self.validator.related_date_gte_validator(
-                                            field_name="plannedCompletionDateFrom",
-                                        )
-                                    ],
-                                    required=True
                                 ),
                                 self.create_component(
                                     name="projectLocation",
@@ -147,6 +124,7 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                         ),
                         self.create_chapter(
                             title="Idea i cel edukacyjny",
+                            help_text="Istota i wartość dydaktyczna przedsięwzięcia.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -194,6 +172,7 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                         ),
                         self.create_chapter(
                             title="Liczba i zróżnicowanie struktury uczestników",
+                            help_text="Analiza struktury i zróżnicowania adresatów oferty edukacyjnej.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",

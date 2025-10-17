@@ -45,26 +45,15 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                             },
                             components=[
                                 self.create_component(
-                                    component_type="date",
-                                    label="Planowany termin realizacji od",
-                                    name="plannedCompletionDateFrom",
+                                    component_type='textarea',
+                                    name="plannedProjectType",
                                     validators=[
-                                        self.validator.related_date_lte_validator(
-                                            field_name="plannedCompletionDateTo",
-                                        )
+                                        self.validator.length_validator(max_value=1000)
                                     ],
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="date",
-                                    label="Planowany termin raelizacji do",
-                                    name="plannedCompletionDateTo",
-                                    validators=[
-                                        self.validator.related_date_gte_validator(
-                                            field_name="plannedCompletionDateFrom",
-                                        )
-                                    ],
-                                    required=True
+                                    required=True,
+                                    class_list=[
+                                        "table-full"
+                                    ]
                                 ),
                                 self.create_component(
                                     name="projectLocation",
@@ -100,6 +89,7 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                         ),
                         self.create_chapter(
                             title="Idea i cel edukacyjny",
+                            help_text="Istota i wartość dydaktyczna przedsięwzięcia.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -131,6 +121,7 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                         ),
                         self.create_chapter(
                             title="Liczba i zróżnicowanie struktury uczestników",
+                            help_text="Analiza struktury i zróżnicowania adresatów oferty edukacyjnej.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",

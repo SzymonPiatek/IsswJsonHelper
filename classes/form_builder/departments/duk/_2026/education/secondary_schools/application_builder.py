@@ -95,7 +95,8 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder, SecondaryS
                             ]
                         ),
                         self.create_chapter(
-                            title="Liczba i zróżnicowanie struktury uczniów",
+                            title="Liczba i zróżnicowanie struktury studentów",
+                            help_text="Analiza struktury i zróżnicowania adresatów oferty edukacyjnej.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
