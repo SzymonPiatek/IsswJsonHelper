@@ -7,4 +7,4 @@ class ReportBuilder(FormBuilder):
     def __init__(self):
         super().__init__()
 
-        self.intro_text = "Raport końcowy"
+        self.intro_text = ["Raport końcowy"]

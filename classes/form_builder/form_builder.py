@@ -22,30 +22,30 @@ class FormBuilder(FormFactory):
         super().__init__()
 
         self.json_type = self.JSON_TYPE
+
+        self.form_id = self.FORM_ID
+        self.year = self.YEAR
+        self.session = self.SESSION
+
         self.department_name = self.DEPARTMENT_NAME
         self.operation_name = self.OPERATION_NAME
         self.operation_num = self.OPERATION_NUM
         self.priority_name = self.PRIORITY_NAME
         self.priority_num = self.PRIORITY_NUM
-        self.year = self.YEAR
-        self.session = self.SESSION
-        self.form_id = self.FORM_ID
+
+        self.intro_text = [""]
 
         self.main_dir = self.MAIN_DIR
         self.data_path = self.main_dir / 'data'
         self.main_dir.mkdir(parents=True, exist_ok=True)
-        self.output_file = self._prepare_output_path()
+        self.application_data_path = self.data_path / 'application'
+        self.report_data_path = self.data_path / 'report'
 
-        self.output_json: dict = {}
-        self.parts: list = []
-        self.names = set()
+        self.output_file = self._prepare_output_path()
 
         self.part = Part()
         self.section = Section()
         self.component = Component()
-
-        self.application_data_path = self.data_path / 'application'
-        self.report_data_path = self.data_path / 'report'
 
     def _prepare_output_path(self):
         output_file_name = (
