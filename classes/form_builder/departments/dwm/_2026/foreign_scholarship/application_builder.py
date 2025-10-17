@@ -1,3 +1,4 @@
+from classes.helpers import int_to_roman
 from ..application_builder import DWMApplicationBuilder2026
 from ..priority import ForeignScholarshipPriority
 
@@ -8,17 +9,13 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
     def __init__(self):
         super().__init__()
 
-    def create_base(self):
-        self.output_json = self.create_form(
-            intro_text=[
-                "Wniosek o ustanowaienie stypendium w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"
-            ]
-        )
+        self.intro_text = [
+            "Wniosek o ustanowaienie stypendium w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"
+        ]
 
-    def create_application_metadata(self):
+    def create_application_metadata(self, number: int):
         part = self.create_part(
-            title="I. Metadane wniosku",
-            short_name="I. Metadane wniosku",
+            title=f"{int_to_roman(number)}. Metadane wniosku",
             chapters=[
                 self.create_chapter(
                     title="1. Program",
@@ -60,10 +57,10 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
         )
         self.save_part(part)
 
-    def create_application_name_data(self):
+    def create_application_name_data(self, number: int):
         part = self.create_part(
-            title="II. Nazwa przedsięwzięcia, którego dotyczy wniosek",
-            short_name="II. Nazwa przedsięwzięcia",
+            title=f"{int_to_roman(number)}. Nazwa przedsięwzięcia, którego dotyczy wniosek",
+            short_name=f"{int_to_roman(number)}. Nazwa przedsięwzięcia",
             chapters=[
                 self.section.application_name_data.application_task_name(number="1"),
                 self.section.application_name_data.events_names_and_dates(number="2"),
@@ -241,10 +238,9 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
         )
         self.save_part(part=part)
 
-    def create_application_applicant_data(self):
+    def create_application_applicant_data(self, number: int):
         part = self.create_part(
-            title="III. Informacje o Wnioskodawcy",
-            short_name="III. Informacje o Wnioskodawcy",
+            title=f"{int_to_roman(number)}. Informacje o Wnioskodawcy",
             chapters=[
                 self.section.applicant_full_name(number="1"),
                 self.create_chapter(
@@ -306,10 +302,10 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
         )
         self.save_part(part=part)
 
-    def create_application_applicant_achievements_data(self):
+    def create_application_applicant_achievements_data(self, number: int):
         part = self.create_part(
-            title="IV. Dotychczasowy dorobek i doświadczenie Wnioskodawcy w dziedzinie, której wniosek dotyczy",
-            short_name="IV. Dorobek Wnioskodawcy",
+            title=f"{int_to_roman(number)}. Dotychczasowy dorobek i doświadczenie Wnioskodawcy w dziedzinie, której wniosek dotyczy",
+            short_name=f"{int_to_roman(number)}. Dorobek Wnioskodawcy",
             chapters=[
                 self.create_chapter(
                     title="CV Wnioskodawcy",
@@ -329,10 +325,10 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
         )
         self.save_part(part=part)
 
-    def create_application_description_of_the_project_data(self):
+    def create_application_description_of_the_project_data(self, number: int):
         part = self.create_part(
-            title="V. Opis zaplanowanego przedsięwzięcia",
-            short_name="V. Opis przedsięwzięcia",
+            title=f"{int_to_roman(number)}. Opis zaplanowanego przedsięwzięcia",
+            short_name=f"{int_to_roman(number)}. Opis przedsięwzięcia",
             chapters=[
                 self.create_chapter(
                     title="Opis przedsięwzięcia",
@@ -352,10 +348,9 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
         )
         self.save_part(part=part)
 
-    def create_application_other_information_data(self):
+    def create_application_other_information_data(self, number: int):
         part = self.create_part(
-            title="VIII. Inne informacje",
-            short_name="VIII. Inne informacje",
+            title=f"{int_to_roman(number)}. Inne informacje",
             chapters=[
                 self.create_chapter(
                     components=[
@@ -402,7 +397,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
         )
         self.save_part(part=part)
 
-    def create_application_financial_data(self):
+    def create_application_financial_data(self, number: int):
         financing_source_chapters = [
             {
                 "section_title": "Koszty akredytacji",
@@ -427,8 +422,8 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
         ]
 
         part = self.create_part(
-            title="IX. Koszty planowanego przedsięwzięcia",
-            short_name="IX. Koszty przedsięwzięcia",
+            title=f"{int_to_roman(number)}. Koszty planowanego przedsięwzięcia",
+            short_name=f"{int_to_roman(number)}. Koszty przedsięwzięcia",
             class_list=[
                 "full-width-grid"
             ],
@@ -900,7 +895,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
         )
         self.save_part(part=part)
 
-    def create_application_statements(self):
+    def create_application_statements(self, number: int):
         components_data = [
             {
                 "label": "1. Oświadczam, iż nie zalegam z płatnościami na rzecz podmiotów publiczno-prawnych.",
@@ -925,8 +920,8 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
         ]
 
         part = self.create_part(
-            title="X. Oświadczenia Wnioskodawcy",
-            short_name="X. Oświadczenia",
+            title=f"{int_to_roman(number)}. Oświadczenia Wnioskodawcy",
+            short_name=f"{int_to_roman(number)}. Oświadczenia",
             chapters=[
                 self.create_chapter(
                     components=[
@@ -942,10 +937,10 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
         )
         self.save_part(part=part)
 
-    def create_application_attachments(self):
+    def create_application_attachments(self, number: int):
         part = self.create_part(
-            title="XI. Obowiązkowe załączniki zgodnie z rodzajem przedsięwzięcia",
-            short_name="XI. Załączniki",
+            title=f"{int_to_roman(number)}. Obowiązkowe załączniki zgodnie z rodzajem przedsięwzięcia",
+            short_name=f"{int_to_roman(number)}. Załączniki",
             chapters=[
                 self.create_chapter(
                     title="A. Oficjalne zaproszenie filmu/twórcy na festiwal",
@@ -1043,10 +1038,10 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
         )
         self.save_part(part=part)
 
-    def create_application_schedule_data(self):
+    def create_application_schedule_data(self, number: int):
         part = self.create_part(
-            title="XII. Harmonogram realizacji przedsięwzięcia",
-            short_name="XII. Harmonogram",
+            title=f"{int_to_roman(number)}. Harmonogram realizacji przedsięwzięcia",
+            short_name=f"{int_to_roman(number)}. Harmonogram",
             chapters=[
                 self.create_chapter(
                     title="Nazwa przedsięwzięcia",

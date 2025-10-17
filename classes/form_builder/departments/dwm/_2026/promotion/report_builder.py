@@ -8,18 +8,14 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
     def __init__(self):
         super().__init__()
 
-    def create_base(self):
-        self.output_json = self.create_form(
-            intro_text=[
+        self.intro_text = [
                 "Raport końcowy",
                 "<small>z wykonania przedsięwzięcia realizowanego w ramach Programu Operacyjnego \"Promocja polskiej twórczości filmowej za granicą\"</small> <br> Priorytet I \"Promocja polskiej twórczości filmowej za granicą\""
-            ]
-        )
+        ]
 
-    def create_report_basic_data(self):
+    def create_report_basic_data(self, number: int):
         part = self.create_part(
-            title="I. Dane podstawowe",
-            short_name="I. Dane podstawowe",
+            title=f"{int_to_roman(number)}. Dane podstawowe",
             chapters=[
                 self.section.report_basic_data.project_implementation_period(number="A"),
                 self.section.report_basic_data.agreement_and_annex(number="B"),
@@ -29,10 +25,9 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
 
         self.save_part(part)
 
-    def create_report_general_data(self):
+    def create_report_general_data(self, number: int):
         part = self.create_part(
-            title="II. Informacje ogólne",
-            short_name="II. Informacje ogólne",
+            title=f"{int_to_roman(number)}. Informacje ogólne",
             chapters=[
                 self.create_chapter(
                     class_list=[
@@ -138,10 +133,9 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
 
         self.save_part(part)
 
-    def create_report_expenditure_exacution(self):
+    def create_report_expenditure_exacution(self, number: int):
         part = self.create_part(
-            title="III. Sprawozdanie z wykonania wydatków",
-            short_name="III. Sprawozdanie z wykonania wydatków",
+            title=f"{int_to_roman(number)}. Sprawozdanie z wykonania wydatków",
             class_list=[
                 "full-width-grid"
             ],
@@ -2126,10 +2120,9 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
 
         self.save_part(part)
 
-    def create_report_additional_information(self):
+    def create_report_additional_information(self, number: int):
         part = self.create_part(
-            title="IV. Dodatkowe informacje",
-            short_name="IV. Dodatkowe informacje",
+            title=f"{int_to_roman(number)}. Dodatkowe informacje",
             chapters=[
                 self.create_chapter(
                     class_list=[

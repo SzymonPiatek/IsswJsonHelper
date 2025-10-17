@@ -2212,16 +2212,3 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
             ]
         )
         self.save_part(part)
-
-    def generate(self):
-        # Base
-        self.create_base()
-
-        index = 0
-
-        for part in self.parts:
-            index += 1
-            part(number=index)
-
-        # Zapis
-        self.save_output()

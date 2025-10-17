@@ -7,9 +7,6 @@ class ApplicationBuilder(FormBuilder):
     def __init__(self):
         super().__init__()
 
-    def create_base(self):
-        self.output_json = self.create_form(
-            intro_text=[
-                "Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"
-            ]
-        )
+        self.intro_text = [
+            "Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"
+        ]

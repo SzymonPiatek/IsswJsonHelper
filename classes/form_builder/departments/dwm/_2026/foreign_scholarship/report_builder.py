@@ -1,3 +1,4 @@
+from classes.helpers import int_to_roman
 from ..report_builder import DWMReportBuilder2026
 from ..priority import ForeignScholarshipPriority
 
@@ -8,18 +9,14 @@ class ForeignScholarshipReportBuilder(DWMReportBuilder2026, ForeignScholarshipPr
     def __init__(self):
         super().__init__()
 
-    def create_base(self):
-        self.output_json = self.create_form(
-            intro_text=[
-                "Raport końcowy",
-                "<small>z wykonania przedsięwzięcia realizowanego w ramach Programu Operacyjnego \"Promocja polskiej twórczości filmowej za granicą\"</small> <br> Priorytet II \"Stypendia Zagraniczne\""
-            ]
-        )
+        self.intro_text = [
+            "Raport końcowy",
+            "<small>z wykonania przedsięwzięcia realizowanego w ramach Programu Operacyjnego \"Promocja polskiej twórczości filmowej za granicą\"</small> <br> Priorytet II \"Stypendia Zagraniczne\""
+        ]
 
-    def create_report_basic_data(self):
+    def create_report_basic_data(self, number: int):
         part = self.create_part(
-            title="I. Dane podstawowe",
-            short_name="I. Dane podstawowe",
+            title=f"{int_to_roman(number)}. Dane podstawowe",
             chapters=[
                 self.create_chapter(
                     components=[

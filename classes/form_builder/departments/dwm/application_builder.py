@@ -8,27 +8,42 @@ class DWMApplicationBuilder(ApplicationBuilder, DWMDepartment, DWMOperation):
     def __init__(self):
         super().__init__()
 
+        self.parts: list = [
+            self.create_application_metadata,
+            self.create_application_name_data,
+            self.create_application_applicant_data,
+            self.create_application_applicant_achievements_data,
+            self.create_application_description_of_the_project_data,
+            self.create_application_logo_data,
+            self.create_application_implementation_effects_data,
+            self.create_application_other_information_data,
+            self.create_application_financial_data,
+            self.create_application_statements,
+            self.create_application_attachments,
+            self.create_application_schedule_data
+        ]
+
     @not_implemented_func
-    def create_application_metadata(self):
+    def create_application_metadata(self, number: int):
         pass
 
     @not_implemented_func
-    def create_application_name_data(self):
+    def create_application_name_data(self, number: int):
         pass
 
     @not_implemented_func
-    def create_application_applicant_data(self):
+    def create_application_applicant_data(self, number: int):
         pass
 
     @not_implemented_func
-    def create_application_applicant_achievements_data(self):
+    def create_application_applicant_achievements_data(self, number: int):
         pass
 
     @not_implemented_func
-    def create_application_description_of_the_project_data(self):
+    def create_application_description_of_the_project_data(self, number: int):
         pass
 
-    def create_application_logo_data(self):
+    def create_application_logo_data(self, number: int):
         part = self.create_part(
             title="VI. Wskazanie sposobu wykorzystania logotypu PISF / Informacja o dofinansowaniu ze środków PISF w kampanii promocyjnej",
             short_name="VI. Logotyp PISF",
@@ -51,7 +66,7 @@ class DWMApplicationBuilder(ApplicationBuilder, DWMDepartment, DWMOperation):
         )
         self.save_part(part=part)
 
-    def create_application_implementation_effects_data(self):
+    def create_application_implementation_effects_data(self, number: int):
         part = self.create_part(
             title="VII. Planowane efekty realizacji przedsięwzięcia",
             short_name="VII. Efekty realizacji",
@@ -75,64 +90,21 @@ class DWMApplicationBuilder(ApplicationBuilder, DWMDepartment, DWMOperation):
         self.save_part(part=part)
 
     @not_implemented_func
-    def create_application_other_information_data(self):
+    def create_application_other_information_data(self, number: int):
         pass
 
     @not_implemented_func
-    def create_application_financial_data(self):
+    def create_application_financial_data(self, number: int):
         pass
 
     @not_implemented_func
-    def create_application_statements(self):
+    def create_application_statements(self, number: int):
         pass
 
     @not_implemented_func
-    def create_application_attachments(self):
+    def create_application_attachments(self, number: int):
         pass
 
     @not_implemented_func
-    def create_application_schedule_data(self):
+    def create_application_schedule_data(self, number: int):
         pass
-
-    def generate(self):
-        # Base
-        self.create_base()
-
-        # 1. Nazwa programu i priorytetu
-        self.create_application_metadata()
-
-        # 2. Nazwa przedsięwzięcia
-        self.create_application_name_data()
-
-        # 3. Informacja o wnioskodawcy
-        self.create_application_applicant_data()
-
-        # 4. Dorobek wnioskodawcy
-        self.create_application_applicant_achievements_data()
-
-        # 5. Opis przedsięwzięcia
-        self.create_application_description_of_the_project_data()
-
-        # 6. Logotyp PISF
-        self.create_application_logo_data()
-
-        # 7. Efekty realizacji
-        self.create_application_implementation_effects_data()
-
-        # 8. Inne informacje
-        self.create_application_other_information_data()
-
-        # # 9. Koszty przedsięwzięcia
-        self.create_application_financial_data()
-
-        # 10. Oświadczenia
-        self.create_application_statements()
-
-        # 11. Załączniki
-        self.create_application_attachments()
-
-        # 12. Harmonogram
-        self.create_application_schedule_data()
-
-        # Zapis
-        self.save_output()

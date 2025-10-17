@@ -2,7 +2,6 @@ from typing import ClassVar
 import json
 from pathlib import Path
 from ..form_components import Part, Component, Section
-from classes.decorators import not_implemented_func
 from ..form_factory.form_factory import FormFactory
 from classes.types import *
 
@@ -38,7 +37,7 @@ class FormBuilder(FormFactory):
         self.output_file = self._prepare_output_path()
 
         self.output_json: dict = {}
-        self.parts = []
+        self.parts: list = []
         self.names = set()
 
         self.part = Part()
@@ -71,13 +70,19 @@ class FormBuilder(FormFactory):
 
         print(f'JSON zapisany do {self.output_file}')
 
-    @not_implemented_func
     def generate(self):
-        pass
+        self.create_base()
 
-    @not_implemented_func
+        index = 0
+
+        for part in self.parts:
+            index += 1
+            part(number=index)
+
+        self.save_output()
+
     def create_base(self):
-        pass
+        self.output_json = self.create_form(intro_text=self.intro_text)
 
     @staticmethod
     def load_json(path: str):
