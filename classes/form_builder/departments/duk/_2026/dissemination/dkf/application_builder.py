@@ -12,7 +12,7 @@ class DkfApplicationBuilder(DisseminationApplicationBuilder, DkfPriority):
 
         # Variables
         self.project_type = [
-            "Działalność dyskusyjnych klubów filmowych."
+            "Działalność klubów filmowych."
         ]
         self.source_of_financing_tickets = True
         self.is_dkf = True
