@@ -223,27 +223,33 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                             components=[
                                 self.create_component(
                                     component_type="number",
+                                    name="estimatedNumberOfParticipantsKindergarten",
+                                    unit="osoby",
+                                    label="a) Dzieci w wieku przeszkolnym"
+                                ),
+                                self.create_component(
+                                    component_type="number",
                                     name="estimatedNumberOfParticipantsPrimarySchools",
                                     unit="osoby",
-                                    label="a) Uczniowie szkół podstawowych"
+                                    label="b) Uczniowie szkół podstawowych"
                                 ),
                                 self.create_component(
                                     component_type="number",
                                     name="estimatedNumberOfParticipantsSecondarySchools",
                                     unit="osoby",
-                                    label="b) Uczniowie szkół ponadpodstawowych"
+                                    label="c) Uczniowie szkół ponadpodstawowych"
                                 ),
                                 self.create_component(
                                     component_type="number",
                                     name="estimatedNumberOfParticipantsAdults",
                                     unit="osoby",
-                                    label="c) Dorośli"
+                                    label="d) Dorośli"
                                 ),
                                 self.create_component(
                                     component_type="number",
                                     name="estimatedNumberOfParticipantsSeniors",
                                     unit="osoby",
-                                    label="d) Seniorzy"
+                                    label="e) Seniorzy"
                                 )
                             ]
                         ),
