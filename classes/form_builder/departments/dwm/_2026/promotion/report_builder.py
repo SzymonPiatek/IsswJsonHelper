@@ -15,7 +15,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
 
     def create_report_basic_data(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Dane podstawowe",
+            title=f"{self.helpers.int_to_roman(number)}. Dane podstawowe",
             chapters=[
                 self.section.report_basic_data.project_implementation_period(number="A"),
                 self.section.report_basic_data.agreement_and_annex(number="B"),
@@ -27,7 +27,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
 
     def create_report_general_data(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Informacje ogólne",
+            title=f"{self.helpers.int_to_roman(number)}. Informacje ogólne",
             chapters=[
                 self.create_chapter(
                     class_list=[
@@ -135,7 +135,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
 
     def create_report_expenditure_exacution(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Sprawozdanie z wykonania wydatków",
+            title=f"{self.helpers.int_to_roman(number)}. Sprawozdanie z wykonania wydatków",
             class_list=[
                 "full-width-grid"
             ],
@@ -2122,7 +2122,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
 
     def create_report_additional_information(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Dodatkowe informacje",
+            title=f"{self.helpers.int_to_roman(number)}. Dodatkowe informacje",
             chapters=[
                 self.create_chapter(
                     class_list=[

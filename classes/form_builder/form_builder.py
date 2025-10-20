@@ -57,6 +57,7 @@ class FormBuilder(FormFactory):
             / 'json'
             / str(self.year)
             / self.department_name
+            / f"session_{self.helpers.roman_to_int(self.session):02}"
             / self.json_type
             / output_file_name
         )

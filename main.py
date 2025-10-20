@@ -7,7 +7,7 @@ def main():
 
     helper = FormHelper(year="2026")
     helper.generate_process("application")
-    # helper.generate_process("report")
+    helper.generate_process("report")
 
     end_time = time.time()
     elapsed = end_time - start_time
