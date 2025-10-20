@@ -1,4 +1,3 @@
-from classes.helpers import int_to_roman
 from ..application_builder import DWMApplicationBuilder2026
 from ..priority import PromotionPriority
 
@@ -11,7 +10,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
 
     def create_application_metadata(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Metadane wniosku",
+            title=f"{self.helpers.int_to_roman(number)}. Metadane wniosku",
             chapters=[
                 self.create_chapter(
                     title="1. Program",
@@ -58,8 +57,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
 
     def create_application_name_data(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Nazwa przedsięwzięcia, którego dotyczy wniosek",
-            short_name=f"{int_to_roman(number)}. Nazwa przedsięwzięcia",
+            title=f"{self.helpers.int_to_roman(number)}. Nazwa przedsięwzięcia, którego dotyczy wniosek",
+            short_name=f"{self.helpers.int_to_roman(number)}. Nazwa przedsięwzięcia",
             chapters=[
                 self.section.application_name_data.application_task_name(number="1"),
                 self.section.application_name_data.events_names_and_dates(number="2"),
@@ -151,7 +150,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
 
     def create_application_applicant_data(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Informacje o wnioskodawcy",
+            title=f"{self.helpers.int_to_roman(number)}. Informacje o wnioskodawcy",
             chapters=[
                 self.section.applicant_name(number="1"),
                 self.section.eligible_person_data(number="2"),
@@ -167,8 +166,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
 
     def create_application_applicant_achievements_data(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Dotychczasowy dorobek i doświadczenie wnioskodawcy w dziedzinie, której wniosek dotyczy",
-            short_name=f"{int_to_roman(number)}. Dorobek wnioskodawcy",
+            title=f"{self.helpers.int_to_roman(number)}. Dotychczasowy dorobek i doświadczenie wnioskodawcy w dziedzinie, której wniosek dotyczy",
+            short_name=f"{self.helpers.int_to_roman(number)}. Dorobek wnioskodawcy",
             chapters=[
                 self.create_chapter(
                     title="1. Czy Wnioskodawca realizował już przedsięwzięćie w dziedzienie, której wniosek dotyczy?",
@@ -251,8 +250,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
 
     def create_application_description_of_the_project_data(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Opis zaplanowanego przedsięwzięcia",
-            short_name=f"{int_to_roman(number)}. Opis przedsięwzięcia",
+            title=f"{self.helpers.int_to_roman(number)}. Opis zaplanowanego przedsięwzięcia",
+            short_name=f"{self.helpers.int_to_roman(number)}. Opis przedsięwzięcia",
             chapters=[
                 self.create_chapter(
                     components=[
@@ -342,7 +341,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
 
     def create_application_other_information_data(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Inne informacje",
+            title=f"{self.helpers.int_to_roman(number)}. Inne informacje",
             chapters=[
                 self.create_chapter(
                     visibility_rules=[
@@ -442,8 +441,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
 
     def create_application_financial_data(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Koszty planowanego przedsięwzięcia",
-            short_name=f"{int_to_roman(number)}. Koszty przedsięwzięcia",
+            title=f"{self.helpers.int_to_roman(number)}. Koszty planowanego przedsięwzięcia",
+            short_name=f"{self.helpers.int_to_roman(number)}. Koszty przedsięwzięcia",
             class_list=[
                 "full-width-grid"
             ],
@@ -961,8 +960,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
         ]
 
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Oświadczenia wnioskodawcy",
-            short_name=f"{int_to_roman(number)}. Oświadczenia",
+            title=f"{self.helpers.int_to_roman(number)}. Oświadczenia wnioskodawcy",
+            short_name=f"{self.helpers.int_to_roman(number)}. Oświadczenia",
             chapters=[
                 self.create_chapter(
                     title="1. Oświadczam, że przesięwzięcie ma charakter (można podać kilka):",
@@ -1037,8 +1036,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
 
     def create_application_attachments(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Obowiązkowe załączniki zgodnie z rodzajem przedsięwzięcia",
-            short_name=f"{int_to_roman(number)}. Załączniki",
+            title=f"{self.helpers.int_to_roman(number)}. Obowiązkowe załączniki zgodnie z rodzajem przedsięwzięcia",
+            short_name=f"{self.helpers.int_to_roman(number)}. Załączniki",
             chapters=[
                 self.create_chapter(
                     title="Deklaracje wkładu finansowego/rzeczowego lub listy intencyjne partnerów (dotyczy wszystkich rodzajów przedsięwzięć)",
@@ -1108,8 +1107,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
 
     def create_application_schedule_data(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Harmonogram realizacji przedsięwzięcia",
-            short_name=f"{int_to_roman(number)}. Harmonogram",
+            title=f"{self.helpers.int_to_roman(number)}. Harmonogram realizacji przedsięwzięcia",
+            short_name=f"{self.helpers.int_to_roman(number)}. Harmonogram",
             chapters=[
                 self.create_chapter(
                     title="Nazwa przedsięwzięcia",

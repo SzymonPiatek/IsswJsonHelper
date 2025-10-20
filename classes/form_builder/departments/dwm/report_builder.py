@@ -8,6 +8,13 @@ class DWMReportBuilder(ReportBuilder, DWMDepartment, DWMOperation):
     def __init__(self):
         super().__init__()
 
+        self.parts = [
+            self.create_report_basic_data,
+            self.create_report_general_data,
+            self.create_report_expenditure_exacution,
+            self.create_report_additional_information
+        ]
+
     def create_base(self):
         self.output_json = self.create_form(
             intro_text=[
@@ -17,37 +24,17 @@ class DWMReportBuilder(ReportBuilder, DWMDepartment, DWMOperation):
         )
 
     @not_implemented_func
-    def create_report_basic_data(self):
+    def create_report_basic_data(self, number: int):
         pass
 
     @not_implemented_func
-    def create_report_general_data(self):
+    def create_report_general_data(self, number: int):
         pass
 
     @not_implemented_func
-    def create_report_expenditure_exacution(self):
+    def create_report_expenditure_exacution(self, number: int):
         pass
 
     @not_implemented_func
-    def create_report_additional_information(self):
+    def create_report_additional_information(self, number: int):
         pass
-
-    def generate(self):
-        # Base
-        self.create_base()
-
-        # 1. Dane podstawowe
-        self.create_report_basic_data()
-
-        # 2. Informacje ogólne
-        self.create_report_general_data()
-
-        # 3. Sprawozdanie z wykonania wydatków
-        self.create_report_expenditure_exacution()
-
-        # 4. Dodatkowe informacje
-        self.create_report_additional_information()
-
-        # Zapis
-        self.save_output()
-

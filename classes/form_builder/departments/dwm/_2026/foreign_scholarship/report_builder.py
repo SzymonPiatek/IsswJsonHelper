@@ -1,4 +1,3 @@
-from classes.helpers import int_to_roman
 from ..report_builder import DWMReportBuilder2026
 from ..priority import ForeignScholarshipPriority
 
@@ -16,7 +15,7 @@ class ForeignScholarshipReportBuilder(DWMReportBuilder2026, ForeignScholarshipPr
 
     def create_report_basic_data(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Dane podstawowe",
+            title=f"{self.helpers.int_to_roman(number)}. Dane podstawowe",
             chapters=[
                 self.create_chapter(
                     components=[

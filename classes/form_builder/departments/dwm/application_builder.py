@@ -45,8 +45,8 @@ class DWMApplicationBuilder(ApplicationBuilder, DWMDepartment, DWMOperation):
 
     def create_application_logo_data(self, number: int):
         part = self.create_part(
-            title="VI. Wskazanie sposobu wykorzystania logotypu PISF / Informacja o dofinansowaniu ze środków PISF w kampanii promocyjnej",
-            short_name="VI. Logotyp PISF",
+            title=f"{self.helpers.int_to_roman(number)}. Wskazanie sposobu wykorzystania logotypu PISF / Informacja o dofinansowaniu ze środków PISF w kampanii promocyjnej",
+            short_name=f"{self.helpers.int_to_roman(number)}. Logotyp PISF",
             chapters=[
                 self.create_chapter(
                     title="Opis wykorzystania logotypu lub informacji o dofinansowaniu",
@@ -68,8 +68,8 @@ class DWMApplicationBuilder(ApplicationBuilder, DWMDepartment, DWMOperation):
 
     def create_application_implementation_effects_data(self, number: int):
         part = self.create_part(
-            title="VII. Planowane efekty realizacji przedsięwzięcia",
-            short_name="VII. Efekty realizacji",
+            title=f"{self.helpers.int_to_roman(number)}. Planowane efekty realizacji przedsięwzięcia",
+            short_name=f"{self.helpers.int_to_roman(number)}. Efekty realizacji",
             chapters=[
                 self.create_chapter(
                     title="Planowane efekty",

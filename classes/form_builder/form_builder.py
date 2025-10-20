@@ -1,6 +1,8 @@
 from typing import ClassVar
 import json
 from pathlib import Path
+
+from .form_helpers import FormHelpers
 from ..form_components import Part, Component, Section
 from ..form_factory.form_factory import FormFactory
 from classes.types import *
@@ -46,6 +48,8 @@ class FormBuilder(FormFactory):
         self.part = Part()
         self.section = Section()
         self.component = Component()
+
+        self.helpers = FormHelpers()
 
     def _prepare_output_path(self):
         output_file_name = (
