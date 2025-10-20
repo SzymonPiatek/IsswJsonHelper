@@ -1538,6 +1538,15 @@ class ReportExpenditureExacution(Section):
                                     class_list=[
                                         "no-label"
                                     ],
+                                    read_only=True,
+                                    calculation_rules=[
+                                        self.calculation_rule.local_multiply_inputs(
+                                            fields=[
+                                                "costInCurrency",
+                                                "costCurrencyNbpExchRate"
+                                            ]
+                                        )
+                                    ],
                                     unit="PLN"
                                 ),
                                 self.create_component(

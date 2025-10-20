@@ -18,7 +18,8 @@ class CalculationRule:
             "lastDate",
             "conditionalCopyValue",
             "copyCompanyData",
-            "multiplyInputs"
+            "multiplyInputs",
+            "localMultiplyInputs"
         ]
 
     @staticmethod
@@ -188,6 +189,17 @@ class CalculationRule:
     ):
         return {
             "name": "multiplyInputs",
+            "kwargs": {
+                "fields": fields
+            }
+        }
+
+    @staticmethod
+    def local_multiply_inputs(
+            fields: List[str],
+    ):
+        return {
+            "name": "localMultiplyInputs",
             "kwargs": {
                 "fields": fields
             }
