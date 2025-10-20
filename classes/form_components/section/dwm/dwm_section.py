@@ -1,4 +1,5 @@
 from classes.form_components.section.dwm.report.report_basic_data import ReportBasicData
+from classes.form_components.section.dwm.report.report_expenditure_exacution import ReportExpenditureExacution
 from classes.form_components.section.section import Section
 from classes.form_components.section.dwm.application.application_applicant_data import ApplicationApplicantData
 from classes.form_components.section.dwm.application.application_financial_data import ApplicationFinancialData
@@ -18,4 +19,5 @@ class DWMSection(Section):
 
         # REPORT
         self.report_basic_data = ReportBasicData()
+        self.report_expenditure_exacution = ReportExpenditureExacution()
 
