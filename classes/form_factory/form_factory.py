@@ -1,7 +1,7 @@
 from classes.form_elements import FormForm, FormPart, FormChapter, FormComponent
 from classes.form_rules import CalculationRule, Validator, VisibilityRule
 from classes.types import *
-from classes.form_factory.form_helpers import FormHelpers
+from classes.form_helpers.form_helpers import FormHelpers
 
 
 class FormFactory:

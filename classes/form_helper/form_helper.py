@@ -1,6 +1,5 @@
 import os
 from dotenv import load_dotenv
-from classes.analyzer.analyzer import Analyzer
 from classes.postman.postman import Postman
 from classes.web_scraper.web_scraper import WebScraper
 from classes.applications import Applications2025, Applications2026
@@ -28,11 +27,9 @@ class FormHelper:
             "force_autosave": True,
             "pdf": False,
             "web": False,
-            "analyze": False,
         }
 
         self.postman = Postman(base_url=self.base_url, login_data=self.login_data)
-        self.analyzer = Analyzer()
         self.scraper = None
         if self.setup["web"]:
             self.scraper = WebScraper(self.base_url, self.login_data)
@@ -89,31 +86,3 @@ class FormHelper:
 
                     if self.setup["web"]:
                         self.scraper.screenshot_pages_of_form(application=app, output_path=f"output/png/{app.department_name}/{app.json_type}/po_{app.operation_num}_pr_{app.priority_num}")
-
-        if self.setup["analyze"]:
-            self.run_analysis(data_type)
-
-    def run_analysis(self, data_type: str):
-        for department in ["DPF", "DUK", "DWM"]:
-            base_dir = f"./output/json/{self.year}/{department}/{data_type}"
-            output_dir = f"./output/analyzer/{self.year}/{department}/{data_type}"
-
-            self.analyzer.report_missing_validators(base_dir, output_dir, file_name="missing_validators")
-            self.analyzer.report_unknown_rules(base_dir, output_dir, file_name="unknown_rules")
-            self.analyzer.report_redundant_validators(base_dir, output_dir, file_name="redundant_validators")
-            self.analyzer.report_many_validators(base_dir, output_dir, file_name="many_validators", validators_num=3)
-
-    def example(self):
-        app = self.generate_json(data_type="application", department="duk", program="po2", priority="pr1")
-
-        self.postman.application_autosave(form_id=app.form_id, json=app.output_json)
-        self.postman.application_pdf(
-            output_path=f"output/pdf/{app.department_name}/{app.json_type}/po_{app.operation_num}_pr_{app.priority_num}",
-            json=app.output_json,
-        )
-
-        scraper = WebScraper(self.base_url, self.login_data, output_path="output/screenshots")
-        scraper.login()
-        scraper.close_introjs()
-        scraper.screenshot_pages_of_form(application=app, output_path="output/png")
-        scraper.close()
