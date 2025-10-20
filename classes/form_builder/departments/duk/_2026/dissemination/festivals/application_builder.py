@@ -2,7 +2,6 @@ from classes.form_builder.departments.duk._2026.dissemination.application_builde
 from classes.form_builder.departments.duk._2026.dissemination.priority import FestivalsPriority
 from classes.form_builder.departments.duk._2026.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
 from .estimate_data import estimate_sections
-from classes.helpers import int_to_roman
 
 
 class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPriority):
@@ -25,8 +24,8 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
 
     def create_application_scope_of_project(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Zakres i charakterystyka przedsięwzięcia",
-            short_name=f"{int_to_roman(number)}. Zakres przedsięwzięcia",
+            title=f"{self.helpers.int_to_roman(number)}. Zakres i charakterystyka przedsięwzięcia",
+            short_name=f"{self.helpers.int_to_roman(number)}. Zakres przedsięwzięcia",
             chapters=[
                 self.create_chapter(
                     title="1. Termin i miejsce realizacji przedsięwzięcia",
@@ -313,8 +312,8 @@ class FestivalsApplicationBuilder(DisseminationApplicationBuilder, FestivalsPrio
 
     def create_application_attachments(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Załączniki",
-            short_name=f"{int_to_roman(number)}. Załączniki",
+            title=f"{self.helpers.int_to_roman(number)}. Załączniki",
+            short_name=f"{self.helpers.int_to_roman(number)}. Załączniki",
             chapters=[
                 self.create_chapter(
                     title="1. Obowiązkowe załączniki",

@@ -1,5 +1,4 @@
 from classes.form_builder.departments.duk._2026.dissemination.application_builder import DisseminationApplicationBuilder
-from classes.helpers import int_to_roman
 from .estimate_data import estimate_sections, estimate_section_structure
 from ..priority import ReconstructionPriority
 from .application_estimate_builder import ReconstructionApplicationEstimateBuilder
@@ -26,8 +25,8 @@ class ReconstructionApplicationBuilder(DisseminationApplicationBuilder, Reconstr
         estimate_base = ReconstructionApplicationEstimateBuilder(estimate_sections=[])
 
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Kosztorys przedsięwzięcia",
-            short_name=f"{int_to_roman(number)}. Kosztorys przedsięwzięcia",
+            title=f"{self.helpers.int_to_roman(number)}. Kosztorys przedsięwzięcia",
+            short_name=f"{self.helpers.int_to_roman(number)}. Kosztorys przedsięwzięcia",
             chapters=[
                 estimate_base.generate_estimate_top(),
                 self.create_chapter(
@@ -43,8 +42,8 @@ class ReconstructionApplicationBuilder(DisseminationApplicationBuilder, Reconstr
 
     def create_application_scope_of_project(self, number):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Zakres przedsięwzięcia i jego charakterystyka",
-            short_name=f"{int_to_roman(number)}. Zakres przedsięwziecia",
+            title=f"{self.helpers.int_to_roman(number)}. Zakres przedsięwzięcia i jego charakterystyka",
+            short_name=f"{self.helpers.int_to_roman(number)}. Zakres przedsięwziecia",
             chapters=[
                 self.create_chapter(
                     title="1. Typ przedsięwzięcia",

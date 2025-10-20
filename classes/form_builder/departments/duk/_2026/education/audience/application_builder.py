@@ -1,4 +1,3 @@
-from classes.helpers import int_to_roman
 from .estimate_data import estimate_sections
 from classes.form_builder.departments.duk._2026.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
 from ..priority import AudiencePriority
@@ -24,8 +23,8 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
 
     def create_application_scope_of_project(self, number):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Zakres przedsięwzięcia i jego charakterystyka",
-            short_name=f"{int_to_roman(number)}. Zakres przedsięwzięcia",
+            title=f"{self.helpers.int_to_roman(number)}. Zakres przedsięwzięcia i jego charakterystyka",
+            short_name=f"{self.helpers.int_to_roman(number)}. Zakres przedsięwzięcia",
             chapters=[
                 self.create_chapter(
                     title="1. Zakres przedsięwzięcia i jego charakterystyka",
@@ -289,8 +288,8 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
 
     def create_application_attachments(self, number):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Załączniki",
-            short_name=f"{int_to_roman(number)}. Załączniki",
+            title=f"{self.helpers.int_to_roman(number)}. Załączniki",
+            short_name=f"{self.helpers.int_to_roman(number)}. Załączniki",
             chapters=[
                 self.create_chapter(
                     title="Obowiązkowe załączniki",

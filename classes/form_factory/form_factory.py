@@ -1,17 +1,20 @@
 from classes.form_elements import FormForm, FormPart, FormChapter, FormComponent
 from classes.form_rules import CalculationRule, Validator, VisibilityRule
 from classes.types import *
+from classes.form_factory.form_helpers import FormHelpers
 
 
 class FormFactory:
     def __init__(self):
         self.output_json: dict = None
-        self.parts: list[dict] = []
+        self.parts: list = []
         self.names = set()
 
         self.validator = Validator()
         self.visibility_rule = VisibilityRule()
         self.calculation_rule = CalculationRule()
+
+        self.helpers = FormHelpers()
 
     @staticmethod
     def create_form(intro_text: list[str]):

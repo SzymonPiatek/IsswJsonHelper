@@ -1,6 +1,5 @@
 from classes.form_builder.departments.duk.application_builder import DUKApplicationBuilder
 from classes.form_builder.departments.duk._2026.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
-from classes.helpers import int_to_roman
 
 
 class DUKApplicationBuilder2026(DUKApplicationBuilder):
@@ -33,7 +32,7 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
     def create_application_metadata(self, number: int):
         part = self.create_part(
             title="Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej",
-            short_name=f"{int_to_roman(number)}. Metadane wniosku",
+            short_name=f"{self.helpers.int_to_roman(number)}. Metadane wniosku",
             chapters=[
                 self.create_chapter(
                     title="1. Tryb naboru",
@@ -77,8 +76,8 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
 
     def create_application_basic_data(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Dane podstawowe",
-            short_name=f"{int_to_roman(number)}. Dane podstawowe",
+            title=f"{self.helpers.int_to_roman(number)}. Dane podstawowe",
+            short_name=f"{self.helpers.int_to_roman(number)}. Dane podstawowe",
             chapters=[
                 self.create_chapter(
                     title="1. Nazwa przedsięwzięcia",
@@ -152,8 +151,8 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
 
     def create_application_scope_of_project(self, number):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Zakres przedsięwzięcia i jego charakterystyka",
-            short_name=f"{int_to_roman(number)}. Zakres przedsięwzięcia",
+            title=f"{self.helpers.int_to_roman(number)}. Zakres przedsięwzięcia i jego charakterystyka",
+            short_name=f"{self.helpers.int_to_roman(number)}. Zakres przedsięwzięcia",
             chapters=[
                 self.create_chapter(
                     components=[
@@ -315,8 +314,8 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
 
     def create_application_applicant_data(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Dane wnioskodawcy",
-            short_name=f"{int_to_roman(number)}. Dane wnioskodawcy",
+            title=f"{self.helpers.int_to_roman(number)}. Dane wnioskodawcy",
+            short_name=f"{self.helpers.int_to_roman(number)}. Dane wnioskodawcy",
             chapters=[
                 self.create_chapter(
                     components=[
@@ -1374,8 +1373,8 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
         )
 
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Źródła finansowania",
-            short_name=f"{int_to_roman(number)}. Źródła finansowania",
+            title=f"{self.helpers.int_to_roman(number)}. Źródła finansowania",
+            short_name=f"{self.helpers.int_to_roman(number)}. Źródła finansowania",
             chapters=[
                 self.create_chapter(
                     title="1. Wyszczególnienie źródeł finansowaniania",
@@ -1849,8 +1848,8 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
         estimate_base = DUKApplicationEstimateBuilder(estimate_sections=[])
 
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Kosztorys przedsięwzięcia",
-            short_name=f"{int_to_roman(number)}. Kosztorys przedsięwzięcia",
+            title=f"{self.helpers.int_to_roman(number)}. Kosztorys przedsięwzięcia",
+            short_name=f"{self.helpers.int_to_roman(number)}. Kosztorys przedsięwzięcia",
             chapters=[
                 estimate_base.generate_estimate_top(),
                 self.create_chapter(
@@ -1867,8 +1866,8 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
 
     def create_application_statements(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Oświadczenia",
-            short_name=f"{int_to_roman(number)}. Oświadczenia",
+            title=f"{self.helpers.int_to_roman(number)}. Oświadczenia",
+            short_name=f"{self.helpers.int_to_roman(number)}. Oświadczenia",
             chapters=[
                 self.create_chapter(
                     components=[
@@ -1929,8 +1928,8 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
 
     def create_application_attachments(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Załączniki",
-            short_name=f"{int_to_roman(number)}. Załączniki",
+            title=f"{self.helpers.int_to_roman(number)}. Załączniki",
+            short_name=f"{self.helpers.int_to_roman(number)}. Załączniki",
             chapters=[
                 self.create_chapter(
                     title="Obowiązkowe załączniki",
@@ -1947,8 +1946,8 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
 
     def create_application_schedule(self, number: int):
         part = self.create_part(
-            title=f"{int_to_roman(number)}. Harmonogram realizacji zadania",
-            short_name=f"{int_to_roman(number)}. Harmonogram",
+            title=f"{self.helpers.int_to_roman(number)}. Harmonogram realizacji zadania",
+            short_name=f"{self.helpers.int_to_roman(number)}. Harmonogram",
             chapters=[
                 self.create_chapter(
                     components=[

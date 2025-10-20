@@ -1,7 +1,6 @@
 from classes.form_builder.departments.duk.estimate_data import estimate_section_structure, sum_estimate_section_structure, \
     sum_estimate_sections
 from classes.form_factory.form_factory import FormFactory
-from classes.helpers import int_to_roman
 
 
 class DUKApplicationEstimateBuilder(FormFactory):
@@ -103,7 +102,7 @@ class DUKApplicationEstimateBuilder(FormFactory):
                         section,
                         section_structure,
                         section_construct,
-                        title=f"{int_to_roman(idx)}. {section.get('title', '')}"
+                        title=f"{self.helpers.int_to_roman(idx)}. {section.get('title', '')}"
                     )
                     for idx, section in enumerate(estimate_sections, start=1)
                 ],
