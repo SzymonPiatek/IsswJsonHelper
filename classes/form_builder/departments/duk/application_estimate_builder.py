@@ -116,13 +116,12 @@ class DUKApplicationEstimateBuilder(FormFactory):
         field_overrides.setdefault("validators", []).extend(validators)
 
         component = self.create_component(
-            component_type="number" if structure.get("isShare") else "text",
-            mask='' if structure.get("isShare") else "fund",
+            component_type="text",
+            mask="fund",
             label=label,
             name=f"{name}{structure['name']}{self.after_name}",
             unit=structure.get("unit", "PLN"),
-            read_only=True if structure.get("isShare") else structure.get("readOnly",
-                                                                          True if is_sum and sub_fields else False),
+            read_only=True if structure.get("isShare") else structure.get("readOnly", True if is_sum and sub_fields else False),
         )
 
         for key in ("validators", "calculationRules", "read_only", "required"):

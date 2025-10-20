@@ -23,55 +23,59 @@ class ApplicationNameData(Section):
     def events_names_and_dates(self, number: str):
         return self.create_chapter(
             title=f"{number}. Nazwa i termin docelowego wydarzenia",
-            multiple_forms_rules={
-                "minCount": 1,
-                "maxCount": 20
-            },
             components=[
                 self.create_chapter(
-                    title="Wydarzenie",
-                    class_list={
-                        "main": [
-                            "table-1-2",
-                            "grid",
-                            "grid-cols-2"
-                        ],
-                        "sub": [
-                            "table-1-2__col"
-                        ]
+                    multiple_forms_rules={
+                        "minCount": 1,
+                        "maxCount": 20
                     },
                     components=[
-                        self.create_component(
-                            component_type="text",
-                            label="Nazwa wydarzenia",
-                            name="eventName",
-                            required=True,
-                            class_list=[
-                                "table-full",
-                                "col-span-2"
-                            ]
-                        ),
-                        self.create_component(
-                            component_type="date",
-                            label="Termin od",
-                            name="eventDateStart",
-                            required=True,
-                            validators=[
-                                self.validator.related_local_date_lte_validator(
-                                    field_name="eventDateEnd",
-                                    message="Data początkowa nie może być późniejsza niż data końcowa."
-                                )
-                            ]
-                        ),
-                        self.create_component(
-                            component_type="date",
-                            label="Termin do",
-                            name="eventDateEnd",
-                            required=True,
-                            validators=[
-                                self.validator.related_local_date_gte_validator(
-                                    field_name="eventDateStart",
-                                    message="Data końcowa nie może być wcześniejsza niż data początkowa."
+                        self.create_chapter(
+                            title="Wydarzenie",
+                            class_list={
+                                "main": [
+                                    "table-1-2",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    label="Nazwa wydarzenia",
+                                    name="eventName",
+                                    required=True,
+                                    class_list=[
+                                        "table-full",
+                                        "col-span-2"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin od",
+                                    name="eventDateStart",
+                                    required=True,
+                                    validators=[
+                                        self.validator.related_local_date_lte_validator(
+                                            field_name="eventDateEnd",
+                                            message="Data początkowa nie może być późniejsza niż data końcowa."
+                                        )
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Termin do",
+                                    name="eventDateEnd",
+                                    required=True,
+                                    validators=[
+                                        self.validator.related_local_date_gte_validator(
+                                            field_name="eventDateStart",
+                                            message="Data końcowa nie może być wcześniejsza niż data początkowa."
+                                        )
+                                    ]
                                 )
                             ]
                         )
@@ -83,35 +87,39 @@ class ApplicationNameData(Section):
     def country_and_city_of_events(self, number: str):
         return self.create_chapter(
             title=f"{number}. Miasto i kraj, w którym odbywa sie wydarzenie",
-            multiple_forms_rules={
-                "minCount": 1,
-                "maxCount": 20
-            },
             components=[
                 self.create_chapter(
-                    title="Lokalizacja",
-                    class_list={
-                        "main": [
-                            "table-1-2",
-                            "grid",
-                            "grid-cols-2"
-                        ],
-                        "sub": [
-                            "table-1-2__col"
-                        ]
+                    multiple_forms_rules={
+                        "minCount": 1,
+                        "maxCount": 20
                     },
                     components=[
-                        self.create_component(
-                            component_type="country",
-                            label="Kraj",
-                            name="eventCountry",
-                            required=True
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            label="Miasto",
-                            name="eventLocation",
-                            required=True
+                        self.create_chapter(
+                            title="Lokalizacja",
+                            class_list={
+                                "main": [
+                                    "table-1-2",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="country",
+                                    label="Kraj",
+                                    name="eventCountry",
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Miasto",
+                                    name="eventLocation",
+                                    required=True
+                                )
+                            ]
                         )
                     ]
                 )

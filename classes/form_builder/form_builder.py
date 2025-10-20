@@ -2,7 +2,6 @@ from typing import ClassVar
 import json
 from pathlib import Path
 from ..form_components import Part, Component, Section
-from .additional.decorators import not_implemented_func
 from ..form_factory.form_factory import FormFactory
 from classes.types import *
 
@@ -17,35 +16,36 @@ class FormBuilder(FormFactory):
     YEAR: YearType = 2026
     SESSION: ClassVar[SessionType] = 'I'
     FORM_ID: int
+    MAIN_DIR = Path(__file__).resolve().parents[2]
 
     def __init__(self) -> None:
         super().__init__()
 
         self.json_type = self.JSON_TYPE
+
+        self.form_id = self.FORM_ID
+        self.year = self.YEAR
+        self.session = self.SESSION
+
         self.department_name = self.DEPARTMENT_NAME
         self.operation_name = self.OPERATION_NAME
         self.operation_num = self.OPERATION_NUM
         self.priority_name = self.PRIORITY_NAME
         self.priority_num = self.PRIORITY_NUM
-        self.year = self.YEAR
-        self.session = self.SESSION
-        self.form_id = self.FORM_ID
 
-        self.main_dir = Path(__file__).resolve().parents[2]
+        self.intro_text = [""]
+
+        self.main_dir = self.MAIN_DIR
         self.data_path = self.main_dir / 'data'
         self.main_dir.mkdir(parents=True, exist_ok=True)
-        self.output_file = self._prepare_output_path()
+        self.application_data_path = self.data_path / 'application'
+        self.report_data_path = self.data_path / 'report'
 
-        self.output_json: dict = {}
-        self.parts = []
-        self.names = set()
+        self.output_file = self._prepare_output_path()
 
         self.part = Part()
         self.section = Section()
         self.component = Component()
-
-        self.application_data_path = self.data_path / 'application'
-        self.report_data_path = self.data_path / 'report'
 
     def _prepare_output_path(self):
         output_file_name = (
@@ -57,6 +57,7 @@ class FormBuilder(FormFactory):
             / 'json'
             / str(self.year)
             / self.department_name
+            / f"session_{self.helpers.roman_to_int(self.session):02}"
             / self.json_type
             / output_file_name
         )
@@ -70,13 +71,19 @@ class FormBuilder(FormFactory):
 
         print(f'JSON zapisany do {self.output_file}')
 
-    @not_implemented_func
     def generate(self):
-        pass
+        self.create_base()
 
-    @not_implemented_func
+        index = 0
+
+        for part in self.parts:
+            index += 1
+            part(number=index)
+
+        self.save_output()
+
     def create_base(self):
-        pass
+        self.output_json = self.create_form(intro_text=self.intro_text)
 
     @staticmethod
     def load_json(path: str):

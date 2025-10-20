@@ -55,7 +55,21 @@ class Validator:
             "RelatedDateOffsetValidator",
             "CheckboxTrueDateLTEToday",
             "RelatedConditionRatioValidator",
-            "RelatedConditionRangeValidator"
+            "RelatedConditionRangeValidator",
+            "RelatedLocalDivisionValidator",
+            "RelatedEqualityValidator",
+            "RelatedLocalEqualityValidator",
+            "RelatedNumericEqualityValidator",
+            "RelatedDateIncrementValidator",
+            "RelatedMapValidator",
+            "RelatedBooleanSumValidator",
+            "RelatedSumOfWeightsValidator",
+            "RelatedLastDateValidator",
+            "RelatedEqualIfInRangeValidator",
+            "RelatedEmptyIfValidator",
+            "RelatedFractionValidator",
+            "RelatedAnyOfValidator",
+            "RelatedUniqueValueValidator"
         ]
 
     @staticmethod
@@ -64,6 +78,10 @@ class Validator:
         Walidator sprawdza długość tekstu (min-max).
         """
 
+        result = {
+            "name": "LengthValidator",
+        }
+
         if min_value is None and max_value is None:
             raise ValueError("Musisz podać co najmniej jedną wartość: min_value lub max_value")
 
@@ -71,39 +89,37 @@ class Validator:
         if min_value is not None and min_value > 0:
             kwargs["min"] = min_value
         if max_value is not None and max_value > 0:
-            kwargs["max"] = max_value + 1
-        if min_value is not None and min_value > 0 and max_value is not None and max_value > 0:
-            default_msg = f"Ilość znaków musi zawierać się w przedziale od {min_value} do {max_value}."
-        elif min_value is not None and min_value > 0:
-            default_msg = f"Ilość znaków musi wynosić co najmniej {min_value}."
-        elif max_value is not None and max_value > 0:
-            default_msg = f"Ilość znaków nie może przekroczyć {max_value}."
-        else:
-            default_msg = "Nieprawidłowe ograniczenia długości tekstu."
+            kwargs["max"] = max_value
 
-        return {
-            "name": "LengthValidator",
-            "kwargs": kwargs,
-            "validationMsg": message if message is not None else default_msg,
-        }
+        result["kwargs"] = kwargs
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
 
     @staticmethod
-    def required_validator():
+    def required_validator(message: str = None):
         """
         Walidator oznacza komponent jako obowiązkowy.
         """
 
-        return {
+        result = {
             "name": "RequiredValidator"
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def related_required_if_equal_validator(field_name: str, value: str):
+    def related_required_if_equal_validator(field_name: str, value: str, message: str = None):
         """
         Walidator oznacza komponent jako obowiązkowy po spełnieniu warunku.
         """
 
-        return {
+        result = {
             "name": "RelatedRequiredIfEqualValidator",
             "kwargs": {
                 "field_name": field_name,
@@ -111,124 +127,176 @@ class Validator:
             }
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def phone_number_validator():
+    def phone_number_validator(message: str = None):
         """
         Walidator sprawdza poprawność numeru telefonu komórkowego.
         """
 
-        return {
+        result = {
             "name": "PhoneNumberValidator",
-            "validationMsg": "Wprowadź numer telefonu w formie: +kod kraju oraz pozostałe cyfry numeru. Dla numeru polskiego przykładowo +48123456789."
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def email_validator():
+    def email_validator(message: str = None):
         """
         Walidator sprawdza poprawność adresu mailowego.
         """
 
-        return {
+        result = {
             "name": "EmailValidator",
-            "validationMsg": "Podaj prawidłowy adres email."
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def pesel_validator():
+    def pesel_validator(message: str = None):
         """
         Walidator sprawdza poprawność numeru PESEL.
         """
 
-        return {
+        result = {
             "name": "PeselValidator"
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def iban_validator():
+    def iban_validator(message: str = None):
         """
         Walidator sprawdza poprawność numeru IBAN.
         """
 
-        return {
+        result = {
             "name": "IBANValidator"
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def swift_validator():
+    def swift_validator(message: str = None):
         """
         Walidator sprawdza poprawność numeru Swift.
         """
 
-        return {
+        result = {
             "name": "SwiftValidator"
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def regon_validator():
+    def regon_validator(message: str = None):
         """
         Walidator sprawdza poprawność numeru REGON.
         """
 
-        return {
+        result = {
             "name": "RegonValidator",
-            "validationMsg": "Niepoprawny numer REGON."
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def bank_account_validator():
+    def bank_account_validator(message: str = None):
         """
         Walidator sprawdza poprawność numeru konta bankowego.
         """
 
-        return {
+        result = {
             "name": "LengthValidator",
             "kwargs": {
                 "min": 26,
-                "max": 27
+                "max": 26
             },
             "validationMsg": "Numer konta bankowego musi liczyć 26 cyfr."
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def nip_validator():
+    def nip_validator(message: str = None):
         """
         Walidator sprawdza poprawność numeru NIP.
         """
 
-        return {
+        result = {
             "name": "LengthValidator",
             "kwargs": {
-                "min": 9,
-                "max": 11
+                "min": 10,
+                "max": 10
             },
             "validationMsg": "Niepoprawny numer NIP."
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def related_local_sum_validator(field_names: List[str]):
+    def related_local_sum_validator(field_names: List[str], message: str = None):
         """
         Walidator sprawdza poprawność sumy wartości (lokalnie).
         """
 
-        return {
+        result = {
             "name": "RelatedLocalSumValidator",
             "kwargs": {
                 "field_names": field_names
             }
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def related_sum_validator(field_names: List[str]):
+    def related_sum_validator(field_names: List[str], message: str = None):
         """
         Walidator sprawdza poprawność sumy wartości.
         """
 
-        return {
+        result = {
             "name": "RelatedSumValidator",
             "kwargs": {
                 "field_names": field_names
             }
         }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
 
     @staticmethod
     def range_validator(min_value: int | float = None, max_value: int | float = None, message: str = None):
@@ -268,21 +336,17 @@ class Validator:
         Walidator sprawdza, czy wybrana opcja jest jedną z możliwych do wyboru.
         """
 
+        result = {
+            "name": "ExactValidator",
+            "kwargs": {
+                "values": values,
+            },
+        }
+
         if message:
-            return {
-                "name": "ExactValidator",
-                "kwargs": {
-                    "values": values,
-                    "validationMsg": message
-                }
-            }
-        else:
-            return {
-                "name": "ExactValidator",
-                "kwargs": {
-                    "values": values,
-                }
-            }
+            result["validationMsg"] = message
+
+        return result
 
     @staticmethod
     def related_fraction_gte_validator(field_name: str, ratio: float, message: str = None):
@@ -294,7 +358,7 @@ class Validator:
             "name": "RelatedFractionGTEValidator",
             "kwargs": {
                 "field_name": field_name,
-                "ratio": ratio
+                "ratio": ratio,
             }
         }
 
@@ -313,7 +377,7 @@ class Validator:
             "name": "RelatedFractionLTEValidator",
             "kwargs": {
                 "field_name": field_name,
-                "ratio": ratio
+                "ratio": ratio,
             }
         }
 
@@ -323,12 +387,12 @@ class Validator:
         return result
 
     @staticmethod
-    def related_share_validator(dividend: str, divisor: str):
+    def related_share_validator(dividend: str, divisor: str, message: str = None):
         """
         Walidator sprawdza, czy wartość udziału jest poprawna.
         """
 
-        return {
+        result = {
             "name": "RelatedShareValidator",
             "kwargs": {
                 "dividend": dividend,
@@ -336,33 +400,46 @@ class Validator:
             }
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def related_local_date_lte_validator(field_name: str, message: str):
+    def related_local_date_lte_validator(field_name: str, message: str = None):
         """
         Walidator sprawdza, czy wartość daty jest mniejsza lub równa wartości daty innego pola.
         """
 
-        return {
+        result = {
             "name": "RelatedLocalDateLTEValidator",
             "kwargs": {
                 "field_name": field_name
-            },
-            "validationMsg": message if message else f"Podana data musi być wcześniejsza niż data z pola '{field_name}.'"
+            }
         }
 
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
     @staticmethod
-    def related_local_date_gte_validator(field_name: str, message: str):
+    def related_local_date_gte_validator(field_name: str, message: str = None):
         """
         Walidator sprawdza, czy wartość daty jest większa lub równa wartości daty innego pola.
         """
 
-        return {
+        result = {
             "name": "RelatedLocalDateGTEValidator",
             "kwargs": {
                 "field_name": field_name
-            },
-            "validationMsg": message if message else f"Podana data musi być pożniejsza niż data z pola '{field_name}.'"
+            }
         }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
 
     @staticmethod
     def related_allowed_options_validator(field_name: str, mapping: Dict[str, List[str]]):
@@ -421,7 +498,7 @@ class Validator:
         }
 
     @staticmethod
-    def related_date_lte_validator(field_name: str, message: str):
+    def related_date_lte_validator(field_name: str, message: str = None):
         """
         Walidator sprawdza, czy podana data jest wcześniejsza niż data ze wskazanego pola.
         """
@@ -431,11 +508,11 @@ class Validator:
             "kwargs": {
                 "field_name": field_name
             },
-            "validationMsg": message if message else f"Podana data musi być wcześniejsza niż data z pola '{field_name}.'"
+            "validationMsg": message
         }
 
     @staticmethod
-    def related_date_gte_validator(field_name: str, message: str):
+    def related_date_gte_validator(field_name: str, message: str = None):
         """
         Walidator sprawdza, czy podana data jest późniejsza niż data ze wskazanego pola.
         """
@@ -445,18 +522,18 @@ class Validator:
             "kwargs": {
                 "field_name": field_name
             },
-            "validationMsg": message if message else f"Podana data musi być pożniejsza niż data z pola '{field_name}.'"
+            "validationMsg": message
         }
 
     @staticmethod
-    def related_date_offset_validator(field_name: str, offset: int, message: str):
+    def related_date_offset_validator(field_name: str, offset: int, message: str = None):
         return {
             "name": "RelatedDateOffsetValidator",
             "kwargs": {
                 "field_name": field_name,
                 "offset": offset,
             },
-            "validationMsg": message if message else f"Dane wydarzenie nie może trwać dłużej niż {offset} dni."
+            "validationMsg": message
         }
 
     @staticmethod
@@ -494,3 +571,236 @@ class Validator:
                 "conditions": conditions
             }
         }
+
+    @staticmethod
+    def related_local_division_validator(dividend: str, divisor: str):
+        """
+        Walidator sprawdza, czy wartość udziału jest poprawna - lokalnie.
+        """
+
+        return {
+            "name": "RelatedLocalDivisionValidator",
+            "kwargs": {
+                "dividend": dividend,
+                "divisor": divisor
+            }
+        }
+
+    @staticmethod
+    def related_equality_validator(field_name: str, message: str = None):
+        """
+        Walidator sprawdza, czy wartość danego pola jest równa wartości innego pola.
+        """
+
+        return {
+            "name": "RelatedEqualityValidator",
+            "kwargs": {"field_name": field_name},
+            "validationMsg": message
+        }
+
+    @staticmethod
+    def related_local_equality_validator(field_name: str, message: str = None):
+        """
+        Walidator sprawdza, czy wartość danego pola jest równa wartości innego pola - lokalnie.
+        """
+
+        return {
+            "name": "RelatedLocalEqualityValidator",
+            "kwargs": {"field_name": field_name},
+            "validationMsg": message
+        }
+
+    @staticmethod
+    def related_numeric_equality_validator(field_name: str, message: str = None):
+        """
+        Walidator sprawdza, czy wartość numeryczna danego pola jest równa wartości innego pola - lokalnie.
+        """
+
+        return {
+            "name": "RelatedNumericEqualityValidator",
+            "kwargs": {"field_name": field_name},
+            "validationMsg": message
+        }
+
+    @staticmethod
+    def related_date_increment_validator(field_name: str, amount: int, message: str = None):
+        """
+        Walidator sprawdza, czy data jest równa dacie z danego pola + amount (liczba dni).
+        """
+
+        return {
+            "name": "RelatedDateIncrementValidator",
+            "kwargs": {
+                "field_name": field_name,
+                "amount": amount
+            },
+            "validationMsg": message
+        }
+
+    @staticmethod
+    def related_map_validator(field_name: str, mapping: dict, message: str = None):
+        """
+        Walidator sprawdza, czy wartość pola odpowiada wartości zdefiniowanej dla wybranej opcji innego pola.
+        """
+
+        return {
+            "name": "RelatedMapValidator",
+            "kwargs": {
+                "field_name": field_name,
+                "mapping": mapping,
+            },
+            "validationMsg": message
+        }
+
+    @staticmethod
+    def related_boolean_sum_validator(field_names: list[str], message: str = None):
+        """
+        Walidator sprawdza, czy co najmniej jedna z badanych wartości jest prawdziwa.
+        Jeśli tak, wymaga, aby wartość komponentu również była prawdziwa.
+        Jeżeli natomiast żadna z badanych wartości nie jest prawdziwa, walidator wymaga, aby wartość komponentu była fałszywa.
+        """
+
+        return {
+            "name": "RelatedBooleanSumValidator",
+            "kwargs": {
+                "field_names": field_names,
+            },
+            "validationMsg": message
+        }
+
+    @staticmethod
+    def related_sum_of_weights_validator(weights: dict[str, float], message: str = None):
+        """
+        Walidator sprawdza, czy dana wartość jest równa wartości po spełnieniu wszystkich warunków.
+        """
+
+        return {
+            "name": "RelatedSumOfWeightsValidator",
+            "kwargs": {
+                "weights": weights,
+            },
+            "validationMsg": message
+        }
+
+    @staticmethod
+    def related_last_date_validator(field_name: str, message: str = None):
+        """
+        Walidator sprawdza, czy data jest większa lub równa najpóźniejszej dacie z danego pola.
+        """
+
+        result = {
+            "name": "RelatedLastDateValidator",
+            "kwargs": {
+                "field_name": field_name,
+            }
+        }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
+    @staticmethod
+    def related_equal_if_in_range_validator(field_name: str, required_value: Any, min_value: float = None, max_value: float = None, message: str = None):
+        """
+
+        """
+
+        kwargs = {
+            "field_name": field_name,
+            "required_value": required_value,
+        }
+
+        if min_value:
+            kwargs["min"] = min_value
+        if max_value:
+            kwargs["max"] = max_value
+
+        result = {
+            "name": "RelatedEqualIfInRangeValidator",
+            "kwargs": kwargs,
+        }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
+    @staticmethod
+    def related_empty_if_validator(field_name: str, message: str = None):
+        """
+
+        """
+
+        result = {
+            "name": "RelatedEmptyIfValidator",
+            "kwargs": {
+                "field_name": field_name,
+            }
+        }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
+    @staticmethod
+    def related_fraction_validator(field_name: str, ratio: float, max_value: float = None, message: str = None):
+        """
+
+        """
+
+        result = {
+            "name": "RelatedFractionValidator",
+            "kwargs": {
+                "field_name": field_name,
+                "ratio": ratio,
+            }
+        }
+
+        if max_value:
+            result["kwargs"]["max"] = max_value
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
+    @staticmethod
+    def related_any_of_validator(field_names: list[str], message: str = None):
+        """
+
+        """
+
+        result = {
+            "name": "RelatedAnyOfValidator",
+            "kwargs": {
+                "field_names": field_names,
+            }
+        }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
+    @staticmethod
+    def related_unique_value_validator(field_name: str, normalize: bool = None, message: str = None):
+        """
+        Walidator sprawdza, czy wartość w polach o danej nazwie jest unikalna.
+        """
+
+        result = {
+            "name": "RelatedUniqueValueValidator",
+            "kwargs": {
+                "field_name": field_name,
+            }
+        }
+
+        if normalize:
+            result["kwargs"]["normalize"] = normalize
+
+        if message:
+            result["validationMsg"] = message
+
+        return result

@@ -1,17 +1,16 @@
 from ..application_builder import DWMApplicationBuilder2026
-from .priority import PromotionPriority
+from ..priority import PromotionPriority
 
 
 class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
-    FORM_ID = 9192
+    FORM_ID = 28
 
     def __init__(self):
         super().__init__()
 
-    def create_application_metadata(self):
+    def create_application_metadata(self, number: int):
         part = self.create_part(
-            title="I. Metadane wniosku",
-            short_name="I. Metadane wniosku",
+            title=f"{self.helpers.int_to_roman(number)}. Metadane wniosku",
             chapters=[
                 self.create_chapter(
                     title="1. Program",
@@ -56,10 +55,10 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
         )
         self.save_part(part=part)
 
-    def create_application_name_data(self):
+    def create_application_name_data(self, number: int):
         part = self.create_part(
-            title="II. Nazwa przedsięwzięcia, którego dotyczy wniosek",
-            short_name="II. Nazwa przedsięwzięcia",
+            title=f"{self.helpers.int_to_roman(number)}. Nazwa przedsięwzięcia, którego dotyczy wniosek",
+            short_name=f"{self.helpers.int_to_roman(number)}. Nazwa przedsięwzięcia",
             chapters=[
                 self.section.application_name_data.application_task_name(number="1"),
                 self.section.application_name_data.events_names_and_dates(number="2"),
@@ -149,10 +148,9 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
         )
         self.save_part(part=part)
 
-    def create_application_applicant_data(self):
+    def create_application_applicant_data(self, number: int):
         part = self.create_part(
-            title="III. Informacje o wnioskodawcy",
-            short_name="III. Informacje o wnioskodawcy",
+            title=f"{self.helpers.int_to_roman(number)}. Informacje o wnioskodawcy",
             chapters=[
                 self.section.applicant_name(number="1"),
                 self.section.eligible_person_data(number="2"),
@@ -166,10 +164,10 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
         )
         self.save_part(part=part)
 
-    def create_application_applicant_achievements_data(self):
+    def create_application_applicant_achievements_data(self, number: int):
         part = self.create_part(
-            title="IV. Dotychczasowy dorobek i doświadczenie wnioskodawcy w dziedzinie, której wniosek dotyczy",
-            short_name="IV. Dorobek wnioskodawcy",
+            title=f"{self.helpers.int_to_roman(number)}. Dotychczasowy dorobek i doświadczenie wnioskodawcy w dziedzinie, której wniosek dotyczy",
+            short_name=f"{self.helpers.int_to_roman(number)}. Dorobek wnioskodawcy",
             chapters=[
                 self.create_chapter(
                     title="1. Czy Wnioskodawca realizował już przedsięwzięćie w dziedzienie, której wniosek dotyczy?",
@@ -250,10 +248,10 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
         )
         self.save_part(part=part)
 
-    def create_application_description_of_the_project_data(self):
+    def create_application_description_of_the_project_data(self, number: int):
         part = self.create_part(
-            title="V. Opis zaplanowanego przedsięwzięcia",
-            short_name="V. Opis przedsięwzięcia",
+            title=f"{self.helpers.int_to_roman(number)}. Opis zaplanowanego przedsięwzięcia",
+            short_name=f"{self.helpers.int_to_roman(number)}. Opis przedsięwzięcia",
             chapters=[
                 self.create_chapter(
                     components=[
@@ -341,10 +339,9 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
         )
         self.save_part(part=part)
 
-    def create_application_other_information_data(self):
+    def create_application_other_information_data(self, number: int):
         part = self.create_part(
-            title="VIII. Inne informacje",
-            short_name="VIII. Inne informacje",
+            title=f"{self.helpers.int_to_roman(number)}. Inne informacje",
             chapters=[
                 self.create_chapter(
                     visibility_rules=[
@@ -442,10 +439,10 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
         )
         self.save_part(part=part)
 
-    def create_application_financial_data(self):
+    def create_application_financial_data(self, number: int):
         part = self.create_part(
-            title="IX. Koszty planowanego przedsięwzięcia",
-            short_name="IX. Koszty przedsięwzięcia",
+            title=f"{self.helpers.int_to_roman(number)}. Koszty planowanego przedsięwzięcia",
+            short_name=f"{self.helpers.int_to_roman(number)}. Koszty przedsięwzięcia",
             class_list=[
                 "full-width-grid"
             ],
@@ -485,148 +482,156 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                             title="1. Koszty wg źródeł finansowania",
                             class_list={
                                 "main": [
-                                    "table-6-top"
+                                    "table-6-top",
                                 ],
                                 "sub": [
-                                    "table-6-top__col"
+                                    "table-6-top__col",
                                 ]
-                            },
-                            multiple_forms_rules={
-                                "minCount": 1,
-                                "maxCount": 20
                             },
                             components=[
                                 self.create_chapter(
-                                    title="Koszt",
-                                    class_list={
-                                        "main": [
-                                            "table-6",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-6__col"
-                                        ]
+                                    multiple_forms_rules={
+                                        "minCount": 1,
+                                        "maxCount": 20
                                     },
                                     components=[
-                                        self.create_component(
-                                            component_type="textarea",
-                                            label="Rodzaj kosztów",
-                                            name="costType",
-                                            validators=[
-                                                self.validator.length_validator(max_value=200)
-                                            ],
-                                            class_list=[
-                                                "col-span-2"
-                                            ]
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            mask="fund",
-                                            label="Koszt całkowity",
-                                            name="costTotal",
-                                            read_only=True,
-                                            unit="PLN",
-                                            calculation_rules=[
-                                                self.calculation_rule.local_sum(
-                                                    fields=[
-                                                        "costRequestPisf",
-                                                        "costOwnFunds",
-                                                        "costPartnersSponsors",
-                                                        "costOtherSources"
+                                        self.create_chapter(
+                                            title="Koszt",
+                                            class_list={
+                                                "main": [
+                                                    "table-6",
+                                                    "grid",
+                                                    "grid-cols-2",
+                                                ],
+                                                "sub": [
+                                                    "table-6__col",
+                                                ]
+                                            },
+                                            components=[
+                                                self.create_component(
+                                                    component_type="textarea",
+                                                    label="Rodzaj kosztów",
+                                                    name="costType",
+                                                    validators=[
+                                                        self.validator.length_validator(max_value=200)
+                                                    ],
+                                                    class_list=[
+                                                        "col-span-2"
                                                     ]
-                                                )
-                                            ],
-                                            validators=[
-                                                self.validator.related_local_sum_validator(
-                                                    field_names=[
-                                                        "costRequestPisf",
-                                                        "costOwnFunds",
-                                                        "costPartnersSponsors",
-                                                        "costOtherSources"
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    label="Koszt całkowity",
+                                                    name="costTotal",
+                                                    read_only=True,
+                                                    unit="PLN",
+                                                    calculation_rules=[
+                                                        self.calculation_rule.local_sum(
+                                                            fields=[
+                                                                "costRequestPisf",
+                                                                "costOwnFunds",
+                                                                "costPartnersSponsors",
+                                                                "costOtherSources"
+                                                            ]
+                                                        )
+                                                    ],
+                                                    validators=[
+                                                        self.validator.related_local_sum_validator(
+                                                            field_names=[
+                                                                "costRequestPisf",
+                                                                "costOwnFunds",
+                                                                "costPartnersSponsors",
+                                                                "costOtherSources"
+                                                            ]
+                                                        )
                                                     ]
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    label="Wniosek o dotację PISF",
+                                                    name="costRequestPisf",
+                                                    unit="PLN"
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    label="Środki własne",
+                                                    name="costOwnFunds",
+                                                    unit="PLN"
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    label="Środki innych partnerów/sponsorów",
+                                                    name="costPartnersSponsors",
+                                                    unit="PLN"
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    label="Pozostałe źródła publiczne",
+                                                    name="costOtherSources",
+                                                    unit="PLN"
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    label="Udział wnioskowanej dotacji PISF we wskazanym rodzaju kosztów",
+                                                    name="costRequestPisfShare",
+                                                    unit="%",
+                                                    calculation_rules=[
+                                                        self.calculation_rule.local_share_calculator(
+                                                            dividend_field="costRequestPisf",
+                                                            divisor_field="costTotal"
+                                                        )
+                                                    ],
+                                                    read_only=True
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    label="Udział środków własnych we wskazanym rodzaju kosztów",
+                                                    name="costOwnFundsShare",
+                                                    unit="%",
+                                                    calculation_rules=[
+                                                        self.calculation_rule.local_share_calculator(
+                                                            dividend_field="costOwnFunds",
+                                                            divisor_field="costTotal"
+                                                        )
+                                                    ],
+                                                    read_only=True
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    label="Udział środków od partnerów/sponsorów we wskazanym rodzaju kosztów",
+                                                    name="costPartnersSponsorsShare",
+                                                    unit="%",
+                                                    calculation_rules=[
+                                                        self.calculation_rule.local_share_calculator(
+                                                            dividend_field="costPartnersSponsors",
+                                                            divisor_field="costTotal"
+                                                        )
+                                                    ],
+                                                    read_only=True
+                                                ),
+                                                self.create_component(
+                                                    component_type="text",
+                                                    mask="fund",
+                                                    label="Udział innych środków publicznych we wskazanym rodzaju kosztów",
+                                                    name="costOtherSourcesShare",
+                                                    unit="%",
+                                                    calculation_rules=[
+                                                        self.calculation_rule.local_share_calculator(
+                                                            dividend_field="costOtherSources",
+                                                            divisor_field="costTotal"
+                                                        )
+                                                    ],
+                                                    read_only=True
                                                 )
                                             ]
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            mask="fund",
-                                            label="Wniosek o dotację PISF",
-                                            name="costRequestPisf",
-                                            unit="PLN"
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            mask="fund",
-                                            label="Środki własne",
-                                            name="costOwnFunds",
-                                            unit="PLN"
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            mask="fund",
-                                            label="Środki innych partnerów/sponsorów",
-                                            name="costPartnersSponsors",
-                                            unit="PLN"
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            mask="fund",
-                                            label="Pozostałe źródła publiczne",
-                                            name="costOtherSources",
-                                            unit="PLN"
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Udział wnioskowanej dotacji PISF we wskazanym rodzaju kosztów",
-                                            name="costRequestPisfShare",
-                                            unit="%",
-                                            calculation_rules=[
-                                                self.calculation_rule.local_share_calculator(
-                                                    dividend_field="costRequestPisf",
-                                                    divisor_field="costTotal"
-                                                )
-                                            ],
-                                            read_only=True
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Udział środków własnych we wskazanym rodzaju kosztów",
-                                            name="costOwnFundsShare",
-                                            unit="%",
-                                            calculation_rules=[
-                                                self.calculation_rule.local_share_calculator(
-                                                    dividend_field="costOwnFunds",
-                                                    divisor_field="costTotal"
-                                                )
-                                            ],
-                                            read_only=True
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Udział środków od partnerów/sponsorów we wskazanym rodzaju kosztów",
-                                            name="costPartnersSponsorsShare",
-                                            unit="%",
-                                            calculation_rules=[
-                                                self.calculation_rule.local_share_calculator(
-                                                    dividend_field="costPartnersSponsors",
-                                                    divisor_field="costTotal"
-                                                )
-                                            ],
-                                            read_only=True
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Udział innych środków publicznych we wskazanym rodzaju kosztów",
-                                            name="costOtherSourcesShare",
-                                            unit="%",
-                                            calculation_rules=[
-                                                self.calculation_rule.local_share_calculator(
-                                                    dividend_field="costOtherSources",
-                                                    divisor_field="costTotal"
-                                                )
-                                            ],
-                                            read_only=True
                                         )
                                     ]
                                 )
@@ -751,10 +756,6 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                                     field_names=[
                                                         "costOwnFunds"
                                                     ]
-                                                ),
-                                                self.validator.related_fraction_lte_validator(
-                                                    field_name="costTotalSum",
-                                                    ratio=0.1
                                                 )
                                             ]
                                         ),
@@ -817,7 +818,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                     },
                                     components=[
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział wnioskodawnej dotacji PISF w kosztach razem",
                                             name="costRequestPisfSumShare",
                                             calculation_rules=[
@@ -866,7 +868,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                             unit="%"
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział środków własnych w kosztach razem",
                                             name="costOwnFundsSumShare",
                                             calculation_rules=[
@@ -885,7 +888,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                             unit="%"
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział środków innych partnerów/sponsorów w kosztach razem",
                                             name="costPartnersSponsorsSumShare",
                                             calculation_rules=[
@@ -898,7 +902,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                                             unit="%"
                                         ),
                                         self.create_component(
-                                            component_type="number",
+                                            component_type="text",
+                                            mask="fund",
                                             label="Udział innych środków publicznych w kosztach razem",
                                             name="costOtherSourcesSumShare",
                                             calculation_rules=[
@@ -922,7 +927,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
         )
         self.save_part(part=part)
 
-    def create_application_statements(self):
+    def create_application_statements(self, number: int):
         component_defs = [
             {
                 "label": "2. Oświadczam, iż posiadam zasoby rzeczowe, finansowe i kadrowe niezbędne do realizacji przedsięwzięcia.",
@@ -955,8 +960,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
         ]
 
         part = self.create_part(
-            title="X. Oświadczenia wnioskodawcy",
-            short_name="X. Oświadczenia",
+            title=f"{self.helpers.int_to_roman(number)}. Oświadczenia wnioskodawcy",
+            short_name=f"{self.helpers.int_to_roman(number)}. Oświadczenia",
             chapters=[
                 self.create_chapter(
                     title="1. Oświadczam, że przesięwzięcie ma charakter (można podać kilka):",
@@ -1029,25 +1034,29 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
         )
         self.save_part(part=part)
 
-    def create_application_attachments(self):
+    def create_application_attachments(self, number: int):
         part = self.create_part(
-            title="XI. Obowiązkowe załączniki zgodnie z rodzajem przedsięwzięcia",
-            short_name="XI. Załączniki",
+            title=f"{self.helpers.int_to_roman(number)}. Obowiązkowe załączniki zgodnie z rodzajem przedsięwzięcia",
+            short_name=f"{self.helpers.int_to_roman(number)}. Załączniki",
             chapters=[
                 self.create_chapter(
                     title="Deklaracje wkładu finansowego/rzeczowego lub listy intencyjne partnerów (dotyczy wszystkich rodzajów przedsięwzięć)",
-                    multiple_forms_rules={
-                        "minCount": 1,
-                        "maxCount": 20
-                    },
                     components=[
                         self.create_chapter(
-                            title="Plik",
+                            multiple_forms_rules={
+                                "minCount": 1,
+                                "maxCount": 20
+                            },
                             components=[
-                                self.create_component(
-                                    component_type="file",
-                                    name="inputAttachments",
-                                    required=True
+                                self.create_chapter(
+                                    title="Plik",
+                                    components=[
+                                        self.create_component(
+                                            component_type="file",
+                                            name="inputAttachments",
+                                            required=True
+                                        )
+                                    ]
                                 )
                             ]
                         )
@@ -1096,10 +1105,10 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
         )
         self.save_part(part=part)
 
-    def create_application_schedule_data(self):
+    def create_application_schedule_data(self, number: int):
         part = self.create_part(
-            title="XII. Harmonogram realizacji przedsięwzięcia",
-            short_name="XII. Harmonogram",
+            title=f"{self.helpers.int_to_roman(number)}. Harmonogram realizacji przedsięwzięcia",
+            short_name=f"{self.helpers.int_to_roman(number)}. Harmonogram",
             chapters=[
                 self.create_chapter(
                     title="Nazwa przedsięwzięcia",

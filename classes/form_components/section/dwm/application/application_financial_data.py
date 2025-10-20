@@ -88,6 +88,11 @@ class ApplicationFinancialData(Section):
                                     field_names=[
                                         "otherPartnersSponsorsAmount"
                                     ]
+                                ),
+                                self.validator.related_sum_validator(
+                                    field_names=[
+                                        "costPartnersSponsorsSum"
+                                    ]
                                 )
                             ],
                             unit="PLN"
@@ -179,6 +184,11 @@ class ApplicationFinancialData(Section):
                                 self.validator.related_sum_validator(
                                     field_names=[
                                         "otherSourcesAmount"
+                                    ]
+                                ),
+                                self.validator.related_sum_validator(
+                                    field_names=[
+                                        "costOtherSourcesSum"
                                     ]
                                 )
                             ],

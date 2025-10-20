@@ -7,6 +7,7 @@ class FormChapter(FormElement):
     def __init__(
             self,
             title: str = '',
+            help_text: str = None,
             class_list: ClassListType = None,
             visibility_rules: list[dict] = None,
             components: list[dict] = None,
@@ -16,6 +17,7 @@ class FormChapter(FormElement):
         super().__init__(kind="chapter")
 
         self.title = title
+        self.help_text = help_text
         self.class_list = class_list
         self.visibility_rules = visibility_rules
         self.components = components or []
@@ -32,9 +34,6 @@ class FormChapter(FormElement):
                 raise ValueError("Nie można mieszać chapterów i componentów w jednym zbiorze 'components'")
 
         if self.multiple_forms_rules:
-            if self.multiple_forms_rules.get("maxCount", 1) > 5:
-                self.is_paginated = True
-
             mf_min_count = self.multiple_forms_rules.get("minCount", 1)
 
             if len(self.components) == 0:
@@ -63,6 +62,8 @@ class FormChapter(FormElement):
             "components": self.components,
         }
 
+        if self.help_text:
+            kwargs["helpText"] = self.help_text
         if self.class_list:
             kwargs["classList"] = self.class_list
         if self.visibility_rules:

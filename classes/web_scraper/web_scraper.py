@@ -5,22 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
 import os
-from functools import wraps
-
-
-def delay_after(seconds=3):
-    def decorator(func):
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            result = func(*args, **kwargs)
-            time.sleep(seconds)
-            return result
-
-        return wrapper
-
-    return decorator
 
 
 class LoginData(TypedDict):
@@ -35,58 +20,57 @@ class WebScraper:
 
         self.options = Options()
         self.options.headless = headless
+
+        self.options.set_preference("permissions.default.image", 2)
         self.driver = webdriver.Firefox(options=self.options)
+        self.driver.implicitly_wait(0)
+
+        self.wait = WebDriverWait(self.driver, 1)
 
     def go_to_page(self, url: str, wait_for: str = None):
         self.driver.get(url)
         if wait_for:
-            WebDriverWait(self.driver, 10).until(
+            self.wait.until(
                 EC.text_to_be_present_in_element((By.TAG_NAME, "body"), wait_for)
             )
         else:
-            WebDriverWait(self.driver, 10).until(
+            self.wait.until(
                 EC.presence_of_element_located((By.TAG_NAME, "body"))
             )
 
-    def close_introjs(self):
-        while True:
-            try:
-                tooltip = self.driver.find_element(By.CLASS_NAME, "introjs-tooltip")
-            except Exception:
-                break
-
-            try:
-                header = tooltip.find_element(By.CLASS_NAME, "introjs-tooltip-header")
-                skip_btn = header.find_element(By.CLASS_NAME, "introjs-skipbutton")
-                skip_btn.click()
-                time.sleep(1)
-            except Exception:
-                break
-
-    @delay_after(1)
     def login(self):
-        self.go_to_page(url=f"{self.base_url}/logowanie")
-        wait = WebDriverWait(self.driver, 10)
+        self.go_to_page(f"{self.base_url}/logowanie")
 
-        email_input = wait.until(EC.presence_of_element_located((By.NAME, "email.value")))
-        password_input = wait.until(EC.presence_of_element_located((By.NAME, "password.value")))
+        email_input = self.wait.until(EC.presence_of_element_located((By.NAME, "email.value")))
+        password_input = self.wait.until(EC.presence_of_element_located((By.NAME, "password.value")))
 
         email_input.send_keys(self.login_data["email"])
         password_input.send_keys(self.login_data["password"])
         password_input.send_keys(Keys.RETURN)
 
+    def handle_intro_modal(self):
+        try:
+            checkbox_label = WebDriverWait(self.driver, 1).until(
+                EC.presence_of_element_located((By.XPATH, "//label[.//span[contains(text(), 'NIE POKAZUJ WIĘCEJ')]]"))
+            )
+            checkbox = checkbox_label.find_element(By.TAG_NAME, "input")
+            if not checkbox.is_selected():
+                self.driver.execute_script("arguments[0].click();", checkbox)
+
+            button = self.driver.find_element(By.XPATH, "//button[contains(text(), 'Rozumiem')]")
+            self.driver.execute_script("arguments[0].click();", button)
+        except Exception:
+            pass
+
     def click_button_by_text(self, text: str):
         try:
-            WebDriverWait(self.driver, 1).until(
+            self.wait.until(
                 EC.presence_of_element_located((By.XPATH, f"//button[contains(text(), '{text}')]"))
             )
             buttons = self.driver.find_elements(By.XPATH, f"//button[contains(text(), '{text}')]")
             for button in buttons:
                 if button.is_displayed() and button.is_enabled():
-                    try:
-                        self.driver.execute_script("arguments[0].click();", button)
-                    except Exception as e:
-                        print(f"Nie udało się kliknąć przycisku '{text}':", e)
+                    self.driver.execute_script("arguments[0].click();", button)
                     break
         except Exception:
             pass
@@ -108,17 +92,22 @@ class WebScraper:
     def screenshot_pages_of_form(self, application: dict, output_path: str):
         form_id = application.form_id
         json_type = "wniosek" if application.json_type == "application" else "raport"
-        page = 0
 
         os.makedirs(output_path, exist_ok=True)
 
-        for part in application.parts:
-            self.go_to_page(
-                url=f"{self.base_url}/{json_type}/{form_id}/edycja?version=-1&strona={page}",
-                wait_for=part["title"]
-            )
-            self.click_button_by_text("Rozumiem")
+        for page, part in enumerate(application.parts):
+            try:
+                self.driver.get(f"{self.base_url}/{json_type}/{form_id}/edycja?version=-1&strona={page}")
+                WebDriverWait(self.driver, 1).until(
+                    EC.presence_of_element_located((By.XPATH, f"//*[contains(text(), '{part['title']}')]"))
+                )
+            except Exception:
+                pass
+
+            self.handle_intro_modal()
             self.click_button_by_text("Nie pokazuj więcej")
-            self.capture_screenshot(screen_size="full",
-                                    file_path=f"{output_path}/page_{page}.png")
-            page += 1
+
+            self.capture_screenshot(
+                screen_size="full",
+                file_path=f"{output_path}/page_{page}.png"
+            )
