@@ -137,7 +137,7 @@ class LiteratureApplicationBuilder(DisseminationApplicationBuilder, LiteraturePr
                     ]
                 ),
                 self.create_chapter(
-                    title="2. Podstawowe dane liczbowe i wskaźniki",
+                    title="2. Podstawowe dane liczbowe i planowane wskaźniki",
                     components=[
                         self.create_chapter(
                             visibility_rules=[
@@ -184,27 +184,43 @@ class LiteratureApplicationBuilder(DisseminationApplicationBuilder, LiteraturePr
                                 )
                             ],
                             components=[
-                                self.create_component(
-                                    component_type="number",
-                                    label="Przewidywany liczba odwiedzin (sesji) miesięcznie",
-                                    name="estimatedNumberOfVisitsMonthly",
-                                    unit="szt."
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Przewidywany liczba odwiedzin (sesji) miesięcznie",
+                                            name="estimatedNumberOfVisitsMonthly",
+                                            unit="szt."
+                                        ),
+                                        self.create_component(
+                                            component_type="radio",
+                                            label="Dostęp dla użytkowników jest",
+                                            name="accessForUsersType",
+                                            options=[
+                                                "Bezpłatny", "Płatny"
+                                            ],
+                                            required=True
+                                        ),
+                                    ]
                                 ),
-                                self.create_component(
-                                    component_type="radio",
-                                    label="Dostęp dla użytkowników jest",
-                                    name="accessForUsersType",
-                                    options=[
-                                        "Bezpłatny", "Płatny"
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="accessForUsersType",
+                                            values=[
+                                                "Płatny"
+                                            ]
+                                        )
                                     ],
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    mask="fund",
-                                    label="Planowane miesięczne wpływy ze sprzedaży",
-                                    name="plannedSalesRevenuesMonthly",
-                                    unit="PLN"
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Planowane miesięczne wpływy ze sprzedaży",
+                                            name="plannedSalesRevenuesMonthly",
+                                            unit="PLN"
+                                        )
+                                    ]
                                 )
                             ]
                         )
