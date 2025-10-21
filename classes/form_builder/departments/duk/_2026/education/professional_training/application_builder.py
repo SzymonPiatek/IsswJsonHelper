@@ -82,7 +82,7 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                                     component_type='textarea',
                                     name="plannedProjectType",
                                     validators=[
-                                        self.validator.length_validator(max_value=1000)
+                                        self.validator.length_validator(max_value=100)
                                     ],
                                     required=True,
                                     class_list=[
@@ -95,7 +95,7 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                                     label="Miejsce realizacji przedsięwzięcia",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=100
                                         )
                                     ],
                                     required=True,
@@ -114,7 +114,7 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                                     component_type="textarea",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=2000
                                         )
                                     ],
                                     required=True,
@@ -146,7 +146,7 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                                     name="marketLaborAnalysis",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1500
                                         )
                                     ],
                                     required=True,
@@ -162,7 +162,7 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                                     name="targetGroup",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1000
                                         )
                                     ],
                                     required=True,
@@ -178,7 +178,7 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                                     name="numberAndDiversityOfParticipants",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1000
                                         )
                                     ],
                                     required=True,
@@ -194,7 +194,7 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                                     name="applicantAndTeamExperience",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1500
                                         )
                                     ],
                                     required=True
@@ -210,7 +210,7 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                                     name="projectAccessibility",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1000
                                         )
                                     ],
                                     required=True

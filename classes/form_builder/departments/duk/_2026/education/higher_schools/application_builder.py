@@ -148,7 +148,7 @@ class HigherSchoolsApplicationBuilder(EducationApplicationBuilder, HigherSchools
                     title="2. Podstawowe dane liczbowe i prognozowane wskaźniki",
                     components=[
                         self.create_chapter(
-                            title="1. Prognozowana liczba studentów",
+                            title="Prognozowana liczba studentów",
                             class_list={
                                 "main": [
                                     "table-1-2",
@@ -175,7 +175,7 @@ class HigherSchoolsApplicationBuilder(EducationApplicationBuilder, HigherSchools
                             ]
                         ),
                         self.create_chapter(
-                            title="2. Liczba wyprodukowanych filmów",
+                            title="Liczba wyprodukowanych filmów",
                             components=[
                                 self.create_chapter(
                                     title="<normal>a) Filmy fabularne</normal>",

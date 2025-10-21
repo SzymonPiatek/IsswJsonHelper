@@ -47,7 +47,7 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                                     component_type='textarea',
                                     name="plannedProjectType",
                                     validators=[
-                                        self.validator.length_validator(max_value=1000)
+                                        self.validator.length_validator(max_value=100)
                                     ],
                                     required=True,
                                     class_list=[
@@ -60,7 +60,7 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                                     label="Miejsce realizacji przedsięwzięcia",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=100
                                         )
                                     ],
                                     required=True,
@@ -111,7 +111,7 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                                     name="targetGroup",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1000
                                         )
                                     ],
                                     required=True,
@@ -127,7 +127,7 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                                     name="numberAndDiversityOfParticipants",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1000
                                         )
                                     ],
                                     required=True,
@@ -143,7 +143,7 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                                     name="applicantAndTeamExperience",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1500
                                         )
                                     ],
                                     required=True
@@ -159,7 +159,7 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                                     name="projectAccessibility",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1000
                                         )
                                     ],
                                     required=True
@@ -175,7 +175,7 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                                     name="plannedEffectsOfProjectImplementation",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1000
                                         )
                                     ],
                                     required=True
@@ -188,7 +188,7 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                     title="2. Podstawowe dane liczbowe i wskaźniki",
                     components=[
                         self.create_chapter(
-                            title="<normal>1. Planowana liczba zajęć edukacyjnych</normal>",
+                            title="<normal>Planowana liczba zajęć edukacyjnych</normal>",
                             class_list={
                                 "main": [
                                     "table-1-2",
@@ -208,7 +208,7 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                             ]
                         ),
                         self.create_chapter(
-                            title="<normal>2. Prognozowana liczba uczestników</normal>",
+                            title="<normal>Prognozowana liczba uczestników</normal>",
                             class_list={
                                 "main": [
                                     "table-1-2",
@@ -253,7 +253,7 @@ class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
                             ]
                         ),
                         self.create_chapter(
-                            title="<normal>3. Planowana liczba szkół biorących udział w zajęciach</normal>",
+                            title="<normal>Planowana liczba szkół biorących udział w zajęciach</normal>",
                             class_list={
                                 "main": [
                                     "table-1-2",
