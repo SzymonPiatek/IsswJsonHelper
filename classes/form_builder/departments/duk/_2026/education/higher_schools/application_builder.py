@@ -39,7 +39,7 @@ class HigherSchoolsApplicationBuilder(EducationApplicationBuilder, HigherSchools
                                     component_type="textarea",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=2000
                                         )
                                     ],
                                     required=True,
@@ -55,7 +55,7 @@ class HigherSchoolsApplicationBuilder(EducationApplicationBuilder, HigherSchools
                                     name="offerEducationalValue",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=5000
+                                            max_value=3000
                                         )
                                     ],
                                     required=True,
@@ -71,7 +71,7 @@ class HigherSchoolsApplicationBuilder(EducationApplicationBuilder, HigherSchools
                                     name="laborMarketAnalysis",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1500
                                         )
                                     ],
                                     required=True,
@@ -87,7 +87,7 @@ class HigherSchoolsApplicationBuilder(EducationApplicationBuilder, HigherSchools
                                     name="applicantAndTeamExperience",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1500
                                         )
                                     ],
                                     required=True
@@ -103,7 +103,7 @@ class HigherSchoolsApplicationBuilder(EducationApplicationBuilder, HigherSchools
                                     name="numberAndDiversityOfStudents",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1000
                                         )
                                     ],
                                     required=True,
@@ -119,7 +119,7 @@ class HigherSchoolsApplicationBuilder(EducationApplicationBuilder, HigherSchools
                                     name="projectAccessibility",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1000
                                         )
                                     ],
                                     required=True
@@ -135,7 +135,7 @@ class HigherSchoolsApplicationBuilder(EducationApplicationBuilder, HigherSchools
                                     name="graduateProfile",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1000
                                         )
                                     ],
                                     required=True,
