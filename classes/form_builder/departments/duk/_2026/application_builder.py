@@ -1827,7 +1827,8 @@ class DUKApplicationBuilder2026(DUKApplicationBuilder):
                     ]
                 ),
                 self.create_chapter(
-                    title="3. Informacje uzupełniające",
+                    title="Informacje uzupełniające",
+                    help_text="Inne istotne informacje dotyczące finansowania przedsięwzięcia, nieuwzględnione powyżej.",
                     components=[
                         self.create_component(
                             component_type="textarea",

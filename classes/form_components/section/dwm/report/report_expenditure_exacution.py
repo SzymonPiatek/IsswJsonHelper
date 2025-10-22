@@ -1547,6 +1547,14 @@ class ReportExpenditureExacution(Section):
                                             ]
                                         )
                                     ],
+                                    validators=[
+                                        self.validator.related_local_multiplication_validator(
+                                            field_names=[
+                                                "costInCurrency",
+                                                "costCurrencyNbpExchRate"
+                                            ]
+                                        )
+                                    ],
                                     unit="PLN"
                                 ),
                                 self.create_component(
@@ -1621,6 +1629,11 @@ class ReportExpenditureExacution(Section):
                                 self.validator.related_sum_validator(
                                     field_names=[
                                         "costInPlnPisf"
+                                    ]
+                                ),
+                                self.validator.related_sum_validator(
+                                    field_names=[
+                                        "reportingCostsPisfSupport"
                                     ]
                                 )
                             ],

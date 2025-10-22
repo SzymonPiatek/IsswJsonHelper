@@ -1,7 +1,7 @@
 from classes.form_elements import FormForm, FormPart, FormChapter, FormComponent
 from classes.form_rules import CalculationRule, Validator, VisibilityRule
 from classes.types import *
-from classes.form_factory.form_helpers import FormHelpers
+from classes.form_helpers.form_helpers import FormHelpers
 
 
 class FormFactory:
@@ -74,6 +74,7 @@ class FormFactory:
             read_only: bool = False,
             help_text: str = None,
             copy_from: str = None,
+            placeholder: str = None,
     ):
         component = FormComponent(
             component_type=component_type,
@@ -91,6 +92,7 @@ class FormFactory:
             read_only=read_only,
             help_text=help_text,
             copy_from=copy_from,
-            names=self.names,
+            placeholder=placeholder,
+            names=self.names
         )
         return component.generate()

@@ -21,6 +21,7 @@ class FormComponent(FormElement):
             help_text: str = None,
             copy_from: str = None,
             names: list[str] = None,
+            placeholder: str = None,
     ):
         super().__init__(kind="component")
 
@@ -39,6 +40,7 @@ class FormComponent(FormElement):
         self.read_only = read_only
         self.help_text = help_text
         self.copy_from = copy_from
+        self.placeholder = placeholder
 
         self.names = names
 
@@ -156,6 +158,8 @@ class FormComponent(FormElement):
             kwargs["mask"] = self.mask
         if self.unit:
             kwargs["unit"] = self.unit
+        if self.placeholder is not None:
+            kwargs["placeholder"] = self.placeholder
         if self.options:
             kwargs["options"] = self.options
         if self.required:

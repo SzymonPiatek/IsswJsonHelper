@@ -9,10 +9,11 @@ def main():
     helper.generate_process("application")
     helper.generate_process("report")
 
-    end_time = time.time()
-    elapsed = end_time - start_time
     if helper.setup["web"]:
         helper.scraper.close()
+
+    end_time = time.time()
+    elapsed = end_time - start_time
 
     print(f"Time elapsed: {elapsed:.2f} seconds")
 

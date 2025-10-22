@@ -66,7 +66,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                             value="2. Stopień realizacji przedsięwzięcia na dzień złożenia raportu",
                             class_list=[
                                 "displayNoneFrontend"
-                            ]
+                            ],
                         ),
                         self.create_component(
                             component_type="textarea",
@@ -80,7 +80,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                 "no-label",
                                 "col-span-2",
                                 "text-left"
-                            ]
+                            ],
                         ),
                         self.create_component(
                             component_type="header",
@@ -102,7 +102,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                 "no-label",
                                 "col-span-2",
                                 "text-left"
-                            ]
+                            ],
                         ),
                         self.create_component(
                             component_type="header",
@@ -124,7 +124,7 @@ class PromotionReportBuilder(DWMReportBuilder2026, PromotionPriority):
                                 "no-label",
                                 "col-span-2",
                                 "text-left"
-                            ]
+                            ],
                         )
                     ]
                 )

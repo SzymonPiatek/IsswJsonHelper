@@ -52,6 +52,7 @@ class Validator:
             "RelatedDateLTEValidator",
             "RelatedDateGTEValidator",
             "RelatedMultiplicationValidator",
+            "RelatedLocalMultiplicationValidator",
             "RelatedDateOffsetValidator",
             "CheckboxTrueDateLTEToday",
             "RelatedConditionRatioValidator",
@@ -481,6 +482,19 @@ class Validator:
 
         return {
             "name": "RelatedMultiplicationValidator",
+            "kwargs": {
+                "field_names": field_names
+            }
+        }
+
+    @staticmethod
+    def related_local_multiplication_validator(field_names: List[str]):
+        """
+        Walidator sprawdza, czy poprawnie przemnożono wartości.
+        """
+
+        return {
+            "name": "RelatedLocalMultiplicationValidator",
             "kwargs": {
                 "field_names": field_names
             }

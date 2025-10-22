@@ -38,7 +38,7 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder, SecondaryS
                                     component_type="textarea",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=2000
                                         )
                                     ],
                                     required=True,
@@ -70,7 +70,7 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder, SecondaryS
                                     name="laborMarketAnalysis",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1500
                                         )
                                     ],
                                     required=True,
@@ -86,7 +86,7 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder, SecondaryS
                                     name="applicantAndTeamExperience",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1500
                                         )
                                     ],
                                     required=True
@@ -94,7 +94,7 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder, SecondaryS
                             ]
                         ),
                         self.create_chapter(
-                            title="Liczba i zróżnicowanie struktury studentów",
+                            title="Liczba i zróżnicowanie struktury uczniów",
                             help_text="Analiza struktury i zróżnicowania adresatów oferty edukacyjnej.",
                             components=[
                                 self.create_component(
@@ -102,7 +102,7 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder, SecondaryS
                                     name="numberAndDiversityOfStudents",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1000
                                         )
                                     ],
                                     required=True,
@@ -118,7 +118,7 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder, SecondaryS
                                     name="projectAccessibility",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1000
                                         )
                                     ],
                                     required=True
@@ -134,7 +134,7 @@ class SecondarySchoolsApplicationBuilder(EducationApplicationBuilder, SecondaryS
                                     name="graduateProfile",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1000
                                         )
                                     ],
                                     required=True,
