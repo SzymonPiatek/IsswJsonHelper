@@ -41,7 +41,7 @@ class ResearchApplicationBuilder(DisseminationApplicationBuilder, ResearchPriori
                                     component_type="textarea",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=5000
                                         )
                                     ],
                                     required=True,
@@ -57,7 +57,7 @@ class ResearchApplicationBuilder(DisseminationApplicationBuilder, ResearchPriori
                                     component_type="textarea",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=2000
                                         )
                                     ],
                                     required=True,
@@ -89,7 +89,7 @@ class ResearchApplicationBuilder(DisseminationApplicationBuilder, ResearchPriori
                                     component_type="textarea",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1000
                                         )
                                     ],
                                     required=True,
@@ -105,7 +105,7 @@ class ResearchApplicationBuilder(DisseminationApplicationBuilder, ResearchPriori
                                     name="applicantAndTeamExperience",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1500
                                         )
                                     ],
                                     required=True
@@ -121,7 +121,7 @@ class ResearchApplicationBuilder(DisseminationApplicationBuilder, ResearchPriori
                                     name="plannedEffects",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
+                                            max_value=1000
                                         )
                                     ],
                                     required=True

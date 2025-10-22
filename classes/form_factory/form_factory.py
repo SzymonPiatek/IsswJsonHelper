@@ -74,6 +74,7 @@ class FormFactory:
             read_only: bool = False,
             help_text: str = None,
             copy_from: str = None,
+            placeholder: str = None,
     ):
         component = FormComponent(
             component_type=component_type,
@@ -91,6 +92,7 @@ class FormFactory:
             read_only=read_only,
             help_text=help_text,
             copy_from=copy_from,
-            names=self.names,
+            placeholder=placeholder,
+            names=self.names
         )
         return component.generate()
