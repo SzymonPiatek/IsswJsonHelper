@@ -2,8 +2,8 @@ from classes_new.form_builder.form_builder import ApplicationFormBuilder
 
 
 class DWMDepartmentApplicationFormBuilder(ApplicationFormBuilder):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
         self.parts = [
             self.create_application_metadata,

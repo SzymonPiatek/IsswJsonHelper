@@ -111,9 +111,10 @@ class FormBuilder(FormFactory):
 
 
 class ApplicationFormBuilder(FormBuilder):
-    def __init__(self):
+    def __init__(self, **kwargs):
         super().__init__(
-            json_type="application"
+            json_type="application",
+            **kwargs
         )
 
         self.intro_text = [
@@ -122,9 +123,10 @@ class ApplicationFormBuilder(FormBuilder):
 
 
 class ReportFormBuilder(FormBuilder):
-    def __init__(self):
+    def __init__(self, **kwargs):
         super().__init__(
-            json_type="report"
+            json_type="report",
+            **kwargs
         )
 
         self.intro_text = [

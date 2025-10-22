@@ -81,8 +81,8 @@ class FormHelper:
             for program, priorities in programs.items():
                 for priority, builder in priorities.items():
                     if builder:
-                        print(f'{"=" * 50}\n')
-                        print(f"[{department.upper()}] {program.upper()} {priority.upper()} - {data_type.upper()}")
+                        print(f'{"=" * 130}')
+                        print(f"[{department.upper()}] {program.upper()} {priority.upper()} - {data_type.upper()}\n")
 
                         form = builder()
                         form.generate()
@@ -117,4 +117,4 @@ class FormHelper:
                                     form_id=server_form_id
                                 )
 
-                        print('\n')
+        print(f'{"=" * 130}\n')

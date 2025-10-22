@@ -2,5 +2,5 @@ from classes_new.forms._2026.dwm.application_builder import DWMDepartmentApplica
 
 
 class PromotionOperationalProgramApplicationFormBuilder(DWMDepartmentApplicationFormBuilder):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
