@@ -1,8 +1,8 @@
 from typing import ClassVar
 import json
 from pathlib import Path
-from ..form_components import Part, Component, Section
-from ..form_factory.form_factory import FormFactory
+from classes.form_components import Part, Component, Section
+from classes.form_factory.form_factory import FormFactory
 from classes.types import *
 
 
@@ -47,6 +47,9 @@ class FormBuilder(FormFactory):
         self.section = Section()
         self.component = Component()
 
+    def __str__(self):
+        return f"[{self.department_name.upper()}] PO{self.operation_num} PR{self.priority_num} - {self.json_type.upper()}"
+
     def _prepare_output_path(self):
         output_file_name = (
             f'po_{self.operation_num}_pr_{self.priority_num}_{self.json_type}_{self.year}.json'
@@ -61,7 +64,6 @@ class FormBuilder(FormFactory):
             / self.json_type
             / output_file_name
         )
-
 
     def save_output(self) -> None:
         self.output_file.parent.mkdir(parents=True, exist_ok=True)
