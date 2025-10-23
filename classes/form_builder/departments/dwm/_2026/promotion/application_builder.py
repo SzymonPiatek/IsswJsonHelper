@@ -199,13 +199,13 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
             title=f"{self.helpers.int_to_roman(number)}. Informacje o Wnioskodawcy",
             chapters=[
                 self.create_chapter(
-                    title=f"1. Pełna nazwa wnioskodawcy (firma)",
+                    title=f"1. Pełna nazwa Wnioskodawcy (firma)",
                     components=[
                         self.create_component(
                             component_type="text",
                             name="applicantName",
                             required=True,
-                            placeholder="Pełna nazwa wnioskodawcy (firma)"
+                            placeholder="Pełna nazwa Wnioskodawcy (firma)"
                         )
                     ]
                 ),
@@ -225,7 +225,8 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                             options=[
                                 "w formie papierowej (do podpisu odręcznego)",
                                 "w formie elektronicznej (do podpisu kwalifikowanym podpisem elektronycznym)"
-                            ]
+                            ],
+                            required=True
                         ),
                         self.create_component(
                             component_type="header",

@@ -1,4 +1,5 @@
 from classes_new.additional.form_helpers import FormHelpers
+from classes_new.form_components.section.section import Section
 from classes_new.form_factory.form_factory import FormFactory
 from classes_new.pisf_structure import Priority, Session
 from classes_new.types import Form, Part
@@ -35,6 +36,7 @@ class FormBuilder(FormFactory):
         self._output_file_path: Path = None
 
         self.helpers = FormHelpers()
+        self.section = Section()
 
     @property
     def output_file_name(self) -> str:
@@ -58,7 +60,7 @@ class FormBuilder(FormFactory):
 
         return f"{file_name}.{file_type}"
 
-    def prepare_output_file_path(self, dir_name: str = 'json'):
+    def prepare_output_file_path(self, dir_name: str = 'jsons'):
         file_path = (
                 self.main_dir / 'output' / dir_name
         )

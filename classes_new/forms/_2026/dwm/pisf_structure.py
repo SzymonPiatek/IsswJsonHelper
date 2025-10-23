@@ -25,3 +25,12 @@ class PromotionPriority(Priority):
             num=1,
             operation_program=PromotionOperationalProgram()
         )
+
+
+class ForeignScholarshipsPriority(Priority):
+    def __init__(self):
+        super().__init__(
+            name="Stypendia zagraniczne",
+            num=2,
+            operation_program=PromotionOperationalProgram()
+        )
