@@ -80,7 +80,7 @@ class Section(FormFactory):
                     },
                     components=[
                         self.create_chapter(
-                            title="Osoba",
+                            title="Osoba upoważniona do reprezentowania Wnioskodawcy",
                             class_list={
                                 "main": [
                                     "table-1-2",
