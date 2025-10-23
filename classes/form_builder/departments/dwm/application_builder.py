@@ -66,29 +66,6 @@ class DWMApplicationBuilder(ApplicationBuilder, DWMDepartment, DWMOperation):
         )
         self.save_part(part=part)
 
-    def create_application_implementation_effects_data(self, number: int):
-        part = self.create_part(
-            title=f"{self.helpers.int_to_roman(number)}. Planowane efekty realizacji przedsięwzięcia",
-            short_name=f"{self.helpers.int_to_roman(number)}. Efekty realizacji",
-            chapters=[
-                self.create_chapter(
-                    title="Planowane efekty",
-                    components=[
-                        self.create_component(
-                            component_type="textarea",
-                            name="applicantPlannedTaskEffects",
-                            validators=[
-                                self.validator.length_validator(max_value=20000)
-                            ],
-                            help_text="Opisz planowane efekty wykonania przedsięwzięcia. Należy podać konkretny efekt np. nawiązanie innej współpracy, zaproszenie na inny festiwal, itp. Po zakończeniu przedsięwzięcia beneficjent jest zobowiązany przedstawić w raporcie efekty przedsięwzięcia.",
-                            required=True
-                        )
-                    ]
-                )
-            ]
-        )
-        self.save_part(part=part)
-
     @not_implemented_func
     def create_application_other_information_data(self, number: int):
         pass

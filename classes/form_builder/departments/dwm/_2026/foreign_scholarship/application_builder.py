@@ -985,6 +985,29 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
         )
         self.save_part(part=part)
 
+    def create_application_implementation_effects_data(self, number: int):
+        part = self.create_part(
+            title=f"{self.helpers.int_to_roman(number)}. Planowane efekty realizacji przedsięwzięcia",
+            short_name=f"{self.helpers.int_to_roman(number)}. Efekty realizacji",
+            chapters=[
+                self.create_chapter(
+                    title="Planowane efekty",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="applicantPlannedTaskEffects",
+                            validators=[
+                                self.validator.length_validator(max_value=20000)
+                            ],
+                            help_text="Opisz planowane efekty wykonania przedsięwzięcia. Należy podać konkretny efekt np. nawiązanie innej współpracy, zaproszenie na inny festiwal, itp. Po zakończeniu przedsięwzięcia Stypendysta jest zobowiązany przedstawić w raporcie efekty przedsięwzięcia.",
+                            required=True
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part=part)
+
     def create_application_attachments(self, number: int):
         part = self.create_part(
             title=f"{self.helpers.int_to_roman(number)}. Obowiązkowe załączniki zgodnie z rodzajem przedsięwzięcia",
@@ -1076,7 +1099,7 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                     components=[
                         self.create_component(
                             component_type="checkbox",
-                            label="Zapoznałem/łam się z poniższymi zasadami.<br/>- Wnioskodawca jest zobowiązany do przedstawienia rozliczenia dofinansowania zgodnie z warunkami określonymi w umowie o dofinansowanie, w tym w szczególności do przedłożenia raportu końcowego, który zawiera finansowe rozliczenie przedsięwzięcia, ocenę jakościową jego realizacji.<br/>- Do raportu końcowego należy załączyć dokumenty finansowo-księgowe potwierdzające wydatkowanie kosztów poniesionych z udzielonego dofinansowania w postaci faktur (WAŻNE: faktury muszą być wystawione na Beneficjenta jako osobę fizyczną) oraz biletów (jeśli z przyczyn obiektywnie niezależnych od Beneficjenta niemożliwe jest otrzymanie faktury) wraz z potwierdzeniem wykonania przelewów z rachunku bankowego Beneficjenta, które zostało wskazane we wniosku o stypendium.<br/>- Procentowy wkład dofinansowania PISF w finalnym budżecie przedsięwzięcia nie może przekroczyć wkładu zakładanego, określonego w umowie o dofinansowanie. Jeżeli faktycznie poniesiony koszt całkowity przedsięwzięcia okazał się niższy od planowanego lub Beneficjent nie wykorzystał całego dofinansowania, należy dokonać zwrotu na rachunek PISF i dostarczyć wraz z raportem potwierdzenie przelewu.<br/>- Jedynie koszty poniesione od daty złożenia wniosku o dofinansowanie w ISSW do daty zakończenia przedsięwzięcia określonej w harmonogramie, mogą zostać uznane za koszty kwalifikowalne i opłacone z dofinasowania PISF (koszty poniesione przed datą złożenia wniosku o dofinansowanie nie będą uznane za koszty kwalifikowalne).<br/>- Wniosek o dofinansowanie wraz z załącznikami należy podpisać przy użyciu kwalifikowanego podpisu elektronicznego lub profilu zaufanego platformy E-PUAP.<br/>- Wszelkie załączniki do wniosku o dofinansowanie (w tym listy intencyjne, umowy z partnerami, itp.) wymagają poświadczenia za zgodność z oryginałem. Podpisanie wniosku o dofinansowanie przez Wnioskodawcę kwalifikowanym podpisem elektronicznym lub profilem zaufanym platformy E-PUAP jest równoznaczne z poświadczeniem przez Wnioskodawcę załączników do wniosku o dofinansowanie za zgodne z oryginałem.<br/>- Linki do zasobów zewnętrznych umieszczane we wniosku o dofinansowanie powinny zachować ważność co najmniej do czasu wydania decyzji przez Dyrektora PISF.<br/>- Do dokumentów przedkładanych do wniosku o dofinansowanie sporządzonych w językach obcych należy obligatoryjnie dołączyć tłumaczenie na język polski. Wnioskodawca, na wniosek PISF, ma obowiązek przedstawić tłumaczenie przysięgłe wskazanego dokumentu.",
+                            label="Zapoznałem/łam się z poniższymi zasadami.<br/>- Wnioskodawca jest zobowiązany do przedstawienia rozliczenia dofinansowania zgodnie z warunkami określonymi w umowie o ustanowienie stypendium, w tym w szczególności do przedłożenia raportu końcowego, który zawiera finansowe rozliczenie przedsięwzięcia, ocenę jakościową jego realizacji.<br/>- Do raportu końcowego należy załączyć dokumenty finansowo-księgowe potwierdzające wydatkowanie kosztów poniesionych z udzielonego dofinansowania w postaci faktur (WAŻNE: faktury muszą być wystawione na Stypendystę jako osobę fizyczną) oraz biletów (jeśli z przyczyn obiektywnie niezależnych od Stypendysty niemożliwe jest otrzymanie faktury) wraz z potwierdzeniem wykonania przelewów z rachunku bankowego Stypendysty, które zostało wskazane we wniosku o stypendium.<br/>- Procentowy wkład dofinansowania PISF w finalnym budżecie przedsięwzięcia nie może przekroczyć wkładu zakładanego, określonego w umowie o ustanowienie stypendium. Jeżeli faktycznie poniesiony koszt całkowity przedsięwzięcia okazał się niższy od planowanego lub Stypendysta nie wykorzystał całego dofinansowania, należy dokonać zwrotu na rachunek PISF i dostarczyć wraz z raportem potwierdzenie przelewu.<br/>- Jedynie koszty poniesione od daty złożenia wniosku o ustanowienie stypendium w ISSW do daty zakończenia przedsięwzięcia określonej w harmonogramie, mogą zostać uznane za koszty kwalifikowalne i opłacone z dofinasowania PISF (koszty poniesione przed datą złożenia wniosku o ustanowienie stypendium nie będą uznane za koszty kwalifikowalne).<br/>- Wniosek o ustanowienie stypendium wraz z załącznikami należy podpisać przy użyciu kwalifikowanego podpisu elektronicznego lub profilu zaufanego platformy E-PUAP.<br/>- Wszelkie załączniki do wniosku o ustanowienie stypendium (w tym listy intencyjne, umowy z partnerami, itp.) wymagają poświadczenia za zgodność z oryginałem. Podpisanie wniosku o ustanowienie stypendium przez Wnioskodawcę kwalifikowanym podpisem elektronicznym lub profilem zaufanym platformy E-PUAP jest równoznaczne z poświadczeniem przez Wnioskodawcę załączników do wniosku o ustanowienie stypendium za zgodne z oryginałem.<br/>- Linki do zasobów zewnętrznych umieszczane we wniosku o ustanowienie stypendium powinny zachować ważność co najmniej do czasu wydania decyzji przez Dyrektora PISF.<br/>- Do dokumentów przedkładanych do wniosku o ustanowienie stypendium sporządzonych w językach obcych należy obligatoryjnie dołączyć tłumaczenie na język polski. Wnioskodawca, na wniosek PISF, ma obowiązek przedstawić tłumaczenie przysięgłe wskazanego dokumentu.",
                             name="acknowledgeRules",
                             required=True
                         )
