@@ -796,7 +796,7 @@ class Section(FormFactory):
             title=f"{number}. Dane statystyczne",
             components=[
                 self.create_chapter(
-                    title="Przypisanie formy prawnej beneficjenta dla potrzeb statystycznych PUP",
+                    title="Przypisanie formy prawnej Beneficjenta dla potrzeb statystycznych PUP",
                     components=[
                         self.create_component(
                             component_type="radio",
@@ -860,7 +860,7 @@ class Section(FormFactory):
                     ]
                 ),
                 self.create_chapter(
-                    title="Określenie wielkości wnioskodawcy dla potrzeb statystycznych PUP",
+                    title="Określenie wielkości Wnioskodawcy dla potrzeb statystycznych PUP",
                     components=[
                         self.create_component(
                             component_type="select",
