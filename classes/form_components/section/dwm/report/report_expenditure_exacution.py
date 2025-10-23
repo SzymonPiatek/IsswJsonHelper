@@ -2731,3 +2731,454 @@ class ReportExpenditureExacution(Section):
                 )
             ]
         )
+
+    def list_of_bills_and_invoices_foreign_scholarship(self):
+        return self.create_chapter(
+            title="B. Zestawienie faktur/rachunków",
+            class_list={
+                "sub": [
+                    "table-invoice-top"
+                ]
+            },
+            components=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="invoiceDescription",
+                            value="Zestawienie to spis wszystkich faktur/rachunków/biletów, które dotyczą przedsięwzięcia i zostały pokryte z dofinansowania PISF. Spis zawierać powinien: rodzaj dokumentu (faktura/rachunek), nr faktury/rachunku (w przypadku rachunku należy podać jego nr i datę oraz podać nr i datę umowy, której dotyczy), datę wystawienia dokumentu, nazwę wydatku (rodzaj towaru/usługi), wysokość wydatkowanej kwoty ze wskazaniem części, w jakiej została ona pokryta z dofinansowania PISF. Uwaga: Każda z faktur/rachunków opłaconych z otrzymanego dofinansowania powinna być podpisana na odwrocie przez Stypendystę oraz zawierać sporządzony w sposób trwały opis zawierający informacje: z jakich środków wydatkowana kwota została pokryta oraz jakie było przeznaczenie zakupionych towarów, usług lub innego rodzaju opłaconej należności. Informacja ta powinna być podpisana przez osobę odpowiedzialną za sprawy dotyczące rozliczeń finansowych Stypendysty. Do raportu nie zalicza się faktur/rachunków, które należy przechowywać zgodnie z obowiązującymi przepisami i udostępniać podczas przeprowadzanych czynności kontrolnych. W przypadku faktur za akredytacje, noclegi, bilety lub umów o dzieło należy podać imię i nazwisko osoby, której dotyczą (z funkcji PISF mogą to być tylko osoby wskazane w umowie) oraz numer i datę zawartej umowy o dofinansowanie PISF (w wersji elektronicznej). Do zakończenia zadania przedsięwzięcia określonego w harmonogramie stanowiącym załącznik nr 1/1A do Umowy. Przeliczeń z waluty obcej na PLN należy dokonywać dla każdej pozycji osobno, wg średniego kursu NBP z dnia poprzedzającego dzień wystawienia faktury. Uwzględniaj należy wartość przelicznika do 4. miejsca po przecinku, a otrzymaną wartość w PLN – zaokrąglić do 2. miejsca po przecinku. Kolejność wpisywania faktur powinna być taka sama jak kolejność pozycji kosztorysu."
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    class_list=[
+                        "grid",
+                        "grid-cols-12",
+                        "table-header"
+                    ],
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="invoiceTotalCost",
+                            value="Kwota całkowita",
+                            class_list=[
+                                "text-center",
+                                "col-start-9",
+                                "col-span-2",
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="header",
+                            name="invoicePISFRefund",
+                            value="W tym z dofinansowania PISF",
+                            class_list=[
+                                "text-center",
+                                "col-start-11",
+                                "col-span-2",
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="header",
+                            name="invoiceLp",
+                            value="Lp.",
+                            class_list=[
+                                "text-center",
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="header",
+                            name="invoiceNumber",
+                            value="Nr i nazwa dokument księgowego",
+                            class_list=[
+                                "text-center",
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="header",
+                            name="invoiceCurrency",
+                            value="Waluta PLN",
+                            class_list=[
+                                "text-center",
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="header",
+                            name="invoicePositionNumber",
+                            value="Nr pozycji kosztorysu",
+                            class_list=[
+                                "text-center",
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="header",
+                            name="invoiceIssuedDate",
+                            value="Data wystawienia",
+                            class_list=[
+                                "text-center",
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="header",
+                            name="invoicePaymentDate",
+                            value="Data zapłaty",
+                            class_list=[
+                                "text-center",
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="header",
+                            name="invoiceDesc",
+                            value="Waluta",
+                            class_list=[
+                                "text-center",
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="header",
+                            name="invoicePriceNBP",
+                            value="Średni kurs NBP",
+                            class_list=[
+                                "text-center",
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="header",
+                            name="totalInvoiceOtherCurrency",
+                            value="W walucie obcej",
+                            class_list=[
+                                "text-center",
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="header",
+                            name="totalInvoicePLN",
+                            value="PLN",
+                            class_list=[
+                                "text-center",
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="header",
+                            name="supportInvoiceOtherCurrency",
+                            value="W walucie obcej",
+                            class_list=[
+                                "text-center",
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="header",
+                            name="supportInvoicePLN",
+                            value="PLN",
+                            class_list=[
+                                "text-center",
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                    ]
+                ),
+                self.create_chapter(
+                    multiple_forms_rules={
+                        "minCount": 1,
+                        "maxCount": 60
+                    },
+                    is_paginated=True,
+                    class_list={
+                        "sub": [
+                            "table-invoice-top"
+                        ],
+                        "main": [
+                            "no-title",
+                            "swappable-bg",
+                            "lp-table"
+                        ]
+                    },
+                    components=[
+                        self.create_chapter(
+                            title="Faktura/rachunek",
+                            class_list={
+                                "sub": [
+                                    "table-invoice__col"
+                                ],
+                                "main": [
+                                    "table-invoice",
+                                    "grid",
+                                    "grid-cols-12"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    label="Lp.",
+                                    name="lp-number-invoice",
+                                    class_list=[
+                                        "displayNoneFrontend",
+                                        "lp-number",
+                                        "no-label"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="textarea",
+                                    label="Nazwa i opis wydatku",
+                                    name="costExpenditureDesc",
+                                    validators=[
+                                        self.validator.length_validator(
+                                            max_value=200
+                                        )
+                                    ],
+                                    required=True,
+                                    class_list=[
+                                        "col-span-11",
+                                        "text-bold",
+                                        "no-label",
+                                        "text-left"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="textarea",
+                                    label="Rodzaj i numer dokumentu księgowego",
+                                    name="accountingDocTypeNum",
+                                    validators=[
+                                        self.validator.length_validator(
+                                            max_value=150
+                                        )
+                                    ],
+                                    required=True,
+                                    class_list=[
+                                        "table-invoice__full",
+                                        "no-label",
+                                        "col-start-2"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="checkbox",
+                                    label="Waluta PLN",
+                                    name="expenditureInPln",
+                                    help_text="Zaznacz jeśli wydatek poniesiono w złotych.",
+                                    class_list=[
+                                        "no-label"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Numer pozycji kosztorysu",
+                                    name="costEstimateItemNum",
+                                    validators=[
+                                        self.validator.length_validator(
+                                            max_value=10
+                                        )
+                                    ],
+                                    required=True,
+                                    class_list=[
+                                        "no-label"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Data wystawienia",
+                                    name="accountingDocDateIssued",
+                                    validators=[
+                                        self.validator.related_date_gte_validator(
+                                            field_name="taskDateStart",
+                                            message="Data wystawienia nie może być wcześniejsza niż data wpłynięcia wniosku."
+                                        ),
+                                        self.validator.related_date_lte_validator(
+                                            field_name="taskDateEnd",
+                                            message="Data wystawienia nie może być późniejsza niż data zakończenia przedsięwzięcia"
+                                        )
+                                    ],
+                                    required=True,
+                                    class_list=[
+                                        "no-label"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="date",
+                                    label="Data zapłaty",
+                                    name="costPaymentDate",
+                                    validators=[
+                                        self.validator.related_date_gte_validator(
+                                            field_name="taskDateStart",
+                                            message="Data zapłaty nie może być wcześniejsza niż data wpłynięcia wniosku."
+                                        ),
+                                        self.validator.related_date_lte_validator(
+                                            field_name="taskDateEnd",
+                                            message="Data zapłaty nie może być późniejsza niż data zakończenia przedsięwzięcia"
+                                        )
+                                    ],
+                                    required=True,
+                                    class_list=[
+                                        "no-label"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="currency",
+                                    label="Waluta",
+                                    name="costCurrency",
+                                    class_list=[
+                                        "no-label",
+                                        "table-1-2"
+                                    ],
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="number",
+                                    label="Kurs średni NBP",
+                                    name="costCurrencyNbpExchRate",
+                                    calculation_rules=[
+                                        self.calculation_rule.get_nbp_currency(
+                                            date_field="accountingDocDateIssued",
+                                            currency_field="costCurrency",
+                                        )
+                                    ],
+                                    validators=[
+                                        self.validator.length_validator(
+                                            max_value=20
+                                        )
+                                    ],
+                                    read_only=True,
+                                    class_list=[
+                                        "no-label",
+                                        "table-1-2"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    mask="fund",
+                                    label="Kwota całkowita w walucie obcej",
+                                    name="costInCurrency",
+                                    class_list=[
+                                        "no-label",
+                                        "table-1-2"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    mask="fund",
+                                    label="Kwota całkowita w PLN",
+                                    name="costInPln",
+                                    class_list=[
+                                        "no-label"
+                                    ],
+                                    read_only=True,
+                                    calculation_rules=[
+                                        self.calculation_rule.local_multiply_inputs(
+                                            fields=[
+                                                "costInCurrency",
+                                                "costCurrencyNbpExchRate"
+                                            ]
+                                        )
+                                    ],
+                                    validators=[
+                                        self.validator.related_local_multiplication_validator(
+                                            field_names=[
+                                                "costInCurrency",
+                                                "costCurrencyNbpExchRate"
+                                            ]
+                                        )
+                                    ],
+                                    unit="PLN"
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    mask="fund",
+                                    label="W tym ze środków pochodzących z dofinansowania PISF w PLN",
+                                    name="costInPlnPisf",
+                                    required=True,
+                                    class_list=[
+                                        "no-label"
+                                    ],
+                                    unit="PLN"
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Łącznie PLN",
+                    class_list={
+                        "main": [
+                            "table-2-sum",
+                            "grid",
+                            "grid-cols-4",
+                            "no-title"
+                        ],
+                        "sub": [
+                            "table-2-sum__col"
+                        ]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            label="Suma wydatków w PLN",
+                            name="costInPlnTotalSum",
+                            calculation_rules=[
+                                self.calculation_rule.dynamic_sum_inputs(
+                                    fields=[
+                                        "costInPln"
+                                    ]
+                                )
+                            ],
+                            validators=[
+                                self.validator.related_sum_validator(
+                                    field_names=[
+                                        "costInPln"
+                                    ]
+                                )
+                            ],
+                            read_only=True,
+                            unit="PLN",
+                            class_list=[
+                                "default-margin",
+                                "col-start-3",
+                                "userInput-border"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            label="W tym z dofinansowania PISF w PLN",
+                            name="costInPlnPisfTogether",
+                            calculation_rules=[
+                                self.calculation_rule.dynamic_sum_inputs(
+                                    fields=[
+                                        "costInPlnPisf"
+                                    ]
+                                )
+                            ],
+                            validators=[
+                                self.validator.related_sum_validator(
+                                    field_names=[
+                                        "costInPlnPisf"
+                                    ]
+                                ),
+                                self.validator.related_sum_validator(
+                                    field_names=[
+                                        "reportingCostsPisfSupport"
+                                    ]
+                                )
+                            ],
+                            read_only=True,
+                            unit="PLN",
+                            class_list=[
+                                "default-margin",
+                                "userInput-border"
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )

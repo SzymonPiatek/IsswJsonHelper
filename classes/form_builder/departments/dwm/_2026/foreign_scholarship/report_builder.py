@@ -500,7 +500,7 @@ class ForeignScholarshipReportBuilder(DWMReportBuilder2026, ForeignScholarshipPr
                         self.section.report_expenditure_exacution.cost_estimate_by_source_of_financing_foreign_scholarship()
                     ]
                 ),
-                self.section.report_expenditure_exacution.list_of_bills_and_invoices()
+                self.section.report_expenditure_exacution.list_of_bills_and_invoices_foreign_scholarship()
             ]
         )
 
