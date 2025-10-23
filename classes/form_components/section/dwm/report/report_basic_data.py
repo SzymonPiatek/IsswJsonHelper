@@ -147,7 +147,7 @@ class ReportBasicData(Section):
                         ),
                         self.create_component(
                             component_type="checkbox",
-                            label="Czy umow była aneksowana",
+                            label="Czy umowa była aneksowana",
                             name="addAnnex",
                             class_list=[
                                 "no-label"

@@ -920,6 +920,24 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                             name="isCostsCoveredByEventOrganizer"
                         )
                     ]
+                ),
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="isCostsCoveredByEventOrganizer",
+                            values=[
+                                True
+                            ]
+                        )
+                    ],
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            label="Dodatkowe wyjaśnienia",
+                            name="CostsCoveredByEventOrganizerInfo",
+                            placeholder="Akredytacja/nocleg/transport została zapewniona przez organizatora wydarzenia."
+                        )
+                    ]
                 )
             ]
         )

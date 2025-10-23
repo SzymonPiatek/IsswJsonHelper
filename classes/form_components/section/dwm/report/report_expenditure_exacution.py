@@ -15,7 +15,7 @@ class ReportExpenditureExacution(Section):
                     read_only=True,
                     required=True,
                     options=[
-                        "Wnioskodawca JEST płatnikiem VAT, dlatego kwoty zamieszczone w kosztach planowanego przedsięwzięcia we wniosku to KWOTY NETTO",
+                        "Wnioskodawca JEST płatnikiem VAT, dlatego kwoty zamieszczone w kosztorysie we wniosku to KWOTY NETTO",
                         "Wnioskodawca NIE JEST płatnikiem VAT, dlatego kwoty zamieszczone w kosztorysie wniosku to KWOTY BRUTTO"
                     ]
                 )
@@ -1211,7 +1211,7 @@ class ReportExpenditureExacution(Section):
                         self.create_component(
                             component_type="header",
                             name="invoiceDescription",
-                            value="Zestawienie to spis wszystkich faktur/rachunków/biletów, które dotyczą przedsięwzięcia i zostały pokryte z dofinansowania PISF. Spis zawierać powinien: rodzaj dokumentu (faktura/rachunek), nr faktury/rachunku (w przypadku rachunku należy podać jego nr i datę oraz podać nr i datę umowy, której dotyczy), datę wystawienia dokumentu, nazwę wydatku (rodzaj towaru/usługi), wysokość wydatkowanej kwoty ze wskazaniem części, w jakiej została ona pokryta z dofinansowania PISF. Uwaga: Każda z faktur/rachunków opłaconych z otrzymanego dofinansowania powinna być opatrzona na odwrocie pieczęcią Beneficjenta oraz zawierać sporządzony w sposób trwały opis zawierający informacje: z jakich środków wydatkowana kwota została pokryta oraz jakie było przeznaczenie zakupionych towarów, usług lub innego rodzaju opłaconej należności. Informacja ta powinna być podpisana przez osobę odpowiedzialną za sprawy dotyczące rozliczeń finansowych Beneficjenta. Do raportu nie zalicza się faktur/rachunków, które należy przechowywać zgodnie z obowiązującymi przepisami i udostępniać podczas przeprowadzanych czynności kontrolnych. W przypadku faktur za akredytacje, noclegi, bilety lub umów o dzieło należy podać imię i nazwisko osoby, której dotyczą (z funkcji PISF mogą to być tylko osoby wskazane w umowie) oraz numer i datę zawartej umowy o dofinansowanie PISF (w wersji elektronicznej). Do zakończenia zadania przedsięwzięcia określonego w harmonogramie stanowiącym załącznik nr 11/A do Umowy. Przeliczeń z waluty obcej na PLN należy dokonywać dla każdej pozycji osobno, wg średniego kursu NBP z dnia poprzedzającego dzień wystawienia faktury. Uwzględniaj należy wartość przelicznika do 4. miejsca po przecinku, a otrzymaną wartość w PLN – zaokrąglić do 2. miejsca po przecinku. Kolejność wpisywania faktur powinna być taka sama jak kolejność pozycji kosztorysu."
+                            value="Zestawienie to spis wszystkich faktur/rachunków/biletów, które dotyczą przedsięwzięcia i zostały pokryte z dofinansowania PISF. Spis zawierać powinien: rodzaj dokumentu (faktura/rachunek), nr faktury/rachunku (w przypadku rachunku należy podać jego nr i datę oraz podać nr i datę umowy, której dotyczy), datę wystawienia dokumentu, nazwę wydatku (rodzaj towaru/usługi), wysokość wydatkowanej kwoty ze wskazaniem części, w jakiej została ona pokryta z dofinansowania PISF. Uwaga: Każda z faktur/rachunków opłaconych z otrzymanego dofinansowania powinna być opatrzona na odwrocie pieczęcią Beneficjenta oraz zawierać sporządzony w sposób trwały opis zawierający informacje: z jakich środków wydatkowana kwota została pokryta oraz jakie było przeznaczenie zakupionych towarów, usług lub innego rodzaju opłaconej należności. Informacja ta powinna być podpisana przez osobę odpowiedzialną za sprawy dotyczące rozliczeń finansowych Beneficjenta. Do raportu nie zalicza się faktur/rachunków, które należy przechowywać zgodnie z obowiązującymi przepisami i udostępniać podczas przeprowadzanych czynności kontrolnych. W przypadku faktur za akredytacje, noclegi, bilety lub umów o dzieło należy podać imię i nazwisko osoby, której dotyczą (z funkcji PISF mogą to być tylko osoby wskazane w umowie) oraz numer i datę zawartej umowy o dofinansowanie PISF (w wersji elektronicznej). Do zakończenia zadania przedsięwzięcia określonego w harmonogramie stanowiącym załącznik nr 1/1A do Umowy. Przeliczeń z waluty obcej na PLN należy dokonywać dla każdej pozycji osobno, wg średniego kursu NBP z dnia poprzedzającego dzień wystawienia faktury. Uwzględniaj należy wartość przelicznika do 4. miejsca po przecinku, a otrzymaną wartość w PLN – zaokrąglić do 2. miejsca po przecinku. Kolejność wpisywania faktur powinna być taka sama jak kolejność pozycji kosztorysu."
                         )
                     ]
                 ),
@@ -1499,8 +1499,7 @@ class ReportExpenditureExacution(Section):
                                     required=True
                                 ),
                                 self.create_component(
-                                    component_type="text",
-                                    mask="fund",
+                                    component_type="number",
                                     label="Kurs średni NBP",
                                     name="costCurrencyNbpExchRate",
                                     calculation_rules=[

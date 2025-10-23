@@ -523,7 +523,7 @@ class PromotionApplicationBuilder(DWMApplicationBuilder2026, PromotionPriority):
                             component_type="radio",
                             name="applicantVatDeclaration",
                             options=[
-                                "Wnioskodawca JEST płatnikiem VAT, dlatego kwoty zamieszczone w kosztach planowanego przedsięwzięcia we wniosku to KWOTY NETTO",
+                                "Wnioskodawca JEST płatnikiem VAT, dlatego kwoty zamieszczone w kosztorysie wniosku to KWOTY NETTO",
                                 "Wnioskodawca NIE JEST płatnikiem VAT, dlatego kwoty zamieszczone w kosztorysie wniosku to KWOTY BRUTTO"
                             ],
                             required=True
