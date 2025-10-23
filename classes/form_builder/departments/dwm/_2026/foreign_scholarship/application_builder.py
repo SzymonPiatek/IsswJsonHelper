@@ -472,6 +472,18 @@ class ForeignScholarshipApplicationBuilder(DWMApplicationBuilder2026, ForeignSch
                     ]
                 ),
                 self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="radio",
+                            name="granteeVatDeclaration",
+                            required=True,
+                            options=[
+                                "Wnioskodawca jest osobą fizyczną, dlatego kwoty zamieszczone w kosztorysie wniosku to KWOTY BRUTTO"
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
                     title="<normal>Uwaga! W przypadku braku automatycznego przeliczenia wartości finansowych prosimy o użycie przycisku „Przelicz i waliduj”, który znajduje się w prawym, dolnym rogu ekranu. Wymusi to dokonanie niezbędnych przeliczeń oraz podświetli nieuzupełnione pola formularza.</normal>"
                 ),
                 self.create_chapter(

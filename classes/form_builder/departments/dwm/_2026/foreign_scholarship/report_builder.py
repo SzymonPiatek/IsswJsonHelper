@@ -32,7 +32,60 @@ class ForeignScholarshipReportBuilder(DWMReportBuilder2026, ForeignScholarshipPr
                 ),
                 self.section.report_basic_data.project_implementation_period(number="A"),
                 self.section.report_basic_data.agreement_and_annex(number="B"),
-                self.section.report_basic_data.grantee_name_and_address(number="C")
+                self.create_chapter(
+                    title=f"C. Nazwa i adres Stypendysty",
+                    class_list=[
+                        "no-title",
+                        "grid",
+                        "grid-cols-5",
+                        "no-title"
+                    ],
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="granteeFullName",
+                            value="Nazwa Stypendysty",
+                            class_list=[
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="textarea",
+                            label="Nazwa Stypendysty",
+                            copy_from="applicantName",
+                            required=True,
+                            read_only=True,
+                            class_list=[
+                                "no-label",
+                                "col-span-4",
+                                "text-left"
+                            ],
+                            name="granteeFullName"
+                        ),
+                        self.create_component(
+                            component_type="header",
+                            name="granteeFullAddress",
+                            value="Adres Stypendysty",
+                            class_list=[
+                                "displayNoneFrontend"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="textarea",
+                            label="Adres Stypendysty",
+                            name="granteeFullAddress",
+                            validators=[
+                                self.validator.length_validator(max_value=400)
+                            ],
+                            required=True,
+                            class_list=[
+                                "no-label",
+                                "col-span-4",
+                                "text-left"
+                            ]
+                        )
+                    ]
+                )
             ]
         )
 
@@ -128,7 +181,18 @@ class ForeignScholarshipReportBuilder(DWMReportBuilder2026, ForeignScholarshipPr
                 "full-width-grid"
             ],
             chapters=[
-                self.section.report_expenditure_exacution.grantee_vat_declaration(),
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="radio",
+                            name="granteeVatDeclaration",
+                            required=True,
+                            options=[
+                                "Wnioskodawca jest osobą fizyczną, dlatego kwoty zamieszczone w kosztorysie wniosku to KWOTY BRUTTO"
+                            ]
+                        )
+                    ]
+                ),
                 self.create_chapter(
                     class_list={
                         "sub": [
@@ -150,7 +214,7 @@ class ForeignScholarshipReportBuilder(DWMReportBuilder2026, ForeignScholarshipPr
                                         self.create_component(
                                             component_type="header",
                                             name="budget",
-                                            value="Zestawienie to stanowi porównanie kosztów planowanych z faktycznie poniesionymi. Należy w nim uwzględnić wszystkie pozycje, które figurowały w kosztorysie załączonym do umowy. Jeżeli Beneficjent wykorzystał dotację PISF inaczej, niż było to planowane (np. dokonał pewnych przesunięć między pozycjami kosztorysu w ramach przyznanej kwoty dofinansowania), konieczne jest wystosowanie przezeń specjalnego pisma, w którym opisze i wyjaśni zaistniałe różnice i zwróci się z prośbą o ich akceptację. <br><br><a target='_blank' rel='noopener noreferrer' href='https://wnioski.pisf.pl/programy-operacyjne/dokumenty-do-pobrania/promocja-polskiego-kina'>Wzór pisma wyjaśniającego zmiany w wykorzystaniu środków pochodzących z dofinansowania</a>"
+                                            value="Zestawienie to stanowi porównanie kosztów planowanych z faktycznie poniesionymi. Należy w nim uwzględnić wszystkie pozycje, które figurowały w kosztorysie załączonym do umowy. Jeżeli Stypendysta wykorzystał dotację PISF inaczej, niż było to planowane (np. dokonał pewnych przesunięć między pozycjami kosztorysu w ramach przyznanej kwoty dofinansowania), konieczne jest wystosowanie przezeń specjalnego pisma, w którym opisze i wyjaśni zaistniałe różnice i zwróci się z prośbą o ich akceptację. <br><br><a target='_blank' rel='noopener noreferrer' href='https://wnioski.pisf.pl/programy-operacyjne/dokumenty-do-pobrania/promocja-polskiego-kina'>Wzór pisma wyjaśniającego zmiany w wykorzystaniu środków pochodzących z dofinansowania</a>"
                                         )
                                     ]
                                 ),
@@ -433,7 +497,7 @@ class ForeignScholarshipReportBuilder(DWMReportBuilder2026, ForeignScholarshipPr
                                 )
                             ]
                         ),
-                        self.section.report_expenditure_exacution.cost_estimate_by_source_of_financing()
+                        self.section.report_expenditure_exacution.cost_estimate_by_source_of_financing_foreign_scholarship()
                     ]
                 ),
                 self.section.report_expenditure_exacution.list_of_bills_and_invoices()
