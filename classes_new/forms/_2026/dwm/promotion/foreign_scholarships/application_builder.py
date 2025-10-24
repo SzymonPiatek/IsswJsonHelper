@@ -6,11 +6,6 @@ class ForeignPriorityApplicationFormBuilder(PromotionOperationalProgramApplicati
     def __init__(self):
         super().__init__()
 
-        self.form_id = self.set_ids(
-            local_id=0,
-            uat_id=0
-        )
-
         self.priority = ForeignScholarshipsPriority()
         self.grantee_vat_declaration = [
             "Wnioskodawca jest osobą fizyczną, dlatego kwoty zamieszczone w kosztorysie wniosku to KWOTY BRUTTO"
