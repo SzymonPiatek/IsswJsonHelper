@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from classes.postman.postman import Postman
 from classes.web_scraper.web_scraper import WebScraper
-from classes.applications import Applications2025, Applications2026
+from classes.applications import Applications2026
 
 
 class FormHelper:
@@ -17,7 +17,6 @@ class FormHelper:
 
         self.year = year
         self.all_applications = {
-            "2025": Applications2025(),
             "2026": Applications2026(),
         }
         self.applications = self.all_applications[self.year]
