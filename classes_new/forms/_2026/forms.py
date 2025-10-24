@@ -1,5 +1,8 @@
 from classes_new.forms.forms import Forms
 from classes_new.forms._2026.dwm.promotion.promotion.application_builder import PromotionPriorityApplicationFormBuilder
+from classes_new.forms._2026.dwm.promotion.promotion.report_builder import PromotionPriorityReportFormBuilder
+from classes_new.forms._2026.dwm.promotion.foreign_scholarships.application_builder import ForeignPriorityApplicationFormBuilder
+from classes_new.forms._2026.dwm.promotion.foreign_scholarships.report_builder import ForeignScholarshipsPriorityReportFormBuilder
 
 
 class Forms2026(Forms):
@@ -36,7 +39,7 @@ class Forms2026(Forms):
                 "dwm": {
                     "po5": {
                         "pr1": PromotionPriorityApplicationFormBuilder,
-                        "pr2": None
+                        "pr2": ForeignPriorityApplicationFormBuilder
                     }
                 }
             },
@@ -63,8 +66,8 @@ class Forms2026(Forms):
                 },
                 "dwm": {
                     "po5": {
-                        "pr1": None,
-                        "pr2": None
+                        "pr1": PromotionPriorityReportFormBuilder,
+                        "pr2": ForeignScholarshipsPriorityReportFormBuilder
                     }
                 }
             }

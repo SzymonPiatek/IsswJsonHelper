@@ -2,11 +2,16 @@ from classes_new.forms._2026.dwm.pisf_structure import ForeignScholarshipsPriori
 from classes_new.forms._2026.dwm.promotion.report_builder import PromotionOperationalProgramReportFormBuilder
 
 
-class ForeignScholarshipsReportFormBuilder(PromotionOperationalProgramReportFormBuilder):
+class ForeignScholarshipsPriorityReportFormBuilder(PromotionOperationalProgramReportFormBuilder):
     def __init__(self):
-        super().__init__()
+        super().__init__(
+            priority=ForeignScholarshipsPriority()
+        )
 
-        self.priority = ForeignScholarshipsPriority()
+        self.form_id = self.set_ids(
+            local_id=16411,
+            uat_id=2824
+        )
 
         self.statements = [
             {
@@ -33,4 +38,7 @@ class ForeignScholarshipsReportFormBuilder(PromotionOperationalProgramReportForm
                 "label": "Oświadczam, że nie toczą się przeciwko mnie żadne postępowania sądowe oraz nie posiadam żadnych tytułów egzekucyjnych wydanych przez komornika.",
                 "name": "statementNoLegalProceedingsOrEnforcements"
             }
+        ]
+        self.grantee_vat_declaration = [
+            "Wnioskodawca jest osobą fizyczną, dlatego kwoty zamieszczone w kosztorysie wniosku to KWOTY BRUTTO"
         ]

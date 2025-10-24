@@ -15,17 +15,18 @@ class FormBuilder(FormFactory):
             session: Session = Session(
                 year=2026,
                 num=1
-            )
+            ),
+            priority: Priority = None
     ):
         super().__init__()
 
-        self.json_type = json_type
+        self.json_type: Literal["application", "report"] = json_type
         self.form_id: dict[str, int] = self.set_ids()
         self.schema_id: dict[str, int] = self.set_ids()
         self.parts: list = []
         self.intro_text: list[str] = []
 
-        self.priority: Priority = None
+        self.priority: Priority = priority
         self.session: Session = session
 
         self.main_dir = Path(__file__).resolve().parents[2]

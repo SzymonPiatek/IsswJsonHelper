@@ -4,9 +4,15 @@ from classes_new.forms._2026.dwm.promotion.application_builder import PromotionO
 
 class ForeignPriorityApplicationFormBuilder(PromotionOperationalProgramApplicationFormBuilder):
     def __init__(self):
-        super().__init__()
+        super().__init__(
+            priority=ForeignScholarshipsPriority()
+        )
 
-        self.priority = ForeignScholarshipsPriority()
+        self.form_id = self.set_ids(
+            local_id=16410,
+            uat_id=2823
+        )
+
         self.grantee_vat_declaration = [
             "Wnioskodawca jest osobą fizyczną, dlatego kwoty zamieszczone w kosztorysie wniosku to KWOTY BRUTTO"
         ]

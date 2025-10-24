@@ -4,9 +4,14 @@ from classes_new.forms._2026.dwm.promotion.report_builder import PromotionOperat
 
 class PromotionPriorityReportFormBuilder(PromotionOperationalProgramReportFormBuilder):
     def __init__(self):
-        super().__init__()
+        super().__init__(
+            priority=PromotionPriority()
+        )
 
-        self.priority = PromotionPriority()
+        self.form_id = self.set_ids(
+            local_id=16408,
+            uat_id=2821
+        )
 
         self.is_promotion_priority = True
         self.statements = [

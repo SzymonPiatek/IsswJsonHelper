@@ -28,32 +28,14 @@ class FormHelper:
 
         self.setup = {
             "uat": {
-                "autosave_or_update": True,
-                "force_autosave": True,
+                "autosave_or_update": False,
+                "force_autosave": False,
                 "pdf": False,
             },
             "local": {
                 "autosave_or_update": True,
                 "force_autosave": True,
-                "pdf": True,
-            }
-        }
-
-        self.generate_setup = {
-            "dpf": {
-                "generate": False,
-            },
-            "duk": {
-                "generate": False,
-            },
-            "dwm": {
-                "generate": True,
-                "application": {
-                    "generate": True,
-                },
-                "report": {
-                    "generate": False
-                }
+                "pdf": False,
             }
         }
 
@@ -91,7 +73,7 @@ class FormHelper:
                             postman = self.local_postman if server == "local" else self.uat_postman
                             server_form_id = form.form_id[server]
 
-                            if self.setup[server]["autosave_or_update"]:
+                            if server_form_id and self.setup[server]["autosave_or_update"]:
                                 is_success = False
                                 if not self.setup[server]["force_autosave"]:
                                     is_success = postman.application_update_schema(
@@ -108,7 +90,7 @@ class FormHelper:
                             if server == 'local' and self.setup['local']["pdf"] and form.json_type == "application":
                                 postman.application_pdf(
                                     output_path=form.prepare_output_file_path(
-                                        dir_name="pdf"
+                                        dir_name="pdfs"
                                     ),
                                     output_file=form.prepare_output_file_name(
                                         file_type="pdf"

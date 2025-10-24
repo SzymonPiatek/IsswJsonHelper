@@ -4,14 +4,14 @@ from classes_new.forms._2026.dwm.pisf_structure import PromotionPriority
 
 class PromotionPriorityApplicationFormBuilder(PromotionOperationalProgramApplicationFormBuilder):
     def __init__(self):
-        super().__init__()
-
-        self.form_id = self.set_ids(
-            local_id=16406,
-            uat_id=2803
+        super().__init__(
+            priority=PromotionPriority()
         )
 
-        self.priority = PromotionPriority()
+        self.form_id = self.set_ids(
+            local_id=16409,
+            uat_id=2822
+        )
 
         self.requested_support_type = [
             "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 1",
