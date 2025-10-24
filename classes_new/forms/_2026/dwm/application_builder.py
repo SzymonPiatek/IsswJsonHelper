@@ -254,8 +254,221 @@ class DWMDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                 )
             ]
         )
-
-        if not self.is_promotion_priority:
+        if self.is_promotion_priority:
+            chapters = [
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="requestedSupportType",
+                            values=[
+                                "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 1",
+                                "Organizowanie promocyjnych kampanii lub stoisk na międzynarodowych targach, festiwalach oraz innych wydarzeniach branżowych z udziałem polskich twórców filmowych, związanych z polską twórczością filmową zgodnie z ust. 2 pkt 2"
+                            ]
+                        )
+                    ],
+                    components=[
+                        self.create_chapter(
+                            title="5. Projekt/film, z którym Wnioskodawca bierze udział w wydarzeniu",
+                            class_list={
+                                "main": [
+                                    "table-1-2",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    label="Tytuł filmu",
+                                    name="eventMovieTitle",
+                                    required=True,
+                                    class_list=[
+                                        "table-full"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Imię i nazwisko reżysera",
+                                    name="eventMovieDirector",
+                                    required=True,
+                                    class_list=[
+                                        "table-full"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="number",
+                                    label="Metraż filmu w minutach",
+                                    name="eventMovieDuration",
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="select",
+                                    label="Rodzaj filmu",
+                                    name="movieType",
+                                    options=[
+                                        "fabularny",
+                                        "dokumentalny",
+                                        "animowany"
+                                    ],
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Sekcja na festiwalu",
+                                    name="eventEventSession",
+                                    help_text="Podaj sekcję na festiwalu, w której odbędzie się prezentacja filmu.",
+                                    required=True,
+                                    class_list=[
+                                        "table-full"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Rodzaj premiery",
+                                    name="eventMoviePremiereType",
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Rok produkcji",
+                                    name="movieProdYear",
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="6. Czy projekt/film został wsparty przez PISF?",
+                            components=[
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="radio",
+                                            name="wasMovieProjectSupportedByPisfPkt12",
+                                            options=[
+                                                "Tak",
+                                                "Nie"
+                                            ],
+                                            required=True
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name=f"wasMovieProjectSupportedByPisfPkt12",
+                                            values=[
+                                                "Tak"
+                                            ]
+                                        )
+                                    ],
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Program operacyjny",
+                                            name=f"movieProjectSupportedByPisfProgramPkt12",
+                                            required=True,
+                                            class_list=[
+                                                "col-span-2",
+                                                "table-full"
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Priorytet",
+                                            name=f"movieProjectSupportedByPisfPriorityPkt12",
+                                            required=True,
+                                            class_list=[
+                                                "col-span-2",
+                                                "table-full"
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Rok przyznania dofinansowania",
+                                            name=f"movieProjectSupportedPisfYearPkt12",
+                                            required=True
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            mask="fund",
+                                            label="Kwota dofinansowania",
+                                            name=f"movieProjectSupportedPisfAmountPkt12",
+                                            unit="PLN",
+                                            required=True
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    visibility_rules=[
+                        self.visibility_rule.depends_on_value(
+                            field_name="requestedSupportType",
+                            values=[
+                                "Organizowanie albo współorganizowanie poza granicami Polski wydarzeń promujących dorobek polskich twórców filmowych oraz polską twórczość filmową, w tym przeglądów, retrospektyw, wystaw, konferencji zgodnie z ust. 2 pkt 3",
+                                "Organizowanie albo współorganizowanie w Polsce wizyt, spotkań zagranicznych inwestorów, producentów i twórców filmowych, które służą rozwojowi koprodukcji, usług filmowych oraz dystrybucji polskiej twórczości filmowej za granicą zgodnie z ust. 2 pkt 4",
+                                "Organizowanie albo współorganizowanie z partnerami zagranicznymi wydarzeń dla przedstawicieli branży filmowej w formie szkoleń, warsztatów, prezentacji zgodnie z ust. 2 pkt 5"
+                            ]
+                        )
+                    ],
+                    components=[
+                        self.create_chapter(
+                            title="5. Czy poprzednia edycja wydarzenia zostałą wsparta przez PISF?",
+                            components=[
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="radio",
+                                            name="wasMovieProjectSupportedByPisfPkt345",
+                                            options=[
+                                                "Tak",
+                                                "Nie"
+                                            ],
+                                            required=True
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="wasMovieProjectSupportedByPisfPkt345",
+                                    values=[
+                                        "Tak"
+                                    ]
+                                )
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    mask="fund",
+                                    label="Kwota dofinansowania",
+                                    name="eventPrevSupportedPisfAmount",
+                                    required=True,
+                                    unit="PLN"
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        else:
             chapters = [
                 self.create_chapter(
                     title="5. Czy wniosek jest składany przynajmniej 30 dni przed rozpoczęciem wydarzenia?",
@@ -485,8 +698,8 @@ class DWMDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                 )
             ]
 
-            for chapter in chapters:
-                part["chapters"].append(chapter)
+        for chapter in chapters:
+            part["chapters"].append(chapter)
 
         self.save_part(part=part)
 
