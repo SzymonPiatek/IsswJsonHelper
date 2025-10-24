@@ -1,6 +1,6 @@
 import os
 import requests
-from typing import TypedDict
+from typing import TypedDict, Literal
 import urllib3
 from urllib3.exceptions import InsecureRequestWarning
 
@@ -43,12 +43,12 @@ class Postman:
         else:
             raise Exception(f"Logowanie na {self.base_url} się powiodło nie:\n- status: {response.status_code},\n- text: {response.text}")
 
-    def application_autosave(self, form_id: int, json: object):
-        url = f"{self.base_url}/api/v1/applications/{form_id}/autosave"
+    def form_autosave(self, form_id: int, json: object):
+        url = f"{self.base_url}/api/v1/{'reports' if json.json_type == 'report' else 'applications'}/{form_id}/autosave"
 
         response = requests.put(
             url,
-            json=json,
+            json=json.output_json,
             headers={
                 "Content-Type": "application/json",
                 "Accept": "application/json",
@@ -57,19 +57,19 @@ class Postman:
             verify=False
         )
 
-        form_url = f"{self.base_url}/wniosek/{form_id}"
+        form_url = f"{self.base_url}/{'wniosek' if json.json_type == 'application' else 'raport'}/{form_id}"
 
         if response.status_code == 200:
-            print(f"Nadpisano schemę wniosku: {form_url}")
+            print(f"Nadpisano schemę {'raportu' if json.json_type == 'report' else 'wniosku'}: {form_url}")
         else:
             raise Exception(f"Operacja nie powiodła: ({form_url}) - {response.status_code}, {response.text}")
 
-    def application_update_schema(self, form_id: int, json: object):
-        url = f"{self.base_url}/api/v1/cms/applications/{form_id}/schema"
+    def form_update_schema(self, form_id: int, json: object):
+        url = f"{self.base_url}/api/v1/cms/{'reports' if json.json_type == 'report' else 'applications'}/{form_id}/schema"
 
         response = requests.patch(
             url,
-            json=json,
+            json=json.output_json,
             headers={
                 "Content-Type": "application/json",
                 "Accept": "application/json",
@@ -78,13 +78,13 @@ class Postman:
             verify=False
         )
 
-        form_url = f"{self.base_url}/wniosek/{form_id}"
+        form_url = f"{self.base_url}/{'wniosek' if json.json_type == 'application' else 'raport'}/{form_id}"
 
         if response.status_code == 200:
             message = response.json().get("message", "")
 
-            if message == "Zaktualizowano scheme dla aplikacji.":
-                print(f"Zaktualizowano schemę wniosku: {form_url}")
+            if message == f"Zaktualizowano scheme dla {'raportu' if json.json_type == 'report' else 'aplikacji'}.":
+                print(f"Zaktualizowano schemę {'raportu' if json.json_type == 'report' else 'wniosku'}: {form_url}")
                 return True
             else:
                 return False
@@ -92,24 +92,21 @@ class Postman:
             # raise Exception(f"Operacja nie powiodła się ({self.base_url, form_id}): {response.status_code}, {response.text}")
             return False
 
-    def application_pdf(self, output_path: str, output_file: str, json: object, form_id: int):
-        url = f"{self.base_url}:5000/pdf"
+    def form_pdf(self, output_path: str, output_file: str, json_type: Literal["application", "report"], form_id: int):
+        url = f"{self.base_url}/api/v1/{json_type}s/{form_id}/working_pdf"
         os.makedirs(output_path, exist_ok=True)
         output_file_path = (
             output_path / output_file
         )
 
-        response = requests.post(
+        response = requests.get(
             url,
-            json={
-                "jrwa_file": "",
-                "form": json
-            },
             headers={
-                "Content-Type": "application/json",
-                "Accept": "application/json",
+                "Authorization": f"Bearer {self.access_token}",
+                "Accept": "*/*",
             },
-            verify=False
+            verify=False,
+            stream=True
         )
 
         if response.status_code == 200:

@@ -9,8 +9,8 @@ class ForeignScholarshipsPriorityReportFormBuilder(PromotionOperationalProgramRe
         )
 
         self.form_id = self.set_ids(
-            local_id=16411,
-            uat_id=2824
+            local_id=1530,
+            uat_id=None
         )
 
         self.statements = [

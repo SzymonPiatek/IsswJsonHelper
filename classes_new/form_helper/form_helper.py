@@ -5,7 +5,11 @@ from classes_new.forms._2026.forms import Forms2026
 
 
 class FormHelper:
-    def __init__(self, year: int = 2026):
+    def __init__(
+            self,
+            year: int = 2026,
+            setup: dict = None
+    ):
         load_dotenv()
 
         self.data = {
@@ -26,18 +30,7 @@ class FormHelper:
         }
         self.forms = self.all_forms[str(year)]
 
-        self.setup = {
-            "uat": {
-                "autosave_or_update": False,
-                "force_autosave": False,
-                "pdf": False,
-            },
-            "local": {
-                "autosave_or_update": True,
-                "force_autosave": True,
-                "pdf": False,
-            }
-        }
+        self.setup = setup
 
         self.uat_postman = Postman(
             base_url=self.data["uat"]["base_url"],
@@ -46,7 +39,6 @@ class FormHelper:
                 "password": self.data["uat"]["login_password"]
             }
         )
-
         self.local_postman = Postman(
             base_url=self.data["local"]["base_url"],
             login_data={
@@ -54,6 +46,10 @@ class FormHelper:
                 "password": self.data["local"]["login_password"]
             }
         )
+        self.postman = {
+            "local": self.local_postman,
+            "uat": self.uat_postman
+        }
 
     def generate_jsons(self, data_type: str):
         if data_type not in {"application", "report"}:
@@ -63,40 +59,41 @@ class FormHelper:
             for program, priorities in programs.items():
                 for priority, builder in priorities.items():
                     if builder:
-                        print(f'{"=" * 130}')
+                        print(f'{"=" * 50}')
                         print(f"[{department.upper()}] {program.upper()} {priority.upper()} - {data_type.upper()}\n")
 
                         form = builder()
-                        form.generate()
 
                         for server in self.setup.keys():
-                            postman = self.local_postman if server == "local" else self.uat_postman
+                            postman = self.postman[server]
                             server_form_id = form.form_id[server]
 
-                            if server_form_id and self.setup[server]["autosave_or_update"]:
+                            if server_form_id and self.setup[server][form.json_type]["json"]:
+                                form.generate()
+
+                            if server_form_id and self.setup[server][form.json_type]["autosave_or_update"]:
                                 is_success = False
-                                if not self.setup[server]["force_autosave"]:
-                                    is_success = postman.application_update_schema(
+
+                                if not self.setup[server][form.json_type]["force_autosave"]:
+                                    is_success = postman.form_update_schema(
                                         form_id=server_form_id,
-                                        json=form.output_json,
+                                        json=form,
                                     )
 
-                                if self.setup[server]["force_autosave"] or not is_success:
-                                    postman.application_autosave(
+                                if self.setup[server][form.json_type]["force_autosave"] or not is_success:
+                                    postman.form_autosave(
                                         form_id=server_form_id,
-                                        json=form.output_json,
+                                        json=form,
                                     )
 
-                            if server == 'local' and self.setup['local']["pdf"] and form.json_type == "application":
-                                postman.application_pdf(
+                            if server == 'local' and self.setup['local'][form.json_type]["pdf"]:
+                                postman.form_pdf(
                                     output_path=form.prepare_output_file_path(
-                                        dir_name="pdfs"
+                                        dir_name='pdfs'
                                     ),
                                     output_file=form.prepare_output_file_name(
                                         file_type="pdf"
                                     ),
-                                    json=form.output_json,
+                                    json_type=form.json_type,
                                     form_id=server_form_id
                                 )
-
-        print(f'{"=" * 130}\n')

@@ -9,8 +9,8 @@ class PromotionPriorityReportFormBuilder(PromotionOperationalProgramReportFormBu
         )
 
         self.form_id = self.set_ids(
-            local_id=16408,
-            uat_id=2821
+            local_id=1531,
+            uat_id=None
         )
 
         self.is_promotion_priority = True
