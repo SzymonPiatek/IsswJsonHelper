@@ -332,7 +332,7 @@ class DWMDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                     required=True
                                 ),
                                 self.create_component(
-                                    component_type="text",
+                                    component_type="number",
                                     label="Rok produkcji",
                                     name="movieProdYear",
                                     required=True
@@ -615,7 +615,7 @@ class DWMDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             required=True
                         ),
                         self.create_component(
-                            component_type="text",
+                            component_type="number",
                             label="Rok produkcji",
                             name="movieProdYear",
                             required=True
@@ -997,33 +997,36 @@ class DWMDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     ),
                     self.section.applicant_statistical_data(
                         number=8
-                    ),
-                    self.create_chapter(
-                        components=[
-                            self.create_component(
-                                component_type="radio",
-                                label=f"W przypadku otrzymania {'dofinansowania' if self.is_promotion_priority else 'stypendium'} od PISF proszę o przygotowanie umowy:",
-                                name="contractPreparationIfReceivingFunding",
-                                options=[
-                                    "w formie papierowej (do podpisu odręcznego)",
-                                    "w formie elektronicznej (do podpisu kwalifikowanym podpisem elektronycznym)"
-                                ],
-                                required=True
-                            ),
-                            self.create_component(
-                                component_type="header",
-                                value="<a target='_blank' rel='noopener noreferrer' href='https://biznes.gov.pl/pl/portal/0075' style='font-weight: bold; text-decoration: underline;'>Informacja na temat kwalifikowanych podpisów elektronicznych.</a>",
-                                name="contractPreparationIfReceivingFundingSignatureInfo"
-                            ),
-                            self.create_component(
-                                component_type="header",
-                                value="Uwaga! W przypadku zmiany formy podpisania umowy Instytut może odstąpić od zawarcia umowy.",
-                                name="contractPreparationIfReceivingFundingInfo"
-                            )
-                        ]
                     )
                 ]
             )
+
+        chapters.append(
+            self.create_chapter(
+                components=[
+                    self.create_component(
+                        component_type="radio",
+                        label=f"W przypadku otrzymania {'dofinansowania' if self.is_promotion_priority else 'stypendium'} od PISF proszę o przygotowanie umowy:",
+                        name="contractPreparationIfReceivingFunding",
+                        options=[
+                            "w formie papierowej (do podpisu odręcznego)",
+                            "w formie elektronicznej (do podpisu kwalifikowanym podpisem elektronycznym)"
+                        ],
+                        required=True
+                    ),
+                    self.create_component(
+                        component_type="header",
+                        value="<a target='_blank' rel='noopener noreferrer' href='https://biznes.gov.pl/pl/portal/0075' style='font-weight: bold; text-decoration: underline;'>Informacja na temat kwalifikowanych podpisów elektronicznych.</a>",
+                        name="contractPreparationIfReceivingFundingSignatureInfo"
+                    ),
+                    self.create_component(
+                        component_type="header",
+                        value="Uwaga! W przypadku zmiany formy podpisania umowy Instytut może odstąpić od zawarcia umowy.",
+                        name="contractPreparationIfReceivingFundingInfo"
+                    )
+                ]
+            )
+        )
 
         part = self.create_part(
             title=f"{self.helpers.int_to_roman(number)}. Informacje o Wnioskodawcy",
