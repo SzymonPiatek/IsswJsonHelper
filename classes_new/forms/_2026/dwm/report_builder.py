@@ -143,28 +143,28 @@ class DWMDepartmentReportFormBuilder(ReportFormBuilder):
                             class_list={
                                 "main": [
                                     "grid",
-                                    "grid-cols-6",
+                                    "grid-cols-8",
                                     "no-title"
                                 ]
                             },
                             components=[
                                 self.create_component(
-                                    component_type="header",
-                                    name="addAnnex",
-                                    value="Czy umowa była aneksowana?",
-                                    class_list=[
-                                        "col-span-2",
-                                        "col-start-3",
-                                        "text-right",
-                                        "displayNoneFrontend"
-                                    ]
-                                ),
-                                self.create_component(
                                     component_type="checkbox",
                                     label="Czy umowa była aneksowana?",
                                     name="addAnnex",
                                     class_list=[
+                                        "col-start-4",
                                         "no-label"
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="header",
+                                    name="addAnnex",
+                                    value="Czy umowa była aneksowana?",
+                                    class_list=[
+                                        "col-span-4",
+                                        "text-left",
+                                        "displayNoneFrontend"
                                     ]
                                 )
                             ]
@@ -534,7 +534,16 @@ class DWMDepartmentReportFormBuilder(ReportFormBuilder):
                             label="w tym inne środki",
                             name="reportingCostsOtherFunds",
                             calculation_rules=[
-                                #     TODO
+                                self.calculation_rule.copy_value(
+                                    from_name="budgetInputAllPartnersCurrentAmount"
+                                )
+                            ],
+                            validators=[
+                                self.validator.related_sum_validator(
+                                    field_names=[
+                                        "budgetInputAllPartnersCurrentAmount"
+                                    ]
+                                )
                             ],
                             read_only=True,
                             unit="PLN",
@@ -2860,6 +2869,7 @@ class DWMDepartmentReportFormBuilder(ReportFormBuilder):
                               self.create_component(
                                   component_type="header",
                                   name=checkbox["name"],
+                                  value=checkbox["label"],
                                   class_list=[
                                       "col-span-9",
                                       "text-left",
@@ -2869,7 +2879,7 @@ class DWMDepartmentReportFormBuilder(ReportFormBuilder):
                           ]],
                         self.create_component(
                             component_type="text",
-                            label=f"PODPIS {'BENEFICJENTA' if self.is_promotion_priority else 'STYPENDSTY'}:",
+                            label=f"PODPIS {'BENEFICJENTA' if self.is_promotion_priority else 'STYPENDYSTY'}:",
                             name="reportSignature",
                             class_list=[
                                 "col-start-7",

@@ -2068,7 +2068,8 @@ class DWMDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                             ],
                                             validators=[
                                                 self.validator.length_validator(max_value=200)
-                                            ]
+                                            ],
+                                            help_text="Beneficjent powinien wpisać pełną nazwę podmiotu współfinansującego ze wskazaniem formy organizacyjno-prawnej."
                                         ),
                                         self.create_component(
                                             component_type="text",
@@ -2163,7 +2164,8 @@ class DWMDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                             ],
                                             validators=[
                                                 self.validator.length_validator(max_value=200)
-                                            ]
+                                            ],
+                                            help_text="Beneficjent powinien wpisać pełną nazwę podmiotu współfinansującego ze wskazaniem formy organizacyjno-prawnej."
                                         ),
                                         self.create_component(
                                             component_type="text",
