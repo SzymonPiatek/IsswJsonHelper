@@ -6,7 +6,12 @@ class DWMDepartmentReportFormBuilder(ReportFormBuilder):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.parts = []
+        self.parts = [
+            self.create_report_basic_data,
+            self.create_report_general_data,
+            self.create_report_expenditure_exacution,
+            self.create_report_additional_information
+        ]
 
         self.section = DWMSection()
         self.is_promotion_priority: bool = False
@@ -414,6 +419,25 @@ class DWMDepartmentReportFormBuilder(ReportFormBuilder):
         self.save_part(part)
 
     def create_report_expenditure_exacution(self, number: int):
+        cost_types = [
+            {
+                "name": "accreditation",
+                "label": "Koszty akredytacji"
+            },
+            {
+                "name": "accommodation",
+                "label": "Koszty noclegu"
+            },
+            {
+                "name": "transportation",
+                "label": "Koszty transportu"
+            },
+            {
+                "name": "participation",
+                "label": "Koszty uczestnictwa w warsztatach (jeśli dotyczy)"
+            }
+        ]
+
         part = self.create_part(
             title=f"{self.helpers.int_to_roman(number)}. Sprawozdanie z wykonania wydatków",
             class_list=[

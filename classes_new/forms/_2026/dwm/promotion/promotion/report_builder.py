@@ -48,3 +48,7 @@ class PromotionPriorityReportFormBuilder(PromotionOperationalProgramReportFormBu
                 "name": "statementNoLegalProceedingsOrEnforcements"
             }
         ]
+        self.grantee_vat_declaration = [
+            "Wnioskodawca JEST płatnikiem VAT, dlatego kwoty zamieszczone w kosztorysie wniosku to KWOTY NETTO",
+            "Wnioskodawca NIE JEST płatnikiem VAT, dlatego kwoty zamieszczone w kosztorysie wniosku to KWOTY BRUTTO"
+        ]
