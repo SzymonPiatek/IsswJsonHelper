@@ -26,6 +26,7 @@ class SpecialValidatorsApplicationFormBuilder(ApplicationFormBuilder):
     def create_checkbox_true_date_lte_todat_test(self, number: int):
         part = self.create_part(
             title=f"{self.helpers.int_to_roman(number)}. CheckboxTrueDateLTEToday",
+            short_name=f"{self.helpers.int_to_roman(number)}. Checkbox True Date LTE Today",
             chapters=[
                 self.create_chapter(
                     components=[

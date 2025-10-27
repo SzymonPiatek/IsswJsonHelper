@@ -1,6 +1,6 @@
 from .estimate_data import estimate_section_structure, sum_estimate_section_structure, \
     sum_estimate_sections
-from classes.form_factory.form_factory import FormFactory
+from classes_new.form_factory.form_factory import FormFactory
 
 
 class ReconstructionApplicationEstimateBuilder(FormFactory):
