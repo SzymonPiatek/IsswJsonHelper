@@ -4,7 +4,8 @@ from classes_new.pisf_structure import Department, OperationalProgram, Priority
 class DUKDepartment(Department):
     def __init__(self):
         super().__init__(
-            name="Dział Upowszechniania Kultury Filmowej"
+            name="Dział Upowszechniania Kultury Filmowej",
+            code="DUK"
         )
 
 
@@ -22,7 +23,7 @@ class HigherSchoolsPriority(Priority):
         super().__init__(
             name="Szkoły wyższe",
             num=1,
-            operational_program=EducationOperationalProgram()
+            operation_program=EducationOperationalProgram()
         )
 
 
@@ -31,7 +32,7 @@ class SecondarySchoolsPriority(Priority):
         super().__init__(
             name="Szkoły średnie i zawodowe",
             num=2,
-            operational_program=EducationOperationalProgram()
+            operation_program=EducationOperationalProgram()
         )
 
 
@@ -40,7 +41,7 @@ class ProfessionalTrainingPriority(Priority):
         super().__init__(
             name="Edukacja profesjonalna i doskonalenie zawodowe",
             num=3,
-            operational_program=EducationOperationalProgram()
+            operation_program=EducationOperationalProgram()
         )
 
 
@@ -49,7 +50,7 @@ class AudiencePriority(Priority):
         super().__init__(
             name="Edukacja widowni filmowej",
             num=4,
-            operational_program=EducationOperationalProgram()
+            operation_program=EducationOperationalProgram()
         )
 
 
@@ -67,7 +68,7 @@ class FestivalsPriority(Priority):
         super().__init__(
             name="Festiwale filmowe",
             num=1,
-            operational_program=DisseminationOperationalProgram()
+            operation_program=DisseminationOperationalProgram()
         )
 
 
@@ -76,7 +77,7 @@ class InitiativesPriority(Priority):
         super().__init__(
             name="Inicjatywy filmowe",
             num=2,
-            operational_program=DisseminationOperationalProgram()
+            operation_program=DisseminationOperationalProgram()
         )
 
 
@@ -85,7 +86,7 @@ class LiteraturePriority(Priority):
         super().__init__(
             name="Literatura i czasopisma o filmie",
             num=3,
-            operational_program=DisseminationOperationalProgram()
+            operation_program=DisseminationOperationalProgram()
         )
 
 
@@ -94,7 +95,7 @@ class ReconstructionPriority(Priority):
         super().__init__(
             name="Rekontrukcja filmowa",
             num=4,
-            operational_program=DisseminationOperationalProgram()
+            operation_program=DisseminationOperationalProgram()
         )
 
 
@@ -103,7 +104,7 @@ class ResearchPriority(Priority):
         super().__init__(
             name="Badania rynku audiowizualnego",
             num=5,
-            operational_program=DisseminationOperationalProgram()
+            operation_program=DisseminationOperationalProgram()
         )
 
 
@@ -112,7 +113,7 @@ class DkfPriority(Priority):
         super().__init__(
             name="Działalność klubów filmowych",
             num=6,
-            operational_program=DisseminationOperationalProgram()
+            operation_program=DisseminationOperationalProgram()
         )
 
 

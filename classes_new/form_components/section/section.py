@@ -754,3 +754,151 @@ class Section(FormFactory):
                 )
             ]
         )
+
+    def eligible_person_data(
+            self,
+            number: int | str
+    ):
+        return self.create_chapter(
+            title=f"{number}. Osoby upoważnione do reprezentowania wnioskodawcy, składania oświadczeń woli i zaciągania w jego imieniu zobowiązań finansowych",
+            components=[
+                self.create_chapter(
+                    multiple_forms_rules={
+                        "minCount": 1,
+                        "maxCount": 8
+                    },
+                    class_list={
+                        "sub": [
+                            "table-1-2-top"
+                        ]
+                    },
+                    components=[
+                        self.create_chapter(
+                            title="Osoba upoważniona do reprezentowania Wnioskodawcy",
+                            class_list={
+                                "main": [
+                                    "table-1-2",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    label="Imię",
+                                    name="eligiblePersonFirstName",
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Nazwisko",
+                                    name="eligiblePersonLastName",
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Email",
+                                    name="eligiblePersonEmail",
+                                    required=True,
+                                    validators=[
+                                        self.validator.email_validator()
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Numer telefonu",
+                                    name="eligiblePersonPhoneNum",
+                                    required=True,
+                                    mask="phoneNumber",
+                                    validators=[
+                                        self.validator.phone_number_validator()
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Stanowisko zgodnie z reprezentacją/ załączonym upoważnieniem",
+                                    name="eligiblePersonPosition",
+                                    required=True,
+                                    class_list=[
+                                        "table-full"
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+
+    def responsible_person_data(
+            self,
+            number: int | str
+    ):
+        return self.create_chapter(
+            title=f"{number}. Osoba odpowiedzialna za przygotowanie wniosku i kontakty z PISF",
+            class_list={
+                "sub": [
+                    "table-1-2-top"
+                ]
+            },
+            components=[
+                self.create_chapter(
+                    class_list={
+                        "main": [
+                            "table-1-2",
+                            "grid",
+                            "grid-cols-2"
+                        ],
+                        "sub": [
+                            "table-1-2__col"
+                        ]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            label="Imię",
+                            name="authPersonFirstName",
+                            required=True
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Nazwisko",
+                            name="authPersonLastName",
+                            required=True
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Numer telefonu stacjonarnego",
+                            name="authPersonPhoneNum",
+                            mask="landline",
+                            required=True
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Numer telefonu komórkowego",
+                            name="authPersonMobileNum",
+                            mask="phoneNumber",
+                            required=True,
+                            validators=[
+                                self.validator.phone_number_validator()
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Email kontaktowy",
+                            name="authPersonEmail",
+                            required=True,
+                            validators=[
+                                self.validator.email_validator()
+                            ],
+                            class_list=[
+                                "col-span-2"
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
