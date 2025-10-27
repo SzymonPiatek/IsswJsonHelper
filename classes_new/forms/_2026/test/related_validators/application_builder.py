@@ -26,6 +26,7 @@ class RelatedValidatorsApplicationFormBuilder(ApplicationFormBuilder):
             self.create_related_date_increment_validator,
             self.create_related_sum_validator,
             self.create_related_multiplication_validator,
+            self.create_related_local_multiplication_validator,
             self.create_related_share_validator,
             self.create_related_local_division_validator,
             self.create_related_map_validator,
@@ -60,7 +61,7 @@ class RelatedValidatorsApplicationFormBuilder(ApplicationFormBuilder):
         [x] RelatedDateIncrementValidator
         [x] RelatedSumValidator
         [x] RelatedMultiplicationValidator
-        [ ] RelatedLocalMultiplicationValidator
+        [x] RelatedLocalMultiplicationValidator
         [x] RelatedShareValidator
         [x] RelatedLocalDivisionValidator
         [x] RelatedMapValidator
@@ -1019,6 +1020,76 @@ class RelatedValidatorsApplicationFormBuilder(ApplicationFormBuilder):
                             ],
                             read_only=True,
                             unit="min."
+                        )
+                    ]
+                )
+            ]
+        )
+        self.save_part(part)
+
+    def create_related_local_multiplication_validator(self, number: int):
+        part = self.create_part(
+            title=f"{self.helpers.int_to_roman(number)}. RelatedLocalMultiplicationValidator",
+            short_name=f"{self.helpers.int_to_roman(number)}. Related Local Multiplication Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedLocalMultiplicationValidator",
+                            value="Walidator sprawdza, czy poprawnie przemnożono wartości - lokalnie."
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    multiple_forms_rules={
+                        "minCount": 2,
+                        "maxCount": 10,
+                    },
+                    components=[
+                        self.create_chapter(
+                            title="Sezon",
+                            class_list={
+                                "main": ["table-1-3-narrow"],
+                                "sub": ["table-1-3__col"],
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="number",
+                                    label="Liczba odcinków",
+                                    name="numberOfEpisodesLocal",
+                                    unit="szt."
+                                ),
+                                self.create_component(
+                                    component_type="number",
+                                    label="Średnia liczba minut odcinka",
+                                    name="lengthOfEpisodeLocal",
+                                    unit="min."
+                                ),
+                                self.create_component(
+                                    component_type="number",
+                                    label="Łączna liczba minut",
+                                    name="multiplicationResultLocal",
+                                    calculation_rules=[
+                                        self.calculation_rule.local_multiply_inputs(
+                                            fields=[
+                                                "numberOfEpisodesLocal",
+                                                "lengthOfEpisodeLocal",
+                                            ]
+                                        )
+                                    ],
+                                    validators=[
+                                        self.validator.related_local_multiplication_validator(
+                                            field_names=[
+                                                "numberOfEpisodesLocal",
+                                                "lengthOfEpisodeLocal",
+                                            ]
+                                        )
+                                    ],
+                                    read_only=True,
+                                    unit="min."
+                                )
+                            ]
                         )
                     ]
                 )
