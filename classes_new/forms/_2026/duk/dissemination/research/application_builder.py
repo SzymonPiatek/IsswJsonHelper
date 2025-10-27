@@ -1,28 +1,29 @@
-from classes.form_builder.departments.duk._2026.dissemination.application_builder import DisseminationApplicationBuilder
+from classes_new.forms._2026.duk.pisf_structure import ResearchPriority
+from classes_new.forms._2026.duk.dissemination.application_builder import DisseminationOperationalProgramApplicationFormBuilder
 from .estimate_data import estimate_sections
-from classes.form_builder.departments.duk._2026.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
-from ..priority import ResearchPriority
+from classes_new.forms._2026.duk.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
 
 
-class ResearchApplicationBuilder(DisseminationApplicationBuilder, ResearchPriority):
-    FORM_ID = 24
-
+class ResearchPriorityApplicationFormBuilder(DisseminationOperationalProgramApplicationFormBuilder):
     def __init__(self):
-        super().__init__()
+        super().__init__(
+            priority=ResearchPriority()
+        )
 
+        # Variables
         self.project_type = [
             "Badania widowni kinowej oraz bilansu kompetencji (ilościowe, jakościowe, cykliczne).",
             "Badania i analizy rynku kinematograficznego.",
             "Przygotowanie innowacyjnych przedsięwzięć o szczególnym znaczeniu dla rozwoju rynku audiowizualnego.",
             "Badania i analizy zjawiska tzw. piractwa w sferze kinematografii oraz działania na rzecz jego zwalczania."
         ]
+        self.source_of_financing_tickets = True
 
+        # Estimate
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
         self.estimate_chapters = [
             estimate_builder.generate_estimate()
         ]
-
-        self.source_of_financing_tickets = True
 
     def create_application_scope_of_project(self, number):
         part = self.create_part(

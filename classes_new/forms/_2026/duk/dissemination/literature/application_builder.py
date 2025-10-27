@@ -1,26 +1,32 @@
-from classes.form_builder.departments.duk._2026.dissemination.application_builder import DisseminationApplicationBuilder
+from classes_new.forms._2026.duk.dissemination.application_builder import DisseminationOperationalProgramApplicationFormBuilder
+from classes_new.forms._2026.duk.pisf_structure import LiteraturePriority
 from .estimate_data import estimate_sections
-from classes.form_builder.departments.duk._2026.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
-from ..priority import LiteraturePriority
+from classes_new.forms._2026.duk.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
 
 
-class LiteratureApplicationBuilder(DisseminationApplicationBuilder, LiteraturePriority):
-    FORM_ID = 22
-
+class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramApplicationFormBuilder):
     def __init__(self):
-        super().__init__()
+        super().__init__(
+            priority=LiteraturePriority()
+        )
 
+        self.form_id = self.set_ids(
+            local_id=22,
+            uat_id=None
+        )
+
+        # Variables
         self.project_type = [
             "Publikacja opracowań naukowych, książek (w formie papierowej, e-book, audiobook, książka dla niewidomych i słabowidzących), albumów, czasopism z dziedziny kinematografii funkcjonujących na rynku wydawniczym (również w formie publikacji elektronicznej).",
             "Działalność portali, serwisów, baz z zakresu wiedzy o filmie.",
         ]
+        self.source_of_financing_tickets = True
 
+        # Estimate
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
         self.estimate_chapters = [
             estimate_builder.generate_estimate()
         ]
-
-        self.source_of_financing_tickets = True
 
     def create_application_scope_of_project(self, number):
         part = self.create_part(
@@ -229,4 +235,3 @@ class LiteratureApplicationBuilder(DisseminationApplicationBuilder, LiteraturePr
             ]
         )
         self.save_part(part)
-

@@ -1,25 +1,32 @@
-from classes.form_builder.departments.duk._2026.dissemination.application_builder import DisseminationApplicationBuilder
+from classes_new.forms._2026.duk.dissemination.application_builder import \
+    DisseminationOperationalProgramApplicationFormBuilder
+from classes_new.forms._2026.duk.pisf_structure import ReconstructionPriority
 from .estimate_data import estimate_sections, estimate_section_structure
-from ..priority import ReconstructionPriority
 from .application_estimate_builder import ReconstructionApplicationEstimateBuilder
 
 
-class ReconstructionApplicationBuilder(DisseminationApplicationBuilder, ReconstructionPriority):
-    FORM_ID = 23
-
+class ReconstructionPriorityApplicationFormBuilder(DisseminationOperationalProgramApplicationFormBuilder):
     def __init__(self):
-        super().__init__()
+        super().__init__(
+            priority=ReconstructionPriority()
+        )
 
+        self.form_id = self.set_ids(
+            local_id=23,
+            uat_id=None
+        )
+
+        # Variables
         self.project_type = [
             "Rekonstrukcja cyfrowa i digitalizacja filmów polskich oraz ich przygotowanie do rozpowszechniania.",
             "Systemowe przedsięwzięcia, mające na celu zabezpieczenie materiałów filmowych."
         ]
 
+        # Estimate
         estimate_builder = ReconstructionApplicationEstimateBuilder(estimate_sections=estimate_sections, estimate_section_structure=estimate_section_structure)
         self.estimate_chapters = [
             estimate_builder.generate_estimate()
         ]
-
 
     def create_application_project_costs(self, number):
         estimate_base = ReconstructionApplicationEstimateBuilder(estimate_sections=[])

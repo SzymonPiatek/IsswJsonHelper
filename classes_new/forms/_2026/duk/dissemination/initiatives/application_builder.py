@@ -1,14 +1,20 @@
-from classes.form_builder.departments.duk._2026.dissemination.application_builder import DisseminationApplicationBuilder
+from classes_new.forms._2026.duk.dissemination.application_builder import \
+    DisseminationOperationalProgramApplicationFormBuilder
+from classes_new.forms._2026.duk.pisf_structure import InitiativesPriority
 from .estimate_data import estimate_sections_pt124, estimate_sections_pt3
 from classes.form_builder.departments.duk._2026.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
-from classes.form_builder.departments.duk._2026.dissemination.priority import InitiativesPriority
 
 
-class InitiativesApplicationBuilder(DisseminationApplicationBuilder, InitiativesPriority):
-    FORM_ID = 21
-
+class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramApplicationFormBuilder):
     def __init__(self):
-        super().__init__()
+        super().__init__(
+            priority=InitiativesPriority()
+        )
+
+        self.form_id = self.set_ids(
+            local_id=20,
+            uat_id=None
+        )
 
         # Variables
         self.project_type = [

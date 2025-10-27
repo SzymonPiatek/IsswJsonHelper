@@ -5,6 +5,16 @@ from classes_new.forms._2026.duk.development.digitalization.application_builder 
     DigitalizationPriorityApplicationFormBuilder
 # DUK - Dissemination
 from classes_new.forms._2026.duk.dissemination.dkf.application_builder import DkfPriorityApplicationFormBuilder
+from classes_new.forms._2026.duk.dissemination.festivals.application_builder import \
+    FestivalsPriorityApplicationFormBuilder
+from classes_new.forms._2026.duk.dissemination.initiatives.application_builder import \
+    InitiativesPriorityApplicationFormBuilder
+from classes_new.forms._2026.duk.dissemination.literature.application_builder import \
+    LiteraturePriorityApplicationFormBuilder
+from classes_new.forms._2026.duk.dissemination.reconstruction.application_builder import \
+    ReconstructionPriorityApplicationFormBuilder
+from classes_new.forms._2026.duk.dissemination.research.application_builder import \
+    ResearchPriorityApplicationFormBuilder
 # DWM - Promotion
 from classes_new.forms._2026.dwm.promotion.promotion.application_builder import PromotionPriorityApplicationFormBuilder
 from classes_new.forms._2026.dwm.promotion.promotion.report_builder import PromotionPriorityReportFormBuilder
@@ -41,11 +51,11 @@ class Forms2026(Forms):
                         "pr4": None
                     },
                     "po3": {
-                        "pr1": None,
-                        "pr2": None,
-                        "pr3": None,
-                        "pr4": None,
-                        "pr5": None,
+                        "pr1": FestivalsPriorityApplicationFormBuilder,
+                        "pr2": InitiativesPriorityApplicationFormBuilder,
+                        "pr3": LiteraturePriorityApplicationFormBuilder,
+                        "pr4": ReconstructionPriorityApplicationFormBuilder,
+                        "pr5": ResearchPriorityApplicationFormBuilder,
                         "pr6": DkfPriorityApplicationFormBuilder
                     },
                     "po4": {
