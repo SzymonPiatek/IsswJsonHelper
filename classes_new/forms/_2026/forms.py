@@ -3,6 +3,7 @@ from classes_new.forms._2026.dwm.promotion.promotion.application_builder import 
 from classes_new.forms._2026.dwm.promotion.promotion.report_builder import PromotionPriorityReportFormBuilder
 from classes_new.forms._2026.dwm.promotion.foreign_scholarships.application_builder import ForeignPriorityApplicationFormBuilder
 from classes_new.forms._2026.dwm.promotion.foreign_scholarships.report_builder import ForeignScholarshipsPriorityReportFormBuilder
+from classes_new.forms._2026.dpf.production.screenplay_scholarship.application_builder import ScreenplayScholarshipPriorityApplicationFormBuilder
 
 
 class Forms2026(Forms):
@@ -13,7 +14,13 @@ class Forms2026(Forms):
             "application": {
                 "dpf": {
                     "po1": {
-                        "pr1": None
+                        "pr1": ScreenplayScholarshipPriorityApplicationFormBuilder,
+                        "pr2": None,
+                        "pr3": None,
+                        "pr4": None,
+                        "pr5": None,
+                        "pr6": None,
+                        "pr7": None
                     }
                 },
                 "duk": {
