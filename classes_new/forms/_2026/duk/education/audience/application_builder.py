@@ -1,21 +1,28 @@
 from .estimate_data import estimate_sections
-from classes.form_builder.departments.duk._2026.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
-from ..priority import AudiencePriority
-from ..application_builder import EducationApplicationBuilder
+from classes_new.forms._2026.duk.education.application_builder import EducationOperationalProgramApplicationFormBuilder
+from classes_new.forms._2026.duk.pisf_structure import AudiencePriority
+from classes_new.forms._2026.duk.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
 
 
-class AudienceApplicationBuilder(EducationApplicationBuilder, AudiencePriority):
-    FORM_ID = 19
-
+class AudiencePriorityApplicationFormBuilder(EducationOperationalProgramApplicationFormBuilder):
     def __init__(self):
-        super().__init__()
+        super().__init__(
+            priority=AudiencePriority()
+        )
 
+        self.form_id = self.set_ids(
+            local_id=19,
+            uat_id=None
+        )
+
+        # Variables
         self.project_type = [
             "Cykliczne zajęcia edukacyjne połączone z projekcją filmu o wysokich walorach artystycznych, dotyczące analizy prezentowanego utworu, jego miejsca w historii kinematografii polskiej i/lub światowej, estetyki filmowej i zastosowanych środków wyrazu oraz społecznych funkcji filmu, organizowane w kinach lub innych salach przygotowanych do projekcji filmu.",
             "Niecykliczne zajęcia, warsztaty wzbogacone materiałami dydaktycznymi o wysokiej wartości merytorycznej, zgodne z obowiązującą podstawą programową nauczania.",
             "Inne działania realizujące cele Priorytetu IV."
         ]
 
+        # Estimate
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
         self.estimate_chapters = [
             estimate_builder.generate_estimate()

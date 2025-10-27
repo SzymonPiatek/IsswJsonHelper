@@ -15,6 +15,13 @@ from classes_new.forms._2026.duk.dissemination.reconstruction.application_builde
     ReconstructionPriorityApplicationFormBuilder
 from classes_new.forms._2026.duk.dissemination.research.application_builder import \
     ResearchPriorityApplicationFormBuilder
+# DUK - Education
+from classes_new.forms._2026.duk.education.audience.application_builder import AudiencePriorityApplicationFormBuilder
+from classes_new.forms._2026.duk.education.higher_schools.application_builder import HigherSchoolsPriorityApplicationFormBuilder
+from classes_new.forms._2026.duk.education.professional_training.application_builder import \
+    ProfessionalTrainingPriorityApplicationFormBuilder
+from classes_new.forms._2026.duk.education.secondary_schools.application_builder import \
+    SecondarySchoolsPriorityApplicationFormBuilder
 # DWM - Promotion
 from classes_new.forms._2026.dwm.promotion.promotion.application_builder import PromotionPriorityApplicationFormBuilder
 from classes_new.forms._2026.dwm.promotion.promotion.report_builder import PromotionPriorityReportFormBuilder
@@ -45,10 +52,10 @@ class Forms2026(Forms):
                 },
                 "duk": {
                     "po2": {
-                        "pr1": None,
-                        "pr2": None,
-                        "pr3": None,
-                        "pr4": None
+                        "pr1": HigherSchoolsPriorityApplicationFormBuilder,
+                        "pr2": SecondarySchoolsPriorityApplicationFormBuilder,
+                        "pr3": ProfessionalTrainingPriorityApplicationFormBuilder,
+                        "pr4": AudiencePriorityApplicationFormBuilder
                     },
                     "po3": {
                         "pr1": FestivalsPriorityApplicationFormBuilder,

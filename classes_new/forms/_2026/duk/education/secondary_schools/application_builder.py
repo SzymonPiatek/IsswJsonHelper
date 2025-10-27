@@ -1,59 +1,31 @@
-from .estimate_data import estimate_sections_pt124, estimate_sections_pt3
-from classes.form_builder.departments.duk._2026.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
-from ..priority import ProfessionalTrainingPriority
-from ..application_builder import EducationApplicationBuilder
+from .estimate_data import estimate_sections
+from classes_new.forms._2026.duk.education.application_builder import EducationOperationalProgramApplicationFormBuilder
+from classes_new.forms._2026.duk.pisf_structure import SecondarySchoolsPriority
+from classes_new.forms._2026.duk.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
 
 
-class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, ProfessionalTrainingPriority):
-    FORM_ID = 18
-
+class SecondarySchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApplicationFormBuilder):
     def __init__(self):
-        super().__init__()
+        super().__init__(
+            priority=SecondarySchoolsPriority()
+        )
 
+        self.form_id = self.set_ids(
+            local_id=17,
+            uat_id=None
+        )
+
+        # Variables
         self.project_type = [
-            "Podnoszenie kwalifikacji i kompetencji zawodowych przedstawicieli wszystkich grup zawodowych sektora audiowizualnego poprzez organizację szkoleń, warsztatów, kursów oraz innych form doskonalenia zawodowego, w tym programów długoterminowych.",
-            "Kształcenie w kierunku zdobycia dodatkowych umiejętności i zawodów związanych z potrzebami współczesnego rynku audiowizualnego.",
-            "Organizacja kursów nauki języków obcych dla przedstawicieli zawodów filmowych.",
-            "Inne działania, realizujące cele Priorytetu III."
+            "Programy edukacyjne wchodzące w skład edukacji ciągłej.",
+            "Kształcenie w kierunku zdobycia zawodów związanych z potrzebami współczesnego rynku audiowizualnego.",
+            "Praktyki zawodowe."
         ]
 
-        estimate_builder_pt124 = DUKApplicationEstimateBuilder(
-            estimate_sections=estimate_sections_pt124,
-            after_name="pt124"
-        )
-        estimate_builder_pt3 = DUKApplicationEstimateBuilder(
-            estimate_sections=estimate_sections_pt3,
-            after_name="pt3"
-        )
+        # Estimate
+        estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
         self.estimate_chapters = [
-            self.create_chapter(
-                visibility_rules=[
-                    self.visibility_rule.depends_on_value(
-                        field_name="projectType",
-                        values=[
-                            "Podnoszenie kwalifikacji i kompetencji zawodowych przedstawicieli wszystkich grup zawodowych sektora audiowizualnego poprzez organizację szkoleń, warsztatów, kursów oraz innych form doskonalenia zawodowego, w tym programów długoterminowych.",
-                            "Kształcenie w kierunku zdobycia dodatkowych umiejętności i zawodów związanych z potrzebami współczesnego rynku audiowizualnego.",
-                            "Inne działania, realizujące cele Priorytetu III."
-                        ]
-                    )
-                ],
-                components=[
-                    estimate_builder_pt124.generate_estimate(),
-                ]
-            ),
-            self.create_chapter(
-                visibility_rules=[
-                    self.visibility_rule.depends_on_value(
-                        field_name="projectType",
-                        values=[
-                            "Organizacja kursów nauki języków obcych dla przedstawicieli zawodów filmowych."
-                        ]
-                    )
-                ],
-                components=[
-                    estimate_builder_pt3.generate_estimate(),
-                ]
-            )
+            estimate_builder.generate_estimate()
         ]
 
     def create_application_scope_of_project(self, number):
@@ -65,49 +37,8 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                     title="1. Zakres przedsięwzięcia i jego charakterystyka",
                     components=[
                         self.create_chapter(
-                            title="Rodzaj planowanego przedsięwzięcia",
-                            help_text="Np. kurs, warsztat, szkolenie itp.",
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
-                            components=[
-                                self.create_component(
-                                    component_type='textarea',
-                                    name="plannedProjectType",
-                                    validators=[
-                                        self.validator.length_validator(max_value=100)
-                                    ],
-                                    required=True,
-                                    class_list=[
-                                        "table-full"
-                                    ]
-                                ),
-                                self.create_component(
-                                    name="projectLocation",
-                                    component_type="textarea",
-                                    label="Miejsce realizacji przedsięwzięcia",
-                                    validators=[
-                                        self.validator.length_validator(
-                                            max_value=100
-                                        )
-                                    ],
-                                    required=True,
-                                    class_list=[
-                                        "table-full"
-                                    ]
-                                )
-                            ]
-                        ),
-                        self.create_chapter(
                             title="Opis przedsięwzięcia",
-                            help_text="Tematyka, tryb, metody dydaktyczne, liczba godzin, modułów, bloków tematycznych.",
+                            help_text="Profil kształcenia, forma realizacji zajęć dydaktycznych, metody i techniki nauczania itp.",
                             components=[
                                 self.create_component(
                                     name="generalProjectDescription",
@@ -122,12 +53,12 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                             ]
                         ),
                         self.create_chapter(
-                            title="Idea i cel edukacyjny",
-                            help_text="Istota i wartość dydaktyczna przedsięwzięcia.",
+                            title="Program nauczania i wartość merytoryczna oferty dydaktycznej",
+                            help_text="Ogólny charakter programu nauczania ukierunkowany na realizację celów i osiąganie zakładanych efektów kształcenia, bez uszczegółowienia treści poszczególnych zajęć.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
-                                    name="educationalIdeaAndGoal",
+                                    name="offerEducationalValue",
                                     validators=[
                                         self.validator.length_validator(
                                             max_value=3000
@@ -143,42 +74,10 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                             components=[
                                 self.create_component(
                                     component_type="textarea",
-                                    name="marketLaborAnalysis",
+                                    name="laborMarketAnalysis",
                                     validators=[
                                         self.validator.length_validator(
                                             max_value=1500
-                                        )
-                                    ],
-                                    required=True,
-                                ),
-                            ]
-                        ),
-                        self.create_chapter(
-                            title="Grupa docelowa",
-                            help_text="Sposób rekrutacji i kryteria wyboru uczestników",
-                            components=[
-                                self.create_component(
-                                    component_type="textarea",
-                                    name="targetGroup",
-                                    validators=[
-                                        self.validator.length_validator(
-                                            max_value=1000
-                                        )
-                                    ],
-                                    required=True,
-                                ),
-                            ]
-                        ),
-                        self.create_chapter(
-                            title="Liczba i zróżnicowanie struktury uczestników",
-                            help_text="Analiza struktury i zróżnicowania adresatów oferty edukacyjnej.",
-                            components=[
-                                self.create_component(
-                                    component_type="textarea",
-                                    name="numberAndDiversityOfParticipants",
-                                    validators=[
-                                        self.validator.length_validator(
-                                            max_value=1000
                                         )
                                     ],
                                     required=True,
@@ -202,6 +101,22 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                             ]
                         ),
                         self.create_chapter(
+                            title="Liczba i zróżnicowanie struktury uczniów",
+                            help_text="Analiza struktury i zróżnicowania adresatów oferty edukacyjnej.",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="numberAndDiversityOfStudents",
+                                    validators=[
+                                        self.validator.length_validator(
+                                            max_value=1000
+                                        )
+                                    ],
+                                    required=True,
+                                ),
+                            ]
+                        ),
+                        self.create_chapter(
                             title="Dostępność oferty edukacyjnej",
                             help_text="Podjęte działania w celu zapewnienia dostępności oferty kształcenia dla osób ze szczególnymi potrzebami oraz wspieranie inkluzywności.",
                             components=[
@@ -218,14 +133,16 @@ class ProfessionalTrainingApplicationBuilder(EducationApplicationBuilder, Profes
                             ]
                         ),
                         self.create_chapter(
-                            title="Planowane efekty realizacji przedsięwzięcia",
-                            help_text="Spodziewane efekty w ujęciu jakościowym.",
+                            title="Profil absolwenta",
+                            help_text="Umiejętności lub kompetencje zawodowe nabywane przez uczniów.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
-                                    name="plannedEffects",
+                                    name="graduateProfile",
                                     validators=[
-                                        self.validator.length_validator(max_value=1000)
+                                        self.validator.length_validator(
+                                            max_value=1000
+                                        )
                                     ],
                                     required=True,
                                 )

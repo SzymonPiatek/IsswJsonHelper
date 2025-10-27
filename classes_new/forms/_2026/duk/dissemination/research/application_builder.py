@@ -10,6 +10,11 @@ class ResearchPriorityApplicationFormBuilder(DisseminationOperationalProgramAppl
             priority=ResearchPriority()
         )
 
+        self.form_id = self.set_ids(
+            local_id=24,
+            uat_id=None
+        )
+
         # Variables
         self.project_type = [
             "Badania widowni kinowej oraz bilansu kompetencji (ilościowe, jakościowe, cykliczne).",

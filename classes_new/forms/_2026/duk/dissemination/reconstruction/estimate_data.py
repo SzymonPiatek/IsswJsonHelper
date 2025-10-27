@@ -1,5 +1,6 @@
+from classes_new.forms._2026.duk.estimate.dataclasses_definitions import EstimateSection, CostItem, CostOverride
 from dataclasses import asdict
-from classes.form_estimate_builder.dataclasses_definitions import EstimateSection, CostItem, CostOverride
+
 
 estimate_section_structure = [
     {

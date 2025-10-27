@@ -1,6 +1,6 @@
 from classes_new.forms._2026.duk.dissemination.application_builder import DisseminationOperationalProgramApplicationFormBuilder
 from classes_new.forms._2026.duk.pisf_structure import DkfPriority
-from classes.form_builder.departments.duk._2026.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
+from classes_new.forms._2026.duk.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
 from .estimate_data import estimate_sections
 
 

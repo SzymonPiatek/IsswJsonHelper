@@ -1,5 +1,4 @@
 from classes.applications.applications import Applications
-from classes.form_builder.departments.duk._2026.education import *
 from classes.form_builder.departments.test.application_builder import TestApplicationBuilder
 
 
@@ -9,14 +8,6 @@ class Applications2026(Applications):
 
         self.builder_map = {
             "application": {
-                "duk": {
-                    "po2": {
-                        "pr1": HigherSchoolsApplicationBuilder,
-                        "pr2": SecondarySchoolsApplicationBuilder,
-                        "pr3": ProfessionalTrainingApplicationBuilder,
-                        "pr4": AudienceApplicationBuilder,
-                    },
-                },
                 "test": {
                     "po6": {
                         "pr1": TestApplicationBuilder,

@@ -1,15 +1,21 @@
 from .estimate_data import estimate_sections
-from classes.form_builder.departments.duk._2026.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
-from ..priority import HigherSchoolsPriority
-from ..application_builder import EducationApplicationBuilder
+from classes_new.forms._2026.duk.education.application_builder import EducationOperationalProgramApplicationFormBuilder
+from classes_new.forms._2026.duk.pisf_structure import HigherSchoolsPriority
+from classes_new.forms._2026.duk.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
 
 
-class HigherSchoolsApplicationBuilder(EducationApplicationBuilder, HigherSchoolsPriority):
-    FORM_ID = 16
-
+class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApplicationFormBuilder):
     def __init__(self):
-        super().__init__()
+        super().__init__(
+            priority=HigherSchoolsPriority()
+        )
 
+        self.form_id = self.set_ids(
+            local_id=16,
+            uat_id=None
+        )
+
+        # Variables
         self.project_type = [
             "Programy edukacyjne wchodzące w skład edukacji ciągłej.",
             "Realizacja szkolnych i pozaszkolnych filmów krótko- i średniometrażowych.",
@@ -17,6 +23,7 @@ class HigherSchoolsApplicationBuilder(EducationApplicationBuilder, HigherSchools
             "Inne działania realizujące cele Priorytetu I."
         ]
 
+        # Estimate
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
         self.estimate_chapters = [
             estimate_builder.generate_estimate()

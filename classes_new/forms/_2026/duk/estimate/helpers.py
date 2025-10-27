@@ -1,5 +1,5 @@
-from classes.form_estimate_builder.dataclasses_definitions import CostItem, CostOverride
-from classes.form_rules.validator import Validator
+from classes_new.forms._2026.duk.estimate.dataclasses_definitions import CostOverride, CostItem
+from classes_new.form_rules.validator import Validator
 
 validators = Validator()
 

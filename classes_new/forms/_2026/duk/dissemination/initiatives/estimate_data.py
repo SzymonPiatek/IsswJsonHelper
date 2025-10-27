@@ -1,6 +1,6 @@
+from classes_new.forms._2026.duk.estimate.dataclasses_definitions import EstimateSection, CostItem
+from classes_new.forms._2026.duk.estimate.helpers import fraction_cost
 from dataclasses import asdict
-from classes.form_estimate_builder.dataclasses_definitions import EstimateSection, CostItem
-from classes.form_builder.departments.duk._2026.estimate.helpers import fraction_cost
 
 
 estimate_sections_pt124 = [
