@@ -29,6 +29,10 @@ from classes_new.forms._2026.dwm.promotion.foreign_scholarships.application_buil
 from classes_new.forms._2026.dwm.promotion.foreign_scholarships.report_builder import ForeignScholarshipsPriorityReportFormBuilder
 # DPF - Production
 from classes_new.forms._2026.dpf.production.screenplay_scholarship.application_builder import ScreenplayScholarshipPriorityApplicationFormBuilder
+from classes_new.forms._2026.test.calculation_rules.application_builder import CalculationRulesApplicationFormBuilder
+from classes_new.forms._2026.test.related_validators.application_builder import RelatedValidatorsApplicationFormBuilder
+from classes_new.forms._2026.test.simple_validators.application_builder import SimpleValidatorsApplicationFormBuilder
+from classes_new.forms._2026.test.special_validators.application_builder import SpecialValidatorsApplicationFormBuilder
 # TEST
 from classes_new.forms._2026.test.visuality_test.application_builder import VisualityTestApplicationFormBuilder
 # Other
@@ -81,6 +85,14 @@ class Forms2026(Forms):
                 "test": {
                     "visuality": {
                         "test": VisualityTestApplicationFormBuilder
+                    },
+                    "validators": {
+                        "related_validators": RelatedValidatorsApplicationFormBuilder,
+                        "simple_validators": SimpleValidatorsApplicationFormBuilder,
+                        "special_validators": SpecialValidatorsApplicationFormBuilder
+                    },
+                    "calculationRules": {
+                        "test": CalculationRulesApplicationFormBuilder
                     }
                 }
             },

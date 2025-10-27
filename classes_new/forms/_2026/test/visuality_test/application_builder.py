@@ -16,8 +16,8 @@ class VisualityTestApplicationFormBuilder(ApplicationFormBuilder):
         """
         Visuality test:
         
-        [ ] Enabled
-        [ ] Disabled
+        [x] Enabled
+        [x] Disabled
         """
 
     def create_visuality_test_enabled(self, number: int):

@@ -2,8 +2,11 @@ from classes_new.form_builder.form_builder import ApplicationFormBuilder
 
 
 class CalculationRulesApplicationFormBuilder(ApplicationFormBuilder):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self):
+        super().__init__(
+            custom_dir_name="test/calculation_rules",
+            custom_file_name="calculation_rules"
+        )
 
         self.parts = []
 

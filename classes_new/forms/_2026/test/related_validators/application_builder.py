@@ -2,8 +2,11 @@ from classes_new.form_builder.form_builder import ApplicationFormBuilder
 
 
 class RelatedValidatorsApplicationFormBuilder(ApplicationFormBuilder):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self):
+        super().__init__(
+            custom_dir_name="test/related_validators",
+            custom_file_name="related_validators"
+        )
 
         self.parts = []
 
