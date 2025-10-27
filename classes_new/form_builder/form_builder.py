@@ -16,7 +16,9 @@ class FormBuilder(FormFactory):
                 year=2026,
                 num=1
             ),
-            priority: Priority = None
+            priority: Priority = None,
+            custom_dir_name: str = None,
+            custom_file_name: str = None
     ):
         super().__init__()
 
@@ -33,6 +35,8 @@ class FormBuilder(FormFactory):
         self.main_dir.mkdir(parents=True, exist_ok=True)
 
         self.output_json: Form = None
+        self.custom_dir_name: str = custom_dir_name
+        self.custom_file_name: str = custom_file_name
         self._output_file_name: str = None
         self._output_file_path: Path = None
 
@@ -54,7 +58,7 @@ class FormBuilder(FormFactory):
         return self._output_file_path
 
     def prepare_output_file_name(self, file_type: str = "json"):
-        file_name = f"example"
+        file_name = self.custom_file_name or "example"
 
         if self.priority and self.session:
             file_name = f"po_{self.priority.operation_program.roman_num.lower()}_pr_{self.priority.num}_{self.json_type}_{self.session.year}"
@@ -65,6 +69,9 @@ class FormBuilder(FormFactory):
         file_path = (
                 self.main_dir / 'output' / dir_name
         )
+
+        if self.custom_dir_name:
+            return file_path / self.custom_dir_name
 
         if self.priority and self.session:
             file_path = (

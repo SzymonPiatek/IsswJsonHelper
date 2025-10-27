@@ -68,7 +68,7 @@ class FormHelper:
                             postman = self.postman[server]
                             server_form_id = form.form_id[server]
 
-                            if server_form_id and self.setup[server][form.json_type]["json"]:
+                            if self.setup[server][form.json_type]["json"]:
                                 form.generate()
 
                             if server_form_id and self.setup[server][form.json_type]["autosave_or_update"]:

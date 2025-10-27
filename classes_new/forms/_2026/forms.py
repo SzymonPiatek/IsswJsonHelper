@@ -29,6 +29,8 @@ from classes_new.forms._2026.dwm.promotion.foreign_scholarships.application_buil
 from classes_new.forms._2026.dwm.promotion.foreign_scholarships.report_builder import ForeignScholarshipsPriorityReportFormBuilder
 # DPF - Production
 from classes_new.forms._2026.dpf.production.screenplay_scholarship.application_builder import ScreenplayScholarshipPriorityApplicationFormBuilder
+# TEST
+from classes_new.forms._2026.test.visuality_test.application_builder import VisualityTestApplicationFormBuilder
 # Other
 from classes_new.forms.forms import Forms
 
@@ -74,6 +76,11 @@ class Forms2026(Forms):
                     "po5": {
                         "pr1": PromotionPriorityApplicationFormBuilder,
                         "pr2": ForeignPriorityApplicationFormBuilder
+                    }
+                },
+                "test": {
+                    "visuality": {
+                        "test": VisualityTestApplicationFormBuilder
                     }
                 }
             },
