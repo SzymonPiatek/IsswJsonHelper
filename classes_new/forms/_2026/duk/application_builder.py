@@ -370,82 +370,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     ]
                 ),
                 self.create_chapter(
-                    components=[
-                        self.create_chapter(
-                            title="1. Adres wnioskodawcy",
-                            components=[
-                                self.create_chapter(
-                                    title="Siedziba",
-                                    components=[
-                                        self.create_chapter(
-                                            components=[
-                                                self.create_component(
-                                                    component_type="radio",
-                                                    name=f"applicantResidence",
-                                                    options=["w Polsce", "za granicą"],
-                                                    required=True
-                                                )
-                                            ]
-                                        ),
-                                        *self.section.application_applicant_data.create_address_base(
-                                            start_name="applicant",
-                                            poland=True,
-                                            foreign=True
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    components=[
-                                        self.create_component(
-                                            component_type="checkbox",
-                                            label="Należy zaznaczyć jeśli adres korespondencyjny jest inny",
-                                            name=f"applicantHasDifferentContactAddress"
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="Adres korespondencyjny",
-                                    visibility_rules=[
-                                        self.visibility_rule.depends_on_value(
-                                            field_name="applicantHasDifferentContactAddress",
-                                            values=[True]
-                                        )
-                                    ],
-                                    components=[
-                                        self.create_chapter(
-                                            components=[
-                                                self.create_component(
-                                                    component_type="radio",
-                                                    name=f"applicantContactResidence",
-                                                    options=["w Polsce", "za granicą"],
-                                                    required=True
-                                                )
-                                            ]
-                                        ),
-                                        *self.section.application_applicant_data.create_address_base(
-                                            start_name="applicant",
-                                            build_name="Contact",
-                                            poland=True,
-                                            foreign=True
-                                        )
-                                    ]
-                                )
-                            ]
-                        )
-                    ]
-                ),
-                self.section.applicant_bank_data(number="2"),
-                self.create_chapter(
-                    components=[
-                        self.create_component(
-                            component_type="header",
-                            name="identificationData",
-                            value="<small><b>Uwaga!</b><br/><br/><normal>Wszystkie koszty danego przedsięwzięcia muszą być opłacane z rachunku bankowego podanego we Wniosku o dofinansowanie. Na ten sam rachunek powinny też wpływać środki od innych podmiotów współfinansujących dane przedsięwzięcie. Możliwe są dwa rozwiązania:<br/>a) rachunek służący do rozliczeń przedsięwzięcia, którego dotyczy Wniosek o dofinansowanie, w tym wpływów i wydatków związanych z dotacją PISF,<br/>b) rachunek przeznaczony wyłącznie do obsługi środków z dotacji PISF, na który mogą trafiać środki z różnych dofinansowań udzielonych przez PISF.</br></br>Wybrany wariant rachunku obowiązuje przez cały okres trwania umowy. Rachunek ten powinien zapewniać pełną przejrzystość przepływów finansowych związanych z realizacją projektu oraz być ujęty w wykazie podatników VAT lub zgłoszony do właściwego urzędu skarbowego - o ile Wnioskodawca podlega obowiązkowi zgłoszenia, zgodnie z obowiązującymi przepisami prawa.</normal></small>"
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title="3. Dane identyfikacyjne wnioskodawcy oraz informacje prawne",
+                    title="1. Dane identyfikacyjne wnioskodawcy oraz informacje prawne",
                     components=[
                         self.create_chapter(
                             visibility_rules=[
@@ -858,47 +783,76 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                     ]
                                 )
                             ]
-                        ),
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    components=[
                         self.create_chapter(
-                            title="Identyfikator gminy (Kod JST)",
-                            help_text="Kod JST gminy można znaleźć w wyszukiwarce pod adresem https://eteryt.stat.gov.pl",
+                            title="2. Adres wnioskodawcy",
                             components=[
-                                self.create_component(
-                                    component_type="text",
-                                    name="applicantJst",
-                                    mask="jst",
-                                    required=True,
-                                    validators=[
-                                        self.validator.length_validator(
-                                            min_value=7,
-                                            max_value=7
+                                self.create_chapter(
+                                    title="Siedziba",
+                                    components=[
+                                        self.create_chapter(
+                                            components=[
+                                                self.create_component(
+                                                    component_type="radio",
+                                                    name=f"applicantResidence",
+                                                    options=["w Polsce", "za granicą"],
+                                                    required=True
+                                                )
+                                            ]
+                                        ),
+                                        *self.section.application_applicant_data.create_address_base(
+                                            start_name="applicant",
+                                            poland=True,
+                                            foreign=True
                                         )
                                     ]
                                 ),
-                            ]
-                        ),
-                        self.create_chapter(
-                            title="Kod PKD",
-                            components=[
-                                self.create_component(
-                                    component_type="radio",
-                                    name="applicantPkd",
-                                    options=[
-                                        "59.11 – Działalność związana z produkcją filmów, nagrań wideo i programów telewizyjnych",
-                                        "59.12 - Działalność postprodukcyjna związana z filmami, nagraniami wideo i programami telewizyjnymi",
-                                        "59.13 - Działalność związana z dystrybucją filmów, nagrań wideo i programów telewizyjnych",
-                                        "59.14 - Działalność związana z projekcją filmów",
-                                        "59.20 - Działalność w zakresie nagrań dźwiękowych i muzycznych"
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="checkbox",
+                                            label="Należy zaznaczyć jeśli adres korespondencyjny jest inny",
+                                            name=f"applicantHasDifferentContactAddress"
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Adres korespondencyjny",
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="applicantHasDifferentContactAddress",
+                                            values=[True]
+                                        )
                                     ],
-                                    required=True
+                                    components=[
+                                        self.create_chapter(
+                                            components=[
+                                                self.create_component(
+                                                    component_type="radio",
+                                                    name=f"applicantContactResidence",
+                                                    options=["w Polsce", "za granicą"],
+                                                    required=True
+                                                )
+                                            ]
+                                        ),
+                                        *self.section.application_applicant_data.create_address_base(
+                                            start_name="applicant",
+                                            build_name="Contact",
+                                            poland=True,
+                                            foreign=True
+                                        )
+                                    ]
                                 )
                             ]
-                        ),
+                        )
                     ]
                 ),
-                self.section.applicant_statistical_data(number="4"),
                 self.create_chapter(
-                    title="5. Osoby upoważnione do reprezentowania wnioskodawcy, składania oświadczeń woli i zaciągania w jego imieniu zobowiązań finansowych",
+                    title="3. Osoby upoważnione do reprezentowania wnioskodawcy, składania oświadczeń woli i zaciągania w jego imieniu zobowiązań finansowych",
                     components=[
                         self.create_chapter(
                             multiple_forms_rules={
@@ -977,7 +931,18 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         )
                     ]
                 ),
-                self.section.responsible_person_data(number="6")
+                self.section.responsible_person_data(number="4"),
+                self.section.applicant_bank_data(number="5"),
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="identificationData",
+                            value="<small><b>Uwaga!</b><br/><br/><normal>Wszystkie koszty danego przedsięwzięcia muszą być opłacane z rachunku bankowego podanego we Wniosku o dofinansowanie. Na ten sam rachunek powinny też wpływać środki od innych podmiotów współfinansujących dane przedsięwzięcie. Możliwe są dwa rozwiązania:<br/>a) rachunek służący do rozliczeń przedsięwzięcia, którego dotyczy Wniosek o dofinansowanie, w tym wpływów i wydatków związanych z dotacją PISF,<br/>b) rachunek przeznaczony wyłącznie do obsługi środków z dotacji PISF, na który mogą trafiać środki z różnych dofinansowań udzielonych przez PISF.</br></br>Wybrany wariant rachunku obowiązuje przez cały okres trwania umowy. Rachunek ten powinien zapewniać pełną przejrzystość przepływów finansowych związanych z realizacją projektu oraz być ujęty w wykazie podatników VAT lub zgłoszony do właściwego urzędu skarbowego - o ile Wnioskodawca podlega obowiązkowi zgłoszenia, zgodnie z obowiązującymi przepisami prawa.</normal></small>"
+                        )
+                    ]
+                ),
+                self.section.application_applicant_data.applicant_statistical_data(number="6"),
             ]
         )
 
