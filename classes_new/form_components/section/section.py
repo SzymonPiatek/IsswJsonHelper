@@ -1,5 +1,5 @@
-from classes.form_components.component import Component
-from classes.form_factory.form_factory import FormFactory
+from classes_new.form_components.component.component import Component
+from classes_new.form_factory.form_factory import FormFactory
 
 
 class Section(FormFactory):
@@ -8,205 +8,96 @@ class Section(FormFactory):
 
         self.component = Component()
 
-    def applicant_name(self, number: int | str):
+    def create_full_address_section(
+            self,
+            who: str,
+            name: str,
+            number: int | str,
+            main_poland: bool = True,
+            main_foreign: bool = True,
+            contact_poland: bool = True,
+            contact_foreign: bool = True,
+            is_local: bool = False
+    ):
         return self.create_chapter(
-            title=f"{number}. Pełna nazwa wnioskodawcy",
-            components=[
-                self.create_component(
-                    component_type="text",
-                    name="applicantName",
-                    required=True
-                )
-            ]
-        )
-
-    def applicant_full_name(self, number: int | str):
-        return self.create_chapter(
-            title=f"{number}. Imię i nazwisko wnioskodawcy",
-            components=[
-                self.create_component(
-                    component_type="text",
-                    name="applicantFullName",
-                    required=True
-                )
-            ]
-        )
-
-    def applicant_type(self, number: int | str):
-        return self.create_chapter(
-            title=f"{number}. Rodzaj wnioskodawcy",
-            components=[
-                self.create_component(
-                    component_type="text",
-                    name="applicantType",
-                    required=True
-                )
-            ]
-        )
-
-    def eligible_person_attachments(self, number: int | str):
-        return self.create_chapter(
-            title=f"{number}. Pełnomocnictwa",
-            multiple_forms_rules={
-                "minCount": 1,
-                "maxCount": 10
-            },
+            title=f"{number}. Adres i dane {who}",
             components=[
                 self.create_chapter(
-                    components=[
-                        self.create_component(
-                            component_type="file",
-                            name="eligiblePersonAttachments",
-                            help_text="Należy dołączyć pełnomocnictwo w przypadku, gdy wniosek podpisuje osoba inna niż wykazana w KRS lub CEIDG."
-                        )
-                    ]
-                )
-            ]
-        )
-
-    def eligible_person_data(self, number: int | str):
-        return self.create_chapter(
-            title=f"{number}. Osoby upoważnione do reprezentowania wnioskodawcy, składania oświadczeń woli i zaciągania w jego imieniu zobowiązań finansowych",
-            components=[
-                self.create_chapter(
-                    multiple_forms_rules={
-                        "minCount": 1,
-                        "maxCount": 8
-                    },
-                    class_list={
-                        "sub": [
-                            "table-1-2-top"
-                        ]
-                    },
+                    title=f"{number}a. Adres siedziby",
                     components=[
                         self.create_chapter(
-                            title="Osoba upoważniona do reprezentowania Wnioskodawcy",
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
                             components=[
                                 self.create_component(
-                                    component_type="text",
-                                    label="Imię",
-                                    name="eligiblePersonFirstName",
+                                    component_type="radio",
+                                    name=f"{name}Residence",
+                                    value="" if main_poland and main_foreign else "w Polsce" if main_poland else "za granicą",
+                                    options=["w Polsce", "za granicą"] if main_poland and main_foreign else ["w Polsce"] if main_poland else ["za granicą"],
+                                    read_only=False if main_poland and main_foreign else True,
                                     required=True
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Nazwisko",
-                                    name="eligiblePersonLastName",
-                                    required=True
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Email",
-                                    name="eligiblePersonEmail",
-                                    required=True,
-                                    validators=[
-                                        self.validator.email_validator()
-                                    ]
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Numer telefonu",
-                                    name="eligiblePersonPhoneNum",
-                                    required=True,
-                                    mask="phoneNumber",
-                                    validators=[
-                                        self.validator.phone_number_validator()
-                                    ]
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    label="Stanowisko zgodnie z reprezentacją/ załączonym upoważnieniem",
-                                    name="eligiblePersonPosition",
-                                    required=True,
-                                    class_list=[
-                                        "table-full"
-                                    ]
                                 )
                             ]
+                        ),
+                        *self.create_address_base(
+                            start_name=name,
+                            poland=main_poland,
+                            foreign=main_foreign,
+                            is_local=is_local
                         )
                     ]
-                )
-            ]
-        )
-
-    def responsible_person_data(self, number: int | str):
-        return self.create_chapter(
-            title=f"{number}. Osoba odpowiedzialna za przygotowanie wniosku i kontakty z PISF",
-            class_list={
-                "sub": [
-                    "table-1-2-top"
-                ]
-            },
-            components=[
+                ),
                 self.create_chapter(
-                    class_list={
-                        "main": [
-                            "table-1-2",
-                            "grid",
-                            "grid-cols-2"
-                        ],
-                        "sub": [
-                            "table-1-2__col"
-                        ]
-                    },
                     components=[
                         self.create_component(
-                            component_type="text",
-                            label="Imię",
-                            name="authPersonFirstName",
-                            required=True
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            label="Nazwisko",
-                            name="authPersonLastName",
-                            required=True
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            label="Numer telefonu stacjonarnego",
-                            name="authPersonPhoneNum",
-                            mask="landline",
-                            required=True
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            label="Numer telefonu komórkowego",
-                            name="authPersonMobileNum",
-                            mask="phoneNumber",
-                            required=True,
-                            validators=[
-                                self.validator.phone_number_validator()
+                            component_type="checkbox",
+                            label="Należy zaznaczyć jeśli adres korespondencyjny jest inny",
+                            name=f"{name}HasDifferentContactAddress"
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title=f"{number}b. Adres korespondencyjny",
+                    visibility_rules=[
+                        self.visibility_rule.local_equals_value(
+                            field_name=f"{name}HasDifferentContactAddress",
+                            values=[True]
+                        ) if is_local else self.visibility_rule.depends_on_value(
+                            field_name=f"{name}HasDifferentContactAddress",
+                            values=[True]
+                        )
+                    ],
+                    components=[
+                        self.create_chapter(
+                            components=[
+                                self.create_component(
+                                    component_type="radio",
+                                    name=f"{name}ContactResidence",
+                                    value="" if contact_poland and contact_foreign else "w Polsce" if contact_poland else "za granicą",
+                                    options=["w Polsce", "za granicą"] if contact_poland and contact_foreign else ["w Polsce"] if contact_poland else ["za granicą"],
+                                    read_only=False if contact_poland and contact_foreign else True,
+                                    required=True
+                                )
                             ]
                         ),
-                        self.create_component(
-                            component_type="text",
-                            label="Email kontaktowy",
-                            name="authPersonEmail",
-                            required=True,
-                            validators=[
-                                self.validator.email_validator()
-                            ],
-                            class_list=[
-                                "col-span-2"
-                            ]
+                        *self.create_address_base(
+                            start_name=name,
+                            build_name="Contact",
+                            poland=main_poland,
+                            foreign=main_foreign,
+                            is_local=is_local
                         )
                     ]
                 )
             ]
         )
 
-    def create_address_base(self, start_name: str, build_name: str = '', poland: bool = True, foreign: bool = True, is_local: bool = False):
+    def create_address_base(
+            self,
+            start_name: str,
+            build_name: str = '',
+            poland: bool = True,
+            foreign: bool = True,
+            is_local: bool = False
+    ):
         chapters = []
 
         if poland:
@@ -397,135 +288,12 @@ class Section(FormFactory):
 
         return chapters
 
-    def applicant_address_base(self, build_name: str = '', poland: bool = True, foreign: bool = True, is_local: bool = False):
-        return self.create_address_base(
-            start_name="applicant",
-            build_name=build_name,
-            poland=poland,
-            foreign=foreign,
-            is_local=is_local
-        )
-
-    def create_full_address_section(self, who: str, name: str, number: int | str, main_poland: bool = True, main_foreign: bool = True, contact_poland: bool = True, contact_foreign: bool = True, is_local: bool = False):
-        return self.create_chapter(
-            title=f"{number}. Adres i dane {who}",
-            components=[
-                self.create_chapter(
-                    title=f"{number}a. Adres siedziby",
-                    components=[
-                        self.create_chapter(
-                            components=[
-                                self.create_component(
-                                    component_type="radio",
-                                    name=f"{name}Residence",
-                                    value="" if main_poland and main_foreign else "w Polsce" if main_poland else "za granicą",
-                                    options=["w Polsce", "za granicą"] if main_poland and main_foreign else ["w Polsce"] if main_poland else ["za granicą"],
-                                    read_only=False if main_poland and main_foreign else True,
-                                    required=True
-                                )
-                            ]
-                        ),
-                        *self.create_address_base(
-                            start_name=name,
-                            poland=main_poland,
-                            foreign=main_foreign,
-                            is_local=is_local
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    components=[
-                        self.create_component(
-                            component_type="checkbox",
-                            label="Należy zaznaczyć jeśli adres korespondencyjny jest inny",
-                            name=f"{name}HasDifferentContactAddress"
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    title=f"{number}b. Adres korespondencyjny",
-                    visibility_rules=[
-                        self.visibility_rule.local_equals_value(
-                            field_name=f"{name}HasDifferentContactAddress",
-                            values=[True]
-                        ) if is_local else self.visibility_rule.depends_on_value(
-                            field_name=f"{name}HasDifferentContactAddress",
-                            values=[True]
-                        )
-                    ],
-                    components=[
-                        self.create_chapter(
-                            components=[
-                                self.create_component(
-                                    component_type="radio",
-                                    name=f"{name}ContactResidence",
-                                    value="" if contact_poland and contact_foreign else "w Polsce" if contact_poland else "za granicą",
-                                    options=["w Polsce", "za granicą"] if contact_poland and contact_foreign else ["w Polsce"] if contact_poland else ["za granicą"],
-                                    read_only=False if contact_poland and contact_foreign else True,
-                                    required=True
-                                )
-                            ]
-                        ),
-                        *self.create_address_base(
-                            start_name=name,
-                            build_name="Contact",
-                            poland=main_poland,
-                            foreign=main_foreign,
-                            is_local=is_local
-                        )
-                    ]
-                )
-            ]
-        )
-
-    def applicant_address(self, number: int | str, main_poland: bool = True, main_foreign: bool = True, contact_poland: bool = True, contact_foreign: bool = True, is_local: bool = False):
-        return self.create_full_address_section(
-            name="applicant",
-            who='Wnioskodawcy',
-            number=number,
-            main_poland=main_poland,
-            main_foreign=main_foreign,
-            contact_poland=contact_poland,
-            contact_foreign=contact_foreign,
-            is_local=is_local
-        )
-
-    def applicant_identification_data(self, number: int | str):
-        return self.create_chapter(
-            title=f"{number}. Dane identyfikacyjne",
-            class_list={
-                "main": [
-                    "table-1-2",
-                    "grid",
-                    "grid-cols-2"
-                ],
-                "sub": [
-                    "table-1-2__col"
-                ]
-            },
-            components=[
-                self.create_component(
-                    component_type="text",
-                    label="Numer NIP",
-                    name="applicantNip",
-                    required=True,
-                    validators=[
-                        self.validator.nip_validator()
-                    ]
-                ),
-                self.create_component(
-                    component_type="text",
-                    label="Numer REGON",
-                    name="applicantRegon",
-                    required=True,
-                    validators=[
-                        self.validator.regon_validator()
-                    ]
-                )
-            ]
-        )
-
-    def applicant_bank_data(self, number: int | str, poland: bool = True, foreign: bool = True):
+    def applicant_bank_data(
+            self,
+            number: int | str,
+            poland: bool = True,
+            foreign: bool = True
+    ):
         chapter = self.create_chapter(
             title=f"{number}. Nazwa i numer rachunku bankowego"
         )
@@ -631,7 +399,10 @@ class Section(FormFactory):
 
         return chapter
 
-    def applicant_legal_information(self, number: int | str):
+    def applicant_legal_information(
+            self,
+            number: int | str
+    ):
         return self.create_chapter(
             title=f"{number}. Informacje prawne",
             components=[
@@ -791,7 +562,10 @@ class Section(FormFactory):
             ]
         )
 
-    def applicant_statistical_data(self, number: int | str):
+    def applicant_statistical_data(
+            self,
+            number: int | str
+    ):
         return self.create_chapter(
             title=f"{number}. Dane statystyczne",
             components=[
@@ -974,6 +748,154 @@ class Section(FormFactory):
                                     ],
                                     required=True
                                 )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+
+    def eligible_person_data(
+            self,
+            number: int | str
+    ):
+        return self.create_chapter(
+            title=f"{number}. Osoby upoważnione do reprezentowania wnioskodawcy, składania oświadczeń woli i zaciągania w jego imieniu zobowiązań finansowych",
+            components=[
+                self.create_chapter(
+                    multiple_forms_rules={
+                        "minCount": 1,
+                        "maxCount": 8
+                    },
+                    class_list={
+                        "sub": [
+                            "table-1-2-top"
+                        ]
+                    },
+                    components=[
+                        self.create_chapter(
+                            title="Osoba upoważniona do reprezentowania Wnioskodawcy",
+                            class_list={
+                                "main": [
+                                    "table-1-2",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    label="Imię",
+                                    name="eligiblePersonFirstName",
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Nazwisko",
+                                    name="eligiblePersonLastName",
+                                    required=True
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Email",
+                                    name="eligiblePersonEmail",
+                                    required=True,
+                                    validators=[
+                                        self.validator.email_validator()
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Numer telefonu",
+                                    name="eligiblePersonPhoneNum",
+                                    required=True,
+                                    mask="phoneNumber",
+                                    validators=[
+                                        self.validator.phone_number_validator()
+                                    ]
+                                ),
+                                self.create_component(
+                                    component_type="text",
+                                    label="Stanowisko zgodnie z reprezentacją/ załączonym upoważnieniem",
+                                    name="eligiblePersonPosition",
+                                    required=True,
+                                    class_list=[
+                                        "table-full"
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+
+    def responsible_person_data(
+            self,
+            number: int | str
+    ):
+        return self.create_chapter(
+            title=f"{number}. Osoba odpowiedzialna za przygotowanie wniosku i kontakty z PISF",
+            class_list={
+                "sub": [
+                    "table-1-2-top"
+                ]
+            },
+            components=[
+                self.create_chapter(
+                    class_list={
+                        "main": [
+                            "table-1-2",
+                            "grid",
+                            "grid-cols-2"
+                        ],
+                        "sub": [
+                            "table-1-2__col"
+                        ]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            label="Imię",
+                            name="authPersonFirstName",
+                            required=True
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Nazwisko",
+                            name="authPersonLastName",
+                            required=True
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Numer telefonu stacjonarnego",
+                            name="authPersonPhoneNum",
+                            mask="landline",
+                            required=True
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Numer telefonu komórkowego",
+                            name="authPersonMobileNum",
+                            mask="phoneNumber",
+                            required=True,
+                            validators=[
+                                self.validator.phone_number_validator()
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Email kontaktowy",
+                            name="authPersonEmail",
+                            required=True,
+                            validators=[
+                                self.validator.email_validator()
+                            ],
+                            class_list=[
+                                "col-span-2"
                             ]
                         )
                     ]

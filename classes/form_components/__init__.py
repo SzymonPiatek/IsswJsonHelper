@@ -1,6 +1,6 @@
 from .part.part import Part
-from .section import DPFSection, DUKSection, DWMSection, Section
-from .component import Component, DPFComponent, DWMComponent
+from .section import DPFSection, DUKSection, Section
+from .component import Component, DPFComponent
 
 
 __all__ = [
@@ -8,8 +8,6 @@ __all__ = [
     "Section",
     "DPFSection",
     "DUKSection",
-    "DWMSection",
     "Component",
     "DPFComponent",
-    "DWMComponent",
 ]
