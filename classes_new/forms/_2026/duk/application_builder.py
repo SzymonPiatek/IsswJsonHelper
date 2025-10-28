@@ -370,90 +370,9 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     ]
                 ),
                 self.create_chapter(
-                    title="1. Osoby upoważnione do reprezentowania wnioskodawcy, składania oświadczeń woli i zaciągania w jego imieniu zobowiązań finansowych",
                     components=[
                         self.create_chapter(
-                            multiple_forms_rules={
-                                "minCount": 1,
-                                "maxCount": 8
-                            },
-                            class_list={
-                                "sub": [
-                                    "table-1-2-top"
-                                ]
-                            },
-                            components=[
-                                self.create_chapter(
-                                    title="Osoba upoważniona do reprezentowania Wnioskodawcy",
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="text",
-                                            label="Imię",
-                                            name="eligiblePersonFirstName",
-                                            required=True
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            label="Nazwisko",
-                                            name="eligiblePersonLastName",
-                                            required=True
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            label="Email",
-                                            name="eligiblePersonEmail",
-                                            required=True,
-                                            validators=[
-                                                self.validator.email_validator()
-                                            ]
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            label="Numer telefonu",
-                                            name="eligiblePersonPhoneNum",
-                                            required=True,
-                                            mask="phoneNumber",
-                                            validators=[
-                                                self.validator.phone_number_validator()
-                                            ]
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            label="Stanowisko zgodnie z reprezentacją/ załączonym upoważnieniem",
-                                            name="eligiblePersonPosition",
-                                            required=True
-                                        ),
-                                        self.create_component(
-                                            component_type="select",
-                                            label="Sposób reprezentacji",
-                                            name="eligiblePersonRepresentationType",
-                                            options=[
-                                                "Łącznie",
-                                                "Samodzielnie"
-                                            ],
-                                            required=True
-                                        )
-                                    ]
-                                )
-                            ]
-                        )
-                    ]
-                ),
-                self.section.responsible_person_data(number="2"),
-                self.create_chapter(
-                    components=[
-                        self.create_chapter(
-                            title="3. Adres wnioskodawcy",
+                            title="1. Adres wnioskodawcy",
                             components=[
                                 self.create_chapter(
                                     title="Siedziba",
@@ -515,7 +434,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         )
                     ]
                 ),
-                self.section.applicant_bank_data(number="4"),
+                self.section.applicant_bank_data(number="2"),
                 self.create_chapter(
                     components=[
                         self.create_component(
@@ -526,7 +445,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     ]
                 ),
                 self.create_chapter(
-                    title="5. Dane identyfikacyjne wnioskodawcy oraz informacje prawne",
+                    title="3. Dane identyfikacyjne wnioskodawcy oraz informacje prawne",
                     components=[
                         self.create_chapter(
                             visibility_rules=[
@@ -977,7 +896,88 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         ),
                     ]
                 ),
-                self.section.applicant_statistical_data(number="6"),
+                self.section.applicant_statistical_data(number="4"),
+                self.create_chapter(
+                    title="5. Osoby upoważnione do reprezentowania wnioskodawcy, składania oświadczeń woli i zaciągania w jego imieniu zobowiązań finansowych",
+                    components=[
+                        self.create_chapter(
+                            multiple_forms_rules={
+                                "minCount": 1,
+                                "maxCount": 8
+                            },
+                            class_list={
+                                "sub": [
+                                    "table-1-2-top"
+                                ]
+                            },
+                            components=[
+                                self.create_chapter(
+                                    title="Osoba upoważniona do reprezentowania Wnioskodawcy",
+                                    class_list={
+                                        "main": [
+                                            "table-1-2",
+                                            "grid",
+                                            "grid-cols-2"
+                                        ],
+                                        "sub": [
+                                            "table-1-2__col"
+                                        ]
+                                    },
+                                    components=[
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Imię",
+                                            name="eligiblePersonFirstName",
+                                            required=True
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Nazwisko",
+                                            name="eligiblePersonLastName",
+                                            required=True
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Email",
+                                            name="eligiblePersonEmail",
+                                            required=True,
+                                            validators=[
+                                                self.validator.email_validator()
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Numer telefonu",
+                                            name="eligiblePersonPhoneNum",
+                                            required=True,
+                                            mask="phoneNumber",
+                                            validators=[
+                                                self.validator.phone_number_validator()
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="text",
+                                            label="Stanowisko zgodnie z reprezentacją/ załączonym upoważnieniem",
+                                            name="eligiblePersonPosition",
+                                            required=True
+                                        ),
+                                        self.create_component(
+                                            component_type="select",
+                                            label="Sposób reprezentacji",
+                                            name="eligiblePersonRepresentationType",
+                                            options=[
+                                                "Łącznie",
+                                                "Samodzielnie"
+                                            ],
+                                            required=True
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.section.responsible_person_data(number="6")
             ]
         )
 
