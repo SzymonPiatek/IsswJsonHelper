@@ -251,7 +251,7 @@ class SimpleValidatorsApplicationFormBuilder(ApplicationFormBuilder):
                         ),
                         self.create_chapter(
                             title="IBANValidator",
-                            help_text="Walidator sprawdza, czy podany numer IBAN jest poprawny.",
+                            help_text="Walidator sprawdza, czy podany identyfikator IBAN jest poprawny.",
                             components=[
                                 self.create_component(
                                     component_type="text",
@@ -279,7 +279,7 @@ class SimpleValidatorsApplicationFormBuilder(ApplicationFormBuilder):
                         ),
                         self.create_chapter(
                             title="SwiftValidator",
-                            help_text="Walidator sprawdza, czy podany numer SWIFT jest poprawny.",
+                            help_text="Walidator sprawdza, czy podany identyfikator SWIFT jest poprawny.",
                             components=[
                                 self.create_component(
                                     component_type="text",
