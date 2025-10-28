@@ -8,6 +8,11 @@ class VisualityTestApplicationFormBuilder(ApplicationFormBuilder):
             custom_file_name="visuality_test"
         )
 
+        self.form_id = self.set_ids(
+            local_id=16414,
+            uat_id=None
+        )
+
         self.parts = [
             self.create_visuality_test_enabled,
             self.create_visuality_test_disabled

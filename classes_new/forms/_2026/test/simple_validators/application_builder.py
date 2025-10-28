@@ -8,6 +8,11 @@ class SimpleValidatorsApplicationFormBuilder(ApplicationFormBuilder):
             custom_file_name="simple_validators"
         )
 
+        self.form_id = self.set_ids(
+            local_id=16415,
+            uat_id=None
+        )
+
         self.parts = []
 
         """

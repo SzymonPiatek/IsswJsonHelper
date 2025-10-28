@@ -8,6 +8,11 @@ class CalculationRulesApplicationFormBuilder(ApplicationFormBuilder):
             custom_file_name="calculation_rules"
         )
 
+        self.form_id = self.set_ids(
+            local_id=16416,
+            uat_id=None
+        )
+
         self.parts = []
 
         """
