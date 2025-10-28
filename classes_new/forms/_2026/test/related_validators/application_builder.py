@@ -43,6 +43,7 @@ class RelatedValidatorsApplicationFormBuilder(ApplicationFormBuilder):
             self.create_related_allowed_options_validator,
             self.create_related_unique_value_validator,
             self.create_related_condition_ratio_validator,
+            self.create_related_condition_range_validator,
             self.create_related_last_date_validator
         ]
 
@@ -78,7 +79,7 @@ class RelatedValidatorsApplicationFormBuilder(ApplicationFormBuilder):
         [x] RelatedAllowedOptionsValidator
         [x] RelatedUniqueValueValidator
         [x] RelatedConditionRatioValidator
-        [ ] RelatedConditionRangeValidator
+        [x] RelatedConditionRangeValidator
         [x] RelatedLastDateValidator
         """
 
@@ -2192,7 +2193,7 @@ class RelatedValidatorsApplicationFormBuilder(ApplicationFormBuilder):
                         self.create_component(
                             component_type="header",
                             name="relatedConditionRatioValidator",
-                            value="Walidator sprawdza poprawność zależnych wartości liczbowych na podstawie wybranego procentu."
+                            value="Walidator sprawdza, czy wartość jest w danym zakresie wartości procentowej innego pola na podstawie warunku."
                         )
                     ]
                 ),
@@ -2322,6 +2323,157 @@ class RelatedValidatorsApplicationFormBuilder(ApplicationFormBuilder):
                                                     "value": "Opcja 2",
                                                     "min_ratio": 30,
                                                     "max_ratio": 40
+                                                },
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+
+        self.save_part(part)
+
+    def create_related_condition_range_validator(self, number: int):
+        part = self.create_part(
+            title=f"{self.helpers.int_to_roman(number)}. RelatedConditionRangeValidator",
+            short_name=f"{self.helpers.int_to_roman(number)}. Related Condition Range Validator",
+            chapters=[
+                self.create_chapter(
+                    components=[
+                        self.create_component(
+                            component_type="header",
+                            name="relatedConditionRangeValidator",
+                            value="Walidator sprawdza, czy wartość jest w danym zakresie na podstawie warunku."
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    components=[
+                        self.create_chapter(
+                            title="Select",
+                            class_list={
+                                "main": ["table-1-2"],
+                                "sub": ["table-1-2__col"],
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="select",
+                                    name="conditionRangeSelect",
+                                    options=[
+                                        "Opcja 1",
+                                        "Opcja 2"
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Total",
+                            class_list={
+                                "main": ["table-1-2"],
+                                "sub": ["table-1-2__col"],
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    mask="fund",
+                                    name="conditionRangeTotal",
+                                    value="100",
+                                    read_only=True
+                                ),
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Min",
+                            help_text="Opcja 1 - 10, Opcja 2 - 20",
+                            class_list={
+                                "main": ["table-1-2"],
+                                "sub": ["table-1-2__col"],
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    mask="fund",
+                                    name="conditionRangeMin",
+                                    validators=[
+                                        self.validator.related_condition_range_validator(
+                                            conditions=[
+                                                {
+                                                    "field_name": "conditionRangeSelect",
+                                                    "value": "Opcja 1",
+                                                    "min_range": 10
+                                                },
+                                                {
+                                                    "field_name": "conditionRangeSelect",
+                                                    "value": "Opcja 2",
+                                                    "min_range": 20
+                                                },
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Max",
+                            help_text="Opcja 1 - 10, Opcja 2 - 20",
+                            class_list={
+                                "main": ["table-1-2"],
+                                "sub": ["table-1-2__col"],
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    mask="fund",
+                                    name="conditionRangeMax",
+                                    validators=[
+                                        self.validator.related_condition_range_validator(
+                                            conditions=[
+                                                {
+                                                    "field_name": "conditionRangeSelect",
+                                                    "value": "Opcja 1",
+                                                    "max_range": 10
+                                                },
+                                                {
+                                                    "field_name": "conditionRangeSelect",
+                                                    "value": "Opcja 2",
+                                                    "max_range": 20
+                                                },
+                                            ]
+                                        )
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Min Max",
+                            help_text="Opcja 1 - 10-20, Opcja 2 - 30-40",
+                            class_list={
+                                "main": ["table-1-2"],
+                                "sub": ["table-1-2__col"],
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    mask="fund",
+                                    name="conditionRangeMinMax",
+                                    validators=[
+                                        self.validator.related_condition_range_validator(
+                                            conditions=[
+                                                {
+                                                    "field_name": "conditionRangeSelect",
+                                                    "value": "Opcja 1",
+                                                    "min_range": 10,
+                                                    "max_range": 20
+                                                },
+                                                {
+                                                    "field_name": "conditionRangeSelect",
+                                                    "value": "Opcja 2",
+                                                    "min_range": 30,
+                                                    "max_range": 40
                                                 },
                                             ]
                                         )
