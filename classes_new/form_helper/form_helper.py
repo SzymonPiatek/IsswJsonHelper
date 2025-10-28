@@ -1,5 +1,7 @@
 from dotenv import load_dotenv
 import os
+import json
+from pathlib import Path
 from classes_new.postman.postman import Postman
 from classes_new.forms._2026.forms import Forms2026
 
@@ -51,6 +53,8 @@ class FormHelper:
             "uat": self.uat_postman
         }
 
+        self.forms_index: list[dict] = []
+
     def generate_jsons(self, data_type: str):
         if data_type not in {"application", "report"}:
             raise ValueError(f"Nieobsługiwany typ formularza: {data_type}")
@@ -67,6 +71,16 @@ class FormHelper:
                         for server in self.setup.keys():
                             postman = self.postman[server]
                             server_form_id = form.form_id[server]
+
+                            if server_form_id:
+                                form_url = f"{postman.base_url}/{'wniosek' if form.json_type == 'application' else 'raport'}/{server_form_id}"
+
+                                self.forms_index.append({
+                                    "name": f"{program.upper()} {priority.upper()}",
+                                    "json_type": form.json_type,
+                                    "server": server,
+                                    "url": form_url
+                                })
 
                             if self.setup[server][form.json_type]["json"]:
                                 form.generate()
@@ -97,3 +111,28 @@ class FormHelper:
                                     json_type=form.json_type,
                                     form_id=server_form_id
                                 )
+
+        self.save_forms_index()
+
+    def save_forms_index(self):
+        output_path = Path("./output")
+        output_path.mkdir(parents=True, exist_ok=True)
+
+        output_file = output_path / "forms_index.json"
+
+        grouped = {}
+
+        for entry in self.forms_index:
+            key = entry["name"]
+            if key not in grouped:
+                grouped[key] = {}
+
+            grouped[key][entry["json_type"]] = {
+                entry["server"]: entry["url"],
+            }
+
+        with output_file.open("w", encoding="utf-8") as f:
+            json.dump(grouped, f, ensure_ascii=False, indent=2)
+
+        print(f"\n📄 Utworzono index formularzy: {output_file.resolve()}")
+

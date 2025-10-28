@@ -1,0 +1,108 @@
+{
+  "PO1 PR1": {
+    "application": {
+      "local": "http://localhost/wniosek/16412"
+    }
+  },
+  "PO2 PR1": {
+    "application": {
+      "local": "http://localhost/wniosek/16"
+    }
+  },
+  "PO2 PR2": {
+    "application": {
+      "local": "http://localhost/wniosek/17"
+    }
+  },
+  "PO2 PR3": {
+    "application": {
+      "local": "http://localhost/wniosek/18"
+    }
+  },
+  "PO2 PR4": {
+    "application": {
+      "local": "http://localhost/wniosek/19"
+    }
+  },
+  "PO3 PR1": {
+    "application": {
+      "local": "http://localhost/wniosek/20"
+    }
+  },
+  "PO3 PR2": {
+    "application": {
+      "local": "http://localhost/wniosek/20"
+    }
+  },
+  "PO3 PR3": {
+    "application": {
+      "local": "http://localhost/wniosek/22"
+    }
+  },
+  "PO3 PR4": {
+    "application": {
+      "local": "http://localhost/wniosek/23"
+    }
+  },
+  "PO3 PR5": {
+    "application": {
+      "local": "http://localhost/wniosek/24"
+    }
+  },
+  "PO3 PR6": {
+    "application": {
+      "local": "http://localhost/wniosek/25"
+    }
+  },
+  "PO4 PR1": {
+    "application": {
+      "local": "http://localhost/wniosek/26"
+    }
+  },
+  "PO4 PR2": {
+    "application": {
+      "local": "http://localhost/wniosek/27"
+    }
+  },
+  "PO5 PR1": {
+    "application": {
+      "local": "http://localhost/wniosek/16409"
+    },
+    "report": {
+      "local": "http://localhost/raport/1531"
+    }
+  },
+  "PO5 PR2": {
+    "application": {
+      "local": "http://localhost/wniosek/16410"
+    },
+    "report": {
+      "local": "http://localhost/raport/1530"
+    }
+  },
+  "VISUALITY TEST": {
+    "application": {
+      "local": "http://localhost/wniosek/16414"
+    }
+  },
+  "VALIDATORS RELATED_VALIDATORS": {
+    "application": {
+      "local": "http://localhost/wniosek/32"
+    }
+  },
+  "VALIDATORS SIMPLE_VALIDATORS": {
+    "application": {
+      "local": "http://localhost/wniosek/16415"
+    }
+  },
+  "VALIDATORS SPECIAL_VALIDATORS": {
+    "application": {
+      "local": "http://localhost/wniosek/16413"
+    }
+  },
+  "CALCULATIONRULES TEST": {
+    "application": {
+      "local": "http://localhost/wniosek/16416"
+    }
+  }
+}
