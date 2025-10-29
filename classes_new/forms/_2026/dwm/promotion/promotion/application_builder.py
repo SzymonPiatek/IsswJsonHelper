@@ -338,10 +338,14 @@ class PromotionPriorityApplicationFormBuilder(PromotionOperationalProgramApplica
             short_name=f"{self.helpers.int_to_roman(number)}. Oświadczenia",
             chapters=[
                 self.create_chapter(
-                    title="1. Oświadczam, że przesięwzięcie ma charakter (można podać kilka):",
                     components=[
                         self.create_chapter(
                             components=[
+                                self.create_component(
+                                    component_type="header",
+                                    value="1. Oświadczam, że przesięwzięcie ma charakter (można podać kilka):",
+                                    name="taskApplicableInfo"
+                                ),
                                 self.create_component(
                                     component_type="checkbox",
                                     label="nie dotyczy",
