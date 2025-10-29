@@ -717,7 +717,7 @@ class DWMDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                 ]
             ),
             self.create_chapter(
-                title="2. Osoby upoważnione do reprezentowania wnioskodawcy, składania oświadczeń woli i zaciągania w jego imieniu zobowiązań finansowych",
+                title="2. Osoby upoważnione do reprezentowania Wnioskodawcy, składania oświadczeń woli i zaciągania w jego imieniu zobowiązań finansowych",
                 components=[
                     self.create_chapter(
                         multiple_forms_rules={
