@@ -422,21 +422,125 @@ class DWMDepartmentReportFormBuilder(ReportFormBuilder):
         cost_types = [
             {
                 "name": "accreditation",
-                "label": "Koszty akredytacji"
+                "label": "Koszty akredytacji",
+                "isEstimate": True
             },
             {
                 "name": "accommodation",
-                "label": "Koszty noclegu"
+                "label": "Koszty noclegu",
+                "isEstimate": True
             },
             {
                 "name": "transportation",
-                "label": "Koszty transportu"
+                "label": "Koszty transportu",
+                "isEstimate": True
             },
             {
                 "name": "participation",
-                "label": "Koszty uczestnictwa w warsztatach (jeśli dotyczy)"
+                "label": "Koszty uczestnictwa w warsztatach (jeśli dotyczy)",
+                "isEstimate": True
+            },
+            {
+                "name": "costsProvidedByEventOrganizer",
+                "label": "Koszty zapewnione przez organizatora wydarzenia",
+                "isEstimate": False
             }
         ]
+
+        def return_cost_types_section(cost: dict):
+            cost_type = self.create_component(
+                component_type="textarea",
+                label="Rodzaj kosztów",
+                name=f"{cost["name"]}Costs",
+                value=cost["label"],
+                read_only=True,
+                class_list=[
+                    "no-label",
+                    "col-span-2",
+                    "text-left",
+                    "displayNoneFrontend"
+                ]
+            )
+            estimate_cost_total = self.create_component(
+                component_type="text",
+                mask="fund",
+                label="Preliminarz: koszt całkowity",
+                name=f"{cost["name"]}CostTotal",
+                read_only=True,
+                copy_from=f"{cost["name"]}CostTotal",
+                unit="PLN",
+                class_list=[
+                    "no-label"
+                ]
+            )
+            estimate_cost_pisf = self.create_component(
+                component_type="text",
+                mask="fund",
+                label="Preliminarz: wniosek o dotację PISF",
+                name=f"{cost["name"]}CostRequestPisf",
+                read_only=True,
+                copy_from=f"{cost["name"]}CostRequestPisf",
+                unit="PLN",
+                class_list=[
+                    "no-label"
+                ]
+            )
+            actual_cost_total = self.create_component(
+                component_type="text",
+                mask="fund",
+                label="Bieżący okres sprawozdawczy: koszt całkowity",
+                name=f"{cost["name"]}CostActualTotal",
+                unit="PLN",
+                class_list=[
+                    "no-label"
+                ] if cost.get("isEstimate", False) else [
+                    "no-label",
+                    "col-start-5"
+                ]
+            )
+
+            actual_cost_pisf = self.create_component(
+                component_type="text",
+                mask="fund",
+                label="Bieżący okres sprawozdawczy: w tym dofinansowanie z PISF",
+                name=f"{cost["name"]}CostActualSupportPisf",
+                unit="PLN",
+                class_list=[
+                    "no-label"
+                ]
+            )
+
+            chapter = self.create_chapter(
+                title=cost["label"],
+                class_list={
+                    "main": [
+                        "table-4",
+                        "grid",
+                        "grid-cols-6",
+                        "no-title",
+                        "chapter-bg-red"
+                    ],
+                    "sub": [
+                        "table-4-2__col"
+                    ]
+                },
+                components=[
+                    cost_type
+                ]
+            )
+
+            if cost.get("isEstimate", False):
+                chapter["components"].extend([
+                    estimate_cost_total,
+                    estimate_cost_pisf,
+                ])
+
+            chapter["components"].extend([
+                actual_cost_total,
+                actual_cost_pisf
+            ])
+
+            return chapter
 
         part = self.create_part(
             title=f"{self.helpers.int_to_roman(number)}. Sprawozdanie z wykonania wydatków",
@@ -1010,80 +1114,7 @@ class DWMDepartmentReportFormBuilder(ReportFormBuilder):
                                 )
                             ]
                         ),
-                        *[self.create_chapter(
-                            title=cost["label"],
-                            class_list={
-                                "main": [
-                                    "table-4",
-                                    "grid",
-                                    "grid-cols-6",
-                                    "no-title",
-                                    "chapter-bg-red"
-                                ],
-                                "sub": [
-                                    "table-4-2__col"
-                                ]
-                            },
-                            components=[
-                                self.create_component(
-                                    component_type="textarea",
-                                    label="Rodzaj kosztów",
-                                    name=f"{cost["name"]}Costs",
-                                    value=cost["label"],
-                                    read_only=True,
-                                    class_list=[
-                                        "no-label",
-                                        "col-span-2",
-                                        "text-left",
-                                        "displayNoneFrontend"
-                                    ]
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    mask="fund",
-                                    label="Preliminarz: koszt całkowity",
-                                    name=f"{cost["name"]}CostTotal",
-                                    read_only=True,
-                                    copy_from=f"{cost["name"]}CostTotal",
-                                    unit="PLN",
-                                    class_list=[
-                                        "no-label"
-                                    ]
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    mask="fund",
-                                    label="Preliminarz: wniosek o dotację PISF",
-                                    name=f"{cost["name"]}CostRequestPisf",
-                                    read_only=True,
-                                    copy_from=f"{cost["name"]}CostRequestPisf",
-                                    unit="PLN",
-                                    class_list=[
-                                        "no-label"
-                                    ]
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    mask="fund",
-                                    label="Bieżący okres sprawozdawczy: koszt całkowity",
-                                    name=f"{cost["name"]}CostActualTotal",
-                                    unit="PLN",
-                                    class_list=[
-                                        "no-label"
-                                    ]
-                                ),
-                                self.create_component(
-                                    component_type="text",
-                                    mask="fund",
-                                    label="Bieżący okres sprawozdawczy: w tym dofinansowanie z PISF",
-                                    name=f"{cost["name"]}CostActualSupportPisf",
-                                    unit="PLN",
-                                    class_list=[
-                                        "no-label"
-                                    ]
-                                ),
-                            ]
-                        ) for cost in cost_types],
+                        *[return_cost_types_section(cost) for cost in cost_types],
                         self.create_chapter(
                             title="Razem",
                             class_list={
@@ -1116,12 +1147,12 @@ class DWMDepartmentReportFormBuilder(ReportFormBuilder):
                                     read_only=True,
                                     calculation_rules=[
                                         self.calculation_rule.dynamic_sum_inputs(
-                                            fields=[f"{cost["name"]}CostTotal" for cost in cost_types]
+                                            fields=[f"{cost["name"]}CostTotal" for cost in cost_types if cost.get("isEstimate", False)]
                                         )
                                     ],
                                     validators=[
                                         self.validator.related_sum_validator(
-                                            field_names=[f"{cost["name"]}CostTotal" for cost in cost_types]
+                                            field_names=[f"{cost["name"]}CostTotal" for cost in cost_types if cost.get("isEstimate", False)]
                                         )
                                     ],
                                     unit="PLN",
@@ -1138,12 +1169,12 @@ class DWMDepartmentReportFormBuilder(ReportFormBuilder):
                                     read_only=True,
                                     calculation_rules=[
                                         self.calculation_rule.dynamic_sum_inputs(
-                                            fields=[f"{cost["name"]}CostRequestPisf" for cost in cost_types]
+                                            fields=[f"{cost["name"]}CostRequestPisf" for cost in cost_types if cost.get("isEstimate", False)]
                                         )
                                     ],
                                     validators=[
                                         self.validator.related_sum_validator(
-                                            field_names=[f"{cost["name"]}CostRequestPisf" for cost in cost_types]
+                                            field_names=[f"{cost["name"]}CostRequestPisf" for cost in cost_types if cost.get("isEstimate", False)]
                                         )
                                     ],
                                     unit="PLN",
