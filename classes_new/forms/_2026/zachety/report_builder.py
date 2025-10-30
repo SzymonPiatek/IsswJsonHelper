@@ -32,8 +32,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
         self.save_part(
             part={
                 "kind": "part",
-                "title": "I. Dane podstawowe",
-                "shortName": "I. Dane podstawowe",
+                "title": f"{self.helpers.int_to_roman(number)}. Dane podstawowe",
+                "shortName": f"{self.helpers.int_to_roman(number)}. Dane podstawowe",
                 "chapters": [
                     {
                         "kind": "chapter",
@@ -456,8 +456,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
         self.save_part(
             part={
                 "kind": "part",
-                "title": "II. Dane przedsiębiorcy, który otrzymał wsparcie finansowe",
-                "shortName": "II. Dane przedsiębiorcy",
+                "title": f"{self.helpers.int_to_roman(number)}. Dane przedsiębiorcy, który otrzymał wsparcie finansowe",
+                "shortName": f"{self.helpers.int_to_roman(number)}. Dane przedsiębiorcy",
                 "chapters": [
                     {
                         "kind": "chapter",
@@ -2136,8 +2136,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
         self.save_part(
             part={
                 "kind": "part",
-                "title": "III. Dane producenta i koproducentów (w przypadku koprodukcji lub usługodawcy)",
-                "shortName": "III. Dane producentów i koproducentów",
+                "title": f"{self.helpers.int_to_roman(number)}. Dane producenta i koproducentów (w przypadku koprodukcji lub usługodawcy)",
+                "shortName": f"{self.helpers.int_to_roman(number)}. Dane producentów i koproducentów",
                 "chapters": [
                     {
                         "kind": "chapter",
@@ -4234,8 +4234,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
         self.save_part(
             part={
                 "kind": "part",
-                "title": "IV. Utwór audiowizualny",
-                "shortName": "IV. Utwór audiowizualny",
+                "title": f"{self.helpers.int_to_roman(number)}. Utwór audiowizualny",
+                "shortName": f"{self.helpers.int_to_roman(number)}. Utwór audiowizualny",
                 "chapters": [
                     {
                         "kind": "chapter",
@@ -5589,8 +5589,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
         self.save_part(
             part={
                 "kind": "part",
-                "title": "V. Wyliczenie kwoty wsparcia",
-                "shortName": "V. Wyliczenie kwoty wsparcia",
+                "title": f"{self.helpers.int_to_roman(number)}. Wyliczenie kwoty wsparcia",
+                "shortName": f"{self.helpers.int_to_roman(number)}. Wyliczenie kwoty wsparcia",
                 "chapters": [
                     {
                         "kind": "chapter",
@@ -6539,8 +6539,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
         self.save_part(
             part={
                 "kind": "part",
-                "title": "VI. Struktura finansowa",
-                "shortName": "VI. Struktura finansowa",
+                "title": f"{self.helpers.int_to_roman(number)}. Struktura finansowa",
+                "shortName": f"{self.helpers.int_to_roman(number)}. Struktura finansowa",
                 "classList": [
                     "full-width-grid"
                 ],
@@ -11245,8 +11245,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
         self.save_part(
             part={
                 "kind": "part",
-                "title": "VII. Informacje o produkcji audiowizualnej z uwzględnieniem krajów wykonania",
-                "shortName": "VII. Informacje o produkcji audiowizualnej",
+                "title": f"{self.helpers.int_to_roman(number)}. Informacje o produkcji audiowizualnej z uwzględnieniem krajów wykonania",
+                "shortName": f"{self.helpers.int_to_roman(number)}. Informacje o produkcji audiowizualnej",
                 "chapters": [
                     {
                         "kind": "chapter",
@@ -13212,8 +13212,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
         self.save_part(
             part={
                 "kind": "part",
-                "title": "VIII. Skrócony opis przebiegu poszczególnych etapów produkcji utworu audiowizualnego objętego wsparciem finansowym",
-                "shortName": "VIII. Opis przebiegu prac",
+                "title": f"{self.helpers.int_to_roman(number)}. Skrócony opis przebiegu poszczególnych etapów produkcji utworu audiowizualnego objętego wsparciem finansowym",
+                "shortName": f"{self.helpers.int_to_roman(number)}. Opis przebiegu prac",
                 "chapters": [
                     {
                         "kind": "chapter",
@@ -13269,8 +13269,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
         self.save_part(
             part={
                 "kind": "part",
-                "title": "IX. Test kwalifikacyjny",
-                "shortName": "IX. Test kwalifikacyjny",
+                "title": f"{self.helpers.int_to_roman(number)}. Test kwalifikacyjny",
+                "shortName": f"{self.helpers.int_to_roman(number)}. Test kwalifikacyjny",
                 "classList": [
                     "full-width-grid"
                 ],
@@ -21977,8 +21977,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
         self.save_part(
             part={
                 "kind": "part",
-                "title": "X. Oświadczenie o przyznanej pomocy publicznej zgodnie z Art. 13 Ustawy z dnia 9 listopada 2018r. o finansowym wspieraniu produkcji audiowizualnej.",
-                "shortName": "X. Oświadczenie o środkach publicznych",
+                "title": f"{self.helpers.int_to_roman(number)}. Oświadczenie o przyznanej pomocy publicznej zgodnie z Art. 13 Ustawy z dnia 9 listopada 2018r. o finansowym wspieraniu produkcji audiowizualnej.",
+                "shortName": f"{self.helpers.int_to_roman(number)}. Oświadczenie o środkach publicznych",
                 "chapters": [
                     {
                         "kind": "chapter",
@@ -22784,8 +22784,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
         self.save_part(
             part={
                 "kind": "part",
-                "title": "XI. Oświadczenia",
-                "shortName": "XI. Oświadczenia",
+                "title": f"{self.helpers.int_to_roman(number)}. Oświadczenia",
+                "shortName": f"{self.helpers.int_to_roman(number)}. Oświadczenia",
                 "chapters": [
                     {
                         "kind": "chapter",
@@ -22978,8 +22978,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
         self.save_part(
             part={
                 "kind": "part",
-                "title": "XII. Załączniki",
-                "shortName": "XII. Załączniki",
+                "title": f"{self.helpers.int_to_roman(number)}. Załączniki",
+                "shortName": f"{self.helpers.int_to_roman(number)}. Załączniki",
                 "chapters": [
                     {
                         "kind": "chapter",
