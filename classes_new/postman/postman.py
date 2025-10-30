@@ -21,6 +21,9 @@ class Postman:
 
         self.login()
 
+    def construct_form_link(self, json_type: Literal["application", "report"], form_id: int):
+        return f"{self.base_url}/{'wniosek' if json_type == 'application' else 'raport'}/{form_id}/edycja?version=-1"
+
     def login(self):
         login_url = f"{self.base_url}/api/v1/token/"
 
@@ -57,7 +60,7 @@ class Postman:
             verify=False
         )
 
-        form_url = f"{self.base_url}/{'wniosek' if json.json_type == 'application' else 'raport'}/{form_id}"
+        form_url = self.construct_form_link(json_type=json.json_type, form_id=form_id)
 
         if response.status_code == 200:
             print(f"Nadpisano schemę {'raportu' if json.json_type == 'report' else 'wniosku'}: {form_url}")
@@ -78,7 +81,7 @@ class Postman:
             verify=False
         )
 
-        form_url = f"{self.base_url}/{'wniosek' if json.json_type == 'application' else 'raport'}/{form_id}"
+        form_url = self.construct_form_link(json_type=json.json_type, form_id=form_id)
 
         if response.status_code == 200:
             message = response.json().get("message", "")
