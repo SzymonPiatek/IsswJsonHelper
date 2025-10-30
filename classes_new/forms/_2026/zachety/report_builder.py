@@ -6584,7 +6584,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                     "value": "zgodnie z umową",
                                     "dataBDD": "headerComponent-actualContributionAgreement",
                                     "classList": [
-                                        "col-start-2",
+                                        "col-start-3",
                                         "text-center",
                                         "displayNoneFrontend"
                                     ]
