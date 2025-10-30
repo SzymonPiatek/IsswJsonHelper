@@ -5,7 +5,338 @@ class ReportExpenditureExecution(Section):
     def __init__(self):
         super().__init__()
 
+    def invoice_section_headers_promotion(self):
+        return self.create_chapter(
+            class_list=[
+                "grid",
+                "grid-cols-12",
+                "table-header"
+            ],
+            components=[
+                self.create_component(
+                    component_type="header",
+                    name="invoiceNumber",
+                    value="Nr i nazwa dokument księgowego",
+                    class_list=[
+                        "text-left",
+                        "displayNoneFrontend",
+                        "col-span-6",
+                        "col-start-2"
+                    ]
+                ),
+                self.create_component(
+                    component_type="header",
+                    name="invoiceTotalCost",
+                    value="Kwota całkowita",
+                    class_list=[
+                        "text-center",
+                        "col-span-3",
+                        "displayNoneFrontend"
+                    ]
+                ),
+                self.create_component(
+                    component_type="header",
+                    name="invoicePISFRefund",
+                    value="W tym z dofinansowania PISF",
+                    class_list=[
+                        "text-center",
+                        "col-start-11",
+                        "col-span-2",
+                        "displayNoneFrontend"
+                    ]
+                ),
+                self.create_component(
+                    component_type="header",
+                    name="invoiceLp",
+                    value="Lp.",
+                    class_list=[
+                        "text-center",
+                        "displayNoneFrontend"
+                    ]
+                ),
+                self.create_component(
+                    component_type="header",
+                    name="invoicePositionNumber",
+                    value="Nr pozycji kosztorysu",
+                    class_list=[
+                        "text-center",
+                        "displayNoneFrontend"
+                    ]
+                ),
+                self.create_component(
+                    component_type="header",
+                    name="invoiceIssuedDate",
+                    value="Data wystawienia",
+                    class_list=[
+                        "text-center",
+                        "displayNoneFrontend"
+                    ]
+                ),
+                self.create_component(
+                    component_type="header",
+                    name="invoicePaymentDate",
+                    value="Data zapłaty",
+                    class_list=[
+                        "text-center",
+                        "displayNoneFrontend"
+                    ]
+                ),
+                self.create_component(
+                    component_type="header",
+                    name="invoiceDesc",
+                    value="Waluta",
+                    class_list=[
+                        "text-center",
+                        "displayNoneFrontend"
+                    ]
+                ),
+                self.create_component(
+                    component_type="header",
+                    name="invoicePriceNBP",
+                    value="Średni kurs NBP",
+                    class_list=[
+                        "text-center",
+                        "displayNoneFrontend",
+                        "col-span-2"
+                    ]
+                ),
+                self.create_component(
+                    component_type="header",
+                    name="totalInvoiceOtherCurrency",
+                    value="W walucie obcej",
+                    class_list=[
+                        "text-center",
+                        "displayNoneFrontend"
+                    ]
+                ),
+                self.create_component(
+                    component_type="header",
+                    name="totalInvoicePLN",
+                    value="PLN",
+                    class_list=[
+                        "text-center",
+                        "displayNoneFrontend",
+                        "col-span-2"
+                    ]
+                ),
+                self.create_component(
+                    component_type="header",
+                    name="supportInvoicePLN",
+                    value="PLN",
+                    class_list=[
+                        "text-center",
+                        "displayNoneFrontend",
+                        "col-span-2"
+                    ]
+                ),
+            ]
+        )
+
+    def invoice_section_promotion(self):
+        return self.create_chapter(
+            title="Faktura/rachunek",
+            class_list={
+                "sub": [
+                    "table-invoice__col"
+                ],
+                "main": [
+                    "table-invoice",
+                    "grid",
+                    "grid-cols-12"
+                ]
+            },
+            components=[
+                self.create_component(
+                    component_type="textarea",
+                    label="Lp.",
+                    name="lp-number-invoice",
+                    class_list=[
+                        "displayNoneFrontend",
+                        "lp-number",
+                        "no-label"
+                    ],
+                    calculation_rules=[
+                        self.calculation_rule.row_number()
+                    ]
+                ),
+                self.create_component(
+                    component_type="textarea",
+                    label="Nazwa i opis wydatku",
+                    name="costExpenditureDesc",
+                    validators=[
+                        self.validator.length_validator(
+                            max_value=200
+                        )
+                    ],
+                    required=True,
+                    class_list=[
+                        "col-span-11",
+                        "text-bold",
+                        "no-label",
+                        "text-left"
+                    ]
+                ),
+                self.create_component(
+                    component_type="textarea",
+                    label="Rodzaj i numer dokumentu księgowego",
+                    name="accountingDocTypeNum",
+                    validators=[
+                        self.validator.length_validator(
+                            max_value=150
+                        )
+                    ],
+                    required=True,
+                    class_list=[
+                        "table-invoice__full",
+                        "no-label",
+                        "col-start-2",
+                        "col-span-11",
+                        "text-left"
+                    ]
+                ),
+                self.create_component(
+                    component_type="text",
+                    label="Numer pozycji kosztorysu",
+                    name="costEstimateItemNum",
+                    validators=[
+                        self.validator.length_validator(
+                            max_value=10
+                        )
+                    ],
+                    required=True,
+                    class_list=[
+                        "no-label",
+                        "table-1-2",
+                        "col-start-2"
+                    ]
+                ),
+                self.create_component(
+                    component_type="date",
+                    label="Data wystawienia",
+                    name="accountingDocDateIssued",
+                    validators=[
+                        self.validator.related_date_gte_validator(
+                            field_name="taskDateStart",
+                            message="Data wystawienia nie może być wcześniejsza niż data wpłynięcia wniosku."
+                        ),
+                        self.validator.related_date_lte_validator(
+                            field_name="taskDateEnd",
+                            message="Data wystawienia nie może być późniejsza niż data zakończenia przedsięwzięcia"
+                        )
+                    ],
+                    required=True,
+                    class_list=[
+                        "no-label"
+                    ]
+                ),
+                self.create_component(
+                    component_type="date",
+                    label="Data zapłaty",
+                    name="costPaymentDate",
+                    validators=[
+                        self.validator.related_date_gte_validator(
+                            field_name="taskDateStart",
+                            message="Data zapłaty nie może być wcześniejsza niż data wpłynięcia wniosku."
+                        ),
+                        self.validator.related_date_lte_validator(
+                            field_name="taskDateEnd",
+                            message="Data zapłaty nie może być późniejsza niż data zakończenia przedsięwzięcia"
+                        )
+                    ],
+                    required=True,
+                    class_list=[
+                        "no-label"
+                    ]
+                ),
+                self.create_component(
+                    component_type="currency",
+                    label="Waluta",
+                    name="costCurrency",
+                    class_list=[
+                        "no-label",
+                        "table-1-2"
+                    ],
+                    required=True
+                ),
+                self.create_component(
+                    component_type="number",
+                    label="Kurs średni NBP",
+                    name="costCurrencyNbpExchRate",
+                    calculation_rules=[
+                        self.calculation_rule.get_nbp_currency(
+                            date_field="accountingDocDateIssued",
+                            currency_field="costCurrency",
+                        )
+                    ],
+                    validators=[
+                        self.validator.length_validator(
+                            max_value=20
+                        )
+                    ],
+                    read_only=True,
+                    class_list=[
+                        "no-label",
+                        "table-1-2",
+                        "col-span-2"
+                    ]
+                ),
+                self.create_component(
+                    component_type="text",
+                    mask="fund",
+                    label="Kwota całkowita w walucie obcej",
+                    name="costInCurrency",
+                    class_list=[
+                        "no-label",
+                        "table-1-2"
+                    ]
+                ),
+                self.create_component(
+                    component_type="text",
+                    mask="fund",
+                    label="Kwota całkowita w PLN",
+                    name="costInPln",
+                    class_list=[
+                        "no-label",
+                        "col-span-2"
+                    ],
+                    read_only=True,
+                    calculation_rules=[
+                        self.calculation_rule.local_multiply_inputs(
+                            fields=[
+                                "costInCurrency",
+                                "costCurrencyNbpExchRate"
+                            ]
+                        )
+                    ],
+                    validators=[
+                        self.validator.related_local_multiplication_validator(
+                            field_names=[
+                                "costInCurrency",
+                                "costCurrencyNbpExchRate"
+                            ]
+                        )
+                    ],
+                    unit="PLN"
+                ),
+                self.create_component(
+                    component_type="text",
+                    mask="fund",
+                    label="W tym ze środków pochodzących z dofinansowania PISF w PLN",
+                    name="costInPlnPisf",
+                    required=True,
+                    class_list=[
+                        "no-label",
+                        "col-span-2"
+                    ],
+                    unit="PLN"
+                )
+            ]
+        )
+
     def invoice_section(self, is_promotion_priority: bool = False):
+        if is_promotion_priority:
+            return self.invoice_section_promotion()
+
         lp_invoice_number = self.create_component(
             component_type="textarea",
             label="Lp.",
@@ -129,7 +460,8 @@ class ReportExpenditureExecution(Section):
             read_only=True,
             class_list=[
                 "no-label",
-                "table-1-2"
+                "table-1-2",
+                "col-span-2"
             ] if is_promotion_priority else [
                 "no-label"
             ]
@@ -226,7 +558,8 @@ class ReportExpenditureExecution(Section):
             name="costInPlnPisf",
             required=True,
             class_list=[
-                "no-label"
+                "no-label",
+                "col-span-2"
             ],
             unit="PLN"
         )
@@ -357,6 +690,9 @@ class ReportExpenditureExecution(Section):
         return chapter
 
     def invoice_section_headers(self, is_promotion_priority: bool = False):
+        if is_promotion_priority:
+            return self.invoice_section_headers_promotion()
+
         return self.create_chapter(
             class_list=[
                 "grid",
@@ -447,6 +783,10 @@ class ReportExpenditureExecution(Section):
                     class_list=[
                         "text-center",
                         "displayNoneFrontend"
+                    ] if not is_promotion_priority else [
+                        "text-center",
+                        "displayNoneFrontend",
+                        "col-span-2"
                     ]
                 ),
                 self.create_component(
@@ -469,20 +809,12 @@ class ReportExpenditureExecution(Section):
                 ),
                 self.create_component(
                     component_type="header",
-                    name="supportInvoiceOtherCurrency",
-                    value="W walucie obcej",
-                    class_list=[
-                        "text-center",
-                        "displayNoneFrontend"
-                    ]
-                ),
-                self.create_component(
-                    component_type="header",
                     name="supportInvoicePLN",
                     value="PLN",
                     class_list=[
                         "text-center",
-                        "displayNoneFrontend"
+                        "displayNoneFrontend",
+                        "col-span-2"
                     ]
                 ),
             ]
