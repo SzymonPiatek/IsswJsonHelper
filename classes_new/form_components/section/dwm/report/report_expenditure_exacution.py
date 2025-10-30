@@ -9,7 +9,7 @@ class ReportExpenditureExecution(Section):
         return self.create_chapter(
             class_list=[
                 "grid",
-                "grid-cols-12",
+                "grid-cols-15",
                 "table-header"
             ],
             components=[
@@ -18,9 +18,9 @@ class ReportExpenditureExecution(Section):
                     name="invoiceNumber",
                     value="Nr i nazwa dokument księgowego",
                     class_list=[
-                        "text-left",
                         "displayNoneFrontend",
-                        "col-span-6",
+                        "text-left",
+                        "col-span-8",
                         "col-start-2"
                     ]
                 ),
@@ -30,7 +30,7 @@ class ReportExpenditureExecution(Section):
                     value="Kwota całkowita",
                     class_list=[
                         "text-center",
-                        "col-span-3",
+                        "col-span-4",
                         "displayNoneFrontend"
                     ]
                 ),
@@ -40,9 +40,8 @@ class ReportExpenditureExecution(Section):
                     value="W tym z dofinansowania PISF",
                     class_list=[
                         "text-center",
-                        "col-start-11",
-                        "col-span-2",
-                        "displayNoneFrontend"
+                        "displayNoneFrontend",
+                        "col-span-2"
                     ]
                 ),
                 self.create_component(
@@ -69,7 +68,8 @@ class ReportExpenditureExecution(Section):
                     value="Data wystawienia",
                     class_list=[
                         "text-center",
-                        "displayNoneFrontend"
+                        "displayNoneFrontend",
+                        "col-span-2"
                     ]
                 ),
                 self.create_component(
@@ -78,7 +78,8 @@ class ReportExpenditureExecution(Section):
                     value="Data zapłaty",
                     class_list=[
                         "text-center",
-                        "displayNoneFrontend"
+                        "displayNoneFrontend",
+                        "col-span-2"
                     ]
                 ),
                 self.create_component(
@@ -106,7 +107,8 @@ class ReportExpenditureExecution(Section):
                     value="W walucie obcej",
                     class_list=[
                         "text-center",
-                        "displayNoneFrontend"
+                        "displayNoneFrontend",
+                        "col-span-2"
                     ]
                 ),
                 self.create_component(
@@ -142,7 +144,7 @@ class ReportExpenditureExecution(Section):
                 "main": [
                     "table-invoice",
                     "grid",
-                    "grid-cols-12"
+                    "grid-cols-15"
                 ]
             },
             components=[
@@ -170,7 +172,7 @@ class ReportExpenditureExecution(Section):
                     ],
                     required=True,
                     class_list=[
-                        "col-span-11",
+                        "col-span-14",
                         "text-bold",
                         "no-label",
                         "text-left"
@@ -190,7 +192,7 @@ class ReportExpenditureExecution(Section):
                         "table-invoice__full",
                         "no-label",
                         "col-start-2",
-                        "col-span-11",
+                        "col-span-14",
                         "text-left"
                     ]
                 ),
@@ -226,7 +228,8 @@ class ReportExpenditureExecution(Section):
                     ],
                     required=True,
                     class_list=[
-                        "no-label"
+                        "no-label",
+                        "col-span-2"
                     ]
                 ),
                 self.create_component(
@@ -245,7 +248,8 @@ class ReportExpenditureExecution(Section):
                     ],
                     required=True,
                     class_list=[
-                        "no-label"
+                        "no-label",
+                        "col-span-2"
                     ]
                 ),
                 self.create_component(
@@ -287,7 +291,8 @@ class ReportExpenditureExecution(Section):
                     name="costInCurrency",
                     class_list=[
                         "no-label",
-                        "table-1-2"
+                        "table-1-2",
+                        "col-span-2"
                     ]
                 ),
                 self.create_component(
