@@ -6528,6 +6528,413 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
         self.save_part(part)
 
     def create_report_financial_structure(self, number: int):
+        def create_world_wide_sale_chapter(
+                group_name: str,
+                single_name: str,
+                name: str
+        ):
+            total_chapter = self.create_chapter(
+                components=[
+                    self.create_chapter(
+                        title="Razem",
+                        class_list={
+                            "main": [
+                                "table-1-3-narrow",
+                                "grid",
+                                "grid-cols-5",
+                                "no-title",
+                                "displayNoneFrontend"
+                            ],
+                            "sub": [
+                                "table-1-3__col"
+                            ]
+                        },
+                        components=[
+                            self.create_component(
+                                component_type="text",
+                                mask="fund",
+                                label="Zgodnie z umową",
+                                name=f"actualContributionAgreementTotal{name.title()}",
+                                read_only=True,
+                                unit="PLN",
+                                validators=[
+                                    self.validator.related_sum_validator(
+                                        field_names=[
+                                            f"actualContributionAgreement{name.title()}",
+                                        ]
+                                    )
+                                ],
+                                calculation_rules=[
+                                    self.calculation_rule.dynamic_sum_inputs(
+                                        fields=[
+                                            f"actualContributionAgreement{name.title()}",
+                                        ]
+                                    )
+                                ],
+                                class_list=[
+                                    "col-start-3",
+                                    "no-label",
+                                    "displayNonePDF"
+                                ]
+                            ),
+                            self.create_component(
+                                component_type="text",
+                                mask="fund",
+                                label="Zgodnie z aneksem do umowy",
+                                name=f"actualContributionAgreementAnnexTotal{name.title()}",
+                                read_only=True,
+                                unit="PLN",
+                                validators=[
+                                    self.validator.related_sum_validator(
+                                        field_names=[
+                                            f"actualContributionAgreementAnnex{name.title()}",
+                                        ]
+                                    )
+                                ],
+                                calculation_rules=[
+                                    self.calculation_rule.dynamic_sum_inputs(
+                                        fields=[
+                                            f"actualContributionAgreementAnnex{name.title()}",
+                                        ]
+                                    )
+                                ],
+                                class_list=[
+                                    "no-label",
+                                    "displayNonePDF"
+                                ]
+                            ),
+                            self.create_component(
+                                component_type="text",
+                                mask="fund",
+                                label="Wynikowa struktura finansowania w PLN",
+                                name=f"resultingFinancialStructurePLNTotal{name.title()}",
+                                read_only=True,
+                                unit="PLN",
+                                validators=[
+                                    self.validator.related_sum_validator(
+                                        field_names=[
+                                            f"resultingFinancialStructurePLN{name.title()}",
+                                        ]
+                                    )
+                                ],
+                                calculation_rules=[
+                                    self.calculation_rule.dynamic_sum_inputs(
+                                        fields=[
+                                            f"resultingFinancialStructurePLN{name.title()}",
+                                        ]
+                                    )
+                                ],
+                                class_list=[
+                                    "no-label",
+                                    "displayNonePDF"
+                                ]
+                            )
+                        ]
+                    ),
+                    self.create_chapter(
+                        class_list={
+                            "main": [
+                                "displayNoneFrontend",
+                                "no-title",
+                                "grid"
+                            ]
+                        },
+                        components=[
+                            self.create_component(
+                                component_type="header",
+                                name=f"{name}Title",
+                                value=group_name,
+                                class_list=["no-label"]
+                            )
+                        ]
+                    ),
+                    self.create_chapter(
+                        multiple_forms_rules={
+                            "minCount": 1,
+                            "maxCount": 10
+                        },
+                        components=[
+                            self.create_chapter(
+                                title=single_name,
+                                class_list={
+                                    "main": [
+                                        "table-1-3-narrow",
+                                        "grid",
+                                        "grid-cols-5",
+                                        "no-title"
+                                    ],
+                                    "sub": [
+                                        "table-1-3__col"
+                                    ]
+                                },
+                                components=[
+                                    self.create_component(
+                                        component_type="text",
+                                        label="Nazwa podmiotu",
+                                        name=f"{name}Name",
+                                        required=True,
+                                        class_list=[
+                                            "no-label",
+                                            "col-span-2",
+                                            "table-full",
+                                            "text-left"
+                                        ]
+                                    ),
+                                    self.create_component(
+                                        component_type="text",
+                                        mask="fund",
+                                        label="Zgodnie z umową",
+                                        name=f"actualContributionAgreement{name.title()}",
+                                        unit="PLN",
+                                        class_list=[
+                                            "no-label",
+                                        ]
+                                    ),
+                                    self.create_component(
+                                        component_type="text",
+                                        mask="fund",
+                                        label="Zgodnie z aneksem do umowy",
+                                        name=f"actualContributionAgreementAnnex{name.title()}",
+                                        unit="PLN",
+                                        class_list=[
+                                            "no-label"
+                                        ]
+                                    ),
+                                    self.create_component(
+                                        component_type="text",
+                                        mask="fund",
+                                        label="Wynikowa struktura finansowania w PLN",
+                                        name=f"resultingFinancialStructurePLN{name.title()}",
+                                        unit="PLN",
+                                        class_list=[
+                                            "no-label"
+                                        ]
+                                    )
+                                ]
+                            )
+                        ]
+                    )
+                ]
+            )
+            return total_chapter
+
+        world_wide_sale_list = [
+            {
+                "group_name": "Światowa sprzedaż",
+                "single_name": "Światowa sprzedaż",
+                "name": "worldWideSales"
+            },
+            {
+                "group_name": "Dystrybutorzy",
+                "single_name": "Dystrybutor",
+                "name": "distirbutors"
+            },
+            {
+                "group_name": "Nadawcy telewizyjni",
+                "single_name": "Nadawca telewizyjny",
+                "name": "televisionBroadcasters"
+            },
+            {
+                "group_name": "Inne",
+                "single_name": "Inne",
+                "name": "other"
+            }
+        ]
+
+        world_wide_totle_chapter = {
+            "kind": "chapter",
+            "title": "",
+            "components": [
+                {
+                    "kind": "chapter",
+                    "title": "4. Przedsprzedaż / MG",
+                    "classList": {
+                        "main": ["no-title"]
+                    },
+                    "components": []
+                },
+                {
+                    "kind": "chapter",
+                    "title": "Razem",
+                    "classList": {
+                        "main": [
+                            "table-1-3-narrow",
+                            "grid",
+                            "grid-cols-5",
+                            "no-title"
+                        ],
+                        "sub": [
+                            "table-1-3__col"
+                        ]
+                    },
+                    "components": [
+                        {
+                            "kind": "component",
+                            "type": "header",
+                            "label": "Label",
+                            "name": "headerComponent-preSaleTotal",
+                            "value": "4. Przedsprzedaż / MG - RAZEM",
+                            "dataBDD": "header-component-preSaleTotal",
+                            "classList": [
+                                "col-span-2",
+                                "displayNoneFrontend"
+                            ]
+                        },
+                        {
+                            "kind": "component",
+                            "type": "text",
+                            "mask": "fund",
+                            "label": "Zgodnie z umową",
+                            "name": "actualContributionAgreementTotalPreSale",
+                            "value": 0,
+                            "unit": "PLN",
+                            "validators": [
+                                {
+                                    "name": "RangeValidator",
+                                    "kwargs": {
+                                        "min": 0
+                                    },
+                                    "validationMsg": "Wartość musi być większa lub równa zero."
+                                },
+                                {
+                                    "name": "RelatedSumValidator",
+                                    "kwargs": {
+                                        "field_names": [
+                                            "actualContributionAgreementTotalWorldWideSales",
+                                            "actualContributionAgreementTotalDistributors",
+                                            "actualContributionAgreementTotalTelevisionBroadcasters",
+                                            "actualContributionAgreementTotalOther"
+                                        ]
+                                    }
+                                }
+                            ],
+                            "dataBDD": "actualContributionAgreementTotalPreSale",
+                            "classList": [
+                                "no-label"
+                            ],
+                            "readOnly": True,
+                            "calculationRules": [
+                                {
+                                    "name": "sumInputs",
+                                    "kwargs": {
+                                        "fields": [
+                                            "actualContributionAgreementTotalWorldWideSales",
+                                            "actualContributionAgreementTotalDistributors",
+                                            "actualContributionAgreementTotalTelevisionBroadcasters",
+                                            "actualContributionAgreementTotalOther"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "component",
+                            "type": "text",
+                            "mask": "fund",
+                            "label": "Zgodnie z aneksem do umowy",
+                            "name": "actualContributionAgreementAnnexTotalPreSale",
+                            "value": 0,
+                            "unit": "PLN",
+                            "validators": [
+                                {
+                                    "name": "RangeValidator",
+                                    "kwargs": {
+                                        "min": 0
+                                    },
+                                    "validationMsg": "Wartość musi być większa lub równa zero."
+                                },
+                                {
+                                    "name": "RelatedSumValidator",
+                                    "kwargs": {
+                                        "field_names": [
+                                            "actualContributionAgreementAnnexTotalWorldWideSales",
+                                            "actualContributionAgreementAnnexTotalDistributors",
+                                            "actualContributionAgreementAnnexTotalTelevisionBroadcasters",
+                                            "actualContributionAgreementAnnexTotalOther"
+                                        ]
+                                    }
+                                }
+                            ],
+                            "dataBDD": "actualContributionAgreementAnnexTotalPreSale",
+                            "classList": [
+                                "no-label"
+                            ],
+                            "readOnly": True,
+                            "calculationRules": [
+                                {
+                                    "name": "sumInputs",
+                                    "kwargs": {
+                                        "fields": [
+                                            "actualContributionAgreementAnnexTotalWorldWideSales",
+                                            "actualContributionAgreementAnnexTotalDistributors",
+                                            "actualContributionAgreementAnnexTotalTelevisionBroadcasters",
+                                            "actualContributionAgreementAnnexTotalOther"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "component",
+                            "type": "text",
+                            "mask": "fund",
+                            "label": "Wynikowa struktura finansowania w PLN",
+                            "name": "resultingFinancialStructurePLNTotalPreSale",
+                            "value": 0,
+                            "unit": "PLN",
+                            "validators": [
+                                {
+                                    "name": "RangeValidator",
+                                    "kwargs": {
+                                        "min": 0
+                                    },
+                                    "validationMsg": "Wartość musi być większa lub równa zero."
+                                },
+                                {
+                                    "name": "RelatedSumValidator",
+                                    "kwargs": {
+                                        "field_names": [
+                                            "resultingFinancialStructurePLNTotalWorldWideSales",
+                                            "resultingFinancialStructurePLNTotalDistributors",
+                                            "resultingFinancialStructurePLNTotalTelevisionBroadcasters",
+                                            "resultingFinancialStructurePLNTotalOther"
+                                        ]
+                                    }
+                                }
+                            ],
+                            "dataBDD": "resultingFinancialStructurePLNTotalPreSale",
+                            "classList": [
+                                "no-label"
+                            ],
+                            "readOnly": True,
+                            "calculationRules": [
+                                {
+                                    "name": "sumInputs",
+                                    "kwargs": {
+                                        "fields": [
+                                            "resultingFinancialStructurePLNTotalWorldWideSales",
+                                            "resultingFinancialStructurePLNTotalDistributors",
+                                            "resultingFinancialStructurePLNTotalTelevisionBroadcasters",
+                                            "resultingFinancialStructurePLNTotalOther"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+
+        for sale in world_wide_sale_list:
+            world_wide_totle_chapter["components"].append(
+                create_world_wide_sale_chapter(
+                    group_name=sale["group_name"],
+                    single_name=sale["single_name"],
+                    name=sale["name"]
+                )
+            )
+
         part = self.create_part(
             title=f"{self.helpers.int_to_roman(number)}. Struktura finansowa",
             chapters=[
@@ -8064,1372 +8471,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                 }
                             ]
                         },
-                        {
-                            "kind": "chapter",
-                            "title": "4. Przedsprzedaż / MG",
-                            "classList": [
-                                "no-title"
-                            ],
-                            "components": [
-                                {
-                                    "kind": "chapter",
-                                    "title": "Razem",
-                                    "classList": {
-                                        "main": [
-                                            "table-1-3-narrow",
-                                            "grid",
-                                            "grid-cols-5",
-                                            "no-title"
-                                        ],
-                                        "sub": [
-                                            "table-1-3__col"
-                                        ]
-                                    },
-                                    "components": [
-                                        {
-                                            "kind": "component",
-                                            "type": "header",
-                                            "label": "Label",
-                                            "name": "headerComponent-preSaleTotal",
-                                            "value": "4. Przedsprzedaż / MG - RAZEM",
-                                            "dataBDD": "header-component-preSaleTotal",
-                                            "classList": [
-                                                "col-span-2",
-                                                "displayNoneFrontend"
-                                            ]
-                                        },
-                                        {
-                                            "kind": "component",
-                                            "type": "text",
-                                            "mask": "fund",
-                                            "label": "Zgodnie z umową",
-                                            "name": "actualContributionAgreementTotalPreSale",
-                                            "value": 0,
-                                            "unit": "PLN",
-                                            "validators": [
-                                                {
-                                                    "name": "RangeValidator",
-                                                    "kwargs": {
-                                                        "min": 0
-                                                    },
-                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                },
-                                                {
-                                                    "name": "RelatedSumValidator",
-                                                    "kwargs": {
-                                                        "field_names": [
-                                                            "actualContributionAgreementTotalWorldWideSales",
-                                                            "actualContributionAgreementTotalDistributors",
-                                                            "actualContributionAgreementTotalTelevisionBroadcasters",
-                                                            "actualContributionAgreementTotalOther"
-                                                        ]
-                                                    }
-                                                }
-                                            ],
-                                            "dataBDD": "actualContributionAgreementTotalPreSale",
-                                            "classList": [
-                                                "no-label"
-                                            ],
-                                            "readOnly": True,
-                                            "calculationRules": [
-                                                {
-                                                    "name": "sumInputs",
-                                                    "kwargs": {
-                                                        "fields": [
-                                                            "actualContributionAgreementTotalWorldWideSales",
-                                                            "actualContributionAgreementTotalDistributors",
-                                                            "actualContributionAgreementTotalTelevisionBroadcasters",
-                                                            "actualContributionAgreementTotalOther"
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "kind": "component",
-                                            "type": "text",
-                                            "mask": "fund",
-                                            "label": "Zgodnie z aneksem do umowy",
-                                            "name": "actualContributionAgreementAnnexTotalPreSale",
-                                            "value": 0,
-                                            "unit": "PLN",
-                                            "validators": [
-                                                {
-                                                    "name": "RangeValidator",
-                                                    "kwargs": {
-                                                        "min": 0
-                                                    },
-                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                },
-                                                {
-                                                    "name": "RelatedSumValidator",
-                                                    "kwargs": {
-                                                        "field_names": [
-                                                            "actualContributionAgreementAnnexTotalWorldWideSales",
-                                                            "actualContributionAgreementAnnexTotalDistributors",
-                                                            "actualContributionAgreementAnnexTotalTelevisionBroadcasters",
-                                                            "actualContributionAgreementAnnexTotalOther"
-                                                        ]
-                                                    }
-                                                }
-                                            ],
-                                            "dataBDD": "actualContributionAgreementAnnexTotalPreSale",
-                                            "classList": [
-                                                "no-label"
-                                            ],
-                                            "readOnly": True,
-                                            "calculationRules": [
-                                                {
-                                                    "name": "sumInputs",
-                                                    "kwargs": {
-                                                        "fields": [
-                                                            "actualContributionAgreementAnnexTotalWorldWideSales",
-                                                            "actualContributionAgreementAnnexTotalDistributors",
-                                                            "actualContributionAgreementAnnexTotalTelevisionBroadcasters",
-                                                            "actualContributionAgreementAnnexTotalOther"
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "kind": "component",
-                                            "type": "text",
-                                            "mask": "fund",
-                                            "label": "Wynikowa struktura finansowania w PLN",
-                                            "name": "resultingFinancialStructurePLNTotalPreSale",
-                                            "value": 0,
-                                            "unit": "PLN",
-                                            "validators": [
-                                                {
-                                                    "name": "RangeValidator",
-                                                    "kwargs": {
-                                                        "min": 0
-                                                    },
-                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                },
-                                                {
-                                                    "name": "RelatedSumValidator",
-                                                    "kwargs": {
-                                                        "field_names": [
-                                                            "resultingFinancialStructurePLNTotalWorldWideSales",
-                                                            "resultingFinancialStructurePLNTotalDistributors",
-                                                            "resultingFinancialStructurePLNTotalTelevisionBroadcasters",
-                                                            "resultingFinancialStructurePLNTotalOther"
-                                                        ]
-                                                    }
-                                                }
-                                            ],
-                                            "dataBDD": "resultingFinancialStructurePLNTotalPreSale",
-                                            "classList": [
-                                                "no-label"
-                                            ],
-                                            "readOnly": True,
-                                            "calculationRules": [
-                                                {
-                                                    "name": "sumInputs",
-                                                    "kwargs": {
-                                                        "fields": [
-                                                            "resultingFinancialStructurePLNTotalWorldWideSales",
-                                                            "resultingFinancialStructurePLNTotalDistributors",
-                                                            "resultingFinancialStructurePLNTotalTelevisionBroadcasters",
-                                                            "resultingFinancialStructurePLNTotalOther"
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "kind": "chapter",
-                                    "title": "Światowa sprzedaż",
-                                    "classList": [
-                                        "no-title"
-                                    ],
-                                    "components": [
-                                        {
-                                            "kind": "chapter",
-                                            "title": "",
-                                            "classList": {
-                                                "main": [
-                                                    "table-1-3-narrow",
-                                                    "grid",
-                                                    "grid-cols-5",
-                                                    "no-title"
-                                                ],
-                                                "sub": [
-                                                    "table-1-3__col"
-                                                ]
-                                            },
-                                            "components": [
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-worldWideSalesTotal",
-                                                    "value": "Światowa sprzedaż - RAZEM",
-                                                    "dataBDD": "header-component-worldWideSalesTotal",
-                                                    "classList": [
-                                                        "col-span-2",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "mask": "fund",
-                                                    "label": "Zgodnie z umową",
-                                                    "name": "actualContributionAgreementTotalWorldWideSales",
-                                                    "value": 0,
-                                                    "unit": "PLN",
-                                                    "validators": [
-                                                        {
-                                                            "name": "RangeValidator",
-                                                            "kwargs": {
-                                                                "min": 0
-                                                            },
-                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                        },
-                                                        {
-                                                            "name": "RelatedSumValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "actualContributionAgreementWorldWideSales"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "actualContributionAgreementWorldWideSales",
-                                                    "classList": [
-                                                        "no-label"
-                                                    ],
-                                                    "readOnly": True,
-                                                    "calculationRules": [
-                                                        {
-                                                            "name": "sumInputs",
-                                                            "kwargs": {
-                                                                "fields": [
-                                                                    "actualContributionAgreementWorldWideSales"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "mask": "fund",
-                                                    "label": "Zgodnie z aneksem do umowy",
-                                                    "name": "actualContributionAgreementAnnexTotalWorldWideSales",
-                                                    "value": 0,
-                                                    "unit": "PLN",
-                                                    "validators": [
-                                                        {
-                                                            "name": "RangeValidator",
-                                                            "kwargs": {
-                                                                "min": 0
-                                                            },
-                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                        },
-                                                        {
-                                                            "name": "RelatedSumValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "actualContributionAgreementAnnexWorldWideSales"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "actualContributionAgreementAnnexTotalWorldWideSales",
-                                                    "classList": [
-                                                        "no-label"
-                                                    ],
-                                                    "readOnly": True,
-                                                    "calculationRules": [
-                                                        {
-                                                            "name": "sumInputs",
-                                                            "kwargs": {
-                                                                "fields": [
-                                                                    "actualContributionAgreementAnnexWorldWideSales"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "mask": "fund",
-                                                    "label": "Wynikowa struktura finansowania w PLN",
-                                                    "name": "resultingFinancialStructurePLNTotalWorldWideSales",
-                                                    "value": 0,
-                                                    "unit": "PLN",
-                                                    "validators": [
-                                                        {
-                                                            "name": "RangeValidator",
-                                                            "kwargs": {
-                                                                "min": 0
-                                                            },
-                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                        },
-                                                        {
-                                                            "name": "RelatedSumValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "resultingFinancialStructurePLNWorldWideSales"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "resultingFinancialStructurePLNTotalWorldWideSales",
-                                                    "classList": [
-                                                        "no-label"
-                                                    ],
-                                                    "readOnly": True,
-                                                    "calculationRules": [
-                                                        {
-                                                            "name": "sumInputs",
-                                                            "kwargs": {
-                                                                "fields": [
-                                                                    "resultingFinancialStructurePLNWorldWideSales"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "kind": "chapter",
-                                            "title": "",
-                                            "isMultipleForms": True,
-                                            "multipleFormsRules": {
-                                                "minCount": 1,
-                                                "maxCount": 10
-                                            },
-                                            "components": [
-                                                {
-                                                    "kind": "chapter",
-                                                    "title": "Światowa sprzedaż",
-                                                    "components": [
-                                                        {
-                                                            "kind": "chapter",
-                                                            "title": "",
-                                                            "components": [
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "text",
-                                                                    "label": "Nazwa podmiotu",
-                                                                    "name": "worldWideSalesName",
-                                                                    "required": True,
-                                                                    "validators": [
-                                                                        {
-                                                                            "name": "RequiredValidator"
-                                                                        }
-                                                                    ],
-                                                                    "dataBDD": "worldWideSalesName",
-                                                                    "value": ""
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "kind": "chapter",
-                                                            "title": "",
-                                                            "classList": {
-                                                                "main": [
-                                                                    "table-1-3-narrow",
-                                                                    "grid",
-                                                                    "grid-cols-5",
-                                                                    "no-title"
-                                                                ],
-                                                                "sub": [
-                                                                    "table-1-3__col"
-                                                                ]
-                                                            },
-                                                            "components": [
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "header",
-                                                                    "label": "Label",
-                                                                    "name": "headerComponent-worldWideSales",
-                                                                    "value": "",
-                                                                    "dataBDD": "header-component-worldWideSales",
-                                                                    "classList": [
-                                                                        "col-span-2",
-                                                                        "displayNoneFrontend"
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "text",
-                                                                    "mask": "fund",
-                                                                    "label": "Zgodnie z umową",
-                                                                    "name": "actualContributionAgreementWorldWideSales",
-                                                                    "value": 0,
-                                                                    "defaultValue": 0,
-                                                                    "unit": "PLN",
-                                                                    "validators": [
-                                                                        {
-                                                                            "name": "RangeValidator",
-                                                                            "kwargs": {
-                                                                                "min": 0
-                                                                            },
-                                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                        }
-                                                                    ],
-                                                                    "dataBDD": "actualContributionAgreementWorldWideSales",
-                                                                    "classList": [
-                                                                        "no-label"
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "text",
-                                                                    "mask": "fund",
-                                                                    "label": "Zgodnie z aneksem do umowy",
-                                                                    "name": "actualContributionAgreementAnnexWorldWideSales",
-                                                                    "value": 0,
-                                                                    "defaultValue": 0,
-                                                                    "unit": "PLN",
-                                                                    "validators": [
-                                                                        {
-                                                                            "name": "RangeValidator",
-                                                                            "kwargs": {
-                                                                                "min": 0
-                                                                            },
-                                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                        }
-                                                                    ],
-                                                                    "dataBDD": "actualContributionAgreementAnnexWorldWideSales",
-                                                                    "classList": [
-                                                                        "no-label"
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "text",
-                                                                    "mask": "fund",
-                                                                    "label": "Wynikowa struktura finansowania w PLN",
-                                                                    "name": "resultingFinancialStructurePLNWorldWideSales",
-                                                                    "value": 0,
-                                                                    "defaultValue": 0,
-                                                                    "unit": "PLN",
-                                                                    "validators": [
-                                                                        {
-                                                                            "name": "RangeValidator",
-                                                                            "kwargs": {
-                                                                                "min": 0
-                                                                            },
-                                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                        }
-                                                                    ],
-                                                                    "dataBDD": "resultingFinancialStructurePLNWorldWideSales",
-                                                                    "classList": [
-                                                                        "no-label"
-                                                                    ]
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "kind": "chapter",
-                                    "title": "Dystrybutorzy",
-                                    "classList": [
-                                        "no-title"
-                                    ],
-                                    "components": [
-                                        {
-                                            "kind": "chapter",
-                                            "title": "Razem",
-                                            "classList": {
-                                                "main": [
-                                                    "table-1-3-narrow",
-                                                    "grid",
-                                                    "grid-cols-5",
-                                                    "no-title",
-                                                    "displayNoneFrontend",
-                                                    "displayNonePDF"
-                                                ],
-                                                "sub": [
-                                                    "table-1-3__col"
-                                                ]
-                                            },
-                                            "components": [
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-distributorsTotal",
-                                                    "value": "Dystrybutorzy - RAZEM",
-                                                    "dataBDD": "header-component-distributorsTotal",
-                                                    "classList": [
-                                                        "col-span-2",
-                                                        "displayNoneFrontend",
-                                                        "displayNonePDF"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "mask": "fund",
-                                                    "label": "Zgodnie z umową",
-                                                    "name": "actualContributionAgreementTotalDistributors",
-                                                    "value": 0,
-                                                    "unit": "PLN",
-                                                    "validators": [
-                                                        {
-                                                            "name": "RangeValidator",
-                                                            "kwargs": {
-                                                                "min": 0
-                                                            },
-                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                        },
-                                                        {
-                                                            "name": "RelatedSumValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "actualContributionAgreementDistributors"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "actualContributionAgreementDistributors",
-                                                    "classList": [
-                                                        "no-label"
-                                                    ],
-                                                    "readOnly": True,
-                                                    "calculationRules": [
-                                                        {
-                                                            "name": "sumInputs",
-                                                            "kwargs": {
-                                                                "fields": [
-                                                                    "actualContributionAgreementDistributors"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "mask": "fund",
-                                                    "label": "Zgodnie z aneksem do umowy",
-                                                    "name": "actualContributionAgreementAnnexTotalDistributors",
-                                                    "value": 0,
-                                                    "unit": "PLN",
-                                                    "validators": [
-                                                        {
-                                                            "name": "RangeValidator",
-                                                            "kwargs": {
-                                                                "min": 0
-                                                            },
-                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                        },
-                                                        {
-                                                            "name": "RelatedSumValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "actualContributionAgreementAnnexDistributors"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "actualContributionAgreementAnnexTotalDistributors",
-                                                    "classList": [
-                                                        "no-label"
-                                                    ],
-                                                    "readOnly": True,
-                                                    "calculationRules": [
-                                                        {
-                                                            "name": "sumInputs",
-                                                            "kwargs": {
-                                                                "fields": [
-                                                                    "actualContributionAgreementAnnexDistributors"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "mask": "fund",
-                                                    "label": "Wynikowa struktura finansowania w PLN",
-                                                    "name": "resultingFinancialStructurePLNTotalDistributors",
-                                                    "value": 0,
-                                                    "unit": "PLN",
-                                                    "validators": [
-                                                        {
-                                                            "name": "RangeValidator",
-                                                            "kwargs": {
-                                                                "min": 0
-                                                            },
-                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                        },
-                                                        {
-                                                            "name": "RelatedSumValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "resultingFinancialStructurePLNDistributors"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "resultingFinancialStructurePLNTotalDistributors",
-                                                    "classList": [
-                                                        "no-label"
-                                                    ],
-                                                    "readOnly": True,
-                                                    "calculationRules": [
-                                                        {
-                                                            "name": "sumInputs",
-                                                            "kwargs": {
-                                                                "fields": [
-                                                                    "resultingFinancialStructurePLNDistributors"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "kind": "chapter",
-                                            "title": "",
-                                            "isMultipleForms": True,
-                                            "multipleFormsRules": {
-                                                "minCount": 1,
-                                                "maxCount": 10
-                                            },
-                                            "components": [
-                                                {
-                                                    "kind": "chapter",
-                                                    "title": "Dystrybutor",
-                                                    "components": [
-                                                        {
-                                                            "kind": "chapter",
-                                                            "title": "",
-                                                            "components": [
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "text",
-                                                                    "label": "Nazwa podmiotu",
-                                                                    "name": "distributorsName",
-                                                                    "required": True,
-                                                                    "validators": [
-                                                                        {
-                                                                            "name": "RequiredValidator"
-                                                                        }
-                                                                    ],
-                                                                    "dataBDD": "distributorsName",
-                                                                    "value": ""
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "kind": "chapter",
-                                                            "title": "",
-                                                            "classList": {
-                                                                "main": [
-                                                                    "table-1-3-narrow",
-                                                                    "grid",
-                                                                    "grid-cols-5",
-                                                                    "no-title"
-                                                                ],
-                                                                "sub": [
-                                                                    "table-1-3__col"
-                                                                ]
-                                                            },
-                                                            "components": [
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "header",
-                                                                    "label": "Label",
-                                                                    "name": "headerComponent-distributors",
-                                                                    "value": "",
-                                                                    "dataBDD": "header-component-distributors",
-                                                                    "classList": [
-                                                                        "col-span-2",
-                                                                        "displayNoneFrontend"
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "text",
-                                                                    "mask": "fund",
-                                                                    "label": "Zgodnie z umową",
-                                                                    "name": "actualContributionAgreementDistributors",
-                                                                    "value": 0,
-                                                                    "defaultValue": 0,
-                                                                    "unit": "PLN",
-                                                                    "validators": [
-                                                                        {
-                                                                            "name": "RangeValidator",
-                                                                            "kwargs": {
-                                                                                "min": 0
-                                                                            },
-                                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                        }
-                                                                    ],
-                                                                    "dataBDD": "actualContributionAgreementDistributors",
-                                                                    "classList": [
-                                                                        "no-label"
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "text",
-                                                                    "mask": "fund",
-                                                                    "label": "Zgodnie z aneksem do umowy",
-                                                                    "name": "actualContributionAgreementAnnexDistributors",
-                                                                    "value": 0,
-                                                                    "defaultValue": 0,
-                                                                    "unit": "PLN",
-                                                                    "validators": [
-                                                                        {
-                                                                            "name": "RangeValidator",
-                                                                            "kwargs": {
-                                                                                "min": 0
-                                                                            },
-                                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                        }
-                                                                    ],
-                                                                    "dataBDD": "actualContributionAgreementAnnexDistributors",
-                                                                    "classList": [
-                                                                        "no-label"
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "text",
-                                                                    "mask": "fund",
-                                                                    "label": "Wynikowa struktura finansowania w PLN",
-                                                                    "name": "resultingFinancialStructurePLNDistributors",
-                                                                    "value": 0,
-                                                                    "defaultValue": 0,
-                                                                    "unit": "PLN",
-                                                                    "validators": [
-                                                                        {
-                                                                            "name": "RangeValidator",
-                                                                            "kwargs": {
-                                                                                "min": 0
-                                                                            },
-                                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                        }
-                                                                    ],
-                                                                    "dataBDD": "resultingFinancialStructurePLNDistributors",
-                                                                    "classList": [
-                                                                        "no-label"
-                                                                    ]
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "kind": "chapter",
-                                    "title": "Nadawcy telewizyjni",
-                                    "classList": [
-                                        "no-title"
-                                    ],
-                                    "components": [
-                                        {
-                                            "kind": "chapter",
-                                            "title": "Razem",
-                                            "classList": {
-                                                "main": [
-                                                    "table-1-3-narrow",
-                                                    "grid",
-                                                    "grid-cols-5",
-                                                    "no-title"
-                                                ],
-                                                "sub": [
-                                                    "table-1-3__col"
-                                                ]
-                                            },
-                                            "components": [
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-televisionBroadcastersTotal",
-                                                    "value": "Nadawcy telewizyjni - RAZEM",
-                                                    "dataBDD": "header-component-televisionBroadcastersTotal",
-                                                    "classList": [
-                                                        "col-span-2",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "mask": "fund",
-                                                    "label": "Zgodnie z umową",
-                                                    "name": "actualContributionAgreementTotalTelevisionBroadcasters",
-                                                    "value": 0,
-                                                    "unit": "PLN",
-                                                    "validators": [
-                                                        {
-                                                            "name": "RangeValidator",
-                                                            "kwargs": {
-                                                                "min": 0
-                                                            },
-                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                        },
-                                                        {
-                                                            "name": "RelatedSumValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "actualContributionAgreementTelevisionBroadcasters"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "actualContributionAgreementTelevisionBroadcasters",
-                                                    "classList": [
-                                                        "no-label"
-                                                    ],
-                                                    "readOnly": True,
-                                                    "calculationRules": [
-                                                        {
-                                                            "name": "sumInputs",
-                                                            "kwargs": {
-                                                                "fields": [
-                                                                    "actualContributionAgreementTelevisionBroadcasters"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "mask": "fund",
-                                                    "label": "Zgodnie z aneksem do umowy",
-                                                    "name": "actualContributionAgreementAnnexTotalTelevisionBroadcasters",
-                                                    "value": 0,
-                                                    "unit": "PLN",
-                                                    "validators": [
-                                                        {
-                                                            "name": "RangeValidator",
-                                                            "kwargs": {
-                                                                "min": 0
-                                                            },
-                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                        },
-                                                        {
-                                                            "name": "RelatedSumValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "actualContributionAgreementAnnexTelevisionBroadcasters"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "actualContributionAgreementAnnexTotalTelevisionBroadcasters",
-                                                    "classList": [
-                                                        "no-label"
-                                                    ],
-                                                    "readOnly": True,
-                                                    "calculationRules": [
-                                                        {
-                                                            "name": "sumInputs",
-                                                            "kwargs": {
-                                                                "fields": [
-                                                                    "actualContributionAgreementAnnexTelevisionBroadcasters"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "mask": "fund",
-                                                    "label": "Wynikowa struktura finansowania w PLN",
-                                                    "name": "resultingFinancialStructurePLNTotalTelevisionBroadcasters",
-                                                    "value": 0,
-                                                    "unit": "PLN",
-                                                    "validators": [
-                                                        {
-                                                            "name": "RangeValidator",
-                                                            "kwargs": {
-                                                                "min": 0
-                                                            },
-                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                        },
-                                                        {
-                                                            "name": "RelatedSumValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "resultingFinancialStructurePLNTelevisionBroadcasters"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "resultingFinancialStructurePLNTotalTelevisionBroadcasters",
-                                                    "classList": [
-                                                        "no-label"
-                                                    ],
-                                                    "readOnly": True,
-                                                    "calculationRules": [
-                                                        {
-                                                            "name": "sumInputs",
-                                                            "kwargs": {
-                                                                "fields": [
-                                                                    "resultingFinancialStructurePLNTelevisionBroadcasters"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "kind": "chapter",
-                                            "title": "",
-                                            "isMultipleForms": True,
-                                            "multipleFormsRules": {
-                                                "minCount": 1,
-                                                "maxCount": 10
-                                            },
-                                            "components": [
-                                                {
-                                                    "kind": "chapter",
-                                                    "title": "Nadawca telewizyjny",
-                                                    "components": [
-                                                        {
-                                                            "kind": "chapter",
-                                                            "title": "",
-                                                            "components": [
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "text",
-                                                                    "label": "Nazwa podmiotu",
-                                                                    "name": "televisionBroadcastersName",
-                                                                    "required": True,
-                                                                    "validators": [
-                                                                        {
-                                                                            "name": "RequiredValidator"
-                                                                        }
-                                                                    ],
-                                                                    "dataBDD": "televisionBroadcastersName",
-                                                                    "value": ""
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "kind": "chapter",
-                                                            "title": "",
-                                                            "classList": {
-                                                                "main": [
-                                                                    "table-1-3-narrow",
-                                                                    "grid",
-                                                                    "grid-cols-5",
-                                                                    "no-title"
-                                                                ],
-                                                                "sub": [
-                                                                    "table-1-3__col"
-                                                                ]
-                                                            },
-                                                            "components": [
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "header",
-                                                                    "label": "Label",
-                                                                    "name": "headerComponent-televisionBroadcasters",
-                                                                    "value": "",
-                                                                    "dataBDD": "header-component-televisionBroadcasters",
-                                                                    "classList": [
-                                                                        "col-span-2",
-                                                                        "displayNoneFrontend"
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "text",
-                                                                    "mask": "fund",
-                                                                    "label": "Zgodnie z umową",
-                                                                    "name": "actualContributionAgreementTelevisionBroadcasters",
-                                                                    "value": 0,
-                                                                    "defaultValue": 0,
-                                                                    "unit": "PLN",
-                                                                    "validators": [
-                                                                        {
-                                                                            "name": "RangeValidator",
-                                                                            "kwargs": {
-                                                                                "min": 0
-                                                                            },
-                                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                        }
-                                                                    ],
-                                                                    "dataBDD": "actualContributionAgreementTelevisionBroadcasters",
-                                                                    "classList": [
-                                                                        "no-label"
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "text",
-                                                                    "mask": "fund",
-                                                                    "label": "Zgodnie z aneksem do umowy",
-                                                                    "name": "actualContributionAgreementAnnexTelevisionBroadcasters",
-                                                                    "value": 0,
-                                                                    "defaultValue": 0,
-                                                                    "unit": "PLN",
-                                                                    "validators": [
-                                                                        {
-                                                                            "name": "RangeValidator",
-                                                                            "kwargs": {
-                                                                                "min": 0
-                                                                            },
-                                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                        }
-                                                                    ],
-                                                                    "dataBDD": "actualContributionAgreementAnnexTelevisionBroadcasters",
-                                                                    "classList": [
-                                                                        "no-label"
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "text",
-                                                                    "mask": "fund",
-                                                                    "label": "Wynikowa struktura finansowania w PLN",
-                                                                    "name": "resultingFinancialStructurePLNTelevisionBroadcasters",
-                                                                    "value": 0,
-                                                                    "defaultValue": 0,
-                                                                    "unit": "PLN",
-                                                                    "validators": [
-                                                                        {
-                                                                            "name": "RangeValidator",
-                                                                            "kwargs": {
-                                                                                "min": 0
-                                                                            },
-                                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                        }
-                                                                    ],
-                                                                    "dataBDD": "resultingFinancialStructurePLNTelevisionBroadcasters",
-                                                                    "classList": [
-                                                                        "no-label"
-                                                                    ]
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "kind": "chapter",
-                                    "title": "Inne",
-                                    "classList": [
-                                        "no-title"
-                                    ],
-                                    "components": [
-                                        {
-                                            "kind": "chapter",
-                                            "title": "Razem",
-                                            "classList": {
-                                                "main": [
-                                                    "table-1-3-narrow",
-                                                    "grid",
-                                                    "grid-cols-5",
-                                                    "no-title"
-                                                ],
-                                                "sub": [
-                                                    "table-1-3__col"
-                                                ]
-                                            },
-                                            "components": [
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-otherTotal",
-                                                    "value": "Inne - RAZEM",
-                                                    "dataBDD": "header-component-otherTotal",
-                                                    "classList": [
-                                                        "col-span-2",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "mask": "fund",
-                                                    "label": "Zgodnie z umową",
-                                                    "name": "actualContributionAgreementTotalOther",
-                                                    "value": 0,
-                                                    "unit": "PLN",
-                                                    "validators": [
-                                                        {
-                                                            "name": "RangeValidator",
-                                                            "kwargs": {
-                                                                "min": 0
-                                                            },
-                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                        },
-                                                        {
-                                                            "name": "RelatedSumValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "actualContributionAgreementOther"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "actualContributionAgreementOther",
-                                                    "classList": [
-                                                        "no-label"
-                                                    ],
-                                                    "readOnly": True,
-                                                    "calculationRules": [
-                                                        {
-                                                            "name": "sumInputs",
-                                                            "kwargs": {
-                                                                "fields": [
-                                                                    "actualContributionAgreementOther"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "mask": "fund",
-                                                    "label": "Zgodnie z aneksem do umowy",
-                                                    "name": "actualContributionAgreementAnnexTotalOther",
-                                                    "value": 0,
-                                                    "unit": "PLN",
-                                                    "validators": [
-                                                        {
-                                                            "name": "RangeValidator",
-                                                            "kwargs": {
-                                                                "min": 0
-                                                            },
-                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                        },
-                                                        {
-                                                            "name": "RelatedSumValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "actualContributionAgreementAnnexOther"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "actualContributionAgreementAnnexTotalOther",
-                                                    "classList": [
-                                                        "no-label"
-                                                    ],
-                                                    "readOnly": True,
-                                                    "calculationRules": [
-                                                        {
-                                                            "name": "sumInputs",
-                                                            "kwargs": {
-                                                                "fields": [
-                                                                    "actualContributionAgreementAnnexOther"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "mask": "fund",
-                                                    "label": "Wynikowa struktura finansowania w PLN",
-                                                    "name": "resultingFinancialStructurePLNTotalOther",
-                                                    "value": 0,
-                                                    "unit": "PLN",
-                                                    "validators": [
-                                                        {
-                                                            "name": "RangeValidator",
-                                                            "kwargs": {
-                                                                "min": 0
-                                                            },
-                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                        },
-                                                        {
-                                                            "name": "RelatedSumValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "resultingFinancialStructurePLNOther"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "resultingFinancialStructurePLNTotalOther",
-                                                    "classList": [
-                                                        "no-label"
-                                                    ],
-                                                    "readOnly": True,
-                                                    "calculationRules": [
-                                                        {
-                                                            "name": "sumInputs",
-                                                            "kwargs": {
-                                                                "fields": [
-                                                                    "resultingFinancialStructurePLNOther"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "kind": "chapter",
-                                            "title": "",
-                                            "isMultipleForms": True,
-                                            "multipleFormsRules": {
-                                                "minCount": 1,
-                                                "maxCount": 10
-                                            },
-                                            "components": [
-                                                {
-                                                    "kind": "chapter",
-                                                    "title": "Inne",
-                                                    "components": [
-                                                        {
-                                                            "kind": "chapter",
-                                                            "title": "",
-                                                            "components": [
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "text",
-                                                                    "label": "Nazwa podmiotu",
-                                                                    "name": "otherName",
-                                                                    "required": True,
-                                                                    "validators": [
-                                                                        {
-                                                                            "name": "RequiredValidator"
-                                                                        }
-                                                                    ],
-                                                                    "dataBDD": "otherName",
-                                                                    "value": ""
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "kind": "chapter",
-                                                            "title": "",
-                                                            "classList": {
-                                                                "main": [
-                                                                    "table-1-3-narrow",
-                                                                    "grid",
-                                                                    "grid-cols-5",
-                                                                    "no-title"
-                                                                ],
-                                                                "sub": [
-                                                                    "table-1-3__col"
-                                                                ]
-                                                            },
-                                                            "components": [
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "header",
-                                                                    "label": "Label",
-                                                                    "name": "headerComponent-other",
-                                                                    "value": "",
-                                                                    "dataBDD": "header-component-other",
-                                                                    "classList": [
-                                                                        "col-span-2",
-                                                                        "displayNoneFrontend"
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "text",
-                                                                    "mask": "fund",
-                                                                    "label": "Zgodnie z umową",
-                                                                    "name": "actualContributionAgreementOther",
-                                                                    "value": 0,
-                                                                    "defaultValue": 0,
-                                                                    "unit": "PLN",
-                                                                    "validators": [
-                                                                        {
-                                                                            "name": "RangeValidator",
-                                                                            "kwargs": {
-                                                                                "min": 0
-                                                                            },
-                                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                        }
-                                                                    ],
-                                                                    "dataBDD": "actualContributionAgreementOther",
-                                                                    "classList": [
-                                                                        "no-label"
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "text",
-                                                                    "mask": "fund",
-                                                                    "label": "Zgodnie z aneksem do umowy",
-                                                                    "name": "actualContributionAgreementAnnexOther",
-                                                                    "value": 0,
-                                                                    "defaultValue": 0,
-                                                                    "unit": "PLN",
-                                                                    "validators": [
-                                                                        {
-                                                                            "name": "RangeValidator",
-                                                                            "kwargs": {
-                                                                                "min": 0
-                                                                            },
-                                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                        }
-                                                                    ],
-                                                                    "dataBDD": "actualContributionAgreementAnnexOther",
-                                                                    "classList": [
-                                                                        "no-label"
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "kind": "component",
-                                                                    "type": "text",
-                                                                    "mask": "fund",
-                                                                    "label": "Wynikowa struktura finansowania w PLN",
-                                                                    "name": "resultingFinancialStructurePLNOther",
-                                                                    "value": 0,
-                                                                    "defaultValue": 0,
-                                                                    "unit": "PLN",
-                                                                    "validators": [
-                                                                        {
-                                                                            "name": "RangeValidator",
-                                                                            "kwargs": {
-                                                                                "min": 0
-                                                                            },
-                                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                        }
-                                                                    ],
-                                                                    "dataBDD": "resultingFinancialStructurePLNOther",
-                                                                    "classList": [
-                                                                        "no-label"
-                                                                    ]
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
+                        world_wide_totle_chapter,
                         {
                             "kind": "chapter",
                             "title": "5. Inwestorzy / Inne środki finansowe",
