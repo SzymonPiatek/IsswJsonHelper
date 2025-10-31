@@ -348,7 +348,7 @@ class ReportExpenditureExecution(Section):
                 self.create_component(
                     component_type="header",
                     name="invoiceNumber",
-                    value="Nr i nazwa dokument księgowego",
+                    value="Nr i nazwa dokumentu księgowego",
                     class_list=[
                         "displayNoneFrontend",
                         "text-left",
