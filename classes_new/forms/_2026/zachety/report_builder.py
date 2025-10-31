@@ -7551,18 +7551,15 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                         }
                                     ]
                                 },
-                                {
-                                    "kind": "chapter",
-                                    "title": "",
-                                    "isMultipleForms": True,
-                                    "multipleFormsRules": {
+                                self.create_chapter(
+                                    multiple_forms_rules={
                                         "minCount": 1,
                                         "maxCount": 20
                                     },
-                                    "components": [
+                                    components=[
                                         {
                                             "kind": "chapter",
-                                            "title": "Koproducent ",
+                                            "title": "Koproducent",
                                             "components": [
                                                 {
                                                     "kind": "chapter",
@@ -7928,7 +7925,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             ]
                                         }
                                     ]
-                                }
+                                )
                             ]
                         },
                         {
