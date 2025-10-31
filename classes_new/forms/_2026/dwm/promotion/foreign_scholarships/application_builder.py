@@ -13,6 +13,10 @@ class ForeignPriorityApplicationFormBuilder(PromotionOperationalProgramApplicati
             uat_id=2823
         )
 
+        self.intro_text = [
+            "Wniosek o ustanowienie stypendium realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"
+        ]
+
         self.grantee_vat_declaration = [
             "Wnioskodawca jest osobą fizyczną, dlatego kwoty zamieszczone w kosztorysie wniosku to KWOTY BRUTTO"
         ]
@@ -127,7 +131,7 @@ class ForeignPriorityApplicationFormBuilder(PromotionOperationalProgramApplicati
                 "name": "statementMeetConditions"
             },
             {
-                "label": "4. Oświadczam, że zapoznałem się z treścią i zasadami dofinansowania w ramach <a href='https://pisf.pl/wp-content/uploads/2024/12/Programy-Operacyjne-PISF-na-rok-2025.pdf' target=\"_blank\">V Programu Operacyjnego, Priorytet II: Stypendia zagraniczne Polskiego Instytutu Sztuki Filmowej na rok 2025</a>",
+                "label": "4. Oświadczam, że zapoznałem się z treścią i zasadami dofinansowania w ramach <a href='https://pisf.pl/wp-content/uploads/2024/12/Programy-Operacyjne-PISF-na-rok-2025.pdf' target=\"_blank\">V Programu Operacyjnego, Priorytet II: Stypendia zagraniczne Polskiego Instytutu Sztuki Filmowej na rok 2025</a>.",
                 "name": "applicantsStatementOfDeclareRead"
             },
             {
