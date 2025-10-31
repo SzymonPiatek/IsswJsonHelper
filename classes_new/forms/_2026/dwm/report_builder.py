@@ -439,7 +439,11 @@ class DWMDepartmentReportFormBuilder(ReportFormBuilder):
                 "name": "participation",
                 "label": "Koszty uczestnictwa w warsztatach (jeśli dotyczy)",
                 "isEstimate": True
-            },
+            }
+        ]
+
+        # TODO
+        second_cost_types = [
             {
                 "name": "costsProvidedByEventOrganizer",
                 "label": "Koszty zapewnione przez organizatora wydarzenia",
