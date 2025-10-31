@@ -481,7 +481,7 @@ class ReportExpenditureExecution(Section):
                 "new_table_4__col"
             ],
             "main": [
-                "new_table_4",
+                "new_table",
                 "grid",
                 "grid-cols-16"
             ]
