@@ -2339,11 +2339,11 @@ class DWMDepartmentReportFormBuilder(ReportFormBuilder):
                             class_list={
                                 "main": [
                                     "no-title",
-                                    "swappable-bg"
+                                    "swappable-bg",
                                 ]
                             },
                             components=[
-                                self.section.report_expenditure_exacution.invoice_section(is_promotion_priority=self.is_promotion_priority)
+                                self.section.report_expenditure_exacution.invoice_section(is_promotion_priority=self.is_promotion_priority, is_multi=True)
                             ]
                         ),
                         self.create_chapter(

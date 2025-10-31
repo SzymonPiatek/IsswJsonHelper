@@ -144,7 +144,7 @@ class ReportExpenditureExecution(Section):
                 "main": [
                     "table-invoice",
                     "grid",
-                    "grid-cols-15"
+                    "grid-cols-15",
                 ]
             },
             components=[
@@ -475,19 +475,24 @@ class ReportExpenditureExecution(Section):
             ]
         )
 
-    def invoice_section_foreign(self):
+    def invoice_section_foreign(self, is_multi: bool = False):
+        class_list = {
+            "sub": [
+                "new_table_4__col"
+            ],
+            "main": [
+                "new_table_4",
+                "grid",
+                "grid-cols-16"
+            ]
+        }
+
+        if is_multi:
+            class_list["main"].append("padding__0_1")
+
         return self.create_chapter(
             title="Faktura/rachunek",
-            class_list={
-                "sub": [
-                    "new_table_4__col"
-                ],
-                "main": [
-                    "new_table_4",
-                    "grid",
-                    "grid-cols-16"
-                ]
-            },
+            class_list=class_list,
             components=[
                 self.create_chapter(
                     class_list=[
@@ -665,79 +670,89 @@ class ReportExpenditureExecution(Section):
                     ]
                 ),
                 self.create_chapter(
-                    visibility_rules=[
-                        self.visibility_rule.local_equals_value(
-                            field_name="isActualRate",
-                            values=[False]
-                        )
-                    ],
-                    components=[
-                        self.create_component(
-                            component_type="number",
-                            label="Kurs średni NBP",
-                            name="costCurrencyNbpExchRate",
-                            calculation_rules=[
-                                self.calculation_rule.get_nbp_currency(
-                                    date_field="accountingDocDateIssued",
-                                    currency_field="costCurrency",
-                                )
-                            ],
-                            read_only=True,
-                            class_list=[
-                                "no-label",
-                                "displayNonePDF"
-                            ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    visibility_rules=[
-                        self.visibility_rule.local_equals_value(
-                            field_name="isActualRate",
-                            values=[True]
-                        )
-                    ],
-                    components=[
-                        self.create_component(
-                            component_type="number",
-                            label="Kurs faktyczny",
-                            name="costCurrencyActualRate",
-                            class_list=[
-                                "no-label",
-                                "displayNonePDF"
-                            ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
-                    class_list=[
-                        "displayNoneFrontend"
-                    ],
-                    components=[
-                        self.create_component(
-                            component_type="number",
-                            name="choosenRate",
-                            class_list=[
-                                "no-label"
-                            ],
-                            read_only=True,
-                            calculation_rules=[
-                                self.calculation_rule.conditional_copy_value(
-                                    field_name_local="isActualRate",
-                                    condition={
-                                        "containValues": ["true"]
-                                    },
-                                    correct_field_name_local="costCurrencyActualRate",
-                                    incorrect_field_name_local="costCurrencyNbpExchRate"
-                                )
-                            ]
-                        )
-                    ]
-                ),
-                self.create_chapter(
                     class_list=[
                         "col-span-2"
                     ],
+                    components=[
+                        self.create_chapter(
+                            visibility_rules=[
+                                self.visibility_rule.local_equals_value(
+                                    field_name="isActualRate",
+                                    values=[False]
+                                )
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="number",
+                                    label="Kurs średni NBP",
+                                    name="costCurrencyNbpExchRate",
+                                    calculation_rules=[
+                                        self.calculation_rule.get_nbp_currency(
+                                            date_field="accountingDocDateIssued",
+                                            currency_field="costCurrency",
+                                        )
+                                    ],
+                                    read_only=True,
+                                    class_list=[
+                                        "no-label",
+                                        "displayNonePDF"
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            visibility_rules=[
+                                self.visibility_rule.local_equals_value(
+                                    field_name="isActualRate",
+                                    values=[True]
+                                )
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="number",
+                                    label="Kurs faktyczny",
+                                    name="costCurrencyActualRate",
+                                    class_list=[
+                                        "no-label",
+                                        "displayNonePDF"
+                                    ]
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            class_list=[
+                                "displayNoneFrontend"
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="number",
+                                    name="choosenRate",
+                                    class_list=[
+                                        "no-label"
+                                    ],
+                                    read_only=True,
+                                    calculation_rules=[
+                                        self.calculation_rule.conditional_copy_value(
+                                            field_name_local="isActualRate",
+                                            condition={
+                                                "containValues": ["true"]
+                                            },
+                                            correct_field_name_local="costCurrencyActualRate",
+                                            incorrect_field_name_local="costCurrencyNbpExchRate"
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    class_list={
+                        "main": [
+                            "col-span-2",
+                            "new_table_4__2-4"
+                        ]
+                    },
                     components=[
                         self.create_component(
                             component_type="text",
@@ -806,11 +821,11 @@ class ReportExpenditureExecution(Section):
             ]
         )
 
-    def invoice_section(self, is_promotion_priority: bool = False):
+    def invoice_section(self, is_promotion_priority: bool = False, is_multi: bool = False):
         if is_promotion_priority:
             return self.invoice_section_promotion()
         else:
-            return self.invoice_section_foreign()
+            return self.invoice_section_foreign(is_multi=is_multi)
 
     def invoice_section_headers(self, is_promotion_priority: bool = False):
         if is_promotion_priority:
