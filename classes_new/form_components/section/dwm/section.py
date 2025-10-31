@@ -1,9 +1,12 @@
+from classes_new.form_components.section.dwm.report.report_expenditure_exacution import ReportExpenditureExecution
 from classes_new.form_components.section.section import Section
 
 
 class DWMSection(Section):
     def __init__(self):
         super().__init__()
+
+        self.report_expenditure_exacution = ReportExpenditureExecution()
 
     def pisf_transfer_currency(
             self,

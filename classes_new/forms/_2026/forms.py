@@ -35,6 +35,8 @@ from classes_new.forms._2026.test.calculation_rules.application_builder import C
 from classes_new.forms._2026.test.related_validators.application_builder import RelatedValidatorsApplicationFormBuilder
 from classes_new.forms._2026.test.simple_validators.application_builder import SimpleValidatorsApplicationFormBuilder
 from classes_new.forms._2026.test.special_validators.application_builder import SpecialValidatorsApplicationFormBuilder
+# ZACHETY
+from classes_new.forms._2026.zachety.report_builder import FinancingPriorityReportFormBuilder
 # Other
 from classes_new.forms.forms import Forms
 
@@ -122,6 +124,11 @@ class Forms2026(Forms):
                         "pr1": PromotionPriorityReportFormBuilder,
                         "pr2": ForeignScholarshipsPriorityReportFormBuilder
                     }
-                }
+                },
+                # "zachety": {
+                #     "finansowanie": {
+                #         "raport": FinancingPriorityReportFormBuilder
+                #     }
+                # }
             }
         }

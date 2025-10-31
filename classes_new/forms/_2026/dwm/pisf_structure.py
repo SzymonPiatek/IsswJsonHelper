@@ -12,7 +12,7 @@ class DWMDepartment(Department):
 class PromotionOperationalProgram(OperationalProgram):
     def __init__(self):
         super().__init__(
-            name="Promocja Polskiego Filmu za granicą",
+            name="Promocja polskiej twórczości filmowej za granicą",
             num=5,
             department=DWMDepartment()
         )
@@ -21,7 +21,7 @@ class PromotionOperationalProgram(OperationalProgram):
 class PromotionPriority(Priority):
     def __init__(self):
         super().__init__(
-            name="Promocja Polskiego Filmu za granicą",
+            name="Promocja polskiej twórczości filmowej za granicą",
             num=1,
             operation_program=PromotionOperationalProgram()
         )

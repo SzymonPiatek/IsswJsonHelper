@@ -128,7 +128,7 @@ class FormHelper:
                 grouped[key] = {}
 
             grouped[key][entry["json_type"]] = {
-                entry["server"]: entry["url"],
+                entry["server"]: f"{entry["url"]}/edycja?version=-1",
             }
 
         with output_file.open("w", encoding="utf-8") as f:
