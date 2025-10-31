@@ -13,6 +13,11 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
             uat_id=None
         )
 
+        self.intro_text = [
+            "Finansowe wspieranie produkcji audiowizualnej tzw. zachęty",
+            "\"Raport końcowy z prac objętych wsparciem finansowym na produkcję audiowizualną albo świadczenie usług na rzecz produkcji audiowizualnej\" Dla wniosków złożonych po 27 listopada 2024"
+        ]
+
         self.parts = [
             self.create_report_basic_data,
             self.create_report_applicant_data,
@@ -8643,123 +8648,104 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                         {
                                             "kind": "chapter",
                                             "title": "Inwestorzy / Inne środki finansowe",
+                                            "classList": {
+                                                "main": [
+                                                    "table-1-3-narrow",
+                                                    "grid",
+                                                    "grid-cols-5",
+                                                    "no-title"
+                                                ],
+                                                "sub": [
+                                                    "table-1-3__col"
+                                                ]
+                                            },
                                             "components": [
                                                 {
-                                                    "kind": "chapter",
-                                                    "title": "",
-                                                    "components": [
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "label": "Nazwa podmiotu",
+                                                    "name": "investorsName",
+                                                    "required": True,
+                                                    "validators": [
                                                         {
-                                                            "kind": "component",
-                                                            "type": "text",
-                                                            "label": "Nazwa podmiotu",
-                                                            "name": "investorsName",
-                                                            "required": True,
-                                                            "validators": [
-                                                                {
-                                                                    "name": "RequiredValidator"
-                                                                }
-                                                            ],
-                                                            "dataBDD": "investorsName",
-                                                            "value": ""
+                                                            "name": "RequiredValidator"
                                                         }
+                                                    ],
+                                                    "dataBDD": "investorsName",
+                                                    "value": "",
+                                                    "classList": [
+                                                        "table-full",
+                                                        "col-span-2",
+                                                        "no-label"
                                                     ]
                                                 },
                                                 {
-                                                    "kind": "chapter",
-                                                    "title": "",
-                                                    "classList": {
-                                                        "main": [
-                                                            "table-1-3-narrow",
-                                                            "grid",
-                                                            "grid-cols-5",
-                                                            "no-title"
-                                                        ],
-                                                        "sub": [
-                                                            "table-1-3__col"
-                                                        ]
-                                                    },
-                                                    "components": [
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "mask": "fund",
+                                                    "label": "Zgodnie z umową",
+                                                    "name": "actualContributionAgreementInvestors",
+                                                    "value": 0,
+                                                    "defaultValue": 0,
+                                                    "unit": "PLN",
+                                                    "validators": [
                                                         {
-                                                            "kind": "component",
-                                                            "type": "header",
-                                                            "label": "Label",
-                                                            "name": "headerComponent-investors",
-                                                            "value": "",
-                                                            "dataBDD": "header-component-investors",
-                                                            "classList": [
-                                                                "col-span-2",
-                                                                "displayNoneFrontend"
-                                                            ]
-                                                        },
-                                                        {
-                                                            "kind": "component",
-                                                            "type": "text",
-                                                            "mask": "fund",
-                                                            "label": "Zgodnie z umową",
-                                                            "name": "actualContributionAgreementInvestors",
-                                                            "value": 0,
-                                                            "defaultValue": 0,
-                                                            "unit": "PLN",
-                                                            "validators": [
-                                                                {
-                                                                    "name": "RangeValidator",
-                                                                    "kwargs": {
-                                                                        "min": 0
-                                                                    },
-                                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                }
-                                                            ],
-                                                            "dataBDD": "actualContributionAgreementInvestors",
-                                                            "classList": [
-                                                                "no-label"
-                                                            ]
-                                                        },
-                                                        {
-                                                            "kind": "component",
-                                                            "type": "text",
-                                                            "mask": "fund",
-                                                            "label": "Zgodnie z aneksem do umowy",
-                                                            "name": "actualContributionAgreementAnnexInvestors",
-                                                            "value": 0,
-                                                            "defaultValue": 0,
-                                                            "unit": "PLN",
-                                                            "validators": [
-                                                                {
-                                                                    "name": "RangeValidator",
-                                                                    "kwargs": {
-                                                                        "min": 0
-                                                                    },
-                                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                }
-                                                            ],
-                                                            "dataBDD": "actualContributionAgreementAnnexInvestors",
-                                                            "classList": [
-                                                                "no-label"
-                                                            ]
-                                                        },
-                                                        {
-                                                            "kind": "component",
-                                                            "type": "text",
-                                                            "mask": "fund",
-                                                            "label": "Wynikowa struktura finansowania w PLN",
-                                                            "name": "resultingFinancialStructurePLNInvestors",
-                                                            "value": 0,
-                                                            "defaultValue": 0,
-                                                            "unit": "PLN",
-                                                            "validators": [
-                                                                {
-                                                                    "name": "RangeValidator",
-                                                                    "kwargs": {
-                                                                        "min": 0
-                                                                    },
-                                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                }
-                                                            ],
-                                                            "dataBDD": "resultingFinancialStructurePLNInvestors",
-                                                            "classList": [
-                                                                "no-label"
-                                                            ]
+                                                            "name": "RangeValidator",
+                                                            "kwargs": {
+                                                                "min": 0
+                                                            },
+                                                            "validationMsg": "Wartość musi być większa lub równa zero."
                                                         }
+                                                    ],
+                                                    "dataBDD": "actualContributionAgreementInvestors",
+                                                    "classList": [
+                                                        "no-label"
+                                                    ]
+                                                },
+                                                {
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "mask": "fund",
+                                                    "label": "Zgodnie z aneksem do umowy",
+                                                    "name": "actualContributionAgreementAnnexInvestors",
+                                                    "value": 0,
+                                                    "defaultValue": 0,
+                                                    "unit": "PLN",
+                                                    "validators": [
+                                                        {
+                                                            "name": "RangeValidator",
+                                                            "kwargs": {
+                                                                "min": 0
+                                                            },
+                                                            "validationMsg": "Wartość musi być większa lub równa zero."
+                                                        }
+                                                    ],
+                                                    "dataBDD": "actualContributionAgreementAnnexInvestors",
+                                                    "classList": [
+                                                        "no-label"
+                                                    ]
+                                                },
+                                                {
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "mask": "fund",
+                                                    "label": "Wynikowa struktura finansowania w PLN",
+                                                    "name": "resultingFinancialStructurePLNInvestors",
+                                                    "value": 0,
+                                                    "defaultValue": 0,
+                                                    "unit": "PLN",
+                                                    "validators": [
+                                                        {
+                                                            "name": "RangeValidator",
+                                                            "kwargs": {
+                                                                "min": 0
+                                                            },
+                                                            "validationMsg": "Wartość musi być większa lub równa zero."
+                                                        }
+                                                    ],
+                                                    "dataBDD": "resultingFinancialStructurePLNInvestors",
+                                                    "classList": [
+                                                        "no-label"
                                                     ]
                                                 }
                                             ]
@@ -8939,123 +8925,104 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                         {
                                             "kind": "chapter",
                                             "title": "Pomoc publiczna (UE i kraje EFTA)",
+                                            "classList": {
+                                                "main": [
+                                                    "table-1-3-narrow",
+                                                    "grid",
+                                                    "grid-cols-5",
+                                                    "no-title"
+                                                ],
+                                                "sub": [
+                                                    "table-1-3__col"
+                                                ]
+                                            },
                                             "components": [
                                                 {
-                                                    "kind": "chapter",
-                                                    "title": "",
-                                                    "components": [
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "label": "Nazwa podmiotu",
+                                                    "name": "publicAidUeEftaName",
+                                                    "required": True,
+                                                    "validators": [
                                                         {
-                                                            "kind": "component",
-                                                            "type": "text",
-                                                            "label": "Nazwa podmiotu",
-                                                            "name": "publicAidUeEftaName",
-                                                            "required": True,
-                                                            "validators": [
-                                                                {
-                                                                    "name": "RequiredValidator"
-                                                                }
-                                                            ],
-                                                            "dataBDD": "publicAidUeEftaName",
-                                                            "value": ""
+                                                            "name": "RequiredValidator"
                                                         }
+                                                    ],
+                                                    "dataBDD": "publicAidUeEftaName",
+                                                    "value": "",
+                                                    "classList": [
+                                                        "table-full",
+                                                        "col-span-2",
+                                                        "no-label"
                                                     ]
                                                 },
                                                 {
-                                                    "kind": "chapter",
-                                                    "title": "",
-                                                    "classList": {
-                                                        "main": [
-                                                            "table-1-3-narrow",
-                                                            "grid",
-                                                            "grid-cols-5",
-                                                            "no-title"
-                                                        ],
-                                                        "sub": [
-                                                            "table-1-3__col"
-                                                        ]
-                                                    },
-                                                    "components": [
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "mask": "fund",
+                                                    "label": "Zgodnie z umową",
+                                                    "name": "actualContributionAgreementPublicAidUeEfta",
+                                                    "value": 0,
+                                                    "defaultValue": 0,
+                                                    "unit": "PLN",
+                                                    "validators": [
                                                         {
-                                                            "kind": "component",
-                                                            "type": "header",
-                                                            "label": "Label",
-                                                            "name": "headerComponent-publicAidUeEfta",
-                                                            "value": "",
-                                                            "dataBDD": "header-component-publicAidUeEfta",
-                                                            "classList": [
-                                                                "col-span-2",
-                                                                "displayNoneFrontend"
-                                                            ]
-                                                        },
-                                                        {
-                                                            "kind": "component",
-                                                            "type": "text",
-                                                            "mask": "fund",
-                                                            "label": "Zgodnie z umową",
-                                                            "name": "actualContributionAgreementPublicAidUeEfta",
-                                                            "value": 0,
-                                                            "defaultValue": 0,
-                                                            "unit": "PLN",
-                                                            "validators": [
-                                                                {
-                                                                    "name": "RangeValidator",
-                                                                    "kwargs": {
-                                                                        "min": 0
-                                                                    },
-                                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                }
-                                                            ],
-                                                            "dataBDD": "actualContributionAgreementPublicAidUeEfta",
-                                                            "classList": [
-                                                                "no-label"
-                                                            ]
-                                                        },
-                                                        {
-                                                            "kind": "component",
-                                                            "type": "text",
-                                                            "mask": "fund",
-                                                            "label": "Zgodnie z aneksem do umowy",
-                                                            "name": "actualContributionAgreementAnnexPublicAidUeEfta",
-                                                            "value": 0,
-                                                            "defaultValue": 0,
-                                                            "unit": "PLN",
-                                                            "validators": [
-                                                                {
-                                                                    "name": "RangeValidator",
-                                                                    "kwargs": {
-                                                                        "min": 0
-                                                                    },
-                                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                }
-                                                            ],
-                                                            "dataBDD": "actualContributionAgreementAnnexPublicAidUeEfta",
-                                                            "classList": [
-                                                                "no-label"
-                                                            ]
-                                                        },
-                                                        {
-                                                            "kind": "component",
-                                                            "type": "text",
-                                                            "mask": "fund",
-                                                            "label": "Wynikowa struktura finansowania w PLN",
-                                                            "name": "resultingFinancialStructurePLNPublicAidUeEfta",
-                                                            "value": 0,
-                                                            "defaultValue": 0,
-                                                            "unit": "PLN",
-                                                            "validators": [
-                                                                {
-                                                                    "name": "RangeValidator",
-                                                                    "kwargs": {
-                                                                        "min": 0
-                                                                    },
-                                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                }
-                                                            ],
-                                                            "dataBDD": "resultingFinancialStructurePLNPublicAidUeEfta",
-                                                            "classList": [
-                                                                "no-label"
-                                                            ]
+                                                            "name": "RangeValidator",
+                                                            "kwargs": {
+                                                                "min": 0
+                                                            },
+                                                            "validationMsg": "Wartość musi być większa lub równa zero."
                                                         }
+                                                    ],
+                                                    "dataBDD": "actualContributionAgreementPublicAidUeEfta",
+                                                    "classList": [
+                                                        "no-label"
+                                                    ]
+                                                },
+                                                {
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "mask": "fund",
+                                                    "label": "Zgodnie z aneksem do umowy",
+                                                    "name": "actualContributionAgreementAnnexPublicAidUeEfta",
+                                                    "value": 0,
+                                                    "defaultValue": 0,
+                                                    "unit": "PLN",
+                                                    "validators": [
+                                                        {
+                                                            "name": "RangeValidator",
+                                                            "kwargs": {
+                                                                "min": 0
+                                                            },
+                                                            "validationMsg": "Wartość musi być większa lub równa zero."
+                                                        }
+                                                    ],
+                                                    "dataBDD": "actualContributionAgreementAnnexPublicAidUeEfta",
+                                                    "classList": [
+                                                        "no-label"
+                                                    ]
+                                                },
+                                                {
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "mask": "fund",
+                                                    "label": "Wynikowa struktura finansowania w PLN",
+                                                    "name": "resultingFinancialStructurePLNPublicAidUeEfta",
+                                                    "value": 0,
+                                                    "defaultValue": 0,
+                                                    "unit": "PLN",
+                                                    "validators": [
+                                                        {
+                                                            "name": "RangeValidator",
+                                                            "kwargs": {
+                                                                "min": 0
+                                                            },
+                                                            "validationMsg": "Wartość musi być większa lub równa zero."
+                                                        }
+                                                    ],
+                                                    "dataBDD": "resultingFinancialStructurePLNPublicAidUeEfta",
+                                                    "classList": [
+                                                        "no-label"
                                                     ]
                                                 }
                                             ]
@@ -9235,123 +9202,104 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                         {
                                             "kind": "chapter",
                                             "title": "Środki publiczne (poza UE i krajami EFTA)",
+                                            "classList": {
+                                                "main": [
+                                                    "table-1-3-narrow",
+                                                    "grid",
+                                                    "grid-cols-5",
+                                                    "no-title"
+                                                ],
+                                                "sub": [
+                                                    "table-1-3__col"
+                                                ]
+                                            },
                                             "components": [
                                                 {
-                                                    "kind": "chapter",
-                                                    "title": "",
-                                                    "components": [
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "label": "Nazwa podmiotu",
+                                                    "name": "publicAidNoUeEftaName",
+                                                    "required": True,
+                                                    "validators": [
                                                         {
-                                                            "kind": "component",
-                                                            "type": "text",
-                                                            "label": "Nazwa podmiotu",
-                                                            "name": "publicAidNoUeEftaName",
-                                                            "required": True,
-                                                            "validators": [
-                                                                {
-                                                                    "name": "RequiredValidator"
-                                                                }
-                                                            ],
-                                                            "dataBDD": "publicAidNoUeEftaName",
-                                                            "value": ""
+                                                            "name": "RequiredValidator"
                                                         }
+                                                    ],
+                                                    "dataBDD": "publicAidNoUeEftaName",
+                                                    "value": "",
+                                                    "classList": [
+                                                        "table-full",
+                                                        "no-label",
+                                                        "col-span-2"
                                                     ]
                                                 },
                                                 {
-                                                    "kind": "chapter",
-                                                    "title": "",
-                                                    "classList": {
-                                                        "main": [
-                                                            "table-1-3-narrow",
-                                                            "grid",
-                                                            "grid-cols-5",
-                                                            "no-title"
-                                                        ],
-                                                        "sub": [
-                                                            "table-1-3__col"
-                                                        ]
-                                                    },
-                                                    "components": [
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "mask": "fund",
+                                                    "label": "Zgodnie z umową",
+                                                    "name": "actualContributionAgreementPublicAidNoUeEfta",
+                                                    "value": 0,
+                                                    "defaultValue": 0,
+                                                    "unit": "PLN",
+                                                    "validators": [
                                                         {
-                                                            "kind": "component",
-                                                            "type": "header",
-                                                            "label": "Label",
-                                                            "name": "headerComponent-publicAidNoUeEfta",
-                                                            "value": "",
-                                                            "dataBDD": "header-component-publicAidNoUeEfta",
-                                                            "classList": [
-                                                                "col-span-2",
-                                                                "displayNoneFrontend"
-                                                            ]
-                                                        },
-                                                        {
-                                                            "kind": "component",
-                                                            "type": "text",
-                                                            "mask": "fund",
-                                                            "label": "Zgodnie z umową",
-                                                            "name": "actualContributionAgreementPublicAidNoUeEfta",
-                                                            "value": 0,
-                                                            "defaultValue": 0,
-                                                            "unit": "PLN",
-                                                            "validators": [
-                                                                {
-                                                                    "name": "RangeValidator",
-                                                                    "kwargs": {
-                                                                        "min": 0
-                                                                    },
-                                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                }
-                                                            ],
-                                                            "dataBDD": "actualContributionAgreementPublicAidNoUeEfta",
-                                                            "classList": [
-                                                                "no-label"
-                                                            ]
-                                                        },
-                                                        {
-                                                            "kind": "component",
-                                                            "type": "text",
-                                                            "mask": "fund",
-                                                            "label": "Zgodnie z aneksem do umowy",
-                                                            "name": "actualContributionAgreementAnnexPublicAidNoUeEfta",
-                                                            "value": 0,
-                                                            "defaultValue": 0,
-                                                            "unit": "PLN",
-                                                            "validators": [
-                                                                {
-                                                                    "name": "RangeValidator",
-                                                                    "kwargs": {
-                                                                        "min": 0
-                                                                    },
-                                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                }
-                                                            ],
-                                                            "dataBDD": "actualContributionAgreementAnnexPublicAidNoUeEfta",
-                                                            "classList": [
-                                                                "no-label"
-                                                            ]
-                                                        },
-                                                        {
-                                                            "kind": "component",
-                                                            "type": "text",
-                                                            "mask": "fund",
-                                                            "label": "Wynikowa struktura finansowania w PLN",
-                                                            "name": "resultingFinancialStructurePLNPublicAidNoUeEfta",
-                                                            "value": 0,
-                                                            "defaultValue": 0,
-                                                            "unit": "PLN",
-                                                            "validators": [
-                                                                {
-                                                                    "name": "RangeValidator",
-                                                                    "kwargs": {
-                                                                        "min": 0
-                                                                    },
-                                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                }
-                                                            ],
-                                                            "dataBDD": "resultingFinancialStructurePLNPublicAidNoUeEfta",
-                                                            "classList": [
-                                                                "no-label"
-                                                            ]
+                                                            "name": "RangeValidator",
+                                                            "kwargs": {
+                                                                "min": 0
+                                                            },
+                                                            "validationMsg": "Wartość musi być większa lub równa zero."
                                                         }
+                                                    ],
+                                                    "dataBDD": "actualContributionAgreementPublicAidNoUeEfta",
+                                                    "classList": [
+                                                        "no-label"
+                                                    ]
+                                                },
+                                                {
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "mask": "fund",
+                                                    "label": "Zgodnie z aneksem do umowy",
+                                                    "name": "actualContributionAgreementAnnexPublicAidNoUeEfta",
+                                                    "value": 0,
+                                                    "defaultValue": 0,
+                                                    "unit": "PLN",
+                                                    "validators": [
+                                                        {
+                                                            "name": "RangeValidator",
+                                                            "kwargs": {
+                                                                "min": 0
+                                                            },
+                                                            "validationMsg": "Wartość musi być większa lub równa zero."
+                                                        }
+                                                    ],
+                                                    "dataBDD": "actualContributionAgreementAnnexPublicAidNoUeEfta",
+                                                    "classList": [
+                                                        "no-label"
+                                                    ]
+                                                },
+                                                {
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "mask": "fund",
+                                                    "label": "Wynikowa struktura finansowania w PLN",
+                                                    "name": "resultingFinancialStructurePLNPublicAidNoUeEfta",
+                                                    "value": 0,
+                                                    "defaultValue": 0,
+                                                    "unit": "PLN",
+                                                    "validators": [
+                                                        {
+                                                            "name": "RangeValidator",
+                                                            "kwargs": {
+                                                                "min": 0
+                                                            },
+                                                            "validationMsg": "Wartość musi być większa lub równa zero."
+                                                        }
+                                                    ],
+                                                    "dataBDD": "resultingFinancialStructurePLNPublicAidNoUeEfta",
+                                                    "classList": [
+                                                        "no-label"
                                                     ]
                                                 }
                                             ]
@@ -9531,123 +9479,104 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                         {
                                             "kind": "chapter",
                                             "title": "Środki ponadnarodowe (w tym Eurimage)",
+                                            "classList": {
+                                                "main": [
+                                                    "table-1-3-narrow",
+                                                    "grid",
+                                                    "grid-cols-5",
+                                                    "no-title"
+                                                ],
+                                                "sub": [
+                                                    "table-1-3__col"
+                                                ]
+                                            },
                                             "components": [
                                                 {
-                                                    "kind": "chapter",
-                                                    "title": "",
-                                                    "components": [
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "label": "Nazwa podmiotu",
+                                                    "name": "transnationalMeasuresName",
+                                                    "required": True,
+                                                    "validators": [
                                                         {
-                                                            "kind": "component",
-                                                            "type": "text",
-                                                            "label": "Nazwa podmiotu",
-                                                            "name": "transnationalMeasuresName",
-                                                            "required": True,
-                                                            "validators": [
-                                                                {
-                                                                    "name": "RequiredValidator"
-                                                                }
-                                                            ],
-                                                            "dataBDD": "transnationalMeasuresName",
-                                                            "value": ""
+                                                            "name": "RequiredValidator"
                                                         }
+                                                    ],
+                                                    "dataBDD": "transnationalMeasuresName",
+                                                    "value": "",
+                                                    "classList": [
+                                                        "no-label",
+                                                        "col-span-2",
+                                                        "table-full"
                                                     ]
                                                 },
                                                 {
-                                                    "kind": "chapter",
-                                                    "title": "",
-                                                    "classList": {
-                                                        "main": [
-                                                            "table-1-3-narrow",
-                                                            "grid",
-                                                            "grid-cols-5",
-                                                            "no-title"
-                                                        ],
-                                                        "sub": [
-                                                            "table-1-3__col"
-                                                        ]
-                                                    },
-                                                    "components": [
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "mask": "fund",
+                                                    "label": "Zgodnie z umową",
+                                                    "name": "actualContributionAgreementTransnationalMeasures",
+                                                    "value": 0,
+                                                    "defaultValue": 0,
+                                                    "unit": "PLN",
+                                                    "validators": [
                                                         {
-                                                            "kind": "component",
-                                                            "type": "header",
-                                                            "label": "Label",
-                                                            "name": "headerComponent-transnationalMeasures",
-                                                            "value": "",
-                                                            "dataBDD": "header-component-transnationalMeasures",
-                                                            "classList": [
-                                                                "col-span-2",
-                                                                "displayNoneFrontend"
-                                                            ]
-                                                        },
-                                                        {
-                                                            "kind": "component",
-                                                            "type": "text",
-                                                            "mask": "fund",
-                                                            "label": "Zgodnie z umową",
-                                                            "name": "actualContributionAgreementTransnationalMeasures",
-                                                            "value": 0,
-                                                            "defaultValue": 0,
-                                                            "unit": "PLN",
-                                                            "validators": [
-                                                                {
-                                                                    "name": "RangeValidator",
-                                                                    "kwargs": {
-                                                                        "min": 0
-                                                                    },
-                                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                }
-                                                            ],
-                                                            "dataBDD": "actualContributionAgreementTransnationalMeasures",
-                                                            "classList": [
-                                                                "no-label"
-                                                            ]
-                                                        },
-                                                        {
-                                                            "kind": "component",
-                                                            "type": "text",
-                                                            "mask": "fund",
-                                                            "label": "Zgodnie z aneksem do umowy",
-                                                            "name": "actualContributionAgreementAnnexTransnationalMeasures",
-                                                            "value": 0,
-                                                            "defaultValue": 0,
-                                                            "unit": "PLN",
-                                                            "validators": [
-                                                                {
-                                                                    "name": "RangeValidator",
-                                                                    "kwargs": {
-                                                                        "min": 0
-                                                                    },
-                                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                }
-                                                            ],
-                                                            "dataBDD": "actualContributionAgreementAnnexTransnationalMeasures",
-                                                            "classList": [
-                                                                "no-label"
-                                                            ]
-                                                        },
-                                                        {
-                                                            "kind": "component",
-                                                            "type": "text",
-                                                            "mask": "fund",
-                                                            "label": "Wynikowa struktura finansowania w PLN",
-                                                            "name": "resultingFinancialStructurePLNTransnationalMeasures",
-                                                            "value": 0,
-                                                            "defaultValue": 0,
-                                                            "unit": "PLN",
-                                                            "validators": [
-                                                                {
-                                                                    "name": "RangeValidator",
-                                                                    "kwargs": {
-                                                                        "min": 0
-                                                                    },
-                                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                                }
-                                                            ],
-                                                            "dataBDD": "resultingFinancialStructurePLNTransnationalMeasures",
-                                                            "classList": [
-                                                                "no-label"
-                                                            ]
+                                                            "name": "RangeValidator",
+                                                            "kwargs": {
+                                                                "min": 0
+                                                            },
+                                                            "validationMsg": "Wartość musi być większa lub równa zero."
                                                         }
+                                                    ],
+                                                    "dataBDD": "actualContributionAgreementTransnationalMeasures",
+                                                    "classList": [
+                                                        "no-label"
+                                                    ]
+                                                },
+                                                {
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "mask": "fund",
+                                                    "label": "Zgodnie z aneksem do umowy",
+                                                    "name": "actualContributionAgreementAnnexTransnationalMeasures",
+                                                    "value": 0,
+                                                    "defaultValue": 0,
+                                                    "unit": "PLN",
+                                                    "validators": [
+                                                        {
+                                                            "name": "RangeValidator",
+                                                            "kwargs": {
+                                                                "min": 0
+                                                            },
+                                                            "validationMsg": "Wartość musi być większa lub równa zero."
+                                                        }
+                                                    ],
+                                                    "dataBDD": "actualContributionAgreementAnnexTransnationalMeasures",
+                                                    "classList": [
+                                                        "no-label"
+                                                    ]
+                                                },
+                                                {
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "mask": "fund",
+                                                    "label": "Wynikowa struktura finansowania w PLN",
+                                                    "name": "resultingFinancialStructurePLNTransnationalMeasures",
+                                                    "value": 0,
+                                                    "defaultValue": 0,
+                                                    "unit": "PLN",
+                                                    "validators": [
+                                                        {
+                                                            "name": "RangeValidator",
+                                                            "kwargs": {
+                                                                "min": 0
+                                                            },
+                                                            "validationMsg": "Wartość musi być większa lub równa zero."
+                                                        }
+                                                    ],
+                                                    "dataBDD": "resultingFinancialStructurePLNTransnationalMeasures",
+                                                    "classList": [
+                                                        "no-label"
                                                     ]
                                                 }
                                             ]
@@ -9976,7 +9905,11 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                 "main": [
                                     "grid",
                                     "grid-cols-4",
-                                    "chapter-bg-grey"
+                                    "chapter-bg-grey",
+                                    "table-1-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
                                 ]
                             },
                             "components": [
@@ -10276,11 +10209,16 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
             chapters=[
                 {
                     "kind": "chapter",
-                    "title": "A. Harmonogram",
-                    "classList": [
-                        "no-title"
-                    ],
+                    "title": "",
                     "components": [
+                        {
+                            "kind": "chapter",
+                            "title": "A. Harmonogram",
+                            "classList": [
+                                "no-title"
+                            ],
+                            "components": []
+                        },
                         {
                             "kind": "chapter",
                             "title": "<p align=\"left\">Harmonogram</p>",
