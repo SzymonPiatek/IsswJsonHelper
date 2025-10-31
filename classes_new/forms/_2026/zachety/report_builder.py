@@ -9,7 +9,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
         )
 
         self.form_id = self.set_ids(
-            local_id=1530,
+            local_id=1499,
             uat_id=None
         )
 
