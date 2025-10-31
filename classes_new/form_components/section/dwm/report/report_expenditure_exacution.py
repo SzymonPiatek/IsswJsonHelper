@@ -642,8 +642,8 @@ class ReportExpenditureExecution(Section):
                 self.create_chapter(
                     class_list={
                         "main": [
-                            "new_table_4__2-4"
-                        ]
+                            "new_table_4__2-4",
+                        ],
                     },
                     components=[
                         self.create_component(
@@ -670,9 +670,11 @@ class ReportExpenditureExecution(Section):
                     ]
                 ),
                 self.create_chapter(
-                    class_list=[
-                        "col-span-2"
-                    ],
+                    class_list={
+                        "main": [
+                            "col-span-2"
+                        ]
+                    },
                     components=[
                         self.create_chapter(
                             visibility_rules=[
