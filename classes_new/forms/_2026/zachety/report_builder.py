@@ -6104,7 +6104,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                         },
                         {
                             "kind": "chapter",
-                            "title": "<p align=\"left\">7. Wnioskowana kwota wsparcia na podstawie raportu i procent udziały w planowanych polskich kosztach kwalifikowanych</p>",
+                            "title": "<p align=\"left\">7. Wnioskowana kwota wsparcia na podstawie raportu i procent udziału w planowanych polskich kosztach kwalifikowanych</p>",
                             "components": [
                                 {
                                     "kind": "chapter",
