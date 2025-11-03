@@ -1689,7 +1689,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             component_type="checkbox",
                             name="limitedAudienceSupportStatement",
                             label="Oświadczam, że ze względu na ograniczony krąg odbiorców lub ze względu na niską wartość komercyjną, wydarzenie nie mogłoby się odbyć bez dofinansowania PISF.",
-                            help_text="Należy zaznaczyć, jeśli dofinansowanie PISF przekracza 50% całkowitego budżetu."
+                            help_text="Należy zaznaczyć, jeśli dofinansowanie PISF przekracza 50% całkowitego budżetu.",
                         ),
                         self.create_component(
                             component_type="checkbox",
