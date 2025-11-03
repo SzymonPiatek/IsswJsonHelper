@@ -594,78 +594,6 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                         {
                             "kind": "chapter",
                             "title": "",
-                            "visibilityRules": [
-                                {
-                                    "name": "dependsOnValue",
-                                    "kwargs": {
-                                        "fieldName": "krsOrCeidg",
-                                        "values": [
-                                            "CEIDG"
-                                        ]
-                                    }
-                                }
-                            ],
-                            "classList": {
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
-                            "components": [
-                                {
-                                    "kind": "chapter",
-                                    "title": "",
-                                    "classList": [
-                                        "grid",
-                                        "grid-cols-4",
-                                        "no-title"
-                                    ],
-                                    "components": [
-                                        {
-                                            "kind": "component",
-                                            "type": "header",
-                                            "label": "Label",
-                                            "name": "headerComponent-applicantCeidg",
-                                            "value": "Numer CEIDG",
-                                            "dataBDD": "header-component-applicantCeidg",
-                                            "classList": [
-                                                "displayNoneFrontend"
-                                            ]
-                                        },
-                                        {
-                                            "kind": "component",
-                                            "type": "text",
-                                            "label": "Numer CEIDG",
-                                            "name": "applicantCeidg",
-                                            "value": "",
-                                            "validators": [
-                                                {
-                                                    "name": "RelatedRequiredIfEqualValidator",
-                                                    "kwargs": {
-                                                        "field_name": "krsOrCeidg",
-                                                        "value": "CEIDG"
-                                                    }
-                                                }
-                                            ],
-                                            "required": True,
-                                            "dataBDD": "applicantCeidg",
-                                            "classList": [
-                                                "no-label",
-                                                "col-span-3",
-                                                "text-left"
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "kind": "chapter",
-                            "title": "",
                             "classList": {
                                 "main": [
                                     "table-1-2",
@@ -6538,6 +6466,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                 single_name: str,
                 name: str
         ):
+            upper_title = f"{name[0].title()}{name[1:]}"
+
             total_chapter = self.create_chapter(
                 components=[
                     self.create_chapter(
@@ -6559,20 +6489,20 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                 component_type="text",
                                 mask="fund",
                                 label="Zgodnie z umową",
-                                name=f"actualContributionAgreementTotal{name.title()}",
+                                name=f"actualContributionAgreementTotal{upper_title}",
                                 read_only=True,
                                 unit="PLN",
                                 validators=[
                                     self.validator.related_sum_validator(
                                         field_names=[
-                                            f"actualContributionAgreement{name.title()}",
+                                            f"actualContributionAgreement{upper_title}",
                                         ]
                                     )
                                 ],
                                 calculation_rules=[
                                     self.calculation_rule.dynamic_sum_inputs(
                                         fields=[
-                                            f"actualContributionAgreement{name.title()}",
+                                            f"actualContributionAgreement{upper_title}",
                                         ]
                                     )
                                 ],
@@ -6586,20 +6516,20 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                 component_type="text",
                                 mask="fund",
                                 label="Zgodnie z aneksem do umowy",
-                                name=f"actualContributionAgreementAnnexTotal{name.title()}",
+                                name=f"actualContributionAgreementAnnexTotal{upper_title}",
                                 read_only=True,
                                 unit="PLN",
                                 validators=[
                                     self.validator.related_sum_validator(
                                         field_names=[
-                                            f"actualContributionAgreementAnnex{name.title()}",
+                                            f"actualContributionAgreementAnnex{upper_title}",
                                         ]
                                     )
                                 ],
                                 calculation_rules=[
                                     self.calculation_rule.dynamic_sum_inputs(
                                         fields=[
-                                            f"actualContributionAgreementAnnex{name.title()}",
+                                            f"actualContributionAgreementAnnex{upper_title}",
                                         ]
                                     )
                                 ],
@@ -6612,20 +6542,20 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                 component_type="text",
                                 mask="fund",
                                 label="Wynikowa struktura finansowania w PLN",
-                                name=f"resultingFinancialStructurePLNTotal{name.title()}",
+                                name=f"resultingFinancialStructurePLNTotal{upper_title}",
                                 read_only=True,
                                 unit="PLN",
                                 validators=[
                                     self.validator.related_sum_validator(
                                         field_names=[
-                                            f"resultingFinancialStructurePLN{name.title()}",
+                                            f"resultingFinancialStructurePLN{upper_title}",
                                         ]
                                     )
                                 ],
                                 calculation_rules=[
                                     self.calculation_rule.dynamic_sum_inputs(
                                         fields=[
-                                            f"resultingFinancialStructurePLN{name.title()}",
+                                            f"resultingFinancialStructurePLN{upper_title}",
                                         ]
                                     )
                                 ],
@@ -6677,7 +6607,6 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                         component_type="text",
                                         label="Nazwa podmiotu",
                                         name=f"{name}Name",
-                                        required=True,
                                         class_list=[
                                             "no-label",
                                             "col-span-2",
@@ -6689,7 +6618,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                         component_type="text",
                                         mask="fund",
                                         label="Zgodnie z umową",
-                                        name=f"actualContributionAgreement{name.title()}",
+                                        name=f"actualContributionAgreement{upper_title}",
                                         unit="PLN",
                                         class_list=[
                                             "no-label",
@@ -6699,7 +6628,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                         component_type="text",
                                         mask="fund",
                                         label="Zgodnie z aneksem do umowy",
-                                        name=f"actualContributionAgreementAnnex{name.title()}",
+                                        name=f"actualContributionAgreementAnnex{upper_title}",
                                         unit="PLN",
                                         class_list=[
                                             "no-label"
@@ -6709,7 +6638,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                         component_type="text",
                                         mask="fund",
                                         label="Wynikowa struktura finansowania w PLN",
-                                        name=f"resultingFinancialStructurePLN{name.title()}",
+                                        name=f"resultingFinancialStructurePLN{upper_title}",
                                         unit="PLN",
                                         class_list=[
                                             "no-label"
@@ -6732,7 +6661,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
             {
                 "group_name": "Dystrybutorzy",
                 "single_name": "Dystrybutor",
-                "name": "distirbutors"
+                "name": "distributors"
             },
             {
                 "group_name": "Nadawcy telewizyjni",
@@ -7401,7 +7330,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             "table-1-3-narrow",
                                             "grid",
                                             "grid-cols-5",
-                                            "no-title"
+                                            "no-title",
+                                            "displayNoneFrontend"
                                         ],
                                         "sub": [
                                             "table-1-3__col"
@@ -7413,7 +7343,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             "type": "header",
                                             "label": "Label",
                                             "name": "headerComponent-coproducerUeEftaTotal",
-                                            "value": "2. Koproducenci UE i kraje EFTA - RAZEM",
+                                            "value": "2. Koproducenci UE i kraje EFTA",
                                             "dataBDD": "headerComponent-coproducerUeEftaTotal",
                                             "classList": [
                                                 "col-span-2",
@@ -7448,7 +7378,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             ],
                                             "dataBDD": "actualContributionAgreementTotalCoproducerUeEftaTotal",
                                             "classList": [
-                                                "no-label"
+                                                "no-label",
+                                                "displayNonePDF"
                                             ],
                                             "readOnly": True,
                                             "calculationRules": [
@@ -7491,7 +7422,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             ],
                                             "dataBDD": "actualContributionAgreementAnnexTotalCoproducerUeEftaTotal",
                                             "classList": [
-                                                "no-label"
+                                                "no-label",
+                                                "displayNonePDF"
                                             ],
                                             "readOnly": True,
                                             "calculationRules": [
@@ -7534,7 +7466,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             ],
                                             "dataBDD": "resultingFinancialStructurePLNTotalCoproducerUeEftaTotal",
                                             "classList": [
-                                                "no-label"
+                                                "no-label",
+                                                "displayNonePDF"
                                             ],
                                             "readOnly": True,
                                             "calculationRules": [
@@ -7943,7 +7876,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             "table-1-3-narrow",
                                             "grid",
                                             "grid-cols-5",
-                                            "no-title"
+                                            "no-title",
+                                            "displayNoneFrontend"
                                         ],
                                         "sub": [
                                             "table-1-3__col"
@@ -7955,7 +7889,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             "type": "header",
                                             "label": "Label",
                                             "name": "headerComponent-coproducerNotUeEftaTotal",
-                                            "value": "3. Koproducenci spoza UE i krajów EFTA - RAZEM",
+                                            "value": "3. Koproducenci spoza UE i krajów EFTA",
                                             "dataBDD": "headerComponent-coproducerNotUeEftaTotal",
                                             "classList": [
                                                 "col-span-2",
@@ -7990,7 +7924,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             ],
                                             "dataBDD": "actualContributionAgreementTotalCoproducerNotUeEftaTotal",
                                             "classList": [
-                                                "no-label"
+                                                "no-label",
+                                                "displayNonePDF"
                                             ],
                                             "readOnly": True,
                                             "calculationRules": [
@@ -8033,7 +7968,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             ],
                                             "dataBDD": "actualContributionAgreementAnnexTotalCoproducerNotUeEftaTotal",
                                             "classList": [
-                                                "no-label"
+                                                "no-label",
+                                                "displayNonePDF"
                                             ],
                                             "readOnly": True,
                                             "calculationRules": [
@@ -8076,7 +8012,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             ],
                                             "dataBDD": "resultingFinancialStructurePLNTotalCoproducerNotUeEftaTotal",
                                             "classList": [
-                                                "no-label"
+                                                "no-label",
+                                                "displayNonePDF"
                                             ],
                                             "readOnly": True,
                                             "calculationRules": [
@@ -8662,12 +8599,6 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                     "type": "text",
                                                     "label": "Nazwa podmiotu",
                                                     "name": "investorsName",
-                                                    "required": True,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RequiredValidator"
-                                                        }
-                                                    ],
                                                     "dataBDD": "investorsName",
                                                     "value": "",
                                                     "classList": [
@@ -8939,12 +8870,6 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                     "type": "text",
                                                     "label": "Nazwa podmiotu",
                                                     "name": "publicAidUeEftaName",
-                                                    "required": True,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RequiredValidator"
-                                                        }
-                                                    ],
                                                     "dataBDD": "publicAidUeEftaName",
                                                     "value": "",
                                                     "classList": [
@@ -9216,12 +9141,6 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                     "type": "text",
                                                     "label": "Nazwa podmiotu",
                                                     "name": "publicAidNoUeEftaName",
-                                                    "required": True,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RequiredValidator"
-                                                        }
-                                                    ],
                                                     "dataBDD": "publicAidNoUeEftaName",
                                                     "value": "",
                                                     "classList": [
@@ -9493,12 +9412,6 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                     "type": "text",
                                                     "label": "Nazwa podmiotu",
                                                     "name": "transnationalMeasuresName",
-                                                    "required": True,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RequiredValidator"
-                                                        }
-                                                    ],
                                                     "dataBDD": "transnationalMeasuresName",
                                                     "value": "",
                                                     "classList": [
@@ -14287,8 +14200,22 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "no-label",
                                                 "col-span-3",
                                                 "text-left"
+                                            ],
+                                            "options": []
+                                        },
+                                        self.create_component(
+                                            component_type="select",
+                                            label="0 lub 1 punkt",
+                                            name="pointsPartIi5",
+                                            class_list=[
+                                                "no-label",
+                                                "col-span-3",
+                                                "text-left"
+                                            ],
+                                            options=[
+                                                0, 1
                                             ]
-                                        }
+                                        )
                                     ]
                                 }
                             ]
@@ -21094,79 +21021,6 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                         "no-label",
                                         "col-span-2",
                                         "text-left"
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "kind": "chapter",
-                            "title": "",
-                            "visibilityRules": [
-                                {
-                                    "name": "dependsOnValue",
-                                    "kwargs": {
-                                        "fieldName": "krsOrCeidg",
-                                        "values": [
-                                            "CEIDG"
-                                        ]
-                                    }
-                                }
-                            ],
-                            "classList": {
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
-                            "components": [
-                                {
-                                    "kind": "chapter",
-                                    "title": "",
-                                    "classList": [
-                                        "grid",
-                                        "grid-cols-4",
-                                        "no-title"
-                                    ],
-                                    "components": [
-                                        {
-                                            "kind": "component",
-                                            "type": "header",
-                                            "label": "Label",
-                                            "name": "headerComponent-applicantCeidgCopy",
-                                            "value": "Numer CEIDG",
-                                            "dataBDD": "header-component-applicantCeidgCopy",
-                                            "classList": [
-                                                "displayNoneFrontend"
-                                            ]
-                                        },
-                                        {
-                                            "kind": "component",
-                                            "type": "text",
-                                            "label": "Numer CEIDG",
-                                            "name": "applicantCeidgCopy",
-                                            "value": "",
-                                            "validators": [
-                                                {
-                                                    "name": "RelatedRequiredIfEqualValidator",
-                                                    "kwargs": {
-                                                        "field_name": "krsOrCeidg",
-                                                        "value": "CEIDG"
-                                                    }
-                                                }
-                                            ],
-                                            "required": True,
-                                            "readOnly": True,
-                                            "dataBDD": "applicantCeidgCopy",
-                                            "classList": [
-                                                "no-label",
-                                                "col-span-3",
-                                                "text-left"
-                                            ]
-                                        }
                                     ]
                                 }
                             ]
