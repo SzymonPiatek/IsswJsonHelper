@@ -12341,36 +12341,17 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "select",
-                                            "label": "0 lub 2 punkty",
-                                            "name": "pointsPartI1",
-                                            "value": "",
-                                            "options": [
-                                                0, 2
-                                            ],
-                                            "validators": [
-                                                {
-                                                    "name": "ExactValidator",
-                                                    "kwargs": {
-                                                        "values": [
-                                                            "0",
-                                                            "2",
-                                                            0,
-                                                            2
-                                                        ]
-                                                    },
-                                                    "validationMsg": "Dozwolone wartości: 0 lub 2."
-                                                }
-                                            ],
-                                            "dataBDD": "points-part-i1",
-                                            "classList": [
+                                        self.create_component(
+                                            component_type="select",
+                                            label="0 lub 2 punkty",
+                                            name="pointsPartI1",
+                                            options=["0", "2"],
+                                            class_list=[
                                                 "no-label",
                                                 "col-span-3",
                                                 "text-left"
                                             ]
-                                        }
+                                        ),
                                     ]
                                 }
                             ]
@@ -12454,36 +12435,17 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "select",
-                                            "label": "0 lub 2 punkty",
-                                            "name": "pointsPartI2",
-                                            "value": "",
-                                            "options": [
-                                                0, 2
-                                            ],
-                                            "validators": [
-                                                {
-                                                    "name": "ExactValidator",
-                                                    "kwargs": {
-                                                        "values": [
-                                                            "0",
-                                                            "2",
-                                                            0,
-                                                            2
-                                                        ]
-                                                    },
-                                                    "validationMsg": "Dozwolone wartości: 0 lub 2."
-                                                }
-                                            ],
-                                            "dataBDD": "points-part-i2",
-                                            "classList": [
+                                        self.create_component(
+                                            component_type="select",
+                                            label="0 lub 2 punkty",
+                                            name="pointsPartI2",
+                                            options=["0", "2"],
+                                            class_list=[
                                                 "no-label",
                                                 "col-span-3",
                                                 "text-left"
                                             ]
-                                        }
+                                        )
                                     ]
                                 }
                             ]
@@ -12567,36 +12529,17 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "select",
-                                            "label": "0 lub 2 punkty",
-                                            "name": "pointsPartI3",
-                                            "value": "",
-                                            "options": [
-                                                0, 2
-                                            ],
-                                            "validators": [
-                                                {
-                                                    "name": "ExactValidator",
-                                                    "kwargs": {
-                                                        "values": [
-                                                            "0",
-                                                            "2",
-                                                            0,
-                                                            2
-                                                        ]
-                                                    },
-                                                    "validationMsg": "Dozwolone wartości: 0 lub 2."
-                                                }
-                                            ],
-                                            "dataBDD": "points-part-i3",
-                                            "classList": [
+                                        self.create_component(
+                                            component_type="select",
+                                            label="0 lub 2 punkty",
+                                            name="pointsPartI3",
+                                            options=["0", "2"],
+                                            class_list=[
                                                 "no-label",
                                                 "col-span-3",
                                                 "text-left"
                                             ]
-                                        }
+                                        )
                                     ]
                                 }
                             ]
@@ -12680,36 +12623,17 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "select",
-                                            "label": "0 lub 2 punkty",
-                                            "name": "pointsPartI4",
-                                            "value": "",
-                                            "options": [
-                                                0, 2
-                                            ],
-                                            "validators": [
-                                                {
-                                                    "name": "ExactValidator",
-                                                    "kwargs": {
-                                                        "values": [
-                                                            "0",
-                                                            "2",
-                                                            0,
-                                                            2
-                                                        ]
-                                                    },
-                                                    "validationMsg": "Dozwolone wartości: 0 lub 2."
-                                                }
-                                            ],
-                                            "dataBDD": "points-part-i4",
-                                            "classList": [
+                                        self.create_component(
+                                            component_type="select",
+                                            label="0 lub 2 punkty",
+                                            name="pointsPartI4",
+                                            options=["0", "2"],
+                                            class_list=[
                                                 "no-label",
                                                 "col-span-3",
                                                 "text-left"
                                             ]
-                                        }
+                                        )
                                     ]
                                 }
                             ]
@@ -12797,36 +12721,17 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                         "displayNoneFrontend"
                                                     ]
                                                 },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "select",
-                                                    "label": "0 lub 2 punkty",
-                                                    "name": "pointsPartI5",
-                                                    "value": "",
-                                                    "options": [
-                                                        0, 2
-                                                    ],
-                                                    "validators": [
-                                                        {
-                                                            "name": "ExactValidator",
-                                                            "kwargs": {
-                                                                "values": [
-                                                                    "0",
-                                                                    "2",
-                                                                    0,
-                                                                    2
-                                                                ]
-                                                            },
-                                                            "validationMsg": "Dozwolone wartości: 0 lub 2."
-                                                        }
-                                                    ],
-                                                    "dataBDD": "points-part-i5",
-                                                    "classList": [
+                                                self.create_component(
+                                                    component_type="select",
+                                                    label="0 lub 2 punkty",
+                                                    name="pointsPartI5",
+                                                    options=["0", "2"],
+                                                    class_list=[
                                                         "no-label",
                                                         "col-span-3",
                                                         "text-left"
                                                     ]
-                                                }
+                                                )
                                             ]
                                         }
                                     ]
@@ -12980,7 +12885,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                                     "type": "number",
                                                                     "label": "Liczba dni zdjęciowych",
                                                                     "name": "shootingDays",
-                                                                    "value": "",
+                                                                    "value": 0,
                                                                     "validators": [
                                                                         {
                                                                             "name": "RangeValidator",
@@ -13132,36 +13037,17 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "select",
-                                            "label": "0 lub 2 punkty",
-                                            "name": "pointsPartI6",
-                                            "value": "",
-                                            "options": [
-                                                0, 2
-                                            ],
-                                            "validators": [
-                                                {
-                                                    "name": "ExactValidator",
-                                                    "kwargs": {
-                                                        "values": [
-                                                            "0",
-                                                            "2",
-                                                            0,
-                                                            2
-                                                        ]
-                                                    },
-                                                    "validationMsg": "Dozwolone wartości: 0 lub 2."
-                                                }
-                                            ],
-                                            "dataBDD": "points-part-i6",
-                                            "classList": [
+                                        self.create_component(
+                                            component_type="select",
+                                            label="0 lub 2 punkty",
+                                            name="pointsPartI6",
+                                            options=["0", "2"],
+                                            class_list=[
                                                 "no-label",
                                                 "col-span-3",
                                                 "text-left"
                                             ]
-                                        }
+                                        )
                                     ]
                                 }
                             ]
@@ -13245,36 +13131,17 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "select",
-                                            "label": "0 lub 2 punkty",
-                                            "name": "pointsPartI7",
-                                            "value": "",
-                                            "options": [
-                                                0, 2
-                                            ],
-                                            "validators": [
-                                                {
-                                                    "name": "ExactValidator",
-                                                    "kwargs": {
-                                                        "values": [
-                                                            "0",
-                                                            "2",
-                                                            0,
-                                                            2
-                                                        ]
-                                                    },
-                                                    "validationMsg": "Dozwolone wartości: 0 lub 2."
-                                                }
-                                            ],
-                                            "dataBDD": "points-part-i7",
-                                            "classList": [
+                                        self.create_component(
+                                            component_type="select",
+                                            label="0 lub 2 punkty",
+                                            name="pointsPartI7",
+                                            options=["0", "2"],
+                                            class_list=[
                                                 "no-label",
                                                 "col-span-3",
                                                 "text-left"
                                             ]
-                                        }
+                                        )
                                     ]
                                 }
                             ]
@@ -13450,14 +13317,17 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "number",
-                                            "label": "0, 2, 3 lub 4 punkty",
-                                            "name": "pointsPartIi1",
-                                            "value": "",
-                                            "readOnly": True,
-                                            "calculationRules": [
+                                        self.create_component(
+                                            component_type="text",
+                                            label="0, 2, 3 lub 4 punkty",
+                                            name="pointsPartIi1",
+                                            options=["0", "2", "3", "4"],
+                                            class_list=[
+                                                "no-label",
+                                                "col-span-3",
+                                                "text-left"
+                                            ],
+                                            calculation_rules=[
                                                 {
                                                     "name": "assignValue",
                                                     "kwargs": {
@@ -13486,13 +13356,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                     }
                                                 }
                                             ],
-                                            "dataBDD": "points-part-ii1",
-                                            "classList": [
-                                                "no-label",
-                                                "col-span-3",
-                                                "text-left"
-                                            ]
-                                        }
+                                            read_only=True
+                                        )
                                     ]
                                 }
                             ]
@@ -13527,7 +13392,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                     "type": "number",
                                     "label": "Liczba dni: zdjęciowych/animacji/postprodukcji w Polsce",
                                     "name": "shootingDaysInPl",
-                                    "value": "",
+                                    "value": 0,
                                     "validators": [
                                         {
                                             "name": "RangeValidator",
@@ -13559,7 +13424,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                     "type": "number",
                                     "label": "Liczba dni: zdjęciowych/animacji/postprodukcji całkowita",
                                     "name": "shootingDaysAltogether",
-                                    "value": "",
+                                    "value": 0,
                                     "validators": [
                                         {
                                             "name": "RangeValidator",
@@ -13691,14 +13556,12 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                         "displayNoneFrontend"
                                                     ]
                                                 },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "number",
-                                                    "label": "0, 1, 3 lub 5 punktów",
-                                                    "name": "pointsPartIi2",
-                                                    "value": "",
-                                                    "readOnly": True,
-                                                    "calculationRules": [
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="0, 1, 3 lub 5 punktów",
+                                                    name="pointsPartIi2",
+                                                    read_only=True,
+                                                    calculation_rules=[
                                                         {
                                                             "name": "assignValue",
                                                             "kwargs": {
@@ -13727,16 +13590,12 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                             }
                                                         }
                                                     ],
-                                                    "options": [
-                                                        0, 1, 3, 5
-                                                    ],
-                                                    "dataBDD": "points-part-ii2",
-                                                    "classList": [
+                                                    class_list=[
                                                         "no-label",
                                                         "col-span-3",
                                                         "text-left"
                                                     ]
-                                                }
+                                                )
                                             ]
                                         }
                                     ]
@@ -13831,14 +13690,12 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                         "displayNoneFrontend"
                                                     ]
                                                 },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "number",
-                                                    "label": "0-6 punktów",
-                                                    "name": "pointsPartIi3",
-                                                    "value": "",
-                                                    "readOnly": True,
-                                                    "calculationRules": [
+                                                self.create_component(
+                                                    component_type="text",
+                                                    label="0-6 punktów",
+                                                    name="pointsPartIi3",
+                                                    read_only=True,
+                                                    calculation_rules=[
                                                         {
                                                             "name": "sumInputs",
                                                             "kwargs": {
@@ -13849,16 +13706,12 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                             }
                                                         }
                                                     ],
-                                                    "dataBDD": "points-part-ii3",
-                                                    "classList": [
+                                                    class_list=[
                                                         "no-label",
                                                         "col-span-3",
                                                         "text-left"
                                                     ],
-                                                    "options": [
-                                                        0, 1, 2, 3, 4, 5, 6
-                                                    ]
-                                                }
+                                                )
                                             ]
                                         },
                                         {
@@ -13870,7 +13723,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             "components": [
                                                 {
                                                     "kind": "component",
-                                                    "type": "number",
+                                                    "type": "text",
                                                     "label": "",
                                                     "name": "pointsPartIi3a",
                                                     "value": "",
@@ -13883,22 +13736,22 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                                     {
                                                                         "fieldName": "shootingOrAnimationDaysInPl",
                                                                         "value": "poniżej 10 dni: 0 punktów",
-                                                                        "inputValue": 0
+                                                                        "inputValue": "0"
                                                                     },
                                                                     {
                                                                         "fieldName": "shootingOrAnimationDaysInPl",
                                                                         "value": "przynajmniej 10 dni: 1 punkt",
-                                                                        "inputValue": 1
+                                                                        "inputValue": "1"
                                                                     },
                                                                     {
                                                                         "fieldName": "shootingOrAnimationDaysInPl",
                                                                         "value": "przynajmniej 20 dni: 2 punkty",
-                                                                        "inputValue": 2
+                                                                        "inputValue": "2"
                                                                     },
                                                                     {
                                                                         "fieldName": "shootingOrAnimationDaysInPl",
                                                                         "value": "przynajmniej 30 dni: 3 punktów",
-                                                                        "inputValue": 3
+                                                                        "inputValue": "3"
                                                                     }
                                                                 ]
                                                             }
@@ -13921,22 +13774,22 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                                     {
                                                                         "fieldName": "postproductionDaysInPl",
                                                                         "value": "poniżej 10 dni: 0 punktów",
-                                                                        "inputValue": 0
+                                                                        "inputValue": "0"
                                                                     },
                                                                     {
                                                                         "fieldName": "postproductionDaysInPl",
                                                                         "value": "przynajmniej 10 dni: 1 punkt",
-                                                                        "inputValue": 1
+                                                                        "inputValue": "1"
                                                                     },
                                                                     {
                                                                         "fieldName": "postproductionDaysInPl",
                                                                         "value": "przynajmniej 20 dni: 2 punkty",
-                                                                        "inputValue": 2
+                                                                        "inputValue": "2"
                                                                     },
                                                                     {
                                                                         "fieldName": "postproductionDaysInPl",
                                                                         "value": "przynajmniej 30 dni: 3 punktów",
-                                                                        "inputValue": 3
+                                                                        "inputValue": "3"
                                                                     }
                                                                 ]
                                                             }
@@ -14102,22 +13955,19 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "select",
-                                            "label": "0 lub 1 punkt",
-                                            "name": "pointsPartIi4",
-                                            "value": "",
-                                            "dataBDD": "points-part-ii4",
-                                            "classList": [
+                                        self.create_component(
+                                            component_type="select",
+                                            label="0 lub 1 punkt",
+                                            name="pointsPartIi4",
+                                            class_list=[
                                                 "no-label",
                                                 "col-span-3",
                                                 "text-left"
                                             ],
-                                            "options": [
-                                                0, 1
+                                            options=[
+                                                "0", "1"
                                             ]
-                                        }
+                                        )
                                     ]
                                 }
                             ]
@@ -14189,20 +14039,6 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "select",
-                                            "label": "0 lub 1 punkt",
-                                            "name": "pointsPartIi5",
-                                            "value": "",
-                                            "dataBDD": "points-part-ii5",
-                                            "classList": [
-                                                "no-label",
-                                                "col-span-3",
-                                                "text-left"
-                                            ],
-                                            "options": []
-                                        },
                                         self.create_component(
                                             component_type="select",
                                             label="0 lub 1 punkt",
@@ -14213,7 +14049,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "text-left"
                                             ],
                                             options=[
-                                                0, 1
+                                                "0", "1"
                                             ]
                                         )
                                     ]
@@ -14287,22 +14123,17 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "select",
-                                            "label": "0 lub 1 punkt",
-                                            "name": "pointsPartIi6",
-                                            "value": "",
-                                            "dataBDD": "points-part-ii6",
-                                            "classList": [
+                                        self.create_component(
+                                            component_type="select",
+                                            label="0 lub 1 punkt",
+                                            name="pointsPartIi6",
+                                            class_list=[
                                                 "no-label",
                                                 "col-span-3",
                                                 "text-left"
                                             ],
-                                            "options": [
-                                                0, 1
-                                            ]
-                                        }
+                                            options=["0", "1"]
+                                        )
                                     ]
                                 }
                             ]
@@ -14374,14 +14205,12 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "number",
-                                            "label": "0, 1, 2 lub 3 punkty",
-                                            "name": "pointsPartIi7",
-                                            "value": "",
-                                            "readOnly": True,
-                                            "calculationRules": [
+                                        self.create_component(
+                                            component_type="text",
+                                            label="0, 1, 2 lub 3 punkty",
+                                            name="pointsPartIi7",
+                                            read_only=True,
+                                            calculation_rules=[
                                                 {
                                                     "name": "assignValue",
                                                     "kwargs": {
@@ -14389,37 +14218,33 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                             {
                                                                 "fieldName": "postproductionCostsFloorInPl",
                                                                 "value": "mniej niż 10% kosztów postprodukcji wydatkowanych jest na terytorium Rzeczypospolitej Polskiej: 0 punktów",
-                                                                "inputValue": 0
+                                                                "inputValue": "0"
                                                             },
                                                             {
                                                                 "fieldName": "postproductionCostsFloorInPl",
                                                                 "value": "przynajmniej 10% kosztów postprodukcji wydatkowanych jest na terytorium Rzeczypospolitej Polskiej: 1 punkt",
-                                                                "inputValue": 1
+                                                                "inputValue": "1"
                                                             },
                                                             {
                                                                 "fieldName": "postproductionCostsFloorInPl",
                                                                 "value": "przynajmniej 30% kosztów postprodukcji wydatkowanych jest na terytorium Rzeczypospolitej Polskiej: 2 punkty",
-                                                                "inputValue": 2
+                                                                "inputValue": "2"
                                                             },
                                                             {
                                                                 "fieldName": "postproductionCostsFloorInPl",
                                                                 "value": "przynajmniej 50% kosztów postprodukcji wydatkowanych jest na terytorium Rzeczypospolitej Polskiej: 3 punkty",
-                                                                "inputValue": 3
+                                                                "inputValue": "3"
                                                             }
                                                         ]
                                                     }
                                                 }
                                             ],
-                                            "dataBDD": "points-part-ii7",
-                                            "classList": [
+                                            class_list=[
                                                 "no-label",
                                                 "col-span-3",
                                                 "text-left"
-                                            ],
-                                            "options": [
-                                                0, 1, 2, 3
                                             ]
-                                        }
+                                        )
                                     ]
                                 }
                             ]
@@ -14749,22 +14574,17 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "select",
-                                            "label": "0 lub 1 punkt",
-                                            "name": "pointsPartIii1",
-                                            "value": "",
-                                            "dataBDD": "points-part-iii1",
-                                            "classList": [
+                                        self.create_component(
+                                            component_type="select",
+                                            label="0 lub 1 punkt",
+                                            name="pointsPartIii1",
+                                            class_list=[
                                                 "no-label",
                                                 "col-span-3",
                                                 "text-left"
                                             ],
-                                            "options": [
-                                                0, 1
-                                            ]
-                                        }
+                                            options=["0", "1"]
+                                        )
                                     ]
                                 }
                             ]
@@ -15044,22 +14864,17 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "select",
-                                            "label": "0 lub 1 punkt",
-                                            "name": "pointsPartIii2",
-                                            "value": "",
-                                            "dataBDD": "pointsPartIii2",
-                                            "classList": [
+                                        self.create_component(
+                                            component_type="select",
+                                            label="0 lub 1 punkt",
+                                            name="pointsPartIii2",
+                                            class_list=[
                                                 "no-label",
                                                 "col-span-3",
                                                 "text-left"
                                             ],
-                                            "options": [
-                                                0, 1
-                                            ]
-                                        }
+                                            options=["0", "1"]
+                                        )
                                     ]
                                 }
                             ]
@@ -15339,20 +15154,17 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "select",
-                                            "label": "0 lub 1 punkt",
-                                            "name": "pointsPartIii3",
-                                            "value": "",
-                                            "dataBDD": "pointsPartIii3",
-                                            "classList": [
+                                        self.create_component(
+                                            component_type="select",
+                                            label="0 lub 1 punkt",
+                                            name="pointsPartIii3",
+                                            class_list=[
                                                 "no-label",
                                                 "col-span-3",
                                                 "text-left"
                                             ],
-                                            "options": [0, 1]
-                                        }
+                                            options=["0", "1"]
+                                        )
                                     ]
                                 }
                             ]
@@ -15632,22 +15444,17 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "select",
-                                            "label": "0 lub 1 punkt",
-                                            "name": "pointsPartIii4",
-                                            "value": "",
-                                            "dataBDD": "pointsPartIii4",
-                                            "classList": [
+                                        self.create_component(
+                                            component_type="select",
+                                            label="0 lub 1 punkt",
+                                            name="pointsPartIii4",
+                                            class_list=[
                                                 "no-label",
                                                 "col-span-3",
                                                 "text-left"
                                             ],
-                                            "options": [
-                                                0, 1
-                                            ]
-                                        }
+                                            options=["0", "1"]
+                                        )
                                     ]
                                 }
                             ]
@@ -15927,22 +15734,17 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "select",
-                                            "label": "0 lub 1 punkt",
-                                            "name": "pointsPartIii5",
-                                            "value": "",
-                                            "dataBDD": "pointsPartIii5",
-                                            "classList": [
+                                        self.create_component(
+                                            component_type="select",
+                                            label="0 lub 1 punkt",
+                                            name="pointsPartIii5",
+                                            class_list=[
                                                 "no-label",
                                                 "col-span-3",
                                                 "text-left"
                                             ],
-                                            "options": [
-                                                0, 1
-                                            ]
-                                        }
+                                            options=["0", "1"]
+                                        )
                                     ]
                                 }
                             ]
@@ -16222,22 +16024,17 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "select",
-                                            "label": "0 lub 1 punkt",
-                                            "name": "pointsPartIii6",
-                                            "value": "",
-                                            "dataBDD": "points-part-iii6",
-                                            "classList": [
+                                        self.create_component(
+                                            component_type="select",
+                                            label="0 lub 1 punkt",
+                                            name="pointsPartIii6",
+                                            class_list=[
                                                 "no-label",
                                                 "col-span-3",
                                                 "text-left"
                                             ],
-                                            "options": [
-                                                0, 1
-                                            ]
-                                        }
+                                            options=["0", "1"]
+                                        )
                                     ]
                                 }
                             ]
@@ -16916,22 +16713,19 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                         "displayNoneFrontend"
                                     ]
                                 },
-                                {
-                                    "kind": "component",
-                                    "type": "select",
-                                    "label": "0 lub 1 punkt",
-                                    "name": "pointsPartIii7",
-                                    "value": "",
-                                    "dataBDD": "points-part-iii7",
-                                    "classList": [
+                                self.create_component(
+                                    component_type="select",
+                                    label="0 lub 1 punkt",
+                                    name="pointsPartIii7",
+                                    class_list=[
                                         "no-label",
                                         "col-span-3",
                                         "text-left"
                                     ],
-                                    "options": [
-                                        0, 1
+                                    options=[
+                                        "0", "1"
                                     ]
-                                }
+                                )
                             ]
                         }
                     ]
@@ -16968,7 +16762,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                             "type": "number",
                             "label": "Liczba osób obsady aktorskiej spełniających warunek",
                             "name": "qtNumCastPl",
-                            "value": "",
+                            "value": 0,
                             "validators": [
                                 {
                                     "name": "RangeValidator",
@@ -17000,7 +16794,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                             "type": "number",
                             "label": "Całkowita liczba osób w obsadzie aktorskiej",
                             "name": "qtNumCastFull",
-                            "value": "",
+                            "value": 0,
                             "validators": [
                                 {
                                     "name": "RangeValidator",
@@ -17089,7 +16883,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                         },
                                         {
                                             "kind": "component",
-                                            "type": "number",
+                                            "type": "text",
                                             "label": "0, 2 lub 3 punkty",
                                             "name": "pointsPartIii8",
                                             "value": "",
@@ -17102,17 +16896,17 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                             {
                                                                 "fieldName": "qtProfessionalsParticipationRate",
                                                                 "value": "mniej niż 3: 0 punktów",
-                                                                "inputValue": 0
+                                                                "inputValue": "0"
                                                             },
                                                             {
                                                                 "fieldName": "qtProfessionalsParticipationRate",
                                                                 "value": "przynajmniej 3: 2 punkty",
-                                                                "inputValue": 2
+                                                                "inputValue": "2"
                                                             },
                                                             {
                                                                 "fieldName": "qtProfessionalsParticipationRate",
                                                                 "value": "przynajmniej 4: 3 punkty",
-                                                                "inputValue": 3
+                                                                "inputValue": "3"
                                                             }
                                                         ]
                                                     }
@@ -20641,7 +20435,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                 },
                                 {
                                     "kind": "component",
-                                    "type": "number",
+                                    "type": "text",
                                     "label": "0, 1, 2 lub 3 punkty",
                                     "name": "pointsPartIii9",
                                     "value": "",
@@ -20653,22 +20447,22 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                     {
                                                         "fieldName": "qtTechCrewCheck",
                                                         "value": "mniej niż 30%: 0 punktów",
-                                                        "inputValue": 0
+                                                        "inputValue": "0"
                                                     },
                                                     {
                                                         "fieldName": "qtTechCrewCheck",
                                                         "value": "przynajmniej 30%: 1 punkt",
-                                                        "inputValue": 1
+                                                        "inputValue": "1"
                                                     },
                                                     {
                                                         "fieldName": "qtTechCrewCheck",
                                                         "value": "przynajmniej 40%: 2 punkty",
-                                                        "inputValue": 2
+                                                        "inputValue": "2"
                                                     },
                                                     {
                                                         "fieldName": "qtTechCrewCheck",
                                                         "value": "przynajmniej 50%: 3 punkty",
-                                                        "inputValue": 3
+                                                        "inputValue": "3"
                                                     }
                                                 ]
                                             }

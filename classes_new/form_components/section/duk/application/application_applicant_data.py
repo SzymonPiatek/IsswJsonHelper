@@ -70,7 +70,10 @@ class ApplicationApplicantData(Section):
                             component_type="text",
                             label="Kod pocztowy",
                             name=f"{start_name}{build_name}ZipCode",
-                            required=True
+                            required=True,
+                            validators=[
+                                self.validator.zip_code_validator()
+                            ]
                         ),
                         self.create_component(
                             component_type="text",
@@ -229,6 +232,7 @@ class ApplicationApplicantData(Section):
                         self.create_component(
                             component_type="radio",
                             name="applicantPkd",
+                            label="Kod PKD zgodny z charakterem przedsięwzięcia, na realizację którego przeznaczona będzie pomoc z sektora kinematografii",
                             options=[
                                 "59.11 – Działalność związana z produkcją filmów, nagrań wideo i programów telewizyjnych",
                                 "59.12 - Działalność postprodukcyjna związana z filmami, nagraniami wideo i programami telewizyjnymi",

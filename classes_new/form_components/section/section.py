@@ -174,7 +174,10 @@ class Section(FormFactory):
                             component_type="text",
                             label="Kod pocztowy",
                             name=f"{start_name}{build_name}ZipCode",
-                            required=True
+                            required=True,
+                            validators=[
+                                self.validator.zip_code_validator()
+                            ]
                         ),
                         self.create_component(
                             component_type="text",
