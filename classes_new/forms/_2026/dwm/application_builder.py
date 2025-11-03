@@ -86,7 +86,7 @@ class DWMDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             label="Rodzaj przedsięwzięcia - wyszczególnienie",
                             name="requestedSupportTypePkt1",
                             options=[
-                                "międzynarodowych festiwali filmowych zaliczonych przez FIAPF do kategorii konkursowych festiwali filmów fabularnych",
+                                "zagranicznych międzynarodowych festiwali filmowych zaliczonych przez FIAPF do kategorii konkursowych festiwali filmów fabularnych",
                                 "oficjalnej selekcji festiwali filmowych w Toronto, Telluride oraz konkursów międzynarodowych na festiwalach filmowych: Sundance, Busan, IDFA, HotDocs, Annecy, Visions du Réel, CPH:DOX",
                                 "ubiegania się o prestiżowe międzynarodowe nagrody filmowe, tj. Nagrody Amerykańskiej Akademii Wiedzy i Sztuki Filmowej – Oscar, Złote Globy, Nagrody Brytyjskiej Akademii Filmowej – BAFTA, Nagrody Emmy oraz Nagrody European Film Awards"
                             ]
