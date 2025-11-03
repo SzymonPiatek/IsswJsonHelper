@@ -190,11 +190,7 @@ class ApplicationApplicantData(Section):
                         self.create_component(
                             component_type="text",
                             label="Adres do doreczeń elektronicznych",
-                            name=f"{start_name}{build_name}ForeignElectronicDeliveriesAddress",
-                            required=True,
-                            validators=[
-                                self.validator.email_validator()
-                            ]
+                            name=f"{start_name}{build_name}ForeignElectronicDeliveriesAddress"
                         )
                     ]
                 )
