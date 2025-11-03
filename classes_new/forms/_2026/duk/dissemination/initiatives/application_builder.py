@@ -383,7 +383,7 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                                                             component_type="number",
                                                             label="Szacowana liczba widzów",
                                                             name="estimatedNumberOfViewersPt1",
-                                                            unit="osoby"
+                                                            unit="os."
                                                         ),
                                                         self.create_component(
                                                             component_type="number",
@@ -548,7 +548,7 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                                             component_type="number",
                                             label="Szacowana liczba uczestników",
                                             name="estimatedNumberOfParticipantsPt2",
-                                            unit="osoby"
+                                            unit="os."
                                         ),
                                         self.create_component(
                                             component_type="number",
@@ -634,7 +634,7 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                                                     component_type="number",
                                                     label="Szacowana liczba widzów",
                                                     name="estimatedNumberOfViewersPt4",
-                                                    unit="osoby"
+                                                    unit="os."
                                                 ),
                                                 self.create_component(
                                                     component_type="number",

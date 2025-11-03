@@ -269,7 +269,7 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
                                             component_type="number",
                                             label="Liczba osób",
                                             name="peopleNumberTraining",
-                                            unit="osoby"
+                                            unit="os."
                                         ),
                                         self.create_component(
                                             component_type="text",
@@ -303,7 +303,7 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
                                             component_type="number",
                                             label="Liczba osób",
                                             name="peopleNumberWorkshops",
-                                            unit="osoby"
+                                            unit="os."
                                         ),
                                         self.create_component(
                                             component_type="text",
@@ -337,7 +337,7 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
                                             component_type="number",
                                             label="Liczba osób",
                                             name="peopleNumberCourses",
-                                            unit="osoby"
+                                            unit="os."
                                         ),
                                         self.create_component(
                                             component_type="text",
@@ -385,7 +385,7 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
                                                     component_type="number",
                                                     label="Liczba osób",
                                                     name="peopleNumberOther",
-                                                    unit="osoby"
+                                                    unit="os."
                                                 ),
                                                 self.create_component(
                                                     component_type="text",

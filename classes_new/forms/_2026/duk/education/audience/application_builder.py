@@ -230,31 +230,31 @@ class AudiencePriorityApplicationFormBuilder(EducationOperationalProgramApplicat
                                 self.create_component(
                                     component_type="number",
                                     name="estimatedNumberOfParticipantsKindergarten",
-                                    unit="osoby",
+                                    unit="os.",
                                     label="a) Dzieci w wieku przeszkolnym"
                                 ),
                                 self.create_component(
                                     component_type="number",
                                     name="estimatedNumberOfParticipantsPrimarySchools",
-                                    unit="osoby",
+                                    unit="os.",
                                     label="b) Uczniowie szkół podstawowych"
                                 ),
                                 self.create_component(
                                     component_type="number",
                                     name="estimatedNumberOfParticipantsSecondarySchools",
-                                    unit="osoby",
+                                    unit="os.",
                                     label="c) Uczniowie szkół ponadpodstawowych"
                                 ),
                                 self.create_component(
                                     component_type="number",
                                     name="estimatedNumberOfParticipantsAdults",
-                                    unit="osoby",
+                                    unit="os.",
                                     label="d) Dorośli"
                                 ),
                                 self.create_component(
                                     component_type="number",
                                     name="estimatedNumberOfParticipantsSeniors",
-                                    unit="osoby",
+                                    unit="os.",
                                     label="e) Seniorzy"
                                 )
                             ]

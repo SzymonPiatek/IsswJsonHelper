@@ -73,7 +73,8 @@ class ApplicationApplicantData(Section):
                             required=True,
                             validators=[
                                 self.validator.zip_code_validator()
-                            ]
+                            ],
+                            mask="polishPostalCode"
                         ),
                         self.create_component(
                             component_type="text",

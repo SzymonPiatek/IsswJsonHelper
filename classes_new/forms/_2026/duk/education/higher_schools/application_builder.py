@@ -171,13 +171,13 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
                                     component_type="number",
                                     label="Studia stacjonarne",
                                     name="estimatedNumberOfStudentsFullTimeStudies",
-                                    unit="osoby"
+                                    unit="os."
                                 ),
                                 self.create_component(
                                     component_type="number",
                                     label="Studia niestacjonarne",
                                     name="estimatedNumberOfStudentsPartTimeStudies",
-                                    unit="osoby"
+                                    unit="os."
                                 )
                             ]
                         ),

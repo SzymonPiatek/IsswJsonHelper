@@ -1072,13 +1072,13 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             calculation_rules=[
                                 self.calculation_rule.share_calculator(
                                     dividend_field="ownFinancialFundsAmount",
-                                    divisor_field="totalProjectCost"
+                                    divisor_field="ownFundsSumAmount"
                                 )
                             ],
                             validators=[
                                 self.validator.related_share_validator(
                                     dividend="ownFinancialFundsAmount",
-                                    divisor="totalProjectCost"
+                                    divisor="ownFundsSumAmount"
                                 )
                             ],
                             required=True,
@@ -1131,7 +1131,8 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             divisor="ownFundsSumAmount"
                         ),
                         self.validator.range_validator(
-                            max_value=50
+                            max_value=50,
+                            message="Wartość nie może przekroczyć 50% całkowitego wkładu własnego."
                         )
                     ],
                     required=True,
@@ -1325,12 +1326,6 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                                                                 self.calculation_rule.single_position_share_calculator(
                                                                                     dividend_field=f"{chapter["section_name"]}FundingAmount",
                                                                                     divisor_field="totalProjectCost"
-                                                                                )
-                                                                            ],
-                                                                            validators=[
-                                                                                self.validator.related_local_division_validator(
-                                                                                    dividend=f"{chapter["section_name"]}FundingAmount",
-                                                                                    divisor="totalProjectCost"
                                                                                 ),
                                                                                 self.validator.related_required_if_equal_validator(
                                                                                     field_name=chapter["checkbox_name"],
@@ -2006,7 +2001,13 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             component_type="date",
                             label="Zakończenie realizacji przedsięwzięcia",
                             name="projectCompletion",
-                            required=True
+                            required=True,
+                            read_only=True,
+                            calculation_rules=[
+                                self.calculation_rule.last_date(
+                                    field="summaryStageEndDate"
+                                )
+                            ]
                         ),
                         self.create_component(
                             component_type="date",

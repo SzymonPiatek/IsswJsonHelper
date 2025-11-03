@@ -1,7 +1,52 @@
 {
-  "FINANSOWANIE RAPORT": {
-    "report": {
-      "local": "http://localhost/raport/1499/edycja?version=-1"
+  "PO2 PR1": {
+    "application": {
+      "local": "http://localhost/wniosek/16/edycja?version=-1"
+    }
+  },
+  "PO2 PR2": {
+    "application": {
+      "local": "http://localhost/wniosek/17/edycja?version=-1"
+    }
+  },
+  "PO2 PR3": {
+    "application": {
+      "local": "http://localhost/wniosek/18/edycja?version=-1"
+    }
+  },
+  "PO2 PR4": {
+    "application": {
+      "local": "http://localhost/wniosek/19/edycja?version=-1"
+    }
+  },
+  "PO3 PR1": {
+    "application": {
+      "local": "http://localhost/wniosek/20/edycja?version=-1"
+    }
+  },
+  "PO3 PR2": {
+    "application": {
+      "local": "http://localhost/wniosek/20/edycja?version=-1"
+    }
+  },
+  "PO3 PR3": {
+    "application": {
+      "local": "http://localhost/wniosek/22/edycja?version=-1"
+    }
+  },
+  "PO3 PR4": {
+    "application": {
+      "local": "http://localhost/wniosek/23/edycja?version=-1"
+    }
+  },
+  "PO3 PR5": {
+    "application": {
+      "local": "http://localhost/wniosek/24/edycja?version=-1"
+    }
+  },
+  "PO3 PR6": {
+    "application": {
+      "local": "http://localhost/wniosek/25/edycja?version=-1"
     }
   }
 }
