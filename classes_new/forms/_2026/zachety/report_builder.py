@@ -8684,7 +8684,279 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                         },
                         {
                             "kind": "chapter",
-                            "title": "6. Pomoc publiczna (UE i kraje EFTA)",
+                            "title": "6. Środki ponadnarodowe (w tym Eurimage)",
+                            "classList": [
+                                "no-title"
+                            ],
+                            "components": [
+                                {
+                                    "kind": "chapter",
+                                    "title": "Razem",
+                                    "classList": {
+                                        "main": [
+                                            "table-1-3-narrow",
+                                            "grid",
+                                            "grid-cols-5",
+                                            "no-title"
+                                        ],
+                                        "sub": [
+                                            "table-1-3__col"
+                                        ]
+                                    },
+                                    "components": [
+                                        {
+                                            "kind": "component",
+                                            "type": "header",
+                                            "label": "Label",
+                                            "name": "headerComponent-transnationalMeasuresTotal",
+                                            "value": "8. Środki ponadnarodowe (w tym Eurimage) - RAZEM",
+                                            "dataBDD": "header-component-transnationalMeasuresTotal",
+                                            "classList": [
+                                                "col-span-2",
+                                                "displayNoneFrontend"
+                                            ]
+                                        },
+                                        {
+                                            "kind": "component",
+                                            "type": "text",
+                                            "mask": "fund",
+                                            "label": "Zgodnie z umową",
+                                            "name": "actualContributionAgreementTotalTransnationalMeasures",
+                                            "value": 0,
+                                            "unit": "PLN",
+                                            "validators": [
+                                                {
+                                                    "name": "RangeValidator",
+                                                    "kwargs": {
+                                                        "min": 0
+                                                    },
+                                                    "validationMsg": "Wartość musi być większa lub równa zero."
+                                                },
+                                                {
+                                                    "name": "RelatedSumValidator",
+                                                    "kwargs": {
+                                                        "field_names": [
+                                                            "actualContributionAgreementTransnationalMeasures"
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "dataBDD": "actualContributionAgreementTransnationalMeasures",
+                                            "classList": [
+                                                "no-label"
+                                            ],
+                                            "readOnly": True,
+                                            "calculationRules": [
+                                                {
+                                                    "name": "sumInputs",
+                                                    "kwargs": {
+                                                        "fields": [
+                                                            "actualContributionAgreementTransnationalMeasures"
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "kind": "component",
+                                            "type": "text",
+                                            "mask": "fund",
+                                            "label": "Zgodnie z aneksem do umowy",
+                                            "name": "actualContributionAgreementAnnexTotalTransnationalMeasures",
+                                            "value": 0,
+                                            "unit": "PLN",
+                                            "validators": [
+                                                {
+                                                    "name": "RangeValidator",
+                                                    "kwargs": {
+                                                        "min": 0
+                                                    },
+                                                    "validationMsg": "Wartość musi być większa lub równa zero."
+                                                },
+                                                {
+                                                    "name": "RelatedSumValidator",
+                                                    "kwargs": {
+                                                        "field_names": [
+                                                            "actualContributionAgreementAnnexTransnationalMeasures"
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "dataBDD": "actualContributionAgreementAnnexTotalTransnationalMeasures",
+                                            "classList": [
+                                                "no-label"
+                                            ],
+                                            "readOnly": True,
+                                            "calculationRules": [
+                                                {
+                                                    "name": "sumInputs",
+                                                    "kwargs": {
+                                                        "fields": [
+                                                            "actualContributionAgreementAnnexTransnationalMeasures"
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "kind": "component",
+                                            "type": "text",
+                                            "mask": "fund",
+                                            "label": "Wynikowa struktura finansowania w PLN",
+                                            "name": "resultingFinancialStructurePLNTotalTransnationalMeasures",
+                                            "value": 0,
+                                            "unit": "PLN",
+                                            "validators": [
+                                                {
+                                                    "name": "RangeValidator",
+                                                    "kwargs": {
+                                                        "min": 0
+                                                    },
+                                                    "validationMsg": "Wartość musi być większa lub równa zero."
+                                                },
+                                                {
+                                                    "name": "RelatedSumValidator",
+                                                    "kwargs": {
+                                                        "field_names": [
+                                                            "resultingFinancialStructurePLNTransnationalMeasures"
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "dataBDD": "resultingFinancialStructurePLNTotalTransnationalMeasures",
+                                            "classList": [
+                                                "no-label"
+                                            ],
+                                            "readOnly": True,
+                                            "calculationRules": [
+                                                {
+                                                    "name": "sumInputs",
+                                                    "kwargs": {
+                                                        "fields": [
+                                                            "resultingFinancialStructurePLNTransnationalMeasures"
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "kind": "chapter",
+                                    "title": "",
+                                    "isMultipleForms": True,
+                                    "multipleFormsRules": {
+                                        "minCount": 1,
+                                        "maxCount": 10
+                                    },
+                                    "components": [
+                                        {
+                                            "kind": "chapter",
+                                            "title": "Środki ponadnarodowe (w tym Eurimage)",
+                                            "classList": {
+                                                "main": [
+                                                    "table-1-3-narrow",
+                                                    "grid",
+                                                    "grid-cols-5",
+                                                    "no-title"
+                                                ],
+                                                "sub": [
+                                                    "table-1-3__col"
+                                                ]
+                                            },
+                                            "components": [
+                                                {
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "label": "Nazwa podmiotu",
+                                                    "name": "transnationalMeasuresName",
+                                                    "dataBDD": "transnationalMeasuresName",
+                                                    "value": "",
+                                                    "classList": [
+                                                        "no-label",
+                                                        "col-span-2",
+                                                        "table-full"
+                                                    ]
+                                                },
+                                                {
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "mask": "fund",
+                                                    "label": "Zgodnie z umową",
+                                                    "name": "actualContributionAgreementTransnationalMeasures",
+                                                    "value": 0,
+                                                    "defaultValue": 0,
+                                                    "unit": "PLN",
+                                                    "validators": [
+                                                        {
+                                                            "name": "RangeValidator",
+                                                            "kwargs": {
+                                                                "min": 0
+                                                            },
+                                                            "validationMsg": "Wartość musi być większa lub równa zero."
+                                                        }
+                                                    ],
+                                                    "dataBDD": "actualContributionAgreementTransnationalMeasures",
+                                                    "classList": [
+                                                        "no-label"
+                                                    ]
+                                                },
+                                                {
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "mask": "fund",
+                                                    "label": "Zgodnie z aneksem do umowy",
+                                                    "name": "actualContributionAgreementAnnexTransnationalMeasures",
+                                                    "value": 0,
+                                                    "defaultValue": 0,
+                                                    "unit": "PLN",
+                                                    "validators": [
+                                                        {
+                                                            "name": "RangeValidator",
+                                                            "kwargs": {
+                                                                "min": 0
+                                                            },
+                                                            "validationMsg": "Wartość musi być większa lub równa zero."
+                                                        }
+                                                    ],
+                                                    "dataBDD": "actualContributionAgreementAnnexTransnationalMeasures",
+                                                    "classList": [
+                                                        "no-label"
+                                                    ]
+                                                },
+                                                {
+                                                    "kind": "component",
+                                                    "type": "text",
+                                                    "mask": "fund",
+                                                    "label": "Wynikowa struktura finansowania w PLN",
+                                                    "name": "resultingFinancialStructurePLNTransnationalMeasures",
+                                                    "value": 0,
+                                                    "defaultValue": 0,
+                                                    "unit": "PLN",
+                                                    "validators": [
+                                                        {
+                                                            "name": "RangeValidator",
+                                                            "kwargs": {
+                                                                "min": 0
+                                                            },
+                                                            "validationMsg": "Wartość musi być większa lub równa zero."
+                                                        }
+                                                    ],
+                                                    "dataBDD": "resultingFinancialStructurePLNTransnationalMeasures",
+                                                    "classList": [
+                                                        "no-label"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+
+                        {
+                            "kind": "chapter",
+                            "title": "7. Pomoc publiczna (UE i kraje EFTA)",
                             "classList": [
                                 "no-title"
                             ],
@@ -8955,7 +9227,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                         },
                         {
                             "kind": "chapter",
-                            "title": "7. Środki publiczne (poza UE i krajami EFTA)",
+                            "title": "8. Środki publiczne (poza UE i krajami EFTA)",
                             "classList": [
                                 "no-title"
                             ],
@@ -9214,277 +9486,6 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                         }
                                                     ],
                                                     "dataBDD": "resultingFinancialStructurePLNPublicAidNoUeEfta",
-                                                    "classList": [
-                                                        "no-label"
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "kind": "chapter",
-                            "title": "8. Środki ponadnarodowe (w tym Eurimage)",
-                            "classList": [
-                                "no-title"
-                            ],
-                            "components": [
-                                {
-                                    "kind": "chapter",
-                                    "title": "Razem",
-                                    "classList": {
-                                        "main": [
-                                            "table-1-3-narrow",
-                                            "grid",
-                                            "grid-cols-5",
-                                            "no-title"
-                                        ],
-                                        "sub": [
-                                            "table-1-3__col"
-                                        ]
-                                    },
-                                    "components": [
-                                        {
-                                            "kind": "component",
-                                            "type": "header",
-                                            "label": "Label",
-                                            "name": "headerComponent-transnationalMeasuresTotal",
-                                            "value": "8. Środki ponadnarodowe (w tym Eurimage) - RAZEM",
-                                            "dataBDD": "header-component-transnationalMeasuresTotal",
-                                            "classList": [
-                                                "col-span-2",
-                                                "displayNoneFrontend"
-                                            ]
-                                        },
-                                        {
-                                            "kind": "component",
-                                            "type": "text",
-                                            "mask": "fund",
-                                            "label": "Zgodnie z umową",
-                                            "name": "actualContributionAgreementTotalTransnationalMeasures",
-                                            "value": 0,
-                                            "unit": "PLN",
-                                            "validators": [
-                                                {
-                                                    "name": "RangeValidator",
-                                                    "kwargs": {
-                                                        "min": 0
-                                                    },
-                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                },
-                                                {
-                                                    "name": "RelatedSumValidator",
-                                                    "kwargs": {
-                                                        "field_names": [
-                                                            "actualContributionAgreementTransnationalMeasures"
-                                                        ]
-                                                    }
-                                                }
-                                            ],
-                                            "dataBDD": "actualContributionAgreementTransnationalMeasures",
-                                            "classList": [
-                                                "no-label"
-                                            ],
-                                            "readOnly": True,
-                                            "calculationRules": [
-                                                {
-                                                    "name": "sumInputs",
-                                                    "kwargs": {
-                                                        "fields": [
-                                                            "actualContributionAgreementTransnationalMeasures"
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "kind": "component",
-                                            "type": "text",
-                                            "mask": "fund",
-                                            "label": "Zgodnie z aneksem do umowy",
-                                            "name": "actualContributionAgreementAnnexTotalTransnationalMeasures",
-                                            "value": 0,
-                                            "unit": "PLN",
-                                            "validators": [
-                                                {
-                                                    "name": "RangeValidator",
-                                                    "kwargs": {
-                                                        "min": 0
-                                                    },
-                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                },
-                                                {
-                                                    "name": "RelatedSumValidator",
-                                                    "kwargs": {
-                                                        "field_names": [
-                                                            "actualContributionAgreementAnnexTransnationalMeasures"
-                                                        ]
-                                                    }
-                                                }
-                                            ],
-                                            "dataBDD": "actualContributionAgreementAnnexTotalTransnationalMeasures",
-                                            "classList": [
-                                                "no-label"
-                                            ],
-                                            "readOnly": True,
-                                            "calculationRules": [
-                                                {
-                                                    "name": "sumInputs",
-                                                    "kwargs": {
-                                                        "fields": [
-                                                            "actualContributionAgreementAnnexTransnationalMeasures"
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "kind": "component",
-                                            "type": "text",
-                                            "mask": "fund",
-                                            "label": "Wynikowa struktura finansowania w PLN",
-                                            "name": "resultingFinancialStructurePLNTotalTransnationalMeasures",
-                                            "value": 0,
-                                            "unit": "PLN",
-                                            "validators": [
-                                                {
-                                                    "name": "RangeValidator",
-                                                    "kwargs": {
-                                                        "min": 0
-                                                    },
-                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                },
-                                                {
-                                                    "name": "RelatedSumValidator",
-                                                    "kwargs": {
-                                                        "field_names": [
-                                                            "resultingFinancialStructurePLNTransnationalMeasures"
-                                                        ]
-                                                    }
-                                                }
-                                            ],
-                                            "dataBDD": "resultingFinancialStructurePLNTotalTransnationalMeasures",
-                                            "classList": [
-                                                "no-label"
-                                            ],
-                                            "readOnly": True,
-                                            "calculationRules": [
-                                                {
-                                                    "name": "sumInputs",
-                                                    "kwargs": {
-                                                        "fields": [
-                                                            "resultingFinancialStructurePLNTransnationalMeasures"
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "kind": "chapter",
-                                    "title": "",
-                                    "isMultipleForms": True,
-                                    "multipleFormsRules": {
-                                        "minCount": 1,
-                                        "maxCount": 10
-                                    },
-                                    "components": [
-                                        {
-                                            "kind": "chapter",
-                                            "title": "Środki ponadnarodowe (w tym Eurimage)",
-                                            "classList": {
-                                                "main": [
-                                                    "table-1-3-narrow",
-                                                    "grid",
-                                                    "grid-cols-5",
-                                                    "no-title"
-                                                ],
-                                                "sub": [
-                                                    "table-1-3__col"
-                                                ]
-                                            },
-                                            "components": [
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "label": "Nazwa podmiotu",
-                                                    "name": "transnationalMeasuresName",
-                                                    "dataBDD": "transnationalMeasuresName",
-                                                    "value": "",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "col-span-2",
-                                                        "table-full"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "mask": "fund",
-                                                    "label": "Zgodnie z umową",
-                                                    "name": "actualContributionAgreementTransnationalMeasures",
-                                                    "value": 0,
-                                                    "defaultValue": 0,
-                                                    "unit": "PLN",
-                                                    "validators": [
-                                                        {
-                                                            "name": "RangeValidator",
-                                                            "kwargs": {
-                                                                "min": 0
-                                                            },
-                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                        }
-                                                    ],
-                                                    "dataBDD": "actualContributionAgreementTransnationalMeasures",
-                                                    "classList": [
-                                                        "no-label"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "mask": "fund",
-                                                    "label": "Zgodnie z aneksem do umowy",
-                                                    "name": "actualContributionAgreementAnnexTransnationalMeasures",
-                                                    "value": 0,
-                                                    "defaultValue": 0,
-                                                    "unit": "PLN",
-                                                    "validators": [
-                                                        {
-                                                            "name": "RangeValidator",
-                                                            "kwargs": {
-                                                                "min": 0
-                                                            },
-                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                        }
-                                                    ],
-                                                    "dataBDD": "actualContributionAgreementAnnexTransnationalMeasures",
-                                                    "classList": [
-                                                        "no-label"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "mask": "fund",
-                                                    "label": "Wynikowa struktura finansowania w PLN",
-                                                    "name": "resultingFinancialStructurePLNTransnationalMeasures",
-                                                    "value": 0,
-                                                    "defaultValue": 0,
-                                                    "unit": "PLN",
-                                                    "validators": [
-                                                        {
-                                                            "name": "RangeValidator",
-                                                            "kwargs": {
-                                                                "min": 0
-                                                            },
-                                                            "validationMsg": "Wartość musi być większa lub równa zero."
-                                                        }
-                                                    ],
-                                                    "dataBDD": "resultingFinancialStructurePLNTransnationalMeasures",
                                                     "classList": [
                                                         "no-label"
                                                     ]

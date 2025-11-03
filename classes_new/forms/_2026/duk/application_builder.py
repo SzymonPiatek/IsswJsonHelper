@@ -1122,13 +1122,16 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     calculation_rules=[
                         self.calculation_rule.share_calculator(
                             dividend_field="ownInKindFundsAmount",
-                            divisor_field="totalProjectCost"
+                            divisor_field="ownFundsSumAmount"
                         )
                     ],
                     validators=[
                         self.validator.related_share_validator(
                             dividend="ownInKindFundsAmount",
-                            divisor="totalProjectCost"
+                            divisor="ownFundsSumAmount"
+                        ),
+                        self.validator.range_validator(
+                            max_value=50
                         )
                     ],
                     required=True,
