@@ -246,7 +246,7 @@ class DWMDepartmentReportFormBuilder(ReportFormBuilder):
                     ]
                 ),
                 self.create_chapter(
-                    title="C. Nazwa i adres Beneficjenta",
+                    title=f"C. Nazwa i adres {'Beneficjenta' if self.is_promotion_priority else 'Stypendysty'}",
                     class_list=[
                         "no-title",
                         "grid",
@@ -439,15 +439,6 @@ class DWMDepartmentReportFormBuilder(ReportFormBuilder):
                 "name": "participation",
                 "label": "Koszty uczestnictwa w warsztatach (jeśli dotyczy)",
                 "isEstimate": True
-            }
-        ]
-
-        # TODO
-        second_cost_types = [
-            {
-                "name": "costsProvidedByEventOrganizer",
-                "label": "Koszty zapewnione przez organizatora wydarzenia",
-                "isEstimate": False
             }
         ]
 
