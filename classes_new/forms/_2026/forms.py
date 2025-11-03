@@ -47,17 +47,17 @@ class Forms2026(Forms):
 
         self.builder_map = {
             "application": {
-                # "dpf": {
-                #     "po1": {
-                #         "pr1": ScreenplayScholarshipPriorityApplicationFormBuilder,
-                #         "pr2": None,
-                #         "pr3": None,
-                #         "pr4": None,
-                #         "pr5": None,
-                #         "pr6": None,
-                #         "pr7": None
-                #     }
-                # },
+                "dpf": {
+                    "po1": {
+                        "pr1": ScreenplayScholarshipPriorityApplicationFormBuilder,
+                        "pr2": None,
+                        "pr3": None,
+                        "pr4": None,
+                        "pr5": None,
+                        "pr6": None,
+                        "pr7": None
+                    }
+                },
                 "duk": {
                     "po2": {
                         "pr1": HigherSchoolsPriorityApplicationFormBuilder,
@@ -73,30 +73,30 @@ class Forms2026(Forms):
                         "pr5": ResearchPriorityApplicationFormBuilder,
                         "pr6": DkfPriorityApplicationFormBuilder
                     },
-                    # "po4": {
-                    #     "pr1": ModernizationPriorityApplicationFormBuilder,
-                    #     "pr2": DigitalizationPriorityApplicationFormBuilder,
-                    # }
+                    "po4": {
+                        "pr1": ModernizationPriorityApplicationFormBuilder,
+                        "pr2": DigitalizationPriorityApplicationFormBuilder,
+                    }
                 },
-                # "dwm": {
-                #     "po5": {
-                #         "pr1": PromotionPriorityApplicationFormBuilder,
-                #         "pr2": ForeignPriorityApplicationFormBuilder
-                #     }
-                # },
-                # "test": {
-                #     "visuality": {
-                #         "test": VisualityTestApplicationFormBuilder
-                #     },
-                #     "validators": {
-                #         "related_validators": RelatedValidatorsApplicationFormBuilder,
-                #         "simple_validators": SimpleValidatorsApplicationFormBuilder,
-                #         "special_validators": SpecialValidatorsApplicationFormBuilder
-                #     },
-                #     "calculationRules": {
-                #         "test": CalculationRulesApplicationFormBuilder
-                #     }
-                # }
+                "dwm": {
+                    "po5": {
+                        "pr1": PromotionPriorityApplicationFormBuilder,
+                        "pr2": ForeignPriorityApplicationFormBuilder
+                    }
+                },
+                "test": {
+                    "visuality": {
+                        "test": VisualityTestApplicationFormBuilder
+                    },
+                    "validators": {
+                        "related_validators": RelatedValidatorsApplicationFormBuilder,
+                        "simple_validators": SimpleValidatorsApplicationFormBuilder,
+                        "special_validators": SpecialValidatorsApplicationFormBuilder
+                    },
+                    "calculationRules": {
+                        "test": CalculationRulesApplicationFormBuilder
+                    }
+                }
             },
             "report": {
                 "duk": {
@@ -125,10 +125,10 @@ class Forms2026(Forms):
                         "pr2": ForeignScholarshipsPriorityReportFormBuilder
                     }
                 },
-                # "zachety": {
-                #     "finansowanie": {
-                #         "raport": FinancingPriorityReportFormBuilder
-                #     }
-                # }
+                "zachety": {
+                    "finansowanie": {
+                        "raport": FinancingPriorityReportFormBuilder
+                    }
+                }
             }
         }

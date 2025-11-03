@@ -32,13 +32,13 @@ def main():
                 "report": {
                     "json": True,
                     "autosave_or_update": True,
-                    "force_autosave": False,
-                    "pdf": True,
+                    "force_autosave": True,
+                    "pdf": False,
                 }
             }
         }
     )
-    # form_helper.generate_jsons(data_type="application")
+    form_helper.generate_jsons(data_type="application")
     form_helper.generate_jsons(data_type="report")
 
     end_time = time.time()
