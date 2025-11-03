@@ -1072,13 +1072,13 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             calculation_rules=[
                                 self.calculation_rule.share_calculator(
                                     dividend_field="ownFinancialFundsAmount",
-                                    divisor_field="ownFundsSumAmount"
+                                    divisor_field="totalProjectCost"
                                 )
                             ],
                             validators=[
                                 self.validator.related_share_validator(
                                     dividend="ownFinancialFundsAmount",
-                                    divisor="ownFundsSumAmount"
+                                    divisor="totalProjectCost"
                                 )
                             ],
                             required=True,
@@ -1112,7 +1112,14 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     mask="fund",
                     name="ownInKindFundsAmount",
                     label="Kwota",
-                    unit="PLN"
+                    unit="PLN",
+                    validators=[
+                        self.validator.related_fraction_gte_validator(
+                            field_name="ownFundsSumAmount",
+                            ratio=0.5,
+                            message="Wartość nie może przekroczyć 50% całkowitego wkładu własnego."
+                        )
+                    ]
                 ),
                 self.create_component(
                     component_type="text",
@@ -1122,17 +1129,13 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     calculation_rules=[
                         self.calculation_rule.share_calculator(
                             dividend_field="ownInKindFundsAmount",
-                            divisor_field="ownFundsSumAmount"
+                            divisor_field="totalProjectCost"
                         )
                     ],
                     validators=[
                         self.validator.related_share_validator(
                             dividend="ownInKindFundsAmount",
-                            divisor="ownFundsSumAmount"
-                        ),
-                        self.validator.range_validator(
-                            max_value=50,
-                            message="Wartość nie może przekroczyć 50% całkowitego wkładu własnego."
+                            divisor="totalProjectCost"
                         )
                     ],
                     required=True,
