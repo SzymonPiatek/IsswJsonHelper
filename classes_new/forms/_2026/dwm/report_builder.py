@@ -1232,6 +1232,16 @@ class DWMDepartmentReportFormBuilder(ReportFormBuilder):
                                     ]
                                 )
                             ]
+                        ),
+                        self.create_chapter(
+                            title="Koszty zapewnione przez organizatora wydarzenia",
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    label="Dodatkowe wyjaśnienia",
+                                    name="CostsCoveredByEventOrganizerInfo",
+                                )
+                            ]
                         )
                     ]
                 ),

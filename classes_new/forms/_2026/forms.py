@@ -119,12 +119,12 @@ class Forms2026(Forms):
                         "pr2": None,
                     }
                 },
-                # "dwm": {
-                #     "po5": {
-                #         "pr1": PromotionPriorityReportFormBuilder,
-                #         "pr2": ForeignScholarshipsPriorityReportFormBuilder
-                #     }
-                # },
+                "dwm": {
+                    "po5": {
+                        "pr1": PromotionPriorityReportFormBuilder,
+                        "pr2": ForeignScholarshipsPriorityReportFormBuilder
+                    }
+                },
                 # "zachety": {
                 #     "finansowanie": {
                 #         "raport": FinancingPriorityReportFormBuilder

@@ -22,6 +22,7 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
             "Kształcenie zawodowe i podnoszenie kompetencji poprzez organizację studiów podyplomowych.",
             "Inne działania realizujące cele Priorytetu I."
         ]
+        self.source_of_financing_tickets = True
 
         # Estimate
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
