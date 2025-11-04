@@ -129,7 +129,7 @@ class Forms2026(Forms):
                     }
                 },
                 "zachety": {
-                    "skip": True,
+                    "skip": False,
                     "finansowanie": {
                         "raport": FinancingPriorityReportFormBuilder
                     }

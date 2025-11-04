@@ -14601,7 +14601,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                             "components": [
                                 {
                                     "kind": "chapter",
-                                    "title": "<p align=\"left\">Reżyser</p>",
+                                    "title": "",
                                     "components": [
                                         {
                                             "kind": "chapter",
@@ -14891,7 +14891,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                             "components": [
                                 {
                                     "kind": "chapter",
-                                    "title": "<p align=\"left\">Scenarzysta</p>",
+                                    "title": "",
                                     "components": [
                                         {
                                             "kind": "chapter",
@@ -15181,7 +15181,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                             "components": [
                                 {
                                     "kind": "chapter",
-                                    "title": "<p align=\"left\">Operator obrazu</p>",
+                                    "title": "",
                                     "components": [
                                         {
                                             "kind": "chapter",
@@ -15471,7 +15471,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                             "components": [
                                 {
                                     "kind": "chapter",
-                                    "title": "<p align=\"left\">Główny animator</p>",
+                                    "title": "",
                                     "components": [
                                         {
                                             "kind": "chapter",
@@ -15761,7 +15761,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                             "components": [
                                 {
                                     "kind": "chapter",
-                                    "title": "<p align=\"left\">Kompozytor muzyki skomponowanej do utworu audiowizualnego</p>",
+                                    "title": "",
                                     "components": [
                                         {
                                             "kind": "chapter",
