@@ -59,48 +59,48 @@ class Forms2026(Forms):
                 #         "pr7": None
                 #     }
                 # },
-                # "duk": {
-                #     "po2": {
-                #         "pr1": HigherSchoolsPriorityApplicationFormBuilder,
-                #         "pr2": SecondarySchoolsPriorityApplicationFormBuilder,
-                #         "pr3": ProfessionalTrainingPriorityApplicationFormBuilder,
-                #         "pr4": AudiencePriorityApplicationFormBuilder
-                #     },
-                #     "po3": {
-                #         "pr1": FestivalsPriorityApplicationFormBuilder,
-                #         "pr2": InitiativesPriorityApplicationFormBuilder,
-                #         "pr3": LiteraturePriorityApplicationFormBuilder,
-                #         "pr4": ReconstructionPriorityApplicationFormBuilder,
-                #         "pr5": ResearchPriorityApplicationFormBuilder,
-                #         "pr6": DkfPriorityApplicationFormBuilder
-                #     },
-                #     "po4": {
-                #         "pr1": ModernizationPriorityApplicationFormBuilder,
-                #         "pr2": DigitalizationPriorityApplicationFormBuilder,
-                #     }
-                # },
+                "duk": {
+                    "po2": {
+                        "pr1": HigherSchoolsPriorityApplicationFormBuilder,
+                        "pr2": SecondarySchoolsPriorityApplicationFormBuilder,
+                        "pr3": ProfessionalTrainingPriorityApplicationFormBuilder,
+                        "pr4": AudiencePriorityApplicationFormBuilder
+                    },
+                    "po3": {
+                        "pr1": FestivalsPriorityApplicationFormBuilder,
+                        "pr2": InitiativesPriorityApplicationFormBuilder,
+                        "pr3": LiteraturePriorityApplicationFormBuilder,
+                        "pr4": ReconstructionPriorityApplicationFormBuilder,
+                        "pr5": ResearchPriorityApplicationFormBuilder,
+                        "pr6": DkfPriorityApplicationFormBuilder
+                    },
+                    "po4": {
+                        "pr1": ModernizationPriorityApplicationFormBuilder,
+                        "pr2": DigitalizationPriorityApplicationFormBuilder,
+                    }
+                },
                 # "dwm": {
                 #     "po5": {
                 #         "pr1": PromotionPriorityApplicationFormBuilder,
                 #         "pr2": ForeignPriorityApplicationFormBuilder
                 #     }
                 # },
-                "test": {
-                    "visuality": {
-                        "test": VisualityTestApplicationFormBuilder
-                    },
-                    "validators": {
-                        "related_validators": RelatedValidatorsApplicationFormBuilder,
-                        "simple_validators": SimpleValidatorsApplicationFormBuilder,
-                        "special_validators": SpecialValidatorsApplicationFormBuilder
-                    },
-                    "calculationRules": {
-                        "test": CalculationRulesApplicationFormBuilder
-                    },
-                    "test": {
-                        "test": TestApplicationFormBuilder
-                    }
-                }
+                # "test": {
+                #     "visuality": {
+                #         "test": VisualityTestApplicationFormBuilder
+                #     },
+                #     "validators": {
+                #         "related_validators": RelatedValidatorsApplicationFormBuilder,
+                #         "simple_validators": SimpleValidatorsApplicationFormBuilder,
+                #         "special_validators": SpecialValidatorsApplicationFormBuilder
+                #     },
+                #     "calculationRules": {
+                #         "test": CalculationRulesApplicationFormBuilder
+                #     },
+                #     "test": {
+                #         "test": TestApplicationFormBuilder
+                #     }
+                # }
             },
             "report": {
                 "duk": {
