@@ -994,12 +994,12 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                 self.create_chapter(
                     class_list={
                         "main": [
-                            "table-1-2",
+                            "table-1-3-narrow",
                             "grid",
-                            "grid-cols-2"
+                            "grid-cols-3"
                         ],
                         "sub": [
-                            "table-1-2__col"
+                            "table-1-3__col"
                         ]
                     },
                     visibility_rules=[
@@ -1016,12 +1016,6 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             mask="fund",
                             name="proceedsFromSales",
                             label="Wpływy ze sprzedaży",
-                            validators=[
-                                self.validator.related_fraction_gte_validator(
-                                    field_name="ownFinancialFundsAmount",
-                                    ratio=1
-                                )
-                            ],
                             unit="PLN"
                         ),
                         self.create_component(
@@ -1035,6 +1029,28 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                     ratio=1
                                 )
                             ],
+                            unit="PLN"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            mask="fund",
+                            name="proceedsFromSalesTotal",
+                            label="Suma",
+                            calculation_rules=[
+                                self.calculation_rule.dynamic_sum_inputs(
+                                    fields=[
+                                        "proceedsFromSales",
+                                        "otherFinancialResources"
+                                    ]
+                                )
+                            ],
+                            validators=[
+                                self.validator.related_fraction_gte_validator(
+                                    field_name="ownFinancialFundsAmount",
+                                    ratio=1
+                                )
+                            ],
+                            read_only=True,
                             unit="PLN"
                         )
                     ]
@@ -1329,10 +1345,6 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                                                                 self.calculation_rule.single_position_share_calculator(
                                                                                     dividend_field=f"{chapter["section_name"]}FundingAmount",
                                                                                     divisor_field="totalProjectCost"
-                                                                                ),
-                                                                                self.validator.related_required_if_equal_validator(
-                                                                                    field_name=chapter["checkbox_name"],
-                                                                                    value=True
                                                                                 )
                                                                             ],
                                                                             read_only=True,
@@ -1378,15 +1390,10 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                                                     label="Udział w koszcie całkowitym",
                                                                     name=f"{chapter["section_name"]}FundsShare",
                                                                     calculation_rules=[
-                                                                        self.calculation_rule.share_calculator(
-                                                                            dividend_field=f"{chapter["section_name"]}FundsSumAmount",
-                                                                            divisor_field="totalProjectCost"
-                                                                        )
-                                                                    ],
-                                                                    validators=[
-                                                                        self.validator.related_share_validator(
-                                                                            dividend=f"{chapter["section_name"]}FundsSumAmount",
-                                                                            divisor="totalProjectCost"
+                                                                        self.calculation_rule.dynamic_sum_inputs(
+                                                                            fields=[
+                                                                                f"{chapter["section_name"]}FundingShare"
+                                                                            ]
                                                                         )
                                                                     ],
                                                                     read_only=True,
@@ -1426,7 +1433,8 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             calculation_rules=[
                                 self.calculation_rule.sum_inputs(
                                     fields=[
-                                        "ownFundsSumAmount",
+                                        "ownFinancialFundsAmount",
+                                        "ownInKindFundsAmount",
                                         "pisfSupportAmountTotal",
                                         "localGovernmentsFundsSumAmount",
                                         "ministryFundsSumAmount",
@@ -1438,7 +1446,8 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             validators=[
                                 self.validator.related_sum_validator(
                                     field_names=[
-                                        "ownFundsSumAmount",
+                                        "ownFinancialFundsAmount",
+                                        "ownInKindFundsAmount",
                                         "pisfSupportAmountTotal",
                                         "localGovernmentsFundsSumAmount",
                                         "ministryFundsSumAmount",
@@ -1547,7 +1556,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         self.create_component(
                             component_type="text",
                             mask="fund",
-                            label="Środki publiczne razem",
+                            label="Środki publiczne razem (w tym wnioskowana dotacja z PISF)",
                             name="publicSupportAltogether",
                             calculation_rules=[
                                 self.calculation_rule.dynamic_sum_inputs(
