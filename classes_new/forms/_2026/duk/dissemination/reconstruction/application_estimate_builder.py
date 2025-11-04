@@ -312,6 +312,20 @@ class ReconstructionApplicationEstimateBuilder(FormFactory):
                     )
                 )
 
+        for component in components:
+            if "totalSumAmount" in component["name"]:
+                component.get("validators", []).append(
+                    self.validator.related_sum_validator(
+                        field_names=["totalProjectCost"]
+                    )
+                )
+            elif "totalRequestedAmount" in component["name"]:
+                component.get("validators", []).append(
+                    self.validator.related_sum_validator(
+                        field_names=["pisfSupportAmountTotal"]
+                    )
+                )
+
         return self.create_chapter(
             title=f'<p style="color: #e00d1d">{section["title"]}</p>',
             class_list=construct["section_title"]["classList"],
