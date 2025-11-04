@@ -123,7 +123,7 @@ class Forms2026(Forms):
                     }
                 },
                 "dwm": {
-                    "skip": True,
+                    "skip": False,
                     "po5": {
                         "pr1": PromotionPriorityReportFormBuilder,
                         "pr2": ForeignScholarshipsPriorityReportFormBuilder

@@ -32,8 +32,8 @@ def main():
                 "report": {
                     "json": True,
                     "autosave_or_update": True,
-                    "force_autosave": True,
-                    "pdf": False,
+                    "force_autosave": False,
+                    "pdf": True,
                 }
             }
         }
