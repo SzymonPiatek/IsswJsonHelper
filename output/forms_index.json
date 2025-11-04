@@ -98,5 +98,10 @@
     "application": {
       "local": "http://localhost/wniosek/16416/edycja?version=-1"
     }
+  },
+  "TEST TEST": {
+    "application": {
+      "local": "http://localhost/wniosek/16417/edycja?version=-1"
+    }
   }
 }

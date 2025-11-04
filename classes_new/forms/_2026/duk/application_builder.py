@@ -1690,6 +1690,14 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             name="limitedAudienceSupportStatement",
                             label="Oświadczam, że ze względu na ograniczony krąg odbiorców lub ze względu na niską wartość komercyjną, wydarzenie nie mogłoby się odbyć bez dofinansowania PISF.",
                             help_text="Należy zaznaczyć, jeśli dofinansowanie PISF przekracza 50% całkowitego budżetu.",
+                            validators=[
+                                self.validator.related_universal_required_validator(
+                                    field_name="pisfSupportAmountTotalShare",
+                                    condition={
+                                        "min_range": 50.0001
+                                    }
+                                )
+                            ]
                         ),
                         self.create_component(
                             component_type="checkbox",

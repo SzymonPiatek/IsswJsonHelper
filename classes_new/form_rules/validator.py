@@ -25,6 +25,13 @@ class RelatedConditionRangeCondition(TypedDict):
     min_range: Optional[float]
 
 
+class RelatedUniversalRequiredConditionKwargs(TypedDict):
+    equal_values: Optional[List[str]]
+    min_range: Optional[float]
+    max_range: Optional[float]
+    is_checked: Optional[bool]
+
+
 class Validator:
     def __init__(self):
         pass
@@ -867,6 +874,24 @@ class Validator:
         result = {
             "name": "KRSValidator",
         }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
+
+    @staticmethod
+    def related_universal_required_validator(field_name: str = None, condition: dict = None, message: str = None):
+        result = {
+            "name": "RelatedUniversalRequiredValidator",
+            "kwargs": {}
+        }
+
+        if field_name:
+            result["kwargs"]["field_name"] = field_name
+
+        if condition:
+            result["kwargs"]["condition"] = condition
 
         if message:
             result["validationMsg"] = message
