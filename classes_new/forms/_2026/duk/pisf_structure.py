@@ -84,7 +84,7 @@ class InitiativesPriority(Priority):
 class LiteraturePriority(Priority):
     def __init__(self):
         super().__init__(
-            name="Literatura i czasopisma o filmie",
+            name="Działalność wydawnicza",
             num=3,
             operation_program=DisseminationOperationalProgram()
         )

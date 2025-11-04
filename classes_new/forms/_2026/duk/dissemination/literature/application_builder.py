@@ -19,6 +19,7 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
         self.project_type = [
             "Publikacja opracowań naukowych, książek (w formie papierowej, e-book, audiobook, książka dla niewidomych i słabowidzących), albumów, czasopism z dziedziny kinematografii funkcjonujących na rynku wydawniczym (również w formie publikacji elektronicznej).",
             "Działalność portali, serwisów, baz z zakresu wiedzy o filmie.",
+            "Wydanie muzyki filmowej z polskich filmów i koprodukcji, w tym reedycji i opracowań ścieżek dźwiękowych w formie analogowej lub cyfrowej."
         ]
         self.source_of_financing_tickets = True
 
@@ -151,6 +152,7 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
                                     field_name="projectType",
                                     values=[
                                         "Publikacja opracowań naukowych, książek (w formie papierowej, e-book, audiobook, książka dla niewidomych i słabowidzących), albumów, czasopism z dziedziny kinematografii funkcjonujących na rynku wydawniczym (również w formie publikacji elektronicznej).",
+                                        "Wydanie muzyki filmowej z polskich filmów i koprodukcji, w tym reedycji i opracowań ścieżek dźwiękowych w formie analogowej lub cyfrowej."
                                     ]
                                 )
                             ],
