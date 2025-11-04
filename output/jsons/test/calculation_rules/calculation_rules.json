@@ -1,0 +1,477 @@
+{
+  "kind": "form",
+  "jrwa": "",
+  "expert": {
+    "name": "",
+    "email": "",
+    "avatar": ""
+  },
+  "status": "",
+  "applicant": {},
+  "title": "",
+  "introText": [
+    {
+      "text": "Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"
+    }
+  ],
+  "blanks": [],
+  "parts": [
+    {
+      "kind": "part",
+      "title": "I. sumInputs",
+      "shortName": "I. Sum inputs",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "Single",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "Koszty",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "",
+                  "name": "sumInputsSingle",
+                  "dataBDD": "sumInputsSingle",
+                  "value": 0,
+                  "mask": "fund",
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "",
+                  "name": "sumInputsSingle2",
+                  "dataBDD": "sumInputsSingle2",
+                  "value": 0,
+                  "mask": "fund",
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "Single - Podsumowanie",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "",
+                  "name": "sumInputsSingleTotal",
+                  "dataBDD": "sumInputsSingleTotal",
+                  "value": 0,
+                  "mask": "fund",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "sumInputsSingle",
+                          "sumInputsSingle2"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "sumInputsSingle",
+                          "sumInputsSingle2"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Multi",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "Koszty",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Koszt 1",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "",
+                      "name": "sumInputsMulti_1",
+                      "dataBDD": "sumInputsMulti_1",
+                      "value": 0,
+                      "mask": "fund",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Koszt 2",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "",
+                      "name": "sumInputsMulti_2",
+                      "dataBDD": "sumInputsMulti_2",
+                      "value": 0,
+                      "mask": "fund",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    }
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              },
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 2,
+                "maxCount": 10
+              },
+              "isPaginated": false
+            },
+            {
+              "kind": "chapter",
+              "title": "Multi - Podsumowanie",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "",
+                  "name": "sumInputsMultiTotal",
+                  "dataBDD": "sumInputsMultiTotal",
+                  "value": 0,
+                  "mask": "fund",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "sumInputsMulti"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "sumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "sumInputsMulti"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "II. multiplyInputs",
+      "shortName": "II. Multiply inputs",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "Single",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "Liczby",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "",
+                  "name": "multiplyInputsSingle",
+                  "dataBDD": "multiplyInputsSingle",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "",
+                  "name": "multiplyInputsSingle2",
+                  "dataBDD": "multiplyInputsSingle2",
+                  "value": 0,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "Liczby - Podsumowanie",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "",
+                  "name": "multiplyInputsSingleTotal",
+                  "dataBDD": "multiplyInputsSingleTotal",
+                  "value": 0,
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "multiplyInputsSingle",
+                          "multiplyInputsSingle2"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "multiplyInputsSingle",
+                          "multiplyInputsSingle2"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Multi",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "Liczby",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Liczba 1",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "",
+                      "name": "multiplyInputsMulti_1",
+                      "dataBDD": "multiplyInputsMulti_1",
+                      "value": 0,
+                      "mask": "fund",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Liczba 2",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "",
+                      "name": "multiplyInputsMulti_2",
+                      "dataBDD": "multiplyInputsMulti_2",
+                      "value": 0,
+                      "mask": "fund",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    }
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              },
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 2,
+                "maxCount": 10
+              },
+              "isPaginated": false
+            },
+            {
+              "kind": "chapter",
+              "title": "Multi - Podsumowanie",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "",
+                  "name": "multiplyInputsMultiTotal",
+                  "dataBDD": "multiplyInputsMultiTotal",
+                  "value": 0,
+                  "mask": "fund",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "multiplyInputsMulti"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "multiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "multiplyInputsMulti"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -129,7 +129,7 @@ class FormComponent(FormElement):
                 self.validators.append(self.validator.phone_number_validator())
 
     def _process_required(self):
-        if self.required and not any(v.get("name") in {"RelatedRequiredIfEqualValidator", "RequiredValidator", "ExactValidator"} for v in self.validators):
+        if self.required and not any(v.get("name") in {"RelatedRequiredIfEqualValidator", "RequiredValidator", "ExactValidator", "RelatedUniversalRequiredValidator"} for v in self.validators):
             self.validators.append(self.validator.required_validator())
 
     def generate(self) -> Component:
