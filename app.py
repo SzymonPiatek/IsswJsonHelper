@@ -39,7 +39,7 @@ def main():
         }
     )
     form_helper.generate_jsons(data_type="application")
-    # form_helper.generate_jsons(data_type="report")
+    form_helper.generate_jsons(data_type="report")
 
     end_time = time.time()
     elapsed = end_time - start_time

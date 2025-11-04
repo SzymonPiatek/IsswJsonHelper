@@ -60,8 +60,17 @@ class FormHelper:
             raise ValueError(f"Nieobsługiwany typ formularza: {data_type}")
 
         for department, programs in self.forms.builder_map.get(data_type, {}).items():
+            if isinstance(programs, dict) and programs.get("skip", False):
+                continue
+
             for program, priorities in programs.items():
+                if program == "skip":
+                    continue
+
                 for priority, builder in priorities.items():
+                    if priority == "skip":
+                        continue
+
                     if builder:
                         print(f'{"=" * 50}')
                         print(f"[{department.upper()}] {program.upper()} {priority.upper()} - {data_type.upper()}\n")
