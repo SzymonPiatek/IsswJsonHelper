@@ -24,8 +24,8 @@ class TestApplicationFormBuilder(ApplicationFormBuilder):
                 self.create_chapter(
                     title="Values",
                     class_list={
-                        "main": ["table-1-2"],
-                        "sub": ["table-1-2__col"]
+                        "main": ["table-1-3-narrow"],
+                        "sub": ["table-1-3__col"]
                     },
                     components=[
                         self.create_component(
@@ -34,21 +34,117 @@ class TestApplicationFormBuilder(ApplicationFormBuilder):
                             label="Checkbox"
                         ),
                         self.create_component(
-                            component_type="text",
-                            mask="fund",
-                            name="text",
-                            label="Text fund"
+                            component_type="select",
+                            name="select",
+                            label="Select",
+                            options=[
+                                "Test 1",
+                                "Test 2",
+                                "Test 3"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            name="number",
+                            label="Number"
                         )
                     ]
                 ),
                 self.create_chapter(
-                    title="Required",
+                    title="Required - isChecked",
                     class_list={
                         "main": ["table-1-2"],
                         "sub": ["table-1-2__col"]
                     },
                     components=[
-
+                        self.create_component(
+                            component_type="checkbox",
+                            label="Required if isChecked",
+                            name="requiredIfIsChecked",
+                            validators=[
+                                self.validator.related_universal_required_validator(
+                                    field_name="checkbox",
+                                    condition={
+                                        "is_checked": True
+                                    }
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="checkbox",
+                            label="Required if isChecked = False",
+                            name="requiredIfIsCheckedFalse",
+                            validators=[
+                                self.validator.related_universal_required_validator(
+                                    field_name="checkbox",
+                                    condition={
+                                        "is_checked": False
+                                    }
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Required - equalValues",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            name="textRequiredIfSelectEqualValues",
+                            label="Required if 'Test 1' or 'Test 2' in select",
+                            validators=[
+                                self.validator.related_universal_required_validator(
+                                    field_name="select",
+                                    condition={
+                                        "equal_values": ["Test 1", "Test 2"]
+                                    }
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Required like RequiredValidator",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="checkbox",
+                            name="requiredValidatorCheckbox",
+                            label="Required like RequiredValidator",
+                            validators=[
+                                self.validator.related_universal_required_validator()
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="Required - min and max range",
+                    class_list={
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="checkbox",
+                            name="checkboxRequiredMinAndMaxRange",
+                            label="Required if 50 <= number <= 100",
+                            validators=[
+                                self.validator.related_universal_required_validator(
+                                    field_name="number",
+                                    condition={
+                                        "min_range": 50,
+                                        "max_range": 100
+                                    }
+                                )
+                            ]
+                        )
                     ]
                 )
             ]
