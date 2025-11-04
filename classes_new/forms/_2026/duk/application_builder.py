@@ -1914,7 +1914,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                             component_type="textarea",
                                             label="Działanie",
                                             name="implementationStageDescription",
-                                            help_text="Krótki opis działania",
+                                            help_text="Krótki opis działania.",
                                             class_list=[
                                                 "table-full",
                                                 "col-span-2"
@@ -1979,7 +1979,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                             component_type="textarea",
                                             label="Działanie",
                                             name="summaryStageDescription",
-                                            help_text="Krótki opis działania",
+                                            help_text="Krótki opis działania.",
                                             class_list=[
                                                 "table-full",
                                                 "col-span-2"

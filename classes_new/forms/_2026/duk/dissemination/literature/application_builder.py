@@ -38,7 +38,7 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
                     components=[
                         self.create_chapter(
                             title="Opis przedsięwzięcia",
-                            help_text="Cel i zakres merytoryczny przedsięwzięcia",
+                            help_text="Cel i zakres merytoryczny przedsięwzięcia.",
                             components=[
                                 self.create_component(
                                     name="generalProjectDescription",

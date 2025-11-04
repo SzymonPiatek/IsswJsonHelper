@@ -2325,7 +2325,7 @@
                   ]
                 }
               ],
-              "helpText": "Kod JST gminy można znaleźć w wyszukiwarce pod adresem https://eteryt.stat.gov.pl"
+              "helpText": "Kod JST gminy można znaleźć w wyszukiwarce pod adresem https://eteryt.stat.gov.pl."
             },
             {
               "kind": "chapter",
@@ -7227,7 +7227,7 @@
                       "name": "implementationStageDescription",
                       "dataBDD": "implementationStageDescription",
                       "value": "",
-                      "helpText": "Krótki opis działania",
+                      "helpText": "Krótki opis działania.",
                       "validators": [
                         {
                           "name": "LengthValidator",
@@ -7327,7 +7327,7 @@
                       "name": "summaryStageDescription",
                       "dataBDD": "summaryStageDescription",
                       "value": "",
-                      "helpText": "Krótki opis działania",
+                      "helpText": "Krótki opis działania.",
                       "validators": [
                         {
                           "name": "LengthValidator",

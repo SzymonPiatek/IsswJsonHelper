@@ -162,7 +162,7 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
                         ),
                         self.create_chapter(
                             title="Grupa docelowa",
-                            help_text="Sposób rekrutacji i kryteria wyboru uczestników",
+                            help_text="Sposób rekrutacji i kryteria wyboru uczestników.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",

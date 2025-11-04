@@ -217,7 +217,7 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                                 ),
                                 self.create_chapter(
                                     title="Wydarzenia towarzyszące",
-                                    help_text="Np. spotkania z twórcami, warsztaty, retrospektywy, prelekcje",
+                                    help_text="Np. spotkania z twórcami, warsztaty, retrospektywy, prelekcje.",
                                     components=[
                                         self.create_component(
                                             component_type="textarea",

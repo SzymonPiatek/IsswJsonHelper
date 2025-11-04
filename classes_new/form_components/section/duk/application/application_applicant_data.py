@@ -203,7 +203,7 @@ class ApplicationApplicantData(Section):
             components=[
                 self.create_chapter(
                     title="Identyfikator gminy (Kod JST)",
-                    help_text="Kod JST gminy można znaleźć w wyszukiwarce pod adresem https://eteryt.stat.gov.pl",
+                    help_text="Kod JST gminy można znaleźć w wyszukiwarce pod adresem https://eteryt.stat.gov.pl.",
                     components=[
                         self.create_component(
                             component_type="text",

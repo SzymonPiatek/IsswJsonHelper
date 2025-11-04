@@ -95,12 +95,12 @@ estimate_sections = [
         costs=[
             CostItem(
                 title="Dostępność cyfrowa",
-                helpText="Dostępne strony internetowe",
+                helpText="Dostępne strony internetowe.",
                 name="digitalAccessibility",
             ),
             CostItem(
                 title="Dostępność informacyjno–komunikacyjna",
-                helpText="Audiodeskrypcja, napisy SDH, tłumaczenia PJM",
+                helpText="Audiodeskrypcja, napisy SDH, tłumaczenia PJM.",
                 name="infoAccessibility",
             ),
         ],

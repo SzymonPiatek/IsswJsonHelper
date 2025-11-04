@@ -136,7 +136,7 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
                         ),
                         self.create_chapter(
                             title="Profil absolwenta",
-                            help_text="Umiejętności lub kompetencje zawodowe nabywane przez studentów",
+                            help_text="Umiejętności lub kompetencje zawodowe nabywane przez studentów.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
