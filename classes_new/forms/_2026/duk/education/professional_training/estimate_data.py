@@ -23,7 +23,8 @@ estimate_sections_pt124 = [
     EstimateSection(
         title="Koszty materiałowe i usługowe",
         costs=[
-            CostItem(title="Materiały biurowe", name="stationery"),
+            CostItem(title="Wynajem kostiumów, rekwizytów", name="costumesRental"),
+            CostItem(title="Opracowanie materiałów dydaktycznych", name="developmentTeachingMaterials"),
             CostItem(title="Obsługa PR, promocja i reklama", name="commercials"),
             CostItem(title="Usługi graficzne i poligraficzne", name="graphicService"),
             CostItem(title="Nagrania i usługi fotograficzne", name="recordingService"),
@@ -80,6 +81,7 @@ estimate_sections_pt124 = [
                     "Koszty te powinny być udokumentowane rachunkiem lub fakturą z opisem potwierdzającym związek z przedsięwzięciem."
                 ),
             ),
+            CostItem(title="Obsługa prawna", name="legalService"),
             CostItem(title="Koszty licencyjne i najmu kopii", name="licenseRental"),
             CostItem(title="Ubezpieczenia", name="insurance"),
             CostItem(title="Ewaluacja przedsięwzięcia", name="evaluation"),
@@ -110,11 +112,9 @@ estimate_sections_pt3 = [
     EstimateSection(
         title="Koszty materiałowe i usługowe",
         costs=[
-            CostItem(title="Materiały biurowe", name="stationery"),
+            CostItem(title="Opracowanie materiałów dydaktycznych", name="developmentTeachingMaterials"),
             CostItem(title="Obsługa PR, promocja i reklama", name="commercials"),
             CostItem(title="Usługi graficzne i poligraficzne", name="graphicService"),
-            CostItem(title="Nagrania i usługi fotograficzne", name="recordingService"),
-            CostItem(title="Tłumaczenia", name="translation"),
         ],
     ),
     EstimateSection(
@@ -122,8 +122,6 @@ estimate_sections_pt3 = [
         costs=[
             CostItem(title="Wynajem powierzchni", name="rentalSurface"),
             CostItem(title="Wynajem sprzętu", name="equipmentRental"),
-            CostItem(title="Obsługa techniczna", name="technicalService"),
-            CostItem(title="Zabezpieczenia BHP", name="safetyBhp"),
             CostItem(title="Obsługa projektów edukacyjnych online", name="onlineEducationProjects"),
         ],
     ),
@@ -139,7 +137,6 @@ estimate_sections_pt3 = [
                     "Koszty te powinny być udokumentowane rachunkiem lub fakturą z opisem potwierdzającym związek z przedsięwzięciem."
                 ),
             ),
-            CostItem(title="Koszty licencyjne i najmu kopii", name="licenseRental"),
             CostItem(title="Ubezpieczenia", name="insurance"),
             CostItem(title="Ewaluacja przedsięwzięcia", name="evaluation"),
         ],

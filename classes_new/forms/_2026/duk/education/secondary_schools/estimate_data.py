@@ -24,7 +24,7 @@ estimate_sections = [
         title="Koszty materiałowe i usługowe",
         costs=[
             CostItem(title="Wynajem kostiumów, rekwizytów", name="costumesRental"),
-            CostItem(title="Materiały biurowe", name="stationery"),
+            CostItem(title="Opracowanie materiałów dydaktycznych", name="developmentTeachingMaterials"),
             CostItem(title="Obsługa PR, promocja i reklama", name="commercials"),
             CostItem(title="Usługi graficzne i poligraficzne", name="graphicService"),
             CostItem(title="Nagrania i usługi fotograficzne", name="recordingService"),
@@ -85,6 +85,7 @@ estimate_sections = [
                     "Koszty muszą być udokumentowane rachunkiem lub fakturą z opisem potwierdzającym związek z przedsięwzięciem."
                 ),
             ),
+            CostItem(title="Obsługa prawna", name="legalService"),
             CostItem(title="Koszty licencyjne i najmu kopii", name="licenseRental"),
             CostItem(title="Ubezpieczenia", name="insurance"),
             CostItem(title="Ewaluacja przedsięwzięcia", name="evaluation"),

@@ -32,7 +32,7 @@ estimate_sections = [
                 name="educationalMaterials",
             ),
             CostItem(
-                title="Koszty najmu i przygotowania kopii filmowych oraz napisów do filmów",
+                title="Koszty przygotowania kopii filmowych oraz napisów do filmów",
                 name="copyingAndSubtitling",
             ),
             CostItem(
@@ -46,6 +46,10 @@ estimate_sections = [
             CostItem(
                 title="Koszty nagrań i usług fotograficznych",
                 name="recordingService",
+            ),
+            CostItem(
+                title="Usługi informatyczne",
+                name="itService"
             ),
             CostItem(
                 title="Koszty tłumaczeń",

@@ -5667,15 +5667,15 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "2. Materiały biurowe",
+                      "title": "2. Opracowanie materiałów dydaktycznych",
                       "components": [
                         {
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "stationeryDesc",
-                          "dataBDD": "stationeryDesc",
-                          "value": "2. Materiały biurowe",
+                          "name": "developmentTeachingMaterialsDesc",
+                          "dataBDD": "developmentTeachingMaterialsDesc",
+                          "value": "2. Opracowanie materiałów dydaktycznych",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -5688,8 +5688,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "stationerySumAmount",
-                          "dataBDD": "stationerySumAmount",
+                          "name": "developmentTeachingMaterialsSumAmount",
+                          "dataBDD": "developmentTeachingMaterialsSumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5706,8 +5706,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "stationeryRequestedAmount",
-                                  "stationeryOtherFundsAmount"
+                                  "developmentTeachingMaterialsRequestedAmount",
+                                  "developmentTeachingMaterialsOtherFundsAmount"
                                 ]
                               }
                             }
@@ -5717,8 +5717,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "stationeryRequestedAmount",
-                                  "stationeryOtherFundsAmount"
+                                  "developmentTeachingMaterialsRequestedAmount",
+                                  "developmentTeachingMaterialsOtherFundsAmount"
                                 ]
                               }
                             }
@@ -5731,8 +5731,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "stationeryRequestedAmount",
-                          "dataBDD": "stationeryRequestedAmount",
+                          "name": "developmentTeachingMaterialsRequestedAmount",
+                          "dataBDD": "developmentTeachingMaterialsRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5754,8 +5754,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "stationeryOtherFundsAmount",
-                          "dataBDD": "stationeryOtherFundsAmount",
+                          "name": "developmentTeachingMaterialsOtherFundsAmount",
+                          "dataBDD": "developmentTeachingMaterialsOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -7650,7 +7650,128 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "2. Koszty licencyjne i najmu kopii",
+                      "title": "2. Obsługa prawna",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "",
+                          "name": "legalServiceDesc",
+                          "dataBDD": "legalServiceDesc",
+                          "value": "2. Obsługa prawna",
+                          "readOnly": true,
+                          "classList": [
+                            "col-span-2",
+                            "displayNoneFrontend",
+                            "full-width",
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Koszt ogółem",
+                          "name": "legalServiceSumAmount",
+                          "dataBDD": "legalServiceSumAmount",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "readOnly": true,
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            },
+                            {
+                              "name": "RelatedSumValidator",
+                              "kwargs": {
+                                "field_names": [
+                                  "legalServiceRequestedAmount",
+                                  "legalServiceOtherFundsAmount"
+                                ]
+                              }
+                            }
+                          ],
+                          "calculationRules": [
+                            {
+                              "name": "dynamicSumInputs",
+                              "kwargs": {
+                                "fields": [
+                                  "legalServiceRequestedAmount",
+                                  "legalServiceOtherFundsAmount"
+                                ]
+                              }
+                            }
+                          ],
+                          "classList": [
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Wnioskowana dotacja PISF",
+                          "name": "legalServiceRequestedAmount",
+                          "dataBDD": "legalServiceRequestedAmount",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "calculationRules": [],
+                          "classList": [
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Pozostałe środki",
+                          "name": "legalServiceOtherFundsAmount",
+                          "dataBDD": "legalServiceOtherFundsAmount",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "calculationRules": [],
+                          "classList": [
+                            "no-label"
+                          ]
+                        }
+                      ],
+                      "classList": {
+                        "main": [
+                          "table-1-3-narrow",
+                          "grid",
+                          "grid-cols-5",
+                          "no-title"
+                        ],
+                        "sub": [
+                          "table-1-3__col"
+                        ]
+                      }
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "3. Koszty licencyjne i najmu kopii",
                       "components": [
                         {
                           "kind": "component",
@@ -7658,7 +7779,7 @@
                           "label": "",
                           "name": "licenseRentalDesc",
                           "dataBDD": "licenseRentalDesc",
-                          "value": "2. Koszty licencyjne i najmu kopii",
+                          "value": "3. Koszty licencyjne i najmu kopii",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -7771,7 +7892,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "3. Ubezpieczenia",
+                      "title": "4. Ubezpieczenia",
                       "components": [
                         {
                           "kind": "component",
@@ -7779,7 +7900,7 @@
                           "label": "",
                           "name": "insuranceDesc",
                           "dataBDD": "insuranceDesc",
-                          "value": "3. Ubezpieczenia",
+                          "value": "4. Ubezpieczenia",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -7892,7 +8013,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "4. Ewaluacja przedsięwzięcia",
+                      "title": "5. Ewaluacja przedsięwzięcia",
                       "components": [
                         {
                           "kind": "component",
@@ -7900,7 +8021,7 @@
                           "label": "",
                           "name": "evaluationDesc",
                           "dataBDD": "evaluationDesc",
-                          "value": "4. Ewaluacja przedsięwzięcia",
+                          "value": "5. Ewaluacja przedsięwzięcia",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -8302,7 +8423,7 @@
                               "cooperatingPeopleSumAmount",
                               "expertConsultationSumAmount",
                               "costumesRentalSumAmount",
-                              "stationerySumAmount",
+                              "developmentTeachingMaterialsSumAmount",
                               "commercialsSumAmount",
                               "graphicServiceSumAmount",
                               "recordingServiceSumAmount",
@@ -8318,6 +8439,7 @@
                               "accommodationSumAmount",
                               "cateringSumAmount",
                               "financialServiceSumAmount",
+                              "legalServiceSumAmount",
                               "licenseRentalSumAmount",
                               "insuranceSumAmount",
                               "evaluationSumAmount",
@@ -8345,7 +8467,7 @@
                               "cooperatingPeopleSumAmount",
                               "expertConsultationSumAmount",
                               "costumesRentalSumAmount",
-                              "stationerySumAmount",
+                              "developmentTeachingMaterialsSumAmount",
                               "commercialsSumAmount",
                               "graphicServiceSumAmount",
                               "recordingServiceSumAmount",
@@ -8361,6 +8483,7 @@
                               "accommodationSumAmount",
                               "cateringSumAmount",
                               "financialServiceSumAmount",
+                              "legalServiceSumAmount",
                               "licenseRentalSumAmount",
                               "insuranceSumAmount",
                               "evaluationSumAmount",
@@ -8398,7 +8521,7 @@
                               "cooperatingPeopleRequestedAmount",
                               "expertConsultationRequestedAmount",
                               "costumesRentalRequestedAmount",
-                              "stationeryRequestedAmount",
+                              "developmentTeachingMaterialsRequestedAmount",
                               "commercialsRequestedAmount",
                               "graphicServiceRequestedAmount",
                               "recordingServiceRequestedAmount",
@@ -8414,6 +8537,7 @@
                               "accommodationRequestedAmount",
                               "cateringRequestedAmount",
                               "financialServiceRequestedAmount",
+                              "legalServiceRequestedAmount",
                               "licenseRentalRequestedAmount",
                               "insuranceRequestedAmount",
                               "evaluationRequestedAmount",
@@ -8441,7 +8565,7 @@
                               "cooperatingPeopleRequestedAmount",
                               "expertConsultationRequestedAmount",
                               "costumesRentalRequestedAmount",
-                              "stationeryRequestedAmount",
+                              "developmentTeachingMaterialsRequestedAmount",
                               "commercialsRequestedAmount",
                               "graphicServiceRequestedAmount",
                               "recordingServiceRequestedAmount",
@@ -8457,6 +8581,7 @@
                               "accommodationRequestedAmount",
                               "cateringRequestedAmount",
                               "financialServiceRequestedAmount",
+                              "legalServiceRequestedAmount",
                               "licenseRentalRequestedAmount",
                               "insuranceRequestedAmount",
                               "evaluationRequestedAmount",
@@ -8494,7 +8619,7 @@
                               "cooperatingPeopleOtherFundsAmount",
                               "expertConsultationOtherFundsAmount",
                               "costumesRentalOtherFundsAmount",
-                              "stationeryOtherFundsAmount",
+                              "developmentTeachingMaterialsOtherFundsAmount",
                               "commercialsOtherFundsAmount",
                               "graphicServiceOtherFundsAmount",
                               "recordingServiceOtherFundsAmount",
@@ -8510,6 +8635,7 @@
                               "accommodationOtherFundsAmount",
                               "cateringOtherFundsAmount",
                               "financialServiceOtherFundsAmount",
+                              "legalServiceOtherFundsAmount",
                               "licenseRentalOtherFundsAmount",
                               "insuranceOtherFundsAmount",
                               "evaluationOtherFundsAmount",
@@ -8529,7 +8655,7 @@
                               "cooperatingPeopleOtherFundsAmount",
                               "expertConsultationOtherFundsAmount",
                               "costumesRentalOtherFundsAmount",
-                              "stationeryOtherFundsAmount",
+                              "developmentTeachingMaterialsOtherFundsAmount",
                               "commercialsOtherFundsAmount",
                               "graphicServiceOtherFundsAmount",
                               "recordingServiceOtherFundsAmount",
@@ -8545,6 +8671,7 @@
                               "accommodationOtherFundsAmount",
                               "cateringOtherFundsAmount",
                               "financialServiceOtherFundsAmount",
+                              "legalServiceOtherFundsAmount",
                               "licenseRentalOtherFundsAmount",
                               "insuranceOtherFundsAmount",
                               "evaluationOtherFundsAmount",
