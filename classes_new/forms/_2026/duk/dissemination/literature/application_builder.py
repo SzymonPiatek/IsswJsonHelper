@@ -1,6 +1,6 @@
 from classes_new.forms._2026.duk.dissemination.application_builder import DisseminationOperationalProgramApplicationFormBuilder
 from classes_new.forms._2026.duk.pisf_structure import LiteraturePriority
-from .estimate_data import estimate_sections
+from .estimate_data import estimate_sections_pt_12, estimate_sections_pt_3
 from classes_new.forms._2026.duk.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
 
 
@@ -24,9 +24,12 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
         self.source_of_financing_tickets = True
 
         # Estimate
-        estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
+        estimate_builder_pt_12 = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections_pt_12, after_name="pt12")
+        estimate_builder_pt_3 = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections_pt_3, after_name="pt3")
+
         self.estimate_chapters = [
-            estimate_builder.generate_estimate()
+            estimate_builder_pt_12.generate_estimate(),
+            estimate_builder_pt_3.generate_estimate()
         ]
 
     def create_application_scope_of_project(self, number):
@@ -54,44 +57,109 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
                             ]
                         ),
                         self.create_chapter(
-                            title="Potencjał popularyzatorski",
-                            help_text="Innowacyjność w zakresie treści, znaczenie projektu w upowszechnianiu wiedzy o kinematografii.",
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="projectType",
+                                    values=[
+                                        "Publikacja opracowań naukowych, książek (w formie papierowej, e-book, audiobook, książka dla niewidomych i słabowidzących), albumów, czasopism z dziedziny kinematografii funkcjonujących na rynku wydawniczym (również w formie publikacji elektronicznej).",
+                                        "Działalność portali, serwisów, baz z zakresu wiedzy o filmie.",
+                                    ]
+                                )
+                            ],
                             components=[
-                                self.create_component(
-                                    component_type="textarea",
-                                    name="popularizationPotential",
-                                    validators=[
-                                        self.validator.length_validator(max_value=1000)
-                                    ],
-                                    required=True
+                                self.create_chapter(
+                                    title="Potencjał popularyzatorski",
+                                    help_text="Innowacyjność w zakresie treści, znaczenie projektu w upowszechnianiu wiedzy o kinematografii.",
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            name="popularizationPotential",
+                                            validators=[
+                                                self.validator.length_validator(max_value=1000)
+                                            ],
+                                            required=True
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Koncepcja opracowania",
+                                    help_text="Formy publikacji, sposób realizacji, zastosowane technologie graficzne i edytorskie.",
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            name="conceptOfStudy",
+                                            validators=[
+                                                self.validator.length_validator(max_value=1000)
+                                            ],
+                                            required=True
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Analiza zapotrzebowania rynku na realizację przedsięwzięcia",
+                                    help_text="Grupa docelowa oraz zastosowanie praktyczne.",
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            name="marketAnalysisForProjectImplementation",
+                                            validators=[
+                                                self.validator.length_validator(max_value=1000)
+                                            ],
+                                            required=True
+                                        )
+                                    ]
                                 )
                             ]
                         ),
                         self.create_chapter(
-                            title="Koncepcja opracowania",
-                            help_text="Formy publikacji, sposób realizacji, zastosowane technologie graficzne i edytorskie.",
-                            components=[
-                                self.create_component(
-                                    component_type="textarea",
-                                    name="conceptOfStudy",
-                                    validators=[
-                                        self.validator.length_validator(max_value=1000)
-                                    ],
-                                    required=True
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="projectType",
+                                    values=[
+                                        "Wydanie muzyki filmowej z polskich filmów i koprodukcji, w tym reedycji i opracowań ścieżek dźwiękowych w formie analogowej lub cyfrowej."
+                                    ]
                                 )
-                            ]
-                        ),
-                        self.create_chapter(
-                            title="Analiza zapotrzebowania rynku na realizację przedsięwzięcia",
-                            help_text="Grupa docelowa oraz zastosowanie praktyczne.",
+                            ],
                             components=[
-                                self.create_component(
-                                    component_type="textarea",
-                                    name="marketAnalysisForProjectImplementation",
-                                    validators=[
-                                        self.validator.length_validator(max_value=1000)
-                                    ],
-                                    required=True
+                                self.create_chapter(
+                                    title="Wartość artystyczna i kulturowa przedsięwzięcia",
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            name="popularizationPotentialPt3",
+                                            validators=[
+                                                self.validator.length_validator(max_value=3000)
+                                            ],
+                                            required=True
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Koncepcja opracowania",
+                                    help_text="Opracowanie merytoryczne i edytorskie oraz zastosowane technologie.",
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            name="conceptOfStudyPt3",
+                                            validators=[
+                                                self.validator.length_validator(max_value=1000)
+                                            ],
+                                            required=True
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Praktyczne zastosowanie rezultatów projektu",
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            name="marketAnalysisForProjectImplementationPt3",
+                                            validators=[
+                                                self.validator.length_validator(max_value=1000)
+                                            ],
+                                            required=True
+                                        )
+                                    ]
                                 )
                             ]
                         ),
