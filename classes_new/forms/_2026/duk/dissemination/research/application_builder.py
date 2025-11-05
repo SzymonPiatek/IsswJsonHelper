@@ -11,7 +11,7 @@ class ResearchPriorityApplicationFormBuilder(DisseminationOperationalProgramAppl
         )
 
         self.form_id = self.set_ids(
-            local_id=24,
+            local_id=16412,
             uat_id=None
         )
 

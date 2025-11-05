@@ -9,7 +9,7 @@ class RelatedValidatorsApplicationFormBuilder(ApplicationFormBuilder):
         )
 
         self.form_id = self.set_ids(
-            local_id=32,
+            local_id=16419,
             uat_id=None
         )
 
@@ -2234,7 +2234,7 @@ class RelatedValidatorsApplicationFormBuilder(ApplicationFormBuilder):
                         ),
                         self.create_chapter(
                             title="Min",
-                            help_text="Opcja 1 - 10%, Opcja 2 - 20%",
+                            help_text="Opcja 1 - 10%, Opcja 2 - 20%.",
                             class_list={
                                 "main": ["table-1-2"],
                                 "sub": ["table-1-2__col"],
@@ -2266,7 +2266,7 @@ class RelatedValidatorsApplicationFormBuilder(ApplicationFormBuilder):
                         ),
                         self.create_chapter(
                             title="Max",
-                            help_text="Opcja 1 - 10%, Opcja 2 - 20%",
+                            help_text="Opcja 1 - 10%, Opcja 2 - 20%.",
                             class_list={
                                 "main": ["table-1-2"],
                                 "sub": ["table-1-2__col"],
@@ -2298,7 +2298,7 @@ class RelatedValidatorsApplicationFormBuilder(ApplicationFormBuilder):
                         ),
                         self.create_chapter(
                             title="Min Max",
-                            help_text="Opcja 1 - 10-20%, Opcja 2 - 30-40%",
+                            help_text="Opcja 1 - 10-20%, Opcja 2 - 30-40%.",
                             class_list={
                                 "main": ["table-1-2"],
                                 "sub": ["table-1-2__col"],
@@ -2388,7 +2388,7 @@ class RelatedValidatorsApplicationFormBuilder(ApplicationFormBuilder):
                         ),
                         self.create_chapter(
                             title="Min",
-                            help_text="Opcja 1 - 10, Opcja 2 - 20",
+                            help_text="Opcja 1 - 10, Opcja 2 - 20.",
                             class_list={
                                 "main": ["table-1-2"],
                                 "sub": ["table-1-2__col"],
@@ -2419,7 +2419,7 @@ class RelatedValidatorsApplicationFormBuilder(ApplicationFormBuilder):
                         ),
                         self.create_chapter(
                             title="Max",
-                            help_text="Opcja 1 - 10, Opcja 2 - 20",
+                            help_text="Opcja 1 - 10, Opcja 2 - 20.",
                             class_list={
                                 "main": ["table-1-2"],
                                 "sub": ["table-1-2__col"],
@@ -2450,7 +2450,7 @@ class RelatedValidatorsApplicationFormBuilder(ApplicationFormBuilder):
                         ),
                         self.create_chapter(
                             title="Min Max",
-                            help_text="Opcja 1 - 10-20, Opcja 2 - 30-40",
+                            help_text="Opcja 1 - 10-20, Opcja 2 - 30-40.",
                             class_list={
                                 "main": ["table-1-2"],
                                 "sub": ["table-1-2__col"],

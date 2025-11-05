@@ -11,7 +11,7 @@ class SecondarySchoolsPriorityApplicationFormBuilder(EducationOperationalProgram
         )
 
         self.form_id = self.set_ids(
-            local_id=17,
+            local_id=16405,
             uat_id=None
         )
 

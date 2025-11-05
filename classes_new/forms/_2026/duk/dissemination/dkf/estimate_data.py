@@ -31,7 +31,7 @@ estimate_sections = [
             CostItem(title="Przygotowanie kopii filmowych i napisów do filmów", name="copyingAndSubtitling"),
             CostItem(title="Wynajem powierzchni", name="rentalSurface"),
             CostItem(title="Wynajem sprzętu", name="equipmentRental"),
-            CostItem(title="Obsługa techniczna", name="technicalService"),
+            CostItem(title="Obsługa techniczna", name="technicalService", helpText="Dopuszcza się ujęcie obsługi technicznej w kosztach wynajmu sprzętu, jeśli stanowi integralną część usługi dostawcy."),
             CostItem(title="Obsługa projektów online", name="onlineProjects"),
         ],
     ),
@@ -70,6 +70,7 @@ estimate_sections = [
                     "Koszty muszą być udokumentowane rachunkiem lub fakturą z opisem potwierdzającym związek z przedsięwzięciem."
                 ),
             ),
+            CostItem(title="Obsługa prawna", name="legalService"),
             CostItem(
                 title="Koszty licencji lub nabycia praw do publicznego pokazu",
                 name="publicPerformanceRights",
@@ -79,6 +80,7 @@ estimate_sections = [
                 title="Koszty składki Polskiej Federacji Dyskusyjnych Klubów Filmowych",
                 name="pfdkfFee",
                 helpText="Pokrywana wyłącznie ze środków własnych Wnioskodawcy lub z innych źródeł finansowania.",
+                # TODO readonly na requestAmount
             ),
         ],
     ),

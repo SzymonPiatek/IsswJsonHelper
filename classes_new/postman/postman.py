@@ -19,6 +19,8 @@ class Postman:
         self.login_data = login_data
         self.access_token = None
 
+        self.login()
+
     def construct_form_link(self, json_type: Literal["application", "report"], form_id: int):
         return f"{self.base_url}/{'wniosek' if json_type == 'application' else 'raport'}/{form_id}/edycja?version=-1"
 

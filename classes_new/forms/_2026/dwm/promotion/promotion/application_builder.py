@@ -9,7 +9,7 @@ class PromotionPriorityApplicationFormBuilder(PromotionOperationalProgramApplica
         )
 
         self.form_id = self.set_ids(
-            local_id=16409,
+            local_id=16417,
             uat_id=2822
         )
 

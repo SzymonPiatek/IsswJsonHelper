@@ -11,7 +11,7 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
         )
 
         self.form_id = self.set_ids(
-            local_id=18,
+            local_id=16406,
             uat_id=None
         )
 

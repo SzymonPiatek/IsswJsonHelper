@@ -9,7 +9,7 @@ class ForeignPriorityApplicationFormBuilder(PromotionOperationalProgramApplicati
         )
 
         self.form_id = self.set_ids(
-            local_id=16410,
+            local_id=16418,
             uat_id=2823
         )
 

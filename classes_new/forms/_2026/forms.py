@@ -49,7 +49,7 @@ class Forms2026(Forms):
         self.builder_map = {
             "application": {
                 "dpf": {
-                    "skip": True,
+                    "skip": False,
                     "po1": {
                         "pr1": ScreenplayScholarshipPriorityApplicationFormBuilder
                     }
@@ -76,14 +76,14 @@ class Forms2026(Forms):
                     }
                 },
                 "dwm": {
-                    "skip": True,
+                    "skip": False,
                     "po5": {
                         "pr1": PromotionPriorityApplicationFormBuilder,
                         "pr2": ForeignPriorityApplicationFormBuilder
                     }
                 },
                 "test": {
-                    "skip": True,
+                    "skip": False,
                     "visuality": {
                         "test": VisualityTestApplicationFormBuilder
                     },
@@ -130,7 +130,7 @@ class Forms2026(Forms):
                     }
                 },
                 "zachety": {
-                    "skip": True,
+                    "skip": False,
                     "finansowanie": {
                         "raport": FinancingPriorityReportFormBuilder
                     }

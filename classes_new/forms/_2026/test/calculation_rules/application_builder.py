@@ -9,7 +9,7 @@ class CalculationRulesApplicationFormBuilder(ApplicationFormBuilder):
         )
 
         self.form_id = self.set_ids(
-            local_id=16416,
+            local_id=16423,
             uat_id=None
         )
 

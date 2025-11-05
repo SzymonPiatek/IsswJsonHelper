@@ -30,16 +30,19 @@ estimate_sections = [
                 name="researchTools",
             ),
             CostItem(
-                title="Badania terenowe (wywiady, ankiety, grupy fokusowe)",
+                title="Badania terenowe",
                 name="fieldResearch",
+                helpText="Wywiady, ankiety, grupy fokusowe."
             ),
             CostItem(
-                title="Analizy jakościowe (dane zastane, analiza wywiadów, case study)",
+                title="Analizy jakościowe",
                 name="qualitativeAnalysis",
+                helpText="Dane zastane, analiza wywiadów, case study."
             ),
             CostItem(
-                title="Analizy ilościowe (analiza statystyczna)",
+                title="Analizy ilościowe",
                 name="quantitativeAnalysis",
+                helpText="Analiza statystyczna."
             ),
             CostItem(
                 title="Raport końcowy z badania",
@@ -101,6 +104,7 @@ estimate_sections = [
                     "Koszty te powinny być udokumentowane rachunkiem lub fakturą z opisem potwierdzającym związek z przedsięwzięciem."
                 ),
             ),
+            CostItem(title="Obsługa prawna", name="legalService"),
             CostItem(
                 title="Koszty licencyjne",
                 name="licenseCosts",
