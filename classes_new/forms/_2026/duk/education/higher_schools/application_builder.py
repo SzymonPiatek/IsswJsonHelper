@@ -20,7 +20,7 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
             "Programy edukacyjne wchodzące w skład edukacji ciągłej.",
             "Realizacja szkolnych i pozaszkolnych filmów krótko- i średniometrażowych.",
             "Kształcenie zawodowe i podnoszenie kompetencji poprzez organizację studiów podyplomowych.",
-            "Inne działania realizujące cele Priorytetu I."
+            "Organizacja praktyk zawodowych dla studentów."
         ]
         self.source_of_financing_tickets = True
 

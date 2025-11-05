@@ -1768,8 +1768,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         self.section.application_attachment.schedule_information()
                     ]
                 ),
-                self.section.application_attachment.other_attachments(),
-                self.section.application_attachment.storage_of_blanks()
+                self.section.application_attachment.other_attachments()
             ]
         )
         self.save_part(part)

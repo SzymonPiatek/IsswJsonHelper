@@ -53,6 +53,9 @@ class FormHelper:
             "uat": self.uat_postman
         }
 
+        # self.local_postman.login()
+        # self.uat_postman.login()
+
         self.forms_index: list[dict] = []
 
     def generate_jsons(self, data_type: str):
