@@ -5215,7 +5215,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "2. Opracowanie i redakcja publikacji (autorzy tekstów, redaktorzy, korektorzy)",
+                      "title": "2. Opracowanie i redakcja publikacji",
                       "components": [
                         {
                           "kind": "component",
@@ -5223,7 +5223,7 @@
                           "label": "",
                           "name": "publicationEditingDescpt12",
                           "dataBDD": "publicationEditingDescpt12",
-                          "value": "2. Opracowanie i redakcja publikacji (autorzy tekstów, redaktorzy, korektorzy)",
+                          "value": "2. Opracowanie i redakcja publikacji",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -5322,6 +5322,7 @@
                           ]
                         }
                       ],
+                      "helpText": "Autorzy tekstów, redaktorzy, korektorzy.",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",
@@ -5841,7 +5842,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "3. Przygotowanie wersji cyfrowych (e-book, audiobook)",
+                      "title": "3. Przygotowanie wersji cyfrowych",
                       "components": [
                         {
                           "kind": "component",
@@ -5849,7 +5850,7 @@
                           "label": "",
                           "name": "digitalVersionsDescpt12",
                           "dataBDD": "digitalVersionsDescpt12",
-                          "value": "3. Przygotowanie wersji cyfrowych (e-book, audiobook)",
+                          "value": "3. Przygotowanie wersji cyfrowych",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -5948,6 +5949,7 @@
                           ]
                         }
                       ],
+                      "helpText": "E-book, audiobook.",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",
@@ -6204,7 +6206,128 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "6. Dystrybucja",
+                      "title": "6. Obsługa PR, promocja i reklama",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "",
+                          "name": "commercialsDescpt12",
+                          "dataBDD": "commercialsDescpt12",
+                          "value": "6. Obsługa PR, promocja i reklama",
+                          "readOnly": true,
+                          "classList": [
+                            "col-span-2",
+                            "displayNoneFrontend",
+                            "full-width",
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Koszt ogółem",
+                          "name": "commercialsSumAmountpt12",
+                          "dataBDD": "commercialsSumAmountpt12",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "readOnly": true,
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            },
+                            {
+                              "name": "RelatedSumValidator",
+                              "kwargs": {
+                                "field_names": [
+                                  "commercialsRequestedAmountpt12",
+                                  "commercialsOtherFundsAmountpt12"
+                                ]
+                              }
+                            }
+                          ],
+                          "calculationRules": [
+                            {
+                              "name": "dynamicSumInputs",
+                              "kwargs": {
+                                "fields": [
+                                  "commercialsRequestedAmountpt12",
+                                  "commercialsOtherFundsAmountpt12"
+                                ]
+                              }
+                            }
+                          ],
+                          "classList": [
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Wnioskowana dotacja PISF",
+                          "name": "commercialsRequestedAmountpt12",
+                          "dataBDD": "commercialsRequestedAmountpt12",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "calculationRules": [],
+                          "classList": [
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Pozostałe środki",
+                          "name": "commercialsOtherFundsAmountpt12",
+                          "dataBDD": "commercialsOtherFundsAmountpt12",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "calculationRules": [],
+                          "classList": [
+                            "no-label"
+                          ]
+                        }
+                      ],
+                      "classList": {
+                        "main": [
+                          "table-1-3-narrow",
+                          "grid",
+                          "grid-cols-5",
+                          "no-title"
+                        ],
+                        "sub": [
+                          "table-1-3__col"
+                        ]
+                      }
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "7. Dystrybucja",
                       "components": [
                         {
                           "kind": "component",
@@ -6212,7 +6335,7 @@
                           "label": "",
                           "name": "distributionDescpt12",
                           "dataBDD": "distributionDescpt12",
-                          "value": "6. Dystrybucja",
+                          "value": "7. Dystrybucja",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6336,15 +6459,15 @@
                   "components": [
                     {
                       "kind": "chapter",
-                      "title": "1. Obsługa prawna i finansowa",
+                      "title": "1. Obsługa finansowa",
                       "components": [
                         {
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "legalFinancialServiceDescpt12",
-                          "dataBDD": "legalFinancialServiceDescpt12",
-                          "value": "1. Obsługa prawna i finansowa",
+                          "name": "financialServiceDescpt12",
+                          "dataBDD": "financialServiceDescpt12",
+                          "value": "1. Obsługa finansowa",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6357,8 +6480,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "legalFinancialServiceSumAmountpt12",
-                          "dataBDD": "legalFinancialServiceSumAmountpt12",
+                          "name": "financialServiceSumAmountpt12",
+                          "dataBDD": "financialServiceSumAmountpt12",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6375,8 +6498,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "legalFinancialServiceRequestedAmountpt12",
-                                  "legalFinancialServiceOtherFundsAmountpt12"
+                                  "financialServiceRequestedAmountpt12",
+                                  "financialServiceOtherFundsAmountpt12"
                                 ]
                               }
                             }
@@ -6386,8 +6509,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "legalFinancialServiceRequestedAmountpt12",
-                                  "legalFinancialServiceOtherFundsAmountpt12"
+                                  "financialServiceRequestedAmountpt12",
+                                  "financialServiceOtherFundsAmountpt12"
                                 ]
                               }
                             }
@@ -6400,8 +6523,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "legalFinancialServiceRequestedAmountpt12",
-                          "dataBDD": "legalFinancialServiceRequestedAmountpt12",
+                          "name": "financialServiceRequestedAmountpt12",
+                          "dataBDD": "financialServiceRequestedAmountpt12",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6423,8 +6546,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "legalFinancialServiceOtherFundsAmountpt12",
-                          "dataBDD": "legalFinancialServiceOtherFundsAmountpt12",
+                          "name": "financialServiceOtherFundsAmountpt12",
+                          "dataBDD": "financialServiceOtherFundsAmountpt12",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6458,7 +6581,128 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "2. Koszty nabycia praw",
+                      "title": "2. Obsługa prawna",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "",
+                          "name": "legalServiceDescpt12",
+                          "dataBDD": "legalServiceDescpt12",
+                          "value": "2. Obsługa prawna",
+                          "readOnly": true,
+                          "classList": [
+                            "col-span-2",
+                            "displayNoneFrontend",
+                            "full-width",
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Koszt ogółem",
+                          "name": "legalServiceSumAmountpt12",
+                          "dataBDD": "legalServiceSumAmountpt12",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "readOnly": true,
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            },
+                            {
+                              "name": "RelatedSumValidator",
+                              "kwargs": {
+                                "field_names": [
+                                  "legalServiceRequestedAmountpt12",
+                                  "legalServiceOtherFundsAmountpt12"
+                                ]
+                              }
+                            }
+                          ],
+                          "calculationRules": [
+                            {
+                              "name": "dynamicSumInputs",
+                              "kwargs": {
+                                "fields": [
+                                  "legalServiceRequestedAmountpt12",
+                                  "legalServiceOtherFundsAmountpt12"
+                                ]
+                              }
+                            }
+                          ],
+                          "classList": [
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Wnioskowana dotacja PISF",
+                          "name": "legalServiceRequestedAmountpt12",
+                          "dataBDD": "legalServiceRequestedAmountpt12",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "calculationRules": [],
+                          "classList": [
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Pozostałe środki",
+                          "name": "legalServiceOtherFundsAmountpt12",
+                          "dataBDD": "legalServiceOtherFundsAmountpt12",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "calculationRules": [],
+                          "classList": [
+                            "no-label"
+                          ]
+                        }
+                      ],
+                      "classList": {
+                        "main": [
+                          "table-1-3-narrow",
+                          "grid",
+                          "grid-cols-5",
+                          "no-title"
+                        ],
+                        "sub": [
+                          "table-1-3__col"
+                        ]
+                      }
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "3. Koszty licencyjne i nabycia praw",
                       "components": [
                         {
                           "kind": "component",
@@ -6466,7 +6710,7 @@
                           "label": "",
                           "name": "rightsAcquisitionDescpt12",
                           "dataBDD": "rightsAcquisitionDescpt12",
-                          "value": "2. Koszty nabycia praw",
+                          "value": "3. Koszty licencyjne i nabycia praw",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6579,7 +6823,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "3. Koszty przejazdów i noclegów osób współpracujących przy przedsięwzięciu",
+                      "title": "4. Koszty przejazdów i noclegów osób współpracujących przy przedsięwzięciu",
                       "components": [
                         {
                           "kind": "component",
@@ -6587,7 +6831,7 @@
                           "label": "",
                           "name": "travelAccommodationDescpt12",
                           "dataBDD": "travelAccommodationDescpt12",
-                          "value": "3. Koszty przejazdów i noclegów osób współpracujących przy przedsięwzięciu",
+                          "value": "4. Koszty przejazdów i noclegów osób współpracujących przy przedsięwzięciu",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6701,7 +6945,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "4. Ewaluacja przedsięwzięcia",
+                      "title": "5. Ewaluacja przedsięwzięcia",
                       "components": [
                         {
                           "kind": "component",
@@ -6709,7 +6953,7 @@
                           "label": "",
                           "name": "evaluationDescpt12",
                           "dataBDD": "evaluationDescpt12",
-                          "value": "4. Ewaluacja przedsięwzięcia",
+                          "value": "5. Ewaluacja przedsięwzięcia",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6995,8 +7239,10 @@
                               "digitalVersionsSumAmountpt12",
                               "websiteMaintenanceSumAmountpt12",
                               "translationSumAmountpt12",
+                              "commercialsSumAmountpt12",
                               "distributionSumAmountpt12",
-                              "legalFinancialServiceSumAmountpt12",
+                              "financialServiceSumAmountpt12",
+                              "legalServiceSumAmountpt12",
                               "rightsAcquisitionSumAmountpt12",
                               "travelAccommodationSumAmountpt12",
                               "evaluationSumAmountpt12",
@@ -7027,8 +7273,10 @@
                               "digitalVersionsSumAmountpt12",
                               "websiteMaintenanceSumAmountpt12",
                               "translationSumAmountpt12",
+                              "commercialsSumAmountpt12",
                               "distributionSumAmountpt12",
-                              "legalFinancialServiceSumAmountpt12",
+                              "financialServiceSumAmountpt12",
+                              "legalServiceSumAmountpt12",
                               "rightsAcquisitionSumAmountpt12",
                               "travelAccommodationSumAmountpt12",
                               "evaluationSumAmountpt12",
@@ -7069,8 +7317,10 @@
                               "digitalVersionsRequestedAmountpt12",
                               "websiteMaintenanceRequestedAmountpt12",
                               "translationRequestedAmountpt12",
+                              "commercialsRequestedAmountpt12",
                               "distributionRequestedAmountpt12",
-                              "legalFinancialServiceRequestedAmountpt12",
+                              "financialServiceRequestedAmountpt12",
+                              "legalServiceRequestedAmountpt12",
                               "rightsAcquisitionRequestedAmountpt12",
                               "travelAccommodationRequestedAmountpt12",
                               "evaluationRequestedAmountpt12",
@@ -7101,8 +7351,10 @@
                               "digitalVersionsRequestedAmountpt12",
                               "websiteMaintenanceRequestedAmountpt12",
                               "translationRequestedAmountpt12",
+                              "commercialsRequestedAmountpt12",
                               "distributionRequestedAmountpt12",
-                              "legalFinancialServiceRequestedAmountpt12",
+                              "financialServiceRequestedAmountpt12",
+                              "legalServiceRequestedAmountpt12",
                               "rightsAcquisitionRequestedAmountpt12",
                               "travelAccommodationRequestedAmountpt12",
                               "evaluationRequestedAmountpt12",
@@ -7143,8 +7395,10 @@
                               "digitalVersionsOtherFundsAmountpt12",
                               "websiteMaintenanceOtherFundsAmountpt12",
                               "translationOtherFundsAmountpt12",
+                              "commercialsOtherFundsAmountpt12",
                               "distributionOtherFundsAmountpt12",
-                              "legalFinancialServiceOtherFundsAmountpt12",
+                              "financialServiceOtherFundsAmountpt12",
+                              "legalServiceOtherFundsAmountpt12",
                               "rightsAcquisitionOtherFundsAmountpt12",
                               "travelAccommodationOtherFundsAmountpt12",
                               "evaluationOtherFundsAmountpt12",
@@ -7167,8 +7421,10 @@
                               "digitalVersionsOtherFundsAmountpt12",
                               "websiteMaintenanceOtherFundsAmountpt12",
                               "translationOtherFundsAmountpt12",
+                              "commercialsOtherFundsAmountpt12",
                               "distributionOtherFundsAmountpt12",
-                              "legalFinancialServiceOtherFundsAmountpt12",
+                              "financialServiceOtherFundsAmountpt12",
+                              "legalServiceOtherFundsAmountpt12",
                               "rightsAcquisitionOtherFundsAmountpt12",
                               "travelAccommodationOtherFundsAmountpt12",
                               "evaluationOtherFundsAmountpt12",

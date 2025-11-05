@@ -9,7 +9,7 @@ estimate_sections_pt_12 = [
         title="Koszty osobowe i merytoryczne",
         costs=[
             CostItem(title="Zarządzanie przedsięwzięciem", name="projectManagement"),
-            CostItem(title="Opracowanie i redakcja publikacji (autorzy tekstów, redaktorzy, korektorzy)", name="publicationEditing"),
+            CostItem(title="Opracowanie i redakcja publikacji", name="publicationEditing", helpText="Autorzy tekstów, redaktorzy, korektorzy."),
             fraction_cost("osobowe", "personal", 0.35),
             CostItem(title="Konsultacje eksperckie", name="expertConsultation"),
         ],
@@ -19,9 +19,10 @@ estimate_sections_pt_12 = [
         costs=[
             CostItem(title="Usługi graficzne, fotograficzne i typograficzne", name="graphicPhotoTypography"),
             CostItem(title="Usługi wydawnicze i poligraficzne", name="publishingPrinting"),
-            CostItem(title="Przygotowanie wersji cyfrowych (e-book, audiobook)", name="digitalVersions"),
+            CostItem(title="Przygotowanie wersji cyfrowych", name="digitalVersions", helpText="E-book, audiobook."),
             CostItem(title="Obsługa i utrzymanie serwisu internetowego", name="websiteMaintenance"),
             CostItem(title="Tłumaczenia", name="translation"),
+            CostItem(title="Obsługa PR, promocja i reklama", name="commercials"),
             CostItem(title="Dystrybucja", name="distribution"),
         ],
     ),
@@ -29,11 +30,12 @@ estimate_sections_pt_12 = [
         title="Koszty prawne i organizacyjne",
         costs=[
             CostItem(
-                title="Obsługa prawna i finansowa",
-                name="legalFinancialService",
+                title="Obsługa finansowa",
+                name="financialService",
                 helpText="W tym koszty związane z otwarciem i prowadzeniem rachunku bankowego wyłącznie dla operacji finansowych związanych z realizacją przedsięwzięcia. Koszty prowadzenia księgowości związanej z realizacją przedsięwzięcia. Wszystkie koszty muszą być udokumentowane rachunkiem lub fakturą z opisem potwierdzającym związek z przedsięwzięciem.",
             ),
-            CostItem(title="Koszty nabycia praw", name="rightsAcquisition"),
+            CostItem(title="Obsługa prawna", name="legalService"),
+            CostItem(title="Koszty licencyjne i nabycia praw", name="rightsAcquisition"),
             CostItem(
                 title="Koszty przejazdów i noclegów osób współpracujących przy przedsięwzięciu",
                 name="travelAccommodation",
