@@ -117,18 +117,18 @@
               "dataBDD": "projectType",
               "value": "",
               "options": [
-                "Cykliczne zajęcia edukacyjne połączone z projekcją filmu o wysokich walorach artystycznych, dotyczące analizy prezentowanego utworu, jego miejsca w historii kinematografii polskiej i/lub światowej, estetyki filmowej i zastosowanych środków wyrazu oraz społecznych funkcji filmu, organizowane w kinach lub innych salach przygotowanych do projekcji filmu.",
-                "Niecykliczne zajęcia, warsztaty wzbogacone materiałami dydaktycznymi o wysokiej wartości merytorycznej, zgodne z obowiązującą podstawą programową nauczania.",
-                "Inne działania realizujące cele Priorytetu IV."
+                "Zajęcia edukacyjne połączone z projekcją filmu o wysokich walorach artystycznych, dotyczące analizy prezentowanego utworu, jego miejsca w historii kinematografii polskiej i/lub światowej, estetyki filmowej i zastosowanych środków wyrazu oraz społecznych funkcji filmu, organizowane w kinach lub innych salach przygotowanych do projekcji filmu",
+                "Zajęcia i warsztaty wzbogacone materiałami dydaktycznymi o wysokiej wartości merytorycznej, rozwijające wiedzę o filmie oraz umiejętności twórcze i analityczne uczestników",
+                "Inne działania realizujące cele Priorytetu IV"
               ],
               "validators": [
                 {
                   "name": "ExactValidator",
                   "kwargs": {
                     "values": [
-                      "Cykliczne zajęcia edukacyjne połączone z projekcją filmu o wysokich walorach artystycznych, dotyczące analizy prezentowanego utworu, jego miejsca w historii kinematografii polskiej i/lub światowej, estetyki filmowej i zastosowanych środków wyrazu oraz społecznych funkcji filmu, organizowane w kinach lub innych salach przygotowanych do projekcji filmu.",
-                      "Niecykliczne zajęcia, warsztaty wzbogacone materiałami dydaktycznymi o wysokiej wartości merytorycznej, zgodne z obowiązującą podstawą programową nauczania.",
-                      "Inne działania realizujące cele Priorytetu IV."
+                      "Zajęcia edukacyjne połączone z projekcją filmu o wysokich walorach artystycznych, dotyczące analizy prezentowanego utworu, jego miejsca w historii kinematografii polskiej i/lub światowej, estetyki filmowej i zastosowanych środków wyrazu oraz społecznych funkcji filmu, organizowane w kinach lub innych salach przygotowanych do projekcji filmu",
+                      "Zajęcia i warsztaty wzbogacone materiałami dydaktycznymi o wysokiej wartości merytorycznej, rozwijające wiedzę o filmie oraz umiejętności twórcze i analityczne uczestników",
+                      "Inne działania realizujące cele Priorytetu IV"
                     ]
                   }
                 }
@@ -5455,7 +5455,7 @@
                   "components": [
                     {
                       "kind": "chapter",
-                      "title": "1. Koszty opracowania materiałów dydaktycznych",
+                      "title": "1. Opracowanie materiałów dydaktycznych",
                       "components": [
                         {
                           "kind": "component",
@@ -5463,7 +5463,7 @@
                           "label": "",
                           "name": "educationalMaterialsDesc",
                           "dataBDD": "educationalMaterialsDesc",
-                          "value": "1. Koszty opracowania materiałów dydaktycznych",
+                          "value": "1. Opracowanie materiałów dydaktycznych",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -5576,7 +5576,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "2. Koszty przygotowania kopii filmowych oraz napisów do filmów",
+                      "title": "2. Przygotowanie kopii filmowych oraz napisów do filmów",
                       "components": [
                         {
                           "kind": "component",
@@ -5584,7 +5584,7 @@
                           "label": "",
                           "name": "copyingAndSubtitlingDesc",
                           "dataBDD": "copyingAndSubtitlingDesc",
-                          "value": "2. Koszty przygotowania kopii filmowych oraz napisów do filmów",
+                          "value": "2. Przygotowanie kopii filmowych oraz napisów do filmów",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -5697,7 +5697,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "3. Koszty obsługi PR, promocji i reklamy",
+                      "title": "3. Obsługa PR, promocji i reklamy",
                       "components": [
                         {
                           "kind": "component",
@@ -5705,7 +5705,7 @@
                           "label": "",
                           "name": "commercialsDesc",
                           "dataBDD": "commercialsDesc",
-                          "value": "3. Koszty obsługi PR, promocji i reklamy",
+                          "value": "3. Obsługa PR, promocji i reklamy",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -5818,7 +5818,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "4. Koszty usług graficznych i poligraficznych",
+                      "title": "4. Usługi graficzne i poligraficzne",
                       "components": [
                         {
                           "kind": "component",
@@ -5826,7 +5826,7 @@
                           "label": "",
                           "name": "graphicServiceDesc",
                           "dataBDD": "graphicServiceDesc",
-                          "value": "4. Koszty usług graficznych i poligraficznych",
+                          "value": "4. Usługi graficzne i poligraficzne",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -5939,7 +5939,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "5. Koszty nagrań i usług fotograficznych",
+                      "title": "5. Nagrania, usługi fotograficzne i montażowe",
                       "components": [
                         {
                           "kind": "component",
@@ -5947,7 +5947,7 @@
                           "label": "",
                           "name": "recordingServiceDesc",
                           "dataBDD": "recordingServiceDesc",
-                          "value": "5. Koszty nagrań i usług fotograficznych",
+                          "value": "5. Nagrania, usługi fotograficzne i montażowe",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6313,7 +6313,7 @@
                   "components": [
                     {
                       "kind": "chapter",
-                      "title": "1. Koszty wynajmu powierzchni",
+                      "title": "1. Wynajem powierzchni",
                       "components": [
                         {
                           "kind": "component",
@@ -6321,7 +6321,7 @@
                           "label": "",
                           "name": "rentalSurfaceDesc",
                           "dataBDD": "rentalSurfaceDesc",
-                          "value": "1. Koszty wynajmu powierzchni",
+                          "value": "1. Wynajem powierzchni",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6434,7 +6434,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "2. Koszty aranżacji powierzchni",
+                      "title": "2. Aranżacja powierzchni",
                       "components": [
                         {
                           "kind": "component",
@@ -6442,7 +6442,7 @@
                           "label": "",
                           "name": "arrangementSurfaceDesc",
                           "dataBDD": "arrangementSurfaceDesc",
-                          "value": "2. Koszty aranżacji powierzchni",
+                          "value": "2. Aranżacja powierzchni",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6555,7 +6555,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "3. Koszty wynajmu sprzętu",
+                      "title": "3. Wynajem sprzętu",
                       "components": [
                         {
                           "kind": "component",
@@ -6563,7 +6563,7 @@
                           "label": "",
                           "name": "equipmentRentalDesc",
                           "dataBDD": "equipmentRentalDesc",
-                          "value": "3. Koszty wynajmu sprzętu",
+                          "value": "3. Wynajem sprzętu",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6676,7 +6676,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "4. Koszty obsługi technicznej",
+                      "title": "4. Obsługa techniczna",
                       "components": [
                         {
                           "kind": "component",
@@ -6684,7 +6684,7 @@
                           "label": "",
                           "name": "technicalServiceDesc",
                           "dataBDD": "technicalServiceDesc",
-                          "value": "4. Koszty obsługi technicznej",
+                          "value": "4. Obsługa techniczna",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6783,6 +6783,7 @@
                           ]
                         }
                       ],
+                      "helpText": "Dopuszcza się ujęcie obsługi technicznej w kosztach wynajmu sprzętu, jeśli stanowi integralną część usługi dostawcy.",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",
@@ -6797,7 +6798,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "5. Koszty zabezpieczenia BHP",
+                      "title": "5. Zabezpieczenia BHP",
                       "components": [
                         {
                           "kind": "component",
@@ -6805,7 +6806,7 @@
                           "label": "",
                           "name": "safetyBhpDesc",
                           "dataBDD": "safetyBhpDesc",
-                          "value": "5. Koszty zabezpieczenia BHP",
+                          "value": "5. Zabezpieczenia BHP",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6918,7 +6919,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "6. Koszty obsługi projektów edukacyjnych online",
+                      "title": "6. Obsługa projektów edukacyjnych online",
                       "components": [
                         {
                           "kind": "component",
@@ -6926,7 +6927,7 @@
                           "label": "",
                           "name": "onlineEducationProjectsDesc",
                           "dataBDD": "onlineEducationProjectsDesc",
-                          "value": "6. Koszty obsługi projektów edukacyjnych online",
+                          "value": "6. Obsługa projektów edukacyjnych online",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -7050,7 +7051,7 @@
                   "components": [
                     {
                       "kind": "chapter",
-                      "title": "1. Koszty usług transportowych",
+                      "title": "1. Usługi transportowe",
                       "components": [
                         {
                           "kind": "component",
@@ -7058,7 +7059,7 @@
                           "label": "",
                           "name": "transportServicesDesc",
                           "dataBDD": "transportServicesDesc",
-                          "value": "1. Koszty usług transportowych",
+                          "value": "1. Usługi transportowe",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -7171,7 +7172,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "2. Koszty dotyczące podróży",
+                      "title": "2. Podróże",
                       "components": [
                         {
                           "kind": "component",
@@ -7179,7 +7180,7 @@
                           "label": "",
                           "name": "travelDesc",
                           "dataBDD": "travelDesc",
-                          "value": "2. Koszty dotyczące podróży",
+                          "value": "2. Podróże",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -7293,7 +7294,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "3. Koszty dotyczące noclegów",
+                      "title": "3. Noclegi",
                       "components": [
                         {
                           "kind": "component",
@@ -7301,7 +7302,7 @@
                           "label": "",
                           "name": "accommodationDesc",
                           "dataBDD": "accommodationDesc",
-                          "value": "3. Koszty dotyczące noclegów",
+                          "value": "3. Noclegi",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -7412,6 +7413,128 @@
                           "table-1-3__col"
                         ]
                       }
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "4. Katering lub poczęstunek",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "",
+                          "name": "cateringDesc",
+                          "dataBDD": "cateringDesc",
+                          "value": "4. Katering lub poczęstunek",
+                          "readOnly": true,
+                          "classList": [
+                            "col-span-2",
+                            "displayNoneFrontend",
+                            "full-width",
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Koszt ogółem",
+                          "name": "cateringSumAmount",
+                          "dataBDD": "cateringSumAmount",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "readOnly": true,
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            },
+                            {
+                              "name": "RelatedSumValidator",
+                              "kwargs": {
+                                "field_names": [
+                                  "cateringRequestedAmount",
+                                  "cateringOtherFundsAmount"
+                                ]
+                              }
+                            }
+                          ],
+                          "calculationRules": [
+                            {
+                              "name": "dynamicSumInputs",
+                              "kwargs": {
+                                "fields": [
+                                  "cateringRequestedAmount",
+                                  "cateringOtherFundsAmount"
+                                ]
+                              }
+                            }
+                          ],
+                          "classList": [
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Wnioskowana dotacja PISF",
+                          "name": "cateringRequestedAmount",
+                          "dataBDD": "cateringRequestedAmount",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "calculationRules": [],
+                          "classList": [
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Pozostałe środki",
+                          "name": "cateringOtherFundsAmount",
+                          "dataBDD": "cateringOtherFundsAmount",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "calculationRules": [],
+                          "classList": [
+                            "no-label"
+                          ]
+                        }
+                      ],
+                      "helpText": "Koszty cateringu lub poczęstunku nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty, o których mowa powyżej nie mogą przekroczyć 15,00% przyznanej dotacji.",
+                      "classList": {
+                        "main": [
+                          "table-1-3-narrow",
+                          "grid",
+                          "grid-cols-5",
+                          "no-title"
+                        ],
+                        "sub": [
+                          "table-1-3__col"
+                        ]
+                      }
                     }
                   ],
                   "classList": {
@@ -7426,7 +7549,7 @@
                   "components": [
                     {
                       "kind": "chapter",
-                      "title": "1. Koszty obsługi finansowej",
+                      "title": "1. Obsługa finansowa",
                       "components": [
                         {
                           "kind": "component",
@@ -7434,7 +7557,7 @@
                           "label": "",
                           "name": "financialServiceDesc",
                           "dataBDD": "financialServiceDesc",
-                          "value": "1. Koszty obsługi finansowej",
+                          "value": "1. Obsługa finansowa",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -7548,7 +7671,128 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "2. Koszty licencyjne",
+                      "title": "2. Obsługa prawna",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "",
+                          "name": "legalServiceDesc",
+                          "dataBDD": "legalServiceDesc",
+                          "value": "2. Obsługa prawna",
+                          "readOnly": true,
+                          "classList": [
+                            "col-span-2",
+                            "displayNoneFrontend",
+                            "full-width",
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Koszt ogółem",
+                          "name": "legalServiceSumAmount",
+                          "dataBDD": "legalServiceSumAmount",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "readOnly": true,
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            },
+                            {
+                              "name": "RelatedSumValidator",
+                              "kwargs": {
+                                "field_names": [
+                                  "legalServiceRequestedAmount",
+                                  "legalServiceOtherFundsAmount"
+                                ]
+                              }
+                            }
+                          ],
+                          "calculationRules": [
+                            {
+                              "name": "dynamicSumInputs",
+                              "kwargs": {
+                                "fields": [
+                                  "legalServiceRequestedAmount",
+                                  "legalServiceOtherFundsAmount"
+                                ]
+                              }
+                            }
+                          ],
+                          "classList": [
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Wnioskowana dotacja PISF",
+                          "name": "legalServiceRequestedAmount",
+                          "dataBDD": "legalServiceRequestedAmount",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "calculationRules": [],
+                          "classList": [
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Pozostałe środki",
+                          "name": "legalServiceOtherFundsAmount",
+                          "dataBDD": "legalServiceOtherFundsAmount",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "calculationRules": [],
+                          "classList": [
+                            "no-label"
+                          ]
+                        }
+                      ],
+                      "classList": {
+                        "main": [
+                          "table-1-3-narrow",
+                          "grid",
+                          "grid-cols-5",
+                          "no-title"
+                        ],
+                        "sub": [
+                          "table-1-3__col"
+                        ]
+                      }
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "3. Koszty licencji lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                       "components": [
                         {
                           "kind": "component",
@@ -7556,7 +7800,7 @@
                           "label": "",
                           "name": "licenseDesc",
                           "dataBDD": "licenseDesc",
-                          "value": "2. Koszty licencyjne",
+                          "value": "3. Koszty licencji lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -7655,6 +7899,7 @@
                           ]
                         }
                       ],
+                      "helpText": "Niezależnie od formuły fakturowania.",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",
@@ -7669,7 +7914,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "3. Koszty ubezpieczeń",
+                      "title": "4. Ubezpieczenia",
                       "components": [
                         {
                           "kind": "component",
@@ -7677,7 +7922,7 @@
                           "label": "",
                           "name": "insuranceDesc",
                           "dataBDD": "insuranceDesc",
-                          "value": "3. Koszty ubezpieczeń",
+                          "value": "4. Ubezpieczenia",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -7790,7 +8035,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "4. Koszty ewaluacji przedsięwzięcia",
+                      "title": "5. Ewaluacja przedsięwzięcia",
                       "components": [
                         {
                           "kind": "component",
@@ -7798,7 +8043,7 @@
                           "label": "",
                           "name": "evaluationDesc",
                           "dataBDD": "evaluationDesc",
-                          "value": "4. Koszty ewaluacji przedsięwzięcia",
+                          "value": "5. Ewaluacja przedsięwzięcia",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -8215,7 +8460,9 @@
                               "transportServicesSumAmount",
                               "travelSumAmount",
                               "accommodationSumAmount",
+                              "cateringSumAmount",
                               "financialServiceSumAmount",
+                              "legalServiceSumAmount",
                               "licenseSumAmount",
                               "insuranceSumAmount",
                               "evaluationSumAmount",
@@ -8258,7 +8505,9 @@
                               "transportServicesSumAmount",
                               "travelSumAmount",
                               "accommodationSumAmount",
+                              "cateringSumAmount",
                               "financialServiceSumAmount",
+                              "legalServiceSumAmount",
                               "licenseSumAmount",
                               "insuranceSumAmount",
                               "evaluationSumAmount",
@@ -8311,7 +8560,9 @@
                               "transportServicesRequestedAmount",
                               "travelRequestedAmount",
                               "accommodationRequestedAmount",
+                              "cateringRequestedAmount",
                               "financialServiceRequestedAmount",
+                              "legalServiceRequestedAmount",
                               "licenseRequestedAmount",
                               "insuranceRequestedAmount",
                               "evaluationRequestedAmount",
@@ -8354,7 +8605,9 @@
                               "transportServicesRequestedAmount",
                               "travelRequestedAmount",
                               "accommodationRequestedAmount",
+                              "cateringRequestedAmount",
                               "financialServiceRequestedAmount",
+                              "legalServiceRequestedAmount",
                               "licenseRequestedAmount",
                               "insuranceRequestedAmount",
                               "evaluationRequestedAmount",
@@ -8407,7 +8660,9 @@
                               "transportServicesOtherFundsAmount",
                               "travelOtherFundsAmount",
                               "accommodationOtherFundsAmount",
+                              "cateringOtherFundsAmount",
                               "financialServiceOtherFundsAmount",
+                              "legalServiceOtherFundsAmount",
                               "licenseOtherFundsAmount",
                               "insuranceOtherFundsAmount",
                               "evaluationOtherFundsAmount",
@@ -8442,7 +8697,9 @@
                               "transportServicesOtherFundsAmount",
                               "travelOtherFundsAmount",
                               "accommodationOtherFundsAmount",
+                              "cateringOtherFundsAmount",
                               "financialServiceOtherFundsAmount",
+                              "legalServiceOtherFundsAmount",
                               "licenseOtherFundsAmount",
                               "insuranceOtherFundsAmount",
                               "evaluationOtherFundsAmount",

@@ -17,9 +17,9 @@ class AudiencePriorityApplicationFormBuilder(EducationOperationalProgramApplicat
 
         # Variables
         self.project_type = [
-            "Cykliczne zajęcia edukacyjne połączone z projekcją filmu o wysokich walorach artystycznych, dotyczące analizy prezentowanego utworu, jego miejsca w historii kinematografii polskiej i/lub światowej, estetyki filmowej i zastosowanych środków wyrazu oraz społecznych funkcji filmu, organizowane w kinach lub innych salach przygotowanych do projekcji filmu.",
-            "Niecykliczne zajęcia, warsztaty wzbogacone materiałami dydaktycznymi o wysokiej wartości merytorycznej, zgodne z obowiązującą podstawą programową nauczania.",
-            "Inne działania realizujące cele Priorytetu IV."
+            "Zajęcia edukacyjne połączone z projekcją filmu o wysokich walorach artystycznych, dotyczące analizy prezentowanego utworu, jego miejsca w historii kinematografii polskiej i/lub światowej, estetyki filmowej i zastosowanych środków wyrazu oraz społecznych funkcji filmu, organizowane w kinach lub innych salach przygotowanych do projekcji filmu",
+            "Zajęcia i warsztaty wzbogacone materiałami dydaktycznymi o wysokiej wartości merytorycznej, rozwijające wiedzę o filmie oraz umiejętności twórcze i analityczne uczestników",
+            "Inne działania realizujące cele Priorytetu IV"
         ]
 
         # Estimate
