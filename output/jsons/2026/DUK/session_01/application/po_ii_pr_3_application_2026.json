@@ -6093,7 +6093,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "5. Nagrania i usługi fotograficzne",
+                          "title": "5. Nagrania, usługi fotograficzne i montażowe",
                           "components": [
                             {
                               "kind": "component",
@@ -6101,7 +6101,7 @@
                               "label": "",
                               "name": "recordingServiceDescpt124",
                               "dataBDD": "recordingServiceDescpt124",
-                              "value": "5. Nagrania i usługi fotograficzne",
+                              "value": "5. Nagrania, usługi fotograficzne i montażowe",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -6214,7 +6214,128 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "6. Tłumaczenia",
+                          "title": "6. Usługi informatyczne",
+                          "components": [
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "",
+                              "name": "itServiceDescpt124",
+                              "dataBDD": "itServiceDescpt124",
+                              "value": "6. Usługi informatyczne",
+                              "readOnly": true,
+                              "classList": [
+                                "col-span-2",
+                                "displayNoneFrontend",
+                                "full-width",
+                                "no-label"
+                              ]
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Koszt ogółem",
+                              "name": "itServiceSumAmountpt124",
+                              "dataBDD": "itServiceSumAmountpt124",
+                              "value": 0,
+                              "mask": "fund",
+                              "unit": "PLN",
+                              "readOnly": true,
+                              "validators": [
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                },
+                                {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "itServiceRequestedAmountpt124",
+                                      "itServiceOtherFundsAmountpt124"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "calculationRules": [
+                                {
+                                  "name": "dynamicSumInputs",
+                                  "kwargs": {
+                                    "fields": [
+                                      "itServiceRequestedAmountpt124",
+                                      "itServiceOtherFundsAmountpt124"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "classList": [
+                                "no-label"
+                              ]
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Wnioskowana dotacja PISF",
+                              "name": "itServiceRequestedAmountpt124",
+                              "dataBDD": "itServiceRequestedAmountpt124",
+                              "value": 0,
+                              "mask": "fund",
+                              "unit": "PLN",
+                              "validators": [
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                }
+                              ],
+                              "calculationRules": [],
+                              "classList": [
+                                "no-label"
+                              ]
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Pozostałe środki",
+                              "name": "itServiceOtherFundsAmountpt124",
+                              "dataBDD": "itServiceOtherFundsAmountpt124",
+                              "value": 0,
+                              "mask": "fund",
+                              "unit": "PLN",
+                              "validators": [
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                }
+                              ],
+                              "calculationRules": [],
+                              "classList": [
+                                "no-label"
+                              ]
+                            }
+                          ],
+                          "classList": {
+                            "main": [
+                              "table-1-3-narrow",
+                              "grid",
+                              "grid-cols-5",
+                              "no-title"
+                            ],
+                            "sub": [
+                              "table-1-3__col"
+                            ]
+                          }
+                        },
+                        {
+                          "kind": "chapter",
+                          "title": "7. Tłumaczenia",
                           "components": [
                             {
                               "kind": "component",
@@ -6222,7 +6343,7 @@
                               "label": "",
                               "name": "translationDescpt124",
                               "dataBDD": "translationDescpt124",
-                              "value": "6. Tłumaczenia",
+                              "value": "7. Tłumaczenia",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -6588,7 +6709,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "3. Wynajem sprzętu",
+                          "title": "3. Wynajem lub zakup sprzętu",
                           "components": [
                             {
                               "kind": "component",
@@ -6596,7 +6717,7 @@
                               "label": "",
                               "name": "equipmentRentalDescpt124",
                               "dataBDD": "equipmentRentalDescpt124",
-                              "value": "3. Wynajem sprzętu",
+                              "value": "3. Wynajem lub zakup sprzętu",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -6695,6 +6816,7 @@
                               ]
                             }
                           ],
+                          "helpText": "Zakup sprzętu wyłącznie na potrzeby realizacji danego przedsięwzięcia.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -6816,6 +6938,7 @@
                               ]
                             }
                           ],
+                          "helpText": "Dopuszcza się ujęcie obsługi technicznej w kosztach wynajmu sprzętu, jeśli stanowi integralną część usługi dostawcy.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -8489,6 +8612,7 @@
                                   "commercialsSumAmountpt124",
                                   "graphicServiceSumAmountpt124",
                                   "recordingServiceSumAmountpt124",
+                                  "itServiceSumAmountpt124",
                                   "translationSumAmountpt124",
                                   "rentalSurfaceSumAmountpt124",
                                   "arrangementSurfaceSumAmountpt124",
@@ -8533,6 +8657,7 @@
                                   "commercialsSumAmountpt124",
                                   "graphicServiceSumAmountpt124",
                                   "recordingServiceSumAmountpt124",
+                                  "itServiceSumAmountpt124",
                                   "translationSumAmountpt124",
                                   "rentalSurfaceSumAmountpt124",
                                   "arrangementSurfaceSumAmountpt124",
@@ -8587,6 +8712,7 @@
                                   "commercialsRequestedAmountpt124",
                                   "graphicServiceRequestedAmountpt124",
                                   "recordingServiceRequestedAmountpt124",
+                                  "itServiceRequestedAmountpt124",
                                   "translationRequestedAmountpt124",
                                   "rentalSurfaceRequestedAmountpt124",
                                   "arrangementSurfaceRequestedAmountpt124",
@@ -8631,6 +8757,7 @@
                                   "commercialsRequestedAmountpt124",
                                   "graphicServiceRequestedAmountpt124",
                                   "recordingServiceRequestedAmountpt124",
+                                  "itServiceRequestedAmountpt124",
                                   "translationRequestedAmountpt124",
                                   "rentalSurfaceRequestedAmountpt124",
                                   "arrangementSurfaceRequestedAmountpt124",
@@ -8685,6 +8812,7 @@
                                   "commercialsOtherFundsAmountpt124",
                                   "graphicServiceOtherFundsAmountpt124",
                                   "recordingServiceOtherFundsAmountpt124",
+                                  "itServiceOtherFundsAmountpt124",
                                   "translationOtherFundsAmountpt124",
                                   "rentalSurfaceOtherFundsAmountpt124",
                                   "arrangementSurfaceOtherFundsAmountpt124",
@@ -8721,6 +8849,7 @@
                                   "commercialsOtherFundsAmountpt124",
                                   "graphicServiceOtherFundsAmountpt124",
                                   "recordingServiceOtherFundsAmountpt124",
+                                  "itServiceOtherFundsAmountpt124",
                                   "translationOtherFundsAmountpt124",
                                   "rentalSurfaceOtherFundsAmountpt124",
                                   "arrangementSurfaceOtherFundsAmountpt124",

@@ -19,7 +19,7 @@ class SecondarySchoolsPriorityApplicationFormBuilder(EducationOperationalProgram
         self.project_type = [
             "Programy edukacyjne wchodzące w skład edukacji ciągłej.",
             "Kształcenie w kierunku zdobycia zawodów związanych z potrzebami współczesnego rynku audiowizualnego.",
-            "Praktyki zawodowe."
+            "Organizacja praktyk zawodowych dla uczniów."
         ]
 
         # Estimate
