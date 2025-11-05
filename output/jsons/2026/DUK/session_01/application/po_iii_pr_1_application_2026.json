@@ -6186,7 +6186,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "4. Nagrania, usługi fotograficznei montażowe",
+                      "title": "4. Nagrania, usługi fotograficzne i montażowe",
                       "components": [
                         {
                           "kind": "component",
@@ -6194,7 +6194,7 @@
                           "label": "",
                           "name": "recordingServiceDesc",
                           "dataBDD": "recordingServiceDesc",
-                          "value": "4. Nagrania, usługi fotograficznei montażowe",
+                          "value": "4. Nagrania, usługi fotograficzne i montażowe",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",

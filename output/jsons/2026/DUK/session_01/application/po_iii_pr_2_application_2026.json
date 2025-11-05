@@ -7223,7 +7223,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "4. Koszty nagrań i usług fotograficznych",
+                          "title": "4. Nagrania, usługi fotograficzne i montażowe",
                           "components": [
                             {
                               "kind": "component",
@@ -7231,7 +7231,7 @@
                               "label": "",
                               "name": "recordingServiceDescpt124",
                               "dataBDD": "recordingServiceDescpt124",
-                              "value": "4. Koszty nagrań i usług fotograficznych",
+                              "value": "4. Nagrania, usługi fotograficzne i montażowe",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -7344,7 +7344,128 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "5. Koszty tłumaczeń",
+                          "title": "5. Usługi informatyczne",
+                          "components": [
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "",
+                              "name": "itServiceDescpt124",
+                              "dataBDD": "itServiceDescpt124",
+                              "value": "5. Usługi informatyczne",
+                              "readOnly": true,
+                              "classList": [
+                                "col-span-2",
+                                "displayNoneFrontend",
+                                "full-width",
+                                "no-label"
+                              ]
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Koszt ogółem",
+                              "name": "itServiceSumAmountpt124",
+                              "dataBDD": "itServiceSumAmountpt124",
+                              "value": 0,
+                              "mask": "fund",
+                              "unit": "PLN",
+                              "readOnly": true,
+                              "validators": [
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                },
+                                {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "itServiceRequestedAmountpt124",
+                                      "itServiceOtherFundsAmountpt124"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "calculationRules": [
+                                {
+                                  "name": "dynamicSumInputs",
+                                  "kwargs": {
+                                    "fields": [
+                                      "itServiceRequestedAmountpt124",
+                                      "itServiceOtherFundsAmountpt124"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "classList": [
+                                "no-label"
+                              ]
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Wnioskowana dotacja PISF",
+                              "name": "itServiceRequestedAmountpt124",
+                              "dataBDD": "itServiceRequestedAmountpt124",
+                              "value": 0,
+                              "mask": "fund",
+                              "unit": "PLN",
+                              "validators": [
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                }
+                              ],
+                              "calculationRules": [],
+                              "classList": [
+                                "no-label"
+                              ]
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Pozostałe środki",
+                              "name": "itServiceOtherFundsAmountpt124",
+                              "dataBDD": "itServiceOtherFundsAmountpt124",
+                              "value": 0,
+                              "mask": "fund",
+                              "unit": "PLN",
+                              "validators": [
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                }
+                              ],
+                              "calculationRules": [],
+                              "classList": [
+                                "no-label"
+                              ]
+                            }
+                          ],
+                          "classList": {
+                            "main": [
+                              "table-1-3-narrow",
+                              "grid",
+                              "grid-cols-5",
+                              "no-title"
+                            ],
+                            "sub": [
+                              "table-1-3__col"
+                            ]
+                          }
+                        },
+                        {
+                          "kind": "chapter",
+                          "title": "6. Koszty tłumaczeń",
                           "components": [
                             {
                               "kind": "component",
@@ -7352,7 +7473,7 @@
                               "label": "",
                               "name": "translationDescpt124",
                               "dataBDD": "translationDescpt124",
-                              "value": "5. Koszty tłumaczeń",
+                              "value": "6. Koszty tłumaczeń",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -7465,7 +7586,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "6. Koszty materiałów biurowych",
+                          "title": "7. Koszty materiałów biurowych",
                           "components": [
                             {
                               "kind": "component",
@@ -7473,7 +7594,7 @@
                               "label": "",
                               "name": "stationeryDescpt124",
                               "dataBDD": "stationeryDescpt124",
-                              "value": "6. Koszty materiałów biurowych",
+                              "value": "7. Koszty materiałów biurowych",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -8067,6 +8188,7 @@
                               ]
                             }
                           ],
+                          "helpText": "Dopuszcza się ujęcie obsługi technicznej w kosztach wynajmu sprzętu, jeśli stanowi integralną część usługi dostawcy.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -8963,7 +9085,128 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "2. Koszty licencyjne i najmu kopii",
+                          "title": "2. Obsługa prawna",
+                          "components": [
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "",
+                              "name": "legalServiceDescpt124",
+                              "dataBDD": "legalServiceDescpt124",
+                              "value": "2. Obsługa prawna",
+                              "readOnly": true,
+                              "classList": [
+                                "col-span-2",
+                                "displayNoneFrontend",
+                                "full-width",
+                                "no-label"
+                              ]
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Koszt ogółem",
+                              "name": "legalServiceSumAmountpt124",
+                              "dataBDD": "legalServiceSumAmountpt124",
+                              "value": 0,
+                              "mask": "fund",
+                              "unit": "PLN",
+                              "readOnly": true,
+                              "validators": [
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                },
+                                {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "legalServiceRequestedAmountpt124",
+                                      "legalServiceOtherFundsAmountpt124"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "calculationRules": [
+                                {
+                                  "name": "dynamicSumInputs",
+                                  "kwargs": {
+                                    "fields": [
+                                      "legalServiceRequestedAmountpt124",
+                                      "legalServiceOtherFundsAmountpt124"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "classList": [
+                                "no-label"
+                              ]
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Wnioskowana dotacja PISF",
+                              "name": "legalServiceRequestedAmountpt124",
+                              "dataBDD": "legalServiceRequestedAmountpt124",
+                              "value": 0,
+                              "mask": "fund",
+                              "unit": "PLN",
+                              "validators": [
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                }
+                              ],
+                              "calculationRules": [],
+                              "classList": [
+                                "no-label"
+                              ]
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Pozostałe środki",
+                              "name": "legalServiceOtherFundsAmountpt124",
+                              "dataBDD": "legalServiceOtherFundsAmountpt124",
+                              "value": 0,
+                              "mask": "fund",
+                              "unit": "PLN",
+                              "validators": [
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                }
+                              ],
+                              "calculationRules": [],
+                              "classList": [
+                                "no-label"
+                              ]
+                            }
+                          ],
+                          "classList": {
+                            "main": [
+                              "table-1-3-narrow",
+                              "grid",
+                              "grid-cols-5",
+                              "no-title"
+                            ],
+                            "sub": [
+                              "table-1-3__col"
+                            ]
+                          }
+                        },
+                        {
+                          "kind": "chapter",
+                          "title": "3. Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                           "components": [
                             {
                               "kind": "component",
@@ -8971,7 +9214,7 @@
                               "label": "",
                               "name": "licenseRentalDescpt124",
                               "dataBDD": "licenseRentalDescpt124",
-                              "value": "2. Koszty licencyjne i najmu kopii",
+                              "value": "3. Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -9070,6 +9313,7 @@
                               ]
                             }
                           ],
+                          "helpText": "Niezależnie od formuły fakturowania.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -9084,7 +9328,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "3. Koszty ubezpieczeń",
+                          "title": "4. Koszty ubezpieczeń",
                           "components": [
                             {
                               "kind": "component",
@@ -9092,7 +9336,7 @@
                               "label": "",
                               "name": "insuranceDescpt124",
                               "dataBDD": "insuranceDescpt124",
-                              "value": "3. Koszty ubezpieczeń",
+                              "value": "4. Koszty ubezpieczeń",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -9205,7 +9449,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "4. Koszty ewaluacji przedsięwzięcia",
+                          "title": "5. Koszty ewaluacji przedsięwzięcia",
                           "components": [
                             {
                               "kind": "component",
@@ -9213,7 +9457,7 @@
                               "label": "",
                               "name": "evaluationDescpt124",
                               "dataBDD": "evaluationDescpt124",
-                              "value": "4. Koszty ewaluacji przedsięwzięcia",
+                              "value": "5. Koszty ewaluacji przedsięwzięcia",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -9621,6 +9865,7 @@
                                   "commercialsSumAmountpt124",
                                   "graphicServiceSumAmountpt124",
                                   "recordingServiceSumAmountpt124",
+                                  "itServiceSumAmountpt124",
                                   "translationSumAmountpt124",
                                   "stationerySumAmountpt124",
                                   "rentalSurfaceSumAmountpt124",
@@ -9634,6 +9879,7 @@
                                   "accommodationSumAmountpt124",
                                   "cateringSumAmountpt124",
                                   "financialServiceSumAmountpt124",
+                                  "legalServiceSumAmountpt124",
                                   "licenseRentalSumAmountpt124",
                                   "insuranceSumAmountpt124",
                                   "evaluationSumAmountpt124",
@@ -9665,6 +9911,7 @@
                                   "commercialsSumAmountpt124",
                                   "graphicServiceSumAmountpt124",
                                   "recordingServiceSumAmountpt124",
+                                  "itServiceSumAmountpt124",
                                   "translationSumAmountpt124",
                                   "stationerySumAmountpt124",
                                   "rentalSurfaceSumAmountpt124",
@@ -9678,6 +9925,7 @@
                                   "accommodationSumAmountpt124",
                                   "cateringSumAmountpt124",
                                   "financialServiceSumAmountpt124",
+                                  "legalServiceSumAmountpt124",
                                   "licenseRentalSumAmountpt124",
                                   "insuranceSumAmountpt124",
                                   "evaluationSumAmountpt124",
@@ -9719,6 +9967,7 @@
                                   "commercialsRequestedAmountpt124",
                                   "graphicServiceRequestedAmountpt124",
                                   "recordingServiceRequestedAmountpt124",
+                                  "itServiceRequestedAmountpt124",
                                   "translationRequestedAmountpt124",
                                   "stationeryRequestedAmountpt124",
                                   "rentalSurfaceRequestedAmountpt124",
@@ -9732,6 +9981,7 @@
                                   "accommodationRequestedAmountpt124",
                                   "cateringRequestedAmountpt124",
                                   "financialServiceRequestedAmountpt124",
+                                  "legalServiceRequestedAmountpt124",
                                   "licenseRentalRequestedAmountpt124",
                                   "insuranceRequestedAmountpt124",
                                   "evaluationRequestedAmountpt124",
@@ -9763,6 +10013,7 @@
                                   "commercialsRequestedAmountpt124",
                                   "graphicServiceRequestedAmountpt124",
                                   "recordingServiceRequestedAmountpt124",
+                                  "itServiceRequestedAmountpt124",
                                   "translationRequestedAmountpt124",
                                   "stationeryRequestedAmountpt124",
                                   "rentalSurfaceRequestedAmountpt124",
@@ -9776,6 +10027,7 @@
                                   "accommodationRequestedAmountpt124",
                                   "cateringRequestedAmountpt124",
                                   "financialServiceRequestedAmountpt124",
+                                  "legalServiceRequestedAmountpt124",
                                   "licenseRentalRequestedAmountpt124",
                                   "insuranceRequestedAmountpt124",
                                   "evaluationRequestedAmountpt124",
@@ -9817,6 +10069,7 @@
                                   "commercialsOtherFundsAmountpt124",
                                   "graphicServiceOtherFundsAmountpt124",
                                   "recordingServiceOtherFundsAmountpt124",
+                                  "itServiceOtherFundsAmountpt124",
                                   "translationOtherFundsAmountpt124",
                                   "stationeryOtherFundsAmountpt124",
                                   "rentalSurfaceOtherFundsAmountpt124",
@@ -9830,6 +10083,7 @@
                                   "accommodationOtherFundsAmountpt124",
                                   "cateringOtherFundsAmountpt124",
                                   "financialServiceOtherFundsAmountpt124",
+                                  "legalServiceOtherFundsAmountpt124",
                                   "licenseRentalOtherFundsAmountpt124",
                                   "insuranceOtherFundsAmountpt124",
                                   "evaluationOtherFundsAmountpt124",
@@ -9853,6 +10107,7 @@
                                   "commercialsOtherFundsAmountpt124",
                                   "graphicServiceOtherFundsAmountpt124",
                                   "recordingServiceOtherFundsAmountpt124",
+                                  "itServiceOtherFundsAmountpt124",
                                   "translationOtherFundsAmountpt124",
                                   "stationeryOtherFundsAmountpt124",
                                   "rentalSurfaceOtherFundsAmountpt124",
@@ -9866,6 +10121,7 @@
                                   "accommodationOtherFundsAmountpt124",
                                   "cateringOtherFundsAmountpt124",
                                   "financialServiceOtherFundsAmountpt124",
+                                  "legalServiceOtherFundsAmountpt124",
                                   "licenseRentalOtherFundsAmountpt124",
                                   "insuranceOtherFundsAmountpt124",
                                   "evaluationOtherFundsAmountpt124",
@@ -10162,7 +10418,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "3. Koszty licencji lub nabycia praw do publicznego pokazu i najmu kopii",
+                          "title": "3. Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                           "components": [
                             {
                               "kind": "component",
@@ -10170,7 +10426,7 @@
                               "label": "",
                               "name": "filmProjectsLicenseFeesDescpt3",
                               "dataBDD": "filmProjectsLicenseFeesDescpt3",
-                              "value": "3. Koszty licencji lub nabycia praw do publicznego pokazu i najmu kopii",
+                              "value": "3. Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -10269,6 +10525,7 @@
                               ]
                             }
                           ],
+                          "helpText": "Niezależnie od formuły fakturowania.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -10646,7 +10903,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "7. Koszty nagrań i usług fotograficznych",
+                          "title": "7. Nagrania, usługi fotograficzne i montażowe",
                           "components": [
                             {
                               "kind": "component",
@@ -10654,7 +10911,7 @@
                               "label": "",
                               "name": "filmProjectsRecordingServicesDescpt3",
                               "dataBDD": "filmProjectsRecordingServicesDescpt3",
-                              "value": "7. Koszty nagrań i usług fotograficznych",
+                              "value": "7. Nagrania, usługi fotograficzne i montażowe",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -11384,7 +11641,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "3. Koszty licencji lub nabycia praw do publicznego pokazu i najmu kopii",
+                          "title": "3. Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                           "components": [
                             {
                               "kind": "component",
@@ -11392,7 +11649,7 @@
                               "label": "",
                               "name": "industryEventsLicenseFeesDescpt3",
                               "dataBDD": "industryEventsLicenseFeesDescpt3",
-                              "value": "3. Koszty licencji lub nabycia praw do publicznego pokazu i najmu kopii",
+                              "value": "3. Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -11491,6 +11748,7 @@
                               ]
                             }
                           ],
+                          "helpText": "Niezależnie od formuły fakturowania.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -11868,7 +12126,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "7. Koszty nagrań i usług fotograficznych",
+                          "title": "7. Nagrania, usługi fotograficzne i montażowe",
                           "components": [
                             {
                               "kind": "component",
@@ -11876,7 +12134,7 @@
                               "label": "",
                               "name": "industryEventsRecordingServicesDescpt3",
                               "dataBDD": "industryEventsRecordingServicesDescpt3",
-                              "value": "7. Koszty nagrań i usług fotograficznych",
+                              "value": "7. Nagrania, usługi fotograficzne i montażowe",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -12727,7 +12985,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "3. Koszty licencji lub nabycia praw do publicznego pokazu i najmu kopii",
+                          "title": "3. Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                           "components": [
                             {
                               "kind": "component",
@@ -12735,7 +12993,7 @@
                               "label": "",
                               "name": "cinemaEventsLicenseFeesDescpt3",
                               "dataBDD": "cinemaEventsLicenseFeesDescpt3",
-                              "value": "3. Koszty licencji lub nabycia praw do publicznego pokazu i najmu kopii",
+                              "value": "3. Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -12834,6 +13092,7 @@
                               ]
                             }
                           ],
+                          "helpText": "Niezależnie od formuły fakturowania.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -13211,7 +13470,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "7. Koszty nagrań i usług fotograficznych",
+                          "title": "7. Nagrania, usługi fotograficzne i montażowe",
                           "components": [
                             {
                               "kind": "component",
@@ -13219,7 +13478,7 @@
                               "label": "",
                               "name": "cinemaEventsRecordingServicesDescpt3",
                               "dataBDD": "cinemaEventsRecordingServicesDescpt3",
-                              "value": "7. Koszty nagrań i usług fotograficznych",
+                              "value": "7. Nagrania, usługi fotograficzne i montażowe",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -13560,6 +13819,128 @@
                               ]
                             }
                           ],
+                          "classList": {
+                            "main": [
+                              "table-1-3-narrow",
+                              "grid",
+                              "grid-cols-5",
+                              "no-title"
+                            ],
+                            "sub": [
+                              "table-1-3__col"
+                            ]
+                          }
+                        },
+                        {
+                          "kind": "chapter",
+                          "title": "10. Dostępność informacyjno–komunikacyjna",
+                          "components": [
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "",
+                              "name": "informationComunicationAccessiblityDescpt3",
+                              "dataBDD": "informationComunicationAccessiblityDescpt3",
+                              "value": "10. Dostępność informacyjno–komunikacyjna",
+                              "readOnly": true,
+                              "classList": [
+                                "col-span-2",
+                                "displayNoneFrontend",
+                                "full-width",
+                                "no-label"
+                              ]
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Koszt ogółem",
+                              "name": "informationComunicationAccessiblitySumAmountpt3",
+                              "dataBDD": "informationComunicationAccessiblitySumAmountpt3",
+                              "value": 0,
+                              "mask": "fund",
+                              "unit": "PLN",
+                              "readOnly": true,
+                              "validators": [
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                },
+                                {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "informationComunicationAccessiblityRequestedAmountpt3",
+                                      "informationComunicationAccessiblityOtherFundsAmountpt3"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "calculationRules": [
+                                {
+                                  "name": "dynamicSumInputs",
+                                  "kwargs": {
+                                    "fields": [
+                                      "informationComunicationAccessiblityRequestedAmountpt3",
+                                      "informationComunicationAccessiblityOtherFundsAmountpt3"
+                                    ]
+                                  }
+                                }
+                              ],
+                              "classList": [
+                                "no-label"
+                              ]
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Wnioskowana dotacja PISF",
+                              "name": "informationComunicationAccessiblityRequestedAmountpt3",
+                              "dataBDD": "informationComunicationAccessiblityRequestedAmountpt3",
+                              "value": 0,
+                              "mask": "fund",
+                              "unit": "PLN",
+                              "validators": [
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                }
+                              ],
+                              "calculationRules": [],
+                              "classList": [
+                                "no-label"
+                              ]
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Pozostałe środki",
+                              "name": "informationComunicationAccessiblityOtherFundsAmountpt3",
+                              "dataBDD": "informationComunicationAccessiblityOtherFundsAmountpt3",
+                              "value": 0,
+                              "mask": "fund",
+                              "unit": "PLN",
+                              "validators": [
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                }
+                              ],
+                              "calculationRules": [],
+                              "classList": [
+                                "no-label"
+                              ]
+                            }
+                          ],
+                          "helpText": "Wykonanie audiodeskrypcji, napisów SDH, tłumaczenia PJM.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -14418,7 +14799,7 @@
                               ]
                             }
                           ],
-                          "helpText": "Wyłącznie koszty dotyczące organizacji Konferencji Kin Studyjnych i Forum Edukacji Filmowej.",
+                          "helpText": "Wyłącznie koszty dotyczące organizacji Konferencji Kin Studyjnych, Forum Edukacji Filmowej, szkoleń i działalności eksperckiej.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -14566,7 +14947,7 @@
                       "components": [
                         {
                           "kind": "chapter",
-                          "title": "1. Dostępność cyfrowa (dostępne strony internetowe)",
+                          "title": "1. Dostępność cyfrowa",
                           "components": [
                             {
                               "kind": "component",
@@ -14574,7 +14955,7 @@
                               "label": "",
                               "name": "accessibilityDigitalDescpt3",
                               "dataBDD": "accessibilityDigitalDescpt3",
-                              "value": "1. Dostępność cyfrowa (dostępne strony internetowe)",
+                              "value": "1. Dostępność cyfrowa",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -14673,6 +15054,7 @@
                               ]
                             }
                           ],
+                          "helpText": "Dostępne strony internetowe.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -14687,7 +15069,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "2. Dostępność informacyjno–komunikacyjna (wykonanie audiodeskrypcji, napisów SDH, tłumaczenia PJM)",
+                          "title": "2. Dostępność informacyjno–komunikacyjna",
                           "components": [
                             {
                               "kind": "component",
@@ -14695,7 +15077,7 @@
                               "label": "",
                               "name": "accessibilityInformationCommunicationDescpt3",
                               "dataBDD": "accessibilityInformationCommunicationDescpt3",
-                              "value": "2. Dostępność informacyjno–komunikacyjna (wykonanie audiodeskrypcji, napisów SDH, tłumaczenia PJM)",
+                              "value": "2. Dostępność informacyjno–komunikacyjna",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -14794,6 +15176,7 @@
                               ]
                             }
                           ],
+                          "helpText": "Wykonanie audiodeskrypcji, napisów SDH, tłumaczenia PJM.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -15243,6 +15626,7 @@
                                   "cinemaEventsRecordingServicesSumAmountpt3",
                                   "cinemaEventsPromotionAdvertisingSumAmountpt3",
                                   "cinemaEventsTranslationsSumAmountpt3",
+                                  "informationComunicationAccessiblitySumAmountpt3",
                                   "organizationManagementSumAmountpt3",
                                   "organizationPersonnelCostsSumAmountpt3",
                                   "organizationExpertFeesSumAmountpt3",
@@ -15303,6 +15687,7 @@
                                   "cinemaEventsRecordingServicesSumAmountpt3",
                                   "cinemaEventsPromotionAdvertisingSumAmountpt3",
                                   "cinemaEventsTranslationsSumAmountpt3",
+                                  "informationComunicationAccessiblitySumAmountpt3",
                                   "organizationManagementSumAmountpt3",
                                   "organizationPersonnelCostsSumAmountpt3",
                                   "organizationExpertFeesSumAmountpt3",
@@ -15373,6 +15758,7 @@
                                   "cinemaEventsRecordingServicesRequestedAmountpt3",
                                   "cinemaEventsPromotionAdvertisingRequestedAmountpt3",
                                   "cinemaEventsTranslationsRequestedAmountpt3",
+                                  "informationComunicationAccessiblityRequestedAmountpt3",
                                   "organizationManagementRequestedAmountpt3",
                                   "organizationPersonnelCostsRequestedAmountpt3",
                                   "organizationExpertFeesRequestedAmountpt3",
@@ -15433,6 +15819,7 @@
                                   "cinemaEventsRecordingServicesRequestedAmountpt3",
                                   "cinemaEventsPromotionAdvertisingRequestedAmountpt3",
                                   "cinemaEventsTranslationsRequestedAmountpt3",
+                                  "informationComunicationAccessiblityRequestedAmountpt3",
                                   "organizationManagementRequestedAmountpt3",
                                   "organizationPersonnelCostsRequestedAmountpt3",
                                   "organizationExpertFeesRequestedAmountpt3",
@@ -15503,6 +15890,7 @@
                                   "cinemaEventsRecordingServicesOtherFundsAmountpt3",
                                   "cinemaEventsPromotionAdvertisingOtherFundsAmountpt3",
                                   "cinemaEventsTranslationsOtherFundsAmountpt3",
+                                  "informationComunicationAccessiblityOtherFundsAmountpt3",
                                   "organizationManagementOtherFundsAmountpt3",
                                   "organizationPersonnelCostsOtherFundsAmountpt3",
                                   "organizationExpertFeesOtherFundsAmountpt3",
@@ -15555,6 +15943,7 @@
                                   "cinemaEventsRecordingServicesOtherFundsAmountpt3",
                                   "cinemaEventsPromotionAdvertisingOtherFundsAmountpt3",
                                   "cinemaEventsTranslationsOtherFundsAmountpt3",
+                                  "informationComunicationAccessiblityOtherFundsAmountpt3",
                                   "organizationManagementOtherFundsAmountpt3",
                                   "organizationPersonnelCostsOtherFundsAmountpt3",
                                   "organizationExpertFeesOtherFundsAmountpt3",

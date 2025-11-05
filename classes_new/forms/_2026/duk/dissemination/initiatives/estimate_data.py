@@ -1,4 +1,4 @@
-from classes_new.forms._2026.duk.estimate.dataclasses_definitions import EstimateSection, CostItem
+from classes_new.forms._2026.duk.estimate.dataclasses_definitions import EstimateSection, CostItem, CostOverride
 from classes_new.forms._2026.duk.estimate.helpers import fraction_cost
 from dataclasses import asdict
 
@@ -24,7 +24,8 @@ estimate_sections_pt124 = [
             CostItem(title="Koszty przygotowania kopii filmowych i napisów do filmów", name="copyingAndSubtitling"),
             CostItem(title="Koszty obsługi PR, promocji i reklamy", name="commercials"),
             CostItem(title="Koszty usług graficznych i poligraficznych", name="graphicService"),
-            CostItem(title="Koszty nagrań i usług fotograficznych", name="recordingService"),
+            CostItem(title="Nagrania, usługi fotograficzne i montażowe", name="recordingService"),
+            CostItem(title="Usługi informatyczne", name="itService"),
             CostItem(title="Koszty tłumaczeń", name="translation"),
             CostItem(title="Koszty materiałów biurowych", name="stationery"),
         ],
@@ -35,7 +36,7 @@ estimate_sections_pt124 = [
             CostItem(title="Koszty wynajmu powierzchni", name="rentalSurface"),
             CostItem(title="Koszty aranżacji powierzchni", name="arrangementSurface"),
             CostItem(title="Koszty wynajmu sprzętu", name="equipmentRental"),
-            CostItem(title="Koszty obsługi technicznej", name="technicalService"),
+            CostItem(title="Koszty obsługi technicznej", name="technicalService", helpText="Dopuszcza się ujęcie obsługi technicznej w kosztach wynajmu sprzętu, jeśli stanowi integralną część usługi dostawcy."),
             CostItem(title="Koszty zabezpieczenia BHP", name="safetyBhp"),
             CostItem(title="Koszty obsługi projektów online", name="onlineProjects"),
         ],
@@ -65,7 +66,8 @@ estimate_sections_pt124 = [
                 name="financialService",
                 helpText="Związane z otwarciem i prowadzeniem rachunku bankowego wyłącznie dla operacji finansowych przedsięwzięcia. Koszty prowadzenia księgowości związanej z realizacją przedsięwzięcia. Powinny być udokumentowane rachunkiem lub fakturą z opisem potwierdzającym, że dotyczyły realizacji przedsięwzięcia.",
             ),
-            CostItem(title="Koszty licencyjne i najmu kopii", name="licenseRental"),
+            CostItem(title="Obsługa prawna", name="legalService"),
+            CostItem(title="Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii", name="licenseRental", helpText="Niezależnie od formuły fakturowania."),
             CostItem(title="Koszty ubezpieczeń", name="insurance"),
             CostItem(title="Koszty ewaluacji przedsięwzięcia", name="evaluation"),
         ],
@@ -101,10 +103,7 @@ estimate_sections_pt3 = [
                     "W przypadku podróży lotniczych pokrywa się z dotacji tylko koszt biletów w klasie ekonomicznej."
                 ),
             ),
-            CostItem(
-                title="Koszty licencji lub nabycia praw do publicznego pokazu i najmu kopii",
-                name="filmProjectsLicenseFees",
-            ),
+            CostItem(title="Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii", name="filmProjectsLicenseFees", helpText="Niezależnie od formuły fakturowania."),
             CostItem(
                 title="Koszty przygotowania kopii filmowych i napisów do filmów",
                 name="filmProjectsFilmCopies",
@@ -117,10 +116,7 @@ estimate_sections_pt3 = [
                 title="Koszty usług graficznych i poligraficznych",
                 name="filmProjectsGraphicServices",
             ),
-            CostItem(
-                title="Koszty nagrań i usług fotograficznych",
-                name="filmProjectsRecordingServices",
-            ),
+            CostItem(title="Nagrania, usługi fotograficzne i montażowe", name="filmProjectsRecordingServices"),
             CostItem(
                 title="Koszty promocji i reklamy",
                 name="filmProjectsPromotionAdvertising",
@@ -148,10 +144,7 @@ estimate_sections_pt3 = [
                 title="Koszty podróży i noclegów prelegentów i prowadzących wydarzenia",
                 name="industryEventsTravelAndAccommodation",
             ),
-            CostItem(
-                title="Koszty licencji lub nabycia praw do publicznego pokazu i najmu kopii",
-                name="industryEventsLicenseFees",
-            ),
+            CostItem(title="Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii", name="industryEventsLicenseFees", helpText="Niezależnie od formuły fakturowania."),
             CostItem(
                 title="Koszty przygotowania kopii filmowych i napisów do filmów",
                 name="industryEventsFilmCopies",
@@ -164,10 +157,7 @@ estimate_sections_pt3 = [
                 title="Koszty usług graficznych i poligraficznych",
                 name="industryEventsGraphicServices",
             ),
-            CostItem(
-                title="Koszty nagrań i usług fotograficznych",
-                name="industryEventsRecordingServices",
-            ),
+            CostItem(title="Nagrania, usługi fotograficzne i montażowe", name="industryEventsRecordingServices"),
             CostItem(
                 title="Koszty promocji i reklamy",
                 name="industryEventsPromotionAdvertising",
@@ -202,10 +192,7 @@ estimate_sections_pt3 = [
                     "W przypadku podróży lotniczych pokrywa się z dotacji tylko koszt biletów w klasie ekonomicznej."
                 ),
             ),
-            CostItem(
-                title="Koszty licencji lub nabycia praw do publicznego pokazu i najmu kopii",
-                name="cinemaEventsLicenseFees",
-            ),
+            CostItem(title="Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii", name="cinemaEventsLicenseFees", helpText="Niezależnie od formuły fakturowania."),
             CostItem(
                 title="Koszty przygotowania kopii filmowych i napisów do filmów",
                 name="cinemaEventsFilmCopies",
@@ -218,10 +205,7 @@ estimate_sections_pt3 = [
                 title="Koszty usług graficznych i poligraficznych",
                 name="cinemaEventsGraphicServices",
             ),
-            CostItem(
-                title="Koszty nagrań i usług fotograficznych",
-                name="cinemaEventsRecordingServices",
-            ),
+            CostItem(title="Nagrania, usługi fotograficzne i montażowe", name="cinemaEventsRecordingServices"),
             CostItem(
                 title="Koszty promocji i reklamy",
                 name="cinemaEventsPromotionAdvertising",
@@ -230,6 +214,11 @@ estimate_sections_pt3 = [
                 title="Koszty tłumaczeń",
                 name="cinemaEventsTranslations",
             ),
+            CostItem(
+                title="Dostępność informacyjno–komunikacyjna",
+                name="informationComunicationAccessiblity",
+                helpText="Wykonanie audiodeskrypcji, napisów SDH, tłumaczenia PJM."
+            )
         ],
     ),
 
@@ -263,12 +252,13 @@ estimate_sections_pt3 = [
             CostItem(
                 title="Koszty dotyczące podróży służbowych i noclegów",
                 name="organizationBusinessTravel",
-                helpText="Wyłącznie koszty dotyczące organizacji Konferencji Kin Studyjnych i Forum Edukacji Filmowej.",
+                helpText="Wyłącznie koszty dotyczące organizacji Konferencji Kin Studyjnych, Forum Edukacji Filmowej, szkoleń i działalności eksperckiej.",
             ),
             CostItem(
                 title="Działalność Rady Kin Studyjnych",
                 name="organizationActivitiesOfArthouseCinemaCouncil",
-                helpText="Pokrywane wyłącznie ze środków Wnioskodawcy."
+                helpText="Pokrywane wyłącznie ze środków Wnioskodawcy.",
+                # TODO add override na requested amount readOnly
             )
         ],
     ),
@@ -277,12 +267,14 @@ estimate_sections_pt3 = [
         title="Koszty związane z dostępnością",
         costs=[
             CostItem(
-                title="Dostępność cyfrowa (dostępne strony internetowe)",
+                title="Dostępność cyfrowa",
                 name="accessibilityDigital",
+                helpText="Dostępne strony internetowe.",
             ),
             CostItem(
-                title="Dostępność informacyjno–komunikacyjna (wykonanie audiodeskrypcji, napisów SDH, tłumaczenia PJM)",
+                title="Dostępność informacyjno–komunikacyjna",
                 name="accessibilityInformationCommunication",
+                helpText="Wykonanie audiodeskrypcji, napisów SDH, tłumaczenia PJM."
             ),
         ],
     ),

@@ -24,7 +24,7 @@ estimate_sections = [
             CostItem(title="Koszty przygotowania kopii filmowych i napisów do filmów", name="copyingAndSubtitling"),
             CostItem(title="Koszty usług PR, promocji i reklam", name="commercials"),
             CostItem(title="Koszty usług graficznych i poligraficznych", name="graphicService"),
-            CostItem(title="Nagrania, usługi fotograficznei montażowe", name="recordingService"),
+            CostItem(title="Nagrania, usługi fotograficzne i montażowe", name="recordingService"),
             CostItem(title="Usługi informatyczne", name="itService"),
             CostItem(title="Tłumaczenia", name="translation"),
             CostItem(title="Koszty materiałów biurowych", name="stationery"),
