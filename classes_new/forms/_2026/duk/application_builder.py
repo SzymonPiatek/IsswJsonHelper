@@ -342,6 +342,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                 ),
                 self.create_chapter(
                     title="Forma organizacyjno-prawna",
+                    help_text="Wybierz formę organizacyjno-prawną wnioskodawcy.",
                     components=[
                         self.create_component(
                             component_type="select",
@@ -365,7 +366,6 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                 "Inna (np. spółka w organizacji)"
                             ],
                             required=True,
-                            help_text="Wybierz formę organizacyjno-prawną wnioskodawcy."
                         )
                     ]
                 ),

@@ -293,7 +293,6 @@
                 "Inna (np. spółka w organizacji)"
               ],
               "required": true,
-              "helpText": "Wybierz formę organizacyjno-prawną wnioskodawcy.",
               "validators": [
                 {
                   "name": "ExactValidator",
@@ -320,7 +319,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "helpText": "Wybierz formę organizacyjno-prawną wnioskodawcy."
         },
         {
           "kind": "chapter",
