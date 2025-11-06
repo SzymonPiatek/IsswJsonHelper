@@ -40,7 +40,12 @@ class DkfPriorityApplicationFormBuilder(DisseminationOperationalProgramApplicati
                             component_type="textarea",
                             name="applicationTaskNamePage4",
                             required=True,
-                            read_only=True
+                            read_only=True,
+                            calculation_rules=[
+                                self.calculation_rule.copy_value(
+                                    from_name="applicationTaskName"
+                                )
+                            ]
                         )
                     ]
                 ),

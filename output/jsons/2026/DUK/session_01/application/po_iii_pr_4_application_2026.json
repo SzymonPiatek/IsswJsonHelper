@@ -9648,6 +9648,69 @@
               "kind": "chapter",
               "title": "<small>Harmonogram i kosztorys stanowią integralną część wniosku. </small><br /><br /><normal><small>Załączanym plikom należy nadać nazwy umożliwiające określenie ich zawartości. <br /><br />Wniosek i wszystkie załączniki należy wypełniać w języku polskim. Jeśli załączane dokumenty oryginalne (w szczególności dokumenty urzędowe, np. wypisy z rejestrów i umowy) sporządzone są w języku innym niż polski, należy załączyć do nich również ich tłumaczenie przysięgłe na język polski. </small></normal>",
               "components": []
+            },
+            {
+              "kind": "chapter",
+              "title": "Dokument zaświadczający o posiadaniu praw do digitalizacji/rekonstrukcji filmu",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "file",
+                  "label": "",
+                  "name": "attachmentDigitalizationRights",
+                  "value": "",
+                  "helpText": "Maksymalny rozmiar pliku to 50 MB",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "dataBDD": "attachmentDigitalizationRights"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "Diagnoza stanu technicznego taśmy światłoczułej, w przypadku filmów fabularnych przeprowadzona przez Filmotekę Narodową – Instytut Audiowizualny (w przypadku braku wymaganego dokumentu Wnioskodawca zobowiązany jest do dołączenia oświadczenia, w którym zobowiązuje się do dostarczenia dokumentu)",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "file",
+                  "label": "",
+                  "name": "attachmentTechnicalCondition",
+                  "value": "",
+                  "helpText": "Maksymalny rozmiar pliku to 50 MB",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "dataBDD": "attachment-technical-condition"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "Umowa między Wnioskodawcą a właścicielem praw do digitalizowanego filmu/filmów",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "file",
+                  "label": "",
+                  "name": "attachmentOwnerContract",
+                  "value": "",
+                  "helpText": "Maksymalny rozmiar pliku to 50 MB",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "dataBDD": "attachment-owner-contract"
+                }
+              ]
             }
           ]
         },
