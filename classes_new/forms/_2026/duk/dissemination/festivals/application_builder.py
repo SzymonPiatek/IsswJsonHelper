@@ -324,15 +324,8 @@ class FestivalsPriorityApplicationFormBuilder(DisseminationOperationalProgramApp
                 self.create_chapter(
                     title="1. Obowiązkowe załączniki",
                     components=[
-                        self.create_chapter(
-                            components=[
-                                self.create_component(
-                                    component_type="header",
-                                    value="Harmonogram i kosztorys stanowią integralną część wniosku",
-                                    name="scheduleAndCostEstimateIntegralPartOfApplication"
-                                )
-                            ]
-                        ),
+                        self.section.application_attachment.document_confirming_represent_applicant(),
+                        self.section.application_attachment.schedule_information(),
                         self.create_chapter(
                             multiple_forms_rules={
                                 "minCount": 1,

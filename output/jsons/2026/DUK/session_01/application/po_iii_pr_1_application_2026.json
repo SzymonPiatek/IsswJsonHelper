@@ -9710,17 +9710,48 @@
           "components": [
             {
               "kind": "chapter",
-              "title": "",
+              "title": "Dokumenty potwierdzające uprawnienie do reprezentacji Wnioskodawcy przy składaniu wniosku (np. KRS, RIK, statut, pełnomocnictwo)",
               "components": [
                 {
-                  "kind": "component",
-                  "type": "header",
-                  "label": "",
-                  "name": "headerComponent-scheduleAndCostEstimateIntegralPartOfApplication",
-                  "dataBDD": "headerComponent-scheduleAndCostEstimateIntegralPartOfApplication",
-                  "value": "Harmonogram i kosztorys stanowią integralną część wniosku"
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "Dokument",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "file",
+                          "label": "",
+                          "name": "documentConfirmingRepresentApplicant",
+                          "dataBDD": "documentConfirmingRepresentApplicant",
+                          "value": "",
+                          "required": true,
+                          "helpText": "Maksymalny rozmiar pliku to 50 MB",
+                          "validators": [
+                            {
+                              "name": "RequiredValidator"
+                            }
+                          ],
+                          "defaultValue": ""
+                        }
+                      ]
+                    }
+                  ],
+                  "isMultipleForms": true,
+                  "multipleFormsRules": {
+                    "minCount": 1,
+                    "maxCount": 10
+                  },
+                  "isPaginated": false
                 }
               ]
+            },
+            {
+              "kind": "chapter",
+              "title": "<small>Harmonogram i kosztorys stanowią integralną część wniosku. </small><br /><br /><normal><small>Załączanym plikom należy nadać nazwy umożliwiające określenie ich zawartości. <br /><br />Wniosek i wszystkie załączniki należy wypełniać w języku polskim. Jeśli załączane dokumenty oryginalne (w szczególności dokumenty urzędowe, np. wypisy z rejestrów i umowy) sporządzone są w języku innym niż polski, należy załączyć do nich również ich tłumaczenie przysięgłe na język polski. </small></normal>",
+              "components": []
             },
             {
               "kind": "chapter",
