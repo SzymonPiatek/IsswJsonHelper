@@ -8,7 +8,9 @@ estimate_sections = [
         title="Koszty osobowe i merytoryczne",
         costs=[
             fraction_cost(title="zarządzania przedsięwzięciem", name="projectManagement", ratio=0.15),
-            fraction_cost(title="osobowe", name="personal", ratio=0.35),
+            fraction_cost(
+                title="osobowe", name="personal", ratio=0.35, help_text="Wszelkie koszty osobowe nieujęte w pozostałych pozycjach."
+            ),
             CostItem(
                 title="Koszty osób współpracujących (np. członków jury, twórców, moderatorów)",
                 name="cooperatingPeople",

@@ -10,7 +10,9 @@ estimate_sections_pt_12 = [
         costs=[
             CostItem(title="Zarządzanie przedsięwzięciem", name="projectManagement"),
             CostItem(title="Opracowanie i redakcja publikacji", name="publicationEditing", helpText="Autorzy tekstów, redaktorzy, korektorzy."),
-            fraction_cost("osobowe", "personal", 0.35),
+            fraction_cost(
+                title="osobowe", name="personal", ratio=0.35, help_text="Wszelkie koszty osobowe nieujęte w pozostałych pozycjach."
+            ),
             CostItem(title="Konsultacje eksperckie", name="expertConsultation"),
         ],
     ),

@@ -9163,7 +9163,7 @@
                               ]
                             }
                           ],
-                          "helpText": "Koszty osobowe nie mogą przekroczyć 35,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty osobowe nie mogą przekroczyć 35,00% przyznanej dotacji.",
+                          "helpText": "Wszelkie koszty osobowe nieujęte w pozostałych pozycjach. Koszty osobowe nie mogą przekroczyć 35,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty osobowe nie mogą przekroczyć 35,00% przyznanej dotacji.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
