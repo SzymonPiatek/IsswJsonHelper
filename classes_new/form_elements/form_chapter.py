@@ -63,6 +63,8 @@ class FormChapter(FormElement):
         }
 
         if self.help_text:
+            self._validate_help_text(self.help_text)
+
             kwargs["helpText"] = self.help_text
         if self.class_list:
             kwargs["classList"] = self.class_list
@@ -74,6 +76,14 @@ class FormChapter(FormElement):
             kwargs["isPaginated"] = self.is_paginated
 
         return kwargs
+
+    @staticmethod
+    def _validate_help_text(help_text: str | None) -> None:
+        if help_text is None:
+            return
+        txt = help_text.rstrip()
+        if not txt.endswith("."):
+            raise ValueError("help_text must end with a '.'")
 
     @staticmethod
     def duplicate_chapter_with_indexing(start_chapter: dict, mf_min_count: int, start_title: str = None) -> list:

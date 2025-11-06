@@ -12,13 +12,13 @@ class FestivalsPriorityApplicationFormBuilder(DisseminationOperationalProgramApp
         )
 
         self.form_id = self.set_ids(
-            local_id=20,
+            local_id=16408,
             uat_id=None
         )
 
         # Variables
         self.project_type = [
-            "Organizacja festiwali filmowych o charakterze ogólnopolskim lub międzynarodowym, będących wydarzeniami cyklicznymi, obejmujących szeroki program filmowy, sekcje konkursowe oceniane przez jury oraz wydarzenia towarzyszące, takie jak spotkania z twórcami, panele dyskusyjne czy warsztaty."
+            "Organizacja festiwali filmowych o charakterze ogólnopolskim lub międzynarodowym, będących wydarzeniami cyklicznymi, obejmujących szeroki program filmowy, sekcje konkursowe oceniane przez jury oraz wydarzenia towarzyszące, takie jak spotkania z twórcami, panele dyskusyjne czy warsztaty"
         ]
         self.source_of_financing_tickets = True
 
@@ -101,7 +101,7 @@ class FestivalsPriorityApplicationFormBuilder(DisseminationOperationalProgramApp
                     components=[
                         self.create_chapter(
                             title="Idea i profil artystyczny festiwalu",
-                            help_text="Misja i wartości festiwalu oraz charakter przezentowanego kina",
+                            help_text="Misja i wartości festiwalu oraz charakter przezentowanego kina.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -115,7 +115,7 @@ class FestivalsPriorityApplicationFormBuilder(DisseminationOperationalProgramApp
                         ),
                         self.create_chapter(
                             title="Program festiwalu",
-                            help_text="Repertuar, konkursy, sekcje, jury",
+                            help_text="Repertuar, konkursy, sekcje, jury.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -129,7 +129,7 @@ class FestivalsPriorityApplicationFormBuilder(DisseminationOperationalProgramApp
                         ),
                         self.create_chapter(
                             title="Przyznane nagrody",
-                            help_text="Liczba, rodzaj i wysokość przyznawanych nagród",
+                            help_text="Liczba, rodzaj i wysokość przyznawanych nagród.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -143,7 +143,7 @@ class FestivalsPriorityApplicationFormBuilder(DisseminationOperationalProgramApp
                         ),
                         self.create_chapter(
                             title="Wydarzenia towarzyszące",
-                            help_text="Np. spotkania z twórcami, warsztaty, retrospektywy, prelekcje",
+                            help_text="Np. spotkania z twórcami, warsztaty, retrospektywy, prelekcje.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -157,7 +157,7 @@ class FestivalsPriorityApplicationFormBuilder(DisseminationOperationalProgramApp
                         ),
                         self.create_chapter(
                             title="Doświadczenie wnioskodawcy i kompetencje zespołu",
-                            help_text="Doświadczenie wnioskodawcy w organizacji wydarzeń filmowych i kulturalnych oraz kompetencje zespołu odpowiedzialnego za realizację festiwalu",
+                            help_text="Doświadczenie wnioskodawcy w organizacji wydarzeń filmowych i kulturalnych oraz kompetencje zespołu odpowiedzialnego za realizację festiwalu.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -171,7 +171,7 @@ class FestivalsPriorityApplicationFormBuilder(DisseminationOperationalProgramApp
                         ),
                         self.create_chapter(
                             title="Promocja festiwalu",
-                            help_text="Plan promocji, działania marketingowe, współprace, partnerzy i patroni medialni",
+                            help_text="Plan promocji, działania marketingowe, współprace, partnerzy i patroni medialni.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -185,7 +185,7 @@ class FestivalsPriorityApplicationFormBuilder(DisseminationOperationalProgramApp
                         ),
                         self.create_chapter(
                             title="Dostępność wydarzenia",
-                            help_text="Działania podejmowane na rzecz osób ze szczególnymi potrzebami oraz wspieranie inkluzywności",
+                            help_text="Działania podejmowane na rzecz osób ze szczególnymi potrzebami oraz wspieranie inkluzywności.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -199,7 +199,7 @@ class FestivalsPriorityApplicationFormBuilder(DisseminationOperationalProgramApp
                         ),
                         self.create_chapter(
                             title="Profil publiczności i odbioru festiwalu",
-                            help_text="Do kogo kierowane jest wydarzenie oraz jakie grupy uczestników stanowią jego główną widownię (np. studenci szkół filmowych, seniorzy, widzowie zainteresowani kinem niezależnym)",
+                            help_text="Do kogo kierowane jest wydarzenie oraz jakie grupy uczestników stanowią jego główną widownię (np. studenci szkół filmowych, seniorzy, widzowie zainteresowani kinem niezależnym).",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -213,7 +213,7 @@ class FestivalsPriorityApplicationFormBuilder(DisseminationOperationalProgramApp
                         ),
                         self.create_chapter(
                             title="Planowane efekty realizacji przedsięwzięcia",
-                            help_text="Spodziewane rezultaty realizacji festiwalu w ujęciu jakościowym",
+                            help_text="Spodziewane rezultaty realizacji festiwalu w ujęciu jakościowym.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -324,15 +324,8 @@ class FestivalsPriorityApplicationFormBuilder(DisseminationOperationalProgramApp
                 self.create_chapter(
                     title="1. Obowiązkowe załączniki",
                     components=[
-                        self.create_chapter(
-                            components=[
-                                self.create_component(
-                                    component_type="header",
-                                    value="Harmonogram i kosztorys stanowią integralną część wniosku",
-                                    name="scheduleAndCostEstimateIntegralPartOfApplication"
-                                )
-                            ]
-                        ),
+                        self.section.application_attachment.document_confirming_represent_applicant(),
+                        self.section.application_attachment.schedule_information(),
                         self.create_chapter(
                             multiple_forms_rules={
                                 "minCount": 1,

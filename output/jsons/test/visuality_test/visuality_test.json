@@ -1,0 +1,454 @@
+{
+  "kind": "form",
+  "jrwa": "",
+  "expert": {
+    "name": "",
+    "email": "",
+    "avatar": ""
+  },
+  "status": "",
+  "applicant": {},
+  "title": "",
+  "introText": [
+    {
+      "text": "Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"
+    }
+  ],
+  "blanks": [],
+  "parts": [
+    {
+      "kind": "part",
+      "title": "I. Component visual - enabled",
+      "shortName": "I. Component visual - enabled",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "Text",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Text",
+              "name": "visualityText",
+              "dataBDD": "visualityText",
+              "value": ""
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Textarea",
+              "name": "visualityTextarea",
+              "dataBDD": "visualityTextarea",
+              "value": ""
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "Number",
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Number",
+              "name": "visualityNumber",
+              "dataBDD": "visualityNumber",
+              "value": 0,
+              "helpText": "Test",
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "Select",
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "Select",
+              "name": "visualitySelect",
+              "dataBDD": "visualitySelect",
+              "value": "",
+              "options": [
+                "Test",
+                "Test 2"
+              ],
+              "validators": [
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Test",
+                      "Test 2"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "country",
+              "label": "Country",
+              "name": "visualityCountrySelect",
+              "dataBDD": "visualityCountrySelect",
+              "value": ""
+            },
+            {
+              "kind": "component",
+              "type": "country",
+              "label": "Country",
+              "name": "visualityCountrySelect2",
+              "dataBDD": "visualityCountrySelect2",
+              "value": ""
+            },
+            {
+              "kind": "component",
+              "type": "currency",
+              "label": "Currency",
+              "name": "visualityCurrencySelect",
+              "dataBDD": "visualityCurrencySelect",
+              "value": ""
+            },
+            {
+              "kind": "component",
+              "type": "countryMulti",
+              "label": "CountryMulti",
+              "name": "visualityCountryMultiSelect",
+              "dataBDD": "visualityCountryMultiSelect",
+              "value": ""
+            },
+            {
+              "kind": "component",
+              "type": "countryMulti",
+              "label": "CountryMulti",
+              "name": "visualityCountryMultiSelect2",
+              "dataBDD": "visualityCountryMultiSelect2",
+              "value": ""
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-3-narrow"
+            ],
+            "sub": [
+              "table-1-3__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "Other",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Checkbox",
+              "name": "visualityCheckbox",
+              "dataBDD": "visualityCheckbox",
+              "value": false,
+              "helpText": "Test"
+            },
+            {
+              "kind": "component",
+              "type": "radio",
+              "label": "Radio",
+              "name": "visualityRadio",
+              "dataBDD": "visualityRadio",
+              "value": "",
+              "options": [
+                "Test",
+                "Test 2"
+              ],
+              "validators": [
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Test",
+                      "Test 2"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-visualityHeader",
+              "dataBDD": "headerComponent-visualityHeader",
+              "value": "Header"
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Date",
+              "name": "visualityDate",
+              "dataBDD": "visualityDate",
+              "value": false
+            },
+            {
+              "kind": "component",
+              "type": "file",
+              "label": "File",
+              "name": "visualityFile",
+              "dataBDD": "visualityFile",
+              "value": "",
+              "helpText": "Maksymalny rozmiar pliku to 50 MB"
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "II. Component visual - disabled",
+      "shortName": "II. Component visual - disabled",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "Text",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Text",
+              "name": "visualityTextDisabled",
+              "dataBDD": "visualityTextDisabled",
+              "value": "",
+              "readOnly": true
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Textarea",
+              "name": "visualityTextareaDisabled",
+              "dataBDD": "visualityTextareaDisabled",
+              "value": "",
+              "readOnly": true
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "Number",
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Number",
+              "name": "visualityNumberDisabled",
+              "dataBDD": "visualityNumberDisabled",
+              "value": 0,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "Select",
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "Select",
+              "name": "visualitySelectDisabled",
+              "dataBDD": "visualitySelectDisabled",
+              "value": "",
+              "options": [
+                "Test",
+                "Test 2"
+              ],
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Test",
+                      "Test 2"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "currency",
+              "label": "Currency",
+              "name": "visualityCurrencySelectDisabled",
+              "dataBDD": "visualityCurrencySelectDisabled",
+              "value": "",
+              "readOnly": true
+            },
+            {
+              "kind": "component",
+              "type": "country",
+              "label": "Country",
+              "name": "visualityCountrySelectDisabled",
+              "dataBDD": "visualityCountrySelectDisabled",
+              "value": "",
+              "readOnly": true
+            },
+            {
+              "kind": "component",
+              "type": "countryMulti",
+              "label": "CountryMulti",
+              "name": "visualityCountryMultiSelectDisabled",
+              "dataBDD": "visualityCountryMultiSelectDisabled",
+              "value": "",
+              "readOnly": true
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "Other",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Checkbox",
+              "name": "visualityCheckboxDisabled",
+              "dataBDD": "visualityCheckboxDisabled",
+              "value": false,
+              "readOnly": true
+            },
+            {
+              "kind": "component",
+              "type": "radio",
+              "label": "Radio",
+              "name": "visualityRadioDisabled",
+              "dataBDD": "visualityRadioDisabled",
+              "value": "",
+              "options": [
+                "Test",
+                "Test 2"
+              ],
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Test",
+                      "Test 2"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-visualityHeaderDisabled",
+              "dataBDD": "headerComponent-visualityHeaderDisabled",
+              "value": "Header",
+              "readOnly": true
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Date",
+              "name": "visualityDateDisabled",
+              "dataBDD": "visualityDateDisabled",
+              "value": false,
+              "readOnly": true
+            },
+            {
+              "kind": "component",
+              "type": "file",
+              "label": "File",
+              "name": "visualityFileDisabled",
+              "dataBDD": "visualityFileDisabled",
+              "value": "",
+              "readOnly": true,
+              "helpText": "Maksymalny rozmiar pliku to 50 MB"
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

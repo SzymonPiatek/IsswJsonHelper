@@ -86,7 +86,7 @@ class DWMDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             label="Rodzaj przedsięwzięcia - wyszczególnienie",
                             name="requestedSupportTypePkt1",
                             options=[
-                                "międzynarodowych festiwali filmowych zaliczonych przez FIAPF do kategorii konkursowych festiwali filmów fabularnych",
+                                "zagranicznych międzynarodowych festiwali filmowych zaliczonych przez FIAPF do kategorii konkursowych festiwali filmów fabularnych",
                                 "oficjalnej selekcji festiwali filmowych w Toronto, Telluride oraz konkursów międzynarodowych na festiwalach filmowych: Sundance, Busan, IDFA, HotDocs, Annecy, Visions du Réel, CPH:DOX",
                                 "ubiegania się o prestiżowe międzynarodowe nagrody filmowe, tj. Nagrody Amerykańskiej Akademii Wiedzy i Sztuki Filmowej – Oscar, Złote Globy, Nagrody Brytyjskiej Akademii Filmowej – BAFTA, Nagrody Emmy oraz Nagrody European Film Awards"
                             ]
@@ -717,7 +717,7 @@ class DWMDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                 ]
             ),
             self.create_chapter(
-                title="2. Osoby upoważnione do reprezentowania wnioskodawcy, składania oświadczeń woli i zaciągania w jego imieniu zobowiązań finansowych",
+                title="2. Osoby upoważnione do reprezentowania Wnioskodawcy, składania oświadczeń woli i zaciągania w jego imieniu zobowiązań finansowych",
                 components=[
                     self.create_chapter(
                         multiple_forms_rules={
@@ -981,7 +981,8 @@ class DWMDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                 self.section.applicant_bank_data(
                     number=5 if self.is_promotion_priority else 6,
                     poland=True,
-                    foreign=True
+                    foreign=True,
+                    is_promotion=self.is_promotion_priority
                 ),
                 self.section.pisf_transfer_currency(
                     number=6 if self.is_promotion_priority else 7

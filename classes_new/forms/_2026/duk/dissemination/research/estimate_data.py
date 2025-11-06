@@ -7,7 +7,12 @@ estimate_sections = [
     EstimateSection(
         title="Koszty osobowe i merytoryczne",
         costs=[
-            fraction_cost(title="zarządzania przedsięwzięciem", name="projectManagement", ratio=0.15),
+            fraction_cost(
+                title="Koszty zarządzania przedsięwzięciem",
+                name="projectManagement",
+                ratio=0.15,
+                title_help_text="zarządzania przedsięwzięciem"
+            ),
             CostItem(
                 title="Koszty osób współpracujących",
                 name="cooperatingPeople",
@@ -30,16 +35,19 @@ estimate_sections = [
                 name="researchTools",
             ),
             CostItem(
-                title="Badania terenowe (wywiady, ankiety, grupy fokusowe)",
+                title="Badania terenowe",
                 name="fieldResearch",
+                helpText="Wywiady, ankiety, grupy fokusowe."
             ),
             CostItem(
-                title="Analizy jakościowe (dane zastane, analiza wywiadów, case study)",
+                title="Analizy jakościowe",
                 name="qualitativeAnalysis",
+                helpText="Dane zastane, analiza wywiadów, case study."
             ),
             CostItem(
-                title="Analizy ilościowe (analiza statystyczna)",
+                title="Analizy ilościowe",
                 name="quantitativeAnalysis",
+                helpText="Analiza statystyczna."
             ),
             CostItem(
                 title="Raport końcowy z badania",
@@ -68,7 +76,7 @@ estimate_sections = [
         title="Koszty logistyczne",
         costs=[
             CostItem(
-                title="Koszty dotyczące podróży",
+                title="Podróźe",
                 name="travel",
                 helpText=(
                     "Koszty udokumentowane wyłącznie fakturami lub biletami (jeśli brak faktury). "
@@ -79,7 +87,7 @@ estimate_sections = [
                 ),
             ),
             CostItem(
-                title="Koszty dotyczące noclegów",
+                title="Noclegi",
                 name="accommodation",
                 helpText=(
                     "Koszty udokumentowane wyłącznie fakturami (z wyłączeniem diet, ryczałtów "
@@ -100,6 +108,10 @@ estimate_sections = [
                     "związanych z realizacją przedsięwzięcia. Koszty prowadzenia księgowości związanej z realizacją przedsięwzięcia. "
                     "Koszty te powinny być udokumentowane rachunkiem lub fakturą z opisem potwierdzającym związek z przedsięwzięciem."
                 ),
+            ),
+            CostItem(
+                title="Obsługa prawna",
+                name="legalService"
             ),
             CostItem(
                 title="Koszty licencyjne",

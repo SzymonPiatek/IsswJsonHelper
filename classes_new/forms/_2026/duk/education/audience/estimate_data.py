@@ -8,8 +8,19 @@ estimate_sections = [
     EstimateSection(
         title="Koszty osobowe i merytoryczne",
         costs=[
-            fraction_cost("zarządzania przedsięwzięciem", "projectManagement", 0.15),
-            fraction_cost("osobowe", "personal", 0.35),
+            fraction_cost(
+                title="Koszty zarządzania przedsięwzięciem",
+                name="projectManagement",
+                ratio=0.15,
+                title_help_text="zarządzania przedsięwzięciem"
+            ),
+            fraction_cost(
+                title="Koszty osobowe",
+                name="personal",
+                ratio=0.35,
+                help_text="Wszelkie koszty osobowe nieujęte w pozostałych pozycjach.",
+                title_help_text="osobowe",
+            ),
             CostItem(
                 title="Koszty osób współpracujących (np. ekspertów, prelegentów, artystów)",
                 name="cooperatingPeople",
@@ -19,7 +30,7 @@ estimate_sections = [
                 ),
             ),
             CostItem(
-                title="Koszty konsultacji eksperckich",
+                title="Konsultacje eksperckie",
                 name="expertConsultation",
             ),
         ],
@@ -28,24 +39,28 @@ estimate_sections = [
         title="Koszty materiałowe i usługowe",
         costs=[
             CostItem(
-                title="Koszty opracowania materiałów dydaktycznych",
+                title="Opracowanie i redakcja materiałów dydaktycznych",
                 name="educationalMaterials",
             ),
             CostItem(
-                title="Koszty najmu i przygotowania kopii filmowych oraz napisów do filmów",
+                title="Przygotowanie kopii filmowych oraz napisów do filmów",
                 name="copyingAndSubtitling",
             ),
             CostItem(
-                title="Koszty obsługi PR, promocji i reklamy",
+                title="Obsługa PR, promocji i reklamy",
                 name="commercials",
             ),
             CostItem(
-                title="Koszty usług graficznych i poligraficznych",
+                title="Usługi graficzne i poligraficzne",
                 name="graphicService",
             ),
             CostItem(
-                title="Koszty nagrań i usług fotograficznych",
+                title="Nagrania, usługi fotograficzne i montażowe",
                 name="recordingService",
+            ),
+            CostItem(
+                title="Usługi informatyczne",
+                name="itService"
             ),
             CostItem(
                 title="Koszty tłumaczeń",
@@ -57,27 +72,28 @@ estimate_sections = [
         title="Koszty lokalowe i techniczne",
         costs=[
             CostItem(
-                title="Koszty wynajmu powierzchni",
+                title="Wynajem powierzchni",
                 name="rentalSurface",
             ),
             CostItem(
-                title="Koszty aranżacji powierzchni",
+                title="Aranżacja powierzchni",
                 name="arrangementSurface",
             ),
             CostItem(
-                title="Koszty wynajmu sprzętu",
+                title="Wynajem sprzętu",
                 name="equipmentRental",
             ),
             CostItem(
-                title="Koszty obsługi technicznej",
+                title="Obsługa techniczna",
                 name="technicalService",
+                helpText="Dopuszcza się ujęcie obsługi technicznej w kosztach wynajmu sprzętu, jeśli stanowi integralną część usługi dostawcy."
             ),
             CostItem(
-                title="Koszty zabezpieczenia BHP",
+                title="Zabezpieczenia BHP",
                 name="safetyBhp",
             ),
             CostItem(
-                title="Koszty obsługi projektów edukacyjnych online",
+                title="Obsługa projektów edukacyjnych online",
                 name="onlineEducationProjects",
             ),
         ],
@@ -86,11 +102,11 @@ estimate_sections = [
         title="Koszty logistyczne",
         costs=[
             CostItem(
-                title="Koszty usług transportowych",
+                title="Usługi transportowe",
                 name="transportServices",
             ),
             CostItem(
-                title="Koszty dotyczące podróży",
+                title="Podróże",
                 name="travel",
                 helpText=(
                     "Koszty udokumentowane wyłącznie fakturami lub biletami (jeśli brak faktury). "
@@ -101,7 +117,7 @@ estimate_sections = [
                 ),
             ),
             CostItem(
-                title="Koszty dotyczące noclegów",
+                title="Noclegi",
                 name="accommodation",
                 helpText=(
                     "Koszty udokumentowane wyłącznie fakturami (z wyłączeniem diet, ryczałtów "
@@ -109,13 +125,19 @@ estimate_sections = [
                     "Z dotacji PISF nie są pokrywane koszty podróży zagranicznych."
                 ),
             ),
+            fraction_cost(
+                title="Catering lub poczęstunek",
+                name="catering",
+                ratio=0.15,
+                title_help_text="cateringu lub poczęstunku"
+            )
         ],
     ),
     EstimateSection(
         title="Koszty prawne i administracyjne",
         costs=[
             CostItem(
-                title="Koszty obsługi finansowej",
+                title="Obsługa finansowa",
                 name="financialService",
                 helpText=(
                     "Koszty związane z otwarciem i prowadzeniem rachunku bankowego wyłącznie dla operacji finansowych "
@@ -124,15 +146,20 @@ estimate_sections = [
                 ),
             ),
             CostItem(
-                title="Koszty licencyjne",
+                title="Obsługa prawna",
+                name="legalService"
+            ),
+            CostItem(
+                title="Koszty licencji lub nabycia praw do publicznego pokazu wraz z najmem kopii",
+                helpText="Niezależnie od formuły fakturowania.",
                 name="license",
             ),
             CostItem(
-                title="Koszty ubezpieczeń",
+                title="Ubezpieczenia",
                 name="insurance",
             ),
             CostItem(
-                title="Koszty ewaluacji przedsięwzięcia",
+                title="Ewaluacja przedsięwzięcia",
                 name="evaluation",
             ),
         ],
@@ -141,12 +168,14 @@ estimate_sections = [
         title="Koszty związane z dostępnością",
         costs=[
             CostItem(
-                title="Dostępność cyfrowa (dostępne strony internetowe)",
+                title="Dostępność cyfrowa",
                 name="digitalAccessibility",
+                helpText="Dostępne strony internetowe."
             ),
             CostItem(
-                title="Dostępność informacyjno–komunikacyjna (audiodeskrypcja, napisy SDH, tłumaczenia PJM)",
+                title="Dostępność informacyjno–komunikacyjna",
                 name="infoAccessibility",
+                helpText="Audiodeskrypcja, napisy SDH, tłumaczenia PJM."
             ),
         ],
     ),

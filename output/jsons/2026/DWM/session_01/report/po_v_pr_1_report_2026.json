@@ -1,0 +1,4066 @@
+{
+  "kind": "form",
+  "jrwa": "",
+  "expert": {
+    "name": "",
+    "email": "",
+    "avatar": ""
+  },
+  "status": "",
+  "applicant": {},
+  "title": "",
+  "introText": [
+    {
+      "text": "Raport końcowy"
+    }
+  ],
+  "blanks": [],
+  "parts": [
+    {
+      "kind": "part",
+      "title": "I. Dane podstawowe",
+      "shortName": "I. Dane podstawowe",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "A. Okres realizacji przedsięwzięcia",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-taskDateStart",
+              "dataBDD": "headerComponent-taskDateStart",
+              "value": "Data wpłynięcia wniosku",
+              "classList": [
+                "col-start-3",
+                "text-right",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data wpłynięcia wniosku",
+              "name": "taskDateStart",
+              "dataBDD": "taskDateStart",
+              "value": false,
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "no-label"
+              ],
+              "copyFrom": "$submitted_at"
+            },
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-taskDateEnd",
+              "dataBDD": "headerComponent-taskDateEnd",
+              "value": "Data zakończenia przedsięwzięcia",
+              "classList": [
+                "text-right",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data zakończenia przedsięwzięcia",
+              "name": "taskDateEnd",
+              "dataBDD": "taskDateEnd",
+              "value": false,
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "no-label"
+              ],
+              "copyFrom": "$submitted_at"
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-6",
+              "no-title"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "B. Umowa",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-contractNum",
+                  "dataBDD": "headerComponent-contractNum",
+                  "value": "Numer umowy",
+                  "classList": [
+                    "col-start-3",
+                    "text-right",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Numer umowy",
+                  "name": "contractNum",
+                  "dataBDD": "contractNum",
+                  "value": "",
+                  "required": true,
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 16
+                      }
+                    },
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ],
+                  "copyFrom": "$jrwa"
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-contractDate",
+                  "dataBDD": "headerComponent-contractDate",
+                  "value": "Data zawarcia umowy",
+                  "classList": [
+                    "text-right",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "date",
+                  "label": "Data zawarcia umowy",
+                  "name": "contractDate",
+                  "dataBDD": "contractDate",
+                  "value": false,
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-6",
+                  "no-title"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Czy umowa była aneksowana?",
+                  "name": "addAnnex",
+                  "dataBDD": "addAnnex",
+                  "value": false,
+                  "classList": [
+                    "col-start-4",
+                    "no-label"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-addAnnex",
+                  "dataBDD": "headerComponent-addAnnex",
+                  "value": "Czy umowa była aneksowana?",
+                  "classList": [
+                    "col-span-4",
+                    "text-left",
+                    "displayNoneFrontend"
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "grid",
+                  "grid-cols-8",
+                  "no-title"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Aneks",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "header",
+                      "label": "",
+                      "name": "headerComponent-contractAnnexNum",
+                      "dataBDD": "headerComponent-contractAnnexNum",
+                      "value": "Numer aneksu",
+                      "classList": [
+                        "col-span-2",
+                        "col-start-2",
+                        "text-right",
+                        "displayNoneFrontend"
+                      ],
+                      "defaultValue": "Numer aneksu"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer aneksu",
+                      "name": "contractAnnexNum",
+                      "dataBDD": "contractAnnexNum",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "LengthValidator",
+                          "kwargs": {
+                            "max": 3
+                          }
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "classList": [
+                        "no-label"
+                      ],
+                      "defaultValue": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "header",
+                      "label": "",
+                      "name": "headerComponent-contractAnnexDate",
+                      "dataBDD": "headerComponent-contractAnnexDate",
+                      "value": "Data zawarcia aneksu",
+                      "classList": [
+                        "text-right",
+                        "displayNoneFrontend"
+                      ],
+                      "defaultValue": "Data zawarcia aneksu"
+                    },
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Data zawarcia aneksu",
+                      "name": "contractAnnexDate",
+                      "dataBDD": "contractAnnexDate",
+                      "value": false,
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "classList": [
+                        "no-label"
+                      ],
+                      "defaultValue": false
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2",
+                      "grid",
+                      "grid-cols-6",
+                      "no-title"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  }
+                }
+              ],
+              "classList": [
+                "swappable-bg"
+              ],
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "addAnnex",
+                    "values": [
+                      true
+                    ]
+                  }
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 10
+              },
+              "isPaginated": false
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "C. Nazwa i adres Beneficjenta",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-granteeFullName",
+              "dataBDD": "headerComponent-granteeFullName",
+              "value": "Nazwa Beneficjenta",
+              "classList": [
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Nazwa Beneficjenta",
+              "name": "granteeFullName",
+              "dataBDD": "granteeFullName",
+              "value": "",
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "no-label",
+                "col-span-4",
+                "text-left"
+              ],
+              "copyFrom": "applicantName"
+            },
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-granteeFullAddress",
+              "dataBDD": "headerComponent-granteeFullAddress",
+              "value": "Adres Beneficjenta",
+              "classList": [
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Adres Beneficjenta",
+              "name": "granteeFullAddress",
+              "dataBDD": "granteeFullAddress",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 400
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "no-label",
+                "col-span-4",
+                "text-left"
+              ]
+            }
+          ],
+          "classList": [
+            "no-title",
+            "grid",
+            "grid-cols-5",
+            "no-title"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "II. Informacje ogólne",
+      "shortName": "II. Informacje ogólne",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-taskName",
+              "dataBDD": "headerComponent-taskName",
+              "value": "1. Nazwa przedsięwzięcia",
+              "classList": [
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "1. Nazwa przedsięwzięcia",
+              "name": "taskName",
+              "dataBDD": "taskName",
+              "value": "",
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 600
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "no-label",
+                "col-span-2",
+                "text-left"
+              ],
+              "copyFrom": "applicationTaskName"
+            },
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-taskImplementationDesc",
+              "dataBDD": "headerComponent-taskImplementationDesc",
+              "value": "2. Szczegółowy opis wykonania przedsięwzięcia",
+              "classList": [
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "2. Szczegółowy opis wykonania przedsięwzięcia",
+              "name": "taskImplementationDesc",
+              "dataBDD": "taskImplementationDesc",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 20000
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "no-label",
+                "col-span-2",
+                "text-left"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-taskCompletionInfo",
+              "dataBDD": "headerComponent-taskCompletionInfo",
+              "value": "3. Stopień realizacji przedsięwzięcia na dzień złożenia raportu",
+              "classList": [
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "3. Stopień realizacji przedsięwzięcia na dzień złożenia raportu",
+              "name": "taskCompletionInfo",
+              "dataBDD": "taskCompletionInfo",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 10000
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "no-label",
+                "col-span-2",
+                "text-left"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-taskImplementationByPartnersDesc",
+              "dataBDD": "headerComponent-taskImplementationByPartnersDesc",
+              "value": "4. Opis działań partnerów w ramach realizacji przedsięwzięcia ze szczególnym uwzględnieniem organów administracji publicznej",
+              "classList": [
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "4. Opis działań partnerów w ramach realizacji przedsięwzięcia ze szczególnym uwzględnieniem organów administracji publicznej",
+              "name": "taskImplementationByPartnersDesc",
+              "dataBDD": "taskImplementationByPartnersDesc",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 10000
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "no-label",
+                "col-span-2",
+                "text-left"
+              ]
+            }
+          ],
+          "classList": [
+            "grid",
+            "grid-cols-3",
+            "no-title"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "III. Sprawozdanie z wykonania wydatków",
+      "shortName": "III. Sprawozdanie z wykonania wydatków",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "radio",
+              "label": "",
+              "name": "granteeVatDeclaration",
+              "dataBDD": "granteeVatDeclaration",
+              "value": "",
+              "options": [
+                "Wnioskodawca JEST płatnikiem VAT, dlatego kwoty zamieszczone w kosztorysie wniosku to KWOTY NETTO",
+                "Wnioskodawca NIE JEST płatnikiem VAT, dlatego kwoty zamieszczone w kosztorysie wniosku to KWOTY BRUTTO"
+              ],
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Wnioskodawca JEST płatnikiem VAT, dlatego kwoty zamieszczone w kosztorysie wniosku to KWOTY NETTO",
+                      "Wnioskodawca NIE JEST płatnikiem VAT, dlatego kwoty zamieszczone w kosztorysie wniosku to KWOTY BRUTTO"
+                    ]
+                  }
+                }
+              ],
+              "copyFrom": "applicantVatDeclaration"
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "A. Informacja o wydatkach poniesionych przy wykonaniu przedsięwzięcia",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Całkowity koszt realizacji przedsięwzięcia",
+              "name": "reportingCostsTotal",
+              "dataBDD": "reportingCostsTotal",
+              "value": 0,
+              "mask": "fund",
+              "unit": "PLN",
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "budgetTotalCurrentSumAmount"
+                    ]
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ],
+              "calculationRules": [
+                {
+                  "name": "copyValue",
+                  "from": "costActualTotalSum"
+                }
+              ],
+              "classList": [
+                "userInput-bg-red",
+                "default-margin",
+                "label-center"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "w tym koszty pokryte ze środków PISF",
+              "name": "reportingCostsPisfSupport",
+              "dataBDD": "reportingCostsPisfSupport",
+              "value": 0,
+              "mask": "fund",
+              "unit": "PLN",
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ],
+              "calculationRules": [
+                {
+                  "name": "copyValue",
+                  "from": "costActualSupportPisfSum"
+                }
+              ],
+              "classList": [
+                "default-margin",
+                "label-center"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "w tym środki własne",
+              "name": "reportingCostsOwnFunds",
+              "dataBDD": "reportingCostsOwnFunds",
+              "value": 0,
+              "mask": "fund",
+              "unit": "PLN",
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ],
+              "calculationRules": [
+                {
+                  "name": "copyValue",
+                  "from": "budgetInputOwnFundsCurrentAmount"
+                }
+              ],
+              "classList": [
+                "default-margin",
+                "label-center"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "w tym inne środki",
+              "name": "reportingCostsOtherFunds",
+              "dataBDD": "reportingCostsOtherFunds",
+              "value": 0,
+              "mask": "fund",
+              "unit": "PLN",
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "budgetInputAllPartnersCurrentAmount"
+                    ]
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ],
+              "calculationRules": [
+                {
+                  "name": "copyValue",
+                  "from": "budgetInputAllPartnersCurrentAmount"
+                }
+              ],
+              "classList": [
+                "default-margin",
+                "label-center"
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-4",
+              "grid",
+              "grid-cols-4"
+            ],
+            "sub": [
+              "table-4__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "1. Kosztorys ze względu na rodzaj kosztów",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-budget",
+                  "dataBDD": "headerComponent-budget",
+                  "value": "Zestawienie to stanowi porównanie kosztów planowanych z faktycznie poniesionymi. Należy w nim uwzględnić wszystkie pozycje, które figurowały w kosztorysie załączonym do umowy. Jeżeli Beneficjent wykorzystał dotację PISF inaczej, niż było to planowane (np. dokonał pewnych przesunięć między pozycjami kosztorysu w ramach przyznanej kwoty dofinansowania), konieczne jest wystosowanie przezeń specjalnego pisma, w którym opisze i wyjaśni zaistniałe różnice i zwróci się z prośbą o ich akceptację. <br><br><a target='_blank' rel='noopener noreferrer' href='https://wnioski.pisf.pl/programy-operacyjne/dokumenty-do-pobrania/promocja-polskiego-kina'>Wzór pisma wyjaśniającego zmiany w wykorzystaniu środków pochodzących z dofinansowania</a>"
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-plannedCost",
+                  "dataBDD": "headerComponent-plannedCost",
+                  "value": "Koszt planowany",
+                  "classList": [
+                    "col-start-5",
+                    "col-span-4",
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-alreadySpent",
+                  "dataBDD": "headerComponent-alreadySpent",
+                  "value": "Koszt poniesiony",
+                  "classList": [
+                    "col-span-4",
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-costTypeLp",
+                  "dataBDD": "headerComponent-costTypeLp",
+                  "value": "Lp.",
+                  "classList": [
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-costType",
+                  "dataBDD": "headerComponent-costType",
+                  "value": "Rodzaj kosztów",
+                  "classList": [
+                    "col-span-3",
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-overallFromPISF",
+                  "dataBDD": "headerComponent-overallFromPISF",
+                  "value": "Ogółem",
+                  "classList": [
+                    "col-span-2",
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-fromPISF",
+                  "dataBDD": "headerComponent-fromPISF",
+                  "value": "Z dotacji PISF",
+                  "classList": [
+                    "col-span-2",
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-overallFromDonation",
+                  "dataBDD": "headerComponent-overallFromDonation",
+                  "value": "Ogółem",
+                  "classList": [
+                    "col-span-2",
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-fromDonation",
+                  "dataBDD": "headerComponent-fromDonation",
+                  "value": "Z dotacji PISF",
+                  "classList": [
+                    "col-span-2",
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                }
+              ],
+              "classList": [
+                "grid",
+                "grid-cols-12",
+                "table-header"
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Koszt",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "textarea",
+                      "label": "",
+                      "name": "lp-number-costs",
+                      "dataBDD": "lp-number-costs",
+                      "value": "",
+                      "classList": [
+                        "displayNoneFrontend",
+                        "lp-number"
+                      ],
+                      "defaultValue": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "textarea",
+                      "label": "Rodzaj kosztów",
+                      "name": "costType",
+                      "dataBDD": "costType",
+                      "value": "",
+                      "readOnly": true,
+                      "helpText": "Wpisz rodzaj kosztu zgodnie z kosztorysem załączonym do umowy.",
+                      "validators": [
+                        {
+                          "name": "LengthValidator",
+                          "kwargs": {
+                            "max": 200
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "no-label",
+                        "col-span-3",
+                        "text-left"
+                      ],
+                      "copyFrom": "costType",
+                      "defaultValue": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "textarea",
+                      "label": "",
+                      "name": "costTypeEmpty",
+                      "dataBDD": "costTypeEmpty",
+                      "value": "",
+                      "classList": [
+                        "no-label",
+                        "col-span-3",
+                        "text-left",
+                        "displayNoneFrontend",
+                        "displayNonePDF"
+                      ],
+                      "defaultValue": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Preliminarz: koszt całkowity",
+                      "name": "costTotal",
+                      "dataBDD": "costTotal",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "readOnly": true,
+                      "helpText": "Wpisz wartość kosztu zgodnie z kosztorysem załączonym do umowy.",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "classList": [
+                        "no-label",
+                        "col-span-2"
+                      ],
+                      "copyFrom": "costTotal",
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Preliminarz: wniosek o dotację PISF",
+                      "name": "costRequestPisf",
+                      "dataBDD": "costRequestPisf",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "readOnly": true,
+                      "helpText": "Wpisz wysokość dotacji PISF zgodnie z kosztorysem załączonym do umowy.",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "classList": [
+                        "no-label",
+                        "col-span-2"
+                      ],
+                      "copyFrom": "costRequestPisf",
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Bieżący okres sprawozdawczy: koszt całkowity",
+                      "name": "costActualTotal",
+                      "dataBDD": "costActualTotal",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "helpText": "Wpisz wartość rzeczywiście poniesionych wydatków.",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "classList": [
+                        "no-label",
+                        "col-span-2"
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Bieżący okres sprawozdawczy: wniosek o dotację PISF",
+                      "name": "costActualSupportPisf",
+                      "dataBDD": "costActualSupportPisf",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "helpText": "Wpisz wysokość dofinansowania PISF w kwocie poniesionego wydatku.",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "classList": [
+                        "no-label",
+                        "col-span-2"
+                      ],
+                      "defaultValue": 0
+                    }
+                  ],
+                  "classList": {
+                    "sub": [
+                      "table-invoice__col"
+                    ],
+                    "main": [
+                      "table-invoice",
+                      "grid",
+                      "grid-cols-12"
+                    ]
+                  }
+                }
+              ],
+              "classList": {
+                "sub": [
+                  "table-invoice-top"
+                ],
+                "main": [
+                  "no-title",
+                  "swappable-bg",
+                  "lp-table"
+                ]
+              },
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 60
+              },
+              "isPaginated": true
+            },
+            {
+              "kind": "chapter",
+              "title": "Razem",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-total",
+                  "dataBDD": "headerComponent-total",
+                  "value": "Łącznie",
+                  "classList": [
+                    "col-start-4",
+                    "text-right",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Preliminarz: koszt całkowty",
+                  "name": "costTotalSum",
+                  "dataBDD": "costTotalSum",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "PLN",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "costTotal"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "dynamicSumInputs",
+                      "kwargs": {
+                        "fields": "costTotal"
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "no-label",
+                    "col-span-2"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Preliminarz: wniosek o dotację PISF",
+                  "name": "costRequestPisfSum",
+                  "dataBDD": "costRequestPisfSum",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "PLN",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "costRequestPisf"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "dynamicSumInputs",
+                      "kwargs": {
+                        "fields": "costRequestPisf"
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "no-label",
+                    "col-span-2"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Bieżący okres sprawozdawczy: koszt całkowty",
+                  "name": "costActualTotalSum",
+                  "dataBDD": "costActualTotalSum",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "PLN",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "costActualTotal"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "dynamicSumInputs",
+                      "kwargs": {
+                        "fields": "costActualTotal"
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "no-label",
+                    "col-span-2"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Bieżący okres sprawozdawczy: wniosek o dotację PISF",
+                  "name": "costActualSupportPisfSum",
+                  "dataBDD": "costActualSupportPisfSum",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "PLN",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "costActualSupportPisf"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "dynamicSumInputs",
+                      "kwargs": {
+                        "fields": "costActualSupportPisf"
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "no-label",
+                    "col-span-2"
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-4",
+                  "grid",
+                  "grid-cols-12",
+                  "no-title"
+                ],
+                "sub": [
+                  "table-4__col"
+                ]
+              }
+            }
+          ],
+          "classList": {
+            "sub": [
+              "table-invoice-top"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "2. Kosztorys ze względu na źródło finansowania",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-description",
+                  "dataBDD": "headerComponent-description",
+                  "value": "Zestawienie to stanowi porównanie kosztów planowanych z faktycznie poniesionymi. Uwaga: procentowy wkład dotacji PISF w finalnym budżecie przedsięwzięcia nie może przekroczyć wkładu zakładanego (określonego w umowie). Jeżeli faktycznie poniesiony koszt całkowity przedsięwzięcia okazał się niższy od planowanego lub Beneficjent nie wykorzystał całej dotacji, należy dokonać zwrotu na rachunek PISF i dostarczyć wraz z raportem potwierdzenie przelewu. Nr rachunku PISF: Banku Gospodarstwa Krajowego Beneficjenci krajowi: 91 1130 1017 0020 1234 1320 0016, Beneficjenci zagraniczni: PL 91 1130 1017 0020 1234 1320 0016 SWIFT: GOSKPLPW."
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-plannedCostSecond",
+                  "dataBDD": "headerComponent-plannedCostSecond",
+                  "value": "Koszt planowany",
+                  "classList": [
+                    "col-start-5",
+                    "col-span-4",
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-alreadySpentSecond",
+                  "dataBDD": "headerComponent-alreadySpentSecond",
+                  "value": "Koszt poniesiony",
+                  "classList": [
+                    "col-span-4",
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-costTypeSecond",
+                  "dataBDD": "headerComponent-costTypeSecond",
+                  "value": "Źródło finansowania",
+                  "classList": [
+                    "col-span-4",
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-plannedPln",
+                  "dataBDD": "headerComponent-plannedPln",
+                  "value": "PLN",
+                  "classList": [
+                    "col-span-2",
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-plannedShare",
+                  "dataBDD": "headerComponent-plannedShare",
+                  "value": "%",
+                  "classList": [
+                    "col-span-2",
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-actualPln",
+                  "dataBDD": "headerComponent-actualPln",
+                  "value": "PLN",
+                  "classList": [
+                    "col-span-2",
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-actualShare",
+                  "dataBDD": "headerComponent-actualShare",
+                  "value": "%",
+                  "classList": [
+                    "col-span-2",
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                }
+              ],
+              "classList": [
+                "grid",
+                "grid-cols-12",
+                "table-header"
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "Koszty pokryte z dofinansowania PISF",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-costPISF",
+                  "dataBDD": "headerComponent-costPISF",
+                  "value": "Koszty pokryte z dofinansowania PISF",
+                  "classList": [
+                    "col-span-2",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Preliminarz",
+                  "name": "budgetInputPisfSupportAmount",
+                  "dataBDD": "budgetInputPisfSupportAmount",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "PLN",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ],
+                  "copyFrom": "costRequestPisfSum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Preliminarz: udział w całym budżecie",
+                  "name": "budgetInputPisfSupportShare",
+                  "dataBDD": "budgetInputPisfSupportShare",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "%",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedShareValidator",
+                      "kwargs": {
+                        "dividend": "budgetInputPisfSupportAmount",
+                        "divisor": "reportingCostsTotal"
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "budgetInputPisfSupportAmount",
+                        "divisorField": "reportingCostsTotal"
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ],
+                  "copyFrom": "costRequestPisfSumShare"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Koszty bieżące",
+                  "name": "budgetInputPisfSupportCurrentAmount",
+                  "dataBDD": "budgetInputPisfSupportCurrentAmount",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "PLN",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "copyValue",
+                      "from": "costActualSupportPisfSum"
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Koszty bieżące: udział w całym budżecie",
+                  "name": "budgetInputPisfSupportCurrentShare",
+                  "dataBDD": "budgetInputPisfSupportCurrentShare",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "%",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedShareValidator",
+                      "kwargs": {
+                        "dividend": "budgetInputPisfSupportCurrentAmount",
+                        "divisor": "reportingCostsTotal"
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "max": 100.01
+                      },
+                      "validationMsg": "Procentowy wkład dotacji PISF w finalnym budżecie przedsięwzięcia nie może przekroczyć wkładu zakładanego (określonego w umowie)."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "budgetInputPisfSupportCurrentAmount",
+                        "divisorField": "reportingCostsTotal"
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-4",
+                  "grid",
+                  "grid-cols-6",
+                  "no-title",
+                  "chapter-bg-red"
+                ],
+                "sub": [
+                  "table-4__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "Środki własne",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-ownFunds",
+                  "dataBDD": "headerComponent-ownFunds",
+                  "value": "Środki własne",
+                  "classList": [
+                    "col-span-2",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Preliminarz",
+                  "name": "budgetInputOwnFundsAmount",
+                  "dataBDD": "budgetInputOwnFundsAmount",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "PLN",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ],
+                  "copyFrom": "costOwnFundsSum"
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Preliminarz: udział w całym budżecie",
+                  "name": "budgetInputOwnFundsShare",
+                  "dataBDD": "budgetInputOwnFundsShare",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "%",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedShareValidator",
+                      "kwargs": {
+                        "dividend": "budgetInputOwnFundsAmount",
+                        "divisor": "reportingCostsTotal"
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "budgetInputOwnFundsAmount",
+                        "divisorField": "reportingCostsTotal"
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Koszty bieżące",
+                  "name": "budgetInputOwnFundsCurrentAmount",
+                  "dataBDD": "budgetInputOwnFundsCurrentAmount",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "PLN",
+                  "validators": [
+                    {
+                      "name": "RelatedFractionLTEValidator",
+                      "kwargs": {
+                        "field_name": "costActualTotalSum",
+                        "ratio": 0.1
+                      },
+                      "validationMsg": "Minimalny wkład własny wnioskodawcy powinien wynosić 10% całości budżetu przedsięwzięcia."
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Koszty bieżące: udział w całym budżecie",
+                  "name": "budgetInputOwnFundsCurrentShare",
+                  "dataBDD": "budgetInputOwnFundsCurrentShare",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "%",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedShareValidator",
+                      "kwargs": {
+                        "dividend": "budgetInputOwnFundsCurrentAmount",
+                        "divisor": "reportingCostsTotal"
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "budgetInputOwnFundsCurrentAmount",
+                        "divisorField": "reportingCostsTotal"
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-4",
+                  "grid",
+                  "grid-cols-6",
+                  "no-title",
+                  "chapter-bg-grey"
+                ],
+                "sub": [
+                  "table-4__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "Środki partnerów prywatnych i publicznych łacznie",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-otherPartners",
+                  "dataBDD": "headerComponent-otherPartners",
+                  "value": "Środki partnerów prywatnych i publicznych łącznie",
+                  "classList": [
+                    "col-span-2",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Preliminarz",
+                  "name": "budgetInputAllPartnersAmount",
+                  "dataBDD": "budgetInputAllPartnersAmount",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "PLN",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "budgetInputPartnersSponsorsAmount",
+                          "budgetInputPublicSourcesAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "dynamicSumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "budgetInputPartnersSponsorsAmount",
+                          "budgetInputPublicSourcesAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Preliminarz: udział w całym budżecie",
+                  "name": "budgetInputAllPartnersShare",
+                  "dataBDD": "budgetInputAllPartnersShare",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "%",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedShareValidator",
+                      "kwargs": {
+                        "dividend": "budgetInputAllPartnersAmount",
+                        "divisor": "reportingCostsTotal"
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "budgetInputAllPartnersAmount",
+                        "divisorField": "reportingCostsTotal"
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Koszty bieżące",
+                  "name": "budgetInputAllPartnersCurrentAmount",
+                  "dataBDD": "budgetInputAllPartnersCurrentAmount",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "PLN",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "budgetInputPartnersSponsorsCurrentAmount",
+                          "budgetInputPublicSourcesCurrentAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "dynamicSumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "budgetInputPartnersSponsorsCurrentAmount",
+                          "budgetInputPublicSourcesCurrentAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Koszty bieżące: udział w całym budżecie",
+                  "name": "budgetInputAllPartnersCurrentShare",
+                  "dataBDD": "budgetInputAllPartnersCurrentShare",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "%",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedShareValidator",
+                      "kwargs": {
+                        "dividend": "budgetInputAllPartnersCurrentAmount",
+                        "divisor": "reportingCostsTotal"
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "budgetInputAllPartnersCurrentAmount",
+                        "divisorField": "reportingCostsTotal"
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-4",
+                  "grid",
+                  "grid-cols-6",
+                  "no-title",
+                  "chapter-bg-grey"
+                ],
+                "sub": [
+                  "table-4__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "Środki innych partnerów/sponsorów",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Razem",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "header",
+                      "label": "",
+                      "name": "headerComponent-totalPartnersSponsors",
+                      "dataBDD": "headerComponent-totalPartnersSponsors",
+                      "value": "Środki innych partnerów/sponsorów łącznie",
+                      "classList": [
+                        "col-span-2",
+                        "displayNoneFrontend"
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Preliminarz",
+                      "name": "budgetInputPartnersSponsorsAmount",
+                      "dataBDD": "budgetInputPartnersSponsorsAmount",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "readOnly": true,
+                      "validators": [
+                        {
+                          "name": "RelatedSumValidator",
+                          "kwargs": {
+                            "field_names": [
+                              "budgetInputPartnerSponsorAmount"
+                            ]
+                          }
+                        },
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "budgetInputPartnerSponsorAmount"
+                            ]
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "no-label"
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Preliminarz: udział w całym budżecie",
+                      "name": "budgetInputPartnersSponsorsShare",
+                      "dataBDD": "budgetInputPartnersSponsorsShare",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "%",
+                      "readOnly": true,
+                      "validators": [
+                        {
+                          "name": "RelatedShareValidator",
+                          "kwargs": {
+                            "dividend": "budgetInputPartnersSponsorsAmount",
+                            "divisor": "reportingCostsTotal"
+                          }
+                        },
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "shareCalculator",
+                          "kwargs": {
+                            "dividendField": "budgetInputPartnersSponsorsAmount",
+                            "divisorField": "reportingCostsTotal"
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "no-label"
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Koszty bieżące",
+                      "name": "budgetInputPartnersSponsorsCurrentAmount",
+                      "dataBDD": "budgetInputPartnersSponsorsCurrentAmount",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "readOnly": true,
+                      "validators": [
+                        {
+                          "name": "RelatedSumValidator",
+                          "kwargs": {
+                            "field_names": [
+                              "budgetInputPartnerSponsorCurrentAmount"
+                            ]
+                          }
+                        },
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "budgetInputPartnerSponsorCurrentAmount"
+                            ]
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "no-label"
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Koszty bieżące: udział w całym budżecie",
+                      "name": "budgetInputPartnersSponsorsCurrentShare",
+                      "dataBDD": "budgetInputPartnersSponsorsCurrentShare",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "%",
+                      "readOnly": true,
+                      "validators": [
+                        {
+                          "name": "RelatedShareValidator",
+                          "kwargs": {
+                            "dividend": "budgetInputPartnersSponsorsCurrentAmount",
+                            "divisor": "reportingCostsTotal"
+                          }
+                        },
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "shareCalculator",
+                          "kwargs": {
+                            "dividendField": "budgetInputPartnersSponsorsCurrentAmount",
+                            "divisorField": "reportingCostsTotal"
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "no-label"
+                      ]
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-4",
+                      "grid",
+                      "grid-cols-6",
+                      "no-title"
+                    ],
+                    "sub": [
+                      "table-4__col"
+                    ]
+                  }
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "Partner lub sponsor",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Nazwa partnera lub sponsora",
+                          "name": "partnerSponsorName",
+                          "dataBDD": "partnerSponsorName",
+                          "value": "",
+                          "validators": [
+                            {
+                              "name": "LengthValidator",
+                              "kwargs": {
+                                "max": 100
+                              }
+                            }
+                          ],
+                          "classList": [
+                            "col-start-2",
+                            "no-label"
+                          ],
+                          "defaultValue": ""
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Preliminarz",
+                          "name": "budgetInputPartnerSponsorAmount",
+                          "dataBDD": "budgetInputPartnerSponsorAmount",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "readOnly": true,
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "classList": [
+                            "no-label"
+                          ],
+                          "defaultValue": 0
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Preliminarz: udział w całym budżecie",
+                          "name": "budgetInputPartnerSponsorShare",
+                          "dataBDD": "budgetInputPartnerSponsorShare",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "%",
+                          "readOnly": true,
+                          "validators": [
+                            {
+                              "name": "RelatedShareValidator",
+                              "kwargs": {
+                                "dividend": "budgetInputPartnerSponsorAmount",
+                                "divisor": "reportingCostsTotal"
+                              }
+                            },
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "calculationRules": [
+                            {
+                              "name": "shareCalculator",
+                              "kwargs": {
+                                "dividendField": "budgetInputPartnerSponsorAmount",
+                                "divisorField": "reportingCostsTotal"
+                              }
+                            }
+                          ],
+                          "classList": [
+                            "no-label"
+                          ],
+                          "defaultValue": 0
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Koszty bieżące",
+                          "name": "budgetInputPartnerSponsorCurrentAmount",
+                          "dataBDD": "budgetInputPartnerSponsorCurrentAmount",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "classList": [
+                            "no-label"
+                          ],
+                          "defaultValue": 0
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Koszty bieżące: udział w całym budżecie",
+                          "name": "budgetInputPartnerSponsorCurrentShare",
+                          "dataBDD": "budgetInputPartnerSponsorCurrentShare",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "%",
+                          "readOnly": true,
+                          "validators": [
+                            {
+                              "name": "RelatedShareValidator",
+                              "kwargs": {
+                                "dividend": "budgetInputPartnerSponsorCurrentAmount",
+                                "divisor": "reportingCostsTotal"
+                              }
+                            },
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "calculationRules": [
+                            {
+                              "name": "shareCalculator",
+                              "kwargs": {
+                                "dividendField": "budgetInputPartnerSponsorCurrentAmount",
+                                "divisorField": "reportingCostsTotal"
+                              }
+                            }
+                          ],
+                          "classList": [
+                            "no-label"
+                          ],
+                          "defaultValue": 0
+                        }
+                      ],
+                      "classList": {
+                        "main": [
+                          "table-4",
+                          "table-invoice",
+                          "grid",
+                          "grid-cols-6"
+                        ],
+                        "sub": [
+                          "table-4-2__col"
+                        ]
+                      }
+                    }
+                  ],
+                  "classList": {
+                    "sub": [
+                      "table-4-top"
+                    ]
+                  },
+                  "isMultipleForms": true,
+                  "multipleFormsRules": {
+                    "minCount": 1,
+                    "maxCount": 20
+                  },
+                  "isPaginated": true
+                }
+              ],
+              "classList": {
+                "sub": [
+                  "table-4-top"
+                ],
+                "main": [
+                  "no-title",
+                  "chapter-bg-grey"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "Pozostałe źródła publiczne",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Razem",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "header",
+                      "label": "",
+                      "name": "headerComponent-totalPublicSources",
+                      "dataBDD": "headerComponent-totalPublicSources",
+                      "value": "Pozostałe źródła publiczne łącznie",
+                      "classList": [
+                        "col-span-2",
+                        "displayNoneFrontend"
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Preliminarz",
+                      "name": "budgetInputPublicSourcesAmount",
+                      "dataBDD": "budgetInputPublicSourcesAmount",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "readOnly": true,
+                      "validators": [
+                        {
+                          "name": "RelatedSumValidator",
+                          "kwargs": {
+                            "field_names": [
+                              "budgetInputPublicSourceAmount"
+                            ]
+                          }
+                        },
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "budgetInputPublicSourceAmount"
+                            ]
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "no-label"
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Preliminarz: udział w całym budżecie",
+                      "name": "budgetInputPublicSourcesShare",
+                      "dataBDD": "budgetInputPublicSourcesShare",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "%",
+                      "readOnly": true,
+                      "validators": [
+                        {
+                          "name": "RelatedShareValidator",
+                          "kwargs": {
+                            "dividend": "budgetInputPublicSourcesAmount",
+                            "divisor": "reportingCostsTotal"
+                          }
+                        },
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "shareCalculator",
+                          "kwargs": {
+                            "dividendField": "budgetInputPublicSourcesAmount",
+                            "divisorField": "reportingCostsTotal"
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "no-label"
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Koszty bieżące",
+                      "name": "budgetInputPublicSourcesCurrentAmount",
+                      "dataBDD": "budgetInputPublicSourcesCurrentAmount",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "readOnly": true,
+                      "validators": [
+                        {
+                          "name": "RelatedSumValidator",
+                          "kwargs": {
+                            "field_names": [
+                              "budgetInputPublicSourceCurrentAmount"
+                            ]
+                          }
+                        },
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "dynamicSumInputs",
+                          "kwargs": {
+                            "fields": [
+                              "budgetInputPublicSourceCurrentAmount"
+                            ]
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "no-label"
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Koszty bieżące: udział w całym budżecie",
+                      "name": "budgetInputPublicSourcesCurrentShare",
+                      "dataBDD": "budgetInputPublicSourcesCurrentShare",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "%",
+                      "readOnly": true,
+                      "validators": [
+                        {
+                          "name": "RelatedShareValidator",
+                          "kwargs": {
+                            "dividend": "budgetInputPublicSourcesCurrentAmount",
+                            "divisor": "reportingCostsTotal"
+                          }
+                        },
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "shareCalculator",
+                          "kwargs": {
+                            "dividendField": "budgetInputPublicSourcesCurrentAmount",
+                            "divisorField": "reportingCostsTotal"
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "no-label"
+                      ]
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-4",
+                      "grid",
+                      "grid-cols-6",
+                      "no-title"
+                    ],
+                    "sub": [
+                      "table-4__col"
+                    ]
+                  }
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "Źródła publiczne",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Nazwa partnera lub sponsora",
+                          "name": "publicSourceName",
+                          "dataBDD": "publicSourceName",
+                          "value": "",
+                          "validators": [
+                            {
+                              "name": "LengthValidator",
+                              "kwargs": {
+                                "max": 100
+                              }
+                            }
+                          ],
+                          "classList": [
+                            "col-start-2",
+                            "no-label"
+                          ],
+                          "defaultValue": ""
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Preliminarz",
+                          "name": "budgetInputPublicSourceAmount",
+                          "dataBDD": "budgetInputPublicSourceAmount",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "readOnly": true,
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "classList": [
+                            "no-label"
+                          ],
+                          "defaultValue": 0
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Preliminarz: udział w całym budżecie",
+                          "name": "budgetInputPublicSourceShare",
+                          "dataBDD": "budgetInputPublicSourceShare",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "%",
+                          "readOnly": true,
+                          "validators": [
+                            {
+                              "name": "RelatedShareValidator",
+                              "kwargs": {
+                                "dividend": "budgetInputPublicSourceAmount",
+                                "divisor": "reportingCostsTotal"
+                              }
+                            },
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "calculationRules": [
+                            {
+                              "name": "shareCalculator",
+                              "kwargs": {
+                                "dividendField": "budgetInputPublicSourceAmount",
+                                "divisorField": "reportingCostsTotal"
+                              }
+                            }
+                          ],
+                          "classList": [
+                            "no-label"
+                          ],
+                          "defaultValue": 0
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Koszty bieżące",
+                          "name": "budgetInputPublicSourceCurrentAmount",
+                          "dataBDD": "budgetInputPublicSourceCurrentAmount",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "classList": [
+                            "no-label"
+                          ],
+                          "defaultValue": 0
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Koszty bieżące: udział w całym budżecie",
+                          "name": "budgetInputPublicSourceCurrentShare",
+                          "dataBDD": "budgetInputPublicSourceCurrentShare",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "%",
+                          "readOnly": true,
+                          "validators": [
+                            {
+                              "name": "RelatedShareValidator",
+                              "kwargs": {
+                                "dividend": "budgetInputPublicSourceCurrentAmount",
+                                "divisor": "reportingCostsTotal"
+                              }
+                            },
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "calculationRules": [
+                            {
+                              "name": "shareCalculator",
+                              "kwargs": {
+                                "dividendField": "budgetInputPublicSourceCurrentAmount",
+                                "divisorField": "reportingCostsTotal"
+                              }
+                            }
+                          ],
+                          "classList": [
+                            "no-label"
+                          ],
+                          "defaultValue": 0
+                        }
+                      ],
+                      "classList": {
+                        "main": [
+                          "table-4",
+                          "table-invoice",
+                          "grid",
+                          "grid-cols-6"
+                        ],
+                        "sub": [
+                          "table-4-2__col"
+                        ]
+                      }
+                    }
+                  ],
+                  "classList": {
+                    "sub": [
+                      "table-4-top"
+                    ]
+                  },
+                  "isMultipleForms": true,
+                  "multipleFormsRules": {
+                    "minCount": 1,
+                    "maxCount": 20
+                  },
+                  "isPaginated": true
+                }
+              ],
+              "classList": {
+                "sub": [
+                  "table-4-top"
+                ],
+                "main": [
+                  "no-title",
+                  "chapter-bg-grey"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "Źródła finansowania ogółem",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-fundingSourcesOverall",
+                  "dataBDD": "headerComponent-fundingSourcesOverall",
+                  "value": "Źródła finansowania ogółem",
+                  "classList": [
+                    "col-span-2",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Preliminarz",
+                  "name": "budgetTotalSumAmount",
+                  "dataBDD": "budgetTotalSumAmount",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "PLN",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "budgetInputPisfSupportAmount",
+                          "budgetInputOwnFundsAmount",
+                          "budgetInputAllPartnersAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "costTotalSum"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "dynamicSumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "budgetInputPisfSupportAmount",
+                          "budgetInputOwnFundsAmount",
+                          "budgetInputAllPartnersAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Preliminarz: udział w całym budżecie",
+                  "name": "budgetTotalSumShare",
+                  "dataBDD": "budgetTotalSumShare",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "%",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedShareValidator",
+                      "kwargs": {
+                        "dividend": "budgetTotalSumAmount",
+                        "divisor": "budgetTotalSumAmount"
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "budgetTotalSumAmount",
+                        "divisorField": "budgetTotalSumAmount"
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Koszty bieżące",
+                  "name": "budgetTotalCurrentSumAmount",
+                  "dataBDD": "budgetTotalCurrentSumAmount",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "PLN",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "budgetInputPisfSupportCurrentAmount",
+                          "budgetInputOwnFundsCurrentAmount",
+                          "budgetInputAllPartnersCurrentAmount"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "costActualTotalSum"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "dynamicSumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "budgetInputPisfSupportCurrentAmount",
+                          "budgetInputOwnFundsCurrentAmount",
+                          "budgetInputAllPartnersCurrentAmount"
+                        ]
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Koszty bieżące: udział w całym budżecie",
+                  "name": "budgetTotalCurrentSumShare",
+                  "dataBDD": "budgetTotalCurrentSumShare",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "%",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedShareValidator",
+                      "kwargs": {
+                        "dividend": "budgetTotalCurrentSumAmount",
+                        "divisor": "reportingCostsTotal"
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "shareCalculator",
+                      "kwargs": {
+                        "dividendField": "budgetTotalCurrentSumAmount",
+                        "divisorField": "reportingCostsTotal"
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-4",
+                  "grid",
+                  "grid-cols-6",
+                  "no-title",
+                  "chapter-bg-grey"
+                ],
+                "sub": [
+                  "table-4__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-budgetComments",
+                  "dataBDD": "headerComponent-budgetComments",
+                  "value": "Wyjaśnienie dotyczące różnic pomiędzy kosztem planowanym a poniesionym",
+                  "classList": [
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "Uwagi",
+                  "name": "budgetComments",
+                  "dataBDD": "budgetComments",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 10000
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "no-label"
+                  ]
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "sub": [
+              "table-invoice-top"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "B. Zestawienie faktur/rachunków",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-invoiceDescription",
+                  "dataBDD": "headerComponent-invoiceDescription",
+                  "value": "Zestawienie to spis wszystkich faktur/rachunków/biletów, które dotyczą przedsięwzięcia i zostały pokryte z dofinansowania PISF. Spis zawierać powinien: rodzaj dokumentu (faktura/rachunek), nr faktury/rachunku (w przypadku rachunku należy podać jego nr i datę oraz podać nr i datę umowy, której dotyczy), datę wystawienia dokumentu, nazwę wydatku (rodzaj towaru/usługi), wysokość wydatkowanej kwoty ze wskazaniem części, w jakiej została ona pokryta z dofinansowania PISF. Uwaga: Każda z faktur/rachunków opłaconych z otrzymanego dofinansowania powinna być opatrzona na odwrocie pieczęcią Beneficjenta oraz zawierać sporządzony w sposób trwały opis zawierający informacje: z jakich środków wydatkowana kwota została pokryta oraz jakie było przeznaczenie zakupionych towarów, usług lub innego rodzaju opłaconej należności. Informacja ta powinna być podpisana przez osobę odpowiedzialną za sprawy dotyczące rozliczeń finansowych Beneficjenta. Do raportu nie załącza się faktur/rachunków, które należy przechowywać zgodnie z obowiązującymi przepisami i udostępniać podczas przeprowadzanych czynności kontrolnych. W przypadku faktur za akredytacje, noclegi, bilety lub umów o dzieło należy podać imię i nazwisko osoby, której dotyczy pozycja. Z dotacji PISF mogą zostać pokryte dokumenty księgowe wystawione od momentu złożenia wniosku o dofinansowanie PISF (w wersji elektronicznej) do zakończenia przedsięwzięcia określonego w harmonogramie stanowiącym załącznik nr 1/1A do Umowy. Przeliczeń z waluty obcej na PLN należy dokonywać dla każdej pozycji osobno, wg średniego kursu NBP z dnia poprzedzającego dzień wystawienia faktury. Uwzględnić należy wartość przelicznika do 4. miejsca po przecinku, a otrzymaną wartość w PLN – zaokrąglić do 2. miejsca po przecinku. Kolejność wpisywania faktur powinna być taka sama jak kolejność pozycji kosztorysu."
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-invoiceNumber",
+                  "dataBDD": "headerComponent-invoiceNumber",
+                  "value": "Nr i nazwa dokumentu księgowego",
+                  "classList": [
+                    "displayNoneFrontend",
+                    "text-left",
+                    "col-span-8",
+                    "col-start-2"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-invoiceTotalCost",
+                  "dataBDD": "headerComponent-invoiceTotalCost",
+                  "value": "Kwota całkowita",
+                  "classList": [
+                    "text-center",
+                    "col-span-4",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-invoicePISFRefund",
+                  "dataBDD": "headerComponent-invoicePISFRefund",
+                  "value": "W tym z dofinansowania PISF",
+                  "classList": [
+                    "text-center",
+                    "displayNoneFrontend",
+                    "col-span-2"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-invoiceLp",
+                  "dataBDD": "headerComponent-invoiceLp",
+                  "value": "Lp.",
+                  "classList": [
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-invoicePositionNumber",
+                  "dataBDD": "headerComponent-invoicePositionNumber",
+                  "value": "Nr pozycji kosztorysu",
+                  "classList": [
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-invoiceIssuedDate",
+                  "dataBDD": "headerComponent-invoiceIssuedDate",
+                  "value": "Data wystawienia",
+                  "classList": [
+                    "text-center",
+                    "displayNoneFrontend",
+                    "col-span-2"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-invoicePaymentDate",
+                  "dataBDD": "headerComponent-invoicePaymentDate",
+                  "value": "Data zapłaty",
+                  "classList": [
+                    "text-center",
+                    "displayNoneFrontend",
+                    "col-span-2"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-invoiceDesc",
+                  "dataBDD": "headerComponent-invoiceDesc",
+                  "value": "Waluta",
+                  "classList": [
+                    "text-center",
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-invoicePriceNBP",
+                  "dataBDD": "headerComponent-invoicePriceNBP",
+                  "value": "Średni kurs NBP",
+                  "classList": [
+                    "text-center",
+                    "displayNoneFrontend",
+                    "col-span-2"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-totalInvoiceOtherCurrency",
+                  "dataBDD": "headerComponent-totalInvoiceOtherCurrency",
+                  "value": "W walucie obcej",
+                  "classList": [
+                    "text-center",
+                    "displayNoneFrontend",
+                    "col-span-2"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-totalInvoicePLN",
+                  "dataBDD": "headerComponent-totalInvoicePLN",
+                  "value": "PLN",
+                  "classList": [
+                    "text-center",
+                    "displayNoneFrontend",
+                    "col-span-2"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-supportInvoicePLN",
+                  "dataBDD": "headerComponent-supportInvoicePLN",
+                  "value": "PLN",
+                  "classList": [
+                    "text-center",
+                    "displayNoneFrontend",
+                    "col-span-2"
+                  ]
+                }
+              ],
+              "classList": [
+                "grid",
+                "grid-cols-15",
+                "table-header"
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Faktura/rachunek",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "textarea",
+                      "label": "Lp.",
+                      "name": "lp-number-invoice",
+                      "dataBDD": "lp-number-invoice",
+                      "value": "",
+                      "calculationRules": [
+                        {
+                          "name": "rowNumber"
+                        }
+                      ],
+                      "classList": [
+                        "displayNoneFrontend",
+                        "no-label"
+                      ],
+                      "defaultValue": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "textarea",
+                      "label": "Nazwa i opis wydatku",
+                      "name": "costExpenditureDesc",
+                      "dataBDD": "costExpenditureDesc",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "LengthValidator",
+                          "kwargs": {
+                            "max": 200
+                          }
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "classList": [
+                        "col-span-14",
+                        "text-bold",
+                        "no-label",
+                        "text-left"
+                      ],
+                      "defaultValue": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "textarea",
+                      "label": "Rodzaj i numer dokumentu księgowego",
+                      "name": "accountingDocTypeNum",
+                      "dataBDD": "accountingDocTypeNum",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "LengthValidator",
+                          "kwargs": {
+                            "max": 150
+                          }
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "classList": [
+                        "table-invoice__full",
+                        "no-label",
+                        "col-start-2",
+                        "col-span-14",
+                        "text-left"
+                      ],
+                      "defaultValue": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer pozycji kosztorysu",
+                      "name": "costEstimateItemNum",
+                      "dataBDD": "costEstimateItemNum",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "LengthValidator",
+                          "kwargs": {
+                            "max": 10
+                          }
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "classList": [
+                        "no-label",
+                        "table-1-2",
+                        "col-start-2"
+                      ],
+                      "defaultValue": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Data wystawienia",
+                      "name": "accountingDocDateIssued",
+                      "dataBDD": "accountingDocDateIssued",
+                      "value": false,
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RelatedDateGTEValidator",
+                          "kwargs": {
+                            "field_name": "taskDateStart"
+                          },
+                          "validationMsg": "Data wystawienia nie może być wcześniejsza niż data wpłynięcia wniosku."
+                        },
+                        {
+                          "name": "RelatedDateLTEValidator",
+                          "kwargs": {
+                            "field_name": "taskDateEnd"
+                          },
+                          "validationMsg": "Data wystawienia nie może być późniejsza niż data zakończenia przedsięwzięcia"
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "classList": [
+                        "no-label",
+                        "col-span-2"
+                      ],
+                      "defaultValue": false
+                    },
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Data zapłaty",
+                      "name": "costPaymentDate",
+                      "dataBDD": "costPaymentDate",
+                      "value": false,
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RelatedDateGTEValidator",
+                          "kwargs": {
+                            "field_name": "taskDateStart"
+                          },
+                          "validationMsg": "Data zapłaty nie może być wcześniejsza niż data wpłynięcia wniosku."
+                        },
+                        {
+                          "name": "RelatedDateLTEValidator",
+                          "kwargs": {
+                            "field_name": "taskDateEnd"
+                          },
+                          "validationMsg": "Data zapłaty nie może być późniejsza niż data zakończenia przedsięwzięcia"
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "classList": [
+                        "no-label",
+                        "col-span-2"
+                      ],
+                      "defaultValue": false
+                    },
+                    {
+                      "kind": "component",
+                      "type": "currency",
+                      "label": "Waluta",
+                      "name": "costCurrency",
+                      "dataBDD": "costCurrency",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "classList": [
+                        "no-label",
+                        "table-1-2"
+                      ],
+                      "defaultValue": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Kurs średni NBP",
+                      "name": "costCurrencyNbpExchRate",
+                      "dataBDD": "costCurrencyNbpExchRate",
+                      "value": 0,
+                      "readOnly": true,
+                      "validators": [
+                        {
+                          "name": "LengthValidator",
+                          "kwargs": {
+                            "max": 20
+                          }
+                        },
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "getNBPCurrency",
+                          "kwargs": {
+                            "dateField": "accountingDocDateIssued",
+                            "currencyField": "costCurrency"
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "no-label",
+                        "table-1-2",
+                        "col-span-2"
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Kwota całkowita w walucie obcej",
+                      "name": "costInCurrency",
+                      "dataBDD": "costInCurrency",
+                      "value": 0,
+                      "mask": "fund",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "classList": [
+                        "no-label",
+                        "table-1-2",
+                        "col-span-2"
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Kwota całkowita w PLN",
+                      "name": "costInPln",
+                      "dataBDD": "costInPln",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "readOnly": true,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalMultiplicationValidator",
+                          "kwargs": {
+                            "field_names": [
+                              "costInCurrency",
+                              "costCurrencyNbpExchRate"
+                            ]
+                          }
+                        },
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "localMultiplyInputs",
+                          "kwargs": {
+                            "fields": [
+                              "costInCurrency",
+                              "costCurrencyNbpExchRate"
+                            ]
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "no-label",
+                        "col-span-2"
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "W tym ze środków pochodzących z dofinansowania PISF w PLN",
+                      "name": "costInPlnPisf",
+                      "dataBDD": "costInPlnPisf",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "classList": [
+                        "no-label",
+                        "col-span-2"
+                      ],
+                      "defaultValue": 0
+                    }
+                  ],
+                  "classList": {
+                    "sub": [
+                      "table-invoice__col"
+                    ],
+                    "main": [
+                      "table-invoice",
+                      "grid",
+                      "grid-cols-15"
+                    ]
+                  }
+                }
+              ],
+              "classList": {
+                "main": [
+                  "no-title",
+                  "swappable-bg"
+                ]
+              },
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 60
+              },
+              "isPaginated": true
+            },
+            {
+              "kind": "chapter",
+              "title": "Łącznie PLN",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Suma wydatków w PLN",
+                  "name": "costInPlnTotalSum",
+                  "dataBDD": "costInPlnTotalSum",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "PLN",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "costInPln"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "dynamicSumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "costInPln"
+                        ]
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "default-margin",
+                    "col-start-3",
+                    "userInput-border"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "W tym z dofinansowania PISF w PLN",
+                  "name": "costInPlnPisfTogether",
+                  "dataBDD": "costInPlnPisfTogether",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "PLN",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "costInPlnPisf"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "reportingCostsPisfSupport"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "dynamicSumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "costInPlnPisf"
+                        ]
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "default-margin",
+                    "userInput-border"
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-2-sum",
+                  "grid",
+                  "grid-cols-4",
+                  "no-title"
+                ],
+                "sub": [
+                  "table-2-sum__col"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "IV. Dodatkowe informacje",
+      "shortName": "IV. Dodatkowe informacje",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-additionalGeneralComments",
+              "dataBDD": "headerComponent-additionalGeneralComments",
+              "value": "Dodatkowe informacje",
+              "classList": [
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Dodatkowe informacje",
+              "name": "additionalGeneralComments",
+              "dataBDD": "additionalGeneralComments",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 10000
+                  }
+                }
+              ],
+              "classList": [
+                "no-label",
+                "col-span-3",
+                "text-left"
+              ]
+            }
+          ],
+          "classList": [
+            "grid",
+            "grid-cols-4"
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-attachmentsDesc",
+                  "dataBDD": "headerComponent-attachmentsDesc",
+                  "value": "Do raportu należy załączyć ewentualny raport medialny, ulotki, plakaty oraz inne materiały promocyjne i informacyjne."
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "Informacja o załącznikach",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-attachmentsInfo",
+                  "dataBDD": "headerComponent-attachmentsInfo",
+                  "value": "Informacja o załącznikach",
+                  "classList": [
+                    "displayNoneFrontend"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "",
+                  "name": "attachmentsInfo",
+                  "dataBDD": "attachmentsInfo",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 20000
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "col-span-3",
+                    "text-left"
+                  ]
+                }
+              ],
+              "classList": [
+                "grid",
+                "grid-cols-4",
+                "no-title"
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "Lista załączników",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "chapter",
+                      "title": "Załącznik",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "file",
+                          "label": "",
+                          "name": "reportAttachment",
+                          "dataBDD": "reportAttachment",
+                          "value": "",
+                          "helpText": "Maksymalny rozmiar pliku to 50 MB",
+                          "defaultValue": ""
+                        }
+                      ],
+                      "classList": [
+                        "no-title"
+                      ]
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "swappable-bg"
+                    ]
+                  },
+                  "isMultipleForms": true,
+                  "multipleFormsRules": {
+                    "minCount": 1,
+                    "maxCount": 20
+                  },
+                  "isPaginated": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Oświadczenia",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Od daty zawarcia umowy nie zmienił się status prawny Beneficjenta.",
+              "name": "statementLegalStatusUnchanged",
+              "dataBDD": "statementLegalStatusUnchanged",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "no-label",
+                "text-center"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-statementLegalStatusUnchanged",
+              "dataBDD": "headerComponent-statementLegalStatusUnchanged",
+              "value": "Od daty zawarcia umowy nie zmienił się status prawny Beneficjenta.",
+              "classList": [
+                "col-span-9",
+                "text-left",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Wszystkie podane w niniejszym raporcie informacje są zgodne z aktualnym stanem prawnym i faktycznym.",
+              "name": "statementDeclaredInformationUptodate",
+              "dataBDD": "statementDeclaredInformationUptodate",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "no-label",
+                "text-center"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-statementDeclaredInformationUptodate",
+              "dataBDD": "headerComponent-statementDeclaredInformationUptodate",
+              "value": "Wszystkie podane w niniejszym raporcie informacje są zgodne z aktualnym stanem prawnym i faktycznym.",
+              "classList": [
+                "col-span-9",
+                "text-left",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Przedstawiciele Instytutu dokonujący weryfikacji mogą dokonać poprawy oczywistych omyłek pisarskich i rachunkowych w raporcie końcowym, zawiadamiając o tym Beneficjenta.",
+              "name": "statementInstituteMayCorrectObviousErrors",
+              "dataBDD": "statementInstituteMayCorrectObviousErrors",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "no-label",
+                "text-center"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-statementInstituteMayCorrectObviousErrors",
+              "dataBDD": "headerComponent-statementInstituteMayCorrectObviousErrors",
+              "value": "Przedstawiciele Instytutu dokonujący weryfikacji mogą dokonać poprawy oczywistych omyłek pisarskich i rachunkowych w raporcie końcowym, zawiadamiając o tym Beneficjenta.",
+              "classList": [
+                "col-span-9",
+                "text-left",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Oświadczam, że zestawienie faktur (rachunków) obejmuje wyłącznie koszty ujęte w ewidencji księgowej podmiotu realizującego przedsięwzięcie.",
+              "name": "statementInvoicesIncludeOnlyRecordedCosts",
+              "dataBDD": "statementInvoicesIncludeOnlyRecordedCosts",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "no-label",
+                "text-center"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-statementInvoicesIncludeOnlyRecordedCosts",
+              "dataBDD": "headerComponent-statementInvoicesIncludeOnlyRecordedCosts",
+              "value": "Oświadczam, że zestawienie faktur (rachunków) obejmuje wyłącznie koszty ujęte w ewidencji księgowej podmiotu realizującego przedsięwzięcie.",
+              "classList": [
+                "col-span-9",
+                "text-left",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Oświadczam, że wszystkie kwoty wymienione w zestawieniu faktur (rachunków) zostały faktycznie poniesione.",
+              "name": "statementAllInvoiceAmountsActuallyIncurred",
+              "dataBDD": "statementAllInvoiceAmountsActuallyIncurred",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "no-label",
+                "text-center"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-statementAllInvoiceAmountsActuallyIncurred",
+              "dataBDD": "headerComponent-statementAllInvoiceAmountsActuallyIncurred",
+              "value": "Oświadczam, że wszystkie kwoty wymienione w zestawieniu faktur (rachunków) zostały faktycznie poniesione.",
+              "classList": [
+                "col-span-9",
+                "text-left",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Oświadczam, że wszystkie płatności, w tym podatki i świadczenia od wynagrodzeń zostały uregulowane do dnia zakończenia zadania, o którym mowa w § ………… zawartej umowy z PISF.",
+              "name": "statementAllPaymentsSettledByProjectEnd",
+              "dataBDD": "statementAllPaymentsSettledByProjectEnd",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "no-label",
+                "text-center"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-statementAllPaymentsSettledByProjectEnd",
+              "dataBDD": "headerComponent-statementAllPaymentsSettledByProjectEnd",
+              "value": "Oświadczam, że wszystkie płatności, w tym podatki i świadczenia od wynagrodzeń zostały uregulowane do dnia zakończenia zadania, o którym mowa w § ………… zawartej umowy z PISF.",
+              "classList": [
+                "col-span-9",
+                "text-left",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Oświadczam, że w całkowitym koszcie przedsięwzięcia nie został uwzględniony podatek od towarów i usług (VAT) podlegający odzyskaniu lub rozliczeniu w deklaracjach składanych do Urzędu Skarbowego.",
+              "name": "statementNoRecoverableVATIncluded",
+              "dataBDD": "statementNoRecoverableVATIncluded",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "no-label",
+                "text-center"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-statementNoRecoverableVATIncluded",
+              "dataBDD": "headerComponent-statementNoRecoverableVATIncluded",
+              "value": "Oświadczam, że w całkowitym koszcie przedsięwzięcia nie został uwzględniony podatek od towarów i usług (VAT) podlegający odzyskaniu lub rozliczeniu w deklaracjach składanych do Urzędu Skarbowego.",
+              "classList": [
+                "col-span-9",
+                "text-left",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Oświadczam, że nie toczą się przeciwko mnie żadne postępowania sądowe oraz nie posiadam żadnych tytułów egzekucyjnych wydanych przez komornika.",
+              "name": "statementNoLegalProceedingsOrEnforcements",
+              "dataBDD": "statementNoLegalProceedingsOrEnforcements",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "no-label",
+                "text-center"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-statementNoLegalProceedingsOrEnforcements",
+              "dataBDD": "headerComponent-statementNoLegalProceedingsOrEnforcements",
+              "value": "Oświadczam, że nie toczą się przeciwko mnie żadne postępowania sądowe oraz nie posiadam żadnych tytułów egzekucyjnych wydanych przez komornika.",
+              "classList": [
+                "col-span-9",
+                "text-left",
+                "displayNoneFrontend"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "PODPIS BENEFICJENTA:",
+              "name": "reportSignature",
+              "dataBDD": "reportSignature",
+              "value": "",
+              "classList": [
+                "col-start-7",
+                "col-span-4",
+                "text-center",
+                "report-signature",
+                "displayNoneFrontend"
+              ]
+            }
+          ],
+          "classList": [
+            "no-title",
+            "grid",
+            "grid-cols-10"
+          ]
+        }
+      ]
+    }
+  ]
+}

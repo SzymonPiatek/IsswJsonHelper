@@ -1,0 +1,88 @@
+{
+  "kind": "form",
+  "jrwa": "",
+  "expert": {
+    "name": "",
+    "email": "",
+    "avatar": ""
+  },
+  "status": "",
+  "applicant": {},
+  "title": "",
+  "introText": [
+    {
+      "text": "Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"
+    }
+  ],
+  "blanks": [],
+  "parts": [
+    {
+      "kind": "part",
+      "title": "I. CheckboxTrueDateLTEToday",
+      "shortName": "I. Checkbox True Date LTE Today",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-checkboxTrueDateLTEToday",
+              "dataBDD": "headerComponent-checkboxTrueDateLTEToday",
+              "value": "Walidator pilnuje, by użytkownik nie zaznaczył checkboxa, jeśli powiązana data jest wcześniejsza lub dzisiejsza."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Checkbox",
+              "name": "checkbox",
+              "dataBDD": "checkbox",
+              "value": false,
+              "validators": [
+                {
+                  "name": "CheckboxTrueDateLTEToday",
+                  "kwargs": {
+                    "field_name": "date"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data",
+              "name": "date",
+              "dataBDD": "date",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

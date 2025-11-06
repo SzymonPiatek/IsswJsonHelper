@@ -9,7 +9,7 @@ class PromotionPriorityApplicationFormBuilder(PromotionOperationalProgramApplica
         )
 
         self.form_id = self.set_ids(
-            local_id=16409,
+            local_id=16417,
             uat_id=2822
         )
 
@@ -316,15 +316,15 @@ class PromotionPriorityApplicationFormBuilder(PromotionOperationalProgramApplica
                 "name": "statementEligibleForFunding"
             },
             {
-                "label": "5. Oświadczam, iż spełniam warunki do otrzymania dofinansowania określone w Ustawie o kinematografii, Rozporządzeniu Ministra Kultury w sprawie udzielenia przez PISF dofinansowania przedsięwzięć z zakresu kinematografii oraz Programie Operacyjnym V - Promocja polskiej twórczości filmowej za granicą",
+                "label": "5. Oświadczam, iż spełniam warunki do otrzymania dofinansowania określone w Ustawie o kinematografii, Rozporządzeniu Ministra Kultury w sprawie udzielenia przez PISF dofinansowania przedsięwzięć z zakresu kinematografii oraz Programie Operacyjnym V - Promocja polskiej twórczości filmowej za granicą.",
                 "name": "statementMeetConditions"
             },
             {
-                "label": "6. Oświadczam, że zapoznałem się z treścią i zasadami dofinansowania w ramach <a href='https://pisf.pl/wp-content/uploads/2024/12/Programy-Operacyjne-PISF-na-rok-2025.pdf' target=\"_blank\">V Programu Operacyjnego, Priorytet I: Promocja polskiej twórczości filmowej za granicą Polskiego Instytutu Sztuki Filmowej na rok 2025</a>",
+                "label": "6. Oświadczam, że zapoznałem się z treścią i zasadami dofinansowania w ramach <a href='https://pisf.pl/wp-content/uploads/2024/12/Programy-Operacyjne-PISF-na-rok-2025.pdf' target=\"_blank\">V Programu Operacyjnego, Priorytet I: Promocja polskiej twórczości filmowej za granicą Polskiego Instytutu Sztuki Filmowej na rok 2025</a>.",
                 "name": "statementDeclareRead"
             },
             {
-                "label": "7. W przypadku uzyskania dofinansowania, zobowiązuję się do doręczenia do PISF aktualnego wypisu z właściwego rejestru (w zależności od formy prawnej: KRS - wystawionego nie wcześniej, niż trzy miesięce przed datą złożenia; RIK; RIF; zaświadczenia o wpisie do ewidencji działalności gospodarczej; lub innego).",
+                "label": "7. W przypadku uzyskania dofinansowania, zobowiązuję się do doręczenia do PISF dokumentów potwierdzających aktualne dane i rodzaj prowadzonej działalności (np. dokumenty rejestrowe, wydruki, odpisy z właściwych rejestrów) oraz dokumenty potwierdzające upoważnienie do reprezentowania Beneficjenta (np. pełnomocnictwo lub upoważnienie), chyba, że informacje te są ujawnione w publicznym rejestrze KRS lub CEIDG.",
                 "name": "statementDeliverPromise"
             },
             {
@@ -338,10 +338,14 @@ class PromotionPriorityApplicationFormBuilder(PromotionOperationalProgramApplica
             short_name=f"{self.helpers.int_to_roman(number)}. Oświadczenia",
             chapters=[
                 self.create_chapter(
-                    title="1. Oświadczam, że przesięwzięcie ma charakter (można podać kilka):",
                     components=[
                         self.create_chapter(
                             components=[
+                                self.create_component(
+                                    component_type="header",
+                                    value="1. Oświadczam, że przesięwzięcie ma charakter (można podać kilka):",
+                                    name="taskApplicableInfo"
+                                ),
                                 self.create_component(
                                     component_type="checkbox",
                                     label="nie dotyczy",

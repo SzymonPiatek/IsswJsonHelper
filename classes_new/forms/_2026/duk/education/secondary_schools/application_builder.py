@@ -11,15 +11,15 @@ class SecondarySchoolsPriorityApplicationFormBuilder(EducationOperationalProgram
         )
 
         self.form_id = self.set_ids(
-            local_id=17,
+            local_id=16405,
             uat_id=None
         )
 
         # Variables
         self.project_type = [
-            "Programy edukacyjne wchodzące w skład edukacji ciągłej.",
-            "Kształcenie w kierunku zdobycia zawodów związanych z potrzebami współczesnego rynku audiowizualnego.",
-            "Praktyki zawodowe."
+            "Programy edukacyjne wchodzące w skład edukacji ciągłej",
+            "Kształcenie w kierunku zdobycia zawodów związanych z potrzebami współczesnego rynku audiowizualnego",
+            "Organizacja praktyk zawodowych dla uczniów"
         ]
 
         # Estimate
@@ -179,7 +179,7 @@ class SecondarySchoolsPriorityApplicationFormBuilder(EducationOperationalProgram
                                             component_type="number",
                                             label="Liczba osób",
                                             name="peopleNumberTraining",
-                                            unit="osoby"
+                                            unit="os."
                                         ),
                                         self.create_component(
                                             component_type="text",
@@ -213,7 +213,7 @@ class SecondarySchoolsPriorityApplicationFormBuilder(EducationOperationalProgram
                                             component_type="number",
                                             label="Liczba osób",
                                             name="peopleNumberWorkshops",
-                                            unit="osoby"
+                                            unit="os."
                                         ),
                                         self.create_component(
                                             component_type="text",
@@ -247,7 +247,7 @@ class SecondarySchoolsPriorityApplicationFormBuilder(EducationOperationalProgram
                                             component_type="number",
                                             label="Liczba osób",
                                             name="peopleNumberCourses",
-                                            unit="osoby"
+                                            unit="os."
                                         ),
                                         self.create_component(
                                             component_type="text",
@@ -295,7 +295,7 @@ class SecondarySchoolsPriorityApplicationFormBuilder(EducationOperationalProgram
                                                     component_type="number",
                                                     label="Liczba osób",
                                                     name="peopleNumberOther",
-                                                    unit="osoby"
+                                                    unit="os."
                                                 ),
                                                 self.create_component(
                                                     component_type="text",

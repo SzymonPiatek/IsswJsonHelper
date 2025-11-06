@@ -1,0 +1,441 @@
+{
+  "kind": "form",
+  "jrwa": "",
+  "expert": {
+    "name": "",
+    "email": "",
+    "avatar": ""
+  },
+  "status": "",
+  "applicant": {},
+  "title": "",
+  "introText": [
+    {
+      "text": "Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"
+    }
+  ],
+  "blanks": [],
+  "parts": [
+    {
+      "kind": "part",
+      "title": "I. Simple validators",
+      "shortName": "I. Simple validators",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "RequiredValidator",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Checkbox",
+              "name": "requiredValidatorCheckbox",
+              "dataBDD": "requiredValidatorCheckbox",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Text",
+              "name": "requiredValidatorText",
+              "dataBDD": "requiredValidatorText",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            }
+          ],
+          "helpText": "Walidator sprawdza, czy pole jest uzupełnione.",
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "ExactValidator",
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "Select",
+              "name": "exactValidatorSelect",
+              "dataBDD": "exactValidatorSelect",
+              "value": "",
+              "options": [
+                "Opcja 1",
+                "Opcja 2",
+                "Opcja 3"
+              ],
+              "validators": [
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Opcja 1",
+                      "Opcja 2",
+                      "Opcja 3"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "helpText": "Walidator sprawdza, czy jest wybrana poprawna wartość z listy wartości.",
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "LengthValidator",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Min 10",
+              "name": "lengthValidatorMin",
+              "dataBDD": "lengthValidatorMin",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "min": 10
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Max 10",
+              "name": "lengthValidatorMax",
+              "dataBDD": "lengthValidatorMax",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 10
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Min 10 - Max 20",
+              "name": "lengthValidatorMinMax",
+              "dataBDD": "lengthValidatorMinMax",
+              "value": "",
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "min": 10,
+                    "max": 20
+                  }
+                }
+              ]
+            }
+          ],
+          "helpText": "Walidator sprawdza, czy długość tekstu jest w danym zakresie.",
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "RangeValidator",
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Min 10",
+              "name": "rangeValidatorMin",
+              "dataBDD": "rangeValidatorMin",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 10
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 10."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Max 10",
+              "name": "rangeValidatorMax",
+              "dataBDD": "rangeValidatorMax",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "max": 10.01
+                  },
+                  "validationMsg": "Wartość nie może przekroczyć 10."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Min 10 - Max 20",
+              "name": "rangeValidatorMinMax",
+              "dataBDD": "rangeValidatorMinMax",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 10,
+                    "max": 20.01
+                  },
+                  "validationMsg": "Wartość musi być w zakresie od 10 do 20."
+                }
+              ]
+            }
+          ],
+          "helpText": "Walidator sprawdza, czy wartość jest w danym zakresie.",
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "ZipCodeValidator",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Zip code",
+                  "name": "zipCodeValidator",
+                  "dataBDD": "zipCodeValidator",
+                  "value": "",
+                  "mask": "polishPostalCode",
+                  "validators": [
+                    {
+                      "name": "ZipCodeValidator"
+                    }
+                  ]
+                }
+              ],
+              "helpText": "Walidator sprawdza, czy podany kod pocztowy jest poprawny."
+            },
+            {
+              "kind": "chapter",
+              "title": "PhoneNumberValidator",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Phone number",
+                  "name": "phoneNumberValidator",
+                  "dataBDD": "phoneNumberValidator",
+                  "value": "",
+                  "mask": "phoneNumber",
+                  "validators": [
+                    {
+                      "name": "PhoneNumberValidator"
+                    }
+                  ]
+                }
+              ],
+              "helpText": "Walidator sprawdza, czy podany numer telefonu jest poprawny."
+            },
+            {
+              "kind": "chapter",
+              "title": "LandlineValidator",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Landline",
+                  "name": "landlineValidator",
+                  "dataBDD": "landlineValidator",
+                  "value": "",
+                  "mask": "landline",
+                  "validators": [
+                    {
+                      "name": "LandlineValidator"
+                    }
+                  ]
+                }
+              ],
+              "helpText": "Walidator sprawdza, czy podany numer telefonu stacjonarnego jest poprawny."
+            },
+            {
+              "kind": "chapter",
+              "title": "EmailValidator",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Email",
+                  "name": "emailValidator",
+                  "dataBDD": "emailValidator",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "EmailValidator"
+                    }
+                  ]
+                }
+              ],
+              "helpText": "Walidator sprawdza, czy podany adres email jest poprawny."
+            },
+            {
+              "kind": "chapter",
+              "title": "KRSValidator",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "KRS",
+                  "name": "krsValidator",
+                  "dataBDD": "krsValidator",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "KRSValidator"
+                    }
+                  ]
+                }
+              ],
+              "helpText": "Walidator sprawdza, czy podany numer KRS jest poprawny."
+            },
+            {
+              "kind": "chapter",
+              "title": "PeselValidator",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Pesel",
+                  "name": "peselValidator",
+                  "dataBDD": "peselValidator",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "PeselValidator"
+                    }
+                  ]
+                }
+              ],
+              "helpText": "Walidator sprawdza, czy podany numer PESEL jest poprawny."
+            },
+            {
+              "kind": "chapter",
+              "title": "IBANValidator",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "IBAN",
+                  "name": "ibanValidator",
+                  "dataBDD": "ibanValidator",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "IBANValidator"
+                    }
+                  ]
+                }
+              ],
+              "helpText": "Walidator sprawdza, czy podany identyfikator IBAN jest poprawny."
+            },
+            {
+              "kind": "chapter",
+              "title": "RegonValidator",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "REGON",
+                  "name": "regonValidator",
+                  "dataBDD": "regonValidator",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "RegonValidator"
+                    }
+                  ]
+                }
+              ],
+              "helpText": "Walidator sprawdza, czy podany numer REGON jest poprawny."
+            },
+            {
+              "kind": "chapter",
+              "title": "SwiftValidator",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "SWIFT",
+                  "name": "swiftValidator",
+                  "dataBDD": "swiftValidator",
+                  "value": "",
+                  "validators": [
+                    {
+                      "name": "SwiftValidator"
+                    }
+                  ]
+                }
+              ],
+              "helpText": "Walidator sprawdza, czy podany identyfikator SWIFT jest poprawny."
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

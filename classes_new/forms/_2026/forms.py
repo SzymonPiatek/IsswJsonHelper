@@ -29,12 +29,15 @@ from classes_new.forms._2026.dwm.promotion.foreign_scholarships.application_buil
 from classes_new.forms._2026.dwm.promotion.foreign_scholarships.report_builder import ForeignScholarshipsPriorityReportFormBuilder
 # DPF - Production
 from classes_new.forms._2026.dpf.production.screenplay_scholarship.application_builder import ScreenplayScholarshipPriorityApplicationFormBuilder
+from classes_new.forms._2026.test.test.application_builder import TestApplicationFormBuilder
 # TEST
 from classes_new.forms._2026.test.visuality_test.application_builder import VisualityTestApplicationFormBuilder
 from classes_new.forms._2026.test.calculation_rules.application_builder import CalculationRulesApplicationFormBuilder
 from classes_new.forms._2026.test.related_validators.application_builder import RelatedValidatorsApplicationFormBuilder
 from classes_new.forms._2026.test.simple_validators.application_builder import SimpleValidatorsApplicationFormBuilder
 from classes_new.forms._2026.test.special_validators.application_builder import SpecialValidatorsApplicationFormBuilder
+# ZACHETY
+from classes_new.forms._2026.zachety.report_builder import FinancingPriorityReportFormBuilder
 # Other
 from classes_new.forms.forms import Forms
 
@@ -46,17 +49,13 @@ class Forms2026(Forms):
         self.builder_map = {
             "application": {
                 "dpf": {
+                    "skip": False,
                     "po1": {
-                        "pr1": ScreenplayScholarshipPriorityApplicationFormBuilder,
-                        "pr2": None,
-                        "pr3": None,
-                        "pr4": None,
-                        "pr5": None,
-                        "pr6": None,
-                        "pr7": None
+                        "pr1": ScreenplayScholarshipPriorityApplicationFormBuilder
                     }
                 },
                 "duk": {
+                    "skip": False,
                     "po2": {
                         "pr1": HigherSchoolsPriorityApplicationFormBuilder,
                         "pr2": SecondarySchoolsPriorityApplicationFormBuilder,
@@ -77,12 +76,14 @@ class Forms2026(Forms):
                     }
                 },
                 "dwm": {
+                    "skip": False,
                     "po5": {
                         "pr1": PromotionPriorityApplicationFormBuilder,
                         "pr2": ForeignPriorityApplicationFormBuilder
                     }
                 },
                 "test": {
+                    "skip": False,
                     "visuality": {
                         "test": VisualityTestApplicationFormBuilder
                     },
@@ -93,11 +94,15 @@ class Forms2026(Forms):
                     },
                     "calculationRules": {
                         "test": CalculationRulesApplicationFormBuilder
+                    },
+                    "test": {
+                        "test": TestApplicationFormBuilder
                     }
                 }
             },
             "report": {
                 "duk": {
+                    "skip": True,
                     "po2": {
                         "pr1": None,
                         "pr2": None,
@@ -118,9 +123,16 @@ class Forms2026(Forms):
                     }
                 },
                 "dwm": {
+                    "skip": False,
                     "po5": {
                         "pr1": PromotionPriorityReportFormBuilder,
                         "pr2": ForeignScholarshipsPriorityReportFormBuilder
+                    }
+                },
+                "zachety": {
+                    "skip": False,
+                    "finansowanie": {
+                        "raport": FinancingPriorityReportFormBuilder
                     }
                 }
             }

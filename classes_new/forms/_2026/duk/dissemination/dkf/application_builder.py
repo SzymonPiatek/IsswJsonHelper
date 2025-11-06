@@ -11,13 +11,13 @@ class DkfPriorityApplicationFormBuilder(DisseminationOperationalProgramApplicati
         )
 
         self.form_id = self.set_ids(
-            local_id=25,
+            local_id=16413,
             uat_id=None
         )
 
         # Variables
         self.project_type = [
-            "Działalność klubów filmowych."
+            "Działalność klubów filmowych o charakterze cyklicznym, obejmująca organizację co najmniej 10 wydarzeń rocznie realizowanych w formule: prelekcja, projekcja, dyskusja"
         ]
         self.source_of_financing_tickets = True
         self.is_dkf = True
@@ -40,7 +40,12 @@ class DkfPriorityApplicationFormBuilder(DisseminationOperationalProgramApplicati
                             component_type="textarea",
                             name="applicationTaskNamePage4",
                             required=True,
-                            read_only=True
+                            read_only=True,
+                            calculation_rules=[
+                                self.calculation_rule.copy_value(
+                                    from_name="applicationTaskName"
+                                )
+                            ]
                         )
                     ]
                 ),
@@ -62,7 +67,7 @@ class DkfPriorityApplicationFormBuilder(DisseminationOperationalProgramApplicati
                             component_type="textarea",
                             validators=[
                                 self.validator.length_validator(
-                                    max_value=3000
+                                    max_value=500
                                 )
                             ],
                             required=True
@@ -79,7 +84,7 @@ class DkfPriorityApplicationFormBuilder(DisseminationOperationalProgramApplicati
                                     component_type="textarea",
                                     name="characterAndDescriptionOfProject",
                                     validators=[
-                                        self.validator.length_validator(max_value=2000)
+                                        self.validator.length_validator(max_value=5000)
                                     ],
                                     required=True
                                 )

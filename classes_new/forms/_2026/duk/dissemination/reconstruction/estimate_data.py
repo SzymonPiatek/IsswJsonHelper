@@ -100,7 +100,7 @@ estimate_sections = [
                 }
             ),
             CostItem(
-                title="Czyszczenie materiałów wyjściowych – obraz i dźwięk",
+                title="Konserwacja i czyszczenie materiałów wyjściowych – obraz i dźwięk",
                 name="sourceMaterialsCleaning",
                 overrides={
                     "Unit": {
@@ -249,7 +249,7 @@ estimate_sections = [
                 }
             ),
             CostItem(
-                title="Wykonanie cyfrowych kopii master – archiwizacyjnych i operacyjnych TIFF/LTO",
+                title="Wykonanie cyfrowych kopii master – archiwizacyjnych i operacyjnych",
                 name="masterCopies",
                 overrides={
                     "Unit": {
@@ -263,8 +263,8 @@ estimate_sections = [
                 }
             ),
             CostItem(
-                title="Nośniki kopii master",
-                name="masterCopiesMedia",
+                title="Rekonstrukcja montażu w zakresie obrazu i dźwięku",
+                name="imageAndSoundMontageReconstruction",
                 overrides={
                     "Unit": {
                         "options": [
@@ -299,7 +299,7 @@ estimate_sections = [
                 }
             ),
             CostItem(
-                title="Wykonanie kopii wieczystej filmu na taśmie światłoczułej",
+                title="Wykonanie analogowego materiału zabezpieczającego na taśmie światłoczułej",
                 name="permanentFilmCopy",
                 overrides={
                     "Unit": {
@@ -310,7 +310,7 @@ estimate_sections = [
                 }
             ),
             CostItem(
-                title="Nadzór lub opieka artystyczna",
+                title="Nadzór lub konsultacja artystyczna",
                 name="artisticSupervision",
                 overrides={
                     "Unit": {
@@ -349,7 +349,7 @@ estimate_sections = [
                 }
             ),
             CostItem(
-                title="Przygotowanie wersji językowej (maks. 3 wersje)",
+                title="Przygotowanie wersji językowej (max 3 wersje)",
                 name="languageVersion",
                 overrides={
                     "Unit": {

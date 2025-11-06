@@ -11,15 +11,15 @@ class AudiencePriorityApplicationFormBuilder(EducationOperationalProgramApplicat
         )
 
         self.form_id = self.set_ids(
-            local_id=19,
+            local_id=16407,
             uat_id=None
         )
 
         # Variables
         self.project_type = [
-            "Cykliczne zajęcia edukacyjne połączone z projekcją filmu o wysokich walorach artystycznych, dotyczące analizy prezentowanego utworu, jego miejsca w historii kinematografii polskiej i/lub światowej, estetyki filmowej i zastosowanych środków wyrazu oraz społecznych funkcji filmu, organizowane w kinach lub innych salach przygotowanych do projekcji filmu.",
-            "Niecykliczne zajęcia, warsztaty wzbogacone materiałami dydaktycznymi o wysokiej wartości merytorycznej, zgodne z obowiązującą podstawą programową nauczania.",
-            "Inne działania realizujące cele Priorytetu IV."
+            "Zajęcia edukacyjne połączone z projekcją filmu o wysokich walorach artystycznych, dotyczące analizy prezentowanego utworu, jego miejsca w historii kinematografii polskiej i/lub światowej, estetyki filmowej i zastosowanych środków wyrazu oraz społecznych funkcji filmu, organizowane w kinach lub innych salach przygotowanych do projekcji filmu",
+            "Zajęcia i warsztaty wzbogacone materiałami dydaktycznymi o wysokiej wartości merytorycznej, rozwijające wiedzę o filmie oraz umiejętności twórcze i analityczne uczestników",
+            "Inne działania realizujące cele Priorytetu IV"
         ]
 
         # Estimate
@@ -111,7 +111,7 @@ class AudiencePriorityApplicationFormBuilder(EducationOperationalProgramApplicat
                         ),
                         self.create_chapter(
                             title="Grupa docelowa",
-                            help_text="Sposób rekrutacji i kryteria wyboru uczestników",
+                            help_text="Sposób rekrutacji i kryteria wyboru uczestników.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -230,31 +230,31 @@ class AudiencePriorityApplicationFormBuilder(EducationOperationalProgramApplicat
                                 self.create_component(
                                     component_type="number",
                                     name="estimatedNumberOfParticipantsKindergarten",
-                                    unit="osoby",
+                                    unit="os.",
                                     label="a) Dzieci w wieku przeszkolnym"
                                 ),
                                 self.create_component(
                                     component_type="number",
                                     name="estimatedNumberOfParticipantsPrimarySchools",
-                                    unit="osoby",
+                                    unit="os.",
                                     label="b) Uczniowie szkół podstawowych"
                                 ),
                                 self.create_component(
                                     component_type="number",
                                     name="estimatedNumberOfParticipantsSecondarySchools",
-                                    unit="osoby",
+                                    unit="os.",
                                     label="c) Uczniowie szkół ponadpodstawowych"
                                 ),
                                 self.create_component(
                                     component_type="number",
                                     name="estimatedNumberOfParticipantsAdults",
-                                    unit="osoby",
+                                    unit="os.",
                                     label="d) Dorośli"
                                 ),
                                 self.create_component(
                                     component_type="number",
                                     name="estimatedNumberOfParticipantsSeniors",
-                                    unit="osoby",
+                                    unit="os.",
                                     label="e) Seniorzy"
                                 )
                             ]

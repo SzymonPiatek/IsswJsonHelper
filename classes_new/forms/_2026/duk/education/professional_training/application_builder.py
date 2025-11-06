@@ -11,16 +11,16 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
         )
 
         self.form_id = self.set_ids(
-            local_id=18,
+            local_id=16406,
             uat_id=None
         )
 
         # Variables
         self.project_type = [
-            "Podnoszenie kwalifikacji i kompetencji zawodowych przedstawicieli wszystkich grup zawodowych sektora audiowizualnego poprzez organizację szkoleń, warsztatów, kursów oraz innych form doskonalenia zawodowego, w tym programów długoterminowych.",
-            "Kształcenie w kierunku zdobycia dodatkowych umiejętności i zawodów związanych z potrzebami współczesnego rynku audiowizualnego.",
-            "Organizacja kursów nauki języków obcych dla przedstawicieli zawodów filmowych.",
-            "Inne działania, realizujące cele Priorytetu III."
+            "Podnoszenie kwalifikacji i kompetencji zawodowych przedstawicieli wszystkich grup zawodowych sektora audiowizualnego poprzez organizację szkoleń, warsztatów, kursów oraz innych form doskonalenia zawodowego, w tym programów długoterminowych",
+            "Kształcenie w kierunku zdobycia dodatkowych umiejętności i zawodów związanych z potrzebami współczesnego rynku audiowizualnego",
+            "Organizacja kursów nauki języków obcych dla przedstawicieli zawodów filmowych",
+            "Inne działania, realizujące cele Priorytetu III"
         ]
 
         # Estimate
@@ -38,9 +38,9 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
                     self.visibility_rule.depends_on_value(
                         field_name="projectType",
                         values=[
-                            "Podnoszenie kwalifikacji i kompetencji zawodowych przedstawicieli wszystkich grup zawodowych sektora audiowizualnego poprzez organizację szkoleń, warsztatów, kursów oraz innych form doskonalenia zawodowego, w tym programów długoterminowych.",
-                            "Kształcenie w kierunku zdobycia dodatkowych umiejętności i zawodów związanych z potrzebami współczesnego rynku audiowizualnego.",
-                            "Inne działania, realizujące cele Priorytetu III."
+                            "Podnoszenie kwalifikacji i kompetencji zawodowych przedstawicieli wszystkich grup zawodowych sektora audiowizualnego poprzez organizację szkoleń, warsztatów, kursów oraz innych form doskonalenia zawodowego, w tym programów długoterminowych",
+                            "Kształcenie w kierunku zdobycia dodatkowych umiejętności i zawodów związanych z potrzebami współczesnego rynku audiowizualnego",
+                            "Inne działania, realizujące cele Priorytetu III"
                         ]
                     )
                 ],
@@ -53,7 +53,7 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
                     self.visibility_rule.depends_on_value(
                         field_name="projectType",
                         values=[
-                            "Organizacja kursów nauki języków obcych dla przedstawicieli zawodów filmowych."
+                            "Organizacja kursów nauki języków obcych dla przedstawicieli zawodów filmowych"
                         ]
                     )
                 ],
@@ -162,7 +162,7 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
                         ),
                         self.create_chapter(
                             title="Grupa docelowa",
-                            help_text="Sposób rekrutacji i kryteria wyboru uczestników",
+                            help_text="Sposób rekrutacji i kryteria wyboru uczestników.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -269,7 +269,7 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
                                             component_type="number",
                                             label="Liczba osób",
                                             name="peopleNumberTraining",
-                                            unit="osoby"
+                                            unit="os."
                                         ),
                                         self.create_component(
                                             component_type="text",
@@ -303,7 +303,7 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
                                             component_type="number",
                                             label="Liczba osób",
                                             name="peopleNumberWorkshops",
-                                            unit="osoby"
+                                            unit="os."
                                         ),
                                         self.create_component(
                                             component_type="text",
@@ -337,7 +337,7 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
                                             component_type="number",
                                             label="Liczba osób",
                                             name="peopleNumberCourses",
-                                            unit="osoby"
+                                            unit="os."
                                         ),
                                         self.create_component(
                                             component_type="text",
@@ -385,7 +385,7 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
                                                     component_type="number",
                                                     label="Liczba osób",
                                                     name="peopleNumberOther",
-                                                    unit="osoby"
+                                                    unit="os."
                                                 ),
                                                 self.create_component(
                                                     component_type="text",

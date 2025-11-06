@@ -12,14 +12,14 @@ class ReconstructionPriorityApplicationFormBuilder(DisseminationOperationalProgr
         )
 
         self.form_id = self.set_ids(
-            local_id=23,
+            local_id=16411,
             uat_id=None
         )
 
         # Variables
         self.project_type = [
-            "Rekonstrukcja cyfrowa i digitalizacja filmów polskich oraz ich przygotowanie do rozpowszechniania.",
-            "Systemowe przedsięwzięcia, mające na celu zabezpieczenie materiałów filmowych."
+            "Rekonstrukcja cyfrowa i digitalizacja filmów polskich oraz ich przygotowanie do rozpowszechniania",
+            "Systemowe przedsięwzięcia, mające na celu zabezpieczenie materiałów filmowych"
         ]
 
         # Estimate
@@ -215,6 +215,85 @@ class ReconstructionPriorityApplicationFormBuilder(DisseminationOperationalProgr
                         )
                     ]
                 )
+            ]
+        )
+        self.save_part(part)
+
+    def create_application_attachments(self, number: int):
+        part = self.create_part(
+            title=f"{self.helpers.int_to_roman(number)}. Załączniki",
+            chapters=[
+                self.create_chapter(
+                    title="Obowiązkowe załączniki",
+                    components=[
+                        self.section.application_attachment.document_confirming_represent_applicant(),
+                        self.section.application_attachment.schedule_information(),
+                        {
+                            "kind": "chapter",
+                            "title": "Dokument zaświadczający o posiadaniu praw do digitalizacji/rekonstrukcji filmu",
+                            "components": [
+                                {
+                                    "kind": "component",
+                                    "type": "file",
+                                    "label": "",
+                                    "name": "attachmentDigitalizationRights",
+                                    "value": "",
+                                    "helpText": "Maksymalny rozmiar pliku to 50 MB",
+                                    "required": True,
+                                    "validators": [
+                                        {
+                                            "name": "RequiredValidator",
+                                        }
+                                    ],
+                                    "dataBDD": "attachmentDigitalizationRights"
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "chapter",
+                            "title": "Diagnoza stanu technicznego taśmy światłoczułej, w przypadku filmów fabularnych przeprowadzona przez Filmotekę Narodową – Instytut Audiowizualny (w przypadku braku wymaganego dokumentu Wnioskodawca zobowiązany jest do dołączenia oświadczenia, w którym zobowiązuje się do dostarczenia dokumentu)",
+                            "components": [
+                                {
+                                    "kind": "component",
+                                    "type": "file",
+                                    "label": "",
+                                    "name": "attachmentTechnicalCondition",
+                                    "value": "",
+                                    "helpText": "Maksymalny rozmiar pliku to 50 MB",
+                                    "required": True,
+                                    "validators": [
+                                        {
+                                            "name": "RequiredValidator"
+                                        }
+                                    ],
+                                    "dataBDD": "attachment-technical-condition"
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "chapter",
+                            "title": "Umowa między Wnioskodawcą a właścicielem praw do digitalizowanego filmu/filmów",
+                            "components": [
+                                {
+                                    "kind": "component",
+                                    "type": "file",
+                                    "label": "",
+                                    "name": "attachmentOwnerContract",
+                                    "value": "",
+                                    "helpText": "Maksymalny rozmiar pliku to 50 MB",
+                                    "required": True,
+                                    "validators": [
+                                        {
+                                            "name": "RequiredValidator"
+                                        }
+                                    ],
+                                    "dataBDD": "attachment-owner-contract"
+                                }
+                            ]
+                        },
+                    ]
+                ),
+                self.section.application_attachment.other_attachments()
             ]
         )
         self.save_part(part)

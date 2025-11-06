@@ -11,17 +11,18 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
         )
 
         self.form_id = self.set_ids(
-            local_id=16,
+            local_id=16404,
             uat_id=None
         )
 
         # Variables
         self.project_type = [
-            "Programy edukacyjne wchodzące w skład edukacji ciągłej.",
-            "Realizacja szkolnych i pozaszkolnych filmów krótko- i średniometrażowych.",
-            "Kształcenie zawodowe i podnoszenie kompetencji poprzez organizację studiów podyplomowych.",
-            "Inne działania realizujące cele Priorytetu I."
+            "Programy edukacyjne wchodzące w skład edukacji ciągłej",
+            "Realizacja szkolnych i pozaszkolnych filmów krótko- i średniometrażowych",
+            "Kształcenie zawodowe i podnoszenie kompetencji poprzez organizację studiów podyplomowych",
+            "Organizacja praktyk zawodowych dla studentów"
         ]
+        self.source_of_financing_tickets = True
 
         # Estimate
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
@@ -135,7 +136,7 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
                         ),
                         self.create_chapter(
                             title="Profil absolwenta",
-                            help_text="Umiejętności lub kompetencje zawodowe nabywane przez studentów",
+                            help_text="Umiejętności lub kompetencje zawodowe nabywane przez studentów.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -171,13 +172,13 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
                                     component_type="number",
                                     label="Studia stacjonarne",
                                     name="estimatedNumberOfStudentsFullTimeStudies",
-                                    unit="osoby"
+                                    unit="os."
                                 ),
                                 self.create_component(
                                     component_type="number",
                                     label="Studia niestacjonarne",
                                     name="estimatedNumberOfStudentsPartTimeStudies",
-                                    unit="osoby"
+                                    unit="os."
                                 )
                             ]
                         ),

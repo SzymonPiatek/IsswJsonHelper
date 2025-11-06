@@ -174,7 +174,10 @@ class Section(FormFactory):
                             component_type="text",
                             label="Kod pocztowy",
                             name=f"{start_name}{build_name}ZipCode",
-                            required=True
+                            required=True,
+                            validators=[
+                                self.validator.zip_code_validator()
+                            ]
                         ),
                         self.create_component(
                             component_type="text",
@@ -638,7 +641,7 @@ class Section(FormFactory):
                     components=[
                         self.create_component(
                             component_type="select",
-                            label="Wielkość wnioskodawcy",
+                            label="Wielkość Wnioskodawcy",
                             name="applicantSize",
                             options=[
                                 "mikroprzedsiębiorca (zatrudnia mniej niż 10 pracowników, a roczny obrót i/lub całkowity bilans roczny nie przekracza 2 milionów EUR)",
@@ -650,7 +653,7 @@ class Section(FormFactory):
                         ),
                         self.create_component(
                             component_type="text",
-                            label="Kod wielkości wnioskodawcy",
+                            label="Kod wielkości Wnioskodawcy",
                             name="applicantSizeCode",
                             read_only=True,
                             calculation_rules=[

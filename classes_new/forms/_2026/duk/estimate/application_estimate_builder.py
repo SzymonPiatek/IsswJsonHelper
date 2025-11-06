@@ -320,10 +320,25 @@ class DUKApplicationEstimateBuilder(FormFactory):
                 label=structure["label"],
                 structure=structure,
                 is_sum=True,
-                sub_fields=[f"{c}{structure['name']}{self.after_name}" for c in all_costs])
+                sub_fields=[f"{c}{structure['name']}{self.after_name}" for c in all_costs]
+            )
             for structure in structure_list
             for cost in section["costs"]
         ]
+
+        for component in components:
+            if "totalSumAmount" in component["name"]:
+                component.get("validators", []).append(
+                    self.validator.related_sum_validator(
+                        field_names=["totalProjectCost"]
+                    )
+                )
+            elif "totalRequestedAmount" in component["name"]:
+                component.get("validators", []).append(
+                    self.validator.related_sum_validator(
+                        field_names=["pisfSupportAmountTotal"]
+                    )
+                )
 
         return self.create_chapter(
             title=f'<p style="color: #e00d1d">{section["title"]}</p>',

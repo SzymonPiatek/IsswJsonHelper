@@ -1,0 +1,4880 @@
+{
+  "kind": "form",
+  "jrwa": "",
+  "expert": {
+    "name": "",
+    "email": "",
+    "avatar": ""
+  },
+  "status": "",
+  "applicant": {},
+  "title": "",
+  "introText": [
+    {
+      "text": "Wniosek o dofinansowanie przedsięwzięcia realizowanego w ramach Programów Operacyjnych Polskiego Instytutu Sztuki Filmowej"
+    }
+  ],
+  "blanks": [],
+  "parts": [
+    {
+      "kind": "part",
+      "title": "I. RelatedEqualityValidator",
+      "shortName": "I. Related Equality Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedEqualityValidator",
+              "dataBDD": "headerComponent-relatedEqualityValidator",
+              "value": "Walidator sprawdza, czy wartości są sobie równe."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Text to text",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Value 1",
+              "name": "firstText",
+              "dataBDD": "firstText",
+              "value": ""
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Value 2",
+              "name": "secondText",
+              "dataBDD": "secondText",
+              "value": "",
+              "validators": [
+                {
+                  "name": "RelatedEqualityValidator",
+                  "kwargs": {
+                    "field_name": "firstText"
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "Number to number",
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Value 1",
+              "name": "firstNumber",
+              "dataBDD": "firstNumber",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Value 2",
+              "name": "secondNumber",
+              "dataBDD": "secondNumber",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RelatedEqualityValidator",
+                  "kwargs": {
+                    "field_name": "firstNumber"
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "Boolean to boolean",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Value 1",
+              "name": "firstBoolean",
+              "dataBDD": "firstBoolean",
+              "value": false
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Value 2",
+              "name": "secondBoolean",
+              "dataBDD": "secondBoolean",
+              "value": false,
+              "validators": [
+                {
+                  "name": "RelatedEqualityValidator",
+                  "kwargs": {
+                    "field_name": "firstBoolean"
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "Text (fund) to number",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Value 1",
+              "name": "firstTextNumber",
+              "dataBDD": "firstTextNumber",
+              "value": 0,
+              "mask": "fund",
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Value 2",
+              "name": "secondTextNumber",
+              "dataBDD": "secondTextNumber",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RelatedEqualityValidator",
+                  "kwargs": {
+                    "field_name": "firstTextNumber"
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "II. RelatedLocalEqualityValidator",
+      "shortName": "II. Related Local Equality Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedLocalEqualityValidator",
+              "dataBDD": "headerComponent-relatedLocalEqualityValidator",
+              "value": "Walidator sprawdza, czy wartości lokalne są sobie równe."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Text to text",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Pozycja 1",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Value 1",
+                      "name": "firstTextLocal_1",
+                      "dataBDD": "firstTextLocal_1",
+                      "value": "",
+                      "defaultValue": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Value 2",
+                      "name": "secondTextLocal_1",
+                      "dataBDD": "secondTextLocal_1",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RelatedLocalEqualityValidator",
+                          "kwargs": {
+                            "field_name": "firstTextLocal"
+                          }
+                        }
+                      ],
+                      "defaultValue": ""
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  }
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Pozycja 2",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Value 1",
+                      "name": "firstTextLocal_2",
+                      "dataBDD": "firstTextLocal_2",
+                      "value": "",
+                      "defaultValue": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Value 2",
+                      "name": "secondTextLocal_2",
+                      "dataBDD": "secondTextLocal_2",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RelatedLocalEqualityValidator",
+                          "kwargs": {
+                            "field_name": "firstTextLocal"
+                          }
+                        }
+                      ],
+                      "defaultValue": ""
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  }
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 2,
+                "maxCount": 10
+              },
+              "isPaginated": false
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Number to number",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Pozycja 1",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Value 1",
+                      "name": "firstNumberLocal_1",
+                      "dataBDD": "firstNumberLocal_1",
+                      "value": 0,
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Value 2",
+                      "name": "secondNumberLocal_1",
+                      "dataBDD": "secondNumberLocal_1",
+                      "value": 0,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalEqualityValidator",
+                          "kwargs": {
+                            "field_name": "firstNumberLocal"
+                          }
+                        },
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  }
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Pozycja 2",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Value 1",
+                      "name": "firstNumberLocal_2",
+                      "dataBDD": "firstNumberLocal_2",
+                      "value": 0,
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Value 2",
+                      "name": "secondNumberLocal_2",
+                      "dataBDD": "secondNumberLocal_2",
+                      "value": 0,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalEqualityValidator",
+                          "kwargs": {
+                            "field_name": "firstNumberLocal"
+                          }
+                        },
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  }
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 2,
+                "maxCount": 10
+              },
+              "isPaginated": false
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Boolean to boolean",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Pozycja 1",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Value 1",
+                      "name": "firstBooleanLocal_1",
+                      "dataBDD": "firstBooleanLocal_1",
+                      "value": false,
+                      "defaultValue": false
+                    },
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Value 2",
+                      "name": "secondBooleanLocal_1",
+                      "dataBDD": "secondBooleanLocal_1",
+                      "value": false,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalEqualityValidator",
+                          "kwargs": {
+                            "field_name": "firstBooleanLocal"
+                          }
+                        }
+                      ],
+                      "defaultValue": false
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  }
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Pozycja 2",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Value 1",
+                      "name": "firstBooleanLocal_2",
+                      "dataBDD": "firstBooleanLocal_2",
+                      "value": false,
+                      "defaultValue": false
+                    },
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Value 2",
+                      "name": "secondBooleanLocal_2",
+                      "dataBDD": "secondBooleanLocal_2",
+                      "value": false,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalEqualityValidator",
+                          "kwargs": {
+                            "field_name": "firstBooleanLocal"
+                          }
+                        }
+                      ],
+                      "defaultValue": false
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  }
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 2,
+                "maxCount": 10
+              },
+              "isPaginated": false
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Text (fund) to number",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Pozycja 1",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Value 1",
+                      "name": "firstTextNumberLocal_1",
+                      "dataBDD": "firstTextNumberLocal_1",
+                      "value": 0,
+                      "mask": "fund",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Value 2",
+                      "name": "secondTextNumberLocal_1",
+                      "dataBDD": "secondTextNumberLocal_1",
+                      "value": 0,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalEqualityValidator",
+                          "kwargs": {
+                            "field_name": "firstTextNumberLocal"
+                          }
+                        },
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  }
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Pozycja 2",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Value 1",
+                      "name": "firstTextNumberLocal_2",
+                      "dataBDD": "firstTextNumberLocal_2",
+                      "value": 0,
+                      "mask": "fund",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Value 2",
+                      "name": "secondTextNumberLocal_2",
+                      "dataBDD": "secondTextNumberLocal_2",
+                      "value": 0,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalEqualityValidator",
+                          "kwargs": {
+                            "field_name": "firstTextNumberLocal"
+                          }
+                        },
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  }
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 2,
+                "maxCount": 10
+              },
+              "isPaginated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "III. RelatedNumericEqualityValidator",
+      "shortName": "III. Related Numeric Equality Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedNumericEqualityValidator",
+              "dataBDD": "headerComponent-relatedNumericEqualityValidator",
+              "value": "Walidator sprawdza, czy wartości numeryczne są sobie równe."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Number to number",
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Value 1",
+              "name": "numberNumeric",
+              "dataBDD": "numberNumeric",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Value 2",
+              "name": "secondNumberNumeric",
+              "dataBDD": "secondNumberNumeric",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RelatedNumericEqualityValidator",
+                  "kwargs": {
+                    "field_name": "numberNumeric"
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "Text to number",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Value 1",
+              "name": "textNumberNumeric",
+              "dataBDD": "textNumberNumeric",
+              "value": 0,
+              "mask": "fund",
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Value 2",
+              "name": "secondTextNumberNumeric",
+              "dataBDD": "secondTextNumberNumeric",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RelatedNumericEqualityValidator",
+                  "kwargs": {
+                    "field_name": "textNumberNumeric"
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "Text to text",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Value 1",
+              "name": "textNumeric",
+              "dataBDD": "textNumeric",
+              "value": 0,
+              "mask": "fund",
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Value 2",
+              "name": "secondTextNumeric",
+              "dataBDD": "secondTextNumeric",
+              "value": 0,
+              "mask": "fund",
+              "validators": [
+                {
+                  "name": "RelatedNumericEqualityValidator",
+                  "kwargs": {
+                    "field_name": "textNumeric"
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "IV. RelatedRequiredIfEqualValidator",
+      "shortName": "IV. Related Required If Equal Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedRequiredIfEqualValidator",
+              "dataBDD": "headerComponent-relatedRequiredIfEqualValidator",
+              "value": "Walidator sprawdza, czy pole jest obowiązkowe po spełnieniu warunku."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Test",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "Pytanie?",
+                  "name": "question",
+                  "dataBDD": "question",
+                  "value": "",
+                  "options": [
+                    "Tak",
+                    "Nie"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Tak",
+                          "Nie"
+                        ]
+                      }
+                    }
+                  ],
+                  "classList": [
+                    "table-full"
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Required - Tak",
+                  "name": "questionYes",
+                  "dataBDD": "questionYes",
+                  "value": "",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "question",
+                        "value": "Tak"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Required - Nie",
+                  "name": "questionNo",
+                  "dataBDD": "questionNo",
+                  "value": "",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "question",
+                        "value": "Nie"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "V. RelatedDateLTEValidator",
+      "shortName": "V. Related Date LTE Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedDateLTEValidator",
+              "dataBDD": "headerComponent-relatedDateLTEValidator",
+              "value": "Walidator sprawdza, czy data jest mniejsza lub równa dacie z danego pola."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Test",
+          "components": [
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data od",
+              "name": "startDate",
+              "dataBDD": "startDate",
+              "value": false,
+              "validators": [
+                {
+                  "name": "RelatedDateLTEValidator",
+                  "kwargs": {
+                    "field_name": "endDate"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data do",
+              "name": "endDate",
+              "dataBDD": "endDate",
+              "value": false
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "VI. RelatedLocalDateLTEValidator",
+      "shortName": "VI. Related Local Date LTE Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedLocalDateLTEValidator",
+              "dataBDD": "headerComponent-relatedLocalDateLTEValidator",
+              "value": "Walidator sprawdza, czy data jest mniejsza lub równa dacie z danego pola - lokalnie."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Test",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Zakres dat 1",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Data od",
+                      "name": "startDateLocal_1",
+                      "dataBDD": "startDateLocal_1",
+                      "value": false,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalDateLTEValidator",
+                          "kwargs": {
+                            "field_name": "endDateLocal"
+                          }
+                        }
+                      ],
+                      "defaultValue": false
+                    },
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Data do",
+                      "name": "endDateLocal_1",
+                      "dataBDD": "endDateLocal_1",
+                      "value": false,
+                      "defaultValue": false
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  }
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Zakres dat 2",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Data od",
+                      "name": "startDateLocal_2",
+                      "dataBDD": "startDateLocal_2",
+                      "value": false,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalDateLTEValidator",
+                          "kwargs": {
+                            "field_name": "endDateLocal"
+                          }
+                        }
+                      ],
+                      "defaultValue": false
+                    },
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Data do",
+                      "name": "endDateLocal_2",
+                      "dataBDD": "endDateLocal_2",
+                      "value": false,
+                      "defaultValue": false
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  }
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 2,
+                "maxCount": 10
+              },
+              "isPaginated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "VII. RelatedDateGTEValidator",
+      "shortName": "VII. Related Date GTE Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedDateGTEValidator",
+              "dataBDD": "headerComponent-relatedDateGTEValidator",
+              "value": "Walidator sprawdza, czy data jest większa lub równa dacie z danego pola."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Test",
+          "components": [
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data od",
+              "name": "startDateGte",
+              "dataBDD": "startDateGte",
+              "value": false
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data do",
+              "name": "endDateGte",
+              "dataBDD": "endDateGte",
+              "value": false,
+              "validators": [
+                {
+                  "name": "RelatedDateGTEValidator",
+                  "kwargs": {
+                    "field_name": "startDateGte"
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "VIII. RelatedLocalDateGTEValidator",
+      "shortName": "VIII. Related Local Date GTE Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedLocalDateGTEValidator",
+              "dataBDD": "headerComponent-relatedLocalDateGTEValidator",
+              "value": "Walidator sprawdza, czy data jest większa lub równa dacie z danego pola - lokalnie."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Test",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Zakres dat 1",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Data od",
+                      "name": "startDateLocalGte_1",
+                      "dataBDD": "startDateLocalGte_1",
+                      "value": false,
+                      "defaultValue": false
+                    },
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Data do",
+                      "name": "endDateLocalGte_1",
+                      "dataBDD": "endDateLocalGte_1",
+                      "value": false,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalDateGTEValidator",
+                          "kwargs": {
+                            "field_name": "startDateLocalGte"
+                          }
+                        }
+                      ],
+                      "defaultValue": false
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  }
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Zakres dat 2",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Data od",
+                      "name": "startDateLocalGte_2",
+                      "dataBDD": "startDateLocalGte_2",
+                      "value": false,
+                      "defaultValue": false
+                    },
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Data do",
+                      "name": "endDateLocalGte_2",
+                      "dataBDD": "endDateLocalGte_2",
+                      "value": false,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalDateGTEValidator",
+                          "kwargs": {
+                            "field_name": "startDateLocalGte"
+                          }
+                        }
+                      ],
+                      "defaultValue": false
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  }
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 2,
+                "maxCount": 10
+              },
+              "isPaginated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "IX. RelatedDateOffsetValidator",
+      "shortName": "IX. Related Date Offset Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedDateOffsetValidator",
+              "dataBDD": "headerComponent-relatedDateOffsetValidator",
+              "value": "Walidator sprawdza, czy data nie jest późniejsza niż data z danego pola + offest (liczba dni)."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Test (+5 dni)",
+          "components": [
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data od",
+              "name": "startDateOffset",
+              "dataBDD": "startDateOffset",
+              "value": false
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data do",
+              "name": "endDateOffset",
+              "dataBDD": "endDateOffset",
+              "value": false,
+              "validators": [
+                {
+                  "name": "RelatedDateOffsetValidator",
+                  "kwargs": {
+                    "field_name": "startDateOffset",
+                    "offset": 5
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "Test (-5 dni)",
+          "components": [
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data od",
+              "name": "secondStartDateOffset",
+              "dataBDD": "secondStartDateOffset",
+              "value": false
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data do",
+              "name": "secondEndDateOffset",
+              "dataBDD": "secondEndDateOffset",
+              "value": false,
+              "validators": [
+                {
+                  "name": "RelatedDateOffsetValidator",
+                  "kwargs": {
+                    "field_name": "secondStartDateOffset",
+                    "offset": -5
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "X. RelatedDateIncrementValidator",
+      "shortName": "X. Related Date Increment Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedDateIncrementValidator",
+              "dataBDD": "headerComponent-relatedDateIncrementValidator",
+              "value": "Walidator sprawdza, czy data jest równa dacie z danego pola + amount (liczba dni)."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Test (+5 dni)",
+          "components": [
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data od",
+              "name": "startDateIncrement",
+              "dataBDD": "startDateIncrement",
+              "value": false
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data do",
+              "name": "endDateIncrement",
+              "dataBDD": "endDateIncrement",
+              "value": false,
+              "validators": [
+                {
+                  "name": "RelatedDateIncrementValidator",
+                  "kwargs": {
+                    "field_name": "startDateIncrement",
+                    "amount": 5
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "Test (-5 dni)",
+          "components": [
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data od",
+              "name": "secondStartDateIncrement",
+              "dataBDD": "secondStartDateIncrement",
+              "value": false
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data do",
+              "name": "secondEndDateIncrement",
+              "dataBDD": "secondEndDateIncrement",
+              "value": false,
+              "validators": [
+                {
+                  "name": "RelatedDateIncrementValidator",
+                  "kwargs": {
+                    "field_name": "secondStartDateIncrement",
+                    "amount": -5
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XI. RelatedSumValidator",
+      "shortName": "XI. Related Sum Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedSumValidator",
+              "dataBDD": "headerComponent-relatedSumValidator",
+              "value": "Walidator sprawdza sumę danych pól."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Single",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "firstSum",
+              "name": "firstSum",
+              "dataBDD": "firstSum",
+              "value": 0,
+              "mask": "fund",
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "secondSum",
+              "name": "secondSum",
+              "dataBDD": "secondSum",
+              "value": 0,
+              "mask": "fund",
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "totalSum",
+              "name": "totalSum",
+              "dataBDD": "totalSum",
+              "value": 0,
+              "mask": "fund",
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "firstSum",
+                      "secondSum"
+                    ]
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ],
+              "calculationRules": [
+                {
+                  "name": "dynamicSumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "firstSum",
+                      "secondSum"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-3-narrow"
+            ],
+            "sub": [
+              "table-1-3__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "Mutli",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Wartość 1",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "firstSumMulti",
+                      "name": "firstSumMulti_1",
+                      "dataBDD": "firstSumMulti_1",
+                      "value": 0,
+                      "mask": "fund",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Wartość 2",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "firstSumMulti",
+                      "name": "firstSumMulti_2",
+                      "dataBDD": "firstSumMulti_2",
+                      "value": 0,
+                      "mask": "fund",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    }
+                  ]
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 2,
+                "maxCount": 10
+              },
+              "isPaginated": false
+            },
+            {
+              "kind": "chapter",
+              "title": "Suma",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "",
+                  "name": "firstSumMultiTotal",
+                  "dataBDD": "firstSumMultiTotal",
+                  "value": 0,
+                  "mask": "fund",
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "firstSumMulti"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "dynamicSumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "firstSumMulti"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XII. RelatedMultiplicationValidator",
+      "shortName": "XII. Related Multiplication Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedMultiplicationValidator",
+              "dataBDD": "headerComponent-relatedMultiplicationValidator",
+              "value": "Walidator sprawdza, czy poprawnie przemnożono wartości."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Test",
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Liczba odcinków",
+              "name": "numberOfEpisodes",
+              "dataBDD": "numberOfEpisodes",
+              "value": 0,
+              "unit": "szt.",
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Średnia liczba minut odcinka",
+              "name": "lengthOfEpisode",
+              "dataBDD": "lengthOfEpisode",
+              "value": 0,
+              "unit": "min.",
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Łączna liczba minut",
+              "name": "multiplicationResult",
+              "dataBDD": "multiplicationResult",
+              "value": 0,
+              "unit": "min.",
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedMultiplicationValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "numberOfEpisodes",
+                      "lengthOfEpisode"
+                    ]
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ],
+              "calculationRules": [
+                {
+                  "name": "multiplyInputs",
+                  "kwargs": {
+                    "fields": [
+                      "numberOfEpisodes",
+                      "lengthOfEpisode"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-3-narrow"
+            ],
+            "sub": [
+              "table-1-3__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XIII. RelatedLocalMultiplicationValidator",
+      "shortName": "XIII. Related Local Multiplication Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedLocalMultiplicationValidator",
+              "dataBDD": "headerComponent-relatedLocalMultiplicationValidator",
+              "value": "Walidator sprawdza, czy poprawnie przemnożono wartości - lokalnie."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "Sezon 1",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba odcinków",
+                  "name": "numberOfEpisodesLocal_1",
+                  "dataBDD": "numberOfEpisodesLocal_1",
+                  "value": 0,
+                  "unit": "szt.",
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "defaultValue": 0
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Średnia liczba minut odcinka",
+                  "name": "lengthOfEpisodeLocal_1",
+                  "dataBDD": "lengthOfEpisodeLocal_1",
+                  "value": 0,
+                  "unit": "min.",
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "defaultValue": 0
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Łączna liczba minut",
+                  "name": "multiplicationResultLocal_1",
+                  "dataBDD": "multiplicationResultLocal_1",
+                  "value": 0,
+                  "unit": "min.",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedLocalMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "numberOfEpisodesLocal",
+                          "lengthOfEpisodeLocal"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "localMultiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "numberOfEpisodesLocal",
+                          "lengthOfEpisodeLocal"
+                        ]
+                      }
+                    }
+                  ],
+                  "defaultValue": 0
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-3-narrow"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "Sezon 2",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Liczba odcinków",
+                  "name": "numberOfEpisodesLocal_2",
+                  "dataBDD": "numberOfEpisodesLocal_2",
+                  "value": 0,
+                  "unit": "szt.",
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "defaultValue": 0
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Średnia liczba minut odcinka",
+                  "name": "lengthOfEpisodeLocal_2",
+                  "dataBDD": "lengthOfEpisodeLocal_2",
+                  "value": 0,
+                  "unit": "min.",
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "defaultValue": 0
+                },
+                {
+                  "kind": "component",
+                  "type": "number",
+                  "label": "Łączna liczba minut",
+                  "name": "multiplicationResultLocal_2",
+                  "dataBDD": "multiplicationResultLocal_2",
+                  "value": 0,
+                  "unit": "min.",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedLocalMultiplicationValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "numberOfEpisodesLocal",
+                          "lengthOfEpisodeLocal"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "localMultiplyInputs",
+                      "kwargs": {
+                        "fields": [
+                          "numberOfEpisodesLocal",
+                          "lengthOfEpisodeLocal"
+                        ]
+                      }
+                    }
+                  ],
+                  "defaultValue": 0
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-3-narrow"
+                ],
+                "sub": [
+                  "table-1-3__col"
+                ]
+              }
+            }
+          ],
+          "isMultipleForms": true,
+          "multipleFormsRules": {
+            "minCount": 2,
+            "maxCount": 10
+          },
+          "isPaginated": false
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XIV. RelatedShareValidator",
+      "shortName": "XIV. Related Share Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedShareValidator",
+              "dataBDD": "headerComponent-relatedShareValidator",
+              "value": "Walidator sprawdza, czy poprawnie wyliczono wartość procentową."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Test",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "",
+              "name": "shareCostTotal",
+              "dataBDD": "shareCostTotal",
+              "value": 0,
+              "mask": "fund",
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "",
+              "name": "shareCost",
+              "dataBDD": "shareCost",
+              "value": 0,
+              "mask": "fund",
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "",
+              "name": "shareResult",
+              "dataBDD": "shareResult",
+              "value": 0,
+              "mask": "fund",
+              "unit": "%",
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedShareValidator",
+                  "kwargs": {
+                    "dividend": "shareCost",
+                    "divisor": "shareCostTotal"
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ],
+              "calculationRules": [
+                {
+                  "name": "shareCalculator",
+                  "kwargs": {
+                    "dividendField": "shareCost",
+                    "divisorField": "shareCostTotal"
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-3-narrow"
+            ],
+            "sub": [
+              "table-1-3__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XV. RelatedLocalDivisionValidator",
+      "shortName": "XV. Related Local Division Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedLocalDivisionValidator",
+              "dataBDD": "headerComponent-relatedLocalDivisionValidator",
+              "value": "Walidator sprawdza, czy poprawnie wyliczono wartość procentową - lokalnie."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Costs with shares",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Koszt 1",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Kwota całkowita",
+                      "name": "total_1",
+                      "dataBDD": "total_1",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Kwota udziału",
+                      "name": "cost_1",
+                      "dataBDD": "cost_1",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Udział",
+                      "name": "share_1",
+                      "dataBDD": "share_1",
+                      "value": 0,
+                      "unit": "%",
+                      "readOnly": true,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalDivisionValidator",
+                          "kwargs": {
+                            "dividend": "cost",
+                            "divisor": "total"
+                          }
+                        },
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "localShareCalculator",
+                          "kwargs": {
+                            "dividendField": "cost",
+                            "divisorField": "total"
+                          }
+                        }
+                      ],
+                      "defaultValue": 0
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-3-narrow"
+                    ],
+                    "sub": [
+                      "table-1-3__col"
+                    ]
+                  }
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Koszt 2",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Kwota całkowita",
+                      "name": "total_2",
+                      "dataBDD": "total_2",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Kwota udziału",
+                      "name": "cost_2",
+                      "dataBDD": "cost_2",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Udział",
+                      "name": "share_2",
+                      "dataBDD": "share_2",
+                      "value": 0,
+                      "unit": "%",
+                      "readOnly": true,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalDivisionValidator",
+                          "kwargs": {
+                            "dividend": "cost",
+                            "divisor": "total"
+                          }
+                        },
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "localShareCalculator",
+                          "kwargs": {
+                            "dividendField": "cost",
+                            "divisorField": "total"
+                          }
+                        }
+                      ],
+                      "defaultValue": 0
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-3-narrow"
+                    ],
+                    "sub": [
+                      "table-1-3__col"
+                    ]
+                  }
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Koszt 3",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Kwota całkowita",
+                      "name": "total_3",
+                      "dataBDD": "total_3",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Kwota udziału",
+                      "name": "cost_3",
+                      "dataBDD": "cost_3",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "number",
+                      "label": "Udział",
+                      "name": "share_3",
+                      "dataBDD": "share_3",
+                      "value": 0,
+                      "unit": "%",
+                      "readOnly": true,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalDivisionValidator",
+                          "kwargs": {
+                            "dividend": "cost",
+                            "divisor": "total"
+                          }
+                        },
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "localShareCalculator",
+                          "kwargs": {
+                            "dividendField": "cost",
+                            "divisorField": "total"
+                          }
+                        }
+                      ],
+                      "defaultValue": 0
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-3-narrow"
+                    ],
+                    "sub": [
+                      "table-1-3__col"
+                    ]
+                  }
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 3,
+                "maxCount": 20
+              },
+              "isPaginated": false
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Podsumowanie",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Koszt całkowity",
+              "name": "totalTotal",
+              "dataBDD": "totalTotal",
+              "value": "10000",
+              "mask": "fund",
+              "unit": "PLN",
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "total"
+                    ]
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ],
+              "calculationRules": [
+                {
+                  "name": "dynamicSumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "total"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Koszt udziału",
+              "name": "costTotal",
+              "dataBDD": "costTotal",
+              "value": "10000",
+              "mask": "fund",
+              "unit": "PLN",
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "cost"
+                    ]
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ],
+              "calculationRules": [
+                {
+                  "name": "dynamicSumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "cost"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Udział całkowity",
+              "name": "shareTotal",
+              "dataBDD": "shareTotal",
+              "value": 0,
+              "mask": "fund",
+              "unit": "%",
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "share"
+                    ]
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ],
+              "calculationRules": [
+                {
+                  "name": "dynamicSumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "share"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-3-narrow"
+            ],
+            "sub": [
+              "table-1-3__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XVI. RelatedMapValidator",
+      "shortName": "XVI. Related Map Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedMapValidator",
+              "dataBDD": "headerComponent-relatedMapValidator",
+              "value": "Walidator sprawdza, czy wartość pola odpowiada wartości zdefiniowanej dla wybranej opcji innego pola."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Test",
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "Kraj",
+              "name": "relatedMapText",
+              "dataBDD": "relatedMapText",
+              "value": "",
+              "options": [
+                "Polska",
+                "Niemcy"
+              ],
+              "validators": [
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Polska",
+                      "Niemcy"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Stolica",
+              "name": "secondRelatedMapText",
+              "dataBDD": "secondRelatedMapText",
+              "value": "",
+              "validators": [
+                {
+                  "name": "RelatedMapValidator",
+                  "kwargs": {
+                    "field_name": "relatedMapText",
+                    "mapping": {
+                      "Polska": "Warszawa",
+                      "Niemcy": "Berlin"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XVII. RelatedBooleanSumValidator",
+      "shortName": "XVII. Related Boolean Sum Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedBooleanSumValidator",
+              "dataBDD": "headerComponent-relatedBooleanSumValidator",
+              "value": "Walidator sprawdza, czy co najmniej jedna z badanych wartości jest prawdziwa. Jeśli tak, wymaga, aby wartość komponentu również była prawdziwa. Jeżeli natomiast żadna z badanych wartości nie jest prawdziwa, walidator wymaga, aby wartość komponentu była fałszywa."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Only booleans",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "firstBoolean",
+              "name": "firstBooleanValue",
+              "dataBDD": "firstBooleanValue",
+              "value": false
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "secondBoolean",
+              "name": "secondBooleanValue",
+              "dataBDD": "secondBooleanValue",
+              "value": false
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "checkValue",
+              "name": "thirdBooleanValue",
+              "dataBDD": "thirdBooleanValue",
+              "value": false,
+              "validators": [
+                {
+                  "name": "RelatedBooleanSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "firstBooleanValue",
+                      "secondBooleanValue"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-3-narrow"
+            ],
+            "sub": [
+              "table-1-3__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XVIII. RelatedSumOfWeightsValidator",
+      "shortName": "XVIII. Related Sum of Weights Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedSumOfWeightsValidator",
+              "dataBDD": "headerComponent-relatedSumOfWeightsValidator",
+              "value": "Walidator sprawdza, czy dana wartość jest równa wartości po spełnieniu wszystkich warunków."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Test",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Tak (1 punkt)",
+              "name": "firstWeightCheckbox",
+              "dataBDD": "firstWeightCheckbox",
+              "value": false
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Tak (2 punkty)",
+              "name": "secondWeightCheckbox",
+              "dataBDD": "secondWeightCheckbox",
+              "value": false
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Check",
+              "name": "weightCheck",
+              "dataBDD": "weightCheck",
+              "value": "3",
+              "validators": [
+                {
+                  "name": "RelatedSumOfWeightsValidator",
+                  "kwargs": {
+                    "weights": {
+                      "firstWeightCheckbox": 1,
+                      "secondWeightCheckbox": 2
+                    }
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-3-narrow"
+            ],
+            "sub": [
+              "table-1-3__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XIX. RelatedEqualIfInRangeValidator",
+      "shortName": "XIX. Related Equal If In Range Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "Number",
+          "components": [
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Number",
+              "name": "firstEqualNumber",
+              "dataBDD": "firstEqualNumber",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Check",
+              "name": "firstEqualNumberCheck",
+              "dataBDD": "firstEqualNumberCheck",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RelatedEqualIfInRangeValidator",
+                  "kwargs": {
+                    "field_name": "firstEqualNumber",
+                    "required_value": true,
+                    "max": 100
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "Text (fund)",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Text",
+              "name": "firstEqualNumberText",
+              "dataBDD": "firstEqualNumberText",
+              "value": 0,
+              "mask": "fund",
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Check",
+              "name": "firstEqualNumberCheckText",
+              "dataBDD": "firstEqualNumberCheckText",
+              "value": 0,
+              "mask": "fund",
+              "validators": [
+                {
+                  "name": "RelatedEqualIfInRangeValidator",
+                  "kwargs": {
+                    "field_name": "firstEqualNumberText",
+                    "required_value": 42,
+                    "max": 100
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XX. RelatedEmptyIfValidator",
+      "shortName": "XX. Related Empty IF Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "Checkbox",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Value",
+              "name": "emptyCheckbox",
+              "dataBDD": "emptyCheckbox",
+              "value": false
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Check",
+              "name": "emptyCheckboxCheck",
+              "dataBDD": "emptyCheckboxCheck",
+              "value": false,
+              "validators": [
+                {
+                  "name": "RelatedEmptyIfValidator",
+                  "kwargs": {
+                    "field_name": "emptyCheckbox"
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "Text",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Value",
+              "name": "emptyText",
+              "dataBDD": "emptyText",
+              "value": ""
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Check",
+              "name": "emptyTextCheck",
+              "dataBDD": "emptyTextCheck",
+              "value": "",
+              "validators": [
+                {
+                  "name": "RelatedEmptyIfValidator",
+                  "kwargs": {
+                    "field_name": "emptyText"
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XXI. RelatedFractionValidator",
+      "shortName": "XXI. Related Fraction Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedFractionValidator",
+              "dataBDD": "headerComponent-relatedFractionValidator",
+              "value": "Walidator sprawdza, czy wartość jest dokładnie równa wyliczonej proporcji wartości danego pola, z uwzględnieniem limitu maksymalnego."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Test",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Kwota całkowita",
+              "name": "fractionTotal",
+              "dataBDD": "fractionTotal",
+              "value": 0,
+              "mask": "fund",
+              "unit": "PLN",
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ],
+              "classList": [
+                "table-full"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Udział (80%)",
+              "name": "fractionShare",
+              "dataBDD": "fractionShare",
+              "value": 0,
+              "unit": "PLN",
+              "validators": [
+                {
+                  "name": "RelatedFractionValidator",
+                  "kwargs": {
+                    "field_name": "fractionTotal",
+                    "ratio": 0.8
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Udział (80% lub 1000 PLN)",
+              "name": "fractionShareMax",
+              "dataBDD": "fractionShareMax",
+              "value": 0,
+              "unit": "PLN",
+              "validators": [
+                {
+                  "name": "RelatedFractionValidator",
+                  "kwargs": {
+                    "field_name": "fractionTotal",
+                    "ratio": 0.8,
+                    "max": 1000
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XXII. RelatedFractionGTEValidator",
+      "shortName": "XXII. Related Fraction GTE Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedFractionGTEValidator",
+              "dataBDD": "headerComponent-relatedFractionGTEValidator",
+              "value": "Walidator sprawdza, czy wartość nie jest większa niż wyliczona proporcja wartości danego pola, z uwzględnieniem limitu maksymalnego."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Test",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Kwota całkowita",
+              "name": "fractionGteTotal",
+              "dataBDD": "fractionGteTotal",
+              "value": 0,
+              "mask": "fund",
+              "unit": "PLN",
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Udział (max 80%)",
+              "name": "fractionGteShare",
+              "dataBDD": "fractionGteShare",
+              "value": 0,
+              "unit": "PLN",
+              "validators": [
+                {
+                  "name": "RelatedFractionGTEValidator",
+                  "kwargs": {
+                    "field_name": "fractionGteTotal",
+                    "ratio": 0.8
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XXIII. RelatedFractionLTEValidator",
+      "shortName": "XXIII. Related Fraction LTE Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedFractionLTEValidator",
+              "dataBDD": "headerComponent-relatedFractionLTEValidator",
+              "value": "Walidator sprawdza, czy wartość nie jest mniejsza niż wyliczona proporcja wartości danego pola, z uwzględnieniem limitu maksymalnego."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Test",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Kwota całkowita",
+              "name": "fractionLteTotal",
+              "dataBDD": "fractionLteTotal",
+              "value": 0,
+              "mask": "fund",
+              "unit": "PLN",
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Udział (max 80%)",
+              "name": "fractionLteShare",
+              "dataBDD": "fractionLteShare",
+              "value": 0,
+              "unit": "PLN",
+              "validators": [
+                {
+                  "name": "RelatedFractionGTEValidator",
+                  "kwargs": {
+                    "field_name": "fractionLteTotal",
+                    "ratio": 0.8
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XXIV. RelatedLocalSumValidator",
+      "shortName": "XXIV. Related Local Sum Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedLocalSumValidator",
+              "dataBDD": "headerComponent-relatedLocalSumValidator",
+              "value": "Walidator sprawdza, czy suma wartości pól jest poprawna."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Kwoty",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Koszt 1",
+              "name": "firstLocalSumCost",
+              "dataBDD": "firstLocalSumCost",
+              "value": 0,
+              "mask": "fund",
+              "unit": "PLN",
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Koszt 2",
+              "name": "secondLocalSumCost",
+              "dataBDD": "secondLocalSumCost",
+              "value": 0,
+              "mask": "fund",
+              "unit": "PLN",
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Suma",
+              "name": "localSumTotal",
+              "dataBDD": "localSumTotal",
+              "value": 0,
+              "mask": "fund",
+              "unit": "PLN",
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RelatedLocalSumValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "firstLocalSumCost",
+                      "secondLocalSumCost"
+                    ]
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ],
+              "calculationRules": [
+                {
+                  "name": "dynamicSumInputs",
+                  "kwargs": {
+                    "fields": [
+                      "firstLocalSumCost",
+                      "secondLocalSumCost"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-3-narrow"
+            ],
+            "sub": [
+              "table-1-3__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "Udziały",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Pozycja 1",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Koszt 1",
+                      "name": "firstLocalShare_1",
+                      "dataBDD": "firstLocalShare_1",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Koszt 2",
+                      "name": "secondLocalShare_1",
+                      "dataBDD": "secondLocalShare_1",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Udział",
+                      "name": "localSumTotalShare_1",
+                      "dataBDD": "localSumTotalShare_1",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "%",
+                      "readOnly": true,
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "localShareCalculator",
+                          "kwargs": {
+                            "dividendField": "secondLocalShare",
+                            "divisorField": "firstLocalShare"
+                          }
+                        }
+                      ],
+                      "defaultValue": 0
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-3-narrow"
+                    ],
+                    "sub": [
+                      "table-1-3__col"
+                    ]
+                  }
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Pozycja 2",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Koszt 1",
+                      "name": "firstLocalShare_2",
+                      "dataBDD": "firstLocalShare_2",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Koszt 2",
+                      "name": "secondLocalShare_2",
+                      "dataBDD": "secondLocalShare_2",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "PLN",
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "defaultValue": 0
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Udział",
+                      "name": "localSumTotalShare_2",
+                      "dataBDD": "localSumTotalShare_2",
+                      "value": 0,
+                      "mask": "fund",
+                      "unit": "%",
+                      "readOnly": true,
+                      "validators": [
+                        {
+                          "name": "RangeValidator",
+                          "kwargs": {
+                            "min": 0
+                          },
+                          "validationMsg": "Wartość musi być większa lub równa 0."
+                        }
+                      ],
+                      "calculationRules": [
+                        {
+                          "name": "localShareCalculator",
+                          "kwargs": {
+                            "dividendField": "secondLocalShare",
+                            "divisorField": "firstLocalShare"
+                          }
+                        }
+                      ],
+                      "defaultValue": 0
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-3-narrow"
+                    ],
+                    "sub": [
+                      "table-1-3__col"
+                    ]
+                  }
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 2,
+                "maxCount": 10
+              },
+              "isPaginated": false
+            },
+            {
+              "kind": "chapter",
+              "title": "Podsumowanie",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Suma",
+                  "name": "localSumTotalShareTotal",
+                  "dataBDD": "localSumTotalShareTotal",
+                  "value": 0,
+                  "mask": "fund",
+                  "unit": "PLN",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RelatedSumValidator",
+                      "kwargs": {
+                        "field_names": [
+                          "localSumTotalShare"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "dynamicSumInputs",
+                      "kwargs": {
+                        "fields": [
+                          "localSumTotalShare"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XXV. RelatedAnyOfValidator",
+      "shortName": "XXV. Related Any Of Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedAnyOfValidator",
+              "dataBDD": "headerComponent-relatedAnyOfValidator",
+              "value": "Walidator sprawdza, czy została zaznaczona chociaż jedna z wartości."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Test",
+          "components": [
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Opcja 1",
+              "name": "firstAnyCheckbox",
+              "dataBDD": "firstAnyCheckbox",
+              "value": false,
+              "validators": [
+                {
+                  "name": "RelatedAnyOfValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "firstAnyCheckbox",
+                      "secondAnyCheckbox"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "checkbox",
+              "label": "Opcja 2",
+              "name": "secondAnyCheckbox",
+              "dataBDD": "secondAnyCheckbox",
+              "value": false,
+              "validators": [
+                {
+                  "name": "RelatedAnyOfValidator",
+                  "kwargs": {
+                    "field_names": [
+                      "firstAnyCheckbox",
+                      "secondAnyCheckbox"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XXVI. RelatedMappedLimitValidator",
+      "shortName": "XXVI. Related Mapped Limit Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedMappedLimitValidator",
+              "dataBDD": "headerComponent-relatedMappedLimitValidator",
+              "value": "Walidator sprawdza, czy wartość dla wybranej opcji nie przekracza danego limitu."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Test",
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "",
+              "name": "mappedSelect",
+              "dataBDD": "mappedSelect",
+              "value": "",
+              "options": [
+                "Opcja A",
+                "Opcja B",
+                "Opcja C"
+              ],
+              "validators": [
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Opcja A",
+                      "Opcja B",
+                      "Opcja C"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "",
+              "name": "mappedSelectFinal",
+              "dataBDD": "mappedSelectFinal",
+              "value": 0,
+              "mask": "fund",
+              "validators": [
+                {
+                  "name": "RelatedMappedLimitValidator",
+                  "kwargs": {
+                    "default_limit": 0,
+                    "options": [
+                      {
+                        "limit": 10000,
+                        "conditions": [
+                          {
+                            "field_name": "mappedSelect",
+                            "value": "Opcja A"
+                          }
+                        ]
+                      },
+                      {
+                        "limit": 20000,
+                        "conditions": [
+                          {
+                            "field_name": "mappedSelect",
+                            "value": "Opcja B"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XXVII. RelatedAllowedOptionsValidator",
+      "shortName": "XXVII. Related Allowed Options Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedAllowedOptionsValidator",
+              "dataBDD": "headerComponent-relatedAllowedOptionsValidator",
+              "value": "Walidator sprawdza, czy dana wartość jest dozwolona na podstawie wartości innego pola."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Test",
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "Kraj",
+              "name": "allowedSelect",
+              "dataBDD": "allowedSelect",
+              "value": "",
+              "options": [
+                "Polska",
+                "Niemcy"
+              ],
+              "validators": [
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Polska",
+                      "Niemcy"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "Miasto",
+              "name": "allowedOptionsSelect",
+              "dataBDD": "allowedOptionsSelect",
+              "value": "",
+              "options": [
+                "Warszawa",
+                "Berlin",
+                "Kraków"
+              ],
+              "validators": [
+                {
+                  "name": "RelatedAllowedOptionsValidator",
+                  "kwargs": {
+                    "field_name": "allowedSelect",
+                    "mapping": {
+                      "Polska": [
+                        "Warszawa",
+                        "Kraków"
+                      ],
+                      "Niemcy": [
+                        "Berlin"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Warszawa",
+                      "Berlin",
+                      "Kraków"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XXVIII. RelatedUniqueValueValidator",
+      "shortName": "XXVIII. Related Unique Value Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedUniqueValueValidator",
+              "dataBDD": "headerComponent-relatedUniqueValueValidator",
+              "value": "Walidator sprawdza, czy dana wartość jest unikalna w polach o danej nazwie."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Lista gości",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Gość 1",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "",
+                      "name": "questName_1",
+                      "dataBDD": "questName_1",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RelatedUniqueValueValidator",
+                          "kwargs": {
+                            "field_name": "questName"
+                          }
+                        }
+                      ],
+                      "defaultValue": ""
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Gość 2",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "",
+                      "name": "questName_2",
+                      "dataBDD": "questName_2",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RelatedUniqueValueValidator",
+                          "kwargs": {
+                            "field_name": "questName"
+                          }
+                        }
+                      ],
+                      "defaultValue": ""
+                    }
+                  ]
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 2,
+                "maxCount": 10
+              },
+              "isPaginated": false
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Lista gości - normalized",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Gość 1",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "",
+                      "name": "questNameNormalized_1",
+                      "dataBDD": "questNameNormalized_1",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RelatedUniqueValueValidator",
+                          "kwargs": {
+                            "field_name": "questNameNormalized",
+                            "normalize": true
+                          }
+                        }
+                      ],
+                      "defaultValue": ""
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Gość 2",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "",
+                      "name": "questNameNormalized_2",
+                      "dataBDD": "questNameNormalized_2",
+                      "value": "",
+                      "validators": [
+                        {
+                          "name": "RelatedUniqueValueValidator",
+                          "kwargs": {
+                            "field_name": "questNameNormalized",
+                            "normalize": true
+                          }
+                        }
+                      ],
+                      "defaultValue": ""
+                    }
+                  ]
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 2,
+                "maxCount": 10
+              },
+              "isPaginated": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XXIX. RelatedConditionRatioValidator",
+      "shortName": "XXIX. Related Condition Ratio Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedConditionRatioValidator",
+              "dataBDD": "headerComponent-relatedConditionRatioValidator",
+              "value": "Walidator sprawdza, czy wartość jest w danym zakresie wartości procentowej innego pola na podstawie warunku."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "Select",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "",
+                  "name": "conditionRatioSelect",
+                  "dataBDD": "conditionRatioSelect",
+                  "value": "",
+                  "options": [
+                    "Opcja 1",
+                    "Opcja 2"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Opcja 1",
+                          "Opcja 2"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "Total",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "",
+                  "name": "conditionRatioTotal",
+                  "dataBDD": "conditionRatioTotal",
+                  "value": "10000",
+                  "mask": "fund",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "Min",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "",
+                  "name": "conditionRatioMin",
+                  "dataBDD": "conditionRatioMin",
+                  "value": 0,
+                  "mask": "fund",
+                  "validators": [
+                    {
+                      "name": "RelatedConditionRatioValidator",
+                      "kwargs": {
+                        "field_name": "conditionRatioTotal",
+                        "conditions": [
+                          {
+                            "field_name": "conditionRatioSelect",
+                            "value": "Opcja 1",
+                            "min_ratio": 10
+                          },
+                          {
+                            "field_name": "conditionRatioSelect",
+                            "value": "Opcja 2",
+                            "min_ratio": 20
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ]
+                }
+              ],
+              "helpText": "Opcja 1 - 10%, Opcja 2 - 20%.",
+              "classList": {
+                "main": [
+                  "table-1-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "Max",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "",
+                  "name": "conditionRatioMax",
+                  "dataBDD": "conditionRatioMax",
+                  "value": 0,
+                  "mask": "fund",
+                  "validators": [
+                    {
+                      "name": "RelatedConditionRatioValidator",
+                      "kwargs": {
+                        "field_name": "conditionRatioTotal",
+                        "conditions": [
+                          {
+                            "field_name": "conditionRatioSelect",
+                            "value": "Opcja 1",
+                            "max_ratio": 10
+                          },
+                          {
+                            "field_name": "conditionRatioSelect",
+                            "value": "Opcja 2",
+                            "max_ratio": 20
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ]
+                }
+              ],
+              "helpText": "Opcja 1 - 10%, Opcja 2 - 20%.",
+              "classList": {
+                "main": [
+                  "table-1-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "Min Max",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "",
+                  "name": "conditionRatioMinMax",
+                  "dataBDD": "conditionRatioMinMax",
+                  "value": 0,
+                  "mask": "fund",
+                  "validators": [
+                    {
+                      "name": "RelatedConditionRatioValidator",
+                      "kwargs": {
+                        "field_name": "conditionRatioTotal",
+                        "conditions": [
+                          {
+                            "field_name": "conditionRatioSelect",
+                            "value": "Opcja 1",
+                            "min_ratio": 10,
+                            "max_ratio": 20
+                          },
+                          {
+                            "field_name": "conditionRatioSelect",
+                            "value": "Opcja 2",
+                            "min_ratio": 30,
+                            "max_ratio": 40
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ]
+                }
+              ],
+              "helpText": "Opcja 1 - 10-20%, Opcja 2 - 30-40%.",
+              "classList": {
+                "main": [
+                  "table-1-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XXX. RelatedConditionRangeValidator",
+      "shortName": "XXX. Related Condition Range Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedConditionRangeValidator",
+              "dataBDD": "headerComponent-relatedConditionRangeValidator",
+              "value": "Walidator sprawdza, czy wartość jest w danym zakresie na podstawie warunku."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "Select",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "",
+                  "name": "conditionRangeSelect",
+                  "dataBDD": "conditionRangeSelect",
+                  "value": "",
+                  "options": [
+                    "Opcja 1",
+                    "Opcja 2"
+                  ],
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Opcja 1",
+                          "Opcja 2"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "Total",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "",
+                  "name": "conditionRangeTotal",
+                  "dataBDD": "conditionRangeTotal",
+                  "value": "100",
+                  "mask": "fund",
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "Min",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "",
+                  "name": "conditionRangeMin",
+                  "dataBDD": "conditionRangeMin",
+                  "value": 0,
+                  "mask": "fund",
+                  "validators": [
+                    {
+                      "name": "RelatedConditionRangeValidator",
+                      "kwargs": {
+                        "conditions": [
+                          {
+                            "field_name": "conditionRangeSelect",
+                            "value": "Opcja 1",
+                            "min_range": 10
+                          },
+                          {
+                            "field_name": "conditionRangeSelect",
+                            "value": "Opcja 2",
+                            "min_range": 20
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ]
+                }
+              ],
+              "helpText": "Opcja 1 - 10, Opcja 2 - 20.",
+              "classList": {
+                "main": [
+                  "table-1-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "Max",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "",
+                  "name": "conditionRangeMax",
+                  "dataBDD": "conditionRangeMax",
+                  "value": 0,
+                  "mask": "fund",
+                  "validators": [
+                    {
+                      "name": "RelatedConditionRangeValidator",
+                      "kwargs": {
+                        "conditions": [
+                          {
+                            "field_name": "conditionRangeSelect",
+                            "value": "Opcja 1",
+                            "max_range": 10
+                          },
+                          {
+                            "field_name": "conditionRangeSelect",
+                            "value": "Opcja 2",
+                            "max_range": 20
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ]
+                }
+              ],
+              "helpText": "Opcja 1 - 10, Opcja 2 - 20.",
+              "classList": {
+                "main": [
+                  "table-1-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "Min Max",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "",
+                  "name": "conditionRangeMinMax",
+                  "dataBDD": "conditionRangeMinMax",
+                  "value": 0,
+                  "mask": "fund",
+                  "validators": [
+                    {
+                      "name": "RelatedConditionRangeValidator",
+                      "kwargs": {
+                        "conditions": [
+                          {
+                            "field_name": "conditionRangeSelect",
+                            "value": "Opcja 1",
+                            "min_range": 10,
+                            "max_range": 20
+                          },
+                          {
+                            "field_name": "conditionRangeSelect",
+                            "value": "Opcja 2",
+                            "min_range": 30,
+                            "max_range": 40
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "RangeValidator",
+                      "kwargs": {
+                        "min": 0
+                      },
+                      "validationMsg": "Wartość musi być większa lub równa 0."
+                    }
+                  ]
+                }
+              ],
+              "helpText": "Opcja 1 - 10-20, Opcja 2 - 30-40.",
+              "classList": {
+                "main": [
+                  "table-1-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "XXXI. RelatedLastDateValidator",
+      "shortName": "XXXI. Related Last Date Validator",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "component",
+              "type": "header",
+              "label": "",
+              "name": "headerComponent-relatedLastDateValidator",
+              "dataBDD": "headerComponent-relatedLastDateValidator",
+              "value": "Walidator sprawdza, czy data jest większa lub równa najpóźniejszej dacie z danego pola."
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Harmonogram",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Pozycja 1",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Data od",
+                      "name": "lastStartDate_1",
+                      "dataBDD": "lastStartDate_1",
+                      "value": false,
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalDateLTEValidator",
+                          "kwargs": {
+                            "field_name": "lastEndDate"
+                          }
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "defaultValue": false
+                    },
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Data do",
+                      "name": "lastEndDate_1",
+                      "dataBDD": "lastEndDate_1",
+                      "value": false,
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalDateGTEValidator",
+                          "kwargs": {
+                            "field_name": "lastStartDate"
+                          }
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "defaultValue": false
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  }
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Pozycja 2",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Data od",
+                      "name": "lastStartDate_2",
+                      "dataBDD": "lastStartDate_2",
+                      "value": false,
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalDateLTEValidator",
+                          "kwargs": {
+                            "field_name": "lastEndDate"
+                          }
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "defaultValue": false
+                    },
+                    {
+                      "kind": "component",
+                      "type": "date",
+                      "label": "Data do",
+                      "name": "lastEndDate_2",
+                      "dataBDD": "lastEndDate_2",
+                      "value": false,
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RelatedLocalDateGTEValidator",
+                          "kwargs": {
+                            "field_name": "lastStartDate"
+                          }
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "defaultValue": false
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  }
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 2,
+                "maxCount": 10
+              },
+              "isPaginated": false
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "Podsumowanie",
+          "components": [
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data premiery",
+              "name": "premiereDate",
+              "dataBDD": "premiereDate",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RelatedLastDateValidator",
+                  "kwargs": {
+                    "field_name": "lastEndDate"
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

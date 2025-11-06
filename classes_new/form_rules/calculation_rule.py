@@ -197,3 +197,9 @@ class CalculationRule:
                 "currencyField": currency_field
             }
         }
+
+    @staticmethod
+    def row_number():
+        return {
+            "name": "rowNumber"
+        }
