@@ -94,21 +94,26 @@ class ReconstructionApplicationEstimateBuilder(FormFactory):
             for cost in section.get('costs', []):
                 all_cost_names.append(cost.get('name', ''))
 
-        return self.create_chapter(
-            components=[
-                *[
-                    self.build_section_chapter(
-                        section,
-                        section_structure,
-                        section_construct,
-                        title=f"{self.helpers.int_to_roman(idx)}. {section.get('title', '')}"
-                    )
-                    for idx, section in enumerate(estimate_sections, start=1)
-                ],
-                self.build_summary_chapter(sum_estimate_sections[0], sum_estimate_structure, sum_construct,
-                                           all_cost_names)
-            ]
+        current_number = 1
+        components = []
+
+        for idx, section in enumerate(estimate_sections, start=1):
+            chapter = self.build_section_chapter(
+                section,
+                section_structure,
+                section_construct,
+                title=f"{self.helpers.int_to_roman(idx)}. {section.get('title', '')}",
+                start_index=current_number,
+            )
+
+            current_number += len(section.get("costs", []))
+            components.append(chapter)
+
+        components.append(
+            self.build_summary_chapter(sum_estimate_sections[0], sum_estimate_structure, sum_construct, all_cost_names)
         )
+
+        return self.create_chapter(components=components)
 
     def generate_estimate_top(self):
         return self.create_chapter(
@@ -216,13 +221,12 @@ class ReconstructionApplicationEstimateBuilder(FormFactory):
 
         return component
 
-    def build_section_chapter(self, section, section_structure, construct, title):
+    def build_section_chapter(self, section, section_structure, construct, title: str, start_index: int = 1):
         costs = section.get("costs", [])
         components = []
-        section_index = 0
+        section_index = start_index
 
         for cost in costs:
-            section_index += 1
             cost_components = []
 
             for structure in section_structure:
@@ -273,6 +277,7 @@ class ReconstructionApplicationEstimateBuilder(FormFactory):
             )
 
             components.append(full_cost_chapter)
+            section_index += 1
 
         title = f'<p style="color: #e00d1d">{title}<p>'
 

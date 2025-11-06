@@ -6065,7 +6065,7 @@
                   "components": [
                     {
                       "kind": "chapter",
-                      "title": "1. Konforming – porównanie zeskanowanego materiału filmowego z dostępnymi kopiami filmu i przygotowanie wersji referencyjnej do rekonstrukcji",
+                      "title": "9. Konforming – porównanie zeskanowanego materiału filmowego z dostępnymi kopiami filmu i przygotowanie wersji referencyjnej do rekonstrukcji",
                       "components": [
                         {
                           "kind": "chapter",
@@ -6228,7 +6228,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "2. Rekonstrukcja obrazu",
+                      "title": "10. Rekonstrukcja obrazu",
                       "components": [
                         {
                           "kind": "chapter",
@@ -6396,7 +6396,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "3. Rekonstrukcja dźwięku",
+                      "title": "11. Rekonstrukcja dźwięku",
                       "components": [
                         {
                           "kind": "chapter",
@@ -6564,7 +6564,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "4. Synchronizacja dźwięku z obrazem",
+                      "title": "12. Synchronizacja dźwięku z obrazem",
                       "components": [
                         {
                           "kind": "chapter",
@@ -6727,7 +6727,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "5. Wykonanie cyfrowych kopii master – archiwizacyjnych i operacyjnych",
+                      "title": "13. Wykonanie cyfrowych kopii master – archiwizacyjnych i operacyjnych",
                       "components": [
                         {
                           "kind": "chapter",
@@ -6895,7 +6895,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "6. Rekonstrukcja montażu w zakresie obrazu i dźwięku",
+                      "title": "14. Rekonstrukcja montażu w zakresie obrazu i dźwięku",
                       "components": [
                         {
                           "kind": "chapter",
@@ -7058,7 +7058,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "7. Wykonanie dystrybucyjnych cyfrowych kopii wzorcowych filmu – archiwizacyjnych i operacyjnych",
+                      "title": "15. Wykonanie dystrybucyjnych cyfrowych kopii wzorcowych filmu – archiwizacyjnych i operacyjnych",
                       "components": [
                         {
                           "kind": "chapter",
@@ -7226,7 +7226,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "8. Nośniki kopii dystrybucyjnych",
+                      "title": "16. Nośniki kopii dystrybucyjnych",
                       "components": [
                         {
                           "kind": "chapter",
@@ -7389,7 +7389,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "9. Wykonanie analogowego materiału zabezpieczającego na taśmie światłoczułej",
+                      "title": "17. Wykonanie analogowego materiału zabezpieczającego na taśmie światłoczułej",
                       "components": [
                         {
                           "kind": "chapter",
@@ -7552,7 +7552,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "10. Nadzór lub konsultacja artystyczna",
+                      "title": "18. Nadzór lub konsultacja artystyczna",
                       "components": [
                         {
                           "kind": "chapter",
@@ -7718,7 +7718,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "11. Kontrola techniczna jakości wykonania rekonstrukcji obrazu i dźwięku",
+                      "title": "19. Kontrola techniczna jakości wykonania rekonstrukcji obrazu i dźwięku",
                       "components": [
                         {
                           "kind": "chapter",
@@ -7884,7 +7884,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "12. Koordynacja procesu digitalizacji i rekonstrukcji cyfrowej",
+                      "title": "20. Koordynacja procesu digitalizacji i rekonstrukcji cyfrowej",
                       "components": [
                         {
                           "kind": "chapter",
@@ -8050,7 +8050,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "13. Przygotowanie wersji językowej (max 3 wersje)",
+                      "title": "21. Przygotowanie wersji językowej (max 3 wersje)",
                       "components": [
                         {
                           "kind": "chapter",
@@ -8216,7 +8216,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "14. Opracowanie i wykonanie filmowych materiałów promocyjnych",
+                      "title": "22. Opracowanie i wykonanie filmowych materiałów promocyjnych",
                       "components": [
                         {
                           "kind": "chapter",
@@ -8384,7 +8384,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "15. Organizacja kolaudacji",
+                      "title": "23. Organizacja kolaudacji",
                       "components": [
                         {
                           "kind": "chapter",
@@ -8549,7 +8549,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "16. Transport materiałów filmowych",
+                      "title": "24. Transport materiałów filmowych",
                       "components": [
                         {
                           "kind": "chapter",
