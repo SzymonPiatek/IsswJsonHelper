@@ -981,7 +981,8 @@ class DWMDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                 self.section.applicant_bank_data(
                     number=5 if self.is_promotion_priority else 6,
                     poland=True,
-                    foreign=True
+                    foreign=True,
+                    is_promotion=self.is_promotion_priority
                 ),
                 self.section.pisf_transfer_currency(
                     number=6 if self.is_promotion_priority else 7

@@ -1964,6 +1964,20 @@
               "components": [
                 {
                   "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-bankAccountInfo",
+                  "dataBDD": "headerComponent-bankAccountInfo",
+                  "value": "WAŻNE: wszystkie koszty dotyczące danego przedsięwzięcia powinny być ponoszone z rachunku bankowego wskazanego we Wniosku o ustanowienie stypendium, jak również wszystkie wpłaty od podmiotów współfinansujących dane przedsięwzięcie powinny być dokonywane na rachunek bankowy wskazany we Wniosku o ustanowienie stypendium. Ponadto rachunek bankowy nie może być rachunkiem firmowym."
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
                   "type": "text",
                   "label": "Nazwa banku",
                   "name": "applicantBank",
