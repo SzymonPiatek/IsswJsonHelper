@@ -1045,9 +1045,8 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                 )
                             ],
                             validators=[
-                                self.validator.related_fraction_gte_validator(
-                                    field_name="ownFinancialFundsAmount",
-                                    ratio=1
+                                self.validator.related_sum_validator(
+                                    field_names=["ownFinancialFundsAmount"]
                                 )
                             ],
                             read_only=True,
