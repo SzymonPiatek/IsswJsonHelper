@@ -7203,6 +7203,20 @@
               "title": "",
               "components": [
                 {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-preparatoryStage",
+                  "dataBDD": "headerComponent-preparatoryStage",
+                  "value": "Pierwsza pozycja w harmonogramie jest terminem rozpoczęcia realizacji przedsięwzięcia."
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
                   "kind": "chapter",
                   "title": "Pozycja",
                   "components": [
@@ -7398,6 +7412,20 @@
           "kind": "chapter",
           "title": "Etap podsumowania zadania",
           "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "",
+                  "name": "headerComponent-summaryStage",
+                  "dataBDD": "headerComponent-summaryStage",
+                  "value": "Ostatnia pozycja w harmonogramie jest terminem zakończenia realizacji przedsięwzięcia."
+                }
+              ]
+            },
             {
               "kind": "chapter",
               "title": "",

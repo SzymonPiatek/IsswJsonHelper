@@ -1802,6 +1802,15 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     title="Etap przygotowawczy",
                     components=[
                         self.create_chapter(
+                            components=[
+                                self.create_component(
+                                    component_type="header",
+                                    name="preparatoryStage",
+                                    value="Pierwsza pozycja w harmonogramie jest terminem rozpoczęcia realizacji przedsięwzięcia."
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
                             multiple_forms_rules={
                                 "minCount": 1,
                                 "maxCount": 20
@@ -1931,6 +1940,15 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                 self.create_chapter(
                     title="Etap podsumowania zadania",
                     components=[
+                        self.create_chapter(
+                            components=[
+                                self.create_component(
+                                    component_type="header",
+                                    name="summaryStage",
+                                    value="Ostatnia pozycja w harmonogramie jest terminem zakończenia realizacji przedsięwzięcia."
+                                )
+                            ]
+                        ),
                         self.create_chapter(
                             multiple_forms_rules={
                                 "minCount": 1,
