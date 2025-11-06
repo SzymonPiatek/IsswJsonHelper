@@ -117,20 +117,20 @@
               "dataBDD": "projectType",
               "value": "",
               "options": [
-                "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową.",
-                "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie.",
-                "Działalność Sieci Kin Studyjnych.",
-                "Inne działania realizujące cele Priorytetu II."
+                "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową",
+                "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie",
+                "Działalność Sieci Kin Studyjnych",
+                "Inne działania realizujące cele Priorytetu II"
               ],
               "validators": [
                 {
                   "name": "ExactValidator",
                   "kwargs": {
                     "values": [
-                      "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową.",
-                      "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie.",
-                      "Działalność Sieci Kin Studyjnych.",
-                      "Inne działania realizujące cele Priorytetu II."
+                      "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową",
+                      "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie",
+                      "Działalność Sieci Kin Studyjnych",
+                      "Inne działania realizujące cele Priorytetu II"
                     ]
                   }
                 }
@@ -2732,7 +2732,7 @@
                   "kwargs": {
                     "fieldName": "projectType",
                     "values": [
-                      "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową."
+                      "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową"
                     ]
                   }
                 }
@@ -3511,7 +3511,7 @@
                       "kwargs": {
                         "fieldName": "projectType",
                         "values": [
-                          "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową."
+                          "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową"
                         ]
                       }
                     }
@@ -3628,7 +3628,7 @@
                       "kwargs": {
                         "fieldName": "projectType",
                         "values": [
-                          "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie."
+                          "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie"
                         ]
                       }
                     }
@@ -3839,7 +3839,7 @@
                       "kwargs": {
                         "fieldName": "projectType",
                         "values": [
-                          "Inne działania realizujące cele Priorytetu II."
+                          "Inne działania realizujące cele Priorytetu II"
                         ]
                       }
                     }
@@ -3892,9 +3892,9 @@
               "kwargs": {
                 "fieldName": "projectType",
                 "values": [
-                  "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową.",
-                  "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie.",
-                  "Inne działania realizujące cele Priorytetu II."
+                  "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową",
+                  "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie",
+                  "Inne działania realizujące cele Priorytetu II"
                 ]
               }
             }
@@ -4156,7 +4156,7 @@
               "kwargs": {
                 "fieldName": "projectType",
                 "values": [
-                  "Działalność Sieci Kin Studyjnych."
+                  "Działalność Sieci Kin Studyjnych"
                 ]
               }
             }
@@ -10153,9 +10153,9 @@
                   "kwargs": {
                     "fieldName": "projectType",
                     "values": [
-                      "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową.",
-                      "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie.",
-                      "Inne działania realizujące cele Priorytetu II."
+                      "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową",
+                      "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie",
+                      "Inne działania realizujące cele Priorytetu II"
                     ]
                   }
                 }
@@ -15983,7 +15983,7 @@
                   "kwargs": {
                     "fieldName": "projectType",
                     "values": [
-                      "Działalność Sieci Kin Studyjnych."
+                      "Działalność Sieci Kin Studyjnych"
                     ]
                   }
                 }

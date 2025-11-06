@@ -117,18 +117,18 @@
               "dataBDD": "projectType",
               "value": "",
               "options": [
-                "Programy edukacyjne wchodzące w skład edukacji ciągłej.",
-                "Kształcenie w kierunku zdobycia zawodów związanych z potrzebami współczesnego rynku audiowizualnego.",
-                "Organizacja praktyk zawodowych dla uczniów."
+                "Programy edukacyjne wchodzące w skład edukacji ciągłej",
+                "Kształcenie w kierunku zdobycia zawodów związanych z potrzebami współczesnego rynku audiowizualnego",
+                "Organizacja praktyk zawodowych dla uczniów"
               ],
               "validators": [
                 {
                   "name": "ExactValidator",
                   "kwargs": {
                     "values": [
-                      "Programy edukacyjne wchodzące w skład edukacji ciągłej.",
-                      "Kształcenie w kierunku zdobycia zawodów związanych z potrzebami współczesnego rynku audiowizualnego.",
-                      "Organizacja praktyk zawodowych dla uczniów."
+                      "Programy edukacyjne wchodzące w skład edukacji ciągłej",
+                      "Kształcenie w kierunku zdobycia zawodów związanych z potrzebami współczesnego rynku audiowizualnego",
+                      "Organizacja praktyk zawodowych dla uczniów"
                     ]
                   }
                 }

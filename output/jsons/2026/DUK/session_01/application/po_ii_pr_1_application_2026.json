@@ -117,20 +117,20 @@
               "dataBDD": "projectType",
               "value": "",
               "options": [
-                "Programy edukacyjne wchodzące w skład edukacji ciągłej.",
-                "Realizacja szkolnych i pozaszkolnych filmów krótko- i średniometrażowych.",
-                "Kształcenie zawodowe i podnoszenie kompetencji poprzez organizację studiów podyplomowych.",
-                "Organizacja praktyk zawodowych dla studentów."
+                "Programy edukacyjne wchodzące w skład edukacji ciągłej",
+                "Realizacja szkolnych i pozaszkolnych filmów krótko- i średniometrażowych",
+                "Kształcenie zawodowe i podnoszenie kompetencji poprzez organizację studiów podyplomowych",
+                "Organizacja praktyk zawodowych dla studentów"
               ],
               "validators": [
                 {
                   "name": "ExactValidator",
                   "kwargs": {
                     "values": [
-                      "Programy edukacyjne wchodzące w skład edukacji ciągłej.",
-                      "Realizacja szkolnych i pozaszkolnych filmów krótko- i średniometrażowych.",
-                      "Kształcenie zawodowe i podnoszenie kompetencji poprzez organizację studiów podyplomowych.",
-                      "Organizacja praktyk zawodowych dla studentów."
+                      "Programy edukacyjne wchodzące w skład edukacji ciągłej",
+                      "Realizacja szkolnych i pozaszkolnych filmów krótko- i średniometrażowych",
+                      "Kształcenie zawodowe i podnoszenie kompetencji poprzez organizację studiów podyplomowych",
+                      "Organizacja praktyk zawodowych dla studentów"
                     ]
                   }
                 }

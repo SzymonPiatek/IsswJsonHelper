@@ -117,16 +117,16 @@
               "dataBDD": "projectType",
               "value": "",
               "options": [
-                "Rekonstrukcja cyfrowa i digitalizacja filmów polskich oraz ich przygotowanie do rozpowszechniania.",
-                "Systemowe przedsięwzięcia, mające na celu zabezpieczenie materiałów filmowych."
+                "Rekonstrukcja cyfrowa i digitalizacja filmów polskich oraz ich przygotowanie do rozpowszechniania",
+                "Systemowe przedsięwzięcia, mające na celu zabezpieczenie materiałów filmowych"
               ],
               "validators": [
                 {
                   "name": "ExactValidator",
                   "kwargs": {
                     "values": [
-                      "Rekonstrukcja cyfrowa i digitalizacja filmów polskich oraz ich przygotowanie do rozpowszechniania.",
-                      "Systemowe przedsięwzięcia, mające na celu zabezpieczenie materiałów filmowych."
+                      "Rekonstrukcja cyfrowa i digitalizacja filmów polskich oraz ich przygotowanie do rozpowszechniania",
+                      "Systemowe przedsięwzięcia, mające na celu zabezpieczenie materiałów filmowych"
                     ]
                   }
                 }
