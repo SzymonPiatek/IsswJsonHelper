@@ -5302,7 +5302,7 @@
                           ]
                         }
                       ],
-                      "helpText": "Koszty zarządzania przedsięwzięciem nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty zarządzania przedsięwzięciem nie mogą przekroczyć 15,00% przyznanej dotacji.",
+                      "helpText": "Koszty zarządzania przedsięwzięciem nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty o których mowa powyżej nie mogą przekroczyć 15,00% przyznanej dotacji.",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",
@@ -5433,7 +5433,7 @@
                           ]
                         }
                       ],
-                      "helpText": "Wszelkie koszty osobowe nieujęte w pozostałych pozycjach. Koszty osobowe nie mogą przekroczyć 35,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty osobowe nie mogą przekroczyć 35,00% przyznanej dotacji.",
+                      "helpText": "Wszelkie koszty osobowe nieujęte w pozostałych pozycjach. Koszty osobowe nie mogą przekroczyć 35,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty o których mowa powyżej nie mogą przekroczyć 35,00% przyznanej dotacji.",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",
@@ -5570,7 +5570,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "4. Koszty konsultacji eksperckich",
+                      "title": "4. Konsultacje eksperckie",
                       "components": [
                         {
                           "kind": "component",
@@ -5578,7 +5578,7 @@
                           "label": "",
                           "name": "expertConsultationDesc",
                           "dataBDD": "expertConsultationDesc",
-                          "value": "4. Koszty konsultacji eksperckich",
+                          "value": "4. Konsultacje eksperckie",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -5691,7 +5691,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "5. Koszty nagród dla laureatów",
+                      "title": "5. Nagrody dla laureatów",
                       "components": [
                         {
                           "kind": "component",
@@ -5699,7 +5699,7 @@
                           "label": "",
                           "name": "awardsDesc",
                           "dataBDD": "awardsDesc",
-                          "value": "5. Koszty nagród dla laureatów",
+                          "value": "5. Nagrody dla laureatów",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -5823,7 +5823,7 @@
                   "components": [
                     {
                       "kind": "chapter",
-                      "title": "1. Koszty przygotowania kopii filmowych i napisów do filmów",
+                      "title": "1. Przygotowanie kopii filmowych i napisów do filmów",
                       "components": [
                         {
                           "kind": "component",
@@ -5831,7 +5831,7 @@
                           "label": "",
                           "name": "copyingAndSubtitlingDesc",
                           "dataBDD": "copyingAndSubtitlingDesc",
-                          "value": "1. Koszty przygotowania kopii filmowych i napisów do filmów",
+                          "value": "1. Przygotowanie kopii filmowych i napisów do filmów",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -5944,7 +5944,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "2. Koszty usług PR, promocji i reklam",
+                      "title": "2. Usługi PR, promocja i reklama",
                       "components": [
                         {
                           "kind": "component",
@@ -5952,7 +5952,7 @@
                           "label": "",
                           "name": "commercialsDesc",
                           "dataBDD": "commercialsDesc",
-                          "value": "2. Koszty usług PR, promocji i reklam",
+                          "value": "2. Usługi PR, promocja i reklama",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6065,7 +6065,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "3. Koszty usług graficznych i poligraficznych",
+                      "title": "3. Usługi graficzne i poligraficzne",
                       "components": [
                         {
                           "kind": "component",
@@ -6073,7 +6073,7 @@
                           "label": "",
                           "name": "graphicServiceDesc",
                           "dataBDD": "graphicServiceDesc",
-                          "value": "3. Koszty usług graficznych i poligraficznych",
+                          "value": "3. Usługi graficzne i poligraficzne",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6549,7 +6549,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "7. Koszty materiałów biurowych",
+                      "title": "7. Materiały biurowe",
                       "components": [
                         {
                           "kind": "component",
@@ -6557,7 +6557,7 @@
                           "label": "",
                           "name": "stationeryDesc",
                           "dataBDD": "stationeryDesc",
-                          "value": "7. Koszty materiałów biurowych",
+                          "value": "7. Materiały biurowe",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6681,7 +6681,7 @@
                   "components": [
                     {
                       "kind": "chapter",
-                      "title": "1. Koszty wynajmu powierzchni",
+                      "title": "1. Wynajem powierzchni",
                       "components": [
                         {
                           "kind": "component",
@@ -6689,7 +6689,7 @@
                           "label": "",
                           "name": "rentalSurfaceDesc",
                           "dataBDD": "rentalSurfaceDesc",
-                          "value": "1. Koszty wynajmu powierzchni",
+                          "value": "1. Wynajem powierzchni",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6802,7 +6802,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "2. Koszty aranżacji powierzchni",
+                      "title": "2. Aranżacja powierzchni",
                       "components": [
                         {
                           "kind": "component",
@@ -6810,7 +6810,7 @@
                           "label": "",
                           "name": "arrangementSurfaceDesc",
                           "dataBDD": "arrangementSurfaceDesc",
-                          "value": "2. Koszty aranżacji powierzchni",
+                          "value": "2. Aranżacja powierzchni",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6923,7 +6923,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "3. Koszty wynajmu sprzętu",
+                      "title": "3. Wynajem sprzętu",
                       "components": [
                         {
                           "kind": "component",
@@ -6931,7 +6931,7 @@
                           "label": "",
                           "name": "equipmentRentalDesc",
                           "dataBDD": "equipmentRentalDesc",
-                          "value": "3. Koszty wynajmu sprzętu",
+                          "value": "3. Wynajem sprzętu",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -7044,7 +7044,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "4. Koszty obsługi technicznej",
+                      "title": "4. Obsługa techniczna",
                       "components": [
                         {
                           "kind": "component",
@@ -7052,7 +7052,7 @@
                           "label": "",
                           "name": "technicalServiceDesc",
                           "dataBDD": "technicalServiceDesc",
-                          "value": "4. Koszty obsługi technicznej",
+                          "value": "4. Obsługa techniczna",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -7166,7 +7166,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "5. Koszty zabezpieczenia BHP",
+                      "title": "5. zabezpiecznie BHP",
                       "components": [
                         {
                           "kind": "component",
@@ -7174,7 +7174,7 @@
                           "label": "",
                           "name": "safetyBhpDesc",
                           "dataBDD": "safetyBhpDesc",
-                          "value": "5. Koszty zabezpieczenia BHP",
+                          "value": "5. zabezpiecznie BHP",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -7287,7 +7287,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "6. Koszty obsługi festiwalu online",
+                      "title": "6. Obsługa festiwalu online",
                       "components": [
                         {
                           "kind": "component",
@@ -7295,7 +7295,7 @@
                           "label": "",
                           "name": "onlineFestivalDesc",
                           "dataBDD": "onlineFestivalDesc",
-                          "value": "6. Koszty obsługi festiwalu online",
+                          "value": "6. Obsługa festiwalu online",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -7419,7 +7419,7 @@
                   "components": [
                     {
                       "kind": "chapter",
-                      "title": "1. Koszty usług transportowych",
+                      "title": "1. Usługi transportowe",
                       "components": [
                         {
                           "kind": "component",
@@ -7427,7 +7427,7 @@
                           "label": "",
                           "name": "transportServicesDesc",
                           "dataBDD": "transportServicesDesc",
-                          "value": "1. Koszty usług transportowych",
+                          "value": "1. Usługi transportowe",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -7540,7 +7540,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "2. Koszty dotyczące podróży",
+                      "title": "2. Podróże",
                       "components": [
                         {
                           "kind": "component",
@@ -7548,7 +7548,7 @@
                           "label": "",
                           "name": "travelDesc",
                           "dataBDD": "travelDesc",
-                          "value": "2. Koszty dotyczące podróży",
+                          "value": "2. Podróże",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -7662,7 +7662,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "3. Koszty dotyczące noclegów",
+                      "title": "3. Noclegi",
                       "components": [
                         {
                           "kind": "component",
@@ -7670,7 +7670,7 @@
                           "label": "",
                           "name": "accommodationDesc",
                           "dataBDD": "accommodationDesc",
-                          "value": "3. Koszty dotyczące noclegów",
+                          "value": "3. Noclegi",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -7784,7 +7784,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "4. Koszty cateringu lub poczęstunku",
+                      "title": "4. Catering lub poczęstunek",
                       "components": [
                         {
                           "kind": "component",
@@ -7792,7 +7792,7 @@
                           "label": "",
                           "name": "cateringDesc",
                           "dataBDD": "cateringDesc",
-                          "value": "4. Koszty cateringu lub poczęstunku",
+                          "value": "4. Catering lub poczęstunek",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -7900,7 +7900,7 @@
                           ]
                         }
                       ],
-                      "helpText": "Koszty cateringu lub poczęstunku nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty cateringu lub poczęstunku nie mogą przekroczyć 15,00% przyznanej dotacji.",
+                      "helpText": "Koszty cateringu lub poczęstunku nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty o których mowa powyżej nie mogą przekroczyć 15,00% przyznanej dotacji.",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",
@@ -7926,7 +7926,7 @@
                   "components": [
                     {
                       "kind": "chapter",
-                      "title": "1. Koszty obsługi finansowej",
+                      "title": "1. Obsługa finansowa",
                       "components": [
                         {
                           "kind": "component",
@@ -7934,7 +7934,7 @@
                           "label": "",
                           "name": "financialServiceDesc",
                           "dataBDD": "financialServiceDesc",
-                          "value": "1. Koszty obsługi finansowej",
+                          "value": "1. Obsługa finansowa",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -8291,7 +8291,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "4. Koszty ubezpieczeń",
+                      "title": "4. Ubezpieczenia",
                       "components": [
                         {
                           "kind": "component",
@@ -8299,7 +8299,7 @@
                           "label": "",
                           "name": "insuranceDesc",
                           "dataBDD": "insuranceDesc",
-                          "value": "4. Koszty ubezpieczeń",
+                          "value": "4. Ubezpieczenia",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -8412,7 +8412,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "5. Koszty ewaluacji przedsięwzięcia",
+                      "title": "5. Ewaluacja przedsięwzięcia",
                       "components": [
                         {
                           "kind": "component",
@@ -8420,7 +8420,7 @@
                           "label": "",
                           "name": "evaluationDesc",
                           "dataBDD": "evaluationDesc",
-                          "value": "5. Koszty ewaluacji przedsięwzięcia",
+                          "value": "5. Ewaluacja przedsięwzięcia",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -8544,7 +8544,7 @@
                   "components": [
                     {
                       "kind": "chapter",
-                      "title": "1. Koszty związane z dostępnością cyfrową",
+                      "title": "1. Dostępność cyfrowa",
                       "components": [
                         {
                           "kind": "component",
@@ -8552,7 +8552,7 @@
                           "label": "",
                           "name": "digitalAccessibilityDesc",
                           "dataBDD": "digitalAccessibilityDesc",
-                          "value": "1. Koszty związane z dostępnością cyfrową",
+                          "value": "1. Dostępność cyfrowa",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -8666,7 +8666,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "2. Koszty związane z dostępnością informacyjno–komunikacyjną (audiodeskrypcja, napisy SDH, tłumaczenie PJM)",
+                      "title": "2. Dostępność informacyjno-komunikacyjna",
                       "components": [
                         {
                           "kind": "component",
@@ -8674,7 +8674,7 @@
                           "label": "",
                           "name": "infoAccessibilityDesc",
                           "dataBDD": "infoAccessibilityDesc",
-                          "value": "2. Koszty związane z dostępnością informacyjno–komunikacyjną (audiodeskrypcja, napisy SDH, tłumaczenie PJM)",
+                          "value": "2. Dostępność informacyjno-komunikacyjna",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -8773,6 +8773,7 @@
                           ]
                         }
                       ],
+                      "helpText": "Audiodeskrypcja, napisy SDH, tłumaczenie PJM.",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",

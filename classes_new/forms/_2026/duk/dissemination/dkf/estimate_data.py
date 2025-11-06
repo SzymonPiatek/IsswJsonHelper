@@ -7,9 +7,18 @@ estimate_sections = [
     EstimateSection(
         title="Koszty osobowe i merytoryczne",
         costs=[
-            fraction_cost("zarządzania przedsięwzięciem", "projectManagement", 0.15),
             fraction_cost(
-                title="osobowe", name="personal", ratio=0.35, help_text="Wszelkie koszty osobowe nieujęte w pozostałych pozycjach."
+                title="Koszty zarządzania przedsięwzięciem",
+                name="projectManagement",
+                ratio=0.15,
+                title_help_text="zarządzania przedsięwzięciem"
+            ),
+            fraction_cost(
+                title="Koszty osobowe",
+                name="personal",
+                ratio=0.35,
+                help_text="Wszelkie koszty osobowe nieujęte w pozostałych pozycjach.",
+                title_help_text="osobowe"
             ),
             CostItem(
                 title="Koszty osób współpracujących (np. twórców, prelegentów, moderatorów)",
@@ -21,27 +30,55 @@ estimate_sections = [
     EstimateSection(
         title="Koszty materiałowe i usługowe",
         costs=[
-            CostItem(title="Promocja i reklama", name="promotion"),
-            CostItem(title="Usługi graficzne i poligraficzne", name="graphicServices"),
-            CostItem(title="Dokumentacja fotograficzna i filmowa", name="photoFilmDoc"),
-            CostItem(title="Tłumaczenia", name="translation"),
+            CostItem(
+                title="Promocja i reklama",
+                name="promotion"
+            ),
+            CostItem(
+                title="Usługi graficzne i poligraficzne",
+                name="graphicServices"
+            ),
+            CostItem(
+                title="Dokumentacja fotograficzna i filmowa",
+                name="photoFilmDoc"
+            ),
+            CostItem(
+                title="Tłumaczenia",
+                name="translation"
+            ),
         ],
     ),
     EstimateSection(
         title="Koszty lokalowe i techniczne",
         costs=[
-            CostItem(title="Przygotowanie kopii filmowych i napisów do filmów", name="copyingAndSubtitling"),
-            CostItem(title="Wynajem powierzchni", name="rentalSurface"),
-            CostItem(title="Wynajem sprzętu", name="equipmentRental"),
-            CostItem(title="Obsługa techniczna", name="technicalService", helpText="Dopuszcza się ujęcie obsługi technicznej w kosztach wynajmu sprzętu, jeśli stanowi integralną część usługi dostawcy."),
-            CostItem(title="Obsługa projektów online", name="onlineProjects"),
+            CostItem(
+                title="Przygotowanie kopii filmowych i napisów do filmów",
+                name="copyingAndSubtitling"
+            ),
+            CostItem(
+                title="Wynajem powierzchni",
+                name="rentalSurface"
+            ),
+            CostItem(
+                title="Wynajem sprzętu",
+                name="equipmentRental"
+            ),
+            CostItem(
+                title="Obsługa techniczna",
+                name="technicalService",
+                helpText="Dopuszcza się ujęcie obsługi technicznej w kosztach wynajmu sprzętu, jeśli stanowi integralną część usługi dostawcy."
+            ),
+            CostItem(
+                title="Obsługa projektów online",
+                name="onlineProjects"
+            ),
         ],
     ),
     EstimateSection(
         title="Koszty logistyczne",
         costs=[
             CostItem(
-                title="Koszty podróży",
+                title="Podróże",
                 name="travel",
                 helpText=(
                     "Koszty udokumentowane wyłącznie fakturami lub biletami (jeśli brak faktury). "
@@ -51,7 +88,7 @@ estimate_sections = [
                 ),
             ),
             CostItem(
-                title="Koszty noclegów",
+                title="Noclegi",
                 name="accommodation",
                 helpText=(
                     "Koszty udokumentowane wyłącznie fakturami (z wyłączeniem diet, ryczałtów i innych kosztów niewykazanych fakturą/rachunkiem). "
@@ -72,7 +109,10 @@ estimate_sections = [
                     "Koszty muszą być udokumentowane rachunkiem lub fakturą z opisem potwierdzającym związek z przedsięwzięciem."
                 ),
             ),
-            CostItem(title="Obsługa prawna", name="legalService"),
+            CostItem(
+                title="Obsługa prawna",
+                name="legalService"
+            ),
             CostItem(
                 title="Koszty licencji lub nabycia praw do publicznego pokazu",
                 name="publicPerformanceRights",

@@ -5077,7 +5077,7 @@
                           ]
                         }
                       ],
-                      "helpText": "Koszty zarządzania przedsięwzięciem nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty zarządzania przedsięwzięciem nie mogą przekroczyć 15,00% przyznanej dotacji.",
+                      "helpText": "Koszty zarządzania przedsięwzięciem nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty o których mowa powyżej nie mogą przekroczyć 15,00% przyznanej dotacji.",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",
@@ -5208,7 +5208,7 @@
                           ]
                         }
                       ],
-                      "helpText": "Wszelkie koszty osobowe nieujęte w pozostałych pozycjach. Koszty osobowe nie mogą przekroczyć 35,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty osobowe nie mogą przekroczyć 35,00% przyznanej dotacji.",
+                      "helpText": "Wszelkie koszty osobowe nieujęte w pozostałych pozycjach. Koszty osobowe nie mogą przekroczyć 35,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty o których mowa powyżej nie mogą przekroczyć 35,00% przyznanej dotacji.",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",
@@ -6468,7 +6468,7 @@
                   "components": [
                     {
                       "kind": "chapter",
-                      "title": "1. Koszty podróży",
+                      "title": "1. Podróże",
                       "components": [
                         {
                           "kind": "component",
@@ -6476,7 +6476,7 @@
                           "label": "",
                           "name": "travelDesc",
                           "dataBDD": "travelDesc",
-                          "value": "1. Koszty podróży",
+                          "value": "1. Podróże",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6590,7 +6590,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "2. Koszty noclegów",
+                      "title": "2. Noclegi",
                       "components": [
                         {
                           "kind": "component",
@@ -6598,7 +6598,7 @@
                           "label": "",
                           "name": "accommodationDesc",
                           "dataBDD": "accommodationDesc",
-                          "value": "2. Koszty noclegów",
+                          "value": "2. Noclegi",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",

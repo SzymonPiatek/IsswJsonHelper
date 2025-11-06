@@ -4,12 +4,12 @@ from classes_new.form_rules.validator import Validator
 validators = Validator()
 
 
-def fraction_cost(title: str, name: str, ratio: float, help_text: str = None) -> CostItem:
+def fraction_cost(title: str, name: str, ratio: float, title_help_text: str, help_text: str = None) -> CostItem:
     percent = ratio * 100
     start_help_text = f"{help_text} " if help_text else ""
     end_help_text = (
-        f"Koszty {title.lower()} nie mogą przekroczyć {percent:.0f},00% ogólnej kwoty wnioskowanej. "
-        f"W przypadku uzyskania dofinansowania koszty {title.lower()} nie mogą przekroczyć {percent:.0f},00% przyznanej dotacji."
+        f"Koszty {title_help_text} nie mogą przekroczyć {percent:.0f},00% ogólnej kwoty wnioskowanej. "
+        f"W przypadku uzyskania dofinansowania koszty o których mowa powyżej nie mogą przekroczyć {percent:.0f},00% przyznanej dotacji."
     )
     help_text = f"{start_help_text}{end_help_text}"
     validator = validators.related_fraction_gte_validator(
@@ -18,7 +18,7 @@ def fraction_cost(title: str, name: str, ratio: float, help_text: str = None) ->
         message=f"Kwota dofinansowania dla tego kosztu nie może przekroczyć {percent:.0f}% kwoty wnioskowanej."
     )
     return CostItem(
-        title=f"Koszty {title}",
+        title=title,
         name=name,
         helpText=help_text,
         overrides={"RequestedAmount": CostOverride(validators=[validator])}

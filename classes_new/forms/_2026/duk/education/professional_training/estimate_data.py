@@ -7,8 +7,18 @@ estimate_sections_pt124 = [
     EstimateSection(
         title="Koszty osobowe i merytoryczne",
         costs=[
-            fraction_cost("zarządzania przedsięwzięciem", "projectManagement", 0.15),
-            fraction_cost("osobowe", "personal", 0.35),
+            fraction_cost(
+                title="Koszty zarządzania przedsięwzięciem",
+                name="projectManagement",
+                ratio=0.15,
+                title_help_text="zarządzania przedsięwzięciem"
+            ),
+            fraction_cost(
+                title="Koszty osobowe",
+                name="personal",
+                ratio=0.35,
+                title_help_text="osobowe",
+            ),
             CostItem(
                 title="Koszty osób współpracujących (np. wykładowców, prelegentów, artystów)",
                 name="cooperatingPeople",
@@ -23,30 +33,74 @@ estimate_sections_pt124 = [
     EstimateSection(
         title="Koszty materiałowe i usługowe",
         costs=[
-            CostItem(title="Wynajem kostiumów, rekwizytów", name="costumesRental"),
-            CostItem(title="Opracowanie materiałów dydaktycznych", name="developmentTeachingMaterials"),
-            CostItem(title="Obsługa PR, promocja i reklama", name="commercials"),
-            CostItem(title="Usługi graficzne i poligraficzne", name="graphicService"),
-            CostItem(title="Nagrania, usługi fotograficzne i montażowe", name="recordingService"),
-            CostItem(title="Usługi informatyczne", name="itService"),
-            CostItem(title="Tłumaczenia", name="translation"),
+            CostItem(
+                title="Wynajem kostiumów, rekwizytów",
+                name="costumesRental"
+            ),
+            CostItem(
+                title="Opracowanie materiałów dydaktycznych",
+                name="developmentTeachingMaterials"
+            ),
+            CostItem(
+                title="Obsługa PR, promocja i reklama",
+                name="commercials"
+            ),
+            CostItem(
+                title="Usługi graficzne i poligraficzne",
+                name="graphicService"
+            ),
+            CostItem(
+                title="Nagrania, usługi fotograficzne i montażowe",
+                name="recordingService"
+            ),
+            CostItem(
+                title="Usługi informatyczne",
+                name="itService"
+            ),
+            CostItem(
+                title="Tłumaczenia",
+                name="translation"
+            ),
         ],
     ),
     EstimateSection(
         title="Koszty lokalowe i techniczne",
         costs=[
-            CostItem(title="Wynajem powierzchni", name="rentalSurface"),
-            CostItem(title="Aranżacja powierzchni", name="arrangementSurface"),
-            CostItem(title="Wynajem lub zakup sprzętu", name="equipmentRental", helpText="Zakup sprzętu wyłącznie na potrzeby realizacji danego przedsięwzięcia."),
-            CostItem(title="Obsługa techniczna", name="technicalService", helpText="Dopuszcza się ujęcie obsługi technicznej w kosztach wynajmu sprzętu, jeśli stanowi integralną część usługi dostawcy."),
-            CostItem(title="Zabezpieczenie BHP", name="safetyBhp"),
-            CostItem(title="Obsługa projektów edukacyjnych online", name="onlineEducationProjects"),
+            CostItem(
+                title="Wynajem powierzchni",
+                name="rentalSurface"
+            ),
+            CostItem(
+                title="Aranżacja powierzchni",
+                name="arrangementSurface"
+            ),
+            CostItem(
+                title="Wynajem lub zakup sprzętu",
+                name="equipmentRental",
+                helpText="Zakup sprzętu wyłącznie na potrzeby realizacji danego przedsięwzięcia."
+            ),
+            CostItem(
+                title="Obsługa techniczna",
+                name="technicalService",
+                helpText="Dopuszcza się ujęcie obsługi technicznej w kosztach wynajmu sprzętu, jeśli stanowi integralną część usługi dostawcy."
+            ),
+            CostItem(
+                title="Zabezpieczenie BHP",
+                name="safetyBhp"
+            ),
+            CostItem(
+                title="Obsługa projektów edukacyjnych online",
+                name="onlineEducationProjects"
+            ),
         ],
     ),
     EstimateSection(
         title="Koszty logistyczne",
         costs=[
-            CostItem(title="Usługi transportowe", name="transportServices"),
+            CostItem(
+                title="Usługi transportowe",
+                name="transportServices"
+            ),
             CostItem(
                 title="Podróże",
                 name="travel",
@@ -67,7 +121,12 @@ estimate_sections_pt124 = [
                     "Z dotacji PISF nie są pokrywane koszty podróży zagranicznych."
                 ),
             ),
-            fraction_cost("cateringu lub poczęstunku", "catering", 0.15),
+            fraction_cost(
+                title="Catering lub poczęstunek",
+                name="catering",
+                ratio=0.15,
+                title_help_text="cateringu lub poczęstunku"
+            ),
         ],
     ),
     EstimateSection(
@@ -82,17 +141,37 @@ estimate_sections_pt124 = [
                     "Koszty te powinny być udokumentowane rachunkiem lub fakturą z opisem potwierdzającym związek z przedsięwzięciem."
                 ),
             ),
-            CostItem(title="Obsługa prawna", name="legalService"),
-            CostItem(title="Koszty licencyjne i najmu kopii", name="licenseRental"),
-            CostItem(title="Ubezpieczenia", name="insurance"),
-            CostItem(title="Ewaluacja przedsięwzięcia", name="evaluation"),
+            CostItem(
+                title="Obsługa prawna",
+                name="legalService"
+            ),
+            CostItem(
+                title="Koszty licencyjne i najmu kopii",
+                name="licenseRental"
+            ),
+            CostItem(
+                title="Ubezpieczenia",
+                name="insurance"
+            ),
+            CostItem(
+                title="Ewaluacja przedsięwzięcia",
+                name="evaluation"
+            ),
         ],
     ),
     EstimateSection(
         title="Koszty związane z dostępnością",
         costs=[
-            CostItem(title="Dostępność cyfrowa (dostępne strony internetowe)", name="digitalAccessibility"),
-            CostItem(title="Dostępność informacyjno–komunikacyjna (audiodeskrypcja, napisy SDH, tłumaczenia PJM)", name="infoAccessibility"),
+            CostItem(
+                title="Dostępność cyfrowa",
+                name="digitalAccessibility",
+                helpText="Dostępne strony internetowe."
+            ),
+            CostItem(
+                title="Dostępność informacyjno–komunikacyjna",
+                name="infoAccessibility",
+                helpText="Audiodeskrypcja, napisy SDH, tłumaczenia PJM."
+            ),
         ],
     ),
 ]
@@ -101,9 +180,18 @@ estimate_sections_pt3 = [
     EstimateSection(
         title="Koszty osobowe i merytoryczne",
         costs=[
-            fraction_cost("zarządzania przedsięwzięciem", "projectManagement", 0.15),
             fraction_cost(
-                title="osobowe", name="personal", ratio=0.35, help_text="Wszelkie koszty osobowe nieujęte w pozostałych pozycjach."
+                title="Koszty zarządzania przedsięwzięciem",
+                name="projectManagement",
+                ratio=0.15,
+                title_help_text="zarządzania przedsięwzięciem"
+            ),
+            fraction_cost(
+                title="Koszty osobowe",
+                name="personal",
+                ratio=0.35,
+                help_text="Wszelkie koszty osobowe nieujęte w pozostałych pozycjach.",
+                title_help_text="osobowe",
             ),
             CostItem(
                 title="Koszty osób współpracujących (np. wykładowców, prelegentów)",
@@ -115,17 +203,35 @@ estimate_sections_pt3 = [
     EstimateSection(
         title="Koszty materiałowe i usługowe",
         costs=[
-            CostItem(title="Opracowanie materiałów dydaktycznych", name="developmentTeachingMaterials"),
-            CostItem(title="Obsługa PR, promocja i reklama", name="commercials"),
-            CostItem(title="Usługi graficzne i poligraficzne", name="graphicService"),
+            CostItem(
+                title="Opracowanie materiałów dydaktycznych",
+                name="developmentTeachingMaterials"
+            ),
+            CostItem(
+                title="Obsługa PR, promocja i reklama",
+                name="commercials"
+            ),
+            CostItem(
+                title="Usługi graficzne i poligraficzne",
+                name="graphicService"
+            ),
         ],
     ),
     EstimateSection(
         title="Koszty lokalowe i techniczne",
         costs=[
-            CostItem(title="Wynajem powierzchni", name="rentalSurface"),
-            CostItem(title="Wynajem sprzętu", name="equipmentRental"),
-            CostItem(title="Obsługa projektów edukacyjnych online", name="onlineEducationProjects"),
+            CostItem(
+                title="Wynajem powierzchni",
+                name="rentalSurface"
+            ),
+            CostItem(
+                title="Wynajem sprzętu",
+                name="equipmentRental"
+            ),
+            CostItem(
+                title="Obsługa projektów edukacyjnych online",
+                name="onlineEducationProjects"
+            ),
         ],
     ),
     EstimateSection(
@@ -140,15 +246,29 @@ estimate_sections_pt3 = [
                     "Koszty te powinny być udokumentowane rachunkiem lub fakturą z opisem potwierdzającym związek z przedsięwzięciem."
                 ),
             ),
-            CostItem(title="Ubezpieczenia", name="insurance"),
-            CostItem(title="Ewaluacja przedsięwzięcia", name="evaluation"),
+            CostItem(
+                title="Ubezpieczenia",
+                name="insurance"
+            ),
+            CostItem(
+                title="Ewaluacja przedsięwzięcia",
+                name="evaluation"
+            ),
         ],
     ),
     EstimateSection(
         title="Koszty związane z dostępnością",
         costs=[
-            CostItem(title="Dostępność cyfrowa (dostępne strony internetowe)", name="digitalAccessibility"),
-            CostItem(title="Dostępność informacyjno–komunikacyjna (audiodeskrypcja, napisy SDH, tłumaczenia PJM)", name="infoAccessibility"),
+            CostItem(
+                title="Dostępność cyfrowa",
+                name="digitalAccessibility",
+                helpText="Dostępne strony internetowe."
+            ),
+            CostItem(
+                title="Dostępność informacyjno–komunikacyjna",
+                helpText="Audiodeskrypcja, napisy SDH, tłumaczenia PJM.",
+                name="infoAccessibility"
+            ),
         ],
     ),
 ]

@@ -8,9 +8,18 @@ estimate_sections = [
     EstimateSection(
         title="Koszty osobowe i merytoryczne",
         costs=[
-            fraction_cost("zarządzania przedsięwzięciem", "projectManagement", 0.15),
             fraction_cost(
-                title="osobowe", name="personal", ratio=0.35, help_text="Wszelkie koszty osobowe nieujęte w pozostałych pozycjach."
+                title="Koszty zarządzania przedsięwzięciem",
+                name="projectManagement",
+                ratio=0.15,
+                title_help_text="zarządzania przedsięwzięciem"
+            ),
+            fraction_cost(
+                title="Koszty osobowe",
+                name="personal",
+                ratio=0.35,
+                help_text="Wszelkie koszty osobowe nieujęte w pozostałych pozycjach.",
+                title_help_text="osobowe",
             ),
             CostItem(
                 title="Koszty osób współpracujących (np. ekspertów, prelegentów, artystów)",
@@ -21,7 +30,7 @@ estimate_sections = [
                 ),
             ),
             CostItem(
-                title="Koszty konsultacji eksperckich",
+                title="Konsultacje eksperckie",
                 name="expertConsultation",
             ),
         ],
@@ -30,7 +39,7 @@ estimate_sections = [
         title="Koszty materiałowe i usługowe",
         costs=[
             CostItem(
-                title="Opracowanie materiałów dydaktycznych",
+                title="Opracowanie i redakcja materiałów dydaktycznych",
                 name="educationalMaterials",
             ),
             CostItem(
@@ -116,10 +125,11 @@ estimate_sections = [
                     "Z dotacji PISF nie są pokrywane koszty podróży zagranicznych."
                 ),
             ),
-            CostItem(
-                title="Katering lub poczęstunek",
+            fraction_cost(
+                title="Catering lub poczęstunek",
                 name="catering",
-                helpText="Koszty cateringu lub poczęstunku nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty, o których mowa powyżej nie mogą przekroczyć 15,00% przyznanej dotacji."
+                ratio=0.15,
+                title_help_text="cateringu lub poczęstunku"
             )
         ],
     ),
@@ -135,7 +145,10 @@ estimate_sections = [
                     "Koszty te powinny być udokumentowane rachunkiem lub fakturą z opisem potwierdzającym związek z przedsięwzięciem."
                 ),
             ),
-            CostItem(title="Obsługa prawna", name="legalService"),
+            CostItem(
+                title="Obsługa prawna",
+                name="legalService"
+            ),
             CostItem(
                 title="Koszty licencji lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                 helpText="Niezależnie od formuły fakturowania.",
@@ -155,12 +168,14 @@ estimate_sections = [
         title="Koszty związane z dostępnością",
         costs=[
             CostItem(
-                title="Dostępność cyfrowa (dostępne strony internetowe)",
+                title="Dostępność cyfrowa",
                 name="digitalAccessibility",
+                helpText="Dostępne strony internetowe."
             ),
             CostItem(
-                title="Dostępność informacyjno–komunikacyjna (audiodeskrypcja, napisy SDH, tłumaczenia PJM)",
+                title="Dostępność informacyjno–komunikacyjna",
                 name="infoAccessibility",
+                helpText="Audiodeskrypcja, napisy SDH, tłumaczenia PJM."
             ),
         ],
     ),

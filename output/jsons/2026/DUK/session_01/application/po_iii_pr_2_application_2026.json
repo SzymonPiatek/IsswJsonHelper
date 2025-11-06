@@ -6339,7 +6339,7 @@
                               ]
                             }
                           ],
-                          "helpText": "Koszty zarządzania przedsięwzięciem nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty zarządzania przedsięwzięciem nie mogą przekroczyć 15,00% przyznanej dotacji.",
+                          "helpText": "Koszty zarządzania przedsięwzięciem nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty o których mowa powyżej nie mogą przekroczyć 15,00% przyznanej dotacji.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -6470,7 +6470,7 @@
                               ]
                             }
                           ],
-                          "helpText": "Wszelkie koszty osobowe nieujęte w pozostałych pozycjach. Koszty osobowe nie mogą przekroczyć 35,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty osobowe nie mogą przekroczyć 35,00% przyznanej dotacji.",
+                          "helpText": "Wszelkie koszty osobowe nieujęte w pozostałych pozycjach. Koszty osobowe nie mogą przekroczyć 35,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty o których mowa powyżej nie mogą przekroczyć 35,00% przyznanej dotacji.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -6607,7 +6607,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "4. Koszty konsultacji eksperckich",
+                          "title": "4. Konsultacje eksperckie",
                           "components": [
                             {
                               "kind": "component",
@@ -6615,7 +6615,7 @@
                               "label": "",
                               "name": "expertConsultationDescpt124",
                               "dataBDD": "expertConsultationDescpt124",
-                              "value": "4. Koszty konsultacji eksperckich",
+                              "value": "4. Konsultacje eksperckie",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -6728,7 +6728,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "5. Koszty nagród dla laureatów",
+                          "title": "5. Nagrody dla laureatów",
                           "components": [
                             {
                               "kind": "component",
@@ -6736,7 +6736,7 @@
                               "label": "",
                               "name": "awardsDescpt124",
                               "dataBDD": "awardsDescpt124",
-                              "value": "5. Koszty nagród dla laureatów",
+                              "value": "5. Nagrody dla laureatów",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -6860,7 +6860,7 @@
                       "components": [
                         {
                           "kind": "chapter",
-                          "title": "1. Koszty przygotowania kopii filmowych i napisów do filmów",
+                          "title": "1. Przygotowania kopii filmowych i napisów do filmów",
                           "components": [
                             {
                               "kind": "component",
@@ -6868,7 +6868,7 @@
                               "label": "",
                               "name": "copyingAndSubtitlingDescpt124",
                               "dataBDD": "copyingAndSubtitlingDescpt124",
-                              "value": "1. Koszty przygotowania kopii filmowych i napisów do filmów",
+                              "value": "1. Przygotowania kopii filmowych i napisów do filmów",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -6981,7 +6981,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "2. Koszty obsługi PR, promocji i reklamy",
+                          "title": "2. Obsługa PR, promocja i reklama",
                           "components": [
                             {
                               "kind": "component",
@@ -6989,7 +6989,7 @@
                               "label": "",
                               "name": "commercialsDescpt124",
                               "dataBDD": "commercialsDescpt124",
-                              "value": "2. Koszty obsługi PR, promocji i reklamy",
+                              "value": "2. Obsługa PR, promocja i reklama",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -7102,7 +7102,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "3. Koszty usług graficznych i poligraficznych",
+                          "title": "3. Usługi graficzne i poligraficzne",
                           "components": [
                             {
                               "kind": "component",
@@ -7110,7 +7110,7 @@
                               "label": "",
                               "name": "graphicServiceDescpt124",
                               "dataBDD": "graphicServiceDescpt124",
-                              "value": "3. Koszty usług graficznych i poligraficznych",
+                              "value": "3. Usługi graficzne i poligraficzne",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -7465,7 +7465,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "6. Koszty tłumaczeń",
+                          "title": "6. Tłumaczenia",
                           "components": [
                             {
                               "kind": "component",
@@ -7473,7 +7473,7 @@
                               "label": "",
                               "name": "translationDescpt124",
                               "dataBDD": "translationDescpt124",
-                              "value": "6. Koszty tłumaczeń",
+                              "value": "6. Tłumaczenia",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -7586,7 +7586,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "7. Koszty materiałów biurowych",
+                          "title": "7. Materiały biurowe",
                           "components": [
                             {
                               "kind": "component",
@@ -7594,7 +7594,7 @@
                               "label": "",
                               "name": "stationeryDescpt124",
                               "dataBDD": "stationeryDescpt124",
-                              "value": "7. Koszty materiałów biurowych",
+                              "value": "7. Materiały biurowe",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -7718,7 +7718,7 @@
                       "components": [
                         {
                           "kind": "chapter",
-                          "title": "1. Koszty wynajmu powierzchni",
+                          "title": "1. Wynajem powierzchni",
                           "components": [
                             {
                               "kind": "component",
@@ -7726,7 +7726,7 @@
                               "label": "",
                               "name": "rentalSurfaceDescpt124",
                               "dataBDD": "rentalSurfaceDescpt124",
-                              "value": "1. Koszty wynajmu powierzchni",
+                              "value": "1. Wynajem powierzchni",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -7839,7 +7839,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "2. Koszty aranżacji powierzchni",
+                          "title": "2. Aranżacja powierzchni",
                           "components": [
                             {
                               "kind": "component",
@@ -7847,7 +7847,7 @@
                               "label": "",
                               "name": "arrangementSurfaceDescpt124",
                               "dataBDD": "arrangementSurfaceDescpt124",
-                              "value": "2. Koszty aranżacji powierzchni",
+                              "value": "2. Aranżacja powierzchni",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -7960,7 +7960,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "3. Koszty wynajmu sprzętu",
+                          "title": "3. Wynajem sprzętu",
                           "components": [
                             {
                               "kind": "component",
@@ -7968,7 +7968,7 @@
                               "label": "",
                               "name": "equipmentRentalDescpt124",
                               "dataBDD": "equipmentRentalDescpt124",
-                              "value": "3. Koszty wynajmu sprzętu",
+                              "value": "3. Wynajem sprzętu",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -8081,7 +8081,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "4. Koszty obsługi technicznej",
+                          "title": "4. Obsługa techniczna",
                           "components": [
                             {
                               "kind": "component",
@@ -8089,7 +8089,7 @@
                               "label": "",
                               "name": "technicalServiceDescpt124",
                               "dataBDD": "technicalServiceDescpt124",
-                              "value": "4. Koszty obsługi technicznej",
+                              "value": "4. Obsługa techniczna",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -8203,7 +8203,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "5. Koszty zabezpieczenia BHP",
+                          "title": "5. Zabezpieczenie BHP",
                           "components": [
                             {
                               "kind": "component",
@@ -8211,7 +8211,7 @@
                               "label": "",
                               "name": "safetyBhpDescpt124",
                               "dataBDD": "safetyBhpDescpt124",
-                              "value": "5. Koszty zabezpieczenia BHP",
+                              "value": "5. Zabezpieczenie BHP",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -8324,7 +8324,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "6. Koszty obsługi projektów online",
+                          "title": "6. Obsługa projektów online",
                           "components": [
                             {
                               "kind": "component",
@@ -8332,7 +8332,7 @@
                               "label": "",
                               "name": "onlineProjectsDescpt124",
                               "dataBDD": "onlineProjectsDescpt124",
-                              "value": "6. Koszty obsługi projektów online",
+                              "value": "6. Obsługa projektów online",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -8456,7 +8456,7 @@
                       "components": [
                         {
                           "kind": "chapter",
-                          "title": "1. Koszty usług transportowych",
+                          "title": "1. Usługi transportowe",
                           "components": [
                             {
                               "kind": "component",
@@ -8464,7 +8464,7 @@
                               "label": "",
                               "name": "transportServicesDescpt124",
                               "dataBDD": "transportServicesDescpt124",
-                              "value": "1. Koszty usług transportowych",
+                              "value": "1. Usługi transportowe",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -8577,7 +8577,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "2. Koszty dotyczące podróży",
+                          "title": "2. Podróże",
                           "components": [
                             {
                               "kind": "component",
@@ -8585,7 +8585,7 @@
                               "label": "",
                               "name": "travelDescpt124",
                               "dataBDD": "travelDescpt124",
-                              "value": "2. Koszty dotyczące podróży",
+                              "value": "2. Podróże",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -8699,7 +8699,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "3. Koszty dotyczące noclegów",
+                          "title": "3. Noclegi",
                           "components": [
                             {
                               "kind": "component",
@@ -8707,7 +8707,7 @@
                               "label": "",
                               "name": "accommodationDescpt124",
                               "dataBDD": "accommodationDescpt124",
-                              "value": "3. Koszty dotyczące noclegów",
+                              "value": "3. Noclegi",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -8821,7 +8821,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "4. Koszty cateringu lub poczęstunku",
+                          "title": "4. Catering lub poczęstunek",
                           "components": [
                             {
                               "kind": "component",
@@ -8829,7 +8829,7 @@
                               "label": "",
                               "name": "cateringDescpt124",
                               "dataBDD": "cateringDescpt124",
-                              "value": "4. Koszty cateringu lub poczęstunku",
+                              "value": "4. Catering lub poczęstunek",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -8937,7 +8937,7 @@
                               ]
                             }
                           ],
-                          "helpText": "Koszty cateringu lub poczęstunku nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty cateringu lub poczęstunku nie mogą przekroczyć 15,00% przyznanej dotacji.",
+                          "helpText": "Koszty cateringu lub poczęstunku nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty o których mowa powyżej nie mogą przekroczyć 15,00% przyznanej dotacji.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -8963,7 +8963,7 @@
                       "components": [
                         {
                           "kind": "chapter",
-                          "title": "1. Koszty obsługi finansowej",
+                          "title": "1. Obsługa finansowa",
                           "components": [
                             {
                               "kind": "component",
@@ -8971,7 +8971,7 @@
                               "label": "",
                               "name": "financialServiceDescpt124",
                               "dataBDD": "financialServiceDescpt124",
-                              "value": "1. Koszty obsługi finansowej",
+                              "value": "1. Obsługa finansowa",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -9206,7 +9206,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "3. Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii",
+                          "title": "3. Koszty licencji lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                           "components": [
                             {
                               "kind": "component",
@@ -9214,7 +9214,7 @@
                               "label": "",
                               "name": "licenseRentalDescpt124",
                               "dataBDD": "licenseRentalDescpt124",
-                              "value": "3. Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii",
+                              "value": "3. Koszty licencji lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -9328,7 +9328,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "4. Koszty ubezpieczeń",
+                          "title": "4. Ubezpieczenie",
                           "components": [
                             {
                               "kind": "component",
@@ -9336,7 +9336,7 @@
                               "label": "",
                               "name": "insuranceDescpt124",
                               "dataBDD": "insuranceDescpt124",
-                              "value": "4. Koszty ubezpieczeń",
+                              "value": "4. Ubezpieczenie",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -9449,7 +9449,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "5. Koszty ewaluacji przedsięwzięcia",
+                          "title": "5. Ewaluacja przedsięwzięcia",
                           "components": [
                             {
                               "kind": "component",
@@ -9457,7 +9457,7 @@
                               "label": "",
                               "name": "evaluationDescpt124",
                               "dataBDD": "evaluationDescpt124",
-                              "value": "5. Koszty ewaluacji przedsięwzięcia",
+                              "value": "5. Ewaluacja przedsięwzięcia",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -10175,7 +10175,7 @@
                       "components": [
                         {
                           "kind": "chapter",
-                          "title": "1. Koszty honorariów dla artystów, prelegentów i prowadzących wydarzenia",
+                          "title": "1. Honoraria dla artystów, prelegentów i prowadzących wydarzenia",
                           "components": [
                             {
                               "kind": "component",
@@ -10183,7 +10183,7 @@
                               "label": "",
                               "name": "filmProjectsArtistFeesDescpt3",
                               "dataBDD": "filmProjectsArtistFeesDescpt3",
-                              "value": "1. Koszty honorariów dla artystów, prelegentów i prowadzących wydarzenia",
+                              "value": "1. Honoraria dla artystów, prelegentów i prowadzących wydarzenia",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -10296,7 +10296,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "2. Koszty podróży i noclegów artystów, prelegentów i prowadzących wydarzenia",
+                          "title": "2. Podróże i noclegi artystów, prelegentów i prowadzących wydarzenia",
                           "components": [
                             {
                               "kind": "component",
@@ -10304,7 +10304,7 @@
                               "label": "",
                               "name": "filmProjectsTravelAndAccommodationDescpt3",
                               "dataBDD": "filmProjectsTravelAndAccommodationDescpt3",
-                              "value": "2. Koszty podróży i noclegów artystów, prelegentów i prowadzących wydarzenia",
+                              "value": "2. Podróże i noclegi artystów, prelegentów i prowadzących wydarzenia",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -10418,7 +10418,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "3. Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii",
+                          "title": "3. Koszty licencji lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                           "components": [
                             {
                               "kind": "component",
@@ -10426,7 +10426,7 @@
                               "label": "",
                               "name": "filmProjectsLicenseFeesDescpt3",
                               "dataBDD": "filmProjectsLicenseFeesDescpt3",
-                              "value": "3. Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii",
+                              "value": "3. Koszty licencji lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -10540,7 +10540,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "4. Koszty przygotowania kopii filmowych i napisów do filmów",
+                          "title": "4. Przygotowanie kopii filmowych i napisów do filmów",
                           "components": [
                             {
                               "kind": "component",
@@ -10548,7 +10548,7 @@
                               "label": "",
                               "name": "filmProjectsFilmCopiesDescpt3",
                               "dataBDD": "filmProjectsFilmCopiesDescpt3",
-                              "value": "4. Koszty przygotowania kopii filmowych i napisów do filmów",
+                              "value": "4. Przygotowanie kopii filmowych i napisów do filmów",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -10661,7 +10661,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "5. Koszty najmu sprzętu",
+                          "title": "5. Najem sprzętu",
                           "components": [
                             {
                               "kind": "component",
@@ -10669,7 +10669,7 @@
                               "label": "",
                               "name": "filmProjectsEquipmentRentalDescpt3",
                               "dataBDD": "filmProjectsEquipmentRentalDescpt3",
-                              "value": "5. Koszty najmu sprzętu",
+                              "value": "5. Najem sprzętu",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -10782,7 +10782,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "6. Koszty usług graficznych i poligraficznych",
+                          "title": "6. Usługi graficzne i poligraficzne",
                           "components": [
                             {
                               "kind": "component",
@@ -10790,7 +10790,7 @@
                               "label": "",
                               "name": "filmProjectsGraphicServicesDescpt3",
                               "dataBDD": "filmProjectsGraphicServicesDescpt3",
-                              "value": "6. Koszty usług graficznych i poligraficznych",
+                              "value": "6. Usługi graficzne i poligraficzne",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -11024,7 +11024,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "8. Koszty promocji i reklamy",
+                          "title": "8. Promocja i reklama",
                           "components": [
                             {
                               "kind": "component",
@@ -11032,7 +11032,7 @@
                               "label": "",
                               "name": "filmProjectsPromotionAdvertisingDescpt3",
                               "dataBDD": "filmProjectsPromotionAdvertisingDescpt3",
-                              "value": "8. Koszty promocji i reklamy",
+                              "value": "8. Promocja i reklama",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -11145,7 +11145,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "9. Koszty tłumaczeń",
+                          "title": "9. Tłumaczenia",
                           "components": [
                             {
                               "kind": "component",
@@ -11153,7 +11153,7 @@
                               "label": "",
                               "name": "filmProjectsTranslationsDescpt3",
                               "dataBDD": "filmProjectsTranslationsDescpt3",
-                              "value": "9. Koszty tłumaczeń",
+                              "value": "9. Tłumaczenia",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -11266,7 +11266,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "10. Koszty obsługi projektów online",
+                          "title": "10. Obsługa projektów online",
                           "components": [
                             {
                               "kind": "component",
@@ -11274,7 +11274,7 @@
                               "label": "",
                               "name": "filmProjectsOnlineSupportDescpt3",
                               "dataBDD": "filmProjectsOnlineSupportDescpt3",
-                              "value": "10. Koszty obsługi projektów online",
+                              "value": "10. Obsługa projektów online",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -11399,7 +11399,7 @@
                       "components": [
                         {
                           "kind": "chapter",
-                          "title": "1. Koszty honorariów dla prelegentów i prowadzących wydarzenia",
+                          "title": "1. Honoraria dla artystów, prelegentów i prowadzących wydarzenia",
                           "components": [
                             {
                               "kind": "component",
@@ -11407,7 +11407,7 @@
                               "label": "",
                               "name": "industryEventsSpeakerFeesDescpt3",
                               "dataBDD": "industryEventsSpeakerFeesDescpt3",
-                              "value": "1. Koszty honorariów dla prelegentów i prowadzących wydarzenia",
+                              "value": "1. Honoraria dla artystów, prelegentów i prowadzących wydarzenia",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -11520,7 +11520,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "2. Koszty podróży i noclegów prelegentów i prowadzących wydarzenia",
+                          "title": "2. Podróże i noclegi artystów, prelegentów i prowadzących wydarzenia",
                           "components": [
                             {
                               "kind": "component",
@@ -11528,7 +11528,7 @@
                               "label": "",
                               "name": "industryEventsTravelAndAccommodationDescpt3",
                               "dataBDD": "industryEventsTravelAndAccommodationDescpt3",
-                              "value": "2. Koszty podróży i noclegów prelegentów i prowadzących wydarzenia",
+                              "value": "2. Podróże i noclegi artystów, prelegentów i prowadzących wydarzenia",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -11641,7 +11641,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "3. Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii",
+                          "title": "3. Koszty licencji lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                           "components": [
                             {
                               "kind": "component",
@@ -11649,7 +11649,7 @@
                               "label": "",
                               "name": "industryEventsLicenseFeesDescpt3",
                               "dataBDD": "industryEventsLicenseFeesDescpt3",
-                              "value": "3. Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii",
+                              "value": "3. Koszty licencji lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -11763,7 +11763,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "4. Koszty przygotowania kopii filmowych i napisów do filmów",
+                          "title": "4. Przygotowanie kopii filmowych i napisów do filmów",
                           "components": [
                             {
                               "kind": "component",
@@ -11771,7 +11771,7 @@
                               "label": "",
                               "name": "industryEventsFilmCopiesDescpt3",
                               "dataBDD": "industryEventsFilmCopiesDescpt3",
-                              "value": "4. Koszty przygotowania kopii filmowych i napisów do filmów",
+                              "value": "4. Przygotowanie kopii filmowych i napisów do filmów",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -11884,7 +11884,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "5. Koszty najmu sprzętu",
+                          "title": "5. Najem sprzętu",
                           "components": [
                             {
                               "kind": "component",
@@ -11892,7 +11892,7 @@
                               "label": "",
                               "name": "industryEventsEquipmentRentalDescpt3",
                               "dataBDD": "industryEventsEquipmentRentalDescpt3",
-                              "value": "5. Koszty najmu sprzętu",
+                              "value": "5. Najem sprzętu",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -12005,7 +12005,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "6. Koszty usług graficznych i poligraficznych",
+                          "title": "6. Usługi graficzne i poligraficzne",
                           "components": [
                             {
                               "kind": "component",
@@ -12013,7 +12013,7 @@
                               "label": "",
                               "name": "industryEventsGraphicServicesDescpt3",
                               "dataBDD": "industryEventsGraphicServicesDescpt3",
-                              "value": "6. Koszty usług graficznych i poligraficznych",
+                              "value": "6. Usługi graficzne i poligraficzne",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -12247,7 +12247,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "8. Koszty promocji i reklamy",
+                          "title": "8. Promocja i reklama",
                           "components": [
                             {
                               "kind": "component",
@@ -12255,7 +12255,7 @@
                               "label": "",
                               "name": "industryEventsPromotionAdvertisingDescpt3",
                               "dataBDD": "industryEventsPromotionAdvertisingDescpt3",
-                              "value": "8. Koszty promocji i reklamy",
+                              "value": "8. Promocja i reklama",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -12368,7 +12368,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "9. Koszty tłumaczeń",
+                          "title": "9. Tłumaczenia",
                           "components": [
                             {
                               "kind": "component",
@@ -12376,7 +12376,7 @@
                               "label": "",
                               "name": "industryEventsTranslationsDescpt3",
                               "dataBDD": "industryEventsTranslationsDescpt3",
-                              "value": "9. Koszty tłumaczeń",
+                              "value": "9. Tłumaczenia",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -12489,7 +12489,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "10. Koszty cateringu i poczęstunku",
+                          "title": "10. Catering i poczęstunek",
                           "components": [
                             {
                               "kind": "component",
@@ -12497,7 +12497,7 @@
                               "label": "",
                               "name": "industryEventsCateringDescpt3",
                               "dataBDD": "industryEventsCateringDescpt3",
-                              "value": "10. Koszty cateringu i poczęstunku",
+                              "value": "10. Catering i poczęstunek",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -12742,7 +12742,7 @@
                       "components": [
                         {
                           "kind": "chapter",
-                          "title": "1. Koszty honorariów dla artystów, prelegentów i prowadzących wydarzenia",
+                          "title": "1. Honoraria dla artystów, prelegentów i prowadzących wydarzenia",
                           "components": [
                             {
                               "kind": "component",
@@ -12750,7 +12750,7 @@
                               "label": "",
                               "name": "cinemaEventsArtistFeesDescpt3",
                               "dataBDD": "cinemaEventsArtistFeesDescpt3",
-                              "value": "1. Koszty honorariów dla artystów, prelegentów i prowadzących wydarzenia",
+                              "value": "1. Honoraria dla artystów, prelegentów i prowadzących wydarzenia",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -12863,7 +12863,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "2. Koszty podróży i noclegów artystów, prelegentów i prowadzących wydarzenia",
+                          "title": "2. Podróże i noclegi artystów, prelegentów i prowadzących wydarzenia",
                           "components": [
                             {
                               "kind": "component",
@@ -12871,7 +12871,7 @@
                               "label": "",
                               "name": "cinemaEventsTravelAndAccommodationDescpt3",
                               "dataBDD": "cinemaEventsTravelAndAccommodationDescpt3",
-                              "value": "2. Koszty podróży i noclegów artystów, prelegentów i prowadzących wydarzenia",
+                              "value": "2. Podróże i noclegi artystów, prelegentów i prowadzących wydarzenia",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -12985,7 +12985,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "3. Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii",
+                          "title": "3. Koszty licencji lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                           "components": [
                             {
                               "kind": "component",
@@ -12993,7 +12993,7 @@
                               "label": "",
                               "name": "cinemaEventsLicenseFeesDescpt3",
                               "dataBDD": "cinemaEventsLicenseFeesDescpt3",
-                              "value": "3. Koszty licencyjne lub nabycia praw do publicznego pokazu wraz z najmem kopii",
+                              "value": "3. Koszty licencji lub nabycia praw do publicznego pokazu wraz z najmem kopii",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -13107,7 +13107,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "4. Koszty przygotowania kopii filmowych i napisów do filmów",
+                          "title": "4. Przygotowanie kopii filmowych i napisów do filmów",
                           "components": [
                             {
                               "kind": "component",
@@ -13115,7 +13115,7 @@
                               "label": "",
                               "name": "cinemaEventsFilmCopiesDescpt3",
                               "dataBDD": "cinemaEventsFilmCopiesDescpt3",
-                              "value": "4. Koszty przygotowania kopii filmowych i napisów do filmów",
+                              "value": "4. Przygotowanie kopii filmowych i napisów do filmów",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -13228,7 +13228,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "5. Koszty najmu sprzętu",
+                          "title": "5. Najem sprzętu",
                           "components": [
                             {
                               "kind": "component",
@@ -13236,7 +13236,7 @@
                               "label": "",
                               "name": "cinemaEventsEquipmentRentalDescpt3",
                               "dataBDD": "cinemaEventsEquipmentRentalDescpt3",
-                              "value": "5. Koszty najmu sprzętu",
+                              "value": "5. Najem sprzętu",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -13349,7 +13349,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "6. Koszty usług graficznych i poligraficznych",
+                          "title": "6. Usługi graficzne i poligraficzne",
                           "components": [
                             {
                               "kind": "component",
@@ -13357,7 +13357,7 @@
                               "label": "",
                               "name": "cinemaEventsGraphicServicesDescpt3",
                               "dataBDD": "cinemaEventsGraphicServicesDescpt3",
-                              "value": "6. Koszty usług graficznych i poligraficznych",
+                              "value": "6. Usługi graficzne i poligraficzne",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -13591,7 +13591,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "8. Koszty promocji i reklamy",
+                          "title": "8. Promocja i reklama",
                           "components": [
                             {
                               "kind": "component",
@@ -13599,7 +13599,7 @@
                               "label": "",
                               "name": "cinemaEventsPromotionAdvertisingDescpt3",
                               "dataBDD": "cinemaEventsPromotionAdvertisingDescpt3",
-                              "value": "8. Koszty promocji i reklamy",
+                              "value": "8. Promocja i reklama",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -13712,7 +13712,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "9. Koszty tłumaczeń",
+                          "title": "9. Tłumaczenia",
                           "components": [
                             {
                               "kind": "component",
@@ -13720,7 +13720,7 @@
                               "label": "",
                               "name": "cinemaEventsTranslationsDescpt3",
                               "dataBDD": "cinemaEventsTranslationsDescpt3",
-                              "value": "9. Koszty tłumaczeń",
+                              "value": "9. Tłumaczenia",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -14209,7 +14209,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "3. Koszty wynagrodzeń ekspertów",
+                          "title": "3. Wynagrodzenia ekspertów",
                           "components": [
                             {
                               "kind": "component",
@@ -14217,7 +14217,7 @@
                               "label": "",
                               "name": "organizationExpertFeesDescpt3",
                               "dataBDD": "organizationExpertFeesDescpt3",
-                              "value": "3. Koszty wynagrodzeń ekspertów",
+                              "value": "3. Wynagrodzenia ekspertów",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -14330,7 +14330,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "4. Koszty obsługi finansowej",
+                          "title": "4. Obsługa finansowa",
                           "components": [
                             {
                               "kind": "component",
@@ -14338,7 +14338,7 @@
                               "label": "",
                               "name": "organizationFinancialServicesDescpt3",
                               "dataBDD": "organizationFinancialServicesDescpt3",
-                              "value": "4. Koszty obsługi finansowej",
+                              "value": "4. Obsługa finansowa",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -14572,7 +14572,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "6. Koszty promocji i reklamy",
+                          "title": "6. Promocja i reklama",
                           "components": [
                             {
                               "kind": "component",
@@ -14580,7 +14580,7 @@
                               "label": "",
                               "name": "organizationPromotionAdvertisingDescpt3",
                               "dataBDD": "organizationPromotionAdvertisingDescpt3",
-                              "value": "6. Koszty promocji i reklamy",
+                              "value": "6. Promocja i reklama",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -14693,7 +14693,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "7. Koszty dotyczące podróży służbowych i noclegów",
+                          "title": "7. Podróże służbowe i noclegi",
                           "components": [
                             {
                               "kind": "component",
@@ -14701,7 +14701,7 @@
                               "label": "",
                               "name": "organizationBusinessTravelDescpt3",
                               "dataBDD": "organizationBusinessTravelDescpt3",
-                              "value": "7. Koszty dotyczące podróży służbowych i noclegów",
+                              "value": "7. Podróże służbowe i noclegi",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",

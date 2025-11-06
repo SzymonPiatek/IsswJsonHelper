@@ -5209,7 +5209,7 @@
                               ]
                             }
                           ],
-                          "helpText": "Koszty zarządzania przedsięwzięciem nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty zarządzania przedsięwzięciem nie mogą przekroczyć 15,00% przyznanej dotacji.",
+                          "helpText": "Koszty zarządzania przedsięwzięciem nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty o których mowa powyżej nie mogą przekroczyć 15,00% przyznanej dotacji.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -5340,7 +5340,7 @@
                               ]
                             }
                           ],
-                          "helpText": "Koszty osobowe nie mogą przekroczyć 35,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty osobowe nie mogą przekroczyć 35,00% przyznanej dotacji.",
+                          "helpText": "Koszty osobowe nie mogą przekroczyć 35,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty o których mowa powyżej nie mogą przekroczyć 35,00% przyznanej dotacji.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -7571,7 +7571,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "4. Koszty cateringu lub poczęstunku",
+                          "title": "4. Catering lub poczęstunek",
                           "components": [
                             {
                               "kind": "component",
@@ -7579,7 +7579,7 @@
                               "label": "",
                               "name": "cateringDescpt124",
                               "dataBDD": "cateringDescpt124",
-                              "value": "4. Koszty cateringu lub poczęstunku",
+                              "value": "4. Catering lub poczęstunek",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -7687,7 +7687,7 @@
                               ]
                             }
                           ],
-                          "helpText": "Koszty cateringu lub poczęstunku nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty cateringu lub poczęstunku nie mogą przekroczyć 15,00% przyznanej dotacji.",
+                          "helpText": "Koszty cateringu lub poczęstunku nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty o których mowa powyżej nie mogą przekroczyć 15,00% przyznanej dotacji.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -8330,7 +8330,7 @@
                       "components": [
                         {
                           "kind": "chapter",
-                          "title": "1. Dostępność cyfrowa (dostępne strony internetowe)",
+                          "title": "1. Dostępność cyfrowa",
                           "components": [
                             {
                               "kind": "component",
@@ -8338,7 +8338,7 @@
                               "label": "",
                               "name": "digitalAccessibilityDescpt124",
                               "dataBDD": "digitalAccessibilityDescpt124",
-                              "value": "1. Dostępność cyfrowa (dostępne strony internetowe)",
+                              "value": "1. Dostępność cyfrowa",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -8437,6 +8437,7 @@
                               ]
                             }
                           ],
+                          "helpText": "Dostępne strony internetowe.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -8451,7 +8452,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "2. Dostępność informacyjno–komunikacyjna (audiodeskrypcja, napisy SDH, tłumaczenia PJM)",
+                          "title": "2. Dostępność informacyjno–komunikacyjna",
                           "components": [
                             {
                               "kind": "component",
@@ -8459,7 +8460,7 @@
                               "label": "",
                               "name": "infoAccessibilityDescpt124",
                               "dataBDD": "infoAccessibilityDescpt124",
-                              "value": "2. Dostępność informacyjno–komunikacyjna (audiodeskrypcja, napisy SDH, tłumaczenia PJM)",
+                              "value": "2. Dostępność informacyjno–komunikacyjna",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -8558,6 +8559,7 @@
                               ]
                             }
                           ],
+                          "helpText": "Audiodeskrypcja, napisy SDH, tłumaczenia PJM.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -9032,7 +9034,7 @@
                               ]
                             }
                           ],
-                          "helpText": "Koszty zarządzania przedsięwzięciem nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty zarządzania przedsięwzięciem nie mogą przekroczyć 15,00% przyznanej dotacji.",
+                          "helpText": "Koszty zarządzania przedsięwzięciem nie mogą przekroczyć 15,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty o których mowa powyżej nie mogą przekroczyć 15,00% przyznanej dotacji.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -9163,7 +9165,7 @@
                               ]
                             }
                           ],
-                          "helpText": "Wszelkie koszty osobowe nieujęte w pozostałych pozycjach. Koszty osobowe nie mogą przekroczyć 35,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty osobowe nie mogą przekroczyć 35,00% przyznanej dotacji.",
+                          "helpText": "Wszelkie koszty osobowe nieujęte w pozostałych pozycjach. Koszty osobowe nie mogą przekroczyć 35,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty o których mowa powyżej nie mogą przekroczyć 35,00% przyznanej dotacji.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -10434,7 +10436,7 @@
                       "components": [
                         {
                           "kind": "chapter",
-                          "title": "1. Dostępność cyfrowa (dostępne strony internetowe)",
+                          "title": "1. Dostępność cyfrowa",
                           "components": [
                             {
                               "kind": "component",
@@ -10442,7 +10444,7 @@
                               "label": "",
                               "name": "digitalAccessibilityDescpt3",
                               "dataBDD": "digitalAccessibilityDescpt3",
-                              "value": "1. Dostępność cyfrowa (dostępne strony internetowe)",
+                              "value": "1. Dostępność cyfrowa",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -10541,6 +10543,7 @@
                               ]
                             }
                           ],
+                          "helpText": "Dostępne strony internetowe.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
@@ -10555,7 +10558,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "2. Dostępność informacyjno–komunikacyjna (audiodeskrypcja, napisy SDH, tłumaczenia PJM)",
+                          "title": "2. Dostępność informacyjno–komunikacyjna",
                           "components": [
                             {
                               "kind": "component",
@@ -10563,7 +10566,7 @@
                               "label": "",
                               "name": "infoAccessibilityDescpt3",
                               "dataBDD": "infoAccessibilityDescpt3",
-                              "value": "2. Dostępność informacyjno–komunikacyjna (audiodeskrypcja, napisy SDH, tłumaczenia PJM)",
+                              "value": "2. Dostępność informacyjno–komunikacyjna",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
@@ -10662,6 +10665,7 @@
                               ]
                             }
                           ],
+                          "helpText": "Audiodeskrypcja, napisy SDH, tłumaczenia PJM.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",
