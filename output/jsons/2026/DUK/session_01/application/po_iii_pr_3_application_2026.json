@@ -5100,8 +5100,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "projectManagementDescpt12",
-                          "dataBDD": "projectManagementDescpt12",
+                          "name": "projectManagementDesc",
+                          "dataBDD": "projectManagementDesc",
                           "value": "1. Zarządzanie przedsięwzięciem",
                           "readOnly": true,
                           "classList": [
@@ -5115,8 +5115,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "projectManagementSumAmountpt12",
-                          "dataBDD": "projectManagementSumAmountpt12",
+                          "name": "projectManagementSumAmount",
+                          "dataBDD": "projectManagementSumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5133,8 +5133,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "projectManagementRequestedAmountpt12",
-                                  "projectManagementOtherFundsAmountpt12"
+                                  "projectManagementRequestedAmount",
+                                  "projectManagementOtherFundsAmount"
                                 ]
                               }
                             }
@@ -5144,8 +5144,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "projectManagementRequestedAmountpt12",
-                                  "projectManagementOtherFundsAmountpt12"
+                                  "projectManagementRequestedAmount",
+                                  "projectManagementOtherFundsAmount"
                                 ]
                               }
                             }
@@ -5158,8 +5158,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "projectManagementRequestedAmountpt12",
-                          "dataBDD": "projectManagementRequestedAmountpt12",
+                          "name": "projectManagementRequestedAmount",
+                          "dataBDD": "projectManagementRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5181,8 +5181,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "projectManagementOtherFundsAmountpt12",
-                          "dataBDD": "projectManagementOtherFundsAmountpt12",
+                          "name": "projectManagementOtherFundsAmount",
+                          "dataBDD": "projectManagementOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5221,8 +5221,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "publicationEditingDescpt12",
-                          "dataBDD": "publicationEditingDescpt12",
+                          "name": "publicationEditingDesc",
+                          "dataBDD": "publicationEditingDesc",
                           "value": "2. Opracowanie i redakcja publikacji",
                           "readOnly": true,
                           "classList": [
@@ -5236,8 +5236,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "publicationEditingSumAmountpt12",
-                          "dataBDD": "publicationEditingSumAmountpt12",
+                          "name": "publicationEditingSumAmount",
+                          "dataBDD": "publicationEditingSumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5254,8 +5254,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "publicationEditingRequestedAmountpt12",
-                                  "publicationEditingOtherFundsAmountpt12"
+                                  "publicationEditingRequestedAmount",
+                                  "publicationEditingOtherFundsAmount"
                                 ]
                               }
                             }
@@ -5265,8 +5265,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "publicationEditingRequestedAmountpt12",
-                                  "publicationEditingOtherFundsAmountpt12"
+                                  "publicationEditingRequestedAmount",
+                                  "publicationEditingOtherFundsAmount"
                                 ]
                               }
                             }
@@ -5279,8 +5279,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "publicationEditingRequestedAmountpt12",
-                          "dataBDD": "publicationEditingRequestedAmountpt12",
+                          "name": "publicationEditingRequestedAmount",
+                          "dataBDD": "publicationEditingRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5302,8 +5302,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "publicationEditingOtherFundsAmountpt12",
-                          "dataBDD": "publicationEditingOtherFundsAmountpt12",
+                          "name": "publicationEditingOtherFundsAmount",
+                          "dataBDD": "publicationEditingOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5343,8 +5343,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "personalDescpt12",
-                          "dataBDD": "personalDescpt12",
+                          "name": "personalDesc",
+                          "dataBDD": "personalDesc",
                           "value": "3. Koszty osobowe",
                           "readOnly": true,
                           "classList": [
@@ -5358,8 +5358,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "personalSumAmountpt12",
-                          "dataBDD": "personalSumAmountpt12",
+                          "name": "personalSumAmount",
+                          "dataBDD": "personalSumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5376,8 +5376,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "personalRequestedAmountpt12",
-                                  "personalOtherFundsAmountpt12"
+                                  "personalRequestedAmount",
+                                  "personalOtherFundsAmount"
                                 ]
                               }
                             }
@@ -5387,8 +5387,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "personalRequestedAmountpt12",
-                                  "personalOtherFundsAmountpt12"
+                                  "personalRequestedAmount",
+                                  "personalOtherFundsAmount"
                                 ]
                               }
                             }
@@ -5401,8 +5401,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "personalRequestedAmountpt12",
-                          "dataBDD": "personalRequestedAmountpt12",
+                          "name": "personalRequestedAmount",
+                          "dataBDD": "personalRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5433,8 +5433,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "personalOtherFundsAmountpt12",
-                          "dataBDD": "personalOtherFundsAmountpt12",
+                          "name": "personalOtherFundsAmount",
+                          "dataBDD": "personalOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5474,8 +5474,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "expertConsultationDescpt12",
-                          "dataBDD": "expertConsultationDescpt12",
+                          "name": "expertConsultationDesc",
+                          "dataBDD": "expertConsultationDesc",
                           "value": "4. Konsultacje eksperckie",
                           "readOnly": true,
                           "classList": [
@@ -5489,8 +5489,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "expertConsultationSumAmountpt12",
-                          "dataBDD": "expertConsultationSumAmountpt12",
+                          "name": "expertConsultationSumAmount",
+                          "dataBDD": "expertConsultationSumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5507,8 +5507,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "expertConsultationRequestedAmountpt12",
-                                  "expertConsultationOtherFundsAmountpt12"
+                                  "expertConsultationRequestedAmount",
+                                  "expertConsultationOtherFundsAmount"
                                 ]
                               }
                             }
@@ -5518,8 +5518,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "expertConsultationRequestedAmountpt12",
-                                  "expertConsultationOtherFundsAmountpt12"
+                                  "expertConsultationRequestedAmount",
+                                  "expertConsultationOtherFundsAmount"
                                 ]
                               }
                             }
@@ -5532,8 +5532,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "expertConsultationRequestedAmountpt12",
-                          "dataBDD": "expertConsultationRequestedAmountpt12",
+                          "name": "expertConsultationRequestedAmount",
+                          "dataBDD": "expertConsultationRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5555,8 +5555,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "expertConsultationOtherFundsAmountpt12",
-                          "dataBDD": "expertConsultationOtherFundsAmountpt12",
+                          "name": "expertConsultationOtherFundsAmount",
+                          "dataBDD": "expertConsultationOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5606,8 +5606,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "graphicPhotoTypographyDescpt12",
-                          "dataBDD": "graphicPhotoTypographyDescpt12",
+                          "name": "graphicPhotoTypographyDesc",
+                          "dataBDD": "graphicPhotoTypographyDesc",
                           "value": "1. Usługi graficzne, fotograficzne i typograficzne",
                           "readOnly": true,
                           "classList": [
@@ -5621,8 +5621,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "graphicPhotoTypographySumAmountpt12",
-                          "dataBDD": "graphicPhotoTypographySumAmountpt12",
+                          "name": "graphicPhotoTypographySumAmount",
+                          "dataBDD": "graphicPhotoTypographySumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5639,8 +5639,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "graphicPhotoTypographyRequestedAmountpt12",
-                                  "graphicPhotoTypographyOtherFundsAmountpt12"
+                                  "graphicPhotoTypographyRequestedAmount",
+                                  "graphicPhotoTypographyOtherFundsAmount"
                                 ]
                               }
                             }
@@ -5650,8 +5650,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "graphicPhotoTypographyRequestedAmountpt12",
-                                  "graphicPhotoTypographyOtherFundsAmountpt12"
+                                  "graphicPhotoTypographyRequestedAmount",
+                                  "graphicPhotoTypographyOtherFundsAmount"
                                 ]
                               }
                             }
@@ -5664,8 +5664,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "graphicPhotoTypographyRequestedAmountpt12",
-                          "dataBDD": "graphicPhotoTypographyRequestedAmountpt12",
+                          "name": "graphicPhotoTypographyRequestedAmount",
+                          "dataBDD": "graphicPhotoTypographyRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5687,8 +5687,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "graphicPhotoTypographyOtherFundsAmountpt12",
-                          "dataBDD": "graphicPhotoTypographyOtherFundsAmountpt12",
+                          "name": "graphicPhotoTypographyOtherFundsAmount",
+                          "dataBDD": "graphicPhotoTypographyOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5727,8 +5727,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "publishingPrintingDescpt12",
-                          "dataBDD": "publishingPrintingDescpt12",
+                          "name": "publishingPrintingDesc",
+                          "dataBDD": "publishingPrintingDesc",
                           "value": "2. Usługi wydawnicze i poligraficzne",
                           "readOnly": true,
                           "classList": [
@@ -5742,8 +5742,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "publishingPrintingSumAmountpt12",
-                          "dataBDD": "publishingPrintingSumAmountpt12",
+                          "name": "publishingPrintingSumAmount",
+                          "dataBDD": "publishingPrintingSumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5760,8 +5760,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "publishingPrintingRequestedAmountpt12",
-                                  "publishingPrintingOtherFundsAmountpt12"
+                                  "publishingPrintingRequestedAmount",
+                                  "publishingPrintingOtherFundsAmount"
                                 ]
                               }
                             }
@@ -5771,8 +5771,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "publishingPrintingRequestedAmountpt12",
-                                  "publishingPrintingOtherFundsAmountpt12"
+                                  "publishingPrintingRequestedAmount",
+                                  "publishingPrintingOtherFundsAmount"
                                 ]
                               }
                             }
@@ -5785,8 +5785,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "publishingPrintingRequestedAmountpt12",
-                          "dataBDD": "publishingPrintingRequestedAmountpt12",
+                          "name": "publishingPrintingRequestedAmount",
+                          "dataBDD": "publishingPrintingRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5808,8 +5808,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "publishingPrintingOtherFundsAmountpt12",
-                          "dataBDD": "publishingPrintingOtherFundsAmountpt12",
+                          "name": "publishingPrintingOtherFundsAmount",
+                          "dataBDD": "publishingPrintingOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5848,8 +5848,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "digitalVersionsDescpt12",
-                          "dataBDD": "digitalVersionsDescpt12",
+                          "name": "digitalVersionsDesc",
+                          "dataBDD": "digitalVersionsDesc",
                           "value": "3. Przygotowanie wersji cyfrowych",
                           "readOnly": true,
                           "classList": [
@@ -5863,8 +5863,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "digitalVersionsSumAmountpt12",
-                          "dataBDD": "digitalVersionsSumAmountpt12",
+                          "name": "digitalVersionsSumAmount",
+                          "dataBDD": "digitalVersionsSumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5881,8 +5881,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "digitalVersionsRequestedAmountpt12",
-                                  "digitalVersionsOtherFundsAmountpt12"
+                                  "digitalVersionsRequestedAmount",
+                                  "digitalVersionsOtherFundsAmount"
                                 ]
                               }
                             }
@@ -5892,8 +5892,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "digitalVersionsRequestedAmountpt12",
-                                  "digitalVersionsOtherFundsAmountpt12"
+                                  "digitalVersionsRequestedAmount",
+                                  "digitalVersionsOtherFundsAmount"
                                 ]
                               }
                             }
@@ -5906,8 +5906,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "digitalVersionsRequestedAmountpt12",
-                          "dataBDD": "digitalVersionsRequestedAmountpt12",
+                          "name": "digitalVersionsRequestedAmount",
+                          "dataBDD": "digitalVersionsRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5929,8 +5929,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "digitalVersionsOtherFundsAmountpt12",
-                          "dataBDD": "digitalVersionsOtherFundsAmountpt12",
+                          "name": "digitalVersionsOtherFundsAmount",
+                          "dataBDD": "digitalVersionsOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -5964,15 +5964,15 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "4. Obsługa i utrzymanie serwisu internetowego",
+                      "title": "4. Opracowanie muzyczne",
                       "components": [
                         {
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "websiteMaintenanceDescpt12",
-                          "dataBDD": "websiteMaintenanceDescpt12",
-                          "value": "4. Obsługa i utrzymanie serwisu internetowego",
+                          "name": "musicalArrangementDesc",
+                          "dataBDD": "musicalArrangementDesc",
+                          "value": "4. Opracowanie muzyczne",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -5985,8 +5985,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "websiteMaintenanceSumAmountpt12",
-                          "dataBDD": "websiteMaintenanceSumAmountpt12",
+                          "name": "musicalArrangementSumAmount",
+                          "dataBDD": "musicalArrangementSumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6003,8 +6003,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "websiteMaintenanceRequestedAmountpt12",
-                                  "websiteMaintenanceOtherFundsAmountpt12"
+                                  "musicalArrangementRequestedAmount",
+                                  "musicalArrangementOtherFundsAmount"
                                 ]
                               }
                             }
@@ -6014,8 +6014,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "websiteMaintenanceRequestedAmountpt12",
-                                  "websiteMaintenanceOtherFundsAmountpt12"
+                                  "musicalArrangementRequestedAmount",
+                                  "musicalArrangementOtherFundsAmount"
                                 ]
                               }
                             }
@@ -6028,8 +6028,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "websiteMaintenanceRequestedAmountpt12",
-                          "dataBDD": "websiteMaintenanceRequestedAmountpt12",
+                          "name": "musicalArrangementRequestedAmount",
+                          "dataBDD": "musicalArrangementRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6051,8 +6051,130 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "websiteMaintenanceOtherFundsAmountpt12",
-                          "dataBDD": "websiteMaintenanceOtherFundsAmountpt12",
+                          "name": "musicalArrangementOtherFundsAmount",
+                          "dataBDD": "musicalArrangementOtherFundsAmount",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "calculationRules": [],
+                          "classList": [
+                            "no-label"
+                          ]
+                        }
+                      ],
+                      "helpText": "Nagranie, mastering, digitalizacjia.",
+                      "classList": {
+                        "main": [
+                          "table-1-3-narrow",
+                          "grid",
+                          "grid-cols-5",
+                          "no-title"
+                        ],
+                        "sub": [
+                          "table-1-3__col"
+                        ]
+                      }
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "5. Obsługa i utrzymanie serwisu internetowego",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "",
+                          "name": "websiteMaintenanceDesc",
+                          "dataBDD": "websiteMaintenanceDesc",
+                          "value": "5. Obsługa i utrzymanie serwisu internetowego",
+                          "readOnly": true,
+                          "classList": [
+                            "col-span-2",
+                            "displayNoneFrontend",
+                            "full-width",
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Koszt ogółem",
+                          "name": "websiteMaintenanceSumAmount",
+                          "dataBDD": "websiteMaintenanceSumAmount",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "readOnly": true,
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            },
+                            {
+                              "name": "RelatedSumValidator",
+                              "kwargs": {
+                                "field_names": [
+                                  "websiteMaintenanceRequestedAmount",
+                                  "websiteMaintenanceOtherFundsAmount"
+                                ]
+                              }
+                            }
+                          ],
+                          "calculationRules": [
+                            {
+                              "name": "dynamicSumInputs",
+                              "kwargs": {
+                                "fields": [
+                                  "websiteMaintenanceRequestedAmount",
+                                  "websiteMaintenanceOtherFundsAmount"
+                                ]
+                              }
+                            }
+                          ],
+                          "classList": [
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Wnioskowana dotacja PISF",
+                          "name": "websiteMaintenanceRequestedAmount",
+                          "dataBDD": "websiteMaintenanceRequestedAmount",
+                          "value": 0,
+                          "mask": "fund",
+                          "unit": "PLN",
+                          "validators": [
+                            {
+                              "name": "RangeValidator",
+                              "kwargs": {
+                                "min": 0
+                              },
+                              "validationMsg": "Wartość musi być większa lub równa 0."
+                            }
+                          ],
+                          "calculationRules": [],
+                          "classList": [
+                            "no-label"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Pozostałe środki",
+                          "name": "websiteMaintenanceOtherFundsAmount",
+                          "dataBDD": "websiteMaintenanceOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6085,15 +6207,15 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "5. Tłumaczenia",
+                      "title": "6. Tłumaczenia",
                       "components": [
                         {
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "translationDescpt12",
-                          "dataBDD": "translationDescpt12",
-                          "value": "5. Tłumaczenia",
+                          "name": "translationDesc",
+                          "dataBDD": "translationDesc",
+                          "value": "6. Tłumaczenia",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6106,8 +6228,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "translationSumAmountpt12",
-                          "dataBDD": "translationSumAmountpt12",
+                          "name": "translationSumAmount",
+                          "dataBDD": "translationSumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6124,8 +6246,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "translationRequestedAmountpt12",
-                                  "translationOtherFundsAmountpt12"
+                                  "translationRequestedAmount",
+                                  "translationOtherFundsAmount"
                                 ]
                               }
                             }
@@ -6135,8 +6257,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "translationRequestedAmountpt12",
-                                  "translationOtherFundsAmountpt12"
+                                  "translationRequestedAmount",
+                                  "translationOtherFundsAmount"
                                 ]
                               }
                             }
@@ -6149,8 +6271,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "translationRequestedAmountpt12",
-                          "dataBDD": "translationRequestedAmountpt12",
+                          "name": "translationRequestedAmount",
+                          "dataBDD": "translationRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6172,8 +6294,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "translationOtherFundsAmountpt12",
-                          "dataBDD": "translationOtherFundsAmountpt12",
+                          "name": "translationOtherFundsAmount",
+                          "dataBDD": "translationOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6206,15 +6328,15 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "6. Obsługa PR, promocja i reklama",
+                      "title": "7. Obsługa PR, promocja i reklama",
                       "components": [
                         {
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "commercialsDescpt12",
-                          "dataBDD": "commercialsDescpt12",
-                          "value": "6. Obsługa PR, promocja i reklama",
+                          "name": "commercialsDesc",
+                          "dataBDD": "commercialsDesc",
+                          "value": "7. Obsługa PR, promocja i reklama",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6227,8 +6349,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "commercialsSumAmountpt12",
-                          "dataBDD": "commercialsSumAmountpt12",
+                          "name": "commercialsSumAmount",
+                          "dataBDD": "commercialsSumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6245,8 +6367,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "commercialsRequestedAmountpt12",
-                                  "commercialsOtherFundsAmountpt12"
+                                  "commercialsRequestedAmount",
+                                  "commercialsOtherFundsAmount"
                                 ]
                               }
                             }
@@ -6256,8 +6378,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "commercialsRequestedAmountpt12",
-                                  "commercialsOtherFundsAmountpt12"
+                                  "commercialsRequestedAmount",
+                                  "commercialsOtherFundsAmount"
                                 ]
                               }
                             }
@@ -6270,8 +6392,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "commercialsRequestedAmountpt12",
-                          "dataBDD": "commercialsRequestedAmountpt12",
+                          "name": "commercialsRequestedAmount",
+                          "dataBDD": "commercialsRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6293,8 +6415,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "commercialsOtherFundsAmountpt12",
-                          "dataBDD": "commercialsOtherFundsAmountpt12",
+                          "name": "commercialsOtherFundsAmount",
+                          "dataBDD": "commercialsOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6327,15 +6449,15 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "7. Dystrybucja",
+                      "title": "8. Dystrybucja",
                       "components": [
                         {
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "distributionDescpt12",
-                          "dataBDD": "distributionDescpt12",
-                          "value": "7. Dystrybucja",
+                          "name": "distributionDesc",
+                          "dataBDD": "distributionDesc",
+                          "value": "8. Dystrybucja",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",
@@ -6348,8 +6470,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "distributionSumAmountpt12",
-                          "dataBDD": "distributionSumAmountpt12",
+                          "name": "distributionSumAmount",
+                          "dataBDD": "distributionSumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6366,8 +6488,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "distributionRequestedAmountpt12",
-                                  "distributionOtherFundsAmountpt12"
+                                  "distributionRequestedAmount",
+                                  "distributionOtherFundsAmount"
                                 ]
                               }
                             }
@@ -6377,8 +6499,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "distributionRequestedAmountpt12",
-                                  "distributionOtherFundsAmountpt12"
+                                  "distributionRequestedAmount",
+                                  "distributionOtherFundsAmount"
                                 ]
                               }
                             }
@@ -6391,8 +6513,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "distributionRequestedAmountpt12",
-                          "dataBDD": "distributionRequestedAmountpt12",
+                          "name": "distributionRequestedAmount",
+                          "dataBDD": "distributionRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6414,8 +6536,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "distributionOtherFundsAmountpt12",
-                          "dataBDD": "distributionOtherFundsAmountpt12",
+                          "name": "distributionOtherFundsAmount",
+                          "dataBDD": "distributionOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6465,8 +6587,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "financialServiceDescpt12",
-                          "dataBDD": "financialServiceDescpt12",
+                          "name": "financialServiceDesc",
+                          "dataBDD": "financialServiceDesc",
                           "value": "1. Obsługa finansowa",
                           "readOnly": true,
                           "classList": [
@@ -6480,8 +6602,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "financialServiceSumAmountpt12",
-                          "dataBDD": "financialServiceSumAmountpt12",
+                          "name": "financialServiceSumAmount",
+                          "dataBDD": "financialServiceSumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6498,8 +6620,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "financialServiceRequestedAmountpt12",
-                                  "financialServiceOtherFundsAmountpt12"
+                                  "financialServiceRequestedAmount",
+                                  "financialServiceOtherFundsAmount"
                                 ]
                               }
                             }
@@ -6509,8 +6631,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "financialServiceRequestedAmountpt12",
-                                  "financialServiceOtherFundsAmountpt12"
+                                  "financialServiceRequestedAmount",
+                                  "financialServiceOtherFundsAmount"
                                 ]
                               }
                             }
@@ -6523,8 +6645,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "financialServiceRequestedAmountpt12",
-                          "dataBDD": "financialServiceRequestedAmountpt12",
+                          "name": "financialServiceRequestedAmount",
+                          "dataBDD": "financialServiceRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6546,8 +6668,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "financialServiceOtherFundsAmountpt12",
-                          "dataBDD": "financialServiceOtherFundsAmountpt12",
+                          "name": "financialServiceOtherFundsAmount",
+                          "dataBDD": "financialServiceOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6587,8 +6709,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "legalServiceDescpt12",
-                          "dataBDD": "legalServiceDescpt12",
+                          "name": "legalServiceDesc",
+                          "dataBDD": "legalServiceDesc",
                           "value": "2. Obsługa prawna",
                           "readOnly": true,
                           "classList": [
@@ -6602,8 +6724,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "legalServiceSumAmountpt12",
-                          "dataBDD": "legalServiceSumAmountpt12",
+                          "name": "legalServiceSumAmount",
+                          "dataBDD": "legalServiceSumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6620,8 +6742,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "legalServiceRequestedAmountpt12",
-                                  "legalServiceOtherFundsAmountpt12"
+                                  "legalServiceRequestedAmount",
+                                  "legalServiceOtherFundsAmount"
                                 ]
                               }
                             }
@@ -6631,8 +6753,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "legalServiceRequestedAmountpt12",
-                                  "legalServiceOtherFundsAmountpt12"
+                                  "legalServiceRequestedAmount",
+                                  "legalServiceOtherFundsAmount"
                                 ]
                               }
                             }
@@ -6645,8 +6767,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "legalServiceRequestedAmountpt12",
-                          "dataBDD": "legalServiceRequestedAmountpt12",
+                          "name": "legalServiceRequestedAmount",
+                          "dataBDD": "legalServiceRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6668,8 +6790,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "legalServiceOtherFundsAmountpt12",
-                          "dataBDD": "legalServiceOtherFundsAmountpt12",
+                          "name": "legalServiceOtherFundsAmount",
+                          "dataBDD": "legalServiceOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6708,8 +6830,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "rightsAcquisitionDescpt12",
-                          "dataBDD": "rightsAcquisitionDescpt12",
+                          "name": "rightsAcquisitionDesc",
+                          "dataBDD": "rightsAcquisitionDesc",
                           "value": "3. Koszty licencyjne i nabycia praw",
                           "readOnly": true,
                           "classList": [
@@ -6723,8 +6845,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "rightsAcquisitionSumAmountpt12",
-                          "dataBDD": "rightsAcquisitionSumAmountpt12",
+                          "name": "rightsAcquisitionSumAmount",
+                          "dataBDD": "rightsAcquisitionSumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6741,8 +6863,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "rightsAcquisitionRequestedAmountpt12",
-                                  "rightsAcquisitionOtherFundsAmountpt12"
+                                  "rightsAcquisitionRequestedAmount",
+                                  "rightsAcquisitionOtherFundsAmount"
                                 ]
                               }
                             }
@@ -6752,8 +6874,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "rightsAcquisitionRequestedAmountpt12",
-                                  "rightsAcquisitionOtherFundsAmountpt12"
+                                  "rightsAcquisitionRequestedAmount",
+                                  "rightsAcquisitionOtherFundsAmount"
                                 ]
                               }
                             }
@@ -6766,8 +6888,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "rightsAcquisitionRequestedAmountpt12",
-                          "dataBDD": "rightsAcquisitionRequestedAmountpt12",
+                          "name": "rightsAcquisitionRequestedAmount",
+                          "dataBDD": "rightsAcquisitionRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6789,8 +6911,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "rightsAcquisitionOtherFundsAmountpt12",
-                          "dataBDD": "rightsAcquisitionOtherFundsAmountpt12",
+                          "name": "rightsAcquisitionOtherFundsAmount",
+                          "dataBDD": "rightsAcquisitionOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6829,8 +6951,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "travelAccommodationDescpt12",
-                          "dataBDD": "travelAccommodationDescpt12",
+                          "name": "travelAccommodationDesc",
+                          "dataBDD": "travelAccommodationDesc",
                           "value": "4. Koszty przejazdów i noclegów osób współpracujących przy przedsięwzięciu",
                           "readOnly": true,
                           "classList": [
@@ -6844,8 +6966,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "travelAccommodationSumAmountpt12",
-                          "dataBDD": "travelAccommodationSumAmountpt12",
+                          "name": "travelAccommodationSumAmount",
+                          "dataBDD": "travelAccommodationSumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6862,8 +6984,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "travelAccommodationRequestedAmountpt12",
-                                  "travelAccommodationOtherFundsAmountpt12"
+                                  "travelAccommodationRequestedAmount",
+                                  "travelAccommodationOtherFundsAmount"
                                 ]
                               }
                             }
@@ -6873,8 +6995,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "travelAccommodationRequestedAmountpt12",
-                                  "travelAccommodationOtherFundsAmountpt12"
+                                  "travelAccommodationRequestedAmount",
+                                  "travelAccommodationOtherFundsAmount"
                                 ]
                               }
                             }
@@ -6887,8 +7009,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "travelAccommodationRequestedAmountpt12",
-                          "dataBDD": "travelAccommodationRequestedAmountpt12",
+                          "name": "travelAccommodationRequestedAmount",
+                          "dataBDD": "travelAccommodationRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6910,8 +7032,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "travelAccommodationOtherFundsAmountpt12",
-                          "dataBDD": "travelAccommodationOtherFundsAmountpt12",
+                          "name": "travelAccommodationOtherFundsAmount",
+                          "dataBDD": "travelAccommodationOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6951,8 +7073,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "evaluationDescpt12",
-                          "dataBDD": "evaluationDescpt12",
+                          "name": "evaluationDesc",
+                          "dataBDD": "evaluationDesc",
                           "value": "5. Ewaluacja przedsięwzięcia",
                           "readOnly": true,
                           "classList": [
@@ -6966,8 +7088,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "evaluationSumAmountpt12",
-                          "dataBDD": "evaluationSumAmountpt12",
+                          "name": "evaluationSumAmount",
+                          "dataBDD": "evaluationSumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -6984,8 +7106,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "evaluationRequestedAmountpt12",
-                                  "evaluationOtherFundsAmountpt12"
+                                  "evaluationRequestedAmount",
+                                  "evaluationOtherFundsAmount"
                                 ]
                               }
                             }
@@ -6995,8 +7117,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "evaluationRequestedAmountpt12",
-                                  "evaluationOtherFundsAmountpt12"
+                                  "evaluationRequestedAmount",
+                                  "evaluationOtherFundsAmount"
                                 ]
                               }
                             }
@@ -7009,8 +7131,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "evaluationRequestedAmountpt12",
-                          "dataBDD": "evaluationRequestedAmountpt12",
+                          "name": "evaluationRequestedAmount",
+                          "dataBDD": "evaluationRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -7032,2373 +7154,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "evaluationOtherFundsAmountpt12",
-                          "dataBDD": "evaluationOtherFundsAmountpt12",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        }
-                      ],
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    }
-                  ],
-                  "classList": {
-                    "sub": [
-                      "table-1-2-top"
-                    ]
-                  }
-                },
-                {
-                  "kind": "chapter",
-                  "title": "<p style=\"color: #e00d1d\">IV. Koszty związane z dostępnością<p>",
-                  "components": [
-                    {
-                      "kind": "chapter",
-                      "title": "1. Dostępność cyfrowa",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "",
-                          "name": "digitalAccessibilityDescpt12",
-                          "dataBDD": "digitalAccessibilityDescpt12",
-                          "value": "1. Dostępność cyfrowa",
-                          "readOnly": true,
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend",
-                            "full-width",
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt ogółem",
-                          "name": "digitalAccessibilitySumAmountpt12",
-                          "dataBDD": "digitalAccessibilitySumAmountpt12",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "readOnly": true,
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "digitalAccessibilityRequestedAmountpt12",
-                                  "digitalAccessibilityOtherFundsAmountpt12"
-                                ]
-                              }
-                            }
-                          ],
-                          "calculationRules": [
-                            {
-                              "name": "dynamicSumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "digitalAccessibilityRequestedAmountpt12",
-                                  "digitalAccessibilityOtherFundsAmountpt12"
-                                ]
-                              }
-                            }
-                          ],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Wnioskowana dotacja PISF",
-                          "name": "digitalAccessibilityRequestedAmountpt12",
-                          "dataBDD": "digitalAccessibilityRequestedAmountpt12",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Pozostałe środki",
-                          "name": "digitalAccessibilityOtherFundsAmountpt12",
-                          "dataBDD": "digitalAccessibilityOtherFundsAmountpt12",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        }
-                      ],
-                      "helpText": "Dostępne strony internetowe.",
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    }
-                  ],
-                  "classList": {
-                    "sub": [
-                      "table-1-2-top"
-                    ]
-                  }
-                },
-                {
-                  "kind": "chapter",
-                  "title": "<p style=\"color: #e00d1d\">Podsumowanie</p>",
-                  "components": [
-                    {
-                      "kind": "component",
-                      "type": "text",
-                      "label": "Koszt ogółem",
-                      "name": "totalSumAmountpt12",
-                      "dataBDD": "totalSumAmountpt12",
-                      "value": 0,
-                      "mask": "fund",
-                      "unit": "PLN",
-                      "readOnly": true,
-                      "validators": [
-                        {
-                          "name": "RangeValidator",
-                          "kwargs": {
-                            "min": 0
-                          },
-                          "validationMsg": "Wartość musi być większa lub równa 0."
-                        },
-                        {
-                          "name": "RelatedSumValidator",
-                          "kwargs": {
-                            "field_names": [
-                              "projectManagementSumAmountpt12",
-                              "publicationEditingSumAmountpt12",
-                              "personalSumAmountpt12",
-                              "expertConsultationSumAmountpt12",
-                              "graphicPhotoTypographySumAmountpt12",
-                              "publishingPrintingSumAmountpt12",
-                              "digitalVersionsSumAmountpt12",
-                              "websiteMaintenanceSumAmountpt12",
-                              "translationSumAmountpt12",
-                              "commercialsSumAmountpt12",
-                              "distributionSumAmountpt12",
-                              "financialServiceSumAmountpt12",
-                              "legalServiceSumAmountpt12",
-                              "rightsAcquisitionSumAmountpt12",
-                              "travelAccommodationSumAmountpt12",
-                              "evaluationSumAmountpt12",
-                              "digitalAccessibilitySumAmountpt12"
-                            ]
-                          }
-                        },
-                        {
-                          "name": "RelatedSumValidator",
-                          "kwargs": {
-                            "field_names": [
-                              "totalProjectCost"
-                            ]
-                          }
-                        }
-                      ],
-                      "calculationRules": [
-                        {
-                          "name": "dynamicSumInputs",
-                          "kwargs": {
-                            "fields": [
-                              "projectManagementSumAmountpt12",
-                              "publicationEditingSumAmountpt12",
-                              "personalSumAmountpt12",
-                              "expertConsultationSumAmountpt12",
-                              "graphicPhotoTypographySumAmountpt12",
-                              "publishingPrintingSumAmountpt12",
-                              "digitalVersionsSumAmountpt12",
-                              "websiteMaintenanceSumAmountpt12",
-                              "translationSumAmountpt12",
-                              "commercialsSumAmountpt12",
-                              "distributionSumAmountpt12",
-                              "financialServiceSumAmountpt12",
-                              "legalServiceSumAmountpt12",
-                              "rightsAcquisitionSumAmountpt12",
-                              "travelAccommodationSumAmountpt12",
-                              "evaluationSumAmountpt12",
-                              "digitalAccessibilitySumAmountpt12"
-                            ]
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "kind": "component",
-                      "type": "text",
-                      "label": "Wnioskowana dotacja PISF ogółem",
-                      "name": "totalRequestedAmountpt12",
-                      "dataBDD": "totalRequestedAmountpt12",
-                      "value": 0,
-                      "mask": "fund",
-                      "unit": "PLN",
-                      "readOnly": true,
-                      "validators": [
-                        {
-                          "name": "RangeValidator",
-                          "kwargs": {
-                            "min": 0
-                          },
-                          "validationMsg": "Wartość musi być większa lub równa 0."
-                        },
-                        {
-                          "name": "RelatedSumValidator",
-                          "kwargs": {
-                            "field_names": [
-                              "projectManagementRequestedAmountpt12",
-                              "publicationEditingRequestedAmountpt12",
-                              "personalRequestedAmountpt12",
-                              "expertConsultationRequestedAmountpt12",
-                              "graphicPhotoTypographyRequestedAmountpt12",
-                              "publishingPrintingRequestedAmountpt12",
-                              "digitalVersionsRequestedAmountpt12",
-                              "websiteMaintenanceRequestedAmountpt12",
-                              "translationRequestedAmountpt12",
-                              "commercialsRequestedAmountpt12",
-                              "distributionRequestedAmountpt12",
-                              "financialServiceRequestedAmountpt12",
-                              "legalServiceRequestedAmountpt12",
-                              "rightsAcquisitionRequestedAmountpt12",
-                              "travelAccommodationRequestedAmountpt12",
-                              "evaluationRequestedAmountpt12",
-                              "digitalAccessibilityRequestedAmountpt12"
-                            ]
-                          }
-                        },
-                        {
-                          "name": "RelatedSumValidator",
-                          "kwargs": {
-                            "field_names": [
-                              "pisfSupportAmountTotal"
-                            ]
-                          }
-                        }
-                      ],
-                      "calculationRules": [
-                        {
-                          "name": "dynamicSumInputs",
-                          "kwargs": {
-                            "fields": [
-                              "projectManagementRequestedAmountpt12",
-                              "publicationEditingRequestedAmountpt12",
-                              "personalRequestedAmountpt12",
-                              "expertConsultationRequestedAmountpt12",
-                              "graphicPhotoTypographyRequestedAmountpt12",
-                              "publishingPrintingRequestedAmountpt12",
-                              "digitalVersionsRequestedAmountpt12",
-                              "websiteMaintenanceRequestedAmountpt12",
-                              "translationRequestedAmountpt12",
-                              "commercialsRequestedAmountpt12",
-                              "distributionRequestedAmountpt12",
-                              "financialServiceRequestedAmountpt12",
-                              "legalServiceRequestedAmountpt12",
-                              "rightsAcquisitionRequestedAmountpt12",
-                              "travelAccommodationRequestedAmountpt12",
-                              "evaluationRequestedAmountpt12",
-                              "digitalAccessibilityRequestedAmountpt12"
-                            ]
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "kind": "component",
-                      "type": "text",
-                      "label": "Pozostałe środki ogółem",
-                      "name": "totalOtherFundsAmountpt12",
-                      "dataBDD": "totalOtherFundsAmountpt12",
-                      "value": 0,
-                      "mask": "fund",
-                      "unit": "PLN",
-                      "readOnly": true,
-                      "validators": [
-                        {
-                          "name": "RangeValidator",
-                          "kwargs": {
-                            "min": 0
-                          },
-                          "validationMsg": "Wartość musi być większa lub równa 0."
-                        },
-                        {
-                          "name": "RelatedSumValidator",
-                          "kwargs": {
-                            "field_names": [
-                              "projectManagementOtherFundsAmountpt12",
-                              "publicationEditingOtherFundsAmountpt12",
-                              "personalOtherFundsAmountpt12",
-                              "expertConsultationOtherFundsAmountpt12",
-                              "graphicPhotoTypographyOtherFundsAmountpt12",
-                              "publishingPrintingOtherFundsAmountpt12",
-                              "digitalVersionsOtherFundsAmountpt12",
-                              "websiteMaintenanceOtherFundsAmountpt12",
-                              "translationOtherFundsAmountpt12",
-                              "commercialsOtherFundsAmountpt12",
-                              "distributionOtherFundsAmountpt12",
-                              "financialServiceOtherFundsAmountpt12",
-                              "legalServiceOtherFundsAmountpt12",
-                              "rightsAcquisitionOtherFundsAmountpt12",
-                              "travelAccommodationOtherFundsAmountpt12",
-                              "evaluationOtherFundsAmountpt12",
-                              "digitalAccessibilityOtherFundsAmountpt12"
-                            ]
-                          }
-                        }
-                      ],
-                      "calculationRules": [
-                        {
-                          "name": "dynamicSumInputs",
-                          "kwargs": {
-                            "fields": [
-                              "projectManagementOtherFundsAmountpt12",
-                              "publicationEditingOtherFundsAmountpt12",
-                              "personalOtherFundsAmountpt12",
-                              "expertConsultationOtherFundsAmountpt12",
-                              "graphicPhotoTypographyOtherFundsAmountpt12",
-                              "publishingPrintingOtherFundsAmountpt12",
-                              "digitalVersionsOtherFundsAmountpt12",
-                              "websiteMaintenanceOtherFundsAmountpt12",
-                              "translationOtherFundsAmountpt12",
-                              "commercialsOtherFundsAmountpt12",
-                              "distributionOtherFundsAmountpt12",
-                              "financialServiceOtherFundsAmountpt12",
-                              "legalServiceOtherFundsAmountpt12",
-                              "rightsAcquisitionOtherFundsAmountpt12",
-                              "travelAccommodationOtherFundsAmountpt12",
-                              "evaluationOtherFundsAmountpt12",
-                              "digitalAccessibilityOtherFundsAmountpt12"
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  ],
-                  "classList": {
-                    "main": [
-                      "table-1-3-narrow",
-                      "grid",
-                      "grid-cols-3"
-                    ],
-                    "sub": [
-                      "table-1-3__col"
-                    ]
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "chapter",
-              "title": "",
-              "components": [
-                {
-                  "kind": "chapter",
-                  "title": "<p style=\"color: #e00d1d\">I. Koszty osobowe i merytoryczne<p>",
-                  "components": [
-                    {
-                      "kind": "chapter",
-                      "title": "1. Zarządzanie przedsięwzięciem",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "",
-                          "name": "projectManagementDescpt3",
-                          "dataBDD": "projectManagementDescpt3",
-                          "value": "1. Zarządzanie przedsięwzięciem",
-                          "readOnly": true,
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend",
-                            "full-width",
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt ogółem",
-                          "name": "projectManagementSumAmountpt3",
-                          "dataBDD": "projectManagementSumAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "readOnly": true,
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "projectManagementRequestedAmountpt3",
-                                  "projectManagementOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "calculationRules": [
-                            {
-                              "name": "dynamicSumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "projectManagementRequestedAmountpt3",
-                                  "projectManagementOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Wnioskowana dotacja PISF",
-                          "name": "projectManagementRequestedAmountpt3",
-                          "dataBDD": "projectManagementRequestedAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Pozostałe środki",
-                          "name": "projectManagementOtherFundsAmountpt3",
-                          "dataBDD": "projectManagementOtherFundsAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        }
-                      ],
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    },
-                    {
-                      "kind": "chapter",
-                      "title": "2. Opracowanie i redakcja publikacji",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "",
-                          "name": "publicationEditingDescpt3",
-                          "dataBDD": "publicationEditingDescpt3",
-                          "value": "2. Opracowanie i redakcja publikacji",
-                          "readOnly": true,
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend",
-                            "full-width",
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt ogółem",
-                          "name": "publicationEditingSumAmountpt3",
-                          "dataBDD": "publicationEditingSumAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "readOnly": true,
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "publicationEditingRequestedAmountpt3",
-                                  "publicationEditingOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "calculationRules": [
-                            {
-                              "name": "dynamicSumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "publicationEditingRequestedAmountpt3",
-                                  "publicationEditingOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Wnioskowana dotacja PISF",
-                          "name": "publicationEditingRequestedAmountpt3",
-                          "dataBDD": "publicationEditingRequestedAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Pozostałe środki",
-                          "name": "publicationEditingOtherFundsAmountpt3",
-                          "dataBDD": "publicationEditingOtherFundsAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        }
-                      ],
-                      "helpText": "Autorzy tekstów, redaktorzy, korektorzy.",
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    },
-                    {
-                      "kind": "chapter",
-                      "title": "3. Koszty osobowe",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "",
-                          "name": "personalDescpt3",
-                          "dataBDD": "personalDescpt3",
-                          "value": "3. Koszty osobowe",
-                          "readOnly": true,
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend",
-                            "full-width",
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt ogółem",
-                          "name": "personalSumAmountpt3",
-                          "dataBDD": "personalSumAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "readOnly": true,
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "personalRequestedAmountpt3",
-                                  "personalOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "calculationRules": [
-                            {
-                              "name": "dynamicSumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "personalRequestedAmountpt3",
-                                  "personalOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Wnioskowana dotacja PISF",
-                          "name": "personalRequestedAmountpt3",
-                          "dataBDD": "personalRequestedAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedFractionGTEValidator",
-                              "kwargs": {
-                                "field_name": "pisfSupportAmountTotal",
-                                "ratio": 0.35
-                              },
-                              "validationMsg": "Kwota dofinansowania dla tego kosztu nie może przekroczyć 35% kwoty wnioskowanej."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "readOnly": false,
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Pozostałe środki",
-                          "name": "personalOtherFundsAmountpt3",
-                          "dataBDD": "personalOtherFundsAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        }
-                      ],
-                      "helpText": "Wszelkie koszty osobowe nieujęte w pozostałych pozycjach. Koszty osobowe nie mogą przekroczyć 35,00% ogólnej kwoty wnioskowanej. W przypadku uzyskania dofinansowania koszty o których mowa powyżej nie mogą przekroczyć 35,00% przyznanej dotacji.",
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    },
-                    {
-                      "kind": "chapter",
-                      "title": "4. Konsultacje eksperckie",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "",
-                          "name": "expertConsultationDescpt3",
-                          "dataBDD": "expertConsultationDescpt3",
-                          "value": "4. Konsultacje eksperckie",
-                          "readOnly": true,
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend",
-                            "full-width",
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt ogółem",
-                          "name": "expertConsultationSumAmountpt3",
-                          "dataBDD": "expertConsultationSumAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "readOnly": true,
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "expertConsultationRequestedAmountpt3",
-                                  "expertConsultationOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "calculationRules": [
-                            {
-                              "name": "dynamicSumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "expertConsultationRequestedAmountpt3",
-                                  "expertConsultationOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Wnioskowana dotacja PISF",
-                          "name": "expertConsultationRequestedAmountpt3",
-                          "dataBDD": "expertConsultationRequestedAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Pozostałe środki",
-                          "name": "expertConsultationOtherFundsAmountpt3",
-                          "dataBDD": "expertConsultationOtherFundsAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        }
-                      ],
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    }
-                  ],
-                  "classList": {
-                    "sub": [
-                      "table-1-2-top"
-                    ]
-                  }
-                },
-                {
-                  "kind": "chapter",
-                  "title": "<p style=\"color: #e00d1d\">II. Koszty przygotowania i publikacji<p>",
-                  "components": [
-                    {
-                      "kind": "chapter",
-                      "title": "1. Usługi graficzne, fotograficzne i typograficzne",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "",
-                          "name": "graphicPhotoTypographyDescpt3",
-                          "dataBDD": "graphicPhotoTypographyDescpt3",
-                          "value": "1. Usługi graficzne, fotograficzne i typograficzne",
-                          "readOnly": true,
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend",
-                            "full-width",
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt ogółem",
-                          "name": "graphicPhotoTypographySumAmountpt3",
-                          "dataBDD": "graphicPhotoTypographySumAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "readOnly": true,
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "graphicPhotoTypographyRequestedAmountpt3",
-                                  "graphicPhotoTypographyOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "calculationRules": [
-                            {
-                              "name": "dynamicSumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "graphicPhotoTypographyRequestedAmountpt3",
-                                  "graphicPhotoTypographyOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Wnioskowana dotacja PISF",
-                          "name": "graphicPhotoTypographyRequestedAmountpt3",
-                          "dataBDD": "graphicPhotoTypographyRequestedAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Pozostałe środki",
-                          "name": "graphicPhotoTypographyOtherFundsAmountpt3",
-                          "dataBDD": "graphicPhotoTypographyOtherFundsAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        }
-                      ],
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    },
-                    {
-                      "kind": "chapter",
-                      "title": "2. Usługi wydawnicze i poligraficzne",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "",
-                          "name": "publishingPrintingDescpt3",
-                          "dataBDD": "publishingPrintingDescpt3",
-                          "value": "2. Usługi wydawnicze i poligraficzne",
-                          "readOnly": true,
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend",
-                            "full-width",
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt ogółem",
-                          "name": "publishingPrintingSumAmountpt3",
-                          "dataBDD": "publishingPrintingSumAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "readOnly": true,
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "publishingPrintingRequestedAmountpt3",
-                                  "publishingPrintingOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "calculationRules": [
-                            {
-                              "name": "dynamicSumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "publishingPrintingRequestedAmountpt3",
-                                  "publishingPrintingOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Wnioskowana dotacja PISF",
-                          "name": "publishingPrintingRequestedAmountpt3",
-                          "dataBDD": "publishingPrintingRequestedAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Pozostałe środki",
-                          "name": "publishingPrintingOtherFundsAmountpt3",
-                          "dataBDD": "publishingPrintingOtherFundsAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        }
-                      ],
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    },
-                    {
-                      "kind": "chapter",
-                      "title": "3. Przygotowanie wersji cyfrowych",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "",
-                          "name": "digitalVersionsDescpt3",
-                          "dataBDD": "digitalVersionsDescpt3",
-                          "value": "3. Przygotowanie wersji cyfrowych",
-                          "readOnly": true,
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend",
-                            "full-width",
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt ogółem",
-                          "name": "digitalVersionsSumAmountpt3",
-                          "dataBDD": "digitalVersionsSumAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "readOnly": true,
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "digitalVersionsRequestedAmountpt3",
-                                  "digitalVersionsOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "calculationRules": [
-                            {
-                              "name": "dynamicSumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "digitalVersionsRequestedAmountpt3",
-                                  "digitalVersionsOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Wnioskowana dotacja PISF",
-                          "name": "digitalVersionsRequestedAmountpt3",
-                          "dataBDD": "digitalVersionsRequestedAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Pozostałe środki",
-                          "name": "digitalVersionsOtherFundsAmountpt3",
-                          "dataBDD": "digitalVersionsOtherFundsAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        }
-                      ],
-                      "helpText": "E-book, audiobook.",
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    },
-                    {
-                      "kind": "chapter",
-                      "title": "4. Opracowanie muzyczne",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "",
-                          "name": "musicalArrangementDescpt3",
-                          "dataBDD": "musicalArrangementDescpt3",
-                          "value": "4. Opracowanie muzyczne",
-                          "readOnly": true,
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend",
-                            "full-width",
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt ogółem",
-                          "name": "musicalArrangementSumAmountpt3",
-                          "dataBDD": "musicalArrangementSumAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "readOnly": true,
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "musicalArrangementRequestedAmountpt3",
-                                  "musicalArrangementOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "calculationRules": [
-                            {
-                              "name": "dynamicSumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "musicalArrangementRequestedAmountpt3",
-                                  "musicalArrangementOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Wnioskowana dotacja PISF",
-                          "name": "musicalArrangementRequestedAmountpt3",
-                          "dataBDD": "musicalArrangementRequestedAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Pozostałe środki",
-                          "name": "musicalArrangementOtherFundsAmountpt3",
-                          "dataBDD": "musicalArrangementOtherFundsAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        }
-                      ],
-                      "helpText": "Nagranie, mastering, digitalizacjia.",
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    },
-                    {
-                      "kind": "chapter",
-                      "title": "5. Obsługa i utrzymanie serwisu internetowego",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "",
-                          "name": "websiteMaintenanceDescpt3",
-                          "dataBDD": "websiteMaintenanceDescpt3",
-                          "value": "5. Obsługa i utrzymanie serwisu internetowego",
-                          "readOnly": true,
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend",
-                            "full-width",
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt ogółem",
-                          "name": "websiteMaintenanceSumAmountpt3",
-                          "dataBDD": "websiteMaintenanceSumAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "readOnly": true,
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "websiteMaintenanceRequestedAmountpt3",
-                                  "websiteMaintenanceOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "calculationRules": [
-                            {
-                              "name": "dynamicSumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "websiteMaintenanceRequestedAmountpt3",
-                                  "websiteMaintenanceOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Wnioskowana dotacja PISF",
-                          "name": "websiteMaintenanceRequestedAmountpt3",
-                          "dataBDD": "websiteMaintenanceRequestedAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Pozostałe środki",
-                          "name": "websiteMaintenanceOtherFundsAmountpt3",
-                          "dataBDD": "websiteMaintenanceOtherFundsAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        }
-                      ],
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    },
-                    {
-                      "kind": "chapter",
-                      "title": "6. Tłumaczenia",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "",
-                          "name": "translationDescpt3",
-                          "dataBDD": "translationDescpt3",
-                          "value": "6. Tłumaczenia",
-                          "readOnly": true,
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend",
-                            "full-width",
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt ogółem",
-                          "name": "translationSumAmountpt3",
-                          "dataBDD": "translationSumAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "readOnly": true,
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "translationRequestedAmountpt3",
-                                  "translationOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "calculationRules": [
-                            {
-                              "name": "dynamicSumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "translationRequestedAmountpt3",
-                                  "translationOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Wnioskowana dotacja PISF",
-                          "name": "translationRequestedAmountpt3",
-                          "dataBDD": "translationRequestedAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Pozostałe środki",
-                          "name": "translationOtherFundsAmountpt3",
-                          "dataBDD": "translationOtherFundsAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        }
-                      ],
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    },
-                    {
-                      "kind": "chapter",
-                      "title": "7. Obsługa PR, promocja i reklama",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "",
-                          "name": "prServiceDescpt3",
-                          "dataBDD": "prServiceDescpt3",
-                          "value": "7. Obsługa PR, promocja i reklama",
-                          "readOnly": true,
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend",
-                            "full-width",
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt ogółem",
-                          "name": "prServiceSumAmountpt3",
-                          "dataBDD": "prServiceSumAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "readOnly": true,
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "prServiceRequestedAmountpt3",
-                                  "prServiceOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "calculationRules": [
-                            {
-                              "name": "dynamicSumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "prServiceRequestedAmountpt3",
-                                  "prServiceOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Wnioskowana dotacja PISF",
-                          "name": "prServiceRequestedAmountpt3",
-                          "dataBDD": "prServiceRequestedAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Pozostałe środki",
-                          "name": "prServiceOtherFundsAmountpt3",
-                          "dataBDD": "prServiceOtherFundsAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        }
-                      ],
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    },
-                    {
-                      "kind": "chapter",
-                      "title": "8. Dystrybucja",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "",
-                          "name": "distributionDescpt3",
-                          "dataBDD": "distributionDescpt3",
-                          "value": "8. Dystrybucja",
-                          "readOnly": true,
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend",
-                            "full-width",
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt ogółem",
-                          "name": "distributionSumAmountpt3",
-                          "dataBDD": "distributionSumAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "readOnly": true,
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "distributionRequestedAmountpt3",
-                                  "distributionOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "calculationRules": [
-                            {
-                              "name": "dynamicSumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "distributionRequestedAmountpt3",
-                                  "distributionOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Wnioskowana dotacja PISF",
-                          "name": "distributionRequestedAmountpt3",
-                          "dataBDD": "distributionRequestedAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Pozostałe środki",
-                          "name": "distributionOtherFundsAmountpt3",
-                          "dataBDD": "distributionOtherFundsAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        }
-                      ],
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    }
-                  ],
-                  "classList": {
-                    "sub": [
-                      "table-1-2-top"
-                    ]
-                  }
-                },
-                {
-                  "kind": "chapter",
-                  "title": "<p style=\"color: #e00d1d\">III. Koszty prawne i organizacyjne<p>",
-                  "components": [
-                    {
-                      "kind": "chapter",
-                      "title": "1. Obsługa prawna i finansowa",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "",
-                          "name": "legalFinancialServiceDescpt3",
-                          "dataBDD": "legalFinancialServiceDescpt3",
-                          "value": "1. Obsługa prawna i finansowa",
-                          "readOnly": true,
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend",
-                            "full-width",
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt ogółem",
-                          "name": "legalFinancialServiceSumAmountpt3",
-                          "dataBDD": "legalFinancialServiceSumAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "readOnly": true,
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "legalFinancialServiceRequestedAmountpt3",
-                                  "legalFinancialServiceOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "calculationRules": [
-                            {
-                              "name": "dynamicSumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "legalFinancialServiceRequestedAmountpt3",
-                                  "legalFinancialServiceOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Wnioskowana dotacja PISF",
-                          "name": "legalFinancialServiceRequestedAmountpt3",
-                          "dataBDD": "legalFinancialServiceRequestedAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Pozostałe środki",
-                          "name": "legalFinancialServiceOtherFundsAmountpt3",
-                          "dataBDD": "legalFinancialServiceOtherFundsAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        }
-                      ],
-                      "helpText": "W tym koszty związane z otwarciem i prowadzeniem rachunku bankowego wyłącznie dla operacji finansowych związanych z realizacją przedsięwzięcia. Koszty prowadzenia księgowości związanej z realizacją przedsięwzięcia. Wszystkie koszty muszą być udokumentowane rachunkiem lub fakturą z opisem potwierdzającym związek z przedsięwzięciem.",
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    },
-                    {
-                      "kind": "chapter",
-                      "title": "2. Koszty nabycia praw",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "",
-                          "name": "rightsAcquisitionDescpt3",
-                          "dataBDD": "rightsAcquisitionDescpt3",
-                          "value": "2. Koszty nabycia praw",
-                          "readOnly": true,
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend",
-                            "full-width",
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt ogółem",
-                          "name": "rightsAcquisitionSumAmountpt3",
-                          "dataBDD": "rightsAcquisitionSumAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "readOnly": true,
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "rightsAcquisitionRequestedAmountpt3",
-                                  "rightsAcquisitionOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "calculationRules": [
-                            {
-                              "name": "dynamicSumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "rightsAcquisitionRequestedAmountpt3",
-                                  "rightsAcquisitionOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Wnioskowana dotacja PISF",
-                          "name": "rightsAcquisitionRequestedAmountpt3",
-                          "dataBDD": "rightsAcquisitionRequestedAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Pozostałe środki",
-                          "name": "rightsAcquisitionOtherFundsAmountpt3",
-                          "dataBDD": "rightsAcquisitionOtherFundsAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        }
-                      ],
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    },
-                    {
-                      "kind": "chapter",
-                      "title": "3. Koszty przejazdów i noclegów osób współpracujących przy przedsięwzięciu",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "",
-                          "name": "travelAccommodationDescpt3",
-                          "dataBDD": "travelAccommodationDescpt3",
-                          "value": "3. Koszty przejazdów i noclegów osób współpracujących przy przedsięwzięciu",
-                          "readOnly": true,
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend",
-                            "full-width",
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt ogółem",
-                          "name": "travelAccommodationSumAmountpt3",
-                          "dataBDD": "travelAccommodationSumAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "readOnly": true,
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "travelAccommodationRequestedAmountpt3",
-                                  "travelAccommodationOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "calculationRules": [
-                            {
-                              "name": "dynamicSumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "travelAccommodationRequestedAmountpt3",
-                                  "travelAccommodationOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Wnioskowana dotacja PISF",
-                          "name": "travelAccommodationRequestedAmountpt3",
-                          "dataBDD": "travelAccommodationRequestedAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Pozostałe środki",
-                          "name": "travelAccommodationOtherFundsAmountpt3",
-                          "dataBDD": "travelAccommodationOtherFundsAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        }
-                      ],
-                      "helpText": "Koszty udokumentowane wyłącznie fakturami lub biletami (jeśli brak faktury). W przypadku podróży lotniczych – tylko bilety w klasie ekonomicznej, W przypadku paliwa – wyłącznie koszty paliwa do samochodów wykorzystywanych do realizacji przedsięwzięcia (środek trwały, leasing, najem), Z dotacji PISF nie są pokrywane koszty podróży zagranicznych.",
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    },
-                    {
-                      "kind": "chapter",
-                      "title": "4. Ewaluacja przedsięwzięcia",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "",
-                          "name": "evaluationDescpt3",
-                          "dataBDD": "evaluationDescpt3",
-                          "value": "4. Ewaluacja przedsięwzięcia",
-                          "readOnly": true,
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend",
-                            "full-width",
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt ogółem",
-                          "name": "evaluationSumAmountpt3",
-                          "dataBDD": "evaluationSumAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "readOnly": true,
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "evaluationRequestedAmountpt3",
-                                  "evaluationOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "calculationRules": [
-                            {
-                              "name": "dynamicSumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "evaluationRequestedAmountpt3",
-                                  "evaluationOtherFundsAmountpt3"
-                                ]
-                              }
-                            }
-                          ],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Wnioskowana dotacja PISF",
-                          "name": "evaluationRequestedAmountpt3",
-                          "dataBDD": "evaluationRequestedAmountpt3",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ],
-                          "calculationRules": [],
-                          "classList": [
-                            "no-label"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Pozostałe środki",
-                          "name": "evaluationOtherFundsAmountpt3",
-                          "dataBDD": "evaluationOtherFundsAmountpt3",
+                          "name": "evaluationOtherFundsAmount",
+                          "dataBDD": "evaluationOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -9448,8 +7205,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "",
-                          "name": "digitalAccessibilityDescpt3",
-                          "dataBDD": "digitalAccessibilityDescpt3",
+                          "name": "digitalAccessibilityDesc",
+                          "dataBDD": "digitalAccessibilityDesc",
                           "value": "1. Dostosowanie działań i formy przekazu do osób ze szczególnymi potrzebami, w tym osób z niepełnosprawnościami",
                           "readOnly": true,
                           "classList": [
@@ -9463,8 +7220,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Koszt ogółem",
-                          "name": "digitalAccessibilitySumAmountpt3",
-                          "dataBDD": "digitalAccessibilitySumAmountpt3",
+                          "name": "digitalAccessibilitySumAmount",
+                          "dataBDD": "digitalAccessibilitySumAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -9481,8 +7238,8 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "digitalAccessibilityRequestedAmountpt3",
-                                  "digitalAccessibilityOtherFundsAmountpt3"
+                                  "digitalAccessibilityRequestedAmount",
+                                  "digitalAccessibilityOtherFundsAmount"
                                 ]
                               }
                             }
@@ -9492,8 +7249,8 @@
                               "name": "dynamicSumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "digitalAccessibilityRequestedAmountpt3",
-                                  "digitalAccessibilityOtherFundsAmountpt3"
+                                  "digitalAccessibilityRequestedAmount",
+                                  "digitalAccessibilityOtherFundsAmount"
                                 ]
                               }
                             }
@@ -9506,8 +7263,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Wnioskowana dotacja PISF",
-                          "name": "digitalAccessibilityRequestedAmountpt3",
-                          "dataBDD": "digitalAccessibilityRequestedAmountpt3",
+                          "name": "digitalAccessibilityRequestedAmount",
+                          "dataBDD": "digitalAccessibilityRequestedAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -9529,8 +7286,8 @@
                           "kind": "component",
                           "type": "text",
                           "label": "Pozostałe środki",
-                          "name": "digitalAccessibilityOtherFundsAmountpt3",
-                          "dataBDD": "digitalAccessibilityOtherFundsAmountpt3",
+                          "name": "digitalAccessibilityOtherFundsAmount",
+                          "dataBDD": "digitalAccessibilityOtherFundsAmount",
                           "value": 0,
                           "mask": "fund",
                           "unit": "PLN",
@@ -9576,8 +7333,8 @@
                       "kind": "component",
                       "type": "text",
                       "label": "Koszt ogółem",
-                      "name": "totalSumAmountpt3",
-                      "dataBDD": "totalSumAmountpt3",
+                      "name": "totalSumAmount",
+                      "dataBDD": "totalSumAmount",
                       "value": 0,
                       "mask": "fund",
                       "unit": "PLN",
@@ -9594,23 +7351,24 @@
                           "name": "RelatedSumValidator",
                           "kwargs": {
                             "field_names": [
-                              "projectManagementSumAmountpt3",
-                              "publicationEditingSumAmountpt3",
-                              "personalSumAmountpt3",
-                              "expertConsultationSumAmountpt3",
-                              "graphicPhotoTypographySumAmountpt3",
-                              "publishingPrintingSumAmountpt3",
-                              "digitalVersionsSumAmountpt3",
-                              "musicalArrangementSumAmountpt3",
-                              "websiteMaintenanceSumAmountpt3",
-                              "translationSumAmountpt3",
-                              "prServiceSumAmountpt3",
-                              "distributionSumAmountpt3",
-                              "legalFinancialServiceSumAmountpt3",
-                              "rightsAcquisitionSumAmountpt3",
-                              "travelAccommodationSumAmountpt3",
-                              "evaluationSumAmountpt3",
-                              "digitalAccessibilitySumAmountpt3"
+                              "projectManagementSumAmount",
+                              "publicationEditingSumAmount",
+                              "personalSumAmount",
+                              "expertConsultationSumAmount",
+                              "graphicPhotoTypographySumAmount",
+                              "publishingPrintingSumAmount",
+                              "digitalVersionsSumAmount",
+                              "musicalArrangementSumAmount",
+                              "websiteMaintenanceSumAmount",
+                              "translationSumAmount",
+                              "commercialsSumAmount",
+                              "distributionSumAmount",
+                              "financialServiceSumAmount",
+                              "legalServiceSumAmount",
+                              "rightsAcquisitionSumAmount",
+                              "travelAccommodationSumAmount",
+                              "evaluationSumAmount",
+                              "digitalAccessibilitySumAmount"
                             ]
                           }
                         },
@@ -9628,23 +7386,24 @@
                           "name": "dynamicSumInputs",
                           "kwargs": {
                             "fields": [
-                              "projectManagementSumAmountpt3",
-                              "publicationEditingSumAmountpt3",
-                              "personalSumAmountpt3",
-                              "expertConsultationSumAmountpt3",
-                              "graphicPhotoTypographySumAmountpt3",
-                              "publishingPrintingSumAmountpt3",
-                              "digitalVersionsSumAmountpt3",
-                              "musicalArrangementSumAmountpt3",
-                              "websiteMaintenanceSumAmountpt3",
-                              "translationSumAmountpt3",
-                              "prServiceSumAmountpt3",
-                              "distributionSumAmountpt3",
-                              "legalFinancialServiceSumAmountpt3",
-                              "rightsAcquisitionSumAmountpt3",
-                              "travelAccommodationSumAmountpt3",
-                              "evaluationSumAmountpt3",
-                              "digitalAccessibilitySumAmountpt3"
+                              "projectManagementSumAmount",
+                              "publicationEditingSumAmount",
+                              "personalSumAmount",
+                              "expertConsultationSumAmount",
+                              "graphicPhotoTypographySumAmount",
+                              "publishingPrintingSumAmount",
+                              "digitalVersionsSumAmount",
+                              "musicalArrangementSumAmount",
+                              "websiteMaintenanceSumAmount",
+                              "translationSumAmount",
+                              "commercialsSumAmount",
+                              "distributionSumAmount",
+                              "financialServiceSumAmount",
+                              "legalServiceSumAmount",
+                              "rightsAcquisitionSumAmount",
+                              "travelAccommodationSumAmount",
+                              "evaluationSumAmount",
+                              "digitalAccessibilitySumAmount"
                             ]
                           }
                         }
@@ -9654,8 +7413,8 @@
                       "kind": "component",
                       "type": "text",
                       "label": "Wnioskowana dotacja PISF ogółem",
-                      "name": "totalRequestedAmountpt3",
-                      "dataBDD": "totalRequestedAmountpt3",
+                      "name": "totalRequestedAmount",
+                      "dataBDD": "totalRequestedAmount",
                       "value": 0,
                       "mask": "fund",
                       "unit": "PLN",
@@ -9672,23 +7431,24 @@
                           "name": "RelatedSumValidator",
                           "kwargs": {
                             "field_names": [
-                              "projectManagementRequestedAmountpt3",
-                              "publicationEditingRequestedAmountpt3",
-                              "personalRequestedAmountpt3",
-                              "expertConsultationRequestedAmountpt3",
-                              "graphicPhotoTypographyRequestedAmountpt3",
-                              "publishingPrintingRequestedAmountpt3",
-                              "digitalVersionsRequestedAmountpt3",
-                              "musicalArrangementRequestedAmountpt3",
-                              "websiteMaintenanceRequestedAmountpt3",
-                              "translationRequestedAmountpt3",
-                              "prServiceRequestedAmountpt3",
-                              "distributionRequestedAmountpt3",
-                              "legalFinancialServiceRequestedAmountpt3",
-                              "rightsAcquisitionRequestedAmountpt3",
-                              "travelAccommodationRequestedAmountpt3",
-                              "evaluationRequestedAmountpt3",
-                              "digitalAccessibilityRequestedAmountpt3"
+                              "projectManagementRequestedAmount",
+                              "publicationEditingRequestedAmount",
+                              "personalRequestedAmount",
+                              "expertConsultationRequestedAmount",
+                              "graphicPhotoTypographyRequestedAmount",
+                              "publishingPrintingRequestedAmount",
+                              "digitalVersionsRequestedAmount",
+                              "musicalArrangementRequestedAmount",
+                              "websiteMaintenanceRequestedAmount",
+                              "translationRequestedAmount",
+                              "commercialsRequestedAmount",
+                              "distributionRequestedAmount",
+                              "financialServiceRequestedAmount",
+                              "legalServiceRequestedAmount",
+                              "rightsAcquisitionRequestedAmount",
+                              "travelAccommodationRequestedAmount",
+                              "evaluationRequestedAmount",
+                              "digitalAccessibilityRequestedAmount"
                             ]
                           }
                         },
@@ -9706,23 +7466,24 @@
                           "name": "dynamicSumInputs",
                           "kwargs": {
                             "fields": [
-                              "projectManagementRequestedAmountpt3",
-                              "publicationEditingRequestedAmountpt3",
-                              "personalRequestedAmountpt3",
-                              "expertConsultationRequestedAmountpt3",
-                              "graphicPhotoTypographyRequestedAmountpt3",
-                              "publishingPrintingRequestedAmountpt3",
-                              "digitalVersionsRequestedAmountpt3",
-                              "musicalArrangementRequestedAmountpt3",
-                              "websiteMaintenanceRequestedAmountpt3",
-                              "translationRequestedAmountpt3",
-                              "prServiceRequestedAmountpt3",
-                              "distributionRequestedAmountpt3",
-                              "legalFinancialServiceRequestedAmountpt3",
-                              "rightsAcquisitionRequestedAmountpt3",
-                              "travelAccommodationRequestedAmountpt3",
-                              "evaluationRequestedAmountpt3",
-                              "digitalAccessibilityRequestedAmountpt3"
+                              "projectManagementRequestedAmount",
+                              "publicationEditingRequestedAmount",
+                              "personalRequestedAmount",
+                              "expertConsultationRequestedAmount",
+                              "graphicPhotoTypographyRequestedAmount",
+                              "publishingPrintingRequestedAmount",
+                              "digitalVersionsRequestedAmount",
+                              "musicalArrangementRequestedAmount",
+                              "websiteMaintenanceRequestedAmount",
+                              "translationRequestedAmount",
+                              "commercialsRequestedAmount",
+                              "distributionRequestedAmount",
+                              "financialServiceRequestedAmount",
+                              "legalServiceRequestedAmount",
+                              "rightsAcquisitionRequestedAmount",
+                              "travelAccommodationRequestedAmount",
+                              "evaluationRequestedAmount",
+                              "digitalAccessibilityRequestedAmount"
                             ]
                           }
                         }
@@ -9732,8 +7493,8 @@
                       "kind": "component",
                       "type": "text",
                       "label": "Pozostałe środki ogółem",
-                      "name": "totalOtherFundsAmountpt3",
-                      "dataBDD": "totalOtherFundsAmountpt3",
+                      "name": "totalOtherFundsAmount",
+                      "dataBDD": "totalOtherFundsAmount",
                       "value": 0,
                       "mask": "fund",
                       "unit": "PLN",
@@ -9750,23 +7511,24 @@
                           "name": "RelatedSumValidator",
                           "kwargs": {
                             "field_names": [
-                              "projectManagementOtherFundsAmountpt3",
-                              "publicationEditingOtherFundsAmountpt3",
-                              "personalOtherFundsAmountpt3",
-                              "expertConsultationOtherFundsAmountpt3",
-                              "graphicPhotoTypographyOtherFundsAmountpt3",
-                              "publishingPrintingOtherFundsAmountpt3",
-                              "digitalVersionsOtherFundsAmountpt3",
-                              "musicalArrangementOtherFundsAmountpt3",
-                              "websiteMaintenanceOtherFundsAmountpt3",
-                              "translationOtherFundsAmountpt3",
-                              "prServiceOtherFundsAmountpt3",
-                              "distributionOtherFundsAmountpt3",
-                              "legalFinancialServiceOtherFundsAmountpt3",
-                              "rightsAcquisitionOtherFundsAmountpt3",
-                              "travelAccommodationOtherFundsAmountpt3",
-                              "evaluationOtherFundsAmountpt3",
-                              "digitalAccessibilityOtherFundsAmountpt3"
+                              "projectManagementOtherFundsAmount",
+                              "publicationEditingOtherFundsAmount",
+                              "personalOtherFundsAmount",
+                              "expertConsultationOtherFundsAmount",
+                              "graphicPhotoTypographyOtherFundsAmount",
+                              "publishingPrintingOtherFundsAmount",
+                              "digitalVersionsOtherFundsAmount",
+                              "musicalArrangementOtherFundsAmount",
+                              "websiteMaintenanceOtherFundsAmount",
+                              "translationOtherFundsAmount",
+                              "commercialsOtherFundsAmount",
+                              "distributionOtherFundsAmount",
+                              "financialServiceOtherFundsAmount",
+                              "legalServiceOtherFundsAmount",
+                              "rightsAcquisitionOtherFundsAmount",
+                              "travelAccommodationOtherFundsAmount",
+                              "evaluationOtherFundsAmount",
+                              "digitalAccessibilityOtherFundsAmount"
                             ]
                           }
                         }
@@ -9776,23 +7538,24 @@
                           "name": "dynamicSumInputs",
                           "kwargs": {
                             "fields": [
-                              "projectManagementOtherFundsAmountpt3",
-                              "publicationEditingOtherFundsAmountpt3",
-                              "personalOtherFundsAmountpt3",
-                              "expertConsultationOtherFundsAmountpt3",
-                              "graphicPhotoTypographyOtherFundsAmountpt3",
-                              "publishingPrintingOtherFundsAmountpt3",
-                              "digitalVersionsOtherFundsAmountpt3",
-                              "musicalArrangementOtherFundsAmountpt3",
-                              "websiteMaintenanceOtherFundsAmountpt3",
-                              "translationOtherFundsAmountpt3",
-                              "prServiceOtherFundsAmountpt3",
-                              "distributionOtherFundsAmountpt3",
-                              "legalFinancialServiceOtherFundsAmountpt3",
-                              "rightsAcquisitionOtherFundsAmountpt3",
-                              "travelAccommodationOtherFundsAmountpt3",
-                              "evaluationOtherFundsAmountpt3",
-                              "digitalAccessibilityOtherFundsAmountpt3"
+                              "projectManagementOtherFundsAmount",
+                              "publicationEditingOtherFundsAmount",
+                              "personalOtherFundsAmount",
+                              "expertConsultationOtherFundsAmount",
+                              "graphicPhotoTypographyOtherFundsAmount",
+                              "publishingPrintingOtherFundsAmount",
+                              "digitalVersionsOtherFundsAmount",
+                              "musicalArrangementOtherFundsAmount",
+                              "websiteMaintenanceOtherFundsAmount",
+                              "translationOtherFundsAmount",
+                              "commercialsOtherFundsAmount",
+                              "distributionOtherFundsAmount",
+                              "financialServiceOtherFundsAmount",
+                              "legalServiceOtherFundsAmount",
+                              "rightsAcquisitionOtherFundsAmount",
+                              "travelAccommodationOtherFundsAmount",
+                              "evaluationOtherFundsAmount",
+                              "digitalAccessibilityOtherFundsAmount"
                             ]
                           }
                         }

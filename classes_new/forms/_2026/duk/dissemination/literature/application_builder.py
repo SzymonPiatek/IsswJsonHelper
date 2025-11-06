@@ -1,6 +1,6 @@
 from classes_new.forms._2026.duk.dissemination.application_builder import DisseminationOperationalProgramApplicationFormBuilder
 from classes_new.forms._2026.duk.pisf_structure import LiteraturePriority
-from .estimate_data import estimate_sections_pt_12, estimate_sections_pt_3
+from .estimate_data import estimate_sections_pt
 from classes_new.forms._2026.duk.estimate.application_estimate_builder import DUKApplicationEstimateBuilder
 
 
@@ -24,12 +24,10 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
         self.source_of_financing_tickets = True
 
         # Estimate
-        estimate_builder_pt_12 = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections_pt_12, after_name="pt12")
-        estimate_builder_pt_3 = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections_pt_3, after_name="pt3")
+        estimate_builder_pt = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections_pt)
 
         self.estimate_chapters = [
-            estimate_builder_pt_12.generate_estimate(),
-            estimate_builder_pt_3.generate_estimate()
+            estimate_builder_pt.generate_estimate(),
         ]
 
     def create_application_scope_of_project(self, number):
