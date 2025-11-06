@@ -14894,6 +14894,7 @@
                                 }
                               ],
                               "calculationRules": [],
+                              "readOnly": true,
                               "classList": [
                                 "no-label"
                               ]

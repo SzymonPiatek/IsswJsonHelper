@@ -1,4 +1,4 @@
-from classes_new.forms._2026.duk.estimate.dataclasses_definitions import EstimateSection, CostItem
+from classes_new.forms._2026.duk.estimate.dataclasses_definitions import EstimateSection, CostItem, CostOverride
 from classes_new.forms._2026.duk.estimate.helpers import fraction_cost
 from dataclasses import asdict
 
@@ -82,7 +82,11 @@ estimate_sections = [
                 title="Koszty składki Polskiej Federacji Dyskusyjnych Klubów Filmowych",
                 name="pfdkfFee",
                 helpText="Pokrywana wyłącznie ze środków własnych Wnioskodawcy lub z innych źródeł finansowania.",
-                # TODO readonly na requestAmount
+                overrides={
+                    "RequestedAmount": CostOverride(
+                        readOnly=True,
+                    )
+                }
             ),
         ],
     ),

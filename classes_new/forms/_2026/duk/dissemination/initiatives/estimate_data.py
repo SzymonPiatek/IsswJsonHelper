@@ -261,7 +261,11 @@ estimate_sections_pt3 = [
                 title="Działalność Rady Kin Studyjnych",
                 name="organizationActivitiesOfArthouseCinemaCouncil",
                 helpText="Pokrywane wyłącznie ze środków Wnioskodawcy.",
-                # TODO add override na requested amount readOnly
+                overrides={
+                    "RequestedAmount": CostOverride(
+                        readOnly=True,
+                    )
+                }
             )
         ],
     ),
