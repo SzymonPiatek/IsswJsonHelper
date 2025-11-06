@@ -17,10 +17,10 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
 
         # Variables
         self.project_type = [
-            "Podnoszenie kwalifikacji i kompetencji zawodowych przedstawicieli wszystkich grup zawodowych sektora audiowizualnego poprzez organizację szkoleń, warsztatów, kursów oraz innych form doskonalenia zawodowego, w tym programów długoterminowych.",
-            "Kształcenie w kierunku zdobycia dodatkowych umiejętności i zawodów związanych z potrzebami współczesnego rynku audiowizualnego.",
-            "Organizacja kursów nauki języków obcych dla przedstawicieli zawodów filmowych.",
-            "Inne działania, realizujące cele Priorytetu III."
+            "Podnoszenie kwalifikacji i kompetencji zawodowych przedstawicieli wszystkich grup zawodowych sektora audiowizualnego poprzez organizację szkoleń, warsztatów, kursów oraz innych form doskonalenia zawodowego, w tym programów długoterminowych",
+            "Kształcenie w kierunku zdobycia dodatkowych umiejętności i zawodów związanych z potrzebami współczesnego rynku audiowizualnego",
+            "Organizacja kursów nauki języków obcych dla przedstawicieli zawodów filmowych",
+            "Inne działania, realizujące cele Priorytetu III"
         ]
 
         # Estimate
@@ -38,9 +38,9 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
                     self.visibility_rule.depends_on_value(
                         field_name="projectType",
                         values=[
-                            "Podnoszenie kwalifikacji i kompetencji zawodowych przedstawicieli wszystkich grup zawodowych sektora audiowizualnego poprzez organizację szkoleń, warsztatów, kursów oraz innych form doskonalenia zawodowego, w tym programów długoterminowych.",
-                            "Kształcenie w kierunku zdobycia dodatkowych umiejętności i zawodów związanych z potrzebami współczesnego rynku audiowizualnego.",
-                            "Inne działania, realizujące cele Priorytetu III."
+                            "Podnoszenie kwalifikacji i kompetencji zawodowych przedstawicieli wszystkich grup zawodowych sektora audiowizualnego poprzez organizację szkoleń, warsztatów, kursów oraz innych form doskonalenia zawodowego, w tym programów długoterminowych",
+                            "Kształcenie w kierunku zdobycia dodatkowych umiejętności i zawodów związanych z potrzebami współczesnego rynku audiowizualnego",
+                            "Inne działania, realizujące cele Priorytetu III"
                         ]
                     )
                 ],
@@ -53,7 +53,7 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
                     self.visibility_rule.depends_on_value(
                         field_name="projectType",
                         values=[
-                            "Organizacja kursów nauki języków obcych dla przedstawicieli zawodów filmowych."
+                            "Organizacja kursów nauki języków obcych dla przedstawicieli zawodów filmowych"
                         ]
                     )
                 ],

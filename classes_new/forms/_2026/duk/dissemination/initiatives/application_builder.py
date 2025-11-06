@@ -18,10 +18,10 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
 
         # Variables
         self.project_type = [
-            "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową.",
-            "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie.",
-            "Działalność Sieci Kin Studyjnych.",
-            "Inne działania realizujące cele Priorytetu II."
+            "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową",
+            "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie",
+            "Działalność Sieci Kin Studyjnych",
+            "Inne działania realizujące cele Priorytetu II"
         ]
         self.source_of_financing_tickets = True
 
@@ -40,9 +40,9 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                     self.visibility_rule.depends_on_value(
                         field_name="projectType",
                         values=[
-                            "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową.",
-                            "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie.",
-                            "Inne działania realizujące cele Priorytetu II."
+                            "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową",
+                            "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie",
+                            "Inne działania realizujące cele Priorytetu II"
                         ]
                     )
                 ],
@@ -55,7 +55,7 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                     self.visibility_rule.depends_on_value(
                         field_name="projectType",
                         values=[
-                            "Działalność Sieci Kin Studyjnych."
+                            "Działalność Sieci Kin Studyjnych"
                         ]
                     )
                 ],
@@ -93,7 +93,7 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                                 self.visibility_rule.depends_on_value(
                                     field_name="projectType",
                                     values=[
-                                        "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową.",
+                                        "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową",
                                     ]
                                 )
                             ],
@@ -118,9 +118,9 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                         self.visibility_rule.depends_on_value(
                             field_name="projectType",
                             values=[
-                                "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową.",
-                                "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie.",
-                                "Inne działania realizujące cele Priorytetu II."
+                                "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową",
+                                "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie",
+                                "Inne działania realizujące cele Priorytetu II"
                             ]
                         )
                     ],
@@ -320,7 +320,7 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                                         self.visibility_rule.depends_on_value(
                                             field_name="projectType",
                                             values=[
-                                                "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową.",
+                                                "Organizacja przeglądów, konkursów, wystaw i innych wydarzeń filmowych promujących sztukę filmową",
                                             ]
                                         ),
                                     ],
@@ -529,7 +529,7 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                                         self.visibility_rule.depends_on_value(
                                             field_name="projectType",
                                             values=[
-                                                "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie.",
+                                                "Organizacja kongresów, konferencji, sympozjów i innych działań edukacyjnych pogłębiających wiedzę o filmie",
                                             ]
                                         ),
                                     ],
@@ -581,7 +581,7 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                                         self.visibility_rule.depends_on_value(
                                             field_name="projectType",
                                             values=[
-                                                "Inne działania realizujące cele Priorytetu II."
+                                                "Inne działania realizujące cele Priorytetu II"
                                             ]
                                         ),
                                     ],
@@ -700,7 +700,7 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                         self.visibility_rule.depends_on_value(
                             field_name="projectType",
                             values=[
-                                "Działalność Sieci Kin Studyjnych."
+                                "Działalność Sieci Kin Studyjnych"
                             ]
                         )
                     ],

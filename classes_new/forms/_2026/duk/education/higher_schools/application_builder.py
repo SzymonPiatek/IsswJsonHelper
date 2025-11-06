@@ -17,10 +17,10 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
 
         # Variables
         self.project_type = [
-            "Programy edukacyjne wchodzące w skład edukacji ciągłej.",
-            "Realizacja szkolnych i pozaszkolnych filmów krótko- i średniometrażowych.",
-            "Kształcenie zawodowe i podnoszenie kompetencji poprzez organizację studiów podyplomowych.",
-            "Organizacja praktyk zawodowych dla studentów."
+            "Programy edukacyjne wchodzące w skład edukacji ciągłej",
+            "Realizacja szkolnych i pozaszkolnych filmów krótko- i średniometrażowych",
+            "Kształcenie zawodowe i podnoszenie kompetencji poprzez organizację studiów podyplomowych",
+            "Organizacja praktyk zawodowych dla studentów"
         ]
         self.source_of_financing_tickets = True
 

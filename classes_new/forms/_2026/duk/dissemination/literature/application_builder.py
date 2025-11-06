@@ -17,9 +17,9 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
 
         # Variables
         self.project_type = [
-            "Publikacja opracowań naukowych, książek (w formie papierowej, e-book, audiobook, książka dla niewidomych i słabowidzących), albumów, czasopism z dziedziny kinematografii funkcjonujących na rynku wydawniczym (również w formie publikacji elektronicznej).",
-            "Działalność portali, serwisów, baz z zakresu wiedzy o filmie.",
-            "Wydanie muzyki filmowej z polskich filmów i koprodukcji, w tym reedycji i opracowań ścieżek dźwiękowych w formie analogowej lub cyfrowej."
+            "Publikacja opracowań naukowych, książek (w formie papierowej, e-book, audiobook, książka dla niewidomych i słabowidzących), albumów, czasopism z dziedziny kinematografii funkcjonujących na rynku wydawniczym (również w formie publikacji elektronicznej)",
+            "Działalność portali, serwisów, baz z zakresu wiedzy o filmie",
+            "Wydanie muzyki filmowej z polskich filmów i koprodukcji, w tym reedycji i opracowań ścieżek dźwiękowych w formie analogowej lub cyfrowej"
         ]
         self.source_of_financing_tickets = True
 
@@ -61,8 +61,8 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
                                 self.visibility_rule.depends_on_value(
                                     field_name="projectType",
                                     values=[
-                                        "Publikacja opracowań naukowych, książek (w formie papierowej, e-book, audiobook, książka dla niewidomych i słabowidzących), albumów, czasopism z dziedziny kinematografii funkcjonujących na rynku wydawniczym (również w formie publikacji elektronicznej).",
-                                        "Działalność portali, serwisów, baz z zakresu wiedzy o filmie.",
+                                        "Publikacja opracowań naukowych, książek (w formie papierowej, e-book, audiobook, książka dla niewidomych i słabowidzących), albumów, czasopism z dziedziny kinematografii funkcjonujących na rynku wydawniczym (również w formie publikacji elektronicznej)",
+                                        "Działalność portali, serwisów, baz z zakresu wiedzy o filmie",
                                     ]
                                 )
                             ],
@@ -116,7 +116,7 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
                                 self.visibility_rule.depends_on_value(
                                     field_name="projectType",
                                     values=[
-                                        "Wydanie muzyki filmowej z polskich filmów i koprodukcji, w tym reedycji i opracowań ścieżek dźwiękowych w formie analogowej lub cyfrowej."
+                                        "Wydanie muzyki filmowej z polskich filmów i koprodukcji, w tym reedycji i opracowań ścieżek dźwiękowych w formie analogowej lub cyfrowej"
                                     ]
                                 )
                             ],
@@ -219,8 +219,8 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
                                 self.visibility_rule.depends_on_value(
                                     field_name="projectType",
                                     values=[
-                                        "Publikacja opracowań naukowych, książek (w formie papierowej, e-book, audiobook, książka dla niewidomych i słabowidzących), albumów, czasopism z dziedziny kinematografii funkcjonujących na rynku wydawniczym (również w formie publikacji elektronicznej).",
-                                        "Wydanie muzyki filmowej z polskich filmów i koprodukcji, w tym reedycji i opracowań ścieżek dźwiękowych w formie analogowej lub cyfrowej."
+                                        "Publikacja opracowań naukowych, książek (w formie papierowej, e-book, audiobook, książka dla niewidomych i słabowidzących), albumów, czasopism z dziedziny kinematografii funkcjonujących na rynku wydawniczym (również w formie publikacji elektronicznej)",
+                                        "Wydanie muzyki filmowej z polskich filmów i koprodukcji, w tym reedycji i opracowań ścieżek dźwiękowych w formie analogowej lub cyfrowej"
                                     ]
                                 )
                             ],
@@ -255,7 +255,7 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
                                 self.visibility_rule.depends_on_value(
                                     field_name="projectType",
                                     values=[
-                                        "Działalność portali, serwisów, baz z zakresu wiedzy o filmie.",
+                                        "Działalność portali, serwisów, baz z zakresu wiedzy o filmie",
                                     ]
                                 )
                             ],

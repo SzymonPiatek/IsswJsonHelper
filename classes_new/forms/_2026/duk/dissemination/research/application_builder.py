@@ -17,10 +17,10 @@ class ResearchPriorityApplicationFormBuilder(DisseminationOperationalProgramAppl
 
         # Variables
         self.project_type = [
-            "Badania widowni kinowej oraz bilansu kompetencji (ilościowe, jakościowe, cykliczne).",
-            "Badania i analizy rynku kinematograficznego.",
-            "Przygotowanie innowacyjnych przedsięwzięć o szczególnym znaczeniu dla rozwoju rynku audiowizualnego.",
-            "Badania i analizy zjawiska tzw. piractwa w sferze kinematografii oraz działania na rzecz jego zwalczania."
+            "Badania widowni kinowej oraz bilansu kompetencji (ilościowe, jakościowe, cykliczne)",
+            "Badania i analizy rynku kinematograficznego",
+            "Przygotowanie innowacyjnych przedsięwzięć o szczególnym znaczeniu dla rozwoju rynku audiowizualnego",
+            "Badania i analizy zjawiska tzw. piractwa w sferze kinematografii oraz działania na rzecz jego zwalczania"
         ]
         self.source_of_financing_tickets = True
 
