@@ -183,7 +183,7 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
                             ]
                         ),
                         self.create_chapter(
-                            title="Liczba wyprodukowanych filmów",
+                            title="Prognozowana liczba filmów, do zrealizowania w ramach niniejszego przedsięwzięcia",
                             components=[
                                 self.create_chapter(
                                     title="<normal>a) Filmy fabularne</normal>",
