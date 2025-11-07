@@ -76,7 +76,7 @@ class Forms2026(Forms):
                     }
                 },
                 "dwm": {
-                    "skip": True,
+                    "skip": False,
                     "po5": {
                         "pr1": PromotionPriorityApplicationFormBuilder,
                         "pr2": ForeignPriorityApplicationFormBuilder
@@ -130,7 +130,7 @@ class Forms2026(Forms):
                     }
                 },
                 "zachety": {
-                    "skip": False,
+                    "skip": True,
                     "finansowanie": {
                         "raport": FinancingPriorityReportFormBuilder
                     }

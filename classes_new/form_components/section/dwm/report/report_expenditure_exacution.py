@@ -2,8 +2,8 @@ from classes_new.form_components.section.section import Section
 
 
 class ReportExpenditureExecution(Section):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, names=None):
+        super().__init__(names=names)
 
     def invoice_section_headers_promotion(self):
         return self.create_chapter(

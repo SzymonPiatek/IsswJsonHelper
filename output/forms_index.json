@@ -1,7 +1,12 @@
 {
-  "FINANSOWANIE RAPORT": {
-    "report": {
-      "local": "http://localhost/raport/1499/edycja?version=-1"
+  "PO5 PR1": {
+    "application": {
+      "local": "http://localhost/wniosek/16417/edycja?version=-1"
+    }
+  },
+  "PO5 PR2": {
+    "application": {
+      "local": "http://localhost/wniosek/16418/edycja?version=-1"
     }
   }
 }

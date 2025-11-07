@@ -5,15 +5,18 @@ from classes_new.form_elements import *
 
 
 class FormFactory:
-    def __init__(self):
+    def __init__(self, names: set[str] = None):
         self.output_json: Form = None
-        self.names = set()
+        self.names = names if names is not None else set()
 
         self.validator = Validator()
         self.visibility_rule = VisibilityRule()
         self.calculation_rule = CalculationRule()
 
         self.helpers = FormHelpers()
+
+        # Check self.names id:
+        # print(f"[{self.__class__.__name__}] names id: {id(self.names)}")
 
     @staticmethod
     def create_form(intro_text: list[str]):

@@ -13,7 +13,7 @@ class DWMDepartmentReportFormBuilder(ReportFormBuilder):
             self.create_report_additional_information
         ]
 
-        self.section = DWMSection()
+        self.section = DWMSection(names=self.names)
         self.is_promotion_priority: bool = False
         self.statements: list[dict] = []
         self.grantee_vat_declaration: list[str] = []

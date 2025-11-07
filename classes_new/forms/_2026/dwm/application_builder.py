@@ -21,7 +21,7 @@ class DWMDepartmentApplicationFormBuilder(ApplicationFormBuilder):
             self.create_application_schedule_data
         ]
 
-        self.section = DWMSection()
+        self.section = DWMSection(names=self.names)
 
         self.requested_support_type: list[str] = []
         self.is_promotion_priority: bool = False
