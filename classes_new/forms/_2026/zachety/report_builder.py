@@ -85,17 +85,14 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                     "readOnly":  True,
                                     "copyFrom": "statementTitleOfPiece"
                                 },
-                                {
-                                    "kind": "component",
-                                    "type": "checkbox",
-                                    "label": "Zaznacz jeżeli aktualny tytuł utworu jest inny niż we wniosku",
-                                    "name": "addNewTitle",
-                                    "value": False,
-                                    "dataBDD": "addNewTitle",
-                                    "classList": [
+                                self.create_component(
+                                    component_type="checkbox",
+                                    label="Zaznacz jeżeli aktualny tytuł utworu jest inny niż we wniosku",
+                                    name="addNewTitle",
+                                    class_list=[
                                         "no-label"
                                     ]
-                                },
+                                ),
                                 {
                                     "kind": "component",
                                     "type": "header",
@@ -253,17 +250,14 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                         "col-span-2"
                                     ]
                                 },
-                                {
-                                    "kind": "component",
-                                    "type": "checkbox",
-                                    "label": "Czy umowa była aneksowana?",
-                                    "name": "addAnnex",
-                                    "value": False,
-                                    "dataBDD": "add-annex",
-                                    "classList": [
+                                self.create_component(
+                                    component_type="checkbox",
+                                    label="Czy umowa była aneksowana?",
+                                    name="addAnnex",
+                                    class_list=[
                                         "no-label"
                                     ]
-                                },
+                                ),
                                 {
                                     "kind": "component",
                                     "type": "header",
@@ -488,28 +482,19 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                         "displayNoneFrontend"
                                     ]
                                 },
-                                {
-                                    "kind": "component",
-                                    "type": "radio",
-                                    "label": "",
-                                    "name": "krsOrCeidg",
-                                    "dataBDD": "krsOrCeidg",
-                                    "value": "",
-                                    "required": True,
-                                    "validators": [
-                                        {
-                                            "name": "RequiredValidator"
-                                        }
-                                    ],
-                                    "options": [
+                                self.create_component(
+                                    component_type="radio",
+                                    name="krsOrCeidg",
+                                    required=True,
+                                    options=[
                                         "KRS",
                                         "CEIDG"
                                     ],
-                                    "classList": [
+                                    class_list=[
                                         "col-span-5",
                                         "text-left"
                                     ]
-                                }
+                                )
                             ]
                         },
                         {
@@ -1196,18 +1181,15 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                 "grid-cols-8"
                             ],
                             "components": [
-                                {
-                                    "kind": "component",
-                                    "type": "checkbox",
-                                    "label": "Należy zaznaczyć jeśli adres korespondencyjny jest inny",
-                                    "name": "isDifferentContactAddress",
-                                    "value": False,
-                                    "dataBDD": "is-different-contact-address",
-                                    "classList": [
+                                self.create_component(
+                                    component_type="checkbox",
+                                    label="Należy zaznaczyć jeśli adres korespondencyjny jest inny",
+                                    name="isDifferentContactAddress",
+                                    class_list=[
                                         "no-label",
                                         "text-center"
                                     ]
-                                },
+                                ),
                                 {
                                     "kind": "component",
                                     "type": "header",
@@ -2143,38 +2125,21 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                 "displayNoneFrontend"
                                             ]
                                         },
-                                        {
-                                            "kind": "component",
-                                            "type": "radio",
-                                            "label": "Siedziba",
-                                            "name": "leadProducerResidence",
-                                            "value": "",
-                                            "options": [
+                                        self.create_component(
+                                            component_type="radio",
+                                            label="Siedziba",
+                                            name="leadProducerResidence",
+                                            options=[
                                                 "w Polsce",
                                                 "za granicą"
                                             ],
-                                            "required": True,
-                                            "validators": [
-                                                {
-                                                    "name": "RequiredValidator"
-                                                },
-                                                {
-                                                    "name": "ExactValidator",
-                                                    "kwargs": {
-                                                        "values": [
-                                                            "w Polsce",
-                                                            "za granicą"
-                                                        ]
-                                                    }
-                                                }
-                                            ],
-                                            "dataBDD": "lead-producer-residence",
-                                            "classList": [
+                                            required=True,
+                                            class_list=[
                                                 "no-label",
                                                 "col-span-3",
                                                 "text-left"
                                             ]
-                                        }
+                                        )
                                     ]
                                 },
                                 {
@@ -2999,32 +2964,27 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                         "displayNoneFrontend"
                                                     ]
                                                 },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "radio",
-                                                    "label": "Siedziba",
-                                                    "name": "coproducerResidence",
-                                                    "value": "",
-                                                    "options": [
+                                                self.create_component(
+                                                    component_type="radio",
+                                                    label="Siedziba",
+                                                    name="coproducerResidence",
+                                                    options=[
                                                         "w Polsce",
                                                         "za granicą"
                                                     ],
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedRequiredIfEqualValidator",
-                                                            "kwargs": {
-                                                                "field_name": "productionType",
-                                                                "value": "Produkcja audiowizualna"
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "coproducer-residence",
-                                                    "classList": [
+                                                    required=True,
+                                                    class_list=[
                                                         "no-label",
                                                         "col-span-3",
                                                         "text-left"
+                                                    ],
+                                                    validators=[
+                                                        self.validator.related_required_if_equal_validator(
+                                                            field_name="productionType",
+                                                            value="Produkcja audiowizualna"
+                                                        )
                                                     ]
-                                                }
+                                                )
                                             ]
                                         },
                                         {
@@ -4189,38 +4149,20 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                         "displayNoneFrontend"
                                     ]
                                 },
-                                {
-                                    "kind": "component",
-                                    "type": "select",
-                                    "label": "",
-                                    "name": "productionType",
-                                    "options": [
+                                self.create_component(
+                                    component_type="select",
+                                    name="productionType",
+                                    options=[
                                         "Produkcja audiowizualna",
                                         "Usługa na rzecz produkcji audiowizualnej"
                                     ],
-                                    "validators": [
-                                        {
-                                            "name": "ExactValidator",
-                                            "kwargs": {
-                                                "values": [
-                                                    "Produkcja audiowizualna",
-                                                    "Usługa na rzecz produkcji audiowizualnej"
-                                                ]
-                                            }
-                                        },
-                                        {
-                                            "name": "RequiredValidator"
-                                        }
-                                    ],
-                                    "value": "",
-                                    "required": True,
-                                    "classList": [
+                                    required=True,
+                                    class_list=[
                                         "no-label",
                                         "col-span-3",
                                         "text-left"
-                                    ],
-                                    "dataBDD": "production-type"
-                                }
+                                    ]
+                                )
                             ]
                         },
                         {
@@ -4253,44 +4195,28 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                         "displayNoneFrontend"
                                     ]
                                 },
-                                {
-                                    "kind": "component",
-                                    "type": "select",
-                                    "label": "Rodzaj koprodukcji",
-                                    "name": "productionSpecs",
-                                    "options": [
+                                self.create_component(
+                                    component_type="select",
+                                    label="Rodzaj koprodukcji",
+                                    name="productionSpecs",
+                                    options=[
                                         "Koprodukcja krajowa",
                                         "Koprodukcja międzynarodowa z krajami UE/EFTA - stronami umowy o Europejskim Obszarze Gospodarczym",
                                         "Koprodukcja międzynarodowa inna"
                                     ],
-                                    "validators": [
-                                        {
-                                            "name": "ExactValidator",
-                                            "kwargs": {
-                                                "values": [
-                                                    "Koprodukcja krajowa",
-                                                    "Koprodukcja międzynarodowa z krajami UE/EFTA - stronami umowy o Europejskim Obszarze Gospodarczym",
-                                                    "Koprodukcja międzynarodowa inna"
-                                                ]
-                                            }
-                                        },
-                                        {
-                                            "name": "RelatedRequiredIfEqualValidator",
-                                            "kwargs": {
-                                                "field_name": "productionType",
-                                                "value": "Produkcja audiowizualna"
-                                            }
-                                        }
+                                    required=True,
+                                    validators=[
+                                        self.validator.related_required_if_equal_validator(
+                                            field_name="productionType",
+                                            value="Produkcja audiowizualna"
+                                        )
                                     ],
-                                    "value": "",
-                                    "required": True,
-                                    "classList": [
+                                    class_list=[
                                         "no-label",
                                         "col-span-3",
                                         "text-left"
-                                    ],
-                                    "dataBDD": "production-specs"
-                                }
+                                    ]
+                                )
                             ]
                         },
                         {

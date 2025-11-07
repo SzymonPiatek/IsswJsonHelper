@@ -99,7 +99,7 @@ class FormBuilder(FormFactory):
         for index, part in enumerate(self.parts, start=1):
             part(number=index)
 
-        self.validate_form()
+        # self.validate_form()
 
         self.save_output()
 

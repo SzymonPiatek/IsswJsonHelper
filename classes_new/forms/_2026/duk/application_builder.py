@@ -27,7 +27,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
         # Estimate
         self.estimate_chapters = []
 
-        self.section = DUKSection()
+        self.section = DUKSection(names=self.names)
 
     def create_application_metadata(self, number: int):
         part = self.create_part(

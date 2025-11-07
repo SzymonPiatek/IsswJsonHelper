@@ -2,8 +2,8 @@ from classes_new.form_factory.form_factory import FormFactory
 
 
 class ApplicationScopeOfProject(FormFactory):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, names=None):
+        super().__init__(names=names)
 
     def project_implementation_place(self):
         return self.create_chapter(

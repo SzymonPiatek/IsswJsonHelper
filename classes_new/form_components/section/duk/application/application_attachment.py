@@ -3,10 +3,10 @@ from classes_new.form_factory.form_factory import FormFactory
 
 
 class ApplicationAttachment(FormFactory):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, names=None):
+        super().__init__(names=names)
 
-        self.component = Component()
+        self.component = Component(names=self.names)
 
     def document_confirming_represent_applicant(self):
         return self.create_chapter(

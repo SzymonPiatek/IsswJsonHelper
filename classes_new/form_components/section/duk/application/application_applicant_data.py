@@ -2,8 +2,8 @@ from classes_new.form_components.section.section import Section
 
 
 class ApplicationApplicantData(Section):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, names=None):
+        super().__init__(names=names)
 
     def create_address_base(self, start_name: str, build_name: str = '', poland: bool = True, foreign: bool = True):
         chapters = []
