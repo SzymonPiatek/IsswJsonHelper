@@ -706,26 +706,53 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                     components=[
                                         self.create_chapter(
                                             components=[
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Nazwa sądu",
-                                                    name="courtName",
-                                                    required=True
+                                                self.create_chapter(
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Nazwa sądu",
+                                                            name="courtName",
+                                                            required=True
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Numer wydziału",
+                                                            name="courtNumber",
+                                                            required=True
+                                                        ),
+                                                    ]
                                                 ),
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Numer wydziału",
-                                                    name="courtNumber",
-                                                    required=True
-                                                ),
-                                                self.create_component(
-                                                    component_type="select",
-                                                    label="Nazwa rejestru",
-                                                    name="courtRegisterName",
-                                                    required=True,
-                                                    options=[
-                                                        "Rejestr przedsiębiorców",
-                                                        "Rejestr stowarzyszeń, innych organizacji społecznych i zawodowych, fundacji oraz publicznych zakładów opieki zdrowotnej"
+                                                self.create_chapter(
+                                                    title="<small>Nazwa rejestru</small>",
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="checkbox",
+                                                            label="Rejestr przedsiębiorców",
+                                                            name="entrepreneursRegister",
+                                                            validators=[
+                                                                self.validator.related_any_of_validator(
+                                                                    field_names=[
+                                                                        "entrepreneursRegister",
+                                                                        "associationsRegister"
+                                                                    ],
+                                                                    message="Wymagany jest wybór przynajmniej jednej z wartości."
+                                                                )
+                                                            ]
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="checkbox",
+                                                            label="Rejestr stowarzyszeń, innych organizacji społecznych i zawodowych, fundacji oraz publicznych zakładów opieki zdrowotnej",
+                                                            name="associationsRegister",
+                                                            validators=[
+                                                                self.validator.related_any_of_validator(
+                                                                    field_names=[
+                                                                        "entrepreneursRegister",
+                                                                        "associationsRegister"
+                                                                    ],
+                                                                    message="Wymagany jest wybór przynajmniej jednej z wartości."
+                                                                )
+                                                            ]
+                                                        )
                                                     ]
                                                 )
                                             ]

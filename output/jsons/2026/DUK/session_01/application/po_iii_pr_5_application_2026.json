@@ -812,54 +812,82 @@
                       "title": "",
                       "components": [
                         {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Nazwa sądu",
-                          "name": "courtName",
-                          "dataBDD": "courtName",
-                          "value": "",
-                          "required": true,
-                          "validators": [
+                          "kind": "chapter",
+                          "title": "",
+                          "components": [
                             {
-                              "name": "RequiredValidator"
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Nazwa sądu",
+                              "name": "courtName",
+                              "dataBDD": "courtName",
+                              "value": "",
+                              "required": true,
+                              "validators": [
+                                {
+                                  "name": "RequiredValidator"
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Numer wydziału",
+                              "name": "courtNumber",
+                              "dataBDD": "courtNumber",
+                              "value": "",
+                              "required": true,
+                              "validators": [
+                                {
+                                  "name": "RequiredValidator"
+                                }
+                              ]
                             }
                           ]
                         },
                         {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Numer wydziału",
-                          "name": "courtNumber",
-                          "dataBDD": "courtNumber",
-                          "value": "",
-                          "required": true,
-                          "validators": [
+                          "kind": "chapter",
+                          "title": "<small>Nazwa rejestru</small>",
+                          "components": [
                             {
-                              "name": "RequiredValidator"
-                            }
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "select",
-                          "label": "Nazwa rejestru",
-                          "name": "courtRegisterName",
-                          "dataBDD": "courtRegisterName",
-                          "value": "",
-                          "options": [
-                            "Rejestr przedsiębiorców",
-                            "Rejestr stowarzyszeń, innych organizacji społecznych i zawodowych, fundacji oraz publicznych zakładów opieki zdrowotnej"
-                          ],
-                          "required": true,
-                          "validators": [
+                              "kind": "component",
+                              "type": "checkbox",
+                              "label": "Rejestr przedsiębiorców",
+                              "name": "entrepreneursRegister",
+                              "dataBDD": "entrepreneursRegister",
+                              "value": false,
+                              "validators": [
+                                {
+                                  "name": "RelatedAnyOfValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "entrepreneursRegister",
+                                      "associationsRegister"
+                                    ]
+                                  },
+                                  "validationMsg": "Wymagany jest wybór przynajmniej jednej z wartości."
+                                }
+                              ]
+                            },
                             {
-                              "name": "ExactValidator",
-                              "kwargs": {
-                                "values": [
-                                  "Rejestr przedsiębiorców",
-                                  "Rejestr stowarzyszeń, innych organizacji społecznych i zawodowych, fundacji oraz publicznych zakładów opieki zdrowotnej"
-                                ]
-                              }
+                              "kind": "component",
+                              "type": "checkbox",
+                              "label": "Rejestr stowarzyszeń, innych organizacji społecznych i zawodowych, fundacji oraz publicznych zakładów opieki zdrowotnej",
+                              "name": "associationsRegister",
+                              "dataBDD": "associationsRegister",
+                              "value": false,
+                              "validators": [
+                                {
+                                  "name": "RelatedAnyOfValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "entrepreneursRegister",
+                                      "associationsRegister"
+                                    ]
+                                  },
+                                  "validationMsg": "Wymagany jest wybór przynajmniej jednej z wartości."
+                                }
+                              ]
                             }
                           ]
                         }
