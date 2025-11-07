@@ -102,6 +102,7 @@ class Postman:
             output_path / output_file
         )
 
+        print("Generowanie pliku PDF...")
         response = requests.get(
             url,
             headers={
