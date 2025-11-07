@@ -25,15 +25,15 @@ def main():
             "local": {
                 "application": {
                     "json": True,
-                    "autosave_or_update": False,
-                    "force_autosave": False,
-                    "pdf": False,
+                    "autosave_or_update": True,
+                    "force_autosave": True,
+                    "pdf": True,
                 },
                 "report": {
-                    "json": False,
-                    "autosave_or_update": False,
-                    "force_autosave": False,
-                    "pdf": False,
+                    "json": True,
+                    "autosave_or_update": True,
+                    "force_autosave": True,
+                    "pdf": True,
                 }
             }
         }
