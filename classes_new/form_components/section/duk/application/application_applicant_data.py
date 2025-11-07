@@ -422,3 +422,72 @@ class ApplicationApplicantData(Section):
                 )
             ]
         )
+
+    def responsible_person_data(
+            self,
+            number: int | str
+    ):
+        return self.create_chapter(
+            title=f"{number}. Osoba odpowiedzialna za przygotowanie wniosku i kontakty z PISF",
+            class_list={
+                "sub": [
+                    "table-1-2-top"
+                ]
+            },
+            components=[
+                self.create_chapter(
+                    class_list={
+                        "main": [
+                            "table-1-2",
+                            "grid",
+                            "grid-cols-2"
+                        ],
+                        "sub": [
+                            "table-1-2__col"
+                        ]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            label="Imię",
+                            name="authPersonFirstName",
+                            required=True
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Nazwisko",
+                            name="authPersonLastName",
+                            required=True
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Numer telefonu stacjonarnego",
+                            name="authPersonPhoneNum",
+                            mask="landline"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Numer telefonu komórkowego",
+                            name="authPersonMobileNum",
+                            mask="phoneNumber",
+                            required=True,
+                            validators=[
+                                self.validator.phone_number_validator()
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Email kontaktowy",
+                            name="authPersonEmail",
+                            required=True,
+                            validators=[
+                                self.validator.email_validator()
+                            ],
+                            class_list=[
+                                "col-span-2"
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )

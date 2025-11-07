@@ -2070,13 +2070,7 @@
                   "name": "authPersonPhoneNum",
                   "dataBDD": "authPersonPhoneNum",
                   "value": "",
-                  "mask": "landline",
-                  "required": true,
-                  "validators": [
-                    {
-                      "name": "RequiredValidator"
-                    }
-                  ]
+                  "mask": "landline"
                 },
                 {
                   "kind": "component",

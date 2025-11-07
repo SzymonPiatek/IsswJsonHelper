@@ -27,13 +27,13 @@ def main():
                     "json": True,
                     "autosave_or_update": True,
                     "force_autosave": True,
-                    "pdf": True,
+                    "pdf": False,
                 },
                 "report": {
                     "json": True,
                     "autosave_or_update": True,
                     "force_autosave": True,
-                    "pdf": True,
+                    "pdf": False,
                 }
             }
         }

@@ -931,7 +931,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         )
                     ]
                 ),
-                self.section.responsible_person_data(number="4"),
+                self.section.application_applicant_data.responsible_person_data(number="4"),
                 self.section.applicant_bank_data(number="5"),
                 self.create_chapter(
                     components=[
