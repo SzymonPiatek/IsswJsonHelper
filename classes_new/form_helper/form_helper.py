@@ -73,10 +73,14 @@ class FormHelper:
                             continue
 
                         if builder:
-                            print(f'{"=" * 50}')
-                            print(f"[{department.upper()}] {program.upper()} {priority.upper()} - {data_type.upper()}\n")
-
                             form = builder()
+
+                            print(f'{"=" * 50}')
+                            print(f"DP: {str(form.priority.operation_program.department)}")
+                            print(f"PO: {str(form.priority.operation_program)}")
+                            print(f"PR: {str(form.priority)}")
+                            print(f"JT: {form.json_type.title()} - {form.session}")
+                            print(f"{'-' * 50}")
 
                             for server in self.setup.keys():
                                 postman = self.postman[server]
