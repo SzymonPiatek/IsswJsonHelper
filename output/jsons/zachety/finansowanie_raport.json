@@ -80,8 +80,8 @@
                   "type": "checkbox",
                   "label": "Zaznacz jeżeli aktualny tytuł utworu jest inny niż we wniosku",
                   "name": "addNewTitle",
-                  "value": false,
                   "dataBDD": "addNewTitle",
+                  "value": false,
                   "classList": [
                     "no-label"
                   ]
@@ -248,8 +248,8 @@
                   "type": "checkbox",
                   "label": "Czy umowa była aneksowana?",
                   "name": "addAnnex",
+                  "dataBDD": "addAnnex",
                   "value": false,
-                  "dataBDD": "add-annex",
                   "classList": [
                     "no-label"
                   ]
@@ -486,15 +486,21 @@
                   "name": "krsOrCeidg",
                   "dataBDD": "krsOrCeidg",
                   "value": "",
-                  "required": true,
-                  "validators": [
-                    {
-                      "name": "RequiredValidator"
-                    }
-                  ],
                   "options": [
                     "KRS",
                     "CEIDG"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "KRS",
+                          "CEIDG"
+                        ]
+                      }
+                    }
                   ],
                   "classList": [
                     "col-span-5",
@@ -1192,8 +1198,8 @@
                   "type": "checkbox",
                   "label": "Należy zaznaczyć jeśli adres korespondencyjny jest inny",
                   "name": "isDifferentContactAddress",
+                  "dataBDD": "isDifferentContactAddress",
                   "value": false,
-                  "dataBDD": "is-different-contact-address",
                   "classList": [
                     "no-label",
                     "text-center"
@@ -2140,6 +2146,7 @@
                       "type": "radio",
                       "label": "Siedziba",
                       "name": "leadProducerResidence",
+                      "dataBDD": "leadProducerResidence",
                       "value": "",
                       "options": [
                         "w Polsce",
@@ -2147,9 +2154,6 @@
                       ],
                       "required": true,
                       "validators": [
-                        {
-                          "name": "RequiredValidator"
-                        },
                         {
                           "name": "ExactValidator",
                           "kwargs": {
@@ -2160,7 +2164,6 @@
                           }
                         }
                       ],
-                      "dataBDD": "lead-producer-residence",
                       "classList": [
                         "no-label",
                         "col-span-3",
@@ -2996,11 +2999,13 @@
                           "type": "radio",
                           "label": "Siedziba",
                           "name": "coproducerResidence",
+                          "dataBDD": "coproducerResidence",
                           "value": "",
                           "options": [
                             "w Polsce",
                             "za granicą"
                           ],
+                          "required": true,
                           "validators": [
                             {
                               "name": "RelatedRequiredIfEqualValidator",
@@ -3008,9 +3013,17 @@
                                 "field_name": "productionType",
                                 "value": "Produkcja audiowizualna"
                               }
+                            },
+                            {
+                              "name": "ExactValidator",
+                              "kwargs": {
+                                "values": [
+                                  "w Polsce",
+                                  "za granicą"
+                                ]
+                              }
                             }
                           ],
-                          "dataBDD": "coproducer-residence",
                           "classList": [
                             "no-label",
                             "col-span-3",
@@ -3825,10 +3838,13 @@
                   "type": "select",
                   "label": "",
                   "name": "productionType",
+                  "dataBDD": "productionType",
+                  "value": "",
                   "options": [
                     "Produkcja audiowizualna",
                     "Usługa na rzecz produkcji audiowizualnej"
                   ],
+                  "required": true,
                   "validators": [
                     {
                       "name": "ExactValidator",
@@ -3838,19 +3854,13 @@
                           "Usługa na rzecz produkcji audiowizualnej"
                         ]
                       }
-                    },
-                    {
-                      "name": "RequiredValidator"
                     }
                   ],
-                  "value": "",
-                  "required": true,
                   "classList": [
                     "no-label",
                     "col-span-3",
                     "text-left"
-                  ],
-                  "dataBDD": "production-type"
+                  ]
                 }
               ]
             },
@@ -3889,12 +3899,22 @@
                   "type": "select",
                   "label": "Rodzaj koprodukcji",
                   "name": "productionSpecs",
+                  "dataBDD": "productionSpecs",
+                  "value": "",
                   "options": [
                     "Koprodukcja krajowa",
                     "Koprodukcja międzynarodowa z krajami UE/EFTA - stronami umowy o Europejskim Obszarze Gospodarczym",
                     "Koprodukcja międzynarodowa inna"
                   ],
+                  "required": true,
                   "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "productionType",
+                        "value": "Produkcja audiowizualna"
+                      }
+                    },
                     {
                       "name": "ExactValidator",
                       "kwargs": {
@@ -3904,23 +3924,13 @@
                           "Koprodukcja międzynarodowa inna"
                         ]
                       }
-                    },
-                    {
-                      "name": "RelatedRequiredIfEqualValidator",
-                      "kwargs": {
-                        "field_name": "productionType",
-                        "value": "Produkcja audiowizualna"
-                      }
                     }
                   ],
-                  "value": "",
-                  "required": true,
                   "classList": [
                     "no-label",
                     "col-span-3",
                     "text-left"
-                  ],
-                  "dataBDD": "production-specs"
+                  ]
                 }
               ]
             },
@@ -12837,7 +12847,7 @@
                   "components": [
                     {
                       "kind": "chapter",
-                      "title": "Razem",
+                      "title": "",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",
@@ -12855,11 +12865,25 @@
                           "type": "header",
                           "label": "Label",
                           "name": "headerComponent-leadProducerTotal",
-                          "value": "Producent wiodący - RAZEM",
-                          "dataBDD": "header-component-leadProducerTotal",
+                          "value": "Producent wiodący",
+                          "dataBDD": "headerComponent-leadProducerTotal",
                           "classList": [
-                            "col-span-2",
+                            "col-span-5",
                             "displayNoneFrontend"
+                          ]
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Nazwa producenta wiodącego",
+                          "name": "leadProducerName",
+                          "value": "",
+                          "dataBDD": "leadProducerName",
+                          "classList": [
+                            "no-label",
+                            "text-left",
+                            "col-span-2",
+                            "table-full"
                           ]
                         },
                         {
@@ -13189,7 +13213,7 @@
                 },
                 {
                   "kind": "chapter",
-                  "title": "Koproducenci UE i kraje EFTA",
+                  "title": "Koproducenci",
                   "classList": [
                     "no-title"
                   ],
@@ -13214,9 +13238,9 @@
                           "kind": "component",
                           "type": "header",
                           "label": "Label",
-                          "name": "headerComponent-coproducerUeEftaTotal",
-                          "value": "Koproducenci UE i kraje EFTA",
-                          "dataBDD": "headerComponent-coproducerUeEftaTotal",
+                          "name": "headerComponent-coproducerTotal",
+                          "value": "Koproducenci",
+                          "dataBDD": "headerComponent-coproducerTotal",
                           "classList": [
                             "col-span-2",
                             "displayNoneFrontend"
@@ -13227,7 +13251,7 @@
                           "type": "text",
                           "mask": "fund",
                           "label": "Zgodnie z umową",
-                          "name": "actualContributionAgreementTotalCoproducerUeEftaTotal",
+                          "name": "actualContributionAgreementTotalCoproducerTotal",
                           "value": 0,
                           "unit": "PLN",
                           "validators": [
@@ -13242,13 +13266,13 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "actualContributionAgreementInKindCoproducerUeEfta",
-                                  "actualContributionAgreementFinancialCoproducerUeEfta"
+                                  "actualContributionAgreementInKindCoproducer",
+                                  "actualContributionAgreementFinancialCoproducer"
                                 ]
                               }
                             }
                           ],
-                          "dataBDD": "actualContributionAgreementTotalCoproducerUeEftaTotal",
+                          "dataBDD": "actualContributionAgreementTotalCoproducerTotal",
                           "classList": [
                             "no-label",
                             "displayNonePDF"
@@ -13259,8 +13283,8 @@
                               "name": "sumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "actualContributionAgreementInKindCoproducerUeEfta",
-                                  "actualContributionAgreementFinancialCoproducerUeEfta"
+                                  "actualContributionAgreementInKindCoproducer",
+                                  "actualContributionAgreementFinancialCoproducer"
                                 ]
                               }
                             }
@@ -13271,7 +13295,7 @@
                           "type": "text",
                           "mask": "fund",
                           "label": "Zgodnie z aneksem do umowy",
-                          "name": "actualContributionAgreementAnnexTotalCoproducerUeEftaTotal",
+                          "name": "actualContributionAgreementAnnexTotalCoproducerTotal",
                           "value": 0,
                           "unit": "PLN",
                           "validators": [
@@ -13286,13 +13310,13 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "actualContributionAgreementAnnexInKindCoproducerUeEfta",
-                                  "actualContributionAgreementAnnexFinancialCoproducerUeEfta"
+                                  "actualContributionAgreementAnnexInKindCoproducer",
+                                  "actualContributionAgreementAnnexFinancialCoproducer"
                                 ]
                               }
                             }
                           ],
-                          "dataBDD": "actualContributionAgreementAnnexTotalCoproducerUeEftaTotal",
+                          "dataBDD": "actualContributionAgreementAnnexTotalCoproducerTotal",
                           "classList": [
                             "no-label",
                             "displayNonePDF"
@@ -13303,8 +13327,8 @@
                               "name": "sumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "actualContributionAgreementAnnexInKindCoproducerUeEfta",
-                                  "actualContributionAgreementAnnexFinancialCoproducerUeEfta"
+                                  "actualContributionAgreementAnnexInKindCoproducer",
+                                  "actualContributionAgreementAnnexFinancialCoproducer"
                                 ]
                               }
                             }
@@ -13315,7 +13339,7 @@
                           "type": "text",
                           "mask": "fund",
                           "label": "Wynikowa struktura finansowania w PLN",
-                          "name": "resultingFinancialStructurePLNTotalCoproducerUeEftaTotal",
+                          "name": "resultingFinancialStructurePLNTotalCoproducerTotal",
                           "value": 0,
                           "unit": "PLN",
                           "validators": [
@@ -13330,13 +13354,13 @@
                               "name": "RelatedSumValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "resultingFinancialStructurePLNInKindCoproducerUeEfta",
-                                  "resultingFinancialStructurePLNFinancialCoproducerUeEfta"
+                                  "resultingFinancialStructurePLNInKindCoproducer",
+                                  "resultingFinancialStructurePLNFinancialCoproducer"
                                 ]
                               }
                             }
                           ],
-                          "dataBDD": "resultingFinancialStructurePLNTotalCoproducerUeEftaTotal",
+                          "dataBDD": "resultingFinancialStructurePLNTotalCoproducerTotal",
                           "classList": [
                             "no-label",
                             "displayNonePDF"
@@ -13347,8 +13371,8 @@
                               "name": "sumInputs",
                               "kwargs": {
                                 "fields": [
-                                  "resultingFinancialStructurePLNInKindCoproducerUeEfta",
-                                  "resultingFinancialStructurePLNFinancialCoproducerUeEfta"
+                                  "resultingFinancialStructurePLNInKindCoproducer",
+                                  "resultingFinancialStructurePLNFinancialCoproducer"
                                 ]
                               }
                             }
@@ -13383,9 +13407,9 @@
                                   "kind": "component",
                                   "type": "text",
                                   "label": "Nazwa koproducenta",
-                                  "name": "coproducerUeEftaName",
+                                  "name": "coproducerName",
                                   "value": "",
-                                  "dataBDD": "coproducerUeEftaName",
+                                  "dataBDD": "coproducerName",
                                   "classList": [
                                     "no-label",
                                     "text-left",
@@ -13399,7 +13423,7 @@
                                   "type": "text",
                                   "mask": "fund",
                                   "label": "Zgodnie z umową",
-                                  "name": "actualContributionAgreementTotalCoproducerUeEfta",
+                                  "name": "actualContributionAgreementTotalCoproducer",
                                   "value": 0,
                                   "defaultValue": 0,
                                   "unit": "PLN",
@@ -13415,13 +13439,13 @@
                                       "name": "RelatedLocalSumValidator",
                                       "kwargs": {
                                         "field_names": [
-                                          "actualContributionAgreementInKindCoproducerUeEfta",
-                                          "actualContributionAgreementFinancialCoproducerUeEfta"
+                                          "actualContributionAgreementInKindCoproducer",
+                                          "actualContributionAgreementFinancialCoproducer"
                                         ]
                                       }
                                     }
                                   ],
-                                  "dataBDD": "actualContributionAgreementTotalCoproducerUeEfta",
+                                  "dataBDD": "actualContributionAgreementTotalCoproducer",
                                   "classList": [
                                     "no-label"
                                   ],
@@ -13431,8 +13455,8 @@
                                       "name": "localSum",
                                       "kwargs": {
                                         "fields": [
-                                          "actualContributionAgreementInKindCoproducerUeEfta",
-                                          "actualContributionAgreementFinancialCoproducerUeEfta"
+                                          "actualContributionAgreementInKindCoproducer",
+                                          "actualContributionAgreementFinancialCoproducer"
                                         ]
                                       }
                                     }
@@ -13443,7 +13467,7 @@
                                   "type": "text",
                                   "mask": "fund",
                                   "label": "Zgodnie z aneksem do umowy",
-                                  "name": "actualContributionAgreementAnnexTotalCoproducerUeEfta",
+                                  "name": "actualContributionAgreementAnnexTotalCoproducer",
                                   "value": 0,
                                   "defaultValue": 0,
                                   "unit": "PLN",
@@ -13459,13 +13483,13 @@
                                       "name": "RelatedLocalSumValidator",
                                       "kwargs": {
                                         "field_names": [
-                                          "actualContributionAgreementAnnexInKindCoproducerUeEfta",
-                                          "actualContributionAgreementAnnexFinancialCoproducerUeEfta"
+                                          "actualContributionAgreementAnnexInKindCoproducer",
+                                          "actualContributionAgreementAnnexFinancialCoproducer"
                                         ]
                                       }
                                     }
                                   ],
-                                  "dataBDD": "actualContributionAgreementAnnexTotalCoproducerUeEfta",
+                                  "dataBDD": "actualContributionAgreementAnnexTotalCoproducer",
                                   "classList": [
                                     "no-label"
                                   ],
@@ -13475,8 +13499,8 @@
                                       "name": "localSum",
                                       "kwargs": {
                                         "fields": [
-                                          "actualContributionAgreementAnnexInKindCoproducerUeEfta",
-                                          "actualContributionAgreementAnnexFinancialCoproducerUeEfta"
+                                          "actualContributionAgreementAnnexInKindCoproducer",
+                                          "actualContributionAgreementAnnexFinancialCoproducer"
                                         ]
                                       }
                                     }
@@ -13487,7 +13511,7 @@
                                   "type": "text",
                                   "mask": "fund",
                                   "label": "Wynikowa struktura finansowania w PLN",
-                                  "name": "resultingFinancialStructurePLNTotalCoproducerUeEfta",
+                                  "name": "resultingFinancialStructurePLNTotalCoproducer",
                                   "value": 0,
                                   "defaultValue": 0,
                                   "unit": "PLN",
@@ -13503,13 +13527,13 @@
                                       "name": "RelatedLocalSumValidator",
                                       "kwargs": {
                                         "field_names": [
-                                          "resultingFinancialStructurePLNInKindCoproducerUeEfta",
-                                          "resultingFinancialStructurePLNFinancialCoproducerUeEfta"
+                                          "resultingFinancialStructurePLNInKindCoproducer",
+                                          "resultingFinancialStructurePLNFinancialCoproducer"
                                         ]
                                       }
                                     }
                                   ],
-                                  "dataBDD": "resultingFinancialStructurePLNTotalCoproducerUeEfta",
+                                  "dataBDD": "resultingFinancialStructurePLNTotalCoproducer",
                                   "classList": [
                                     "no-label"
                                   ],
@@ -13519,8 +13543,8 @@
                                       "name": "localSum",
                                       "kwargs": {
                                         "fields": [
-                                          "resultingFinancialStructurePLNInKindCoproducerUeEfta",
-                                          "resultingFinancialStructurePLNFinancialCoproducerUeEfta"
+                                          "resultingFinancialStructurePLNInKindCoproducer",
+                                          "resultingFinancialStructurePLNFinancialCoproducer"
                                         ]
                                       }
                                     }
@@ -13547,9 +13571,9 @@
                                   "kind": "component",
                                   "type": "header",
                                   "label": "Label",
-                                  "name": "headerComponent-coproducerUeEftaFinancial",
+                                  "name": "headerComponent-coproducerFinancial",
                                   "value": "wkład finansowy",
-                                  "dataBDD": "header-component-coproducerUeEftaFinancial",
+                                  "dataBDD": "header-component-coproducerFinancial",
                                   "classList": [
                                     "text-right",
                                     "col-span-2",
@@ -13562,7 +13586,7 @@
                                   "type": "text",
                                   "mask": "fund",
                                   "label": "Zgodnie z umową",
-                                  "name": "actualContributionAgreementFinancialCoproducerUeEfta",
+                                  "name": "actualContributionAgreementFinancialCoproducer",
                                   "value": 0,
                                   "defaultValue": 0,
                                   "unit": "PLN",
@@ -13575,7 +13599,7 @@
                                       "validationMsg": "Wartość musi być większa lub równa zero."
                                     }
                                   ],
-                                  "dataBDD": "actualContributionAgreementFinancialCoproducerUeEfta",
+                                  "dataBDD": "actualContributionAgreementFinancialCoproducer",
                                   "classList": [
                                     "no-label"
                                   ]
@@ -13585,7 +13609,7 @@
                                   "type": "text",
                                   "mask": "fund",
                                   "label": "Zgodnie z aneksem do umowy",
-                                  "name": "actualContributionAgreementAnnexFinancialCoproducerUeEfta",
+                                  "name": "actualContributionAgreementAnnexFinancialCoproducer",
                                   "value": 0,
                                   "defaultValue": 0,
                                   "unit": "PLN",
@@ -13598,7 +13622,7 @@
                                       "validationMsg": "Wartość musi być większa lub równa zero."
                                     }
                                   ],
-                                  "dataBDD": "actualContributionAgreementAnnexFinancialCoproducerUeEfta",
+                                  "dataBDD": "actualContributionAgreementAnnexFinancialCoproducer",
                                   "classList": [
                                     "no-label"
                                   ]
@@ -13608,7 +13632,7 @@
                                   "type": "text",
                                   "mask": "fund",
                                   "label": "Wynikowa struktura finansowania w PLN",
-                                  "name": "resultingFinancialStructurePLNFinancialCoproducerUeEfta",
+                                  "name": "resultingFinancialStructurePLNFinancialCoproducer",
                                   "value": 0,
                                   "defaultValue": 0,
                                   "unit": "PLN",
@@ -13621,7 +13645,7 @@
                                       "validationMsg": "Wartość musi być większa lub równa zero."
                                     }
                                   ],
-                                  "dataBDD": "resultingFinancialStructurePLNFinancialCoproducerUeEfta",
+                                  "dataBDD": "resultingFinancialStructurePLNFinancialCoproducer",
                                   "classList": [
                                     "no-label"
                                   ]
@@ -13647,9 +13671,9 @@
                                   "kind": "component",
                                   "type": "header",
                                   "label": "Label",
-                                  "name": "headerComponent-coproducerUeEftaInKind",
+                                  "name": "headerComponent-coproducerInKind",
                                   "value": "wkład rzeczowy",
-                                  "dataBDD": "header-component-coproducerUeEftaInKind",
+                                  "dataBDD": "header-component-coproducerInKind",
                                   "classList": [
                                     "text-right",
                                     "col-span-2",
@@ -13662,7 +13686,7 @@
                                   "type": "text",
                                   "mask": "fund",
                                   "label": "Zgodnie z umową",
-                                  "name": "actualContributionAgreementInKindCoproducerUeEfta",
+                                  "name": "actualContributionAgreementInKindCoproducer",
                                   "value": 0,
                                   "defaultValue": 0,
                                   "unit": "PLN",
@@ -13675,7 +13699,7 @@
                                       "validationMsg": "Wartość musi być większa lub równa zero."
                                     }
                                   ],
-                                  "dataBDD": "actualContributionAgreementInKindCoproducerUeEfta",
+                                  "dataBDD": "actualContributionAgreementInKindCoproducer",
                                   "classList": [
                                     "no-label"
                                   ]
@@ -13685,7 +13709,7 @@
                                   "type": "text",
                                   "mask": "fund",
                                   "label": "Zgodnie z aneksem do umowy",
-                                  "name": "actualContributionAgreementAnnexInKindCoproducerUeEfta",
+                                  "name": "actualContributionAgreementAnnexInKindCoproducer",
                                   "value": 0,
                                   "defaultValue": 0,
                                   "unit": "PLN",
@@ -13698,7 +13722,7 @@
                                       "validationMsg": "Wartość musi być większa lub równa zero."
                                     }
                                   ],
-                                  "dataBDD": "actualContributionAgreementAnnexInKindCoproducerUeEfta",
+                                  "dataBDD": "actualContributionAgreementAnnexInKindCoproducer",
                                   "classList": [
                                     "no-label"
                                   ]
@@ -13708,7 +13732,7 @@
                                   "type": "text",
                                   "mask": "fund",
                                   "label": "Wynikowa struktura finansowania w PLN",
-                                  "name": "resultingFinancialStructurePLNInKindCoproducerUeEfta",
+                                  "name": "resultingFinancialStructurePLNInKindCoproducer",
                                   "value": 0,
                                   "defaultValue": 0,
                                   "unit": "PLN",
@@ -13721,7 +13745,7 @@
                                       "validationMsg": "Wartość musi być większa lub równa zero."
                                     }
                                   ],
-                                  "dataBDD": "resultingFinancialStructurePLNInKindCoproducerUeEfta",
+                                  "dataBDD": "resultingFinancialStructurePLNInKindCoproducer",
                                   "classList": [
                                     "no-label"
                                   ]
@@ -13737,555 +13761,6 @@
                         "maxCount": 20
                       },
                       "isPaginated": false
-                    }
-                  ]
-                },
-                {
-                  "kind": "chapter",
-                  "title": "Koproducenci spoza UE i krajów EFTA",
-                  "classList": [
-                    "no-title"
-                  ],
-                  "components": [
-                    {
-                      "kind": "chapter",
-                      "title": "Razem",
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-5",
-                          "no-title",
-                          "displayNoneFrontend"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      },
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "header",
-                          "label": "Label",
-                          "name": "headerComponent-coproducerNotUeEftaTotal",
-                          "value": "Koproducenci spoza UE i krajów EFTA",
-                          "dataBDD": "headerComponent-coproducerNotUeEftaTotal",
-                          "classList": [
-                            "col-span-2",
-                            "displayNoneFrontend"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "mask": "fund",
-                          "label": "Zgodnie z umową",
-                          "name": "actualContributionAgreementTotalCoproducerNotUeEftaTotal",
-                          "value": 0,
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa zero."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "actualContributionAgreementInKindCoproducerNotUeEfta",
-                                  "actualContributionAgreementFinancialCoproducerNotUeEfta"
-                                ]
-                              }
-                            }
-                          ],
-                          "dataBDD": "actualContributionAgreementTotalCoproducerNotUeEftaTotal",
-                          "classList": [
-                            "no-label",
-                            "displayNonePDF"
-                          ],
-                          "readOnly": true,
-                          "calculationRules": [
-                            {
-                              "name": "sumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "actualContributionAgreementInKindCoproducerNotUeEfta",
-                                  "actualContributionAgreementFinancialCoproducerNotUeEfta"
-                                ]
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "mask": "fund",
-                          "label": "Zgodnie z aneksem do umowy",
-                          "name": "actualContributionAgreementAnnexTotalCoproducerNotUeEftaTotal",
-                          "value": 0,
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa zero."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "actualContributionAgreementAnnexInKindCoproducerNotUeEfta",
-                                  "actualContributionAgreementAnnexFinancialCoproducerNotUeEfta"
-                                ]
-                              }
-                            }
-                          ],
-                          "dataBDD": "actualContributionAgreementAnnexTotalCoproducerNotUeEftaTotal",
-                          "classList": [
-                            "no-label",
-                            "displayNonePDF"
-                          ],
-                          "readOnly": true,
-                          "calculationRules": [
-                            {
-                              "name": "sumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "actualContributionAgreementAnnexInKindCoproducerNotUeEfta",
-                                  "actualContributionAgreementAnnexFinancialCoproducerNotUeEfta"
-                                ]
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "mask": "fund",
-                          "label": "Wynikowa struktura finansowania w PLN",
-                          "name": "resultingFinancialStructurePLNTotalCoproducerNotUeEftaTotal",
-                          "value": 0,
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa zero."
-                            },
-                            {
-                              "name": "RelatedSumValidator",
-                              "kwargs": {
-                                "field_names": [
-                                  "resultingFinancialStructurePLNInKindCoproducerNotUeEfta",
-                                  "resultingFinancialStructurePLNFinancialCoproducerNotUeEfta"
-                                ]
-                              }
-                            }
-                          ],
-                          "dataBDD": "resultingFinancialStructurePLNTotalCoproducerNotUeEftaTotal",
-                          "classList": [
-                            "no-label",
-                            "displayNonePDF"
-                          ],
-                          "readOnly": true,
-                          "calculationRules": [
-                            {
-                              "name": "sumInputs",
-                              "kwargs": {
-                                "fields": [
-                                  "resultingFinancialStructurePLNInKindCoproducerNotUeEfta",
-                                  "resultingFinancialStructurePLNFinancialCoproducerNotUeEfta"
-                                ]
-                              }
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "kind": "chapter",
-                      "title": "",
-                      "isMultipleForms": true,
-                      "multipleFormsRules": {
-                        "minCount": 1,
-                        "maxCount": 20
-                      },
-                      "components": [
-                        {
-                          "kind": "chapter",
-                          "title": "Koproducent ",
-                          "components": [
-                            {
-                              "kind": "chapter",
-                              "title": "",
-                              "classList": {
-                                "main": [
-                                  "table-1-3-narrow",
-                                  "grid",
-                                  "grid-cols-5",
-                                  "no-title"
-                                ],
-                                "sub": [
-                                  "table-1-3__col"
-                                ]
-                              },
-                              "components": [
-                                {
-                                  "kind": "component",
-                                  "type": "text",
-                                  "label": "Nazwa koproducenta",
-                                  "name": "coproducerNotUeEftaName",
-                                  "value": "",
-                                  "dataBDD": "coproducerNotUeEftaName",
-                                  "classList": [
-                                    "no-label",
-                                    "text-left",
-                                    "col-span-2",
-                                    "table-full"
-                                  ]
-                                },
-                                {
-                                  "kind": "component",
-                                  "type": "text",
-                                  "mask": "fund",
-                                  "label": "Zgodnie z umową",
-                                  "name": "actualContributionAgreementTotalCoproducerNotUeEfta",
-                                  "value": 0,
-                                  "defaultValue": 0,
-                                  "unit": "PLN",
-                                  "validators": [
-                                    {
-                                      "name": "RangeValidator",
-                                      "kwargs": {
-                                        "min": 0
-                                      },
-                                      "validationMsg": "Wartość musi być większa lub równa zero."
-                                    },
-                                    {
-                                      "name": "RelatedLocalSumValidator",
-                                      "kwargs": {
-                                        "field_names": [
-                                          "actualContributionAgreementInKindCoproducerNotUeEfta",
-                                          "actualContributionAgreementFinancialCoproducerNotUeEfta"
-                                        ]
-                                      }
-                                    }
-                                  ],
-                                  "dataBDD": "actualContributionAgreementTotalCoproducerNotUeEfta",
-                                  "classList": [
-                                    "no-label"
-                                  ],
-                                  "readOnly": true,
-                                  "calculationRules": [
-                                    {
-                                      "name": "localSum",
-                                      "kwargs": {
-                                        "fields": [
-                                          "actualContributionAgreementInKindCoproducerNotUeEfta",
-                                          "actualContributionAgreementFinancialCoproducerNotUeEfta"
-                                        ]
-                                      }
-                                    }
-                                  ]
-                                },
-                                {
-                                  "kind": "component",
-                                  "type": "text",
-                                  "mask": "fund",
-                                  "label": "Zgodnie z aneksem do umowy",
-                                  "name": "actualContributionAgreementAnnexTotalCoproducerNotUeEfta",
-                                  "value": 0,
-                                  "defaultValue": 0,
-                                  "unit": "PLN",
-                                  "validators": [
-                                    {
-                                      "name": "RangeValidator",
-                                      "kwargs": {
-                                        "min": 0
-                                      },
-                                      "validationMsg": "Wartość musi być większa lub równa zero."
-                                    },
-                                    {
-                                      "name": "RelatedLocalSumValidator",
-                                      "kwargs": {
-                                        "field_names": [
-                                          "actualContributionAgreementAnnexInKindCoproducerNotUeEfta",
-                                          "actualContributionAgreementAnnexFinancialCoproducerNotUeEfta"
-                                        ]
-                                      }
-                                    }
-                                  ],
-                                  "dataBDD": "actualContributionAgreementAnnexTotalCoproducerNotUeEfta",
-                                  "classList": [
-                                    "no-label"
-                                  ],
-                                  "readOnly": true,
-                                  "calculationRules": [
-                                    {
-                                      "name": "localSum",
-                                      "kwargs": {
-                                        "fields": [
-                                          "actualContributionAgreementAnnexInKindCoproducerNotUeEfta",
-                                          "actualContributionAgreementAnnexFinancialCoproducerNotUeEfta"
-                                        ]
-                                      }
-                                    }
-                                  ]
-                                },
-                                {
-                                  "kind": "component",
-                                  "type": "text",
-                                  "mask": "fund",
-                                  "label": "Wynikowa struktura finansowania w PLN",
-                                  "name": "resultingFinancialStructurePLNTotalCoproducerNotUeEfta",
-                                  "value": 0,
-                                  "defaultValue": 0,
-                                  "unit": "PLN",
-                                  "validators": [
-                                    {
-                                      "name": "RangeValidator",
-                                      "kwargs": {
-                                        "min": 0
-                                      },
-                                      "validationMsg": "Wartość musi być większa lub równa zero."
-                                    },
-                                    {
-                                      "name": "RelatedLocalSumValidator",
-                                      "kwargs": {
-                                        "field_names": [
-                                          "resultingFinancialStructurePLNInKindCoproducerNotUeEfta",
-                                          "resultingFinancialStructurePLNFinancialCoproducerNotUeEfta"
-                                        ]
-                                      }
-                                    }
-                                  ],
-                                  "dataBDD": "resultingFinancialStructurePLNTotalCoproducerNotUeEfta",
-                                  "classList": [
-                                    "no-label"
-                                  ],
-                                  "readOnly": true,
-                                  "calculationRules": [
-                                    {
-                                      "name": "localSum",
-                                      "kwargs": {
-                                        "fields": [
-                                          "resultingFinancialStructurePLNInKindCoproducerNotUeEfta",
-                                          "resultingFinancialStructurePLNFinancialCoproducerNotUeEfta"
-                                        ]
-                                      }
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "chapter",
-                              "title": "W tym wkład finansowy",
-                              "classList": {
-                                "main": [
-                                  "table-1-3-narrow",
-                                  "grid",
-                                  "grid-cols-5",
-                                  "no-title"
-                                ],
-                                "sub": [
-                                  "table-1-3__col"
-                                ]
-                              },
-                              "components": [
-                                {
-                                  "kind": "component",
-                                  "type": "header",
-                                  "label": "Label",
-                                  "name": "headerComponent-coproducerNotUeEftaFinancial",
-                                  "value": "wkład finansowy",
-                                  "dataBDD": "header-component-coproducerNotUeEftaFinancial",
-                                  "classList": [
-                                    "text-right",
-                                    "col-span-2",
-                                    "displayNoneFrontend"
-                                  ]
-                                },
-                                {
-                                  "kind": "component",
-                                  "type": "text",
-                                  "mask": "fund",
-                                  "label": "Zgodnie z umową",
-                                  "name": "actualContributionAgreementFinancialCoproducerNotUeEfta",
-                                  "value": 0,
-                                  "defaultValue": 0,
-                                  "unit": "PLN",
-                                  "validators": [
-                                    {
-                                      "name": "RangeValidator",
-                                      "kwargs": {
-                                        "min": 0
-                                      },
-                                      "validationMsg": "Wartość musi być większa lub równa zero."
-                                    }
-                                  ],
-                                  "dataBDD": "actualContributionAgreementFinancialCoproducerNotUeEfta",
-                                  "classList": [
-                                    "no-label"
-                                  ]
-                                },
-                                {
-                                  "kind": "component",
-                                  "type": "text",
-                                  "mask": "fund",
-                                  "label": "Zgodnie z aneksem do umowy",
-                                  "name": "actualContributionAgreementAnnexFinancialCoproducerNotUeEfta",
-                                  "value": 0,
-                                  "defaultValue": 0,
-                                  "unit": "PLN",
-                                  "validators": [
-                                    {
-                                      "name": "RangeValidator",
-                                      "kwargs": {
-                                        "min": 0
-                                      },
-                                      "validationMsg": "Wartość musi być większa lub równa zero."
-                                    }
-                                  ],
-                                  "dataBDD": "actualContributionAgreementAnnexFinancialCoproducerNotUeEfta",
-                                  "classList": [
-                                    "no-label"
-                                  ]
-                                },
-                                {
-                                  "kind": "component",
-                                  "type": "text",
-                                  "mask": "fund",
-                                  "label": "Wynikowa struktura finansowania w PLN",
-                                  "name": "resultingFinancialStructurePLNFinancialCoproducerNotUeEfta",
-                                  "value": 0,
-                                  "defaultValue": 0,
-                                  "unit": "PLN",
-                                  "validators": [
-                                    {
-                                      "name": "RangeValidator",
-                                      "kwargs": {
-                                        "min": 0
-                                      },
-                                      "validationMsg": "Wartość musi być większa lub równa zero."
-                                    }
-                                  ],
-                                  "dataBDD": "resultingFinancialStructurePLNFinancialCoproducerNotUeEfta",
-                                  "classList": [
-                                    "no-label"
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "chapter",
-                              "title": "W tym wkład rzeczowy",
-                              "classList": {
-                                "main": [
-                                  "table-1-3-narrow",
-                                  "grid",
-                                  "grid-cols-5",
-                                  "no-title"
-                                ],
-                                "sub": [
-                                  "table-1-3__col"
-                                ]
-                              },
-                              "components": [
-                                {
-                                  "kind": "component",
-                                  "type": "header",
-                                  "label": "Label",
-                                  "name": "headerComponent-coproducerNotUeEftaInKind",
-                                  "value": "wkład rzeczowy",
-                                  "dataBDD": "header-component-coproducerNotUeEftaInKind",
-                                  "classList": [
-                                    "text-right",
-                                    "col-span-2",
-                                    "displayNoneFrontend"
-                                  ]
-                                },
-                                {
-                                  "kind": "component",
-                                  "type": "text",
-                                  "mask": "fund",
-                                  "label": "Zgodnie z umową",
-                                  "name": "actualContributionAgreementInKindCoproducerNotUeEfta",
-                                  "value": 0,
-                                  "defaultValue": 0,
-                                  "unit": "PLN",
-                                  "validators": [
-                                    {
-                                      "name": "RangeValidator",
-                                      "kwargs": {
-                                        "min": 0
-                                      },
-                                      "validationMsg": "Wartość musi być większa lub równa zero."
-                                    }
-                                  ],
-                                  "dataBDD": "actualContributionAgreementInKindCoproducerNotUeEfta",
-                                  "classList": [
-                                    "no-label"
-                                  ]
-                                },
-                                {
-                                  "kind": "component",
-                                  "type": "text",
-                                  "mask": "fund",
-                                  "label": "Zgodnie z aneksem do umowy",
-                                  "name": "actualContributionAgreementAnnexInKindCoproducerNotUeEfta",
-                                  "value": 0,
-                                  "defaultValue": 0,
-                                  "unit": "PLN",
-                                  "validators": [
-                                    {
-                                      "name": "RangeValidator",
-                                      "kwargs": {
-                                        "min": 0
-                                      },
-                                      "validationMsg": "Wartość musi być większa lub równa zero."
-                                    }
-                                  ],
-                                  "dataBDD": "actualContributionAgreementAnnexInKindCoproducerNotUeEfta",
-                                  "classList": [
-                                    "no-label"
-                                  ]
-                                },
-                                {
-                                  "kind": "component",
-                                  "type": "text",
-                                  "mask": "fund",
-                                  "label": "Wynikowa struktura finansowania w PLN",
-                                  "name": "resultingFinancialStructurePLNInKindCoproducerNotUeEfta",
-                                  "value": 0,
-                                  "defaultValue": 0,
-                                  "unit": "PLN",
-                                  "validators": [
-                                    {
-                                      "name": "RangeValidator",
-                                      "kwargs": {
-                                        "min": 0
-                                      },
-                                      "validationMsg": "Wartość musi być większa lub równa zero."
-                                    }
-                                  ],
-                                  "dataBDD": "resultingFinancialStructurePLNInKindCoproducerNotUeEfta",
-                                  "classList": [
-                                    "no-label"
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
                     }
                   ]
                 }
@@ -16031,14 +15506,14 @@
               "components": [
                 {
                   "kind": "chapter",
-                  "title": "Środki publiczne (poza UE i krajami EFTA)",
+                  "title": "",
                   "classList": [
                     "no-title"
                   ],
                   "components": [
                     {
                       "kind": "chapter",
-                      "title": "Razem",
+                      "title": "Środki publiczne (poza UE i krajami EFTA) - Razem",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",
@@ -16302,14 +15777,14 @@
                 },
                 {
                   "kind": "chapter",
-                  "title": "Pomoc publiczna (UE i kraje EFTA)",
+                  "title": "",
                   "classList": [
                     "no-title"
                   ],
                   "components": [
                     {
                       "kind": "chapter",
-                      "title": "Razem",
+                      "title": "Pomoc publiczna (UE i kraje EFTA) - Razem",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",
@@ -16732,8 +16207,7 @@
                           "kwargs": {
                             "field_names": [
                               "actualContributionAgreementTotalLeadProducer",
-                              "actualContributionAgreementTotalCoproducerUeEftaTotal",
-                              "actualContributionAgreementTotalCoproducerNotUeEftaTotal",
+                              "actualContributionAgreementTotalCoproducerTotal",
                               "actualContributionAgreementTotalDistributors",
                               "actualContributionAgreementTotalTelevisionBroadcasters",
                               "actualContributionAgreementTotalWorldWideSales",
@@ -16758,8 +16232,7 @@
                           "kwargs": {
                             "fields": [
                               "actualContributionAgreementTotalLeadProducer",
-                              "actualContributionAgreementTotalCoproducerUeEftaTotal",
-                              "actualContributionAgreementTotalCoproducerNotUeEftaTotal",
+                              "actualContributionAgreementTotalCoproducerTotal",
                               "actualContributionAgreementTotalDistributors",
                               "actualContributionAgreementTotalTelevisionBroadcasters",
                               "actualContributionAgreementTotalWorldWideSales",
@@ -16795,8 +16268,7 @@
                           "kwargs": {
                             "field_names": [
                               "actualContributionAgreementAnnexTotalLeadProducer",
-                              "actualContributionAgreementAnnexTotalCoproducerUeEftaTotal",
-                              "actualContributionAgreementAnnexTotalCoproducerNotUeEftaTotal",
+                              "actualContributionAgreementAnnexTotalCoproducerTotal",
                               "actualContributionAgreementAnnexTotalDistributors",
                               "actualContributionAgreementAnnexTotalTelevisionBroadcasters",
                               "actualContributionAgreementAnnexTotalWorldWideSales",
@@ -16821,8 +16293,7 @@
                           "kwargs": {
                             "fields": [
                               "actualContributionAgreementAnnexTotalLeadProducer",
-                              "actualContributionAgreementAnnexTotalCoproducerUeEftaTotal",
-                              "actualContributionAgreementAnnexTotalCoproducerNotUeEftaTotal",
+                              "actualContributionAgreementAnnexTotalCoproducerTotal",
                               "actualContributionAgreementAnnexTotalDistributors",
                               "actualContributionAgreementAnnexTotalTelevisionBroadcasters",
                               "actualContributionAgreementAnnexTotalWorldWideSales",
@@ -16858,8 +16329,7 @@
                           "kwargs": {
                             "field_names": [
                               "resultingFinancialStructurePLNTotalLeadProducer",
-                              "resultingFinancialStructurePLNTotalCoproducerUeEftaTotal",
-                              "resultingFinancialStructurePLNTotalCoproducerNotUeEftaTotal",
+                              "resultingFinancialStructurePLNTotalCoproducerTotal",
                               "resultingFinancialStructurePLNTotalDistributors",
                               "resultingFinancialStructurePLNTotalTelevisionBroadcasters",
                               "resultingFinancialStructurePLNTotalWorldWideSales",
@@ -16884,8 +16354,7 @@
                           "kwargs": {
                             "fields": [
                               "resultingFinancialStructurePLNTotalLeadProducer",
-                              "resultingFinancialStructurePLNTotalCoproducerUeEftaTotal",
-                              "resultingFinancialStructurePLNTotalCoproducerNotUeEftaTotal",
+                              "resultingFinancialStructurePLNTotalCoproducerTotal",
                               "resultingFinancialStructurePLNTotalDistributors",
                               "resultingFinancialStructurePLNTotalTelevisionBroadcasters",
                               "resultingFinancialStructurePLNTotalWorldWideSales",
