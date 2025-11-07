@@ -4980,7 +4980,7 @@
                       "components": [
                         {
                           "kind": "chapter",
-                          "title": "<normal>b) ze środków Ministerstwa Kultury i Dziedzictwa Narodowego w ramach Programów Ministra </normal><br /><small>Uwaga! </br><normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </normal></small>",
+                          "title": "<normal>b) ze środków Ministerstwa Kultury i Dziedzictwa Narodowego</normal><br /><small>Uwaga! </br><normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </normal></small>",
                           "components": [
                             {
                               "kind": "chapter",
@@ -4993,7 +4993,7 @@
                                     {
                                       "kind": "component",
                                       "type": "text",
-                                      "label": "Nazwa podmiotu finansującego",
+                                      "label": "Tryb finansowania",
                                       "name": "ministryName",
                                       "dataBDD": "ministryName",
                                       "value": "",
@@ -16044,7 +16044,7 @@
                   "label": "",
                   "name": "headerComponent-preparatoryStage",
                   "dataBDD": "headerComponent-preparatoryStage",
-                  "value": "Pierwsza pozycja w harmonogramie jest terminem rozpoczęcia realizacji przedsięwzięcia."
+                  "value": "Pierwsza pozycja etapu przygotowawczego w harmonogramie jest terminem rozpoczęcia realizacji przedsięwzięcia."
                 }
               ]
             },
@@ -16258,7 +16258,7 @@
                   "label": "",
                   "name": "headerComponent-summaryStage",
                   "dataBDD": "headerComponent-summaryStage",
-                  "value": "Ostatnia pozycja w harmonogramie jest terminem zakończenia realizacji przedsięwzięcia."
+                  "value": "Ostatnia pozycja etapu podsumowania zadania w harmonogramie jest terminem zakończenia realizacji przedsięwzięcia."
                 }
               ]
             },
@@ -16433,6 +16433,7 @@
               ]
             }
           ],
+          "helpText": "Data zakończenia realizacji przedsięwzięcia jest jednocześnie datą obowiązywania umowy o dofinansowanie z PISF. Wydatki poniesione po tym terminie nie będą uznawane za kwalifikowalne.",
           "classList": {
             "main": [
               "dates"
@@ -16459,7 +16460,7 @@
             {
               "kind": "component",
               "type": "checkbox",
-              "label": "Oświadczam, że ze względu na ograniczony krąg odbiorców lub ze względu na niską wartość komercyjną, wydarzenie nie mogłoby się odbyć bez dofinansowania PISF.",
+              "label": "Oświadczam, że przedsięwzięcie ma lokalny lub regionalny charakter, ograniczony krąg odbiorców lub ze względu na niską wartość komercyjną nie mogłoby się odbyć bez dofinansowania przez Instytut.",
               "name": "limitedAudienceSupportStatement",
               "dataBDD": "limitedAudienceSupportStatement",
               "value": false,

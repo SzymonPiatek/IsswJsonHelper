@@ -962,8 +962,9 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                 {
                     "checkbox_title": "Środki Ministerstwa Kultury i Dziedzictwa Narodowego",
                     "checkbox_name": "isMinistryFunding",
-                    "section_title": f"<normal>b) ze środków Ministerstwa Kultury i Dziedzictwa Narodowego w ramach Programów Ministra </normal><br />{source_of_financing_help_text}</small>",
+                    "section_title": f"<normal>b) ze środków Ministerstwa Kultury i Dziedzictwa Narodowego</normal><br />{source_of_financing_help_text}</small>",
                     "section_name": "ministry",
+                    "isProgram": True
                 },
                 {
                     "checkbox_title": "Środki od sponsorów lub innych podmiotów niezaliczanych do sektora finansów publicznych",
@@ -1308,7 +1309,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                                                     components=[
                                                                         self.create_component(
                                                                             component_type="text",
-                                                                            label="Nazwa podmiotu finansującego",
+                                                                            label="Tryb finansowania" if chapter.get("isProgram", False) else "Nazwa podmiotu finansującego",
                                                                             name=f"{chapter["section_name"]}Name",
                                                                             class_list=[
                                                                                 "table-full"
@@ -1696,7 +1697,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         self.create_component(
                             component_type="checkbox",
                             name="limitedAudienceSupportStatement",
-                            label="Oświadczam, że ze względu na ograniczony krąg odbiorców lub ze względu na niską wartość komercyjną, wydarzenie nie mogłoby się odbyć bez dofinansowania PISF.",
+                            label="Oświadczam, że przedsięwzięcie ma lokalny lub regionalny charakter, ograniczony krąg odbiorców lub ze względu na niską wartość komercyjną nie mogłoby się odbyć bez dofinansowania przez Instytut.",
                             help_text="Należy zaznaczyć, jeśli dofinansowanie PISF przekracza 50% całkowitego budżetu.",
                             validators=[
                                 self.validator.related_universal_required_validator(
@@ -1805,7 +1806,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                 self.create_component(
                                     component_type="header",
                                     name="preparatoryStage",
-                                    value="Pierwsza pozycja w harmonogramie jest terminem rozpoczęcia realizacji przedsięwzięcia."
+                                    value="Pierwsza pozycja etapu przygotowawczego w harmonogramie jest terminem rozpoczęcia realizacji przedsięwzięcia."
                                 )
                             ]
                         ),
@@ -1944,7 +1945,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                 self.create_component(
                                     component_type="header",
                                     name="summaryStage",
-                                    value="Ostatnia pozycja w harmonogramie jest terminem zakończenia realizacji przedsięwzięcia."
+                                    value="Ostatnia pozycja etapu podsumowania zadania w harmonogramie jest terminem zakończenia realizacji przedsięwzięcia."
                                 )
                             ]
                         ),
@@ -2012,6 +2013,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                 ),
                 self.create_chapter(
                     title="Podsumowanie harmonogramu",
+                    help_text="Data zakończenia realizacji przedsięwzięcia jest jednocześnie datą obowiązywania umowy o dofinansowanie z PISF. Wydatki poniesione po tym terminie nie będą uznawane za kwalifikowalne.",
                     class_list={
                         "main": [
                             "dates"
