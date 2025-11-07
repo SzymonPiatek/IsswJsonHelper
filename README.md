@@ -18,10 +18,6 @@ Działa w sposób zautomatyzowany, z zachowaniem kontekstu i pełnej treści str
 Moduł odpowiedzialny za komunikację z systemem ISSW.  
 Umożliwia automatyczną aktualizację zawartości formularzy (_autosave_) oraz generowanie i pobieranie ich wersji w formacie PDF.
 
-### 🕵️ Analyzer
-Analizuje pliki JSON w katalogach i wykrywa błędy strukturalne, takie jak zduplikowane `name`.  
-Generuje raport w czytelnym formacie oraz w postaci pliku `.json`, wspierając kontrolę jakości danych.
-
 ---
 
 ## 🚀 Jak zacząć korzystać?
