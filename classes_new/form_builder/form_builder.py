@@ -122,15 +122,12 @@ class FormBuilder(FormFactory):
         self.output_json["parts"].append(part)
 
     def validate_form(self):
-        def validate_component(component: Component):
-            pass
-
         def validate_chapter_visibility_rules(chapter: Chapter):
             visibility_rules = chapter.get("visibilityRules", [])
             for rule in visibility_rules:
                 field_name = rule.get("kwargs", {}).get("fieldName", None)
                 if field_name is not None and field_name not in self.names:
-                    print(field_name)
+                    raise ValueError(f"Użyto nieznany name w VisibilityRule: {field_name}")
 
         def validate_chapter(chapter: Chapter):
             validate_chapter_visibility_rules(chapter=chapter)
@@ -141,7 +138,7 @@ class FormBuilder(FormFactory):
                 if kind == "chapter":
                     validate_chapter(chapter=component)
                 elif kind == "component":
-                    validate_component(component=component)
+                    pass
                 else:
                     raise ValueError(f"Nieznany typ componenta: {kind}")
 
