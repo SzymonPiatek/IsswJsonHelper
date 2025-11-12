@@ -8,9 +8,11 @@ estimate_sections_pt = [
     EstimateSection(
         title="Koszty osobowe i merytoryczne",
         costs=[
-            CostItem(
+            fraction_cost(
                 title="Zarządzanie przedsięwzięciem",
-                name="projectManagement"
+                name="projectManagement",
+                ratio=0.15,
+                title_help_text="zarządzania przedsięwzięciem"
             ),
             CostItem(
                 title="Opracowanie i redakcja publikacji",

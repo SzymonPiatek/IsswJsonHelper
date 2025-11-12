@@ -89,7 +89,7 @@ estimate_sections = [
                 helpText="Dopuszcza się ujęcie obsługi technicznej w kosztach wynajmu sprzętu, jeśli stanowi integralną część usługi dostawcy."
             ),
             CostItem(
-                title="zabezpiecznie BHP",
+                title="Zabezpiecznie BHP",
                 name="safetyBhp"
             ),
             CostItem(

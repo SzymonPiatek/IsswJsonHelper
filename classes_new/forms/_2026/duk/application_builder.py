@@ -1216,7 +1216,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         self.validator.related_fraction_lte_validator(
                             field_name="totalProjectCost",
                             ratio=0.1,
-                            message="Wysokość wkładu finansowego musi wynosić minimum 10% kwoty całkowitego budżetu."
+                            message="Wysokość wkładu własnego musi wynosić minimum 10% kwoty całkowitego budżetu przedsięwzięcia."
                         )
                     ]
                 )

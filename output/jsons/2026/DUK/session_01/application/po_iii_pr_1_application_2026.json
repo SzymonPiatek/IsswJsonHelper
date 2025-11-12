@@ -3578,7 +3578,7 @@
                             "field_name": "totalProjectCost",
                             "ratio": 0.1
                           },
-                          "validationMsg": "Wysokość wkładu finansowego musi wynosić minimum 10% kwoty całkowitego budżetu."
+                          "validationMsg": "Wysokość wkładu własnego musi wynosić minimum 10% kwoty całkowitego budżetu przedsięwzięcia."
                         },
                         {
                           "name": "RangeValidator",
@@ -7175,7 +7175,7 @@
                     },
                     {
                       "kind": "chapter",
-                      "title": "5. zabezpiecznie BHP",
+                      "title": "5. Zabezpiecznie BHP",
                       "components": [
                         {
                           "kind": "component",
@@ -7183,7 +7183,7 @@
                           "label": "",
                           "name": "safetyBhpDesc",
                           "dataBDD": "safetyBhpDesc",
-                          "value": "5. zabezpiecznie BHP",
+                          "value": "5. Zabezpiecznie BHP",
                           "readOnly": true,
                           "classList": [
                             "col-span-2",

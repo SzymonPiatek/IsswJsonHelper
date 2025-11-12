@@ -3175,7 +3175,7 @@
                             "field_name": "totalProjectCost",
                             "ratio": 0.1
                           },
-                          "validationMsg": "Wysokość wkładu finansowego musi wynosić minimum 10% kwoty całkowitego budżetu."
+                          "validationMsg": "Wysokość wkładu własnego musi wynosić minimum 10% kwoty całkowitego budżetu przedsięwzięcia."
                         },
                         {
                           "name": "RangeValidator",
