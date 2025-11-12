@@ -4828,6 +4828,16 @@
                                   }
                                 },
                                 {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "sourceMaterialsRentalRequestedAmount",
+                                      "sourceMaterialsRentalOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
+                                },
+                                {
                                   "name": "RangeValidator",
                                   "kwargs": {
                                     "min": 0
@@ -4994,6 +5004,16 @@
                                       "sourceMaterialsCleaningAmount"
                                     ]
                                   }
+                                },
+                                {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "sourceMaterialsCleaningRequestedAmount",
+                                      "sourceMaterialsCleaningOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
                                 },
                                 {
                                   "name": "RangeValidator",
@@ -5164,6 +5184,16 @@
                                   }
                                 },
                                 {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "sourceMaterialsScanningRequestedAmount",
+                                      "sourceMaterialsScanningOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
+                                },
+                                {
                                   "name": "RangeValidator",
                                   "kwargs": {
                                     "min": 0
@@ -5330,6 +5360,16 @@
                                       "sourceSoundDigitizationAmount"
                                     ]
                                   }
+                                },
+                                {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "sourceSoundDigitizationRequestedAmount",
+                                      "sourceSoundDigitizationOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
                                 },
                                 {
                                   "name": "RangeValidator",
@@ -5500,6 +5540,16 @@
                                   }
                                 },
                                 {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "archivalCopiesImageRequestedAmount",
+                                      "archivalCopiesImageOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
+                                },
+                                {
                                   "name": "RangeValidator",
                                   "kwargs": {
                                     "min": 0
@@ -5666,6 +5716,16 @@
                                   }
                                 },
                                 {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "archivalCopiesSoundRequestedAmount",
+                                      "archivalCopiesSoundOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
+                                },
+                                {
                                   "name": "RangeValidator",
                                   "kwargs": {
                                     "min": 0
@@ -5827,6 +5887,16 @@
                                       "archivalCopiesMediaAmount"
                                     ]
                                   }
+                                },
+                                {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "archivalCopiesMediaRequestedAmount",
+                                      "archivalCopiesMediaOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
                                 },
                                 {
                                   "name": "RangeValidator",
@@ -5995,6 +6065,16 @@
                                       "technicalConditionReportAmount"
                                     ]
                                   }
+                                },
+                                {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "technicalConditionReportRequestedAmount",
+                                      "technicalConditionReportOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
                                 },
                                 {
                                   "name": "RangeValidator",
@@ -6172,6 +6252,16 @@
                                   }
                                 },
                                 {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "conformingRequestedAmount",
+                                      "conformingOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
+                                },
+                                {
                                   "name": "RangeValidator",
                                   "kwargs": {
                                     "min": 0
@@ -6338,6 +6428,16 @@
                                       "imageRestorationAmount"
                                     ]
                                   }
+                                },
+                                {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "imageRestorationRequestedAmount",
+                                      "imageRestorationOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
                                 },
                                 {
                                   "name": "RangeValidator",
@@ -6508,6 +6608,16 @@
                                   }
                                 },
                                 {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "soundRestorationRequestedAmount",
+                                      "soundRestorationOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
+                                },
+                                {
                                   "name": "RangeValidator",
                                   "kwargs": {
                                     "min": 0
@@ -6669,6 +6779,16 @@
                                       "soundSynchronizationAmount"
                                     ]
                                   }
+                                },
+                                {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "soundSynchronizationRequestedAmount",
+                                      "soundSynchronizationOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
                                 },
                                 {
                                   "name": "RangeValidator",
@@ -6839,6 +6959,16 @@
                                   }
                                 },
                                 {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "masterCopiesRequestedAmount",
+                                      "masterCopiesOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
+                                },
+                                {
                                   "name": "RangeValidator",
                                   "kwargs": {
                                     "min": 0
@@ -7000,6 +7130,16 @@
                                       "imageAndSoundMontageReconstructionAmount"
                                     ]
                                   }
+                                },
+                                {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "imageAndSoundMontageReconstructionRequestedAmount",
+                                      "imageAndSoundMontageReconstructionOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
                                 },
                                 {
                                   "name": "RangeValidator",
@@ -7170,6 +7310,16 @@
                                   }
                                 },
                                 {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "distributionCopiesRequestedAmount",
+                                      "distributionCopiesOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
+                                },
+                                {
                                   "name": "RangeValidator",
                                   "kwargs": {
                                     "min": 0
@@ -7333,6 +7483,16 @@
                                   }
                                 },
                                 {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "distributionCopiesMediaRequestedAmount",
+                                      "distributionCopiesMediaOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
+                                },
+                                {
                                   "name": "RangeValidator",
                                   "kwargs": {
                                     "min": 0
@@ -7494,6 +7654,16 @@
                                       "permanentFilmCopyAmount"
                                     ]
                                   }
+                                },
+                                {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "permanentFilmCopyRequestedAmount",
+                                      "permanentFilmCopyOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
                                 },
                                 {
                                   "name": "RangeValidator",
@@ -7662,6 +7832,16 @@
                                   }
                                 },
                                 {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "artisticSupervisionRequestedAmount",
+                                      "artisticSupervisionOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
+                                },
+                                {
                                   "name": "RangeValidator",
                                   "kwargs": {
                                     "min": 0
@@ -7826,6 +8006,16 @@
                                       "technicalQualityControlAmount"
                                     ]
                                   }
+                                },
+                                {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "technicalQualityControlRequestedAmount",
+                                      "technicalQualityControlOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
                                 },
                                 {
                                   "name": "RangeValidator",
@@ -7994,6 +8184,16 @@
                                   }
                                 },
                                 {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "processCoordinationRequestedAmount",
+                                      "processCoordinationOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
+                                },
+                                {
                                   "name": "RangeValidator",
                                   "kwargs": {
                                     "min": 0
@@ -8158,6 +8358,16 @@
                                       "languageVersionAmount"
                                     ]
                                   }
+                                },
+                                {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "languageVersionRequestedAmount",
+                                      "languageVersionOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
                                 },
                                 {
                                   "name": "RangeValidator",
@@ -8326,6 +8536,16 @@
                                   }
                                 },
                                 {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "promotionalMaterialsRequestedAmount",
+                                      "promotionalMaterialsOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
+                                },
+                                {
                                   "name": "RangeValidator",
                                   "kwargs": {
                                     "min": 0
@@ -8491,6 +8711,16 @@
                                   }
                                 },
                                 {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "screeningOrganizationRequestedAmount",
+                                      "screeningOrganizationOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
+                                },
+                                {
                                   "name": "RangeValidator",
                                   "kwargs": {
                                     "min": 0
@@ -8654,6 +8884,16 @@
                                       "materialsTransportAmount"
                                     ]
                                   }
+                                },
+                                {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "materialsTransportRequestedAmount",
+                                      "materialsTransportOtherFundsAmount"
+                                    ]
+                                  },
+                                  "validationMsg": "Koszt łączny musi być równy sumie dotacji i pozostałych środków."
                                 },
                                 {
                                   "name": "RangeValidator",
