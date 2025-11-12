@@ -113,7 +113,6 @@ estimate_sections = [
                     "W przypadku podróży lotniczych pokrywa się z dotacji tylko koszt biletów w klasie ekonomicznej. "
                     "W przypadku zakupu paliwa wyłącznie koszty paliwa do samochodów wykorzystywanych do realizacji przedsięwzięcia "
                     "zgodnie z obowiązującymi przepisami (tj. jeżeli samochód stanowi środek trwały Wnioskodawcy lub jest przedmiotem leasingu bądź najmu). "
-                    "Z dotacji PISF nie są pokrywane koszty podróży zagranicznych."
                 ),
             ),
             CostItem(

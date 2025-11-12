@@ -1021,12 +1021,12 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                 self.create_chapter(
                     class_list={
                         "main": [
-                            "table-1-3-narrow",
+                            "table-1-2",
                             "grid",
-                            "grid-cols-3"
+                            "grid-cols-2"
                         ],
                         "sub": [
-                            "table-1-3__col"
+                            "table-1-2__col"
                         ]
                     },
                     visibility_rules=[
@@ -1043,41 +1043,33 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             mask="fund",
                             name="proceedsFromSales",
                             label="Wpływy ze sprzedaży",
-                            unit="PLN"
+                            unit="PLN",
+                            validators=[
+                                self.validator.related_fraction_gte_validator(
+                                    field_name="ownFinancialFundsAmount",
+                                    ratio=1
+                                )
+                            ]
                         ),
                         self.create_component(
                             component_type="text",
                             mask="fund",
                             name="otherFinancialResources",
                             label="Pozostałe środki finansowe",
-                            validators=[
-                                self.validator.related_fraction_gte_validator(
-                                    field_name="ownFinancialFundsAmount",
-                                    ratio=1
-                                )
-                            ],
-                            unit="PLN"
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            mask="fund",
-                            name="proceedsFromSalesTotal",
-                            label="Suma",
                             calculation_rules=[
-                                self.calculation_rule.dynamic_sum_inputs(
-                                    fields=[
-                                        "proceedsFromSales",
-                                        "otherFinancialResources"
-                                    ]
+                                self.calculation_rule.subtract_inputs(
+                                    first_field="ownFinancialFundsAmount",
+                                    second_field="proceedsFromSales"
                                 )
                             ],
                             validators=[
-                                self.validator.related_sum_validator(
-                                    field_names=["ownFinancialFundsAmount"]
+                                self.validator.related_subtract_validator(
+                                    first_field="ownFinancialFundsAmount",
+                                    second_field="proceedsFromSales"
                                 )
                             ],
-                            read_only=True,
-                            unit="PLN"
+                            unit="PLN",
+                            read_only=True
                         )
                     ]
                 )
@@ -1220,6 +1212,11 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                 "ownFinancialFundsAmount",
                                 "ownInKindFundsAmount"
                             ]
+                        ),
+                        self.validator.related_fraction_lte_validator(
+                            field_name="totalProjectCost",
+                            ratio=0.1,
+                            message="Wysokość wkładu finansowego musi wynosić minimum 10% kwoty całkowitego budżetu."
                         )
                     ]
                 )

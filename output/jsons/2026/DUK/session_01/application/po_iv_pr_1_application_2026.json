@@ -3107,25 +3107,6 @@
                               "unit": "PLN",
                               "validators": [
                                 {
-                                  "name": "RangeValidator",
-                                  "kwargs": {
-                                    "min": 0
-                                  },
-                                  "validationMsg": "Wartość musi być większa lub równa 0."
-                                }
-                              ]
-                            },
-                            {
-                              "kind": "component",
-                              "type": "text",
-                              "label": "Pozostałe środki finansowe",
-                              "name": "otherFinancialResources",
-                              "dataBDD": "otherFinancialResources",
-                              "value": 0,
-                              "mask": "fund",
-                              "unit": "PLN",
-                              "validators": [
-                                {
                                   "name": "RelatedFractionGTEValidator",
                                   "kwargs": {
                                     "field_name": "ownFinancialFundsAmount",
@@ -3144,20 +3125,19 @@
                             {
                               "kind": "component",
                               "type": "text",
-                              "label": "Suma",
-                              "name": "proceedsFromSalesTotal",
-                              "dataBDD": "proceedsFromSalesTotal",
+                              "label": "Pozostałe środki finansowe",
+                              "name": "otherFinancialResources",
+                              "dataBDD": "otherFinancialResources",
                               "value": 0,
                               "mask": "fund",
                               "unit": "PLN",
                               "readOnly": true,
                               "validators": [
                                 {
-                                  "name": "RelatedSumValidator",
+                                  "name": "RelatedSubtractValidator",
                                   "kwargs": {
-                                    "field_names": [
-                                      "ownFinancialFundsAmount"
-                                    ]
+                                    "first_field": "ownFinancialFundsAmount",
+                                    "second_field": "proceedsFromSales"
                                   }
                                 },
                                 {
@@ -3170,12 +3150,10 @@
                               ],
                               "calculationRules": [
                                 {
-                                  "name": "dynamicSumInputs",
+                                  "name": "subtractInputs",
                                   "kwargs": {
-                                    "fields": [
-                                      "proceedsFromSales",
-                                      "otherFinancialResources"
-                                    ]
+                                    "firstField": "ownFinancialFundsAmount",
+                                    "secondField": "proceedsFromSales"
                                   }
                                 }
                               ]
@@ -3183,12 +3161,12 @@
                           ],
                           "classList": {
                             "main": [
-                              "table-1-3-narrow",
+                              "table-1-2",
                               "grid",
-                              "grid-cols-3"
+                              "grid-cols-2"
                             ],
                             "sub": [
-                              "table-1-3__col"
+                              "table-1-2__col"
                             ]
                           },
                           "visibilityRules": [
@@ -3313,6 +3291,14 @@
                               "ownInKindFundsAmount"
                             ]
                           }
+                        },
+                        {
+                          "name": "RelatedFractionLTEValidator",
+                          "kwargs": {
+                            "field_name": "totalProjectCost",
+                            "ratio": 0.1
+                          },
+                          "validationMsg": "Wysokość wkładu finansowego musi wynosić minimum 10% kwoty całkowitego budżetu."
                         },
                         {
                           "name": "RangeValidator",

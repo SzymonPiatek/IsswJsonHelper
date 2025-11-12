@@ -203,3 +203,13 @@ class CalculationRule:
         return {
             "name": "rowNumber"
         }
+
+    @staticmethod
+    def subtract_inputs(first_field: str, second_field: str):
+        return {
+            "name": "subtractInputs",
+            "kwargs": {
+                "firstField": first_field,
+                "secondField": second_field
+            }
+        }

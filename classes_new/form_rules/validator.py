@@ -897,3 +897,18 @@ class Validator:
             result["validationMsg"] = message
 
         return result
+
+    @staticmethod
+    def related_subtract_validator(first_field: str, second_field: str, message: str = None):
+        result = {
+            "name": "RelatedSubtractValidator",
+            "kwargs": {
+                "first_field": first_field,
+                "second_field": second_field
+            }
+        }
+
+        if message:
+            result["validationMsg"] = message
+
+        return result
