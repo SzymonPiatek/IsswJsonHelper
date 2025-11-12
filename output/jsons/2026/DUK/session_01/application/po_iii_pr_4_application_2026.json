@@ -10102,117 +10102,25 @@
             },
             {
               "kind": "chapter",
-              "title": "",
+              "title": "Dokument potwierdzający posiadanie praw do digitalizacji/ rekonstrukcji filmu",
               "components": [
                 {
-                  "kind": "chapter",
-                  "title": "",
-                  "components": [
+                  "kind": "component",
+                  "type": "file",
+                  "label": "",
+                  "name": "attachmentDigitalizationRights",
+                  "dataBDD": "attachmentDigitalizationRights",
+                  "value": "",
+                  "required": true,
+                  "helpText": "Maksymalny rozmiar pliku to 50 MB",
+                  "validators": [
                     {
-                      "kind": "component",
-                      "type": "checkbox",
-                      "label": "Dokument zaświadczający o posiadaniu praw do digitalizacji/rekonstrukcji filmu",
-                      "name": "isAttachmentDigitalizationRights",
-                      "dataBDD": "isAttachmentDigitalizationRights",
-                      "value": false,
-                      "validators": [
-                        {
-                          "name": "RelatedAnyOfValidator",
-                          "kwargs": {
-                            "field_names": [
-                              "isAttachmentDigitalizationRights",
-                              "isAttachmentOwnerContract"
-                            ]
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "kind": "component",
-                      "type": "checkbox",
-                      "label": "Umowa między Wnioskodawcą a właścicielem praw do digitalizowanego filmu/filmów",
-                      "name": "isAttachmentOwnerContract",
-                      "dataBDD": "isAttachmentOwnerContract",
-                      "value": false,
-                      "validators": [
-                        {
-                          "name": "RelatedAnyOfValidator",
-                          "kwargs": {
-                            "field_names": [
-                              "isAttachmentDigitalizationRights",
-                              "isAttachmentOwnerContract"
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "kind": "chapter",
-                  "title": "<normal>Dokument zaświadczający o posiadaniu praw do digitalizacji/rekonstrukcji filmu</normal>",
-                  "components": [
-                    {
-                      "kind": "component",
-                      "type": "file",
-                      "label": "",
-                      "name": "attachmentDigitalizationRights",
-                      "dataBDD": "attachmentDigitalizationRights",
-                      "value": "",
-                      "required": true,
-                      "helpText": "Maksymalny rozmiar pliku to 50 MB",
-                      "validators": [
-                        {
-                          "name": "RequiredValidator"
-                        }
-                      ]
-                    }
-                  ],
-                  "visibilityRules": [
-                    {
-                      "name": "dependsOnValue",
-                      "kwargs": {
-                        "fieldName": "isAttachmentDigitalizationRights",
-                        "values": [
-                          true
-                        ]
-                      }
-                    }
-                  ]
-                },
-                {
-                  "kind": "chapter",
-                  "title": "<normal>Umowa między Wnioskodawcą a właścicielem praw do digitalizowanego filmu/filmów</normal>",
-                  "components": [
-                    {
-                      "kind": "component",
-                      "type": "file",
-                      "label": "",
-                      "name": "attachmentOwnerContract",
-                      "dataBDD": "attachmentOwnerContract",
-                      "value": "",
-                      "required": true,
-                      "helpText": "Maksymalny rozmiar pliku to 50 MB",
-                      "validators": [
-                        {
-                          "name": "RequiredValidator"
-                        }
-                      ]
-                    }
-                  ],
-                  "visibilityRules": [
-                    {
-                      "name": "dependsOnValue",
-                      "kwargs": {
-                        "fieldName": "isAttachmentOwnerContract",
-                        "values": [
-                          true
-                        ]
-                      }
+                      "name": "RequiredValidator"
                     }
                   ]
                 }
-              ]
+              ],
+              "helpText": "Należy załączyć umowę zawartą między Wnioskodawcą a właścicielem praw do digitalizowanego materiału filmowego lub inny dokument potwierdzający posiadanie praw do digitalizacji lub rekonstrukcji filmu."
             }
           ]
         },

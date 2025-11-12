@@ -229,68 +229,13 @@ class ReconstructionPriorityApplicationFormBuilder(DisseminationOperationalProgr
                         self.section.application_attachment.document_confirming_represent_applicant(),
                         self.section.application_attachment.schedule_information(),
                         self.create_chapter(
+                            title="Dokument potwierdzający posiadanie praw do digitalizacji/ rekonstrukcji filmu",
+                            help_text="Należy załączyć umowę zawartą między Wnioskodawcą a właścicielem praw do digitalizowanego materiału filmowego lub inny dokument potwierdzający posiadanie praw do digitalizacji lub rekonstrukcji filmu.",
                             components=[
-                                self.create_chapter(
-                                    components=[
-                                        self.create_component(
-                                            component_type="checkbox",
-                                            name="isAttachmentDigitalizationRights",
-                                            label="Dokument zaświadczający o posiadaniu praw do digitalizacji/rekonstrukcji filmu",
-                                            validators=[
-                                                self.validator.related_any_of_validator(
-                                                    field_names=[
-                                                        "isAttachmentDigitalizationRights",
-                                                        "isAttachmentOwnerContract"
-                                                    ],
-                                                )
-                                            ]
-                                        ),
-                                        self.create_component(
-                                            component_type="checkbox",
-                                            name="isAttachmentOwnerContract",
-                                            label="Umowa między Wnioskodawcą a właścicielem praw do digitalizowanego filmu/filmów",
-                                            validators=[
-                                                self.validator.related_any_of_validator(
-                                                    field_names=[
-                                                        "isAttachmentDigitalizationRights",
-                                                        "isAttachmentOwnerContract"
-                                                    ],
-                                                )
-                                            ]
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    visibility_rules=[
-                                        self.visibility_rule.depends_on_value(
-                                            field_name="isAttachmentDigitalizationRights",
-                                            values=[True]
-                                        )
-                                    ],
-                                    title="<normal>Dokument zaświadczający o posiadaniu praw do digitalizacji/rekonstrukcji filmu</normal>",
-                                    components=[
-                                        self.create_component(
-                                            component_type="file",
-                                            name="attachmentDigitalizationRights",
-                                            required=True
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    visibility_rules=[
-                                        self.visibility_rule.depends_on_value(
-                                            field_name="isAttachmentOwnerContract",
-                                            values=[True]
-                                        )
-                                    ],
-                                    title="<normal>Umowa między Wnioskodawcą a właścicielem praw do digitalizowanego filmu/filmów</normal>",
-                                    components=[
-                                        self.create_component(
-                                            component_type="file",
-                                            name="attachmentOwnerContract",
-                                            required=True
-                                        )
-                                    ]
+                                self.create_component(
+                                    component_type="file",
+                                    name="attachmentDigitalizationRights",
+                                    required=True
                                 )
                             ]
                         )
