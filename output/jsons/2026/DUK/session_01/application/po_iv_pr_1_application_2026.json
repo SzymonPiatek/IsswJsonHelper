@@ -3073,6 +3073,137 @@
                           "table-1-2__col"
                         ]
                       }
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "chapter",
+                          "title": "",
+                          "components": [
+                            {
+                              "kind": "component",
+                              "type": "checkbox",
+                              "label": "Należy zaznaczyć, jeśli częścią wkładu finansowego są wpływy ze sprzedaży biletów, akredytacji, publikacji, szkoleń itp.",
+                              "name": "isTicketRevenues",
+                              "dataBDD": "isTicketRevenues",
+                              "value": false
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "chapter",
+                          "title": "",
+                          "components": [
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Wpływy ze sprzedaży",
+                              "name": "proceedsFromSales",
+                              "dataBDD": "proceedsFromSales",
+                              "value": 0,
+                              "mask": "fund",
+                              "unit": "PLN",
+                              "validators": [
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Pozostałe środki finansowe",
+                              "name": "otherFinancialResources",
+                              "dataBDD": "otherFinancialResources",
+                              "value": 0,
+                              "mask": "fund",
+                              "unit": "PLN",
+                              "validators": [
+                                {
+                                  "name": "RelatedFractionGTEValidator",
+                                  "kwargs": {
+                                    "field_name": "ownFinancialFundsAmount",
+                                    "ratio": 1
+                                  }
+                                },
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Suma",
+                              "name": "proceedsFromSalesTotal",
+                              "dataBDD": "proceedsFromSalesTotal",
+                              "value": 0,
+                              "mask": "fund",
+                              "unit": "PLN",
+                              "readOnly": true,
+                              "validators": [
+                                {
+                                  "name": "RelatedSumValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "ownFinancialFundsAmount"
+                                    ]
+                                  }
+                                },
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                }
+                              ],
+                              "calculationRules": [
+                                {
+                                  "name": "dynamicSumInputs",
+                                  "kwargs": {
+                                    "fields": [
+                                      "proceedsFromSales",
+                                      "otherFinancialResources"
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          ],
+                          "classList": {
+                            "main": [
+                              "table-1-3-narrow",
+                              "grid",
+                              "grid-cols-3"
+                            ],
+                            "sub": [
+                              "table-1-3__col"
+                            ]
+                          },
+                          "visibilityRules": [
+                            {
+                              "name": "dependsOnValue",
+                              "kwargs": {
+                                "fieldName": "isTicketRevenues",
+                                "values": [
+                                  true
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ]
                 },

@@ -2962,7 +2962,7 @@
                             {
                               "kind": "component",
                               "type": "checkbox",
-                              "label": "Należy zaznaczyć, jeśli częścią wkładu finansowego są wpływy z biletów, akredytacji itp.",
+                              "label": "Należy zaznaczyć, jeśli częścią wkładu finansowego są wpływy ze sprzedaży biletów, akredytacji, publikacji, szkoleń itp.",
                               "name": "isTicketRevenues",
                               "dataBDD": "isTicketRevenues",
                               "value": false

@@ -23,7 +23,6 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
             "Działalność Sieci Kin Studyjnych",
             "Inne działania realizujące cele Priorytetu II"
         ]
-        self.source_of_financing_tickets = True
 
         # Estimate
         estimate_builder_pt124 = DUKApplicationEstimateBuilder(

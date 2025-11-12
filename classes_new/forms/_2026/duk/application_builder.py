@@ -21,7 +21,6 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
 
         # Variables
         self.project_type: list[str] = []
-        self.source_of_financing_tickets: bool = False
         self.is_dkf: bool = False
 
         # Estimate
@@ -1014,7 +1013,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     components=[
                         self.create_component(
                             component_type="checkbox",
-                            label="Należy zaznaczyć, jeśli częścią wkładu finansowego są wpływy z biletów, akredytacji itp.",
+                            label="Należy zaznaczyć, jeśli częścią wkładu finansowego są wpływy ze sprzedaży biletów, akredytacji, publikacji, szkoleń itp.",
                             name="isTicketRevenues"
                         )
                     ]
@@ -1132,10 +1131,10 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                 )
             ]
         )
-        if self.source_of_financing_tickets:
-            own_financial_chapter["components"].append(
-                tickets_chapter
-            )
+
+        own_financial_chapter["components"].append(
+            tickets_chapter
+        )
 
         own_in_kind_chapter = self.create_chapter(
             title="<small>b) Wkład rzeczowy</small>",

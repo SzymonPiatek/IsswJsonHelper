@@ -21,7 +21,6 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
             "Działalność portali, serwisów, baz z zakresu wiedzy o filmie",
             "Wydanie muzyki filmowej z polskich filmów i koprodukcji, w tym reedycji i opracowań ścieżek dźwiękowych w formie analogowej lub cyfrowej"
         ]
-        self.source_of_financing_tickets = True
 
         # Estimate
         estimate_builder_pt = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections_pt)

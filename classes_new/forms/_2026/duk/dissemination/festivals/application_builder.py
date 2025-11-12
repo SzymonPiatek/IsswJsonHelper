@@ -20,7 +20,6 @@ class FestivalsPriorityApplicationFormBuilder(DisseminationOperationalProgramApp
         self.project_type = [
             "Organizacja festiwali filmowych o charakterze ogólnopolskim lub międzynarodowym, będących wydarzeniami cyklicznymi, obejmujących szeroki program filmowy, sekcje konkursowe oceniane przez jury oraz wydarzenia towarzyszące, takie jak spotkania z twórcami, panele dyskusyjne czy warsztaty"
         ]
-        self.source_of_financing_tickets = True
 
         # Estimate
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)

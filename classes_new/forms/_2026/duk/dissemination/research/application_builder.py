@@ -22,7 +22,6 @@ class ResearchPriorityApplicationFormBuilder(DisseminationOperationalProgramAppl
             "Przygotowanie innowacyjnych przedsięwzięć o szczególnym znaczeniu dla rozwoju rynku audiowizualnego",
             "Badania i analizy zjawiska tzw. piractwa w sferze kinematografii oraz działania na rzecz jego zwalczania"
         ]
-        self.source_of_financing_tickets = True
 
         # Estimate
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)

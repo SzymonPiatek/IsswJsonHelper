@@ -19,7 +19,6 @@ class DkfPriorityApplicationFormBuilder(DisseminationOperationalProgramApplicati
         self.project_type = [
             "Działalność klubów filmowych o charakterze cyklicznym, obejmująca organizację co najmniej 10 wydarzeń rocznie realizowanych w formule: prelekcja, projekcja, dyskusja"
         ]
-        self.source_of_financing_tickets = True
         self.is_dkf = True
 
         # Estimate
