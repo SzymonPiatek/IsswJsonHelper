@@ -18,8 +18,8 @@ class ReconstructionPriorityApplicationFormBuilder(DisseminationOperationalProgr
 
         # Variables
         self.project_type = [
-            "Rekonstrukcja cyfrowa i digitalizacja filmów polskich oraz ich przygotowanie do rozpowszechniania",
-            "Systemowe przedsięwzięcia, mające na celu zabezpieczenie materiałów filmowych"
+            "Digitalizacja i rekonstrukcja cyfrowa polskich filmów oraz filmów o szczególnym znaczeniu dla polskiej kultury i ich przygotowanie do rozpowszechniania",
+            "Przedsięwzięcia mające na celu zabezpieczenie materiałów filmowych, w tym wytwarzanie kopii analogowych dystrybucyjnych i zabezpieczających kanonicznych dzieł polskiej kinematografii"
         ]
 
         # Estimate
