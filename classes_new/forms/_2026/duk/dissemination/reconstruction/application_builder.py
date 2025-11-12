@@ -228,69 +228,72 @@ class ReconstructionPriorityApplicationFormBuilder(DisseminationOperationalProgr
                     components=[
                         self.section.application_attachment.document_confirming_represent_applicant(),
                         self.section.application_attachment.schedule_information(),
-                        {
-                            "kind": "chapter",
-                            "title": "Dokument zaświadczający o posiadaniu praw do digitalizacji/rekonstrukcji filmu",
-                            "components": [
-                                {
-                                    "kind": "component",
-                                    "type": "file",
-                                    "label": "",
-                                    "name": "attachmentDigitalizationRights",
-                                    "value": "",
-                                    "helpText": "Maksymalny rozmiar pliku to 50 MB",
-                                    "required": True,
-                                    "validators": [
-                                        {
-                                            "name": "RequiredValidator",
-                                        }
+                        self.create_chapter(
+                            components=[
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="checkbox",
+                                            name="isAttachmentDigitalizationRights",
+                                            label="Dokument zaświadczający o posiadaniu praw do digitalizacji/rekonstrukcji filmu",
+                                            validators=[
+                                                self.validator.related_any_of_validator(
+                                                    field_names=[
+                                                        "isAttachmentDigitalizationRights",
+                                                        "isAttachmentOwnerContract"
+                                                    ],
+                                                )
+                                            ]
+                                        ),
+                                        self.create_component(
+                                            component_type="checkbox",
+                                            name="isAttachmentOwnerContract",
+                                            label="Umowa między Wnioskodawcą a właścicielem praw do digitalizowanego filmu/filmów",
+                                            validators=[
+                                                self.validator.related_any_of_validator(
+                                                    field_names=[
+                                                        "isAttachmentDigitalizationRights",
+                                                        "isAttachmentOwnerContract"
+                                                    ],
+                                                )
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="isAttachmentDigitalizationRights",
+                                            values=[True]
+                                        )
                                     ],
-                                    "dataBDD": "attachmentDigitalizationRights"
-                                }
-                            ]
-                        },
-                        {
-                            "kind": "chapter",
-                            "title": "Diagnoza stanu technicznego taśmy światłoczułej, w przypadku filmów fabularnych przeprowadzona przez Filmotekę Narodową – Instytut Audiowizualny (w przypadku braku wymaganego dokumentu Wnioskodawca zobowiązany jest do dołączenia oświadczenia, w którym zobowiązuje się do dostarczenia dokumentu)",
-                            "components": [
-                                {
-                                    "kind": "component",
-                                    "type": "file",
-                                    "label": "",
-                                    "name": "attachmentTechnicalCondition",
-                                    "value": "",
-                                    "helpText": "Maksymalny rozmiar pliku to 50 MB",
-                                    "required": True,
-                                    "validators": [
-                                        {
-                                            "name": "RequiredValidator"
-                                        }
+                                    title="<normal>Dokument zaświadczający o posiadaniu praw do digitalizacji/rekonstrukcji filmu</normal>",
+                                    components=[
+                                        self.create_component(
+                                            component_type="file",
+                                            name="attachmentDigitalizationRights",
+                                            required=True
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="isAttachmentOwnerContract",
+                                            values=[True]
+                                        )
                                     ],
-                                    "dataBDD": "attachment-technical-condition"
-                                }
+                                    title="<normal>Umowa między Wnioskodawcą a właścicielem praw do digitalizowanego filmu/filmów</normal>",
+                                    components=[
+                                        self.create_component(
+                                            component_type="file",
+                                            name="attachmentOwnerContract",
+                                            required=True
+                                        )
+                                    ]
+                                )
                             ]
-                        },
-                        {
-                            "kind": "chapter",
-                            "title": "Umowa między Wnioskodawcą a właścicielem praw do digitalizowanego filmu/filmów",
-                            "components": [
-                                {
-                                    "kind": "component",
-                                    "type": "file",
-                                    "label": "",
-                                    "name": "attachmentOwnerContract",
-                                    "value": "",
-                                    "helpText": "Maksymalny rozmiar pliku to 50 MB",
-                                    "required": True,
-                                    "validators": [
-                                        {
-                                            "name": "RequiredValidator"
-                                        }
-                                    ],
-                                    "dataBDD": "attachment-owner-contract"
-                                }
-                            ]
-                        },
+                        )
                     ]
                 ),
                 self.section.application_attachment.other_attachments()

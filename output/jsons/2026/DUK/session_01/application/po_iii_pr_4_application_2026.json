@@ -117,16 +117,16 @@
               "dataBDD": "projectType",
               "value": "",
               "options": [
-                "Rekonstrukcja cyfrowa i digitalizacja filmów polskich oraz ich przygotowanie do rozpowszechniania",
-                "Systemowe przedsięwzięcia, mające na celu zabezpieczenie materiałów filmowych"
+                "Digitalizacja i rekonstrukcja cyfrowa polskich filmów oraz filmów o szczególnym znaczeniu dla polskiej kultury i ich przygotowanie do rozpowszechniania",
+                "Przedsięwzięcia mające na celu zabezpieczenie materiałów filmowych, w tym wytwarzanie kopii analogowych dystrybucyjnych i zabezpieczających kanonicznych dzieł polskiej kinematografii"
               ],
               "validators": [
                 {
                   "name": "ExactValidator",
                   "kwargs": {
                     "values": [
-                      "Rekonstrukcja cyfrowa i digitalizacja filmów polskich oraz ich przygotowanie do rozpowszechniania",
-                      "Systemowe przedsięwzięcia, mające na celu zabezpieczenie materiałów filmowych"
+                      "Digitalizacja i rekonstrukcja cyfrowa polskich filmów oraz filmów o szczególnym znaczeniu dla polskiej kultury i ich przygotowanie do rozpowszechniania",
+                      "Przedsięwzięcia mające na celu zabezpieczenie materiałów filmowych, w tym wytwarzanie kopii analogowych dystrybucyjnych i zabezpieczających kanonicznych dzieł polskiej kinematografii"
                     ]
                   }
                 }
@@ -4791,17 +4791,22 @@
                               "label": "Jednostka",
                               "name": "sourceMaterialsRentalUnit",
                               "dataBDD": "sourceMaterialsRental-unit",
-                              "value": "akt",
+                              "value": "",
                               "options": [
-                                "akt"
+                                "min",
+                                "godz",
+                                "akt",
+                                "ryczałt"
                               ],
-                              "readOnly": true,
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "akt"
+                                      "min",
+                                      "godz",
+                                      "akt",
+                                      "ryczałt"
                                     ]
                                   }
                                 }
@@ -4966,20 +4971,20 @@
                               "dataBDD": "sourceMaterialsCleaning-unit",
                               "value": "",
                               "options": [
-                                "---",
                                 "min",
                                 "godz",
-                                "akt"
+                                "akt",
+                                "ryczałt"
                               ],
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "---",
                                       "min",
                                       "godz",
-                                      "akt"
+                                      "akt",
+                                      "ryczałt"
                                     ]
                                   }
                                 }
@@ -5144,20 +5149,20 @@
                               "dataBDD": "sourceMaterialsScanning-unit",
                               "value": "",
                               "options": [
-                                "---",
                                 "min",
                                 "godz",
-                                "akt"
+                                "akt",
+                                "ryczałt"
                               ],
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "---",
                                       "min",
                                       "godz",
-                                      "akt"
+                                      "akt",
+                                      "ryczałt"
                                     ]
                                   }
                                 }
@@ -5322,20 +5327,20 @@
                               "dataBDD": "sourceSoundDigitization-unit",
                               "value": "",
                               "options": [
-                                "---",
                                 "min",
                                 "godz",
-                                "akt"
+                                "akt",
+                                "ryczałt"
                               ],
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "---",
                                       "min",
                                       "godz",
-                                      "akt"
+                                      "akt",
+                                      "ryczałt"
                                     ]
                                   }
                                 }
@@ -5500,20 +5505,20 @@
                               "dataBDD": "archivalCopiesImage-unit",
                               "value": "",
                               "options": [
-                                "---",
                                 "min",
                                 "godz",
-                                "akt"
+                                "akt",
+                                "ryczałt"
                               ],
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "---",
                                       "min",
                                       "godz",
-                                      "akt"
+                                      "akt",
+                                      "ryczałt"
                                     ]
                                   }
                                 }
@@ -5678,8 +5683,9 @@
                               "dataBDD": "archivalCopiesSound-unit",
                               "value": "",
                               "options": [
-                                "---",
                                 "min",
+                                "godz",
+                                "akt",
                                 "ryczałt"
                               ],
                               "validators": [
@@ -5687,8 +5693,9 @@
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "---",
                                       "min",
+                                      "godz",
+                                      "akt",
                                       "ryczałt"
                                     ]
                                   }
@@ -5852,17 +5859,22 @@
                               "label": "Jednostka",
                               "name": "archivalCopiesMediaUnit",
                               "dataBDD": "archivalCopiesMedia-unit",
-                              "value": "szt",
+                              "value": "",
                               "options": [
-                                "szt"
+                                "min",
+                                "godz",
+                                "akt",
+                                "ryczałt"
                               ],
-                              "readOnly": true,
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "szt"
+                                      "min",
+                                      "godz",
+                                      "akt",
+                                      "ryczałt"
                                     ]
                                   }
                                 }
@@ -6027,20 +6039,20 @@
                               "dataBDD": "technicalConditionReport-unit",
                               "value": "",
                               "options": [
-                                "---",
+                                "min",
                                 "godz",
-                                "ryczałt",
-                                "akt"
+                                "akt",
+                                "ryczałt"
                               ],
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "---",
+                                      "min",
                                       "godz",
-                                      "ryczałt",
-                                      "akt"
+                                      "akt",
+                                      "ryczałt"
                                     ]
                                   }
                                 }
@@ -6215,17 +6227,22 @@
                               "label": "Jednostka",
                               "name": "conformingUnit",
                               "dataBDD": "conforming-unit",
-                              "value": "akt",
+                              "value": "",
                               "options": [
-                                "akt"
+                                "min",
+                                "godz",
+                                "akt",
+                                "ryczałt"
                               ],
-                              "readOnly": true,
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "akt"
+                                      "min",
+                                      "godz",
+                                      "akt",
+                                      "ryczałt"
                                     ]
                                   }
                                 }
@@ -6390,20 +6407,20 @@
                               "dataBDD": "imageRestoration-unit",
                               "value": "",
                               "options": [
-                                "---",
                                 "min",
                                 "godz",
-                                "akt"
+                                "akt",
+                                "ryczałt"
                               ],
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "---",
                                       "min",
                                       "godz",
-                                      "akt"
+                                      "akt",
+                                      "ryczałt"
                                     ]
                                   }
                                 }
@@ -6568,20 +6585,20 @@
                               "dataBDD": "soundRestoration-unit",
                               "value": "",
                               "options": [
-                                "---",
                                 "min",
                                 "godz",
-                                "akt"
+                                "akt",
+                                "ryczałt"
                               ],
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "---",
                                       "min",
                                       "godz",
-                                      "akt"
+                                      "akt",
+                                      "ryczałt"
                                     ]
                                   }
                                 }
@@ -6744,17 +6761,22 @@
                               "label": "Jednostka",
                               "name": "soundSynchronizationUnit",
                               "dataBDD": "soundSynchronization-unit",
-                              "value": "min",
+                              "value": "",
                               "options": [
-                                "min"
+                                "min",
+                                "godz",
+                                "akt",
+                                "ryczałt"
                               ],
-                              "readOnly": true,
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "min"
+                                      "min",
+                                      "godz",
+                                      "akt",
+                                      "ryczałt"
                                     ]
                                   }
                                 }
@@ -6919,20 +6941,20 @@
                               "dataBDD": "masterCopies-unit",
                               "value": "",
                               "options": [
-                                "---",
                                 "min",
-                                "ryczałt",
-                                "akt"
+                                "godz",
+                                "akt",
+                                "ryczałt"
                               ],
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "---",
                                       "min",
-                                      "ryczałt",
-                                      "akt"
+                                      "godz",
+                                      "akt",
+                                      "ryczałt"
                                     ]
                                   }
                                 }
@@ -7095,17 +7117,22 @@
                               "label": "Jednostka",
                               "name": "imageAndSoundMontageReconstructionUnit",
                               "dataBDD": "imageAndSoundMontageReconstruction-unit",
-                              "value": "szt",
+                              "value": "",
                               "options": [
-                                "szt"
+                                "min",
+                                "godz",
+                                "akt",
+                                "ryczałt"
                               ],
-                              "readOnly": true,
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "szt"
+                                      "min",
+                                      "godz",
+                                      "akt",
+                                      "ryczałt"
                                     ]
                                   }
                                 }
@@ -7270,20 +7297,20 @@
                               "dataBDD": "distributionCopies-unit",
                               "value": "",
                               "options": [
-                                "---",
                                 "min",
-                                "ryczałt",
-                                "szt"
+                                "godz",
+                                "akt",
+                                "ryczałt"
                               ],
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "---",
                                       "min",
-                                      "ryczałt",
-                                      "szt"
+                                      "godz",
+                                      "akt",
+                                      "ryczałt"
                                     ]
                                   }
                                 }
@@ -7446,17 +7473,22 @@
                               "label": "Jednostka",
                               "name": "distributionCopiesMediaUnit",
                               "dataBDD": "distributionCopiesMedia-unit",
-                              "value": "szt",
+                              "value": "",
                               "options": [
-                                "szt"
+                                "min",
+                                "godz",
+                                "akt",
+                                "ryczałt"
                               ],
-                              "readOnly": true,
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "szt"
+                                      "min",
+                                      "godz",
+                                      "akt",
+                                      "ryczałt"
                                     ]
                                   }
                                 }
@@ -7619,17 +7651,22 @@
                               "label": "Jednostka",
                               "name": "permanentFilmCopyUnit",
                               "dataBDD": "permanentFilmCopy-unit",
-                              "value": "min",
+                              "value": "",
                               "options": [
-                                "min"
+                                "min",
+                                "godz",
+                                "akt",
+                                "ryczałt"
                               ],
-                              "readOnly": true,
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "min"
+                                      "min",
+                                      "godz",
+                                      "akt",
+                                      "ryczałt"
                                     ]
                                   }
                                 }
@@ -7794,8 +7831,9 @@
                               "dataBDD": "artisticSupervision-unit",
                               "value": "",
                               "options": [
-                                "---",
+                                "min",
                                 "godz",
+                                "akt",
                                 "ryczałt"
                               ],
                               "validators": [
@@ -7803,8 +7841,9 @@
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "---",
+                                      "min",
                                       "godz",
+                                      "akt",
                                       "ryczałt"
                                     ]
                                   }
@@ -7970,8 +8009,9 @@
                               "dataBDD": "technicalQualityControl-unit",
                               "value": "",
                               "options": [
-                                "---",
+                                "min",
                                 "godz",
+                                "akt",
                                 "ryczałt"
                               ],
                               "validators": [
@@ -7979,8 +8019,9 @@
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "---",
+                                      "min",
                                       "godz",
+                                      "akt",
                                       "ryczałt"
                                     ]
                                   }
@@ -8146,8 +8187,9 @@
                               "dataBDD": "processCoordination-unit",
                               "value": "",
                               "options": [
-                                "---",
+                                "min",
                                 "godz",
+                                "akt",
                                 "ryczałt"
                               ],
                               "validators": [
@@ -8155,8 +8197,9 @@
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "---",
+                                      "min",
                                       "godz",
+                                      "akt",
                                       "ryczałt"
                                     ]
                                   }
@@ -8322,8 +8365,9 @@
                               "dataBDD": "languageVersion-unit",
                               "value": "",
                               "options": [
-                                "---",
+                                "min",
                                 "godz",
+                                "akt",
                                 "ryczałt"
                               ],
                               "validators": [
@@ -8331,8 +8375,9 @@
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "---",
+                                      "min",
                                       "godz",
+                                      "akt",
                                       "ryczałt"
                                     ]
                                   }
@@ -8498,8 +8543,9 @@
                               "dataBDD": "promotionalMaterials-unit",
                               "value": "",
                               "options": [
-                                "---",
-                                "szt",
+                                "min",
+                                "godz",
+                                "akt",
                                 "ryczałt"
                               ],
                               "validators": [
@@ -8507,8 +8553,9 @@
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
-                                      "---",
-                                      "szt",
+                                      "min",
+                                      "godz",
+                                      "akt",
                                       "ryczałt"
                                     ]
                                   }
@@ -8674,16 +8721,21 @@
                               "label": "Jednostka",
                               "name": "screeningOrganizationUnit",
                               "dataBDD": "screeningOrganization-unit",
-                              "value": "ryczałt",
+                              "value": "",
                               "options": [
+                                "min",
+                                "godz",
+                                "akt",
                                 "ryczałt"
                               ],
-                              "readOnly": true,
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
+                                      "min",
+                                      "godz",
+                                      "akt",
                                       "ryczałt"
                                     ]
                                   }
@@ -8849,16 +8901,21 @@
                               "label": "Jednostka",
                               "name": "materialsTransportUnit",
                               "dataBDD": "materialsTransport-unit",
-                              "value": "ryczałt",
+                              "value": "",
                               "options": [
+                                "min",
+                                "godz",
+                                "akt",
                                 "ryczałt"
                               ],
-                              "readOnly": true,
                               "validators": [
                                 {
                                   "name": "ExactValidator",
                                   "kwargs": {
                                     "values": [
+                                      "min",
+                                      "godz",
+                                      "akt",
                                       "ryczałt"
                                     ]
                                   }
@@ -9914,64 +9971,115 @@
             },
             {
               "kind": "chapter",
-              "title": "Dokument zaświadczający o posiadaniu praw do digitalizacji/rekonstrukcji filmu",
+              "title": "",
               "components": [
                 {
-                  "kind": "component",
-                  "type": "file",
-                  "label": "",
-                  "name": "attachmentDigitalizationRights",
-                  "value": "",
-                  "helpText": "Maksymalny rozmiar pliku to 50 MB",
-                  "required": true,
-                  "validators": [
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
                     {
-                      "name": "RequiredValidator"
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Dokument zaświadczający o posiadaniu praw do digitalizacji/rekonstrukcji filmu",
+                      "name": "isAttachmentDigitalizationRights",
+                      "dataBDD": "isAttachmentDigitalizationRights",
+                      "value": false,
+                      "validators": [
+                        {
+                          "name": "RelatedAnyOfValidator",
+                          "kwargs": {
+                            "field_names": [
+                              "isAttachmentDigitalizationRights",
+                              "isAttachmentOwnerContract"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "checkbox",
+                      "label": "Umowa między Wnioskodawcą a właścicielem praw do digitalizowanego filmu/filmów",
+                      "name": "isAttachmentOwnerContract",
+                      "dataBDD": "isAttachmentOwnerContract",
+                      "value": false,
+                      "validators": [
+                        {
+                          "name": "RelatedAnyOfValidator",
+                          "kwargs": {
+                            "field_names": [
+                              "isAttachmentDigitalizationRights",
+                              "isAttachmentOwnerContract"
+                            ]
+                          }
+                        }
+                      ]
                     }
-                  ],
-                  "dataBDD": "attachmentDigitalizationRights"
-                }
-              ]
-            },
-            {
-              "kind": "chapter",
-              "title": "Diagnoza stanu technicznego taśmy światłoczułej, w przypadku filmów fabularnych przeprowadzona przez Filmotekę Narodową – Instytut Audiowizualny (w przypadku braku wymaganego dokumentu Wnioskodawca zobowiązany jest do dołączenia oświadczenia, w którym zobowiązuje się do dostarczenia dokumentu)",
-              "components": [
+                  ]
+                },
                 {
-                  "kind": "component",
-                  "type": "file",
-                  "label": "",
-                  "name": "attachmentTechnicalCondition",
-                  "value": "",
-                  "helpText": "Maksymalny rozmiar pliku to 50 MB",
-                  "required": true,
-                  "validators": [
+                  "kind": "chapter",
+                  "title": "<normal>Dokument zaświadczający o posiadaniu praw do digitalizacji/rekonstrukcji filmu</normal>",
+                  "components": [
                     {
-                      "name": "RequiredValidator"
+                      "kind": "component",
+                      "type": "file",
+                      "label": "",
+                      "name": "attachmentDigitalizationRights",
+                      "dataBDD": "attachmentDigitalizationRights",
+                      "value": "",
+                      "required": true,
+                      "helpText": "Maksymalny rozmiar pliku to 50 MB",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
                     }
                   ],
-                  "dataBDD": "attachment-technical-condition"
-                }
-              ]
-            },
-            {
-              "kind": "chapter",
-              "title": "Umowa między Wnioskodawcą a właścicielem praw do digitalizowanego filmu/filmów",
-              "components": [
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "isAttachmentDigitalizationRights",
+                        "values": [
+                          true
+                        ]
+                      }
+                    }
+                  ]
+                },
                 {
-                  "kind": "component",
-                  "type": "file",
-                  "label": "",
-                  "name": "attachmentOwnerContract",
-                  "value": "",
-                  "helpText": "Maksymalny rozmiar pliku to 50 MB",
-                  "required": true,
-                  "validators": [
+                  "kind": "chapter",
+                  "title": "<normal>Umowa między Wnioskodawcą a właścicielem praw do digitalizowanego filmu/filmów</normal>",
+                  "components": [
                     {
-                      "name": "RequiredValidator"
+                      "kind": "component",
+                      "type": "file",
+                      "label": "",
+                      "name": "attachmentOwnerContract",
+                      "dataBDD": "attachmentOwnerContract",
+                      "value": "",
+                      "required": true,
+                      "helpText": "Maksymalny rozmiar pliku to 50 MB",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
                     }
                   ],
-                  "dataBDD": "attachment-owner-contract"
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "isAttachmentOwnerContract",
+                        "values": [
+                          true
+                        ]
+                      }
+                    }
+                  ]
                 }
               ]
             }
