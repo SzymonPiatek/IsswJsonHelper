@@ -38,14 +38,14 @@ class SecondarySchoolsPriorityApplicationFormBuilder(EducationOperationalProgram
                     components=[
                         self.create_chapter(
                             title="Opis przedsięwzięcia",
-                            help_text="Profil kształcenia, forma realizacji zajęć dydaktycznych, metody i techniki nauczania itp.",
+                            help_text="Organizacyjny aspekt realizacji przedsięwzięcia z określeniem profilu kształcenia, formy zajęć oraz metod dydaktycznych.",
                             components=[
                                 self.create_component(
                                     name="generalProjectDescription",
                                     component_type="textarea",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=2000
+                                            max_value=3000
                                         )
                                     ],
                                     required=True,
@@ -77,7 +77,7 @@ class SecondarySchoolsPriorityApplicationFormBuilder(EducationOperationalProgram
                                     name="laborMarketAnalysis",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=1500
+                                            max_value=2000
                                         )
                                     ],
                                     required=True,
@@ -86,14 +86,14 @@ class SecondarySchoolsPriorityApplicationFormBuilder(EducationOperationalProgram
                         ),
                         self.create_chapter(
                             title="Doświadczenie wnioskodawcy i kompetencje zespołu",
-                            help_text="W tym udział specjalistów w realizacji przedsięwzięcia.",
+                            help_text="Doświadczenie wnioskodawcy w prowadzeniu działalności edukacyjnej oraz kompetencje zespołu zaangażowanego w realizację przedsięwzięcia.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
                                     name="applicantAndTeamExperience",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=1500
+                                            max_value=2000
                                         )
                                     ],
                                     required=True
@@ -102,14 +102,14 @@ class SecondarySchoolsPriorityApplicationFormBuilder(EducationOperationalProgram
                         ),
                         self.create_chapter(
                             title="Liczba i zróżnicowanie struktury uczniów",
-                            help_text="Analiza struktury i zróżnicowania adresatów oferty edukacyjnej.",
+                            help_text="Liczba uczniów z uwzględnieniem profilu, roku nauki, trybem itp.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
                                     name="numberAndDiversityOfStudents",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=1000
+                                            max_value=2000
                                         )
                                     ],
                                     required=True,
@@ -125,7 +125,7 @@ class SecondarySchoolsPriorityApplicationFormBuilder(EducationOperationalProgram
                                     name="projectAccessibility",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=1000
+                                            max_value=2000
                                         )
                                     ],
                                     required=True
@@ -134,14 +134,14 @@ class SecondarySchoolsPriorityApplicationFormBuilder(EducationOperationalProgram
                         ),
                         self.create_chapter(
                             title="Profil absolwenta",
-                            help_text="Umiejętności lub kompetencje zawodowe nabywane przez uczniów.",
+                            help_text="Umiejętności lub kompetencje zawodowe nabywane przez uczniów w toku kształcenia.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
                                     name="graduateProfile",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=1000
+                                            max_value=2000
                                         )
                                     ],
                                     required=True,
@@ -152,163 +152,31 @@ class SecondarySchoolsPriorityApplicationFormBuilder(EducationOperationalProgram
                 ),
                 self.create_chapter(
                     title="2. Podstawowe dane liczbowe i prognozowane wskaźniki",
+                    class_list={
+                        "main": [
+                            "table-1-2",
+                            "grid",
+                            "grid-cols-2"
+                        ],
+                        "sub": [
+                            "table-1-2__col"
+                        ]
+                    },
                     components=[
-                        self.create_chapter(
-                            title="Liczba prognozowanych wydarzeń, liczba uczestników oraz wpływy ze sprzedaży",
-                            components=[
-                                self.create_chapter(
-                                    title="<normal>a) Szkolenia</normal>",
-                                    class_list={
-                                        "main": [
-                                            "table-1-3-narrow",
-                                            "grid",
-                                            "grid-cols-3"
-                                        ],
-                                        "sub": [
-                                            "table-1-3__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Liczba wydarzeń",
-                                            name="eventsNumberTraining",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Liczba osób",
-                                            name="peopleNumberTraining",
-                                            unit="os."
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            mask="fund",
-                                            name="forecastedSalesRevenuesTraining",
-                                            label="Koszt jednostkowy",
-                                            unit="PLN"
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="<normal>b) Warsztaty</normal>",
-                                    class_list={
-                                        "main": [
-                                            "table-1-3-narrow",
-                                            "grid",
-                                            "grid-cols-3"
-                                        ],
-                                        "sub": [
-                                            "table-1-3__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Liczba wydarzeń",
-                                            name="eventsNumberWorkshops",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Liczba osób",
-                                            name="peopleNumberWorkshops",
-                                            unit="os."
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            mask="fund",
-                                            name="forecastedSalesRevenuesWorkshops",
-                                            label="Koszt jednostkowy",
-                                            unit="PLN"
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="<normal>c) Kursy</normal>",
-                                    class_list={
-                                        "main": [
-                                            "table-1-3-narrow",
-                                            "grid",
-                                            "grid-cols-3"
-                                        ],
-                                        "sub": [
-                                            "table-1-3__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Liczba wydarzeń",
-                                            name="eventsNumberCourses",
-                                            unit="szt."
-                                        ),
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Liczba osób",
-                                            name="peopleNumberCourses",
-                                            unit="os."
-                                        ),
-                                        self.create_component(
-                                            component_type="text",
-                                            mask="fund",
-                                            name="forecastedSalesRevenuesCourses",
-                                            label="Koszt jednostkowy",
-                                            unit="PLN"
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="<normal>d) Inne</normal>",
-                                    components=[
-                                        self.create_chapter(
-                                            components=[
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Rodzaj",
-                                                    name="otherEventType",
-                                                    class_list=[
-                                                        "table-full"
-                                                    ]
-                                                ),
-                                            ]
-                                        ),
-                                        self.create_chapter(
-                                            class_list={
-                                                "main": [
-                                                    "table-1-3-narrow",
-                                                    "grid",
-                                                    "grid-cols-3"
-                                                ],
-                                                "sub": [
-                                                    "table-1-3__col"
-                                                ]
-                                            },
-                                            components=[
-                                                self.create_component(
-                                                    component_type="number",
-                                                    label="Liczba wydarzeń",
-                                                    name="eventsNumberOther",
-                                                    unit="szt."
-                                                ),
-                                                self.create_component(
-                                                    component_type="number",
-                                                    label="Liczba osób",
-                                                    name="peopleNumberOther",
-                                                    unit="os."
-                                                ),
-                                                self.create_component(
-                                                    component_type="text",
-                                                    mask="fund",
-                                                    name="forecastedSalesRevenuesOther",
-                                                    label="Koszt jednostkowy",
-                                                    unit="PLN"
-                                                )
-                                            ]
-                                        )
-                                    ]
-                                )
-                            ]
+                        self.create_component(
+                            component_type="number",
+                            label="Prognozowana liczba kursów i warsztatów",
+                            name="estimatedCourcesAndWorkshops"
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            label="Prognozowana liczba uczestników",
+                            name="estimatedParticipants"
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            label="Prognozowana liczba zrealizowanych etiud i innych ćwiczeń filmowych",
+                            name="estimatedCompletedShortFilms"
                         )
                     ]
                 )
