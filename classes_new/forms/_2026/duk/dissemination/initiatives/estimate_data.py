@@ -233,7 +233,7 @@ estimate_sections_pt3 = [
                 name="industryEventsTravelAndAccommodation",
             ),
             CostItem(
-                title="Koszty licencji lub nabycia praw do publicznego pokazu wraz z najmem kopii", 
+                title="Koszty licencji lub nabycia praw do publicznego pokazu i najmu kopii",
                 name="industryEventsLicenseFees", 
                 helpText="Niezależnie od formuły fakturowania."
             ),

@@ -11650,7 +11650,7 @@
                         },
                         {
                           "kind": "chapter",
-                          "title": "3. Koszty licencji lub nabycia praw do publicznego pokazu wraz z najmem kopii",
+                          "title": "3. Koszty licencji lub nabycia praw do publicznego pokazu i najmu kopii",
                           "components": [
                             {
                               "kind": "component",
@@ -11658,7 +11658,7 @@
                               "label": "",
                               "name": "industryEventsLicenseFeesDescpt3",
                               "dataBDD": "industryEventsLicenseFeesDescpt3",
-                              "value": "3. Koszty licencji lub nabycia praw do publicznego pokazu wraz z najmem kopii",
+                              "value": "3. Koszty licencji lub nabycia praw do publicznego pokazu i najmu kopii",
                               "readOnly": true,
                               "classList": [
                                 "col-span-2",
