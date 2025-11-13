@@ -346,7 +346,7 @@ class AudiencePriorityApplicationFormBuilder(EducationOperationalProgramApplicat
                     ]
                 ),
                 self.create_chapter(
-                    title="5. Szczegółowy wykaz kin studyjnych,w których prowadzone będą zajęcia",
+                    title="5. Szczegółowy wykaz kin, w których prowadzone będą zajęcia",
                     components=[
                         self.create_component(
                             component_type="file",
