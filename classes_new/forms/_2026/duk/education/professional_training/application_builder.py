@@ -85,49 +85,99 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
                     ]
                 ),
                 self.create_chapter(
-                    title="1. Zakres przedsięwzięcia i jego charakterystyka",
+                    title="Forma przedsięwzięcia",
                     components=[
                         self.create_chapter(
-                            title="Rodzaj planowanego przedsięwzięcia",
-                            help_text="Np. kurs, warsztat, szkolenie itp.",
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
                             components=[
                                 self.create_component(
-                                    component_type='textarea',
-                                    name="plannedProjectType",
-                                    validators=[
-                                        self.validator.length_validator(max_value=100)
-                                    ],
+                                    component_type="radio",
+                                    name="undertakingForm",
                                     required=True,
-                                    class_list=[
-                                        "table-full"
-                                    ]
-                                ),
-                                self.create_component(
-                                    name="projectLocation",
-                                    component_type="textarea",
-                                    label="Miejsce realizacji przedsięwzięcia",
-                                    validators=[
-                                        self.validator.length_validator(
-                                            max_value=100
-                                        )
-                                    ],
-                                    required=True,
-                                    class_list=[
-                                        "table-full"
+                                    options=[
+                                        "Przegląd",
+                                        "Wystawa",
+                                        "Konkurs",
+                                        "Inne"
                                     ]
                                 )
                             ]
                         ),
+                        self.create_chapter(
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="undertakingForm",
+                                    values=[
+                                        "Inne"
+                                    ]
+                                )
+                            ],
+                            components=[
+                                self.create_component(
+                                    component_type="textarea",
+                                    name="undertakingFormOther",
+                                    required=True,
+                                    validators=[
+                                        self.validator.length_validator(
+                                            max_value=100
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="1. Termin i miejsce realizacji przedsięwzięcia",
+                    class_list={
+                        "main": [
+                            "table-1-2",
+                            "grid",
+                            "grid-cols-2"
+                        ],
+                        "sub": [
+                            "table-1-2__col"
+                        ]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="date",
+                            label="Termin od",
+                            name="projectOpeningDatePointOne",
+                            validators=[
+                                self.validator.related_date_lte_validator(
+                                    field_name="projectClosingDatePointOne",
+                                )
+                            ],
+                            required=True
+                        ),
+                        self.create_component(
+                            component_type="date",
+                            label="Termin do",
+                            name="projectClosingDatePointOne",
+                            validators=[
+                                self.validator.related_date_gte_validator(
+                                    field_name="projectOpeningDatePointOne",
+                                )
+                            ],
+                            required=True
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Miejsce realizacji przedsięwzięcia",
+                            name="projectCity",
+                            validators=[
+                                self.validator.length_validator(max_value=100)
+                            ],
+                            required=True,
+                            class_list=[
+                                "table-full"
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="2. Zakres przedsięwzięcia i jego charakterystyka",
+                    components=[
                         self.create_chapter(
                             title="Opis przedsięwzięcia",
                             help_text="Tematyka, tryb, metody dydaktyczne, liczba godzin, modułów, bloków tematycznych.",
@@ -257,7 +307,7 @@ class ProfessionalTrainingPriorityApplicationFormBuilder(EducationOperationalPro
                     ]
                 ),
                 self.create_chapter(
-                    title="2. Podstawowe dane liczbowe i prognozowane wskaźniki",
+                    title="3. Podstawowe dane liczbowe i prognozowane wskaźniki",
                     components=[
                         self.create_chapter(
                             title="Liczba prognozowanych wydarzeń, liczba uczestników oraz wpływy ze sprzedaży",

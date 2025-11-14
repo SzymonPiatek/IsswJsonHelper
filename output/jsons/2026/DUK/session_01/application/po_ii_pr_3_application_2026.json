@@ -2776,18 +2776,52 @@
         },
         {
           "kind": "chapter",
-          "title": "1. Zakres przedsięwzięcia i jego charakterystyka",
+          "title": "Forma przedsięwzięcia",
           "components": [
             {
               "kind": "chapter",
-              "title": "Rodzaj planowanego przedsięwzięcia",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "",
+                  "name": "undertakingForm",
+                  "dataBDD": "undertakingForm",
+                  "value": "",
+                  "options": [
+                    "Przegląd",
+                    "Wystawa",
+                    "Konkurs",
+                    "Inne"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Przegląd",
+                          "Wystawa",
+                          "Konkurs",
+                          "Inne"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
               "components": [
                 {
                   "kind": "component",
                   "type": "textarea",
                   "label": "",
-                  "name": "plannedProjectType",
-                  "dataBDD": "plannedProjectType",
+                  "name": "undertakingFormOther",
+                  "dataBDD": "undertakingFormOther",
                   "value": "",
                   "required": true,
                   "validators": [
@@ -2800,47 +2834,106 @@
                     {
                       "name": "RequiredValidator"
                     }
-                  ],
-                  "classList": [
-                    "table-full"
-                  ]
-                },
-                {
-                  "kind": "component",
-                  "type": "textarea",
-                  "label": "Miejsce realizacji przedsięwzięcia",
-                  "name": "projectLocation",
-                  "dataBDD": "projectLocation",
-                  "value": "",
-                  "required": true,
-                  "validators": [
-                    {
-                      "name": "LengthValidator",
-                      "kwargs": {
-                        "max": 100
-                      }
-                    },
-                    {
-                      "name": "RequiredValidator"
-                    }
-                  ],
-                  "classList": [
-                    "table-full"
                   ]
                 }
               ],
-              "helpText": "Np. kurs, warsztat, szkolenie itp.",
-              "classList": {
-                "main": [
-                  "table-1-2",
-                  "grid",
-                  "grid-cols-2"
-                ],
-                "sub": [
-                  "table-1-2__col"
-                ]
-              }
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "undertakingForm",
+                    "values": [
+                      "Inne"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "1. Termin i miejsce realizacji przedsięwzięcia",
+          "components": [
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Termin od",
+              "name": "projectOpeningDatePointOne",
+              "dataBDD": "projectOpeningDatePointOne",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RelatedDateLTEValidator",
+                  "kwargs": {
+                    "field_name": "projectClosingDatePointOne"
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
             },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Termin do",
+              "name": "projectClosingDatePointOne",
+              "dataBDD": "projectClosingDatePointOne",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RelatedDateGTEValidator",
+                  "kwargs": {
+                    "field_name": "projectOpeningDatePointOne"
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Miejsce realizacji przedsięwzięcia",
+              "name": "projectCity",
+              "dataBDD": "projectCity",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 100
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "table-full"
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "2. Zakres przedsięwzięcia i jego charakterystyka",
+          "components": [
             {
               "kind": "chapter",
               "title": "Opis przedsięwzięcia",
@@ -3061,7 +3154,7 @@
         },
         {
           "kind": "chapter",
-          "title": "2. Podstawowe dane liczbowe i prognozowane wskaźniki",
+          "title": "3. Podstawowe dane liczbowe i prognozowane wskaźniki",
           "components": [
             {
               "kind": "chapter",

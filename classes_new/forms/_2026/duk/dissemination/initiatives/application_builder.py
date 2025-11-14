@@ -99,14 +99,41 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                             ],
                             title="Forma przedsięwzięcia",
                             components=[
-                                self.create_component(
-                                    component_type="radio",
-                                    name="undertakingForm",
-                                    required=True,
-                                    options=[
-                                        "Przegląd",
-                                        "Wystawa",
-                                        "Konkurs"
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="radio",
+                                            name="undertakingForm",
+                                            required=True,
+                                            options=[
+                                                "Przegląd",
+                                                "Wystawa",
+                                                "Konkurs",
+                                                "Inne"
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="undertakingForm",
+                                            values=[
+                                                "Inne"
+                                            ]
+                                        )
+                                    ],
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            name="undertakingFormOther",
+                                            required=True,
+                                            validators=[
+                                                self.validator.length_validator(
+                                                    max_value=100
+                                                )
+                                            ]
+                                        )
                                     ]
                                 )
                             ]
