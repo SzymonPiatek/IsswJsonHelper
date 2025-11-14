@@ -2749,8 +2749,8 @@
               "kind": "component",
               "type": "textarea",
               "label": "",
-              "name": "applicationTaskNamePage4",
-              "dataBDD": "applicationTaskNamePage4",
+              "name": "applicationTaskNameRepeatPage4",
+              "dataBDD": "applicationTaskNameRepeatPage4",
               "value": "",
               "required": true,
               "readOnly": true,
@@ -4890,7 +4890,7 @@
                 {
                   "name": "LengthValidator",
                   "kwargs": {
-                    "max": 500
+                    "max": 1000
                   }
                 }
               ]
@@ -7850,7 +7850,7 @@
         },
         {
           "kind": "chapter",
-          "title": "<small>Uwaga!</br><normal>Harmonogram powinien uwzględniać trzy główne etapy realizacji projektu:</br><b>- etap przygotowawczy</b> - np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie i zaplanowanie promocji wydarzenia, inne czynności niezbędne do rozpoczęcia realizacji zadania;</br><b>- etap realizacji</b> - wszystkie działania związane z bezpośrednim wykonaniem projektu, np. przygotowanie i przeprowadzenie przedsięwzięcia oraz realizacja pozostałych zadań przewidzianych w kosztorysie;</br><b>- etap podsumowania</b> - ewaluacja rezultatów projektu, rozliczenie końcowe.</br></br>Harmonogram powinien być <b>ułożony chronologicznie</b>, obejmować <b>wszystkie działania ujęte w kosztorysie</b>, wyróżniać <b>kluczowe kamienie milowe</b>, tj. najważniejsze momenty realizacji projektu. </br></br>Koszty kwalifikowalne są ponoszone w czasie trwania okresu realizacji przedsięwzięcia określonego w harmonogramie, jednak nie wcześniej niż od daty rozpoczęcia naboru wniosków w sesji.</normal></small>",
+          "title": "<small>Uwaga!</br><normal>Harmonogram powinien uwzględniać trzy główne etapy realizacji projektu:</br><b>- etap przygotowawczy</b> - np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie i zaplanowanie promocji wydarzenia, inne czynności niezbędne do rozpoczęcia realizacji zadania;</br><b>- etap realizacji</b> - wszystkie działania związane z bezpośrednim wykonaniem projektu, np. przygotowanie i przeprowadzenie przedsięwzięcia oraz realizacja pozostałych zadań przewidzianych w kosztorysie;</br><b>- etap podsumowania</b> - ewaluacja rezultatów projektu, rozliczenie końcowe.</br></br>Harmonogram powinien być <b>ułożony chronologicznie</b>, obejmować <b>wszystkie działania ujęte w kosztorysie</b>, wyróżniać <b>kluczowe kamienie milowe</b>, tj. najważniejsze momenty realizacji projektu. </br></br>Dla Priorytetu VI: Działalność klubów filmowych koszty kwalifikowalne uznawane będą od 1.01.2026. do 31.12.2026 r.</normal></small>",
           "components": []
         },
         {

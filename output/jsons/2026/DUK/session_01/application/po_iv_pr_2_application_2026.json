@@ -4830,7 +4830,7 @@
                 {
                   "name": "LengthValidator",
                   "kwargs": {
-                    "max": 500
+                    "max": 1000
                   }
                 }
               ]

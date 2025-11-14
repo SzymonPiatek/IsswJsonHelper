@@ -2743,6 +2743,33 @@
       "chapters": [
         {
           "kind": "chapter",
+          "title": "Nazwa przedsięwzięcia",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "",
+              "name": "applicationTaskNameRepeatPage4",
+              "dataBDD": "applicationTaskNameRepeatPage4",
+              "value": "",
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "calculationRules": [
+                {
+                  "name": "copyValue",
+                  "from": "applicationTaskName"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
           "title": "1. Termin i miejsce realizacji przedsięwzięcia",
           "components": [
             {
@@ -5109,7 +5136,7 @@
                 {
                   "name": "LengthValidator",
                   "kwargs": {
-                    "max": 500
+                    "max": 1000
                   }
                 }
               ]

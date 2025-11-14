@@ -35,6 +35,22 @@ class ResearchPriorityApplicationFormBuilder(DisseminationOperationalProgramAppl
             short_name=f"{self.helpers.int_to_roman(number)}. Zakres przedsięwziecia",
             chapters=[
                 self.create_chapter(
+                    title="Nazwa przedsięwzięcia",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="applicationTaskNameRepeatPage4",
+                            read_only=True,
+                            calculation_rules=[
+                                self.calculation_rule.copy_value(
+                                    from_name="applicationTaskName"
+                                )
+                            ],
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
                     title="1. Zakres przedsięwzięcia i jego charakterystyka",
                     components=[
                         self.create_chapter(

@@ -23,6 +23,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
         self.project_type: list[str] = []
         self.is_dkf: bool = False
         self.is_only_one_application_grant_usage: bool = False
+        self.custom_schedule_eligible_costs_info: str = None
 
         # Estimate
         self.estimate_chapters = []
@@ -1729,7 +1730,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             name="supplementaryInformationAboutFinancing",
                             validators=[
                                 self.validator.length_validator(
-                                    max_value=500
+                                    max_value=1000
                                 )
                             ]
                         )
@@ -1844,6 +1845,9 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
         self.save_part(part)
 
     def create_application_schedule(self, number: int):
+        custom_schedule_eligible_costs_info = self.custom_schedule_eligible_costs_info if self.custom_schedule_eligible_costs_info else "Koszty kwalifikowalne są ponoszone w czasie trwania okresu realizacji przedsięwzięcia określonego w harmonogramie, jednak nie wcześniej niż od daty rozpoczęcia naboru wniosków w sesji."
+        schedule_info = f"<small>Uwaga!</br><normal>Harmonogram powinien uwzględniać trzy główne etapy realizacji projektu:</br><b>- etap przygotowawczy</b> - np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie i zaplanowanie promocji wydarzenia, inne czynności niezbędne do rozpoczęcia realizacji zadania;</br><b>- etap realizacji</b> - wszystkie działania związane z bezpośrednim wykonaniem projektu, np. przygotowanie i przeprowadzenie przedsięwzięcia oraz realizacja pozostałych zadań przewidzianych w kosztorysie;</br><b>- etap podsumowania</b> - ewaluacja rezultatów projektu, rozliczenie końcowe.</br></br>Harmonogram powinien być <b>ułożony chronologicznie</b>, obejmować <b>wszystkie działania ujęte w kosztorysie</b>, wyróżniać <b>kluczowe kamienie milowe</b>, tj. najważniejsze momenty realizacji projektu. </br></br>{custom_schedule_eligible_costs_info}</normal></small>"
+
         part = self.create_part(
             title=f"{self.helpers.int_to_roman(number)}. Harmonogram realizacji zadania",
             short_name=f"{self.helpers.int_to_roman(number)}. Harmonogram",
@@ -1865,7 +1869,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     ]
                 ),
                 self.create_chapter(
-                    title="<small>Uwaga!</br><normal>Harmonogram powinien uwzględniać trzy główne etapy realizacji projektu:</br><b>- etap przygotowawczy</b> - np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie i zaplanowanie promocji wydarzenia, inne czynności niezbędne do rozpoczęcia realizacji zadania;</br><b>- etap realizacji</b> - wszystkie działania związane z bezpośrednim wykonaniem projektu, np. przygotowanie i przeprowadzenie przedsięwzięcia oraz realizacja pozostałych zadań przewidzianych w kosztorysie;</br><b>- etap podsumowania</b> - ewaluacja rezultatów projektu, rozliczenie końcowe.</br></br>Harmonogram powinien być <b>ułożony chronologicznie</b>, obejmować <b>wszystkie działania ujęte w kosztorysie</b>, wyróżniać <b>kluczowe kamienie milowe</b>, tj. najważniejsze momenty realizacji projektu. </br></br>Koszty kwalifikowalne są ponoszone w czasie trwania okresu realizacji przedsięwzięcia określonego w harmonogramie, jednak nie wcześniej niż od daty rozpoczęcia naboru wniosków w sesji.</normal></small>",
+                    title=schedule_info,
                     components=[]
                 ),
                 self.create_chapter(

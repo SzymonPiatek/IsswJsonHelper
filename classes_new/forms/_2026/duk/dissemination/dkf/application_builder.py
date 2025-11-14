@@ -20,6 +20,7 @@ class DkfPriorityApplicationFormBuilder(DisseminationOperationalProgramApplicati
             "Działalność klubów filmowych o charakterze cyklicznym, obejmująca organizację co najmniej 10 wydarzeń rocznie realizowanych w formule: prelekcja, projekcja, dyskusja"
         ]
         self.is_dkf = True
+        self.custom_schedule_eligible_costs_info = "Dla Priorytetu VI: Działalność klubów filmowych koszty kwalifikowalne uznawane będą od 1.01.2026. do 31.12.2026 r."
 
         # Estimate
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
@@ -37,14 +38,14 @@ class DkfPriorityApplicationFormBuilder(DisseminationOperationalProgramApplicati
                     components=[
                         self.create_component(
                             component_type="textarea",
-                            name="applicationTaskNamePage4",
-                            required=True,
+                            name="applicationTaskNameRepeatPage4",
                             read_only=True,
                             calculation_rules=[
                                 self.calculation_rule.copy_value(
                                     from_name="applicationTaskName"
                                 )
-                            ]
+                            ],
+                            required=True
                         )
                     ]
                 ),
