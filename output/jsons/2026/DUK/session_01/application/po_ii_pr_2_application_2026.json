@@ -7225,7 +7225,7 @@
                           ]
                         }
                       ],
-                      "helpText": "Koszty udokumentowane wyłącznie fakturami lub biletami (jeśli brak faktury). W przypadku podróży lotniczych – tylko bilety w klasie ekonomicznej. W przypadku paliwa – wyłącznie koszty paliwa do samochodów wykorzystywanych do realizacji przedsięwzięcia (środek trwały, leasing, najem). Z dotacji PISF nie są pokrywane koszty podróży zagranicznych.",
+                      "helpText": "Koszty udokumentowane wyłącznie fakturami lub biletami (jeśli niemożliwe jest otrzymanie faktury). W przypadku podróży lotniczych pokrywa się z dotacji tylko koszt biletów w klasie ekonomicznej. W przypadku zakupu paliwa wyłącznie koszty paliwa do samochodów wykorzystywanych do realizacji przedsięwzięcia zgodnie z obowiązującymi przepisami (tj. jeżeli samochód stanowi środek trwały Wnioskodawcy lub jest przedmiotem leasingu bądź najmu na rzecz Wnioskodawcy). Z dotacji PISF nie są pokrywane koszty podróży zagranicznych.",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",
@@ -7347,7 +7347,7 @@
                           ]
                         }
                       ],
-                      "helpText": "Koszty udokumentowane wyłącznie fakturami (z wyłączeniem diet, ryczałtów i innych kosztów niewykazanych fakturą/rachunkiem). Z dotacji PISF nie są pokrywane koszty podróży zagranicznych.",
+                      "helpText": "Koszty udokumentowane wyłącznie fakturami (z wyłączeniem diet, ryczałtów i innych kosztów udokumentowanych w inny sposób, niż rachunkiem lub fakturą). Z dotacji PISF nie są pokrywane koszty podróży zagranicznych.",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",

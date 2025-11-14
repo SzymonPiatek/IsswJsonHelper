@@ -106,10 +106,9 @@ estimate_sections = [
                 title="Podróże",
                 name="travel",
                 helpText=(
-                    "Koszty udokumentowane wyłącznie fakturami lub biletami (jeśli brak faktury). "
-                    "W przypadku podróży lotniczych – tylko bilety w klasie ekonomicznej. "
-                    "W przypadku paliwa – wyłącznie koszty paliwa do samochodów wykorzystywanych "
-                    "do realizacji przedsięwzięcia (środek trwały, leasing, najem). "
+                    "Koszty udokumentowane wyłącznie fakturami lub biletami (jeśli niemożliwe jest otrzymanie faktury). "
+                    "W przypadku podróży lotniczych pokrywa się z dotacji tylko koszt biletów w klasie ekonomicznej. "
+                    "W przypadku zakupu paliwa wyłącznie koszty paliwa do samochodów wykorzystywanych do realizacji przedsięwzięcia zgodnie z obowiązującymi przepisami (tj. jeżeli samochód stanowi środek trwały Wnioskodawcy lub jest przedmiotem leasingu bądź najmu na rzecz Wnioskodawcy). "
                     "Z dotacji PISF nie są pokrywane koszty podróży zagranicznych."
                 ),
             ),
@@ -117,9 +116,8 @@ estimate_sections = [
                 title="Noclegi",
                 name="accommodation",
                 helpText=(
-                    "Koszty udokumentowane wyłącznie fakturami lub rachunkami (z wyłączeniem diet, ryczałtów "
-                    "i innych kosztów niewykazanych fakturą/rachunkiem). "
-                    "Z dotacji PISF nie są pokrywane koszty podróży zagranicznych, w tym zakwaterowania."
+                    "Koszty udokumentowane wyłącznie fakturami (z wyłączeniem diet, ryczałtów i innych kosztów udokumentowanych w inny sposób, niż rachunkiem lub fakturą). "
+                    "Z dotacji PISF nie są pokrywane koszty podróży zagranicznych."
                 ),
             ),
             fraction_cost(
