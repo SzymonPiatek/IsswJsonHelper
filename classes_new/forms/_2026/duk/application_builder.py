@@ -22,6 +22,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
         # Variables
         self.project_type: list[str] = []
         self.is_dkf: bool = False
+        self.is_only_one_application_grant_usage: bool = False
 
         # Estimate
         self.estimate_chapters = []
@@ -968,7 +969,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         )
                     ]
                 ),
-                self.section.application_applicant_data.applicant_statistical_data(number="6"),
+                self.section.application_applicant_data.applicant_statistical_data(number="6", is_only_one_application_grant_usage=self.is_only_one_application_grant_usage),
             ]
         )
 

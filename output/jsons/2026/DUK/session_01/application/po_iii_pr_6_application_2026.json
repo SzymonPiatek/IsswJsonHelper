@@ -2552,19 +2552,18 @@
                       "label": "Cel dofinansowania",
                       "name": "applicationGrantUsage",
                       "dataBDD": "applicationGrantUsage",
-                      "value": "",
+                      "value": "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących",
                       "options": [
-                        "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących",
-                        "Wnioskowane dofinansowanie zostanie wykorzystane na finansowanie lub dofinansowanie kosztów realizacji inwestycji i zakupów inwestycyjnych"
+                        "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących"
                       ],
                       "required": true,
+                      "readOnly": true,
                       "validators": [
                         {
                           "name": "ExactValidator",
                           "kwargs": {
                             "values": [
-                              "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących",
-                              "Wnioskowane dofinansowanie zostanie wykorzystane na finansowanie lub dofinansowanie kosztów realizacji inwestycji i zakupów inwestycyjnych"
+                              "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących"
                             ]
                           }
                         }

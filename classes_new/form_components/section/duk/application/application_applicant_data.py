@@ -196,8 +196,16 @@ class ApplicationApplicantData(Section):
 
     def applicant_statistical_data(
             self,
-            number: int | str
+            number: int | str,
+            is_only_one_application_grant_usage: bool = False
     ):
+        application_grant_usage_options = [
+            "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących",
+        ] if is_only_one_application_grant_usage else [
+            "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących",
+            "Wnioskowane dofinansowanie zostanie wykorzystane na finansowanie lub dofinansowanie kosztów realizacji inwestycji i zakupów inwestycyjnych"
+        ]
+
         return self.create_chapter(
             title=f"{number}. Dane statystyczne",
             components=[
@@ -362,10 +370,7 @@ class ApplicationApplicantData(Section):
                                     component_type="select",
                                     label="Cel dofinansowania",
                                     name="applicationGrantUsage",
-                                    options=[
-                                        "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących",
-                                        "Wnioskowane dofinansowanie zostanie wykorzystane na finansowanie lub dofinansowanie kosztów realizacji inwestycji i zakupów inwestycyjnych"
-                                    ],
+                                    options=application_grant_usage_options,
                                     required=True
                                 )
                             ]

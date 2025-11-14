@@ -4,3 +4,5 @@ from classes_new.forms._2026.duk.application_builder import DUKDepartmentApplica
 class DisseminationOperationalProgramApplicationFormBuilder(DUKDepartmentApplicationFormBuilder):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+
+        self.is_only_one_application_grant_usage = True

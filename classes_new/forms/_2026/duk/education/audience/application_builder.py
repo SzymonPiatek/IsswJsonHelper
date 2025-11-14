@@ -21,6 +21,7 @@ class AudiencePriorityApplicationFormBuilder(EducationOperationalProgramApplicat
             "Zajęcia i warsztaty wzbogacone materiałami dydaktycznymi o wysokiej wartości merytorycznej, rozwijające wiedzę o filmie oraz umiejętności twórcze i analityczne uczestników",
             "Inne działania realizujące cele Priorytetu IV"
         ]
+        self.is_only_one_application_grant_usage = True
 
         # Estimate
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
