@@ -882,6 +882,30 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     title="3. Osoby upoważnione do reprezentowania wnioskodawcy, składania oświadczeń woli i zaciągania w jego imieniu zobowiązań finansowych",
                     components=[
                         self.create_chapter(
+                            class_list={
+                                "main": [
+                                    "table-1-2",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="select",
+                                    label="Sposób reprezentacji",
+                                    name="eligiblePersonRepresentationType",
+                                    options=[
+                                        "Łącznie",
+                                        "Samodzielnie"
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
                             multiple_forms_rules={
                                 "minCount": 1,
                                 "maxCount": 8
@@ -940,16 +964,6 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                             component_type="text",
                                             label="Stanowisko zgodnie z reprezentacją/ załączonym upoważnieniem",
                                             name="eligiblePersonPosition",
-                                            required=True
-                                        ),
-                                        self.create_component(
-                                            component_type="select",
-                                            label="Sposób reprezentacji",
-                                            name="eligiblePersonRepresentationType",
-                                            options=[
-                                                "Łącznie",
-                                                "Samodzielnie"
-                                            ],
                                             required=True
                                         )
                                     ]

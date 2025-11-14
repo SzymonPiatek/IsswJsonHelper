@@ -1918,6 +1918,46 @@
               "title": "",
               "components": [
                 {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Sposób reprezentacji",
+                  "name": "eligiblePersonRepresentationType",
+                  "dataBDD": "eligiblePersonRepresentationType",
+                  "value": "",
+                  "options": [
+                    "Łącznie",
+                    "Samodzielnie"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Łącznie",
+                          "Samodzielnie"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
                   "kind": "chapter",
                   "title": "Osoba upoważniona do reprezentowania Wnioskodawcy",
                   "components": [
@@ -1999,31 +2039,6 @@
                       "validators": [
                         {
                           "name": "RequiredValidator"
-                        }
-                      ],
-                      "defaultValue": ""
-                    },
-                    {
-                      "kind": "component",
-                      "type": "select",
-                      "label": "Sposób reprezentacji",
-                      "name": "eligiblePersonRepresentationType",
-                      "dataBDD": "eligiblePersonRepresentationType",
-                      "value": "",
-                      "options": [
-                        "Łącznie",
-                        "Samodzielnie"
-                      ],
-                      "required": true,
-                      "validators": [
-                        {
-                          "name": "ExactValidator",
-                          "kwargs": {
-                            "values": [
-                              "Łącznie",
-                              "Samodzielnie"
-                            ]
-                          }
                         }
                       ],
                       "defaultValue": ""
@@ -3865,44 +3880,6 @@
                       }
                     }
                   ]
-                },
-                {
-                  "kind": "chapter",
-                  "title": "",
-                  "components": [
-                    {
-                      "kind": "component",
-                      "type": "number",
-                      "label": "Zakres zastosowanych udogodnień zwiększających dostępność wydarzenia",
-                      "name": "rangeOfFacilitiesUsedToIncreaseEventAccessibility",
-                      "dataBDD": "rangeOfFacilitiesUsedToIncreaseEventAccessibility",
-                      "value": 0,
-                      "unit": "%",
-                      "required": true,
-                      "validators": [
-                        {
-                          "name": "RangeValidator",
-                          "kwargs": {
-                            "min": 0
-                          },
-                          "validationMsg": "Wartość musi być większa lub równa 0."
-                        },
-                        {
-                          "name": "RequiredValidator"
-                        }
-                      ]
-                    }
-                  ],
-                  "classList": {
-                    "main": [
-                      "table-1-2",
-                      "grid",
-                      "grid-cols-2"
-                    ],
-                    "sub": [
-                      "table-1-2__col"
-                    ]
-                  }
                 }
               ]
             }
@@ -9078,7 +9055,7 @@
                               ]
                             }
                           ],
-                          "helpText": "Związane z otwarciem i prowadzeniem rachunku bankowego wyłącznie dla operacji finansowych przedsięwzięcia. Koszty prowadzenia księgowości związanej z realizacją przedsięwzięcia. Powinny być udokumentowane rachunkiem lub fakturą z opisem potwierdzającym, że dotyczyły realizacji przedsięwzięcia.",
+                          "helpText": "Koszty związane z otwarciem i prowadzeniem rachunku bankowego wyłącznie dla operacji finansowych przedsięwzięcia. Koszty prowadzenia księgowości związanej z realizacją przedsięwzięcia. Powinny być udokumentowane rachunkiem lub fakturą z opisem potwierdzającym, że dotyczyły realizacji przedsięwzięcia.",
                           "classList": {
                             "main": [
                               "table-1-3-narrow",

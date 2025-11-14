@@ -1914,6 +1914,46 @@
               "title": "",
               "components": [
                 {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Sposób reprezentacji",
+                  "name": "eligiblePersonRepresentationType",
+                  "dataBDD": "eligiblePersonRepresentationType",
+                  "value": "",
+                  "options": [
+                    "Łącznie",
+                    "Samodzielnie"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Łącznie",
+                          "Samodzielnie"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
                   "kind": "chapter",
                   "title": "Osoba upoważniona do reprezentowania Wnioskodawcy",
                   "components": [
@@ -1995,31 +2035,6 @@
                       "validators": [
                         {
                           "name": "RequiredValidator"
-                        }
-                      ],
-                      "defaultValue": ""
-                    },
-                    {
-                      "kind": "component",
-                      "type": "select",
-                      "label": "Sposób reprezentacji",
-                      "name": "eligiblePersonRepresentationType",
-                      "dataBDD": "eligiblePersonRepresentationType",
-                      "value": "",
-                      "options": [
-                        "Łącznie",
-                        "Samodzielnie"
-                      ],
-                      "required": true,
-                      "validators": [
-                        {
-                          "name": "ExactValidator",
-                          "kwargs": {
-                            "values": [
-                              "Łącznie",
-                              "Samodzielnie"
-                            ]
-                          }
                         }
                       ],
                       "defaultValue": ""

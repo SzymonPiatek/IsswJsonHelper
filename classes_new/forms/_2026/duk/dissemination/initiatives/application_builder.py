@@ -668,27 +668,6 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                                             ]
                                         )
                                     ]
-                                ),
-                                self.create_chapter(
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Zakres zastosowanych udogodnień zwiększających dostępność wydarzenia",
-                                            name="rangeOfFacilitiesUsedToIncreaseEventAccessibility",
-                                            required=True,
-                                            unit="%"
-                                        )
-                                    ]
                                 )
                             ]
                         )
