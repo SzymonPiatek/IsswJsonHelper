@@ -62,8 +62,8 @@
               "kind": "component",
               "type": "text",
               "label": "Priorytet",
-              "name": "priorytetName",
-              "dataBDD": "priorytetName",
+              "name": "priorityName",
+              "dataBDD": "priorityName",
               "value": "IV. Edukacja widowni filmowej",
               "readOnly": true
             }

@@ -62,8 +62,8 @@
               "kind": "component",
               "type": "text",
               "label": "Priorytet",
-              "name": "priorytetName",
-              "dataBDD": "priorytetName",
+              "name": "priorityName",
+              "dataBDD": "priorityName",
               "value": "II. Inicjatywy filmowe",
               "readOnly": true
             }

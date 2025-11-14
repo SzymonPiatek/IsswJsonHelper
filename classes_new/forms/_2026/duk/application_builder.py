@@ -64,7 +64,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         self.create_component(
                             component_type="text",
                             label="Priorytet",
-                            name="priorytetName",
+                            name="priorityName",
                             value=str(self.priority),
                             read_only=True
                         )

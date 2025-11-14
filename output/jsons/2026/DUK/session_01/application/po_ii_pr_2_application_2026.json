@@ -62,8 +62,8 @@
               "kind": "component",
               "type": "text",
               "label": "Priorytet",
-              "name": "priorytetName",
-              "dataBDD": "priorytetName",
+              "name": "priorityName",
+              "dataBDD": "priorityName",
               "value": "II. Szkoły średnie i zawodowe",
               "readOnly": true
             }
