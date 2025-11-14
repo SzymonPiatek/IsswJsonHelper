@@ -2940,33 +2940,6 @@
           "components": [
             {
               "kind": "chapter",
-              "title": "Opis przedsięwzięcia",
-              "components": [
-                {
-                  "kind": "component",
-                  "type": "textarea",
-                  "label": "",
-                  "name": "generalProjectDescription",
-                  "dataBDD": "generalProjectDescription",
-                  "value": "",
-                  "required": true,
-                  "validators": [
-                    {
-                      "name": "LengthValidator",
-                      "kwargs": {
-                        "max": 2000
-                      }
-                    },
-                    {
-                      "name": "RequiredValidator"
-                    }
-                  ]
-                }
-              ],
-              "helpText": "Tematyka, tryb, metody dydaktyczne, liczba godzin, modułów, bloków tematycznych."
-            },
-            {
-              "kind": "chapter",
               "title": "Idea i cel edukacyjny",
               "components": [
                 {
@@ -2981,7 +2954,7 @@
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 3000
+                        "max": 5000
                       }
                     },
                     {
@@ -2990,7 +2963,34 @@
                   ]
                 }
               ],
-              "helpText": "Istota i wartość dydaktyczna przedsięwzięcia."
+              "helpText": "Idea, wartość dydaktyczna przedsięwzięcia i główne cele edukacyjne."
+            },
+            {
+              "kind": "chapter",
+              "title": "Opis przedsięwzięcia",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "",
+                  "name": "generalProjectDescription",
+                  "dataBDD": "generalProjectDescription",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 5000
+                      }
+                    },
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ]
+                }
+              ],
+              "helpText": "Tematyka, tryb, metody dydaktyczne, liczba godzin, modułów, bloków tematycznych."
             },
             {
               "kind": "chapter",
@@ -3008,7 +3008,7 @@
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 1500
+                        "max": 3000
                       }
                     },
                     {
@@ -3018,33 +3018,6 @@
                 }
               ],
               "helpText": "Wpływ proponowanej oferty edukacyjnej na rozwój naukowy z uwzględnieniem praktycznych wymagań rynku pracy."
-            },
-            {
-              "kind": "chapter",
-              "title": "Grupa docelowa",
-              "components": [
-                {
-                  "kind": "component",
-                  "type": "textarea",
-                  "label": "",
-                  "name": "targetGroup",
-                  "dataBDD": "targetGroup",
-                  "value": "",
-                  "required": true,
-                  "validators": [
-                    {
-                      "name": "LengthValidator",
-                      "kwargs": {
-                        "max": 1000
-                      }
-                    },
-                    {
-                      "name": "RequiredValidator"
-                    }
-                  ]
-                }
-              ],
-              "helpText": "Sposób rekrutacji i kryteria wyboru uczestników."
             },
             {
               "kind": "chapter",
@@ -3062,7 +3035,7 @@
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 1000
+                        "max": 3000
                       }
                     },
                     {
@@ -3089,7 +3062,7 @@
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 1500
+                        "max": 3000
                       }
                     },
                     {
@@ -3098,11 +3071,11 @@
                   ]
                 }
               ],
-              "helpText": "W tym udział specjalistów w realizacji przedsięwzięcia."
+              "helpText": "Doświadczenie wnioskodawcy w działalności edukacyjnej oraz kompetencje zespołu zaangażowanego w realizację przedsięwzięcia."
             },
             {
               "kind": "chapter",
-              "title": "Dostępność oferty edukacyjnej",
+              "title": "Dostępność przedsięwzięcia",
               "components": [
                 {
                   "kind": "component",
@@ -3116,7 +3089,7 @@
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 1000
+                        "max": 3000
                       }
                     },
                     {
@@ -3143,7 +3116,7 @@
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 1000
+                        "max": 3000
                       }
                     },
                     {
@@ -3152,7 +3125,7 @@
                   ]
                 }
               ],
-              "helpText": "Spodziewane efekty w ujęciu jakościowym."
+              "helpText": "Spodziewane efekty realizacji przedsięwzięcia w ujęciu jakościowym."
             }
           ]
         },
@@ -3161,319 +3134,70 @@
           "title": "3. Podstawowe dane liczbowe i prognozowane wskaźniki",
           "components": [
             {
-              "kind": "chapter",
-              "title": "Liczba prognozowanych wydarzeń, liczba uczestników oraz wpływy ze sprzedaży",
-              "components": [
+              "kind": "component",
+              "type": "number",
+              "label": "Liczba wydarzeń/spotkań w ramach przedsięwzięcia",
+              "name": "eventsNumber",
+              "dataBDD": "eventsNumber",
+              "value": 0,
+              "unit": "szt.",
+              "validators": [
                 {
-                  "kind": "chapter",
-                  "title": "<normal>a) Szkolenia</normal>",
-                  "components": [
-                    {
-                      "kind": "component",
-                      "type": "number",
-                      "label": "Liczba wydarzeń",
-                      "name": "eventsNumberTraining",
-                      "dataBDD": "eventsNumberTraining",
-                      "value": 0,
-                      "unit": "szt.",
-                      "validators": [
-                        {
-                          "name": "RangeValidator",
-                          "kwargs": {
-                            "min": 0
-                          },
-                          "validationMsg": "Wartość musi być większa lub równa 0."
-                        }
-                      ]
-                    },
-                    {
-                      "kind": "component",
-                      "type": "number",
-                      "label": "Liczba osób",
-                      "name": "peopleNumberTraining",
-                      "dataBDD": "peopleNumberTraining",
-                      "value": 0,
-                      "unit": "os.",
-                      "validators": [
-                        {
-                          "name": "RangeValidator",
-                          "kwargs": {
-                            "min": 0
-                          },
-                          "validationMsg": "Wartość musi być większa lub równa 0."
-                        }
-                      ]
-                    },
-                    {
-                      "kind": "component",
-                      "type": "text",
-                      "label": "Koszt jednostkowy",
-                      "name": "forecastedSalesRevenuesTraining",
-                      "dataBDD": "forecastedSalesRevenuesTraining",
-                      "value": 0,
-                      "mask": "fund",
-                      "unit": "PLN",
-                      "validators": [
-                        {
-                          "name": "RangeValidator",
-                          "kwargs": {
-                            "min": 0
-                          },
-                          "validationMsg": "Wartość musi być większa lub równa 0."
-                        }
-                      ]
-                    }
-                  ],
-                  "classList": {
-                    "main": [
-                      "table-1-3-narrow",
-                      "grid",
-                      "grid-cols-3"
-                    ],
-                    "sub": [
-                      "table-1-3__col"
-                    ]
-                  }
-                },
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Liczba ekspertów biorących udział",
+              "name": "expertsNumber",
+              "dataBDD": "expertsNumber",
+              "value": 0,
+              "unit": "os.",
+              "validators": [
                 {
-                  "kind": "chapter",
-                  "title": "<normal>b) Warsztaty</normal>",
-                  "components": [
-                    {
-                      "kind": "component",
-                      "type": "number",
-                      "label": "Liczba wydarzeń",
-                      "name": "eventsNumberWorkshops",
-                      "dataBDD": "eventsNumberWorkshops",
-                      "value": 0,
-                      "unit": "szt.",
-                      "validators": [
-                        {
-                          "name": "RangeValidator",
-                          "kwargs": {
-                            "min": 0
-                          },
-                          "validationMsg": "Wartość musi być większa lub równa 0."
-                        }
-                      ]
-                    },
-                    {
-                      "kind": "component",
-                      "type": "number",
-                      "label": "Liczba osób",
-                      "name": "peopleNumberWorkshops",
-                      "dataBDD": "peopleNumberWorkshops",
-                      "value": 0,
-                      "unit": "os.",
-                      "validators": [
-                        {
-                          "name": "RangeValidator",
-                          "kwargs": {
-                            "min": 0
-                          },
-                          "validationMsg": "Wartość musi być większa lub równa 0."
-                        }
-                      ]
-                    },
-                    {
-                      "kind": "component",
-                      "type": "text",
-                      "label": "Koszt jednostkowy",
-                      "name": "forecastedSalesRevenuesWorkshops",
-                      "dataBDD": "forecastedSalesRevenuesWorkshops",
-                      "value": 0,
-                      "mask": "fund",
-                      "unit": "PLN",
-                      "validators": [
-                        {
-                          "name": "RangeValidator",
-                          "kwargs": {
-                            "min": 0
-                          },
-                          "validationMsg": "Wartość musi być większa lub równa 0."
-                        }
-                      ]
-                    }
-                  ],
-                  "classList": {
-                    "main": [
-                      "table-1-3-narrow",
-                      "grid",
-                      "grid-cols-3"
-                    ],
-                    "sub": [
-                      "table-1-3__col"
-                    ]
-                  }
-                },
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Prognozowana liczba uczestników",
+              "name": "plannedParticipantsNumber",
+              "dataBDD": "plannedParticipantsNumber",
+              "value": 0,
+              "unit": "os.",
+              "validators": [
                 {
-                  "kind": "chapter",
-                  "title": "<normal>c) Kursy</normal>",
-                  "components": [
-                    {
-                      "kind": "component",
-                      "type": "number",
-                      "label": "Liczba wydarzeń",
-                      "name": "eventsNumberCourses",
-                      "dataBDD": "eventsNumberCourses",
-                      "value": 0,
-                      "unit": "szt.",
-                      "validators": [
-                        {
-                          "name": "RangeValidator",
-                          "kwargs": {
-                            "min": 0
-                          },
-                          "validationMsg": "Wartość musi być większa lub równa 0."
-                        }
-                      ]
-                    },
-                    {
-                      "kind": "component",
-                      "type": "number",
-                      "label": "Liczba osób",
-                      "name": "peopleNumberCourses",
-                      "dataBDD": "peopleNumberCourses",
-                      "value": 0,
-                      "unit": "os.",
-                      "validators": [
-                        {
-                          "name": "RangeValidator",
-                          "kwargs": {
-                            "min": 0
-                          },
-                          "validationMsg": "Wartość musi być większa lub równa 0."
-                        }
-                      ]
-                    },
-                    {
-                      "kind": "component",
-                      "type": "text",
-                      "label": "Koszt jednostkowy",
-                      "name": "forecastedSalesRevenuesCourses",
-                      "dataBDD": "forecastedSalesRevenuesCourses",
-                      "value": 0,
-                      "mask": "fund",
-                      "unit": "PLN",
-                      "validators": [
-                        {
-                          "name": "RangeValidator",
-                          "kwargs": {
-                            "min": 0
-                          },
-                          "validationMsg": "Wartość musi być większa lub równa 0."
-                        }
-                      ]
-                    }
-                  ],
-                  "classList": {
-                    "main": [
-                      "table-1-3-narrow",
-                      "grid",
-                      "grid-cols-3"
-                    ],
-                    "sub": [
-                      "table-1-3__col"
-                    ]
-                  }
-                },
-                {
-                  "kind": "chapter",
-                  "title": "<normal>d) Inne</normal>",
-                  "components": [
-                    {
-                      "kind": "chapter",
-                      "title": "",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Rodzaj",
-                          "name": "otherEventType",
-                          "dataBDD": "otherEventType",
-                          "value": "",
-                          "classList": [
-                            "table-full"
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "kind": "chapter",
-                      "title": "",
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "number",
-                          "label": "Liczba wydarzeń",
-                          "name": "eventsNumberOther",
-                          "dataBDD": "eventsNumberOther",
-                          "value": 0,
-                          "unit": "szt.",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "number",
-                          "label": "Liczba osób",
-                          "name": "peopleNumberOther",
-                          "dataBDD": "peopleNumberOther",
-                          "value": 0,
-                          "unit": "os.",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Koszt jednostkowy",
-                          "name": "forecastedSalesRevenuesOther",
-                          "dataBDD": "forecastedSalesRevenuesOther",
-                          "value": 0,
-                          "mask": "fund",
-                          "unit": "PLN",
-                          "validators": [
-                            {
-                              "name": "RangeValidator",
-                              "kwargs": {
-                                "min": 0
-                              },
-                              "validationMsg": "Wartość musi być większa lub równa 0."
-                            }
-                          ]
-                        }
-                      ],
-                      "classList": {
-                        "main": [
-                          "table-1-3-narrow",
-                          "grid",
-                          "grid-cols-3"
-                        ],
-                        "sub": [
-                          "table-1-3__col"
-                        ]
-                      }
-                    }
-                  ]
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
                 }
               ]
             }
-          ]
+          ],
+          "classList": {
+            "main": [
+              "table-1-3-narrow",
+              "grid",
+              "grid-cols-3"
+            ],
+            "sub": [
+              "table-1-3__col"
+            ]
+          }
         }
       ]
     },

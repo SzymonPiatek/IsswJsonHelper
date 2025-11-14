@@ -51,47 +51,83 @@ class AudiencePriorityApplicationFormBuilder(EducationOperationalProgramApplicat
                     ]
                 ),
                 self.create_chapter(
-                    title="1. Zakres przedsięwzięcia i jego charakterystyka",
+                    title="1. Termin i miejsce realizacji przedsięwzięcia",
+                    class_list={
+                        "main": [
+                            "table-1-2",
+                            "grid",
+                            "grid-cols-2"
+                        ],
+                        "sub": [
+                            "table-1-2__col"
+                        ]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="date",
+                            label="Termin od",
+                            name="projectOpeningDatePointOne",
+                            validators=[
+                                self.validator.related_date_lte_validator(
+                                    field_name="projectClosingDatePointOne",
+                                )
+                            ],
+                            required=True
+                        ),
+                        self.create_component(
+                            component_type="date",
+                            label="Termin do",
+                            name="projectClosingDatePointOne",
+                            validators=[
+                                self.validator.related_date_gte_validator(
+                                    field_name="projectOpeningDatePointOne",
+                                )
+                            ],
+                            required=True
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Miejscowość",
+                            name="projectCity",
+                            validators=[
+                                self.validator.length_validator(max_value=100)
+                            ],
+                            required=True,
+                            class_list=[
+                                "table-full"
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Miejsce realizacji przedsięwzięcia",
+                            name="projectPlacesObjects",
+                            required=True,
+                            validators=[
+                                self.validator.length_validator(max_value=100)
+                            ],
+                            class_list=[
+                                "table-full"
+                            ]
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="2. Zakres przedsięwzięcia i jego charakterystyka",
                     components=[
                         self.create_chapter(
-                            title="Rodzaj planowanego przedsięwzięcia",
-                            help_text="Np. kurs, warsztat, szkolenie itp.",
-                            class_list={
-                                "main": [
-                                    "table-1-2",
-                                    "grid",
-                                    "grid-cols-2"
-                                ],
-                                "sub": [
-                                    "table-1-2__col"
-                                ]
-                            },
+                            title="Idea i cel edukacyjny",
+                            help_text="Idea, wartość dydaktyczna przedsięwzięcia i główne cele edukacyjne.",
                             components=[
                                 self.create_component(
-                                    component_type='textarea',
-                                    name="plannedProjectType",
-                                    validators=[
-                                        self.validator.length_validator(max_value=100)
-                                    ],
-                                    required=True,
-                                    class_list=[
-                                        "table-full"
-                                    ]
-                                ),
-                                self.create_component(
-                                    name="projectLocation",
                                     component_type="textarea",
-                                    label="Miejsce realizacji przedsięwzięcia",
+                                    name="educationalIdeaAndGoal",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=100
+                                            max_value=5000
                                         )
                                     ],
                                     required=True,
-                                    class_list=[
-                                        "table-full"
-                                    ]
-                                )
+                                ),
                             ]
                         ),
                         self.create_chapter(
@@ -103,39 +139,7 @@ class AudiencePriorityApplicationFormBuilder(EducationOperationalProgramApplicat
                                     component_type="textarea",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=3000
-                                        )
-                                    ],
-                                    required=True,
-                                ),
-                            ]
-                        ),
-                        self.create_chapter(
-                            title="Idea i cel edukacyjny",
-                            help_text="Istota i wartość dydaktyczna przedsięwzięcia.",
-                            components=[
-                                self.create_component(
-                                    component_type="textarea",
-                                    name="educationalIdeaAndGoal",
-                                    validators=[
-                                        self.validator.length_validator(
-                                            max_value=3000
-                                        )
-                                    ],
-                                    required=True,
-                                ),
-                            ]
-                        ),
-                        self.create_chapter(
-                            title="Grupa docelowa",
-                            help_text="Sposób rekrutacji i kryteria wyboru uczestników.",
-                            components=[
-                                self.create_component(
-                                    component_type="textarea",
-                                    name="targetGroup",
-                                    validators=[
-                                        self.validator.length_validator(
-                                            max_value=1000
+                                            max_value=5000
                                         )
                                     ],
                                     required=True,
@@ -151,7 +155,7 @@ class AudiencePriorityApplicationFormBuilder(EducationOperationalProgramApplicat
                                     name="numberAndDiversityOfParticipants",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=1000
+                                            max_value=3000
                                         )
                                     ],
                                     required=True,
@@ -160,14 +164,14 @@ class AudiencePriorityApplicationFormBuilder(EducationOperationalProgramApplicat
                         ),
                         self.create_chapter(
                             title="Doświadczenie wnioskodawcy i kompetencje zespołu",
-                            help_text="W tym udział specjalistów w realizacji przedsięwzięcia.",
+                            help_text="Doświadczenie wnioskodawcy w działalności edukacyjnej oraz kompetencje zespołu zaangażowanego w realizację przedsięwzięcia.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
                                     name="applicantAndTeamExperience",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=1500
+                                            max_value=3000
                                         )
                                     ],
                                     required=True
@@ -183,7 +187,7 @@ class AudiencePriorityApplicationFormBuilder(EducationOperationalProgramApplicat
                                     name="projectAccessibility",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=1000
+                                            max_value=3000
                                         )
                                     ],
                                     required=True
@@ -192,14 +196,14 @@ class AudiencePriorityApplicationFormBuilder(EducationOperationalProgramApplicat
                         ),
                         self.create_chapter(
                             title="Planowane efekty realizacji przedsięwzięcia",
-                            help_text="Spodziewane rezultaty w ujęciu jakościowym.",
+                            help_text="Spodziewane efekty realizacji przedsięwzięcia w ujęciu jakościowym.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
                                     name="plannedEffectsOfProjectImplementation",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=1000
+                                            max_value=3000
                                         )
                                     ],
                                     required=True

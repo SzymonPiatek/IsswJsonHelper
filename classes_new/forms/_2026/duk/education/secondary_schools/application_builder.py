@@ -193,6 +193,11 @@ class SecondarySchoolsPriorityApplicationFormBuilder(EducationOperationalProgram
                             component_type="number",
                             label="Prognozowana liczba zrealizowanych etiud i innych ćwiczeń filmowych",
                             name="estimatedCompletedShortFilms"
+                        ),
+                        self.create_component(
+                            component_type="number",
+                            label="Prognozowana liczba filmów pełnometrażowych",
+                            name="estimatedCompletedFullFilms"
                         )
                     ]
                 )

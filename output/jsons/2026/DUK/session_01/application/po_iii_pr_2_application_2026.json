@@ -2997,7 +2997,7 @@
                         {
                           "name": "LengthValidator",
                           "kwargs": {
-                            "max": 2000
+                            "max": 5000
                           }
                         },
                         {
@@ -3005,7 +3005,8 @@
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "helpText": "Idea i koncepcja przedsięwzięcia, jego założenia i sposób realizacji."
                 },
                 {
                   "kind": "chapter",
@@ -3031,7 +3032,8 @@
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "helpText": "Program lub repertuar wydarzenia wraz z opisem planowanych działań."
                 },
                 {
                   "kind": "chapter",
@@ -3062,7 +3064,7 @@
                 },
                 {
                   "kind": "chapter",
-                  "title": "Promocja przedsięwzięcia",
+                  "title": "Strategia promocyjna",
                   "components": [
                     {
                       "kind": "component",
@@ -3076,7 +3078,7 @@
                         {
                           "name": "LengthValidator",
                           "kwargs": {
-                            "max": 1500
+                            "max": 3000
                           }
                         },
                         {
@@ -3084,7 +3086,8 @@
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "helpText": "Plan promocji, działania marketingowe, współprace, partnerzy i patroni medialni."
                 },
                 {
                   "kind": "chapter",
@@ -3102,7 +3105,7 @@
                         {
                           "name": "LengthValidator",
                           "kwargs": {
-                            "max": 1000
+                            "max": 3000
                           }
                         },
                         {
@@ -3110,11 +3113,12 @@
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "helpText": "Działania podejmowane na rzecz osób ze szczególnymi potrzebami oraz wspierania inkluzywności."
                 },
                 {
                   "kind": "chapter",
-                  "title": "Odbiorcy i uczestnicy",
+                  "title": "Profil publiczności i odbiorcy wydarzenia",
                   "components": [
                     {
                       "kind": "component",
@@ -3128,7 +3132,7 @@
                         {
                           "name": "LengthValidator",
                           "kwargs": {
-                            "max": 1000
+                            "max": 3000
                           }
                         },
                         {
@@ -3136,7 +3140,8 @@
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "helpText": "Do kogo kierowane jest wydarzenie oraz jakie grupy uczestników stanowią jego główną widownię (np. studenci szkół filmowych, seniorzy, widzowie zainteresowani kinem niezależnym)."
                 },
                 {
                   "kind": "chapter",
@@ -3154,7 +3159,7 @@
                         {
                           "name": "LengthValidator",
                           "kwargs": {
-                            "max": 1000
+                            "max": 3000
                           }
                         },
                         {
@@ -3162,7 +3167,8 @@
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "helpText": "Spodziewane efekty realizacji przedsięwzięcia w ujęciu jakościowym."
                 },
                 {
                   "kind": "chapter",
@@ -3180,7 +3186,7 @@
                         {
                           "name": "LengthValidator",
                           "kwargs": {
-                            "max": 1500
+                            "max": 3000
                           }
                         },
                         {
@@ -3188,7 +3194,8 @@
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "helpText": "Doświadczenie wnioskodawcy oraz kompetencje zespołu zaangażowanego w realizację przedsięwzięcia."
                 },
                 {
                   "kind": "chapter",

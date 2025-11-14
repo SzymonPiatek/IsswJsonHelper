@@ -2781,38 +2781,38 @@
           "components": [
             {
               "kind": "chapter",
-              "title": "Opis przedsięwzięcia",
-              "components": [
-                {
-                  "kind": "component",
-                  "type": "textarea",
-                  "label": "",
-                  "name": "generalProjectDescription",
-                  "dataBDD": "generalProjectDescription",
-                  "value": "",
-                  "required": true,
-                  "validators": [
-                    {
-                      "name": "LengthValidator",
-                      "kwargs": {
-                        "max": 3000
-                      }
-                    },
-                    {
-                      "name": "RequiredValidator"
-                    }
-                  ]
-                }
-              ],
-              "helpText": "Cel i zakres merytoryczny przedsięwzięcia."
-            },
-            {
-              "kind": "chapter",
               "title": "",
               "components": [
                 {
                   "kind": "chapter",
-                  "title": "Potencjał popularyzatorski",
+                  "title": "Opis przedsięwzięcia",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "textarea",
+                      "label": "",
+                      "name": "generalProjectDescriptionPt12",
+                      "dataBDD": "generalProjectDescriptionPt12",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "LengthValidator",
+                          "kwargs": {
+                            "max": 5000
+                          }
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    }
+                  ],
+                  "helpText": "Cel i zakres merytoryczny przedsięwzięcia i jego wkład w rozwój wiedzy o kulturze filmowej."
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Wartość edukacyjna i naukowa",
                   "components": [
                     {
                       "kind": "component",
@@ -2826,7 +2826,7 @@
                         {
                           "name": "LengthValidator",
                           "kwargs": {
-                            "max": 1000
+                            "max": 5000
                           }
                         },
                         {
@@ -2835,7 +2835,7 @@
                       ]
                     }
                   ],
-                  "helpText": "Innowacyjność w zakresie treści, znaczenie projektu w upowszechnianiu wiedzy o kinematografii."
+                  "helpText": "Znaczenie edukacyjne i naukowe przedsięwzięcia oraz jego potencjał popularyzatorski."
                 },
                 {
                   "kind": "chapter",
@@ -2853,7 +2853,7 @@
                         {
                           "name": "LengthValidator",
                           "kwargs": {
-                            "max": 1000
+                            "max": 3000
                           }
                         },
                         {
@@ -2863,33 +2863,6 @@
                     }
                   ],
                   "helpText": "Formy publikacji, sposób realizacji, zastosowane technologie graficzne i edytorskie."
-                },
-                {
-                  "kind": "chapter",
-                  "title": "Analiza zapotrzebowania rynku na realizację przedsięwzięcia",
-                  "components": [
-                    {
-                      "kind": "component",
-                      "type": "textarea",
-                      "label": "",
-                      "name": "marketAnalysisForProjectImplementation",
-                      "dataBDD": "marketAnalysisForProjectImplementation",
-                      "value": "",
-                      "required": true,
-                      "validators": [
-                        {
-                          "name": "LengthValidator",
-                          "kwargs": {
-                            "max": 1000
-                          }
-                        },
-                        {
-                          "name": "RequiredValidator"
-                        }
-                      ]
-                    }
-                  ],
-                  "helpText": "Grupa docelowa oraz zastosowanie praktyczne."
                 }
               ],
               "visibilityRules": [
@@ -2911,7 +2884,34 @@
               "components": [
                 {
                   "kind": "chapter",
-                  "title": "Wartość artystyczna i kulturowa przedsięwzięcia",
+                  "title": "Opis przedsięwzięcia",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "textarea",
+                      "label": "",
+                      "name": "generalProjectDescriptionPt3",
+                      "dataBDD": "generalProjectDescriptionPt3",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "LengthValidator",
+                          "kwargs": {
+                            "max": 5000
+                          }
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    }
+                  ],
+                  "helpText": "Cel i zakres merytoryczny przedsięwzięcia i jego wkład w rozwój kultury filmowej."
+                },
+                {
+                  "kind": "chapter",
+                  "title": "Wartość artystyczna przedsięwzięcia",
                   "components": [
                     {
                       "kind": "component",
@@ -2925,7 +2925,7 @@
                         {
                           "name": "LengthValidator",
                           "kwargs": {
-                            "max": 3000
+                            "max": 5000
                           }
                         },
                         {
@@ -2933,7 +2933,8 @@
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "helpText": "Wartość artystyczna przedsięwzięcia i jego potencjał popularyzatorski."
                 },
                 {
                   "kind": "chapter",
@@ -2951,7 +2952,7 @@
                         {
                           "name": "LengthValidator",
                           "kwargs": {
-                            "max": 1000
+                            "max": 3000
                           }
                         },
                         {
@@ -2961,32 +2962,6 @@
                     }
                   ],
                   "helpText": "Opracowanie merytoryczne i edytorskie oraz zastosowane technologie."
-                },
-                {
-                  "kind": "chapter",
-                  "title": "Praktyczne zastosowanie rezultatów projektu",
-                  "components": [
-                    {
-                      "kind": "component",
-                      "type": "textarea",
-                      "label": "",
-                      "name": "marketAnalysisForProjectImplementationPt3",
-                      "dataBDD": "marketAnalysisForProjectImplementationPt3",
-                      "value": "",
-                      "required": true,
-                      "validators": [
-                        {
-                          "name": "LengthValidator",
-                          "kwargs": {
-                            "max": 1000
-                          }
-                        },
-                        {
-                          "name": "RequiredValidator"
-                        }
-                      ]
-                    }
-                  ]
                 }
               ],
               "visibilityRules": [
@@ -3026,7 +3001,7 @@
                   ]
                 }
               ],
-              "helpText": "Udział specjalistów i ekspertów w realizację przedsięwzięcia."
+              "helpText": "Doświadczenie wnioskodawcy oraz kompetencje zespołu zaangażowanego w realizację przedsięwzięcia."
             },
             {
               "kind": "chapter",
@@ -3053,7 +3028,7 @@
                   ]
                 }
               ],
-              "helpText": "Działania promocyjne wspierające upowszechnienie przedsięwzięcia."
+              "helpText": "Plan promocji, działania marketingowe, współprace, partnerzy i patroni medialni."
             },
             {
               "kind": "chapter",
@@ -3071,7 +3046,7 @@
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 1000
+                        "max": 3000
                       }
                     },
                     {

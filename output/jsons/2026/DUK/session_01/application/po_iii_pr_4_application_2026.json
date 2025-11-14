@@ -2804,62 +2804,115 @@
                       "title": "Pozycja",
                       "components": [
                         {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Tytuł",
-                          "name": "projectTitle",
-                          "dataBDD": "projectTitle",
-                          "value": "",
-                          "required": true,
-                          "validators": [
+                          "kind": "chapter",
+                          "title": "",
+                          "components": [
                             {
-                              "name": "RequiredValidator"
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Tytuł",
+                              "name": "projectTitle",
+                              "dataBDD": "projectTitle",
+                              "value": "",
+                              "required": true,
+                              "validators": [
+                                {
+                                  "name": "RequiredValidator"
+                                }
+                              ],
+                              "defaultValue": ""
                             }
                           ],
-                          "classList": [
-                            "table-full"
-                          ],
-                          "defaultValue": ""
+                          "classList": {
+                            "main": [
+                              "new_table_2__2-2"
+                            ]
+                          }
                         },
                         {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Reżyser",
-                          "name": "projectDirector",
-                          "dataBDD": "projectDirector",
-                          "value": "",
-                          "required": true,
-                          "validators": [
+                          "kind": "chapter",
+                          "title": "",
+                          "components": [
                             {
-                              "name": "RequiredValidator"
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Reżyser",
+                              "name": "projectDirector",
+                              "dataBDD": "projectDirector",
+                              "value": "",
+                              "required": true,
+                              "validators": [
+                                {
+                                  "name": "RequiredValidator"
+                                }
+                              ],
+                              "defaultValue": ""
                             }
-                          ],
-                          "defaultValue": ""
+                          ]
                         },
                         {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Rok",
-                          "name": "projectYear",
-                          "dataBDD": "projectYear",
-                          "value": "",
-                          "required": true,
-                          "validators": [
+                          "kind": "chapter",
+                          "title": "",
+                          "components": [
                             {
-                              "name": "RequiredValidator"
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Rok",
+                              "name": "projectYear",
+                              "dataBDD": "projectYear",
+                              "value": "",
+                              "required": true,
+                              "validators": [
+                                {
+                                  "name": "RequiredValidator"
+                                }
+                              ],
+                              "defaultValue": ""
+                            },
+                            {
+                              "kind": "component",
+                              "type": "number",
+                              "label": "Metraż",
+                              "name": "projectDuration",
+                              "dataBDD": "projectDuration",
+                              "value": 0,
+                              "unit": "min",
+                              "required": true,
+                              "validators": [
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                },
+                                {
+                                  "name": "RequiredValidator"
+                                }
+                              ],
+                              "defaultValue": 0
                             }
                           ],
-                          "defaultValue": ""
+                          "classList": {
+                            "main": [
+                              "new_table",
+                              "grid",
+                              "grid-cols-2"
+                            ],
+                            "sub": [
+                              "new_table_2__col"
+                            ]
+                          }
                         }
                       ],
                       "classList": {
                         "main": [
-                          "table-1-2",
+                          "new_table",
                           "grid",
                           "grid-cols-2"
                         ],
                         "sub": [
-                          "table-1-2__col"
+                          "new_table_2__col"
                         ]
                       }
                     }
@@ -2905,7 +2958,7 @@
                 {
                   "kind": "component",
                   "type": "textarea",
-                  "label": "Nazwa zbioru i zakres chronologiczny",
+                  "label": "Nazwa zbioru, zakres chronologiczny i metraż",
                   "name": "collectionNameAndChronologicalScope",
                   "dataBDD": "collectionNameAndChronologicalScope",
                   "value": "",
@@ -2962,11 +3015,11 @@
               ]
             }
           ],
-          "helpText": "Cel, wartość merytoryczna przedsięwzięcia, w tym uzasadnienie wyboru filmu lub pilność ze względów konserwatorskich, zastosowane technologie i standardy, sposób realizacji."
+          "helpText": "Cel, wartość merytoryczna przedsięwzięcia, w tym uzasadnienie wyboru filmu i znaczenie dla kinematografii."
         },
         {
           "kind": "chapter",
-          "title": "3. Rodzaj i stan materiałów źródłowych oraz pilność rekonstrukcji",
+          "title": "3. Rodzaj i stan materiałów źródłowych",
           "components": [
             {
               "kind": "component",
@@ -2989,7 +3042,7 @@
               ]
             }
           ],
-          "helpText": "Proszę o wyszczególnienie przedsięwzięć z zakresu kinematografii realizowanych przez Wnioskodawcę w ostatnich 2 latach."
+          "helpText": "Rodzaj dostępnych materiałów źródłowych, ich stan techniczny, kompletność oraz ewentualne uszkodzenia."
         },
         {
           "kind": "chapter",
@@ -3015,7 +3068,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "helpText": "Planowane technologie, narzędzia i standardy stosowane w procesie rekonstrukcji cyfrowej."
         },
         {
           "kind": "chapter",
@@ -3041,7 +3095,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "helpText": "Spodziewane efekty realizacji przedsięwzięcia w ujęciu jakościowym."
         },
         {
           "kind": "chapter",
@@ -3067,7 +3122,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "helpText": "Doświadczenie wnioskodawcy w rekonstrukcji cyfrowej oraz kompetencje zespołu zaangażowanego w realizację przedsięwzięcia."
         }
       ]
     },

@@ -3025,6 +3025,23 @@
                   "validationMsg": "Wartość musi być większa lub równa 0."
                 }
               ]
+            },
+            {
+              "kind": "component",
+              "type": "number",
+              "label": "Prognozowana liczba filmów pełnometrażowych",
+              "name": "estimatedCompletedFullFilms",
+              "dataBDD": "estimatedCompletedFullFilms",
+              "value": 0,
+              "validators": [
+                {
+                  "name": "RangeValidator",
+                  "kwargs": {
+                    "min": 0
+                  },
+                  "validationMsg": "Wartość musi być większa lub równa 0."
+                }
+              ]
             }
           ],
           "classList": {

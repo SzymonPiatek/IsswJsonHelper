@@ -2777,70 +2777,136 @@
         },
         {
           "kind": "chapter",
-          "title": "1. Zakres przedsięwzięcia i jego charakterystyka",
+          "title": "1. Termin i miejsce realizacji przedsięwzięcia",
+          "components": [
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Termin od",
+              "name": "projectOpeningDatePointOne",
+              "dataBDD": "projectOpeningDatePointOne",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RelatedDateLTEValidator",
+                  "kwargs": {
+                    "field_name": "projectClosingDatePointOne"
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Termin do",
+              "name": "projectClosingDatePointOne",
+              "dataBDD": "projectClosingDatePointOne",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RelatedDateGTEValidator",
+                  "kwargs": {
+                    "field_name": "projectOpeningDatePointOne"
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Miejscowość",
+              "name": "projectCity",
+              "dataBDD": "projectCity",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 100
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "table-full"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Miejsce realizacji przedsięwzięcia",
+              "name": "projectPlacesObjects",
+              "dataBDD": "projectPlacesObjects",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 100
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "table-full"
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "2. Zakres przedsięwzięcia i jego charakterystyka",
           "components": [
             {
               "kind": "chapter",
-              "title": "Rodzaj planowanego przedsięwzięcia",
+              "title": "Idea i cel edukacyjny",
               "components": [
                 {
                   "kind": "component",
                   "type": "textarea",
                   "label": "",
-                  "name": "plannedProjectType",
-                  "dataBDD": "plannedProjectType",
+                  "name": "educationalIdeaAndGoal",
+                  "dataBDD": "educationalIdeaAndGoal",
                   "value": "",
                   "required": true,
                   "validators": [
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 100
+                        "max": 5000
                       }
                     },
                     {
                       "name": "RequiredValidator"
                     }
-                  ],
-                  "classList": [
-                    "table-full"
-                  ]
-                },
-                {
-                  "kind": "component",
-                  "type": "textarea",
-                  "label": "Miejsce realizacji przedsięwzięcia",
-                  "name": "projectLocation",
-                  "dataBDD": "projectLocation",
-                  "value": "",
-                  "required": true,
-                  "validators": [
-                    {
-                      "name": "LengthValidator",
-                      "kwargs": {
-                        "max": 100
-                      }
-                    },
-                    {
-                      "name": "RequiredValidator"
-                    }
-                  ],
-                  "classList": [
-                    "table-full"
                   ]
                 }
               ],
-              "helpText": "Np. kurs, warsztat, szkolenie itp.",
-              "classList": {
-                "main": [
-                  "table-1-2",
-                  "grid",
-                  "grid-cols-2"
-                ],
-                "sub": [
-                  "table-1-2__col"
-                ]
-              }
+              "helpText": "Idea, wartość dydaktyczna przedsięwzięcia i główne cele edukacyjne."
             },
             {
               "kind": "chapter",
@@ -2858,7 +2924,7 @@
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 3000
+                        "max": 5000
                       }
                     },
                     {
@@ -2868,60 +2934,6 @@
                 }
               ],
               "helpText": "Tematyka, tryb, metody dydaktyczne, liczba godzin, modułów, bloków tematycznych."
-            },
-            {
-              "kind": "chapter",
-              "title": "Idea i cel edukacyjny",
-              "components": [
-                {
-                  "kind": "component",
-                  "type": "textarea",
-                  "label": "",
-                  "name": "educationalIdeaAndGoal",
-                  "dataBDD": "educationalIdeaAndGoal",
-                  "value": "",
-                  "required": true,
-                  "validators": [
-                    {
-                      "name": "LengthValidator",
-                      "kwargs": {
-                        "max": 3000
-                      }
-                    },
-                    {
-                      "name": "RequiredValidator"
-                    }
-                  ]
-                }
-              ],
-              "helpText": "Istota i wartość dydaktyczna przedsięwzięcia."
-            },
-            {
-              "kind": "chapter",
-              "title": "Grupa docelowa",
-              "components": [
-                {
-                  "kind": "component",
-                  "type": "textarea",
-                  "label": "",
-                  "name": "targetGroup",
-                  "dataBDD": "targetGroup",
-                  "value": "",
-                  "required": true,
-                  "validators": [
-                    {
-                      "name": "LengthValidator",
-                      "kwargs": {
-                        "max": 1000
-                      }
-                    },
-                    {
-                      "name": "RequiredValidator"
-                    }
-                  ]
-                }
-              ],
-              "helpText": "Sposób rekrutacji i kryteria wyboru uczestników."
             },
             {
               "kind": "chapter",
@@ -2939,7 +2951,7 @@
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 1000
+                        "max": 3000
                       }
                     },
                     {
@@ -2966,7 +2978,7 @@
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 1500
+                        "max": 3000
                       }
                     },
                     {
@@ -2975,7 +2987,7 @@
                   ]
                 }
               ],
-              "helpText": "W tym udział specjalistów w realizacji przedsięwzięcia."
+              "helpText": "Doświadczenie wnioskodawcy w działalności edukacyjnej oraz kompetencje zespołu zaangażowanego w realizację przedsięwzięcia."
             },
             {
               "kind": "chapter",
@@ -2993,7 +3005,7 @@
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 1000
+                        "max": 3000
                       }
                     },
                     {
@@ -3020,7 +3032,7 @@
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 1000
+                        "max": 3000
                       }
                     },
                     {
@@ -3029,7 +3041,7 @@
                   ]
                 }
               ],
-              "helpText": "Spodziewane rezultaty w ujęciu jakościowym."
+              "helpText": "Spodziewane efekty realizacji przedsięwzięcia w ujęciu jakościowym."
             }
           ]
         },

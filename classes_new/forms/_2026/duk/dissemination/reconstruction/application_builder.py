@@ -98,35 +98,66 @@ class ReconstructionPriorityApplicationFormBuilder(DisseminationOperationalProgr
                                             title="Pozycja",
                                             class_list={
                                                 "main": [
-                                                    "table-1-2",
+                                                    "new_table",
                                                     "grid",
                                                     "grid-cols-2"
                                                 ],
                                                 "sub": [
-                                                    "table-1-2__col"
+                                                    "new_table_2__col"
                                                 ]
                                             },
                                             components=[
-                                                self.create_component(
-                                                    component_type="text",
-                                                    name="projectTitle",
-                                                    label="Tytuł",
-                                                    required=True,
-                                                    class_list=[
-                                                        "table-full"
+                                                self.create_chapter(
+                                                    class_list={
+                                                        "main": [
+                                                            "new_table_2__2-2"
+                                                        ]
+                                                    },
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            name="projectTitle",
+                                                            label="Tytuł",
+                                                            required=True,
+                                                        )
                                                     ]
                                                 ),
-                                                self.create_component(
-                                                    component_type="text",
-                                                    name="projectDirector",
-                                                    label="Reżyser",
-                                                    required=True
+                                                self.create_chapter(
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            name="projectDirector",
+                                                            label="Reżyser",
+                                                            required=True,
+                                                        )
+                                                    ]
                                                 ),
-                                                self.create_component(
-                                                    component_type="text",
-                                                    name="projectYear",
-                                                    label="Rok",
-                                                    required=True
+                                                self.create_chapter(
+                                                    class_list={
+                                                        "main": [
+                                                            "new_table",
+                                                            "grid",
+                                                            "grid-cols-2"
+                                                        ],
+                                                        "sub": [
+                                                            "new_table_2__col"
+                                                        ]
+                                                    },
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            name="projectYear",
+                                                            label="Rok",
+                                                            required=True
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="number",
+                                                            name="projectDuration",
+                                                            label="Metraż",
+                                                            required=True,
+                                                            unit="min"
+                                                        )
+                                                    ]
                                                 )
                                             ]
                                         )
@@ -154,7 +185,7 @@ class ReconstructionPriorityApplicationFormBuilder(DisseminationOperationalProgr
                                 self.create_component(
                                     component_type="textarea",
                                     name="collectionNameAndChronologicalScope",
-                                    label="Nazwa zbioru i zakres chronologiczny",
+                                    label="Nazwa zbioru, zakres chronologiczny i metraż",
                                     required=True,
                                     validators=[
                                         self.validator.length_validator(max_value=500)
@@ -166,7 +197,7 @@ class ReconstructionPriorityApplicationFormBuilder(DisseminationOperationalProgr
                 ),
                 self.create_chapter(
                     title="2. Opis przedsięwzięcia i uzasadnienie rekonstrukcji",
-                    help_text="Cel, wartość merytoryczna przedsięwzięcia, w tym uzasadnienie wyboru filmu lub pilność ze względów konserwatorskich, zastosowane technologie i standardy, sposób realizacji.",
+                    help_text="Cel, wartość merytoryczna przedsięwzięcia, w tym uzasadnienie wyboru filmu i znaczenie dla kinematografii.",
                     components=[
                         self.create_component(
                             component_type="textarea",
@@ -179,8 +210,8 @@ class ReconstructionPriorityApplicationFormBuilder(DisseminationOperationalProgr
                     ]
                 ),
                 self.create_chapter(
-                    title="3. Rodzaj i stan materiałów źródłowych oraz pilność rekonstrukcji",
-                    help_text="Proszę o wyszczególnienie przedsięwzięć z zakresu kinematografii realizowanych przez Wnioskodawcę w ostatnich 2 latach.",
+                    title="3. Rodzaj i stan materiałów źródłowych",
+                    help_text="Rodzaj dostępnych materiałów źródłowych, ich stan techniczny, kompletność oraz ewentualne uszkodzenia.",
                     components=[
                         self.create_component(
                             component_type="textarea",
@@ -194,6 +225,7 @@ class ReconstructionPriorityApplicationFormBuilder(DisseminationOperationalProgr
                 ),
                 self.create_chapter(
                     title="4. Zastosowane technologie i standardy",
+                    help_text="Planowane technologie, narzędzia i standardy stosowane w procesie rekonstrukcji cyfrowej.",
                     components=[
                         self.create_component(
                             component_type="textarea",
@@ -207,6 +239,7 @@ class ReconstructionPriorityApplicationFormBuilder(DisseminationOperationalProgr
                 ),
                 self.create_chapter(
                     title="5. Planowane efekty realizacji przedsięwzięcia",
+                    help_text="Spodziewane efekty realizacji przedsięwzięcia w ujęciu jakościowym.",
                     components=[
                         self.create_component(
                             component_type="textarea",
@@ -220,6 +253,7 @@ class ReconstructionPriorityApplicationFormBuilder(DisseminationOperationalProgr
                 ),
                 self.create_chapter(
                     title="6. Doświadczenie wnioskodawcy i kompetencje zespołu",
+                    help_text="Doświadczenie wnioskodawcy w rekonstrukcji cyfrowej oraz kompetencje zespołu zaangażowanego w realizację przedsięwzięcia.",
                     components=[
                         self.create_component(
                             component_type="textarea",
