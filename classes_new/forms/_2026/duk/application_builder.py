@@ -24,6 +24,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
         self.is_dkf: bool = False
         self.is_only_one_application_grant_usage: bool = False
         self.custom_schedule_eligible_costs_info: str = None
+        self.is_subsidy: bool = False
 
         # Estimate
         self.estimate_chapters = []
@@ -424,6 +425,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                         "Niepubliczna szkoła lub uczelnia artystyczna",
                                         "Kościół lub związek wyznaniowy",
                                         "Jednostka samorządu terytorialnego",
+                                        "Inna (np. spółka w organizacji)"
                                     ]
                                 )
                             ],
@@ -492,6 +494,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                                 "Niepubliczna szkoła lub uczelnia artystyczna",
                                                 "Kościół lub związek wyznaniowy",
                                                 "Jednostka samorządu terytorialnego",
+                                                "Inna (np. spółka w organizacji)"
                                             ]
                                         )
                                     ],
@@ -541,6 +544,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                                                 "Niepubliczna szkoła lub uczelnia artystyczna",
                                                                 "Kościół lub związek wyznaniowy",
                                                                 "Jednostka samorządu terytorialnego",
+                                                                "Inna (np. spółka w organizacji)"
                                                             ]
                                                         )
                                                     ],
@@ -567,7 +571,8 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                                                 "Spółka komandytowa",
                                                                 "Spółka komandytowo-akcyjna",
                                                                 "Fundacja",
-                                                                "Stowarzyszenie"
+                                                                "Stowarzyszenie",
+                                                                "Inna (np. spółka w organizacji)"
                                                             ]
                                                         )
                                                     ],
@@ -1031,13 +1036,15 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     "checkbox_name": "isLocalGovernmentFunding",
                     "section_title": f"<normal>a) z budżetów jednostek samorządu terytorialnego lub innych środków publicznych za wyjątkiem Ministerstwa Kultury i Dziedzictwa Narodowego </normal><br />{source_of_financing_help_text}</small>",
                     "section_name": "localGovernments",
+                    "isSubsidy": self.is_subsidy
                 },
                 {
                     "checkbox_title": "Środki Ministerstwa Kultury i Dziedzictwa Narodowego",
                     "checkbox_name": "isMinistryFunding",
                     "section_title": f"<normal>b) ze środków Ministerstwa Kultury i Dziedzictwa Narodowego</normal><br />{source_of_financing_help_text}</small>",
                     "section_name": "ministry",
-                    "isProgram": True
+                    "isProgram": True,
+                    "isSubsidy": self.is_subsidy
                 },
                 {
                     "checkbox_title": "Środki od sponsorów lub innych podmiotów niezaliczanych do sektora finansów publicznych",
@@ -1377,6 +1384,56 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                                                         ]
                                                                     },
                                                                     components=[
+                                                                        self.create_component(
+                                                                            component_type="text",
+                                                                            label="Tryb finansowania" if chapter.get("isProgram", False) else "Nazwa podmiotu finansującego",
+                                                                            name=f"{chapter["section_name"]}Name",
+                                                                            class_list=[
+                                                                                "table-full"
+                                                                            ],
+                                                                            required=True,
+                                                                            validators=[
+                                                                                self.validator.related_required_if_equal_validator(
+                                                                                    field_name=chapter["checkbox_name"],
+                                                                                    value=True
+                                                                                )
+                                                                            ]
+                                                                        ),
+                                                                        self.create_component(
+                                                                            component_type="text",
+                                                                            mask="fund",
+                                                                            label="Kwota",
+                                                                            name=f"{chapter["section_name"]}FundingAmount",
+                                                                            required=True,
+                                                                            unit="PLN",
+                                                                            validators=[
+                                                                                self.validator.related_required_if_equal_validator(
+                                                                                    field_name=chapter["checkbox_name"],
+                                                                                    value=True
+                                                                                )
+                                                                            ]
+                                                                        ),
+                                                                        self.create_component(
+                                                                            component_type="text",
+                                                                            mask="fund",
+                                                                            label="Udział w koszcie całkowitym",
+                                                                            name=f"{chapter["section_name"]}FundingShare",
+                                                                            calculation_rules=[
+                                                                                self.calculation_rule.single_position_share_calculator(
+                                                                                    dividend_field=f"{chapter["section_name"]}FundingAmount",
+                                                                                    divisor_field="totalProjectCost"
+                                                                                )
+                                                                            ],
+                                                                            read_only=True,
+                                                                            required=True,
+                                                                            unit="%"
+                                                                        ),
+                                                                        self.create_component(
+                                                                            component_type="checkbox",
+                                                                            label="Należy zaznaczyć, jeśli środki pochodzą z subwencji.",
+                                                                            name=f"{chapter["section_name"]}FungindShareSubsidy",
+                                                                        )
+                                                                    ] if chapter.get("isSubsidy", False) else [
                                                                         self.create_component(
                                                                             component_type="text",
                                                                             label="Tryb finansowania" if chapter.get("isProgram", False) else "Nazwa podmiotu finansującego",

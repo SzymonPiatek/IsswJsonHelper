@@ -22,6 +22,7 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
             "Kształcenie zawodowe i podnoszenie kompetencji poprzez organizację studiów podyplomowych",
             "Organizacja praktyk zawodowych dla studentów"
         ]
+        self.is_subsidy = True
 
         # Estimate
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)

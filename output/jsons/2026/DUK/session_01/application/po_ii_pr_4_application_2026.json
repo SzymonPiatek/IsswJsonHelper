@@ -523,7 +523,8 @@
                                   "Publiczna szkoła lub uczelnia artystyczna",
                                   "Niepubliczna szkoła lub uczelnia artystyczna",
                                   "Kościół lub związek wyznaniowy",
-                                  "Jednostka samorządu terytorialnego"
+                                  "Jednostka samorządu terytorialnego",
+                                  "Inna (np. spółka w organizacji)"
                                 ]
                               }
                             }
@@ -567,7 +568,8 @@
                                   "Spółka komandytowa",
                                   "Spółka komandytowo-akcyjna",
                                   "Fundacja",
-                                  "Stowarzyszenie"
+                                  "Stowarzyszenie",
+                                  "Inna (np. spółka w organizacji)"
                                 ]
                               }
                             }
@@ -606,7 +608,8 @@
                           "Publiczna szkoła lub uczelnia artystyczna",
                           "Niepubliczna szkoła lub uczelnia artystyczna",
                           "Kościół lub związek wyznaniowy",
-                          "Jednostka samorządu terytorialnego"
+                          "Jednostka samorządu terytorialnego",
+                          "Inna (np. spółka w organizacji)"
                         ]
                       }
                     }
@@ -1060,7 +1063,8 @@
                       "Publiczna szkoła lub uczelnia artystyczna",
                       "Niepubliczna szkoła lub uczelnia artystyczna",
                       "Kościół lub związek wyznaniowy",
-                      "Jednostka samorządu terytorialnego"
+                      "Jednostka samorządu terytorialnego",
+                      "Inna (np. spółka w organizacji)"
                     ]
                   }
                 }

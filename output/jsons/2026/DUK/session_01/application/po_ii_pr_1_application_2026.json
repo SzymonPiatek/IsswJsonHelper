@@ -525,7 +525,8 @@
                                   "Publiczna szkoła lub uczelnia artystyczna",
                                   "Niepubliczna szkoła lub uczelnia artystyczna",
                                   "Kościół lub związek wyznaniowy",
-                                  "Jednostka samorządu terytorialnego"
+                                  "Jednostka samorządu terytorialnego",
+                                  "Inna (np. spółka w organizacji)"
                                 ]
                               }
                             }
@@ -569,7 +570,8 @@
                                   "Spółka komandytowa",
                                   "Spółka komandytowo-akcyjna",
                                   "Fundacja",
-                                  "Stowarzyszenie"
+                                  "Stowarzyszenie",
+                                  "Inna (np. spółka w organizacji)"
                                 ]
                               }
                             }
@@ -608,7 +610,8 @@
                           "Publiczna szkoła lub uczelnia artystyczna",
                           "Niepubliczna szkoła lub uczelnia artystyczna",
                           "Kościół lub związek wyznaniowy",
-                          "Jednostka samorządu terytorialnego"
+                          "Jednostka samorządu terytorialnego",
+                          "Inna (np. spółka w organizacji)"
                         ]
                       }
                     }
@@ -1062,7 +1065,8 @@
                       "Publiczna szkoła lub uczelnia artystyczna",
                       "Niepubliczna szkoła lub uczelnia artystyczna",
                       "Kościół lub związek wyznaniowy",
-                      "Jednostka samorządu terytorialnego"
+                      "Jednostka samorządu terytorialnego",
+                      "Inna (np. spółka w organizacji)"
                     ]
                   }
                 }
@@ -3802,6 +3806,15 @@
                                         }
                                       ],
                                       "defaultValue": 0
+                                    },
+                                    {
+                                      "kind": "component",
+                                      "type": "checkbox",
+                                      "label": "Należy zaznaczyć, jeśli środki pochodzą z subwencji.",
+                                      "name": "localGovernmentsFungindShareSubsidy",
+                                      "dataBDD": "localGovernmentsFungindShareSubsidy",
+                                      "value": false,
+                                      "defaultValue": false
                                     }
                                   ],
                                   "classList": {
@@ -4041,6 +4054,15 @@
                                         }
                                       ],
                                       "defaultValue": 0
+                                    },
+                                    {
+                                      "kind": "component",
+                                      "type": "checkbox",
+                                      "label": "Należy zaznaczyć, jeśli środki pochodzą z subwencji.",
+                                      "name": "ministryFungindShareSubsidy",
+                                      "dataBDD": "ministryFungindShareSubsidy",
+                                      "value": false,
+                                      "defaultValue": false
                                     }
                                   ],
                                   "classList": {
