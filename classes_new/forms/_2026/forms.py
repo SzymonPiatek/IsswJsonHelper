@@ -55,7 +55,7 @@ class Forms2026(Forms):
                     }
                 },
                 "duk": {
-                    "skip": False,
+                    "skip": True,
                     "po2": {
                         "pr1": HigherSchoolsPriorityApplicationFormBuilder,
                         "pr2": SecondarySchoolsPriorityApplicationFormBuilder,
@@ -130,7 +130,7 @@ class Forms2026(Forms):
                     }
                 },
                 "zachety": {
-                    "skip": True,
+                    "skip": False,
                     "finansowanie": {
                         "raport": FinancingPriorityReportFormBuilder
                     }

@@ -1,6 +1,11 @@
 from typing import TypedDict, Optional, List
 
 
+class SumInvoiceCostsCondition(TypedDict):
+    field: str
+    equal: str
+
+
 class CalculationRule:
     def __init__(self):
         pass
@@ -211,5 +216,15 @@ class CalculationRule:
             "kwargs": {
                 "firstField": first_field,
                 "secondField": second_field
+            }
+        }
+
+    @staticmethod
+    def sum_invoice_costs(sum_field: str, condition: SumInvoiceCostsCondition):
+        return {
+            "name": "sumInvoiceCosts",
+            "kwargs": {
+                "sumField": sum_field,
+                "condition": condition
             }
         }
