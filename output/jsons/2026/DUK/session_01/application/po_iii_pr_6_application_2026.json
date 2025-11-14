@@ -68,6 +68,52 @@
               "readOnly": true
             }
           ]
+        },
+        {
+          "kind": "chapter",
+          "title": "4. Czas trwania naboru wniosków",
+          "components": [
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data od",
+              "name": "sessionStartDate",
+              "dataBDD": "sessionStartDate",
+              "value": "17.11.2025",
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data do",
+              "name": "sessionEndDate",
+              "dataBDD": "sessionEndDate",
+              "value": "28.11.2025",
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
         }
       ]
     },
@@ -4507,7 +4553,8 @@
                 }
               ],
               "classList": [
-                "table-full"
+                "table-full",
+                "col-span-2"
               ]
             },
             {
@@ -4547,7 +4594,7 @@
             {
               "kind": "component",
               "type": "text",
-              "label": "Udział w koszcie całkowitym",
+              "label": "Udział procentowy wkładu własnego w koszcie całkowitym",
               "name": "ownFundsSumAmountRepeatShare",
               "dataBDD": "ownFundsSumAmountRepeatShare",
               "value": 0,
@@ -4621,7 +4668,7 @@
             {
               "kind": "component",
               "type": "text",
-              "label": "Udział w koszcie całkowitym",
+              "label": "Udział procentowy wnioskowanej dotacji z PISF w koszcie całkowitym",
               "name": "pisfSupportAmountTotalShare",
               "dataBDD": "pisfSupportAmountTotalShare",
               "value": 0,
@@ -4707,7 +4754,7 @@
             {
               "kind": "component",
               "type": "text",
-              "label": "Udział w koszcie całkowitym",
+              "label": "Udział procentowy środków publicznych (w tym wnioskowanej dotacji z PISF)",
               "name": "publicSupportAltogetherShare",
               "dataBDD": "publicSupportAltogetherShare",
               "value": 0,
@@ -4783,7 +4830,7 @@
             {
               "kind": "component",
               "type": "text",
-              "label": "Udział w koszcie całkowitym",
+              "label": "Udział procentowy pozostałych środków w koszcie całkowitym",
               "name": "otherFundsAltogetherShare",
               "dataBDD": "otherFundsAltogetherShare",
               "value": 0,
@@ -7803,8 +7850,66 @@
         },
         {
           "kind": "chapter",
-          "title": "<small>Uwaga!</br><normal>Harmonogram powinien uwzględniać trzy główne etapy realizacji projektu:</br><b>- etap przygotowawczy</b> - np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie i zaplanowanie promocji wydarzenia, inne czynności niezbędne do rozpoczęcia realizacji zadania;</br><b>- etap realizacji</b> - wszystkie działania związane z bezpośrednim wykonaniem projektu, np. przygotowanie i przeprowadzenie przedsięwzięcia oraz realizacja pozostałych zadań przewidzianych w kosztorysie;</br><b>- etap podsumowania</b> - ewaluacja rezultatów projektu, rozliczenie końcowe.</br></br>Harmonogram powinien być <b>ułożony chronologicznie</b>, obejmować <b>wszystkie działania ujęte w kosztorysie</b>, wyróżniać <b>kluczowe kamienie milowe</b>, tj. najważniejsze momenty realizacji projektu.</normal></small>",
+          "title": "<small>Uwaga!</br><normal>Harmonogram powinien uwzględniać trzy główne etapy realizacji projektu:</br><b>- etap przygotowawczy</b> - np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie i zaplanowanie promocji wydarzenia, inne czynności niezbędne do rozpoczęcia realizacji zadania;</br><b>- etap realizacji</b> - wszystkie działania związane z bezpośrednim wykonaniem projektu, np. przygotowanie i przeprowadzenie przedsięwzięcia oraz realizacja pozostałych zadań przewidzianych w kosztorysie;</br><b>- etap podsumowania</b> - ewaluacja rezultatów projektu, rozliczenie końcowe.</br></br>Harmonogram powinien być <b>ułożony chronologicznie</b>, obejmować <b>wszystkie działania ujęte w kosztorysie</b>, wyróżniać <b>kluczowe kamienie milowe</b>, tj. najważniejsze momenty realizacji projektu. </br></br>Koszty kwalifikowalne są ponoszone w czasie trwania okresu realizacji przedsięwzięcia określonego w harmonogramie, jednak nie wcześniej niż od daty rozpoczęcia naboru wniosków w sesji.</normal></small>",
           "components": []
+        },
+        {
+          "kind": "chapter",
+          "title": "Czas trwania naboru wniosków",
+          "components": [
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data od",
+              "name": "sessionStartDateCopy",
+              "dataBDD": "sessionStartDateCopy",
+              "value": false,
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "calculationRules": [
+                {
+                  "name": "copyValue",
+                  "from": "sessionStartDate"
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data do",
+              "name": "sessionEndDateCopy",
+              "dataBDD": "sessionEndDateCopy",
+              "value": false,
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "calculationRules": [
+                {
+                  "name": "copyValue",
+                  "from": "sessionEndDate"
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
         },
         {
           "kind": "chapter",

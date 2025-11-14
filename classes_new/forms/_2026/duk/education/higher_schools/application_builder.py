@@ -206,7 +206,7 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
                                         ),
                                         self.create_component(
                                             component_type="number",
-                                            label="Filmy krótkometrazowe",
+                                            label="Filmy pełnometrażowe",
                                             name="producedFilmsFabFull",
                                             unit="szt."
                                         ),
@@ -233,7 +233,7 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
                                         ),
                                         self.create_component(
                                             component_type="number",
-                                            label="Filmy krótkometrazowe",
+                                            label="Filmy pełnometrażowe",
                                             name="producedFilmsDocFull",
                                             unit="szt."
                                         ),
@@ -260,7 +260,7 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
                                         ),
                                         self.create_component(
                                             component_type="number",
-                                            label="Filmy krótkometrazowe",
+                                            label="Filmy pełnometrażowe",
                                             name="producedFilmsAniFull",
                                             unit="szt."
                                         ),

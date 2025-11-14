@@ -69,6 +69,37 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             read_only=True
                         )
                     ]
+                ),
+                self.create_chapter(
+                    title="4. Czas trwania naboru wniosków",
+                    class_list={
+                        "main": [
+                            "table-1-2",
+                            "grid",
+                            "grid-cols-2"
+                        ],
+                        "sub": [
+                            "table-1-2__col"
+                        ]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="date",
+                            label="Data od",
+                            name="sessionStartDate",
+                            required=True,
+                            read_only=True,
+                            value="17.11.2025"
+                        ),
+                        self.create_component(
+                            component_type="date",
+                            label="Data do",
+                            name="sessionEndDate",
+                            required=True,
+                            read_only=True,
+                            value="28.11.2025"
+                        )
+                    ]
                 )
             ]
         )
@@ -1497,7 +1528,8 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             read_only=True,
                             unit="PLN",
                             class_list=[
-                                "table-full"
+                                "table-full",
+                                "col-span-2"
                             ]
                         ),
                         self.create_component(
@@ -1523,7 +1555,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         self.create_component(
                             component_type="text",
                             mask="fund",
-                            label="Udział w koszcie całkowitym",
+                            label="Udział procentowy wkładu własnego w koszcie całkowitym",
                             name="ownFundsSumAmountRepeatShare",
                             calculation_rules=[
                                 self.calculation_rule.share_calculator(
@@ -1574,7 +1606,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         self.create_component(
                             component_type="text",
                             mask="fund",
-                            label="Udział w koszcie całkowitym",
+                            label="Udział procentowy wnioskowanej dotacji z PISF w koszcie całkowitym",
                             name="pisfSupportAmountTotalShare",
                             calculation_rules=[
                                 self.calculation_rule.share_calculator(
@@ -1625,7 +1657,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         self.create_component(
                             component_type="text",
                             mask="fund",
-                            label="Udział w koszcie całkowitym",
+                            label="Udział procentowy środków publicznych (w tym wnioskowanej dotacji z PISF)",
                             name="publicSupportAltogetherShare",
                             calculation_rules=[
                                 self.calculation_rule.share_calculator(
@@ -1669,7 +1701,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         self.create_component(
                             component_type="text",
                             mask="fund",
-                            label="Udział w koszcie całkowitym",
+                            label="Udział procentowy pozostałych środków w koszcie całkowitym",
                             name="otherFundsAltogetherShare",
                             calculation_rules=[
                                 self.calculation_rule.share_calculator(
@@ -1833,8 +1865,47 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     ]
                 ),
                 self.create_chapter(
-                    title="<small>Uwaga!</br><normal>Harmonogram powinien uwzględniać trzy główne etapy realizacji projektu:</br><b>- etap przygotowawczy</b> - np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie i zaplanowanie promocji wydarzenia, inne czynności niezbędne do rozpoczęcia realizacji zadania;</br><b>- etap realizacji</b> - wszystkie działania związane z bezpośrednim wykonaniem projektu, np. przygotowanie i przeprowadzenie przedsięwzięcia oraz realizacja pozostałych zadań przewidzianych w kosztorysie;</br><b>- etap podsumowania</b> - ewaluacja rezultatów projektu, rozliczenie końcowe.</br></br>Harmonogram powinien być <b>ułożony chronologicznie</b>, obejmować <b>wszystkie działania ujęte w kosztorysie</b>, wyróżniać <b>kluczowe kamienie milowe</b>, tj. najważniejsze momenty realizacji projektu.</normal></small>",
+                    title="<small>Uwaga!</br><normal>Harmonogram powinien uwzględniać trzy główne etapy realizacji projektu:</br><b>- etap przygotowawczy</b> - np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie i zaplanowanie promocji wydarzenia, inne czynności niezbędne do rozpoczęcia realizacji zadania;</br><b>- etap realizacji</b> - wszystkie działania związane z bezpośrednim wykonaniem projektu, np. przygotowanie i przeprowadzenie przedsięwzięcia oraz realizacja pozostałych zadań przewidzianych w kosztorysie;</br><b>- etap podsumowania</b> - ewaluacja rezultatów projektu, rozliczenie końcowe.</br></br>Harmonogram powinien być <b>ułożony chronologicznie</b>, obejmować <b>wszystkie działania ujęte w kosztorysie</b>, wyróżniać <b>kluczowe kamienie milowe</b>, tj. najważniejsze momenty realizacji projektu. </br></br>Koszty kwalifikowalne są ponoszone w czasie trwania okresu realizacji przedsięwzięcia określonego w harmonogramie, jednak nie wcześniej niż od daty rozpoczęcia naboru wniosków w sesji.</normal></small>",
                     components=[]
+                ),
+                self.create_chapter(
+                    title="Czas trwania naboru wniosków",
+                    class_list={
+                        "main": [
+                            "table-1-2",
+                            "grid",
+                            "grid-cols-2"
+                        ],
+                        "sub": [
+                            "table-1-2__col"
+                        ]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="date",
+                            label="Data od",
+                            name="sessionStartDateCopy",
+                            required=True,
+                            read_only=True,
+                            calculation_rules=[
+                                self.calculation_rule.copy_value(
+                                    from_name="sessionStartDate"
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="date",
+                            label="Data do",
+                            name="sessionEndDateCopy",
+                            required=True,
+                            read_only=True,
+                            calculation_rules=[
+                                self.calculation_rule.copy_value(
+                                    from_name="sessionEndDate"
+                                )
+                            ]
+                        )
+                    ]
                 ),
                 self.create_chapter(
                     title="Etap przygotowawczy",
