@@ -23,7 +23,7 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
             "Działalność Sieci Kin Studyjnych",
             "Inne działania realizujące cele Priorytetu II"
         ]
-        self.custom_schedule_eligible_costs_info = "Dla przedsięwzięcia Działalność kin studyjnych koszty kwalifikowalne z dotacji PISF uznawane będą od 1.01.2026 r. do 31.12.2026 r."
+        self.custom_schedule_eligible_costs_info = "Dla przedsięwzięcia Działalność Sieci Kin Studyjnych koszty kwalifikowalne z dotacji PISF uznawane będą od 01.01.2026 r. do 31.12.2026 r."
 
         # Estimate
         estimate_builder_pt124 = DUKApplicationEstimateBuilder(
