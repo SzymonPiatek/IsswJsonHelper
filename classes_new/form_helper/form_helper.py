@@ -55,71 +55,79 @@ class FormHelper:
 
         self.forms_index: list[dict] = []
 
-    def generate_jsons(self, data_type: str):
-        if data_type not in {"application", "report"}:
-            raise ValueError(f"Nieobsługiwany typ formularza: {data_type}")
+    def generate_jsons(self):
+        for data_type in self.forms.builder_map.keys():
+            if data_type not in {"application", "report"}:
+                raise ValueError(f"Nieobsługiwany typ formularza: {data_type}")
 
-        for department, programs in self.forms.builder_map.get(data_type, {}).items():
-            if isinstance(programs, dict) and programs.get("skip", False):
-                continue
-
-            for program, priorities in programs.items():
-                if program == "skip":
+            for department, programs in self.forms.builder_map.get(data_type, {}).items():
+                if isinstance(programs, dict) and programs.get("skip", False):
                     continue
 
-                for priority, builder in priorities.items():
-                    if priority == "skip":
+                for program, priorities in programs.items():
+                    if program == "skip":
                         continue
 
-                    if builder:
-                        print(f'{"=" * 50}')
-                        print(f"[{department.upper()}] {program.upper()} {priority.upper()} - {data_type.upper()}\n")
+                    for priority, builder in priorities.items():
+                        if priority == "skip":
+                            continue
 
-                        form = builder()
+                        if builder:
+                            form = builder()
 
-                        for server in self.setup.keys():
-                            postman = self.postman[server]
-                            server_form_id = form.form_id[server]
+                            print(f'{"=" * 50}')
+                            if form.priority is not None:
+                                print(f"DP: {str(form.priority.operation_program.department)}")
+                                print(f"PO: {str(form.priority.operation_program)}")
+                                print(f"PR: {str(form.priority)}")
+                                print(f"JT: {form.json_type.title()} - {form.session}")
+                                print(f"{'-' * 50}")
+                            else:
+                                print(f"[{department.upper()}] {program.upper()} {priority.upper()} - {data_type.upper()}\n")
 
-                            if server_form_id:
-                                form_url = f"{postman.base_url}/{'wniosek' if form.json_type == 'application' else 'raport'}/{server_form_id}"
+                            for server in self.setup.keys():
+                                postman = self.postman[server]
+                                server_form_id = form.form_id[server]
 
-                                self.forms_index.append({
-                                    "name": f"{program.upper()} {priority.upper()}",
-                                    "json_type": form.json_type,
-                                    "server": server,
-                                    "url": form_url
-                                })
+                                if server_form_id:
+                                    form_url = f"{postman.base_url}/{'wniosek' if form.json_type == 'application' else 'raport'}/{server_form_id}"
 
-                            if self.setup[server][form.json_type]["json"]:
-                                form.generate()
+                                    self.forms_index.append({
+                                        "name": f"{program.upper()} {priority.upper()}",
+                                        "json_type": form.json_type,
+                                        "server": server,
+                                        "url": form_url
+                                    })
 
-                            if server_form_id and self.setup[server][form.json_type]["autosave_or_update"]:
-                                is_success = False
+                                if self.setup[server][form.json_type]["json"]:
+                                    form.generate()
 
-                                if not self.setup[server][form.json_type]["force_autosave"]:
-                                    is_success = postman.form_update_schema(
-                                        form_id=server_form_id,
-                                        json=form,
+                                if server_form_id and self.setup[server][form.json_type]["autosave_or_update"]:
+                                    is_success = False
+
+                                    if not self.setup[server][form.json_type]["force_autosave"]:
+                                        is_success = postman.form_update_schema(
+                                            form_id=server_form_id,
+                                            json=form,
+                                        )
+
+                                    if self.setup[server][form.json_type]["force_autosave"] or not is_success:
+                                        postman.form_autosave(
+                                            form_id=server_form_id,
+                                            json=form,
+                                        )
+
+                                if server == 'local' and self.setup['local'][form.json_type]["pdf"]:
+                                    postman.form_pdf(
+                                        output_path=form.prepare_output_file_path(
+                                            dir_name='pdfs'
+                                        ),
+                                        output_file=form.prepare_output_file_name(
+                                            file_type="pdf"
+                                        ),
+                                        json_type=form.json_type,
+                                        form_id=server_form_id
                                     )
-
-                                if self.setup[server][form.json_type]["force_autosave"] or not is_success:
-                                    postman.form_autosave(
-                                        form_id=server_form_id,
-                                        json=form,
-                                    )
-
-                            if server == 'local' and self.setup['local'][form.json_type]["pdf"]:
-                                postman.form_pdf(
-                                    output_path=form.prepare_output_file_path(
-                                        dir_name='pdfs'
-                                    ),
-                                    output_file=form.prepare_output_file_name(
-                                        file_type="pdf"
-                                    ),
-                                    json_type=form.json_type,
-                                    form_id=server_form_id
-                                )
 
         self.save_forms_index()
 

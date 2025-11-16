@@ -42,7 +42,7 @@ class Postman:
 
         if response.status_code == 200:
             self.access_token = response.json().get("access")
-            print(f"Zalogowano na {self.base_url}.\nAccess token zapisany.")
+            print(f"Zalogowano na {self.base_url}. Access token zapisany.")
         else:
             raise Exception(f"Logowanie na {self.base_url} się powiodło nie:\n- status: {response.status_code},\n- text: {response.text}")
 
@@ -102,6 +102,7 @@ class Postman:
             output_path / output_file
         )
 
+        print("Generowanie pliku PDF...")
         response = requests.get(
             url,
             headers={

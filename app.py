@@ -27,19 +27,18 @@ def main():
                     "json": True,
                     "autosave_or_update": True,
                     "force_autosave": True,
-                    "pdf": True,
+                    "pdf": False,
                 },
                 "report": {
-                    "json": False,
-                    "autosave_or_update": False,
-                    "force_autosave": False,
+                    "json": True,
+                    "autosave_or_update": True,
+                    "force_autosave": True,
                     "pdf": False,
                 }
             }
         }
     )
-    form_helper.generate_jsons(data_type="application")
-    form_helper.generate_jsons(data_type="report")
+    form_helper.generate_jsons()
 
     end_time = time.time()
     elapsed = end_time - start_time

@@ -3,10 +3,10 @@ from classes_new.form_components.section.section import Section
 
 
 class DWMSection(Section):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, names=None):
+        super().__init__(names=names)
 
-        self.report_expenditure_exacution = ReportExpenditureExecution()
+        self.report_expenditure_exacution = ReportExpenditureExecution(names=self.names)
 
     def pisf_transfer_currency(
             self,

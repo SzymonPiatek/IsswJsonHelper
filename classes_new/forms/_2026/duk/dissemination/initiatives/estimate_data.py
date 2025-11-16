@@ -108,12 +108,16 @@ estimate_sections_pt124 = [
             CostItem(
                 title="Podróże",
                 name="travel",
-                helpText="Wyłącznie koszty udokumentowane fakturami lub biletami (jeśli faktura jest niemożliwa do uzyskania). W przypadku podróży lotniczych – pokrywany jest tylko koszt biletów w klasie ekonomicznej. W przypadku zakupu paliwa – wyłącznie paliwo do samochodów wykorzystywanych do realizacji przedsięwzięcia zgodnie z przepisami (samochód jako środek trwały, leasing, najem). Nie pokrywa się kosztów podróży zagranicznych.",
+                helpText=(
+                    "Koszty udokumentowane wyłącznie fakturami lub biletami (jeśli niemożliwe jest otrzymanie faktury). "
+                    "W przypadku podróży lotniczych pokrywa się z dotacji tylko koszt biletów w klasie ekonomicznej. "
+                    "W przypadku zakupu paliwa wyłącznie koszty paliwa do samochodów wykorzystywanych do realizacji przedsięwzięcia zgodnie z obowiązującymi przepisami (tj. jeżeli samochód stanowi środek trwały Wnioskodawcy lub jest przedmiotem leasingu bądź najmu na rzecz Wnioskodawcy)."
+                )
             ),
             CostItem(
                 title="Noclegi",
                 name="accommodation",
-                helpText="Wyłącznie koszty udokumentowane fakturami. Wykluczone: diety, ryczałty, inne koszty nieudokumentowane rachunkiem lub fakturą. Nie pokrywa się kosztów podróży zagranicznych.",
+                helpText="Koszty udokumentowane wyłącznie fakturami (z wyłączeniem diet, ryczałtów i innych kosztów udokumentowanych w inny sposób, niż rachunkiem lub fakturą)."
             ),
             fraction_cost(
                 title="Catering lub poczęstunek",
@@ -129,7 +133,7 @@ estimate_sections_pt124 = [
             CostItem(
                 title="Obsługa finansowa",
                 name="financialService",
-                helpText="Związane z otwarciem i prowadzeniem rachunku bankowego wyłącznie dla operacji finansowych przedsięwzięcia. Koszty prowadzenia księgowości związanej z realizacją przedsięwzięcia. Powinny być udokumentowane rachunkiem lub fakturą z opisem potwierdzającym, że dotyczyły realizacji przedsięwzięcia.",
+                helpText="Koszty związane z otwarciem i prowadzeniem rachunku bankowego wyłącznie dla operacji finansowych przedsięwzięcia. Koszty prowadzenia księgowości związanej z realizacją przedsięwzięcia. Powinny być udokumentowane rachunkiem lub fakturą z opisem potwierdzającym, że dotyczyły realizacji przedsięwzięcia.",
             ),
             CostItem(
                 title="Obsługa prawna",
@@ -233,7 +237,7 @@ estimate_sections_pt3 = [
                 name="industryEventsTravelAndAccommodation",
             ),
             CostItem(
-                title="Koszty licencji lub nabycia praw do publicznego pokazu wraz z najmem kopii", 
+                title="Koszty licencji lub nabycia praw do publicznego pokazu i najmu kopii",
                 name="industryEventsLicenseFees", 
                 helpText="Niezależnie od formuły fakturowania."
             ),

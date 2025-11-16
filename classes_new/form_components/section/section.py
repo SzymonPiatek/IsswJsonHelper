@@ -3,10 +3,10 @@ from classes_new.form_factory.form_factory import FormFactory
 
 
 class Section(FormFactory):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, names=None):
+        super().__init__(names=names)
 
-        self.component = Component()
+        self.component = Component(names=self.names)
 
     def create_full_address_section(
             self,

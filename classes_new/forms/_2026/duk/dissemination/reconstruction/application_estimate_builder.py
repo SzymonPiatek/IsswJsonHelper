@@ -167,6 +167,15 @@ class ReconstructionApplicationEstimateBuilder(FormFactory):
             validators.append(
                 self.validator.related_multiplication_validator(field_names=[cost_single_field, amount_field])
             )
+            validators.append(
+                self.validator.related_sum_validator(
+                    field_names=[
+                        f"{name}RequestedAmount{self.after_name}",
+                        f"{name}OtherFundsAmount{self.after_name}"
+                    ],
+                    message="Koszt łączny musi być równy sumie dotacji i pozostałych środków."
+                )
+            )
 
         elif "sumFields" in structure:
             fields = [f"{name}{field}{self.after_name}" for field in structure["sumFields"]]

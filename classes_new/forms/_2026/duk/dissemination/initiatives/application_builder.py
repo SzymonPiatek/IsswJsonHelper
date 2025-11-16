@@ -23,7 +23,7 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
             "Działalność Sieci Kin Studyjnych",
             "Inne działania realizujące cele Priorytetu II"
         ]
-        self.source_of_financing_tickets = True
+        self.custom_schedule_eligible_costs_info = "Dla przedsięwzięcia Działalność Sieci Kin Studyjnych koszty kwalifikowalne z dotacji PISF uznawane będą od 01.01.2026 r. do 31.12.2026 r."
 
         # Estimate
         estimate_builder_pt124 = DUKApplicationEstimateBuilder(
@@ -99,14 +99,41 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                             ],
                             title="Forma przedsięwzięcia",
                             components=[
-                                self.create_component(
-                                    component_type="radio",
-                                    name="undertakingForm",
-                                    required=True,
-                                    options=[
-                                        "Przegląd",
-                                        "Wystawa",
-                                        "Konkurs"
+                                self.create_chapter(
+                                    components=[
+                                        self.create_component(
+                                            component_type="radio",
+                                            name="undertakingForm",
+                                            required=True,
+                                            options=[
+                                                "Przegląd",
+                                                "Wystawa",
+                                                "Konkurs",
+                                                "Inne"
+                                            ]
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    visibility_rules=[
+                                        self.visibility_rule.depends_on_value(
+                                            field_name="undertakingForm",
+                                            values=[
+                                                "Inne"
+                                            ]
+                                        )
+                                    ],
+                                    components=[
+                                        self.create_component(
+                                            component_type="textarea",
+                                            name="undertakingFormOther",
+                                            required=True,
+                                            validators=[
+                                                self.validator.length_validator(
+                                                    max_value=100
+                                                )
+                                            ]
+                                        )
                                     ]
                                 )
                             ]
@@ -191,12 +218,13 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                             components=[
                                 self.create_chapter(
                                     title="Idea i charakter przedsięwzięcia",
+                                    help_text="Idea i koncepcja przedsięwzięcia, jego założenia i sposób realizacji.",
                                     components=[
                                         self.create_component(
                                             component_type="textarea",
                                             name="characterAndGoalsOfProject",
                                             validators=[
-                                                self.validator.length_validator(max_value=2000)
+                                                self.validator.length_validator(max_value=5000)
                                             ],
                                             required=True
                                         )
@@ -204,6 +232,7 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                                 ),
                                 self.create_chapter(
                                     title="Program przedsięwzięcia",
+                                    help_text="Program lub repertuar wydarzenia wraz z opisem planowanych działań.",
                                     components=[
                                         self.create_component(
                                             component_type="textarea",
@@ -230,13 +259,14 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                                     ]
                                 ),
                                 self.create_chapter(
-                                    title="Promocja przedsięwzięcia",
+                                    title="Strategia promocyjna",
+                                    help_text="Plan promocji, działania marketingowe, współprace, partnerzy i patroni medialni.",
                                     components=[
                                         self.create_component(
                                             component_type="textarea",
                                             name="projectPromotion",
                                             validators=[
-                                                self.validator.length_validator(max_value=1500)
+                                                self.validator.length_validator(max_value=3000)
                                             ],
                                             required=True,
                                         ),
@@ -244,25 +274,27 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                                 ),
                                 self.create_chapter(
                                     title="Dostępność przedsięwzięcia",
+                                    help_text="Działania podejmowane na rzecz osób ze szczególnymi potrzebami oraz wspierania inkluzywności.",
                                     components=[
                                         self.create_component(
                                             component_type="textarea",
                                             name="projectAccessibility",
                                             validators=[
-                                                self.validator.length_validator(max_value=1000)
+                                                self.validator.length_validator(max_value=3000)
                                             ],
                                             required=True,
                                         ),
                                     ]
                                 ),
                                 self.create_chapter(
-                                    title="Odbiorcy i uczestnicy",
+                                    title="Profil publiczności i odbiorcy wydarzenia",
+                                    help_text="Do kogo kierowane jest wydarzenie oraz jakie grupy uczestników stanowią jego główną widownię (np. studenci szkół filmowych, seniorzy, widzowie zainteresowani kinem niezależnym).",
                                     components=[
                                         self.create_component(
                                             component_type="textarea",
                                             name="audienceProfile",
                                             validators=[
-                                                self.validator.length_validator(max_value=1000)
+                                                self.validator.length_validator(max_value=3000)
                                             ],
                                             required=True,
                                         ),
@@ -270,12 +302,13 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                                 ),
                                 self.create_chapter(
                                     title="Planowane efekty realizacji przedsięwzięcia",
+                                    help_text="Spodziewane efekty realizacji przedsięwzięcia w ujęciu jakościowym.",
                                     components=[
                                         self.create_component(
                                             component_type="textarea",
                                             name="plannedEffects",
                                             validators=[
-                                                self.validator.length_validator(max_value=1000)
+                                                self.validator.length_validator(max_value=3000)
                                             ],
                                             required=True,
                                         )
@@ -283,12 +316,13 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                                 ),
                                 self.create_chapter(
                                     title="Doświadczenie wnioskodawcy i kompetencje zespołu",
+                                    help_text="Doświadczenie wnioskodawcy oraz kompetencje zespołu zaangażowanego w realizację przedsięwzięcia.",
                                     components=[
                                         self.create_component(
                                             component_type="textarea",
                                             name="applicantExperienceAndTeamCompetences",
                                             validators=[
-                                                self.validator.length_validator(max_value=1500)
+                                                self.validator.length_validator(max_value=3000)
                                             ],
                                             required=True,
                                         ),
@@ -667,27 +701,6 @@ class InitiativesPriorityApplicationFormBuilder(DisseminationOperationalProgramA
                                                     unit="szt."
                                                 )
                                             ]
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    class_list={
-                                        "main": [
-                                            "table-1-2",
-                                            "grid",
-                                            "grid-cols-2"
-                                        ],
-                                        "sub": [
-                                            "table-1-2__col"
-                                        ]
-                                    },
-                                    components=[
-                                        self.create_component(
-                                            component_type="number",
-                                            label="Zakres zastosowanych udogodnień zwiększających dostępność wydarzenia",
-                                            name="rangeOfFacilitiesUsedToIncreaseEventAccessibility",
-                                            required=True,
-                                            unit="%"
                                         )
                                     ]
                                 )

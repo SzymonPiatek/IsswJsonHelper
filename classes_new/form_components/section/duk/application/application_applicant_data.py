@@ -2,8 +2,8 @@ from classes_new.form_components.section.section import Section
 
 
 class ApplicationApplicantData(Section):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, names=None):
+        super().__init__(names=names)
 
     def create_address_base(self, start_name: str, build_name: str = '', poland: bool = True, foreign: bool = True):
         chapters = []
@@ -196,8 +196,16 @@ class ApplicationApplicantData(Section):
 
     def applicant_statistical_data(
             self,
-            number: int | str
+            number: int | str,
+            is_only_one_application_grant_usage: bool = False
     ):
+        application_grant_usage_options = [
+            "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących",
+        ] if is_only_one_application_grant_usage else [
+            "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących",
+            "Wnioskowane dofinansowanie zostanie wykorzystane na finansowanie lub dofinansowanie kosztów realizacji inwestycji i zakupów inwestycyjnych"
+        ]
+
         return self.create_chapter(
             title=f"{number}. Dane statystyczne",
             components=[
@@ -362,10 +370,7 @@ class ApplicationApplicantData(Section):
                                     component_type="select",
                                     label="Cel dofinansowania",
                                     name="applicationGrantUsage",
-                                    options=[
-                                        "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących",
-                                        "Wnioskowane dofinansowanie zostanie wykorzystane na finansowanie lub dofinansowanie kosztów realizacji inwestycji i zakupów inwestycyjnych"
-                                    ],
+                                    options=application_grant_usage_options,
                                     required=True
                                 )
                             ]
@@ -416,6 +421,75 @@ class ApplicationApplicantData(Section):
                                     ],
                                     required=True
                                 )
+                            ]
+                        )
+                    ]
+                )
+            ]
+        )
+
+    def responsible_person_data(
+            self,
+            number: int | str
+    ):
+        return self.create_chapter(
+            title=f"{number}. Osoba odpowiedzialna za przygotowanie wniosku i kontakty z PISF",
+            class_list={
+                "sub": [
+                    "table-1-2-top"
+                ]
+            },
+            components=[
+                self.create_chapter(
+                    class_list={
+                        "main": [
+                            "table-1-2",
+                            "grid",
+                            "grid-cols-2"
+                        ],
+                        "sub": [
+                            "table-1-2__col"
+                        ]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="text",
+                            label="Imię",
+                            name="authPersonFirstName",
+                            required=True
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Nazwisko",
+                            name="authPersonLastName",
+                            required=True
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Numer telefonu stacjonarnego",
+                            name="authPersonPhoneNum",
+                            mask="landline"
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Numer telefonu komórkowego",
+                            name="authPersonMobileNum",
+                            mask="phoneNumber",
+                            required=True,
+                            validators=[
+                                self.validator.phone_number_validator()
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="text",
+                            label="Email kontaktowy",
+                            name="authPersonEmail",
+                            required=True,
+                            validators=[
+                                self.validator.email_validator()
+                            ],
+                            class_list=[
+                                "col-span-2"
                             ]
                         )
                     ]

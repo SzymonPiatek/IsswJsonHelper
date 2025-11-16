@@ -89,7 +89,7 @@ estimate_sections = [
                 helpText="Dopuszcza się ujęcie obsługi technicznej w kosztach wynajmu sprzętu, jeśli stanowi integralną część usługi dostawcy."
             ),
             CostItem(
-                title="zabezpiecznie BHP",
+                title="Zabezpiecznie BHP",
                 name="safetyBhp"
             ),
             CostItem(
@@ -111,18 +111,13 @@ estimate_sections = [
                 helpText=(
                     "Koszty udokumentowane wyłącznie fakturami lub biletami (jeśli niemożliwe jest otrzymanie faktury). "
                     "W przypadku podróży lotniczych pokrywa się z dotacji tylko koszt biletów w klasie ekonomicznej. "
-                    "W przypadku zakupu paliwa wyłącznie koszty paliwa do samochodów wykorzystywanych do realizacji przedsięwzięcia "
-                    "zgodnie z obowiązującymi przepisami (tj. jeżeli samochód stanowi środek trwały Wnioskodawcy lub jest przedmiotem leasingu bądź najmu). "
-                    "Z dotacji PISF nie są pokrywane koszty podróży zagranicznych."
-                ),
+                    "W przypadku zakupu paliwa wyłącznie koszty paliwa do samochodów wykorzystywanych do realizacji przedsięwzięcia zgodnie z obowiązującymi przepisami (tj. jeżeli samochód stanowi środek trwały Wnioskodawcy lub jest przedmiotem leasingu bądź najmu na rzecz Wnioskodawcy)."
+                )
             ),
             CostItem(
                 title="Noclegi",
                 name="accommodation",
-                helpText=(
-                    "Koszty udokumentowane wyłącznie fakturami (z wyłączeniem diet, ryczałtów i innych kosztów udokumentowanych "
-                    "w inny sposób, niż rachunkiem lub fakturą). Z dotacji PISF nie są pokrywane koszty podróży zagranicznych."
-                ),
+                helpText="Koszty udokumentowane wyłącznie fakturami (z wyłączeniem diet, ryczałtów i innych kosztów udokumentowanych w inny sposób, niż rachunkiem lub fakturą)."
             ),
             fraction_cost(
                 title="Catering lub poczęstunek",

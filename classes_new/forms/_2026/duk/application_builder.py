@@ -21,13 +21,15 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
 
         # Variables
         self.project_type: list[str] = []
-        self.source_of_financing_tickets: bool = False
         self.is_dkf: bool = False
+        self.is_only_one_application_grant_usage: bool = False
+        self.custom_schedule_eligible_costs_info: str = None
+        self.is_subsidy: bool = False
 
         # Estimate
         self.estimate_chapters = []
 
-        self.section = DUKSection()
+        self.section = DUKSection(names=self.names)
 
     def create_application_metadata(self, number: int):
         part = self.create_part(
@@ -64,9 +66,40 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         self.create_component(
                             component_type="text",
                             label="Priorytet",
-                            name="priorytetName",
+                            name="priorityName",
                             value=str(self.priority),
                             read_only=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
+                    title="4. Czas trwania naboru wniosków",
+                    class_list={
+                        "main": [
+                            "table-1-2",
+                            "grid",
+                            "grid-cols-2"
+                        ],
+                        "sub": [
+                            "table-1-2__col"
+                        ]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="date",
+                            label="Data od",
+                            name="sessionStartDate",
+                            required=True,
+                            read_only=True,
+                            value="17.11.2025"
+                        ),
+                        self.create_component(
+                            component_type="date",
+                            label="Data do",
+                            name="sessionEndDate",
+                            required=True,
+                            read_only=True,
+                            value="28.11.2025"
                         )
                     ]
                 )
@@ -392,6 +425,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                         "Niepubliczna szkoła lub uczelnia artystyczna",
                                         "Kościół lub związek wyznaniowy",
                                         "Jednostka samorządu terytorialnego",
+                                        "Inna (np. spółka w organizacji)"
                                     ]
                                 )
                             ],
@@ -460,6 +494,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                                 "Niepubliczna szkoła lub uczelnia artystyczna",
                                                 "Kościół lub związek wyznaniowy",
                                                 "Jednostka samorządu terytorialnego",
+                                                "Inna (np. spółka w organizacji)"
                                             ]
                                         )
                                     ],
@@ -509,6 +544,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                                                 "Niepubliczna szkoła lub uczelnia artystyczna",
                                                                 "Kościół lub związek wyznaniowy",
                                                                 "Jednostka samorządu terytorialnego",
+                                                                "Inna (np. spółka w organizacji)"
                                                             ]
                                                         )
                                                     ],
@@ -535,7 +571,8 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                                                 "Spółka komandytowa",
                                                                 "Spółka komandytowo-akcyjna",
                                                                 "Fundacja",
-                                                                "Stowarzyszenie"
+                                                                "Stowarzyszenie",
+                                                                "Inna (np. spółka w organizacji)"
                                                             ]
                                                         )
                                                     ],
@@ -706,26 +743,53 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                     components=[
                                         self.create_chapter(
                                             components=[
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Nazwa sądu",
-                                                    name="courtName",
-                                                    required=True
+                                                self.create_chapter(
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Nazwa sądu",
+                                                            name="courtName",
+                                                            required=True
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Numer wydziału",
+                                                            name="courtNumber",
+                                                            required=True
+                                                        ),
+                                                    ]
                                                 ),
-                                                self.create_component(
-                                                    component_type="text",
-                                                    label="Numer wydziału",
-                                                    name="courtNumber",
-                                                    required=True
-                                                ),
-                                                self.create_component(
-                                                    component_type="select",
-                                                    label="Nazwa rejestru",
-                                                    name="courtRegisterName",
-                                                    required=True,
-                                                    options=[
-                                                        "Rejestr przedsiębiorców",
-                                                        "Rejestr stowarzyszeń, innych organizacji społecznych i zawodowych, fundacji oraz publicznych zakładów opieki zdrowotnej"
+                                                self.create_chapter(
+                                                    title="<small>Nazwa rejestru</small>",
+                                                    components=[
+                                                        self.create_component(
+                                                            component_type="checkbox",
+                                                            label="Rejestr przedsiębiorców",
+                                                            name="entrepreneursRegister",
+                                                            validators=[
+                                                                self.validator.related_any_of_validator(
+                                                                    field_names=[
+                                                                        "entrepreneursRegister",
+                                                                        "associationsRegister"
+                                                                    ],
+                                                                    message="Wymagany jest wybór przynajmniej jednej z wartości."
+                                                                )
+                                                            ]
+                                                        ),
+                                                        self.create_component(
+                                                            component_type="checkbox",
+                                                            label="Rejestr stowarzyszeń, innych organizacji społecznych i zawodowych, fundacji oraz publicznych zakładów opieki zdrowotnej",
+                                                            name="associationsRegister",
+                                                            validators=[
+                                                                self.validator.related_any_of_validator(
+                                                                    field_names=[
+                                                                        "entrepreneursRegister",
+                                                                        "associationsRegister"
+                                                                    ],
+                                                                    message="Wymagany jest wybór przynajmniej jednej z wartości."
+                                                                )
+                                                            ]
+                                                        )
                                                     ]
                                                 )
                                             ]
@@ -855,6 +919,30 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     title="3. Osoby upoważnione do reprezentowania wnioskodawcy, składania oświadczeń woli i zaciągania w jego imieniu zobowiązań finansowych",
                     components=[
                         self.create_chapter(
+                            class_list={
+                                "main": [
+                                    "table-1-2",
+                                    "grid",
+                                    "grid-cols-2"
+                                ],
+                                "sub": [
+                                    "table-1-2__col"
+                                ]
+                            },
+                            components=[
+                                self.create_component(
+                                    component_type="select",
+                                    label="Sposób reprezentacji",
+                                    name="eligiblePersonRepresentationType",
+                                    options=[
+                                        "Łącznie",
+                                        "Samodzielnie"
+                                    ],
+                                    required=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
                             multiple_forms_rules={
                                 "minCount": 1,
                                 "maxCount": 8
@@ -914,16 +1002,6 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                             label="Stanowisko zgodnie z reprezentacją/ załączonym upoważnieniem",
                                             name="eligiblePersonPosition",
                                             required=True
-                                        ),
-                                        self.create_component(
-                                            component_type="select",
-                                            label="Sposób reprezentacji",
-                                            name="eligiblePersonRepresentationType",
-                                            options=[
-                                                "Łącznie",
-                                                "Samodzielnie"
-                                            ],
-                                            required=True
                                         )
                                     ]
                                 )
@@ -931,7 +1009,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         )
                     ]
                 ),
-                self.section.responsible_person_data(number="4"),
+                self.section.application_applicant_data.responsible_person_data(number="4"),
                 self.section.applicant_bank_data(number="5"),
                 self.create_chapter(
                     components=[
@@ -942,7 +1020,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         )
                     ]
                 ),
-                self.section.application_applicant_data.applicant_statistical_data(number="6"),
+                self.section.application_applicant_data.applicant_statistical_data(number="6", is_only_one_application_grant_usage=self.is_only_one_application_grant_usage),
             ]
         )
 
@@ -958,12 +1036,15 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     "checkbox_name": "isLocalGovernmentFunding",
                     "section_title": f"<normal>a) z budżetów jednostek samorządu terytorialnego lub innych środków publicznych za wyjątkiem Ministerstwa Kultury i Dziedzictwa Narodowego </normal><br />{source_of_financing_help_text}</small>",
                     "section_name": "localGovernments",
+                    "isSubsidy": self.is_subsidy
                 },
                 {
                     "checkbox_title": "Środki Ministerstwa Kultury i Dziedzictwa Narodowego",
                     "checkbox_name": "isMinistryFunding",
-                    "section_title": f"<normal>b) ze środków Ministerstwa Kultury i Dziedzictwa Narodowego w ramach Programów Ministra </normal><br />{source_of_financing_help_text}</small>",
+                    "section_title": f"<normal>b) ze środków Ministerstwa Kultury i Dziedzictwa Narodowego</normal><br />{source_of_financing_help_text}</small>",
                     "section_name": "ministry",
+                    "isProgram": True,
+                    "isSubsidy": self.is_subsidy
                 },
                 {
                     "checkbox_title": "Środki od sponsorów lub innych podmiotów niezaliczanych do sektora finansów publicznych",
@@ -986,7 +1067,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     components=[
                         self.create_component(
                             component_type="checkbox",
-                            label="Należy zaznaczyć, jeśli częścią wkładu finansowego są wpływy z biletów, akredytacji itp.",
+                            label="Należy zaznaczyć, jeśli częścią wkładu finansowego są wpływy ze sprzedaży biletów, akredytacji, publikacji, szkoleń itp.",
                             name="isTicketRevenues"
                         )
                     ]
@@ -994,12 +1075,12 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                 self.create_chapter(
                     class_list={
                         "main": [
-                            "table-1-3-narrow",
+                            "table-1-2",
                             "grid",
-                            "grid-cols-3"
+                            "grid-cols-2"
                         ],
                         "sub": [
-                            "table-1-3__col"
+                            "table-1-2__col"
                         ]
                     },
                     visibility_rules=[
@@ -1016,41 +1097,33 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             mask="fund",
                             name="proceedsFromSales",
                             label="Wpływy ze sprzedaży",
-                            unit="PLN"
+                            unit="PLN",
+                            validators=[
+                                self.validator.related_fraction_gte_validator(
+                                    field_name="ownFinancialFundsAmount",
+                                    ratio=1
+                                )
+                            ]
                         ),
                         self.create_component(
                             component_type="text",
                             mask="fund",
                             name="otherFinancialResources",
                             label="Pozostałe środki finansowe",
-                            validators=[
-                                self.validator.related_fraction_gte_validator(
-                                    field_name="ownFinancialFundsAmount",
-                                    ratio=1
-                                )
-                            ],
-                            unit="PLN"
-                        ),
-                        self.create_component(
-                            component_type="text",
-                            mask="fund",
-                            name="proceedsFromSalesTotal",
-                            label="Suma",
                             calculation_rules=[
-                                self.calculation_rule.dynamic_sum_inputs(
-                                    fields=[
-                                        "proceedsFromSales",
-                                        "otherFinancialResources"
-                                    ]
+                                self.calculation_rule.subtract_inputs(
+                                    first_field="ownFinancialFundsAmount",
+                                    second_field="proceedsFromSales"
                                 )
                             ],
                             validators=[
-                                self.validator.related_sum_validator(
-                                    field_names=["ownFinancialFundsAmount"]
+                                self.validator.related_subtract_validator(
+                                    first_field="ownFinancialFundsAmount",
+                                    second_field="proceedsFromSales"
                                 )
                             ],
-                            read_only=True,
-                            unit="PLN"
+                            unit="PLN",
+                            read_only=True
                         )
                     ]
                 )
@@ -1104,10 +1177,10 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                 )
             ]
         )
-        if self.source_of_financing_tickets:
-            own_financial_chapter["components"].append(
-                tickets_chapter
-            )
+
+        own_financial_chapter["components"].append(
+            tickets_chapter
+        )
 
         own_in_kind_chapter = self.create_chapter(
             title="<small>b) Wkład rzeczowy</small>",
@@ -1193,6 +1266,11 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                 "ownFinancialFundsAmount",
                                 "ownInKindFundsAmount"
                             ]
+                        ),
+                        self.validator.related_fraction_lte_validator(
+                            field_name="totalProjectCost",
+                            ratio=0.1,
+                            message="Wysokość wkładu własnego musi wynosić minimum 10% kwoty całkowitego budżetu przedsięwzięcia."
                         )
                     ]
                 )
@@ -1308,7 +1386,57 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                                                     components=[
                                                                         self.create_component(
                                                                             component_type="text",
-                                                                            label="Nazwa podmiotu finansującego",
+                                                                            label="Tryb finansowania" if chapter.get("isProgram", False) else "Nazwa podmiotu finansującego",
+                                                                            name=f"{chapter["section_name"]}Name",
+                                                                            class_list=[
+                                                                                "table-full"
+                                                                            ],
+                                                                            required=True,
+                                                                            validators=[
+                                                                                self.validator.related_required_if_equal_validator(
+                                                                                    field_name=chapter["checkbox_name"],
+                                                                                    value=True
+                                                                                )
+                                                                            ]
+                                                                        ),
+                                                                        self.create_component(
+                                                                            component_type="text",
+                                                                            mask="fund",
+                                                                            label="Kwota",
+                                                                            name=f"{chapter["section_name"]}FundingAmount",
+                                                                            required=True,
+                                                                            unit="PLN",
+                                                                            validators=[
+                                                                                self.validator.related_required_if_equal_validator(
+                                                                                    field_name=chapter["checkbox_name"],
+                                                                                    value=True
+                                                                                )
+                                                                            ]
+                                                                        ),
+                                                                        self.create_component(
+                                                                            component_type="text",
+                                                                            mask="fund",
+                                                                            label="Udział w koszcie całkowitym",
+                                                                            name=f"{chapter["section_name"]}FundingShare",
+                                                                            calculation_rules=[
+                                                                                self.calculation_rule.single_position_share_calculator(
+                                                                                    dividend_field=f"{chapter["section_name"]}FundingAmount",
+                                                                                    divisor_field="totalProjectCost"
+                                                                                )
+                                                                            ],
+                                                                            read_only=True,
+                                                                            required=True,
+                                                                            unit="%"
+                                                                        ),
+                                                                        self.create_component(
+                                                                            component_type="checkbox",
+                                                                            label="Należy zaznaczyć, jeśli środki pochodzą z subwencji.",
+                                                                            name=f"{chapter["section_name"]}FungindShareSubsidy",
+                                                                        )
+                                                                    ] if chapter.get("isSubsidy", False) else [
+                                                                        self.create_component(
+                                                                            component_type="text",
+                                                                            label="Tryb finansowania" if chapter.get("isProgram", False) else "Nazwa podmiotu finansującego",
                                                                             name=f"{chapter["section_name"]}Name",
                                                                             class_list=[
                                                                                 "table-full"
@@ -1458,7 +1586,8 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             read_only=True,
                             unit="PLN",
                             class_list=[
-                                "table-full"
+                                "table-full",
+                                "col-span-2"
                             ]
                         ),
                         self.create_component(
@@ -1484,7 +1613,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         self.create_component(
                             component_type="text",
                             mask="fund",
-                            label="Udział w koszcie całkowitym",
+                            label="Udział procentowy wkładu własnego w koszcie całkowitym",
                             name="ownFundsSumAmountRepeatShare",
                             calculation_rules=[
                                 self.calculation_rule.share_calculator(
@@ -1535,7 +1664,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         self.create_component(
                             component_type="text",
                             mask="fund",
-                            label="Udział w koszcie całkowitym",
+                            label="Udział procentowy wnioskowanej dotacji z PISF w koszcie całkowitym",
                             name="pisfSupportAmountTotalShare",
                             calculation_rules=[
                                 self.calculation_rule.share_calculator(
@@ -1586,7 +1715,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         self.create_component(
                             component_type="text",
                             mask="fund",
-                            label="Udział w koszcie całkowitym",
+                            label="Udział procentowy środków publicznych (w tym wnioskowanej dotacji z PISF)",
                             name="publicSupportAltogetherShare",
                             calculation_rules=[
                                 self.calculation_rule.share_calculator(
@@ -1630,7 +1759,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         self.create_component(
                             component_type="text",
                             mask="fund",
-                            label="Udział w koszcie całkowitym",
+                            label="Udział procentowy pozostałych środków w koszcie całkowitym",
                             name="otherFundsAltogetherShare",
                             calculation_rules=[
                                 self.calculation_rule.share_calculator(
@@ -1658,7 +1787,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                             name="supplementaryInformationAboutFinancing",
                             validators=[
                                 self.validator.length_validator(
-                                    max_value=500
+                                    max_value=1000
                                 )
                             ]
                         )
@@ -1696,7 +1825,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                         self.create_component(
                             component_type="checkbox",
                             name="limitedAudienceSupportStatement",
-                            label="Oświadczam, że ze względu na ograniczony krąg odbiorców lub ze względu na niską wartość komercyjną, wydarzenie nie mogłoby się odbyć bez dofinansowania PISF.",
+                            label="Oświadczam, że przedsięwzięcie ma lokalny lub regionalny charakter, ograniczony krąg odbiorców lub ze względu na niską wartość komercyjną nie mogłoby się odbyć bez dofinansowania przez Instytut.",
                             help_text="Należy zaznaczyć, jeśli dofinansowanie PISF przekracza 50% całkowitego budżetu.",
                             validators=[
                                 self.validator.related_universal_required_validator(
@@ -1773,6 +1902,9 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
         self.save_part(part)
 
     def create_application_schedule(self, number: int):
+        custom_schedule_eligible_costs_info = self.custom_schedule_eligible_costs_info if self.custom_schedule_eligible_costs_info else "Koszty kwalifikowalne są ponoszone w czasie trwania okresu realizacji przedsięwzięcia określonego w harmonogramie, jednak nie wcześniej niż od daty rozpoczęcia naboru wniosków w sesji."
+        schedule_info = f"<small>Uwaga!</br><normal>Harmonogram powinien uwzględniać trzy główne etapy realizacji projektu:</br><b>- etap przygotowawczy</b> - np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie i zaplanowanie promocji wydarzenia, inne czynności niezbędne do rozpoczęcia realizacji zadania;</br><b>- etap realizacji</b> - wszystkie działania związane z bezpośrednim wykonaniem projektu, np. przygotowanie i przeprowadzenie przedsięwzięcia oraz realizacja pozostałych zadań przewidzianych w kosztorysie;</br><b>- etap podsumowania</b> - ewaluacja rezultatów projektu, rozliczenie końcowe.</br></br>Harmonogram powinien być <b>ułożony chronologicznie</b>, obejmować <b>wszystkie działania ujęte w kosztorysie</b>, wyróżniać <b>kluczowe kamienie milowe</b>, tj. najważniejsze momenty realizacji projektu. </br></br>{custom_schedule_eligible_costs_info}</normal></small>"
+
         part = self.create_part(
             title=f"{self.helpers.int_to_roman(number)}. Harmonogram realizacji zadania",
             short_name=f"{self.helpers.int_to_roman(number)}. Harmonogram",
@@ -1794,8 +1926,47 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     ]
                 ),
                 self.create_chapter(
-                    title="<small>Uwaga!</br><normal>Harmonogram powinien uwzględniać trzy główne etapy realizacji projektu:</br><b>- etap przygotowawczy</b> - np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie i zaplanowanie promocji wydarzenia, inne czynności niezbędne do rozpoczęcia realizacji zadania;</br><b>- etap realizacji</b> - wszystkie działania związane z bezpośrednim wykonaniem projektu, np. przygotowanie i przeprowadzenie przedsięwzięcia oraz realizacja pozostałych zadań przewidzianych w kosztorysie;</br><b>- etap podsumowania</b> - ewaluacja rezultatów projektu, rozliczenie końcowe.</br></br>Harmonogram powinien być <b>ułożony chronologicznie</b>, obejmować <b>wszystkie działania ujęte w kosztorysie</b>, wyróżniać <b>kluczowe kamienie milowe</b>, tj. najważniejsze momenty realizacji projektu.</normal></small>",
+                    title=schedule_info,
                     components=[]
+                ),
+                self.create_chapter(
+                    title="Czas trwania naboru wniosków",
+                    class_list={
+                        "main": [
+                            "table-1-2",
+                            "grid",
+                            "grid-cols-2"
+                        ],
+                        "sub": [
+                            "table-1-2__col"
+                        ]
+                    },
+                    components=[
+                        self.create_component(
+                            component_type="date",
+                            label="Data od",
+                            name="sessionStartDateCopy",
+                            required=True,
+                            read_only=True,
+                            calculation_rules=[
+                                self.calculation_rule.copy_value(
+                                    from_name="sessionStartDate"
+                                )
+                            ]
+                        ),
+                        self.create_component(
+                            component_type="date",
+                            label="Data do",
+                            name="sessionEndDateCopy",
+                            required=True,
+                            read_only=True,
+                            calculation_rules=[
+                                self.calculation_rule.copy_value(
+                                    from_name="sessionEndDate"
+                                )
+                            ]
+                        )
+                    ]
                 ),
                 self.create_chapter(
                     title="Etap przygotowawczy",
@@ -1805,7 +1976,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                 self.create_component(
                                     component_type="header",
                                     name="preparatoryStage",
-                                    value="Pierwsza pozycja w harmonogramie jest terminem rozpoczęcia realizacji przedsięwzięcia."
+                                    value="Pierwsza pozycja etapu przygotowawczego w harmonogramie jest terminem rozpoczęcia realizacji przedsięwzięcia."
                                 )
                             ]
                         ),
@@ -1944,7 +2115,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                                 self.create_component(
                                     component_type="header",
                                     name="summaryStage",
-                                    value="Ostatnia pozycja w harmonogramie jest terminem zakończenia realizacji przedsięwzięcia."
+                                    value="Ostatnia pozycja etapu podsumowania zadania w harmonogramie jest terminem zakończenia realizacji przedsięwzięcia."
                                 )
                             ]
                         ),
@@ -2012,6 +2183,7 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                 ),
                 self.create_chapter(
                     title="Podsumowanie harmonogramu",
+                    help_text="Data zakończenia realizacji przedsięwzięcia jest jednocześnie datą obowiązywania umowy o dofinansowanie z PISF. Wydatki poniesione po tym terminie nie będą uznawane za kwalifikowalne.",
                     class_list={
                         "main": [
                             "dates"

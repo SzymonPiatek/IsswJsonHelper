@@ -20,7 +20,6 @@ class FestivalsPriorityApplicationFormBuilder(DisseminationOperationalProgramApp
         self.project_type = [
             "Organizacja festiwali filmowych o charakterze ogólnopolskim lub międzynarodowym, będących wydarzeniami cyklicznymi, obejmujących szeroki program filmowy, sekcje konkursowe oceniane przez jury oraz wydarzenia towarzyszące, takie jak spotkania z twórcami, panele dyskusyjne czy warsztaty"
         ]
-        self.source_of_financing_tickets = True
 
         # Estimate
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
@@ -33,6 +32,22 @@ class FestivalsPriorityApplicationFormBuilder(DisseminationOperationalProgramApp
             title=f"{self.helpers.int_to_roman(number)}. Zakres i charakterystyka przedsięwzięcia",
             short_name=f"{self.helpers.int_to_roman(number)}. Zakres przedsięwzięcia",
             chapters=[
+                self.create_chapter(
+                    title="Nazwa przedsięwzięcia",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="applicationTaskNameRepeatPage4",
+                            read_only=True,
+                            calculation_rules=[
+                                self.calculation_rule.copy_value(
+                                    from_name="applicationTaskName"
+                                )
+                            ],
+                            required=True
+                        )
+                    ]
+                ),
                 self.create_chapter(
                     title="1. Termin i miejsce realizacji przedsięwzięcia",
                     class_list={
@@ -198,7 +213,7 @@ class FestivalsPriorityApplicationFormBuilder(DisseminationOperationalProgramApp
                             ]
                         ),
                         self.create_chapter(
-                            title="Profil publiczności i odbioru festiwalu",
+                            title="Profil publiczności i odbiorcy festiwalu",
                             help_text="Do kogo kierowane jest wydarzenie oraz jakie grupy uczestników stanowią jego główną widownię (np. studenci szkół filmowych, seniorzy, widzowie zainteresowani kinem niezależnym).",
                             components=[
                                 self.create_component(

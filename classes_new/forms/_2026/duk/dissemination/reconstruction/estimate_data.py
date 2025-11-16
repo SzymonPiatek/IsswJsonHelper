@@ -94,7 +94,10 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "akt"
+                            "min",
+                            "godz",
+                            "akt",
+                            "ryczałt"
                         ]
                     }
                 }
@@ -105,10 +108,10 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "---",
                             "min",
                             "godz",
-                            "akt"
+                            "akt",
+                            "ryczałt"
                         ]
                     }
                 }
@@ -119,10 +122,10 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "---",
                             "min",
                             "godz",
-                            "akt"
+                            "akt",
+                            "ryczałt"
                         ]
                     }
                 }
@@ -133,10 +136,10 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "---",
                             "min",
                             "godz",
-                            "akt"
+                            "akt",
+                            "ryczałt"
                         ]
                     }
                 }
@@ -147,10 +150,10 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "---",
                             "min",
                             "godz",
-                            "akt"
+                            "akt",
+                            "ryczałt"
                         ]
                     }
                 }
@@ -161,8 +164,9 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "---",
                             "min",
+                            "godz",
+                            "akt",
                             "ryczałt"
                         ]
                     }
@@ -174,7 +178,10 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "szt"
+                            "min",
+                            "godz",
+                            "akt",
+                            "ryczałt"
                         ]
                     }
                 }
@@ -185,10 +192,10 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "---",
+                            "min",
                             "godz",
-                            "ryczałt",
-                            "akt"
+                            "akt",
+                            "ryczałt"
                         ]
                     }
                 }
@@ -204,7 +211,10 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "akt"
+                            "min",
+                            "godz",
+                            "akt",
+                            "ryczałt"
                         ]
                     }
                 }
@@ -215,10 +225,10 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "---",
                             "min",
                             "godz",
-                            "akt"
+                            "akt",
+                            "ryczałt"
                         ]
                     }
                 }
@@ -229,10 +239,10 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "---",
                             "min",
                             "godz",
-                            "akt"
+                            "akt",
+                            "ryczałt"
                         ]
                     }
                 }
@@ -243,7 +253,10 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "min"
+                            "min",
+                            "godz",
+                            "akt",
+                            "ryczałt"
                         ]
                     }
                 }
@@ -254,10 +267,10 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "---",
                             "min",
-                            "ryczałt",
-                            "akt"
+                            "godz",
+                            "akt",
+                            "ryczałt"
                         ]
                     }
                 }
@@ -268,7 +281,10 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "szt"
+                            "min",
+                            "godz",
+                            "akt",
+                            "ryczałt"
                         ]
                     }
                 }
@@ -279,10 +295,10 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "---",
                             "min",
-                            "ryczałt",
-                            "szt"
+                            "godz",
+                            "akt",
+                            "ryczałt"
                         ]
                     }
                 }
@@ -293,7 +309,10 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "szt"
+                            "min",
+                            "godz",
+                            "akt",
+                            "ryczałt"
                         ]
                     }
                 }
@@ -304,7 +323,10 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "min"
+                            "min",
+                            "godz",
+                            "akt",
+                            "ryczałt"
                         ]
                     }
                 }
@@ -315,8 +337,9 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "---",
+                            "min",
                             "godz",
+                            "akt",
                             "ryczałt"
                         ]
                     }
@@ -328,8 +351,9 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "---",
+                            "min",
                             "godz",
+                            "akt",
                             "ryczałt"
                         ]
                     }
@@ -341,8 +365,9 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "---",
+                            "min",
                             "godz",
+                            "akt",
                             "ryczałt"
                         ]
                     }
@@ -354,8 +379,9 @@ estimate_sections = [
                 overrides={
                     "Unit": {
                         "options": [
-                            "---",
+                            "min",
                             "godz",
+                            "akt",
                             "ryczałt"
                         ]
                     }
@@ -371,8 +397,9 @@ estimate_sections = [
                     ),
                     "Unit": {
                         "options": [
-                            "---",
-                            "szt",
+                            "min",
+                            "godz",
+                            "akt",
                             "ryczałt"
                         ]
                     }
@@ -388,6 +415,9 @@ estimate_sections = [
                     ),
                     "Unit": {
                         "options": [
+                            "min",
+                            "godz",
+                            "akt",
                             "ryczałt"
                         ]
                     }
@@ -403,6 +433,9 @@ estimate_sections = [
                     ),
                     "Unit": {
                         "options": [
+                            "min",
+                            "godz",
+                            "akt",
                             "ryczałt"
                         ]
                     }

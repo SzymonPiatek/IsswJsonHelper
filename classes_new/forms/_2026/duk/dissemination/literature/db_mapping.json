@@ -1,0 +1,277 @@
+[
+  {
+    "db_key": "application_task_name",
+    "form_key": "applicationTaskName"
+  },
+  {
+    "db_key": "priority_name",
+    "form_key": "priorityName"
+  },
+  {
+    "db_key": "project_start_date",
+    "form_key": "projectCommencement"
+  },
+  {
+    "db_key": "project_end_date",
+    "form_key": "projectCompletion"
+  },
+  {
+    "db_key": "settlement_date",
+    "form_key": "settlementDeadline"
+  },
+  {
+    "db_key": "applicant_name",
+    "form_key": "applicantName"
+  },
+  {
+    "db_key": "applicant_nip",
+    "form_key": "applicantNip"
+  },
+  {
+    "db_key": "requested_pisf_support_amount",
+    "form_key": "pisfSupportAmountTotal"
+  },
+  {
+    "db_key": "total_task_cost",
+    "form_key": "totalProjectCost"
+  },
+  {
+    "db_key": "local_governments_financial_contribution",
+    "form_key": "localGovernmentsFundsSumAmount",
+    "kind": "optional_value"
+  },
+  {
+    "db_key": "ministry_financial_contribution",
+    "form_key": "ministryFundsSumAmount",
+    "kind": "optional_value"
+  },
+  {
+    "db_key": "requested_pisf_support_share",
+    "form_keys": [
+      "totalRequestedAmountShareInTotalCostsPts1234",
+      "totalRequestedAmountShareInTotalCostsPt5",
+      "totalRequestedAmountShareInTotalCostsPt4",
+      "totalRequestedAmountShareInTotalCostsPt3",
+      "totalRequestedAmountShareInTotalCostsPt2",
+      "totalRequestedAmountShareInTotalCostsPt1",
+      "pisfSupportShare"
+    ],
+    "kind": "first_existing"
+  },
+  {
+    "db_key": "producer_total_financial_contribution",
+    "form_key": "ownFundsSumAmount"
+  },
+  {
+    "db_key": "scope_of_project",
+    "form_key": "projectType"
+  },
+  {
+    "db_key": "program_name",
+    "form_key": "programName"
+  },
+  {
+    "db_key": "applicant_location",
+    "form_key": "applicantLocation"
+  },
+  {
+    "db_key": "applicant_regon",
+    "form_key": "applicantRegon"
+  },
+  {
+    "db_key": "session_name",
+    "form_key": "sessionYear"
+  },
+  {
+    "base_keys": [
+      "authPersonFirstName",
+      "authPersonLastName",
+      "authPersonPhoneNum",
+      "authPersonMobileNum",
+      "authPersonEmail"
+    ],
+    "db_key": "pisf_contact_representative",
+    "key_mapping": {
+      "authPersonEmail": "email",
+      "authPersonFirstName": "first_name",
+      "authPersonLastName": "last_name",
+      "authPersonMobileNum": "mobile_number",
+      "authPersonPhoneNum": "phone_number"
+    },
+    "kind": "sequential_key_lists"
+  },
+  {
+    "db_key": "applicant_postal_code",
+    "form_key": "applicantZipCode"
+  },
+  {
+    "db_key": "applicant_street",
+    "form_key": "applicantStreet"
+  },
+  {
+    "db_key": "applicant_house_number",
+    "form_key": "applicantHouseNum"
+  },
+  {
+    "db_key": "applicant_flat_number",
+    "form_key": "applicantApartmentNum"
+  },
+  {
+    "db_key": "applicant_email",
+    "form_key": "applicantEmail"
+  },
+  {
+    "db_key": "applicant_has_different_correspondence_address",
+    "form_key": "applicantHasDifferentContactAddress",
+    "kind": "normalize_boolean_value"
+  },
+  {
+    "db_key": "applicant_correspondence_location",
+    "form_key": "applicantContactLocation",
+    "kind": "optional_value"
+  },
+  {
+    "db_key": "applicant_correspondence_street",
+    "form_key": "applicantContactStreet",
+    "kind": "optional_value"
+  },
+  {
+    "db_key": "applicant_correspondence_house_number",
+    "form_key": "applicantContactHouseNum",
+    "kind": "optional_value"
+  },
+  {
+    "db_key": "applicant_correspondence_flat_number",
+    "form_key": "applicantContactApartmentNum",
+    "kind": "optional_value"
+  },
+  {
+    "db_key": "applicant_correspondence_postal_code",
+    "form_key": "applicantContactZipCode",
+    "kind": "optional_value"
+  },
+  {
+    "db_key": "applicant_correspondence_email",
+    "form_key": "applicantContactEmail",
+    "kind": "optional_value"
+  },
+  {
+    "base_keys": [
+      "eligiblePersonFirstName",
+      "eligiblePersonLastName",
+      "eligiblePersonPhoneNum",
+      "eligiblePersonEmail",
+      "eligiblePersonPosition"
+    ],
+    "db_key": "representatives",
+    "key_mapping": {
+      "eligiblePersonEmail": "email",
+      "eligiblePersonFirstName": "first_name",
+      "eligiblePersonLastName": "last_name",
+      "eligiblePersonPhoneNum": "phone",
+      "eligiblePersonPosition": "position"
+    },
+    "kind": "sequential_key_lists"
+  },
+  {
+    "db_key": "applicant_bank",
+    "form_key": "applicantBank"
+  },
+  {
+    "db_key": "applicant_bank_account_number",
+    "form_key": "applicantBankAccountNum"
+  },
+  {
+    "db_key": "applicant_bank_swift",
+    "form_key": "applicantForeignBankSwift",
+    "kind": "optional_value"
+  },
+  {
+    "base_keys": [
+      "foreignEntityName",
+      "foreignEntityFundingAmount"
+    ],
+    "db_key": "foreign_entities_financial_contribution",
+    "key_mapping": {
+      "foreignEntityFundingAmount": "funding_amount",
+      "foreignEntityName": "name"
+    },
+    "kind": "sequential_key_lists"
+  },
+  {
+    "db_key": "local_government_name",
+    "form_key": "localGovernmentsName",
+    "kind": "optional_value"
+  },
+  {
+    "db_key": "public_support_altogether",
+    "form_key": "publicSupportAltogether"
+  },
+  {
+    "db_key": "legal_form_code",
+    "form_key": "legalFormCode"
+  },
+  {
+    "db_key": "applicant_size_code",
+    "form_key": "applicantSizeCode"
+  },
+  {
+    "db_key": "applicant_jst",
+    "form_key": "applicantJst"
+  },
+  {
+    "db_key": "applicant_pkd",
+    "form_key": "applicantPkd"
+  },
+  {
+    "db_key": "application_grant_usage",
+    "form_key": "applicationGrantUsage",
+    "kind": "optional_value"
+  },
+  {
+    "db_key": "application_grant_usage_target_entity",
+    "form_key": "applicationGrantUsageTargetEntity",
+    "kind": "optional_value"
+  },
+  {
+    "base_keys": [
+      "localGovernmentName",
+      "localGovernmentFundingAmount"
+    ],
+    "db_key": "local_governments",
+    "key_mapping": {
+      "localGovernmentFundingAmount": "financial_contribution",
+      "localGovernmentName": "name"
+    },
+    "kind": "sequential_key_lists"
+  },
+  {
+    "base_keys": [
+      "ministerialEntityName",
+      "ministerialEntityFundingAmount"
+    ],
+    "db_key": "ministerial_entities",
+    "key_mapping": {
+      "ministerialEntityFundingAmount": "financial_contribution",
+      "ministerialEntityName": "name"
+    },
+    "kind": "sequential_key_lists"
+  },
+  {
+    "base_keys": [
+      "otherSponsorName",
+      "otherSponsorFundingAmount"
+    ],
+    "db_key": "other_partners_sponsors",
+    "key_mapping": {
+      "otherSponsorFundingAmount": "financial_contribution",
+      "otherSponsorName": "name"
+    },
+    "kind": "sequential_key_lists"
+  },
+  {
+    "db_key": "applicant_pesel",
+    "form_key": "applicantPesel",
+    "kind": "optional_value"
+  }
+]

@@ -2,8 +2,8 @@ from classes_new.form_factory.form_factory import FormFactory
 
 
 class Component(FormFactory):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, names=None):
+        super().__init__(names=names)
 
     def voivodeship_select(self, name: str):
         return self.create_component(

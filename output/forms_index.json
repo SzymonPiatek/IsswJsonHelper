@@ -1,9 +1,4 @@
 {
-  "PO1 PR1": {
-    "application": {
-      "local": "http://localhost/wniosek/16416/edycja?version=-1"
-    }
-  },
   "PO2 PR1": {
     "application": {
       "local": "http://localhost/wniosek/16404/edycja?version=-1"
@@ -62,57 +57,6 @@
   "PO4 PR2": {
     "application": {
       "local": "http://localhost/wniosek/16415/edycja?version=-1"
-    }
-  },
-  "PO5 PR1": {
-    "application": {
-      "local": "http://localhost/wniosek/16417/edycja?version=-1"
-    },
-    "report": {
-      "local": "http://localhost/raport/1531/edycja?version=-1"
-    }
-  },
-  "PO5 PR2": {
-    "application": {
-      "local": "http://localhost/wniosek/16418/edycja?version=-1"
-    },
-    "report": {
-      "local": "http://localhost/raport/1530/edycja?version=-1"
-    }
-  },
-  "VISUALITY TEST": {
-    "application": {
-      "local": "http://localhost/wniosek/16420/edycja?version=-1"
-    }
-  },
-  "VALIDATORS RELATED_VALIDATORS": {
-    "application": {
-      "local": "http://localhost/wniosek/16419/edycja?version=-1"
-    }
-  },
-  "VALIDATORS SIMPLE_VALIDATORS": {
-    "application": {
-      "local": "http://localhost/wniosek/16421/edycja?version=-1"
-    }
-  },
-  "VALIDATORS SPECIAL_VALIDATORS": {
-    "application": {
-      "local": "http://localhost/wniosek/16422/edycja?version=-1"
-    }
-  },
-  "CALCULATIONRULES TEST": {
-    "application": {
-      "local": "http://localhost/wniosek/16423/edycja?version=-1"
-    }
-  },
-  "TEST TEST": {
-    "application": {
-      "local": "http://localhost/wniosek/16424/edycja?version=-1"
-    }
-  },
-  "FINANSOWANIE RAPORT": {
-    "report": {
-      "local": "http://localhost/raport/1499/edycja?version=-1"
     }
   }
 }

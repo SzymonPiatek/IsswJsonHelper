@@ -21,7 +21,6 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
             "Działalność portali, serwisów, baz z zakresu wiedzy o filmie",
             "Wydanie muzyki filmowej z polskich filmów i koprodukcji, w tym reedycji i opracowań ścieżek dźwiękowych w formie analogowej lub cyfrowej"
         ]
-        self.source_of_financing_tickets = True
 
         # Estimate
         estimate_builder_pt = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections_pt)
@@ -36,24 +35,24 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
             short_name=f"{self.helpers.int_to_roman(number)}. Zakres przedsięwziecia",
             chapters=[
                 self.create_chapter(
+                    title="Nazwa przedsięwzięcia",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="applicationTaskNameRepeatPage4",
+                            read_only=True,
+                            calculation_rules=[
+                                self.calculation_rule.copy_value(
+                                    from_name="applicationTaskName"
+                                )
+                            ],
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
                     title="1. Zakres przedsięwzięcia i jego charakterystyka",
                     components=[
-                        self.create_chapter(
-                            title="Opis przedsięwzięcia",
-                            help_text="Cel i zakres merytoryczny przedsięwzięcia.",
-                            components=[
-                                self.create_component(
-                                    name="generalProjectDescription",
-                                    component_type="textarea",
-                                    validators=[
-                                        self.validator.length_validator(
-                                            max_value=3000
-                                        )
-                                    ],
-                                    required=True,
-                                )
-                            ]
-                        ),
                         self.create_chapter(
                             visibility_rules=[
                                 self.visibility_rule.depends_on_value(
@@ -66,14 +65,30 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
                             ],
                             components=[
                                 self.create_chapter(
-                                    title="Potencjał popularyzatorski",
-                                    help_text="Innowacyjność w zakresie treści, znaczenie projektu w upowszechnianiu wiedzy o kinematografii.",
+                                    title="Opis przedsięwzięcia",
+                                    help_text="Cel i zakres merytoryczny przedsięwzięcia i jego wkład w rozwój wiedzy o kulturze filmowej.",
+                                    components=[
+                                        self.create_component(
+                                            name="generalProjectDescriptionPt12",
+                                            component_type="textarea",
+                                            validators=[
+                                                self.validator.length_validator(
+                                                    max_value=5000
+                                                )
+                                            ],
+                                            required=True,
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Wartość edukacyjna i naukowa",
+                                    help_text="Znaczenie edukacyjne i naukowe przedsięwzięcia oraz jego potencjał popularyzatorski.",
                                     components=[
                                         self.create_component(
                                             component_type="textarea",
                                             name="popularizationPotential",
                                             validators=[
-                                                self.validator.length_validator(max_value=1000)
+                                                self.validator.length_validator(max_value=5000)
                                             ],
                                             required=True
                                         )
@@ -87,21 +102,7 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
                                             component_type="textarea",
                                             name="conceptOfStudy",
                                             validators=[
-                                                self.validator.length_validator(max_value=1000)
-                                            ],
-                                            required=True
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="Analiza zapotrzebowania rynku na realizację przedsięwzięcia",
-                                    help_text="Grupa docelowa oraz zastosowanie praktyczne.",
-                                    components=[
-                                        self.create_component(
-                                            component_type="textarea",
-                                            name="marketAnalysisForProjectImplementation",
-                                            validators=[
-                                                self.validator.length_validator(max_value=1000)
+                                                self.validator.length_validator(max_value=3000)
                                             ],
                                             required=True
                                         )
@@ -120,13 +121,30 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
                             ],
                             components=[
                                 self.create_chapter(
-                                    title="Wartość artystyczna i kulturowa przedsięwzięcia",
+                                    title="Opis przedsięwzięcia",
+                                    help_text="Cel i zakres merytoryczny przedsięwzięcia i jego wkład w rozwój kultury filmowej.",
+                                    components=[
+                                        self.create_component(
+                                            name="generalProjectDescriptionPt3",
+                                            component_type="textarea",
+                                            validators=[
+                                                self.validator.length_validator(
+                                                    max_value=5000
+                                                )
+                                            ],
+                                            required=True,
+                                        )
+                                    ]
+                                ),
+                                self.create_chapter(
+                                    title="Wartość artystyczna przedsięwzięcia",
+                                    help_text="Wartość artystyczna przedsięwzięcia i jego potencjał popularyzatorski.",
                                     components=[
                                         self.create_component(
                                             component_type="textarea",
                                             name="popularizationPotentialPt3",
                                             validators=[
-                                                self.validator.length_validator(max_value=3000)
+                                                self.validator.length_validator(max_value=5000)
                                             ],
                                             required=True
                                         )
@@ -140,20 +158,7 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
                                             component_type="textarea",
                                             name="conceptOfStudyPt3",
                                             validators=[
-                                                self.validator.length_validator(max_value=1000)
-                                            ],
-                                            required=True
-                                        )
-                                    ]
-                                ),
-                                self.create_chapter(
-                                    title="Praktyczne zastosowanie rezultatów projektu",
-                                    components=[
-                                        self.create_component(
-                                            component_type="textarea",
-                                            name="marketAnalysisForProjectImplementationPt3",
-                                            validators=[
-                                                self.validator.length_validator(max_value=1000)
+                                                self.validator.length_validator(max_value=3000)
                                             ],
                                             required=True
                                         )
@@ -163,7 +168,7 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
                         ),
                         self.create_chapter(
                             title="Doświadczenie wnioskodawcy i kompetencje zespołu",
-                            help_text="Udział specjalistów i ekspertów w realizację przedsięwzięcia.",
+                            help_text="Doświadczenie wnioskodawcy oraz kompetencje zespołu zaangażowanego w realizację przedsięwzięcia.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -179,7 +184,7 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
                         ),
                         self.create_chapter(
                             title="Strategia promocyjna",
-                            help_text="Działania promocyjne wspierające upowszechnienie przedsięwzięcia.",
+                            help_text="Plan promocji, działania marketingowe, współprace, partnerzy i patroni medialni.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
@@ -201,7 +206,7 @@ class LiteraturePriorityApplicationFormBuilder(DisseminationOperationalProgramAp
                                     component_type="textarea",
                                     name="projectAccessibility",
                                     validators=[
-                                        self.validator.length_validator(max_value=1000)
+                                        self.validator.length_validator(max_value=3000)
                                     ],
                                     required=True,
                                 ),

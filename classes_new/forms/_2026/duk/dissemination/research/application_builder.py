@@ -22,7 +22,6 @@ class ResearchPriorityApplicationFormBuilder(DisseminationOperationalProgramAppl
             "Przygotowanie innowacyjnych przedsięwzięć o szczególnym znaczeniu dla rozwoju rynku audiowizualnego",
             "Badania i analizy zjawiska tzw. piractwa w sferze kinematografii oraz działania na rzecz jego zwalczania"
         ]
-        self.source_of_financing_tickets = True
 
         # Estimate
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
@@ -35,6 +34,22 @@ class ResearchPriorityApplicationFormBuilder(DisseminationOperationalProgramAppl
             title=f"{self.helpers.int_to_roman(number)}. Zakres przedsięwzięcia i jego charakterystyka",
             short_name=f"{self.helpers.int_to_roman(number)}. Zakres przedsięwziecia",
             chapters=[
+                self.create_chapter(
+                    title="Nazwa przedsięwzięcia",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="applicationTaskNameRepeatPage4",
+                            read_only=True,
+                            calculation_rules=[
+                                self.calculation_rule.copy_value(
+                                    from_name="applicationTaskName"
+                                )
+                            ],
+                            required=True
+                        )
+                    ]
+                ),
                 self.create_chapter(
                     title="1. Zakres przedsięwzięcia i jego charakterystyka",
                     components=[

@@ -22,7 +22,7 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
             "Kształcenie zawodowe i podnoszenie kompetencji poprzez organizację studiów podyplomowych",
             "Organizacja praktyk zawodowych dla studentów"
         ]
-        self.source_of_financing_tickets = True
+        self.is_subsidy = True
 
         # Estimate
         estimate_builder = DUKApplicationEstimateBuilder(estimate_sections=estimate_sections)
@@ -36,18 +36,34 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
             short_name=f"{self.helpers.int_to_roman(number)}. Zakres przedsięwzięcia",
             chapters=[
                 self.create_chapter(
+                    title="Nazwa przedsięwzięcia",
+                    components=[
+                        self.create_component(
+                            component_type="textarea",
+                            name="applicationTaskNameRepeatPage4",
+                            read_only=True,
+                            calculation_rules=[
+                                self.calculation_rule.copy_value(
+                                    from_name="applicationTaskName"
+                                )
+                            ],
+                            required=True
+                        )
+                    ]
+                ),
+                self.create_chapter(
                     title="1. Zakres przedsięwzięcia i jego charakterystyka",
                     components=[
                         self.create_chapter(
                             title="Opis przedsięwzięcia",
-                            help_text="Profil kształcenia, forma realizacji zajęć dydaktycznych, metody i techniki nauczania itp.",
+                            help_text="Organizacyjny aspekt realizacji przedsięwzięcia z określeniem profilu kształcenia, formy zajęć oraz metod dydaktycznych.",
                             components=[
                                 self.create_component(
                                     name="generalProjectDescription",
                                     component_type="textarea",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=2000
+                                            max_value=3000
                                         )
                                     ],
                                     required=True,
@@ -79,7 +95,7 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
                                     name="laborMarketAnalysis",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=1500
+                                            max_value=2000
                                         )
                                     ],
                                     required=True,
@@ -88,14 +104,14 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
                         ),
                         self.create_chapter(
                             title="Doświadczenie wnioskodawcy i kompetencje zespołu",
-                            help_text="W tym udział specjalistów w realizacji przedsięwzięcia.",
+                            help_text="Doświadczenie wnioskodawcy w prowadzeniu działalności edukacyjnej oraz kompetencje zespołu zaangażowanego w realizację przedsięwzięcia.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
                                     name="applicantAndTeamExperience",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=1500
+                                            max_value=2000
                                         )
                                     ],
                                     required=True
@@ -104,14 +120,14 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
                         ),
                         self.create_chapter(
                             title="Liczba i zróżnicowanie struktury studentów",
-                            help_text="Analiza struktury i zróżnicowania adresatów oferty edukacyjnej.",
+                            help_text="Liczba studentów z uwzględnieniem kierunków lub specjalizacji, roku nauki, trybem itp.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
                                     name="numberAndDiversityOfStudents",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=1000
+                                            max_value=2000
                                         )
                                     ],
                                     required=True,
@@ -127,7 +143,7 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
                                     name="projectAccessibility",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=1000
+                                            max_value=2000
                                         )
                                     ],
                                     required=True
@@ -136,14 +152,14 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
                         ),
                         self.create_chapter(
                             title="Profil absolwenta",
-                            help_text="Umiejętności lub kompetencje zawodowe nabywane przez studentów.",
+                            help_text="Umiejętności lub kompetencje zawodowe nabywane przez studentów w toku kształcenia.",
                             components=[
                                 self.create_component(
                                     component_type="textarea",
                                     name="graduateProfile",
                                     validators=[
                                         self.validator.length_validator(
-                                            max_value=1000
+                                            max_value=2000
                                         )
                                     ],
                                     required=True,
@@ -157,6 +173,7 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
                     components=[
                         self.create_chapter(
                             title="Prognozowana liczba studentów",
+                            help_text="Prognozowana liczba studentów, którzy wezmą udział w niniejszym przedsięwzięciu.",
                             class_list={
                                 "main": [
                                     "table-1-2",
@@ -183,69 +200,87 @@ class HigherSchoolsPriorityApplicationFormBuilder(EducationOperationalProgramApp
                             ]
                         ),
                         self.create_chapter(
-                            title="Liczba wyprodukowanych filmów",
+                            title="Prognozowana liczba filmów realizowana w ramach niniejszego przedsięwzięcia",
                             components=[
                                 self.create_chapter(
                                     title="<normal>a) Filmy fabularne</normal>",
                                     class_list={
-                                        "main": ["table-1-2", "grid", "grid-cols-2"],
-                                        "sub": ["table-1-2__col"]
+                                        "main": ["table-1-3-narrow", "grid", "grid-cols-3"],
+                                        "sub": ["table-1-3__col"]
                                     },
                                     components=[
                                         self.create_component(
                                             component_type="number",
-                                            label="Studia stacjonarne",
-                                            name="producedFilmsFabFullTimeStudies",
+                                            label="Filmy krótkometrażowe",
+                                            name="producedFilmsFabShort",
                                             unit="szt."
                                         ),
                                         self.create_component(
                                             component_type="number",
-                                            label="Studia niestacjonarne",
-                                            name="producedFilmsFabPartTimeStudies",
+                                            label="Filmy średniometrażowe",
+                                            name="producedFilmsFabMedium",
                                             unit="szt."
-                                        )
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Filmy pełnometrażowe",
+                                            name="producedFilmsFabFull",
+                                            unit="szt."
+                                        ),
                                     ]
                                 ),
                                 self.create_chapter(
                                     title="<normal>b) Filmy dokumentalne</normal>",
                                     class_list={
-                                        "main": ["table-1-2", "grid", "grid-cols-2"],
-                                        "sub": ["table-1-2__col"]
+                                        "main": ["table-1-3-narrow", "grid", "grid-cols-3"],
+                                        "sub": ["table-1-3__col"]
                                     },
                                     components=[
                                         self.create_component(
                                             component_type="number",
-                                            label="Studia stacjonarne",
-                                            name="producedFilmsDocFullTimeStudies",
+                                            label="Filmy krótkometrażowe",
+                                            name="producedFilmsDocShort",
                                             unit="szt."
                                         ),
                                         self.create_component(
                                             component_type="number",
-                                            label="Studia niestacjonarne",
-                                            name="producedFilmsDocPartTimeStudies",
+                                            label="Filmy średniometrażowe",
+                                            name="producedFilmsDocMedium",
                                             unit="szt."
-                                        )
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Filmy pełnometrażowe",
+                                            name="producedFilmsDocFull",
+                                            unit="szt."
+                                        ),
                                     ]
                                 ),
                                 self.create_chapter(
                                     title="<normal>c) Filmy animowane</normal>",
                                     class_list={
-                                        "main": ["table-1-2", "grid", "grid-cols-2"],
-                                        "sub": ["table-1-2__col"]
+                                        "main": ["table-1-3-narrow", "grid", "grid-cols-3"],
+                                        "sub": ["table-1-3__col"]
                                     },
                                     components=[
                                         self.create_component(
                                             component_type="number",
-                                            label="Studia stacjonarne",
-                                            name="producedFilmsAniFullTimeStudies",
+                                            label="Filmy krótkometrażowe",
+                                            name="producedFilmsAniShort",
                                             unit="szt."
                                         ),
                                         self.create_component(
                                             component_type="number",
-                                            label="Studia niestacjonarne",
-                                            name="producedFilmsAniPartTimeStudies",
+                                            label="Filmy średniometrażowe",
+                                            name="producedFilmsAniMedium",
                                             unit="szt."
-                                        )
+                                        ),
+                                        self.create_component(
+                                            component_type="number",
+                                            label="Filmy pełnometrażowe",
+                                            name="producedFilmsAniFull",
+                                            unit="szt."
+                                        ),
                                     ]
                                 )
                             ]

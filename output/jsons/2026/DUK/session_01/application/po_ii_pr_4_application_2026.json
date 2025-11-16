@@ -62,12 +62,58 @@
               "kind": "component",
               "type": "text",
               "label": "Priorytet",
-              "name": "priorytetName",
-              "dataBDD": "priorytetName",
+              "name": "priorityName",
+              "dataBDD": "priorityName",
               "value": "IV. Edukacja widowni filmowej",
               "readOnly": true
             }
           ]
+        },
+        {
+          "kind": "chapter",
+          "title": "4. Czas trwania naboru wniosków",
+          "components": [
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data od",
+              "name": "sessionStartDate",
+              "dataBDD": "sessionStartDate",
+              "value": "17.11.2025",
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data do",
+              "name": "sessionEndDate",
+              "dataBDD": "sessionEndDate",
+              "value": "28.11.2025",
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
         }
       ]
     },
@@ -477,7 +523,8 @@
                                   "Publiczna szkoła lub uczelnia artystyczna",
                                   "Niepubliczna szkoła lub uczelnia artystyczna",
                                   "Kościół lub związek wyznaniowy",
-                                  "Jednostka samorządu terytorialnego"
+                                  "Jednostka samorządu terytorialnego",
+                                  "Inna (np. spółka w organizacji)"
                                 ]
                               }
                             }
@@ -521,7 +568,8 @@
                                   "Spółka komandytowa",
                                   "Spółka komandytowo-akcyjna",
                                   "Fundacja",
-                                  "Stowarzyszenie"
+                                  "Stowarzyszenie",
+                                  "Inna (np. spółka w organizacji)"
                                 ]
                               }
                             }
@@ -560,7 +608,8 @@
                           "Publiczna szkoła lub uczelnia artystyczna",
                           "Niepubliczna szkoła lub uczelnia artystyczna",
                           "Kościół lub związek wyznaniowy",
-                          "Jednostka samorządu terytorialnego"
+                          "Jednostka samorządu terytorialnego",
+                          "Inna (np. spółka w organizacji)"
                         ]
                       }
                     }
@@ -810,54 +859,82 @@
                       "title": "",
                       "components": [
                         {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Nazwa sądu",
-                          "name": "courtName",
-                          "dataBDD": "courtName",
-                          "value": "",
-                          "required": true,
-                          "validators": [
+                          "kind": "chapter",
+                          "title": "",
+                          "components": [
                             {
-                              "name": "RequiredValidator"
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Nazwa sądu",
+                              "name": "courtName",
+                              "dataBDD": "courtName",
+                              "value": "",
+                              "required": true,
+                              "validators": [
+                                {
+                                  "name": "RequiredValidator"
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Numer wydziału",
+                              "name": "courtNumber",
+                              "dataBDD": "courtNumber",
+                              "value": "",
+                              "required": true,
+                              "validators": [
+                                {
+                                  "name": "RequiredValidator"
+                                }
+                              ]
                             }
                           ]
                         },
                         {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Numer wydziału",
-                          "name": "courtNumber",
-                          "dataBDD": "courtNumber",
-                          "value": "",
-                          "required": true,
-                          "validators": [
+                          "kind": "chapter",
+                          "title": "<small>Nazwa rejestru</small>",
+                          "components": [
                             {
-                              "name": "RequiredValidator"
-                            }
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "select",
-                          "label": "Nazwa rejestru",
-                          "name": "courtRegisterName",
-                          "dataBDD": "courtRegisterName",
-                          "value": "",
-                          "options": [
-                            "Rejestr przedsiębiorców",
-                            "Rejestr stowarzyszeń, innych organizacji społecznych i zawodowych, fundacji oraz publicznych zakładów opieki zdrowotnej"
-                          ],
-                          "required": true,
-                          "validators": [
+                              "kind": "component",
+                              "type": "checkbox",
+                              "label": "Rejestr przedsiębiorców",
+                              "name": "entrepreneursRegister",
+                              "dataBDD": "entrepreneursRegister",
+                              "value": false,
+                              "validators": [
+                                {
+                                  "name": "RelatedAnyOfValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "entrepreneursRegister",
+                                      "associationsRegister"
+                                    ]
+                                  },
+                                  "validationMsg": "Wymagany jest wybór przynajmniej jednej z wartości."
+                                }
+                              ]
+                            },
                             {
-                              "name": "ExactValidator",
-                              "kwargs": {
-                                "values": [
-                                  "Rejestr przedsiębiorców",
-                                  "Rejestr stowarzyszeń, innych organizacji społecznych i zawodowych, fundacji oraz publicznych zakładów opieki zdrowotnej"
-                                ]
-                              }
+                              "kind": "component",
+                              "type": "checkbox",
+                              "label": "Rejestr stowarzyszeń, innych organizacji społecznych i zawodowych, fundacji oraz publicznych zakładów opieki zdrowotnej",
+                              "name": "associationsRegister",
+                              "dataBDD": "associationsRegister",
+                              "value": false,
+                              "validators": [
+                                {
+                                  "name": "RelatedAnyOfValidator",
+                                  "kwargs": {
+                                    "field_names": [
+                                      "entrepreneursRegister",
+                                      "associationsRegister"
+                                    ]
+                                  },
+                                  "validationMsg": "Wymagany jest wybór przynajmniej jednej z wartości."
+                                }
+                              ]
                             }
                           ]
                         }
@@ -986,7 +1063,8 @@
                       "Publiczna szkoła lub uczelnia artystyczna",
                       "Niepubliczna szkoła lub uczelnia artystyczna",
                       "Kościół lub związek wyznaniowy",
-                      "Jednostka samorządu terytorialnego"
+                      "Jednostka samorządu terytorialnego",
+                      "Inna (np. spółka w organizacji)"
                     ]
                   }
                 }
@@ -1888,6 +1966,46 @@
               "title": "",
               "components": [
                 {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Sposób reprezentacji",
+                  "name": "eligiblePersonRepresentationType",
+                  "dataBDD": "eligiblePersonRepresentationType",
+                  "value": "",
+                  "options": [
+                    "Łącznie",
+                    "Samodzielnie"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Łącznie",
+                          "Samodzielnie"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
                   "kind": "chapter",
                   "title": "Osoba upoważniona do reprezentowania Wnioskodawcy",
                   "components": [
@@ -1972,31 +2090,6 @@
                         }
                       ],
                       "defaultValue": ""
-                    },
-                    {
-                      "kind": "component",
-                      "type": "select",
-                      "label": "Sposób reprezentacji",
-                      "name": "eligiblePersonRepresentationType",
-                      "dataBDD": "eligiblePersonRepresentationType",
-                      "value": "",
-                      "options": [
-                        "Łącznie",
-                        "Samodzielnie"
-                      ],
-                      "required": true,
-                      "validators": [
-                        {
-                          "name": "ExactValidator",
-                          "kwargs": {
-                            "values": [
-                              "Łącznie",
-                              "Samodzielnie"
-                            ]
-                          }
-                        }
-                      ],
-                      "defaultValue": ""
                     }
                   ],
                   "classList": {
@@ -2068,13 +2161,7 @@
                   "name": "authPersonPhoneNum",
                   "dataBDD": "authPersonPhoneNum",
                   "value": "",
-                  "mask": "landline",
-                  "required": true,
-                  "validators": [
-                    {
-                      "name": "RequiredValidator"
-                    }
-                  ]
+                  "mask": "landline"
                 },
                 {
                   "kind": "component",
@@ -2533,19 +2620,18 @@
                       "label": "Cel dofinansowania",
                       "name": "applicationGrantUsage",
                       "dataBDD": "applicationGrantUsage",
-                      "value": "",
+                      "value": "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących",
                       "options": [
-                        "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących",
-                        "Wnioskowane dofinansowanie zostanie wykorzystane na finansowanie lub dofinansowanie kosztów realizacji inwestycji i zakupów inwestycyjnych"
+                        "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących"
                       ],
                       "required": true,
+                      "readOnly": true,
                       "validators": [
                         {
                           "name": "ExactValidator",
                           "kwargs": {
                             "values": [
-                              "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących",
-                              "Wnioskowane dofinansowanie zostanie wykorzystane na finansowanie lub dofinansowanie kosztów realizacji inwestycji i zakupów inwestycyjnych"
+                              "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących"
                             ]
                           }
                         }
@@ -2664,70 +2750,163 @@
       "chapters": [
         {
           "kind": "chapter",
-          "title": "1. Zakres przedsięwzięcia i jego charakterystyka",
+          "title": "Nazwa przedsięwzięcia",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "",
+              "name": "applicationTaskNameRepeatPage4",
+              "dataBDD": "applicationTaskNameRepeatPage4",
+              "value": "",
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "calculationRules": [
+                {
+                  "name": "copyValue",
+                  "from": "applicationTaskName"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "1. Termin i miejsce realizacji przedsięwzięcia",
+          "components": [
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Termin od",
+              "name": "projectOpeningDatePointOne",
+              "dataBDD": "projectOpeningDatePointOne",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RelatedDateLTEValidator",
+                  "kwargs": {
+                    "field_name": "projectClosingDatePointOne"
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Termin do",
+              "name": "projectClosingDatePointOne",
+              "dataBDD": "projectClosingDatePointOne",
+              "value": false,
+              "required": true,
+              "validators": [
+                {
+                  "name": "RelatedDateGTEValidator",
+                  "kwargs": {
+                    "field_name": "projectOpeningDatePointOne"
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Miejscowość",
+              "name": "projectCity",
+              "dataBDD": "projectCity",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 100
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "table-full"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Miejsce realizacji przedsięwzięcia",
+              "name": "projectPlacesObjects",
+              "dataBDD": "projectPlacesObjects",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 100
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "table-full"
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "2. Zakres przedsięwzięcia i jego charakterystyka",
           "components": [
             {
               "kind": "chapter",
-              "title": "Rodzaj planowanego przedsięwzięcia",
+              "title": "Idea i cel edukacyjny",
               "components": [
                 {
                   "kind": "component",
                   "type": "textarea",
                   "label": "",
-                  "name": "plannedProjectType",
-                  "dataBDD": "plannedProjectType",
+                  "name": "educationalIdeaAndGoal",
+                  "dataBDD": "educationalIdeaAndGoal",
                   "value": "",
                   "required": true,
                   "validators": [
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 100
+                        "max": 5000
                       }
                     },
                     {
                       "name": "RequiredValidator"
                     }
-                  ],
-                  "classList": [
-                    "table-full"
-                  ]
-                },
-                {
-                  "kind": "component",
-                  "type": "textarea",
-                  "label": "Miejsce realizacji przedsięwzięcia",
-                  "name": "projectLocation",
-                  "dataBDD": "projectLocation",
-                  "value": "",
-                  "required": true,
-                  "validators": [
-                    {
-                      "name": "LengthValidator",
-                      "kwargs": {
-                        "max": 100
-                      }
-                    },
-                    {
-                      "name": "RequiredValidator"
-                    }
-                  ],
-                  "classList": [
-                    "table-full"
                   ]
                 }
               ],
-              "helpText": "Np. kurs, warsztat, szkolenie itp.",
-              "classList": {
-                "main": [
-                  "table-1-2",
-                  "grid",
-                  "grid-cols-2"
-                ],
-                "sub": [
-                  "table-1-2__col"
-                ]
-              }
+              "helpText": "Idea, wartość dydaktyczna przedsięwzięcia i główne cele edukacyjne."
             },
             {
               "kind": "chapter",
@@ -2745,7 +2924,7 @@
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 3000
+                        "max": 5000
                       }
                     },
                     {
@@ -2755,60 +2934,6 @@
                 }
               ],
               "helpText": "Tematyka, tryb, metody dydaktyczne, liczba godzin, modułów, bloków tematycznych."
-            },
-            {
-              "kind": "chapter",
-              "title": "Idea i cel edukacyjny",
-              "components": [
-                {
-                  "kind": "component",
-                  "type": "textarea",
-                  "label": "",
-                  "name": "educationalIdeaAndGoal",
-                  "dataBDD": "educationalIdeaAndGoal",
-                  "value": "",
-                  "required": true,
-                  "validators": [
-                    {
-                      "name": "LengthValidator",
-                      "kwargs": {
-                        "max": 3000
-                      }
-                    },
-                    {
-                      "name": "RequiredValidator"
-                    }
-                  ]
-                }
-              ],
-              "helpText": "Istota i wartość dydaktyczna przedsięwzięcia."
-            },
-            {
-              "kind": "chapter",
-              "title": "Grupa docelowa",
-              "components": [
-                {
-                  "kind": "component",
-                  "type": "textarea",
-                  "label": "",
-                  "name": "targetGroup",
-                  "dataBDD": "targetGroup",
-                  "value": "",
-                  "required": true,
-                  "validators": [
-                    {
-                      "name": "LengthValidator",
-                      "kwargs": {
-                        "max": 1000
-                      }
-                    },
-                    {
-                      "name": "RequiredValidator"
-                    }
-                  ]
-                }
-              ],
-              "helpText": "Sposób rekrutacji i kryteria wyboru uczestników."
             },
             {
               "kind": "chapter",
@@ -2826,7 +2951,7 @@
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 1000
+                        "max": 3000
                       }
                     },
                     {
@@ -2853,7 +2978,7 @@
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 1500
+                        "max": 3000
                       }
                     },
                     {
@@ -2862,7 +2987,7 @@
                   ]
                 }
               ],
-              "helpText": "W tym udział specjalistów w realizacji przedsięwzięcia."
+              "helpText": "Doświadczenie wnioskodawcy w działalności edukacyjnej oraz kompetencje zespołu zaangażowanego w realizację przedsięwzięcia."
             },
             {
               "kind": "chapter",
@@ -2880,7 +3005,7 @@
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 1000
+                        "max": 3000
                       }
                     },
                     {
@@ -2907,7 +3032,7 @@
                     {
                       "name": "LengthValidator",
                       "kwargs": {
-                        "max": 1000
+                        "max": 3000
                       }
                     },
                     {
@@ -2916,7 +3041,7 @@
                   ]
                 }
               ],
-              "helpText": "Spodziewane rezultaty w ujęciu jakościowym."
+              "helpText": "Spodziewane efekty realizacji przedsięwzięcia w ujęciu jakościowym."
             }
           ]
         },
@@ -3214,6 +3339,115 @@
                           "table-1-2__col"
                         ]
                       }
+                    },
+                    {
+                      "kind": "chapter",
+                      "title": "",
+                      "components": [
+                        {
+                          "kind": "chapter",
+                          "title": "",
+                          "components": [
+                            {
+                              "kind": "component",
+                              "type": "checkbox",
+                              "label": "Należy zaznaczyć, jeśli częścią wkładu finansowego są wpływy ze sprzedaży biletów, akredytacji, publikacji, szkoleń itp.",
+                              "name": "isTicketRevenues",
+                              "dataBDD": "isTicketRevenues",
+                              "value": false
+                            }
+                          ]
+                        },
+                        {
+                          "kind": "chapter",
+                          "title": "",
+                          "components": [
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Wpływy ze sprzedaży",
+                              "name": "proceedsFromSales",
+                              "dataBDD": "proceedsFromSales",
+                              "value": 0,
+                              "mask": "fund",
+                              "unit": "PLN",
+                              "validators": [
+                                {
+                                  "name": "RelatedFractionGTEValidator",
+                                  "kwargs": {
+                                    "field_name": "ownFinancialFundsAmount",
+                                    "ratio": 1
+                                  }
+                                },
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "component",
+                              "type": "text",
+                              "label": "Pozostałe środki finansowe",
+                              "name": "otherFinancialResources",
+                              "dataBDD": "otherFinancialResources",
+                              "value": 0,
+                              "mask": "fund",
+                              "unit": "PLN",
+                              "readOnly": true,
+                              "validators": [
+                                {
+                                  "name": "RelatedSubtractValidator",
+                                  "kwargs": {
+                                    "first_field": "ownFinancialFundsAmount",
+                                    "second_field": "proceedsFromSales"
+                                  }
+                                },
+                                {
+                                  "name": "RangeValidator",
+                                  "kwargs": {
+                                    "min": 0
+                                  },
+                                  "validationMsg": "Wartość musi być większa lub równa 0."
+                                }
+                              ],
+                              "calculationRules": [
+                                {
+                                  "name": "subtractInputs",
+                                  "kwargs": {
+                                    "firstField": "ownFinancialFundsAmount",
+                                    "secondField": "proceedsFromSales"
+                                  }
+                                }
+                              ]
+                            }
+                          ],
+                          "classList": {
+                            "main": [
+                              "table-1-2",
+                              "grid",
+                              "grid-cols-2"
+                            ],
+                            "sub": [
+                              "table-1-2__col"
+                            ]
+                          },
+                          "visibilityRules": [
+                            {
+                              "name": "dependsOnValue",
+                              "kwargs": {
+                                "fieldName": "isTicketRevenues",
+                                "values": [
+                                  true
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ]
                 },
@@ -3323,6 +3557,14 @@
                               "ownInKindFundsAmount"
                             ]
                           }
+                        },
+                        {
+                          "name": "RelatedFractionLTEValidator",
+                          "kwargs": {
+                            "field_name": "totalProjectCost",
+                            "ratio": 0.1
+                          },
+                          "validationMsg": "Wysokość wkładu własnego musi wynosić minimum 10% kwoty całkowitego budżetu przedsięwzięcia."
                         },
                         {
                           "name": "RangeValidator",
@@ -3705,7 +3947,7 @@
                       "components": [
                         {
                           "kind": "chapter",
-                          "title": "<normal>b) ze środków Ministerstwa Kultury i Dziedzictwa Narodowego w ramach Programów Ministra </normal><br /><small>Uwaga! </br><normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </normal></small>",
+                          "title": "<normal>b) ze środków Ministerstwa Kultury i Dziedzictwa Narodowego</normal><br /><small>Uwaga! </br><normal>Odznaczenie powyższego checkboxa nie prowadzi do automatycznego usunięcia zawartych w tej sekcji informacji. Dane te nadal będą brane pod uwagę w obliczeniach finansowych i będą uwzględnione we wniosku. Jeżeli dane te nie są już potrzebne, prosimy o ich ręczne usunięcie. </normal></small>",
                           "components": [
                             {
                               "kind": "chapter",
@@ -3718,7 +3960,7 @@
                                     {
                                       "kind": "component",
                                       "type": "text",
-                                      "label": "Nazwa podmiotu finansującego",
+                                      "label": "Tryb finansowania",
                                       "name": "ministryName",
                                       "dataBDD": "ministryName",
                                       "value": "",
@@ -4456,7 +4698,8 @@
                 }
               ],
               "classList": [
-                "table-full"
+                "table-full",
+                "col-span-2"
               ]
             },
             {
@@ -4496,7 +4739,7 @@
             {
               "kind": "component",
               "type": "text",
-              "label": "Udział w koszcie całkowitym",
+              "label": "Udział procentowy wkładu własnego w koszcie całkowitym",
               "name": "ownFundsSumAmountRepeatShare",
               "dataBDD": "ownFundsSumAmountRepeatShare",
               "value": 0,
@@ -4570,7 +4813,7 @@
             {
               "kind": "component",
               "type": "text",
-              "label": "Udział w koszcie całkowitym",
+              "label": "Udział procentowy wnioskowanej dotacji z PISF w koszcie całkowitym",
               "name": "pisfSupportAmountTotalShare",
               "dataBDD": "pisfSupportAmountTotalShare",
               "value": 0,
@@ -4656,7 +4899,7 @@
             {
               "kind": "component",
               "type": "text",
-              "label": "Udział w koszcie całkowitym",
+              "label": "Udział procentowy środków publicznych (w tym wnioskowanej dotacji z PISF)",
               "name": "publicSupportAltogetherShare",
               "dataBDD": "publicSupportAltogetherShare",
               "value": 0,
@@ -4732,7 +4975,7 @@
             {
               "kind": "component",
               "type": "text",
-              "label": "Udział w koszcie całkowitym",
+              "label": "Udział procentowy pozostałych środków w koszcie całkowitym",
               "name": "otherFundsAltogetherShare",
               "dataBDD": "otherFundsAltogetherShare",
               "value": 0,
@@ -4792,7 +5035,7 @@
                 {
                   "name": "LengthValidator",
                   "kwargs": {
-                    "max": 500
+                    "max": 1000
                   }
                 }
               ]
@@ -7279,7 +7522,7 @@
                           ]
                         }
                       ],
-                      "helpText": "Koszty udokumentowane wyłącznie fakturami lub biletami (jeśli brak faktury). W przypadku podróży lotniczych – tylko bilety w klasie ekonomicznej. W przypadku paliwa – wyłącznie koszty paliwa do samochodów wykorzystywanych do realizacji przedsięwzięcia (środek trwały, leasing, najem). Z dotacji PISF nie są pokrywane koszty podróży zagranicznych.",
+                      "helpText": "Koszty udokumentowane wyłącznie fakturami lub biletami (jeśli niemożliwe jest otrzymanie faktury). W przypadku podróży lotniczych pokrywa się z dotacji tylko koszt biletów w klasie ekonomicznej. W przypadku zakupu paliwa wyłącznie koszty paliwa do samochodów wykorzystywanych do realizacji przedsięwzięcia zgodnie z obowiązującymi przepisami (tj. jeżeli samochód stanowi środek trwały Wnioskodawcy lub jest przedmiotem leasingu bądź najmu na rzecz Wnioskodawcy). Z dotacji PISF nie są pokrywane koszty podróży zagranicznych.",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",
@@ -7401,7 +7644,7 @@
                           ]
                         }
                       ],
-                      "helpText": "Koszty udokumentowane wyłącznie fakturami (z wyłączeniem diet, ryczałtów i innych kosztów niewykazanych fakturą/rachunkiem). Z dotacji PISF nie są pokrywane koszty podróży zagranicznych.",
+                      "helpText": "Koszty udokumentowane wyłącznie fakturami (z wyłączeniem diet, ryczałtów i innych kosztów udokumentowanych w inny sposób, niż rachunkiem lub fakturą). Z dotacji PISF nie są pokrywane koszty podróży zagranicznych.",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",
@@ -8776,8 +9019,66 @@
         },
         {
           "kind": "chapter",
-          "title": "<small>Uwaga!</br><normal>Harmonogram powinien uwzględniać trzy główne etapy realizacji projektu:</br><b>- etap przygotowawczy</b> - np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie i zaplanowanie promocji wydarzenia, inne czynności niezbędne do rozpoczęcia realizacji zadania;</br><b>- etap realizacji</b> - wszystkie działania związane z bezpośrednim wykonaniem projektu, np. przygotowanie i przeprowadzenie przedsięwzięcia oraz realizacja pozostałych zadań przewidzianych w kosztorysie;</br><b>- etap podsumowania</b> - ewaluacja rezultatów projektu, rozliczenie końcowe.</br></br>Harmonogram powinien być <b>ułożony chronologicznie</b>, obejmować <b>wszystkie działania ujęte w kosztorysie</b>, wyróżniać <b>kluczowe kamienie milowe</b>, tj. najważniejsze momenty realizacji projektu.</normal></small>",
+          "title": "<small>Uwaga!</br><normal>Harmonogram powinien uwzględniać trzy główne etapy realizacji projektu:</br><b>- etap przygotowawczy</b> - np. poszukiwania partnerów, zaproszenie uczestników, przygotowanie i zaplanowanie promocji wydarzenia, inne czynności niezbędne do rozpoczęcia realizacji zadania;</br><b>- etap realizacji</b> - wszystkie działania związane z bezpośrednim wykonaniem projektu, np. przygotowanie i przeprowadzenie przedsięwzięcia oraz realizacja pozostałych zadań przewidzianych w kosztorysie;</br><b>- etap podsumowania</b> - ewaluacja rezultatów projektu, rozliczenie końcowe.</br></br>Harmonogram powinien być <b>ułożony chronologicznie</b>, obejmować <b>wszystkie działania ujęte w kosztorysie</b>, wyróżniać <b>kluczowe kamienie milowe</b>, tj. najważniejsze momenty realizacji projektu. </br></br>Koszty kwalifikowalne są ponoszone w czasie trwania okresu realizacji przedsięwzięcia określonego w harmonogramie, jednak nie wcześniej niż od daty rozpoczęcia naboru wniosków w sesji.</normal></small>",
           "components": []
+        },
+        {
+          "kind": "chapter",
+          "title": "Czas trwania naboru wniosków",
+          "components": [
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data od",
+              "name": "sessionStartDateCopy",
+              "dataBDD": "sessionStartDateCopy",
+              "value": false,
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "calculationRules": [
+                {
+                  "name": "copyValue",
+                  "from": "sessionStartDate"
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "date",
+              "label": "Data do",
+              "name": "sessionEndDateCopy",
+              "dataBDD": "sessionEndDateCopy",
+              "value": false,
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "calculationRules": [
+                {
+                  "name": "copyValue",
+                  "from": "sessionEndDate"
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
         },
         {
           "kind": "chapter",
@@ -8793,7 +9094,7 @@
                   "label": "",
                   "name": "headerComponent-preparatoryStage",
                   "dataBDD": "headerComponent-preparatoryStage",
-                  "value": "Pierwsza pozycja w harmonogramie jest terminem rozpoczęcia realizacji przedsięwzięcia."
+                  "value": "Pierwsza pozycja etapu przygotowawczego w harmonogramie jest terminem rozpoczęcia realizacji przedsięwzięcia."
                 }
               ]
             },
@@ -9007,7 +9308,7 @@
                   "label": "",
                   "name": "headerComponent-summaryStage",
                   "dataBDD": "headerComponent-summaryStage",
-                  "value": "Ostatnia pozycja w harmonogramie jest terminem zakończenia realizacji przedsięwzięcia."
+                  "value": "Ostatnia pozycja etapu podsumowania zadania w harmonogramie jest terminem zakończenia realizacji przedsięwzięcia."
                 }
               ]
             },
@@ -9182,6 +9483,7 @@
               ]
             }
           ],
+          "helpText": "Data zakończenia realizacji przedsięwzięcia jest jednocześnie datą obowiązywania umowy o dofinansowanie z PISF. Wydatki poniesione po tym terminie nie będą uznawane za kwalifikowalne.",
           "classList": {
             "main": [
               "dates"
@@ -9208,7 +9510,7 @@
             {
               "kind": "component",
               "type": "checkbox",
-              "label": "Oświadczam, że ze względu na ograniczony krąg odbiorców lub ze względu na niską wartość komercyjną, wydarzenie nie mogłoby się odbyć bez dofinansowania PISF.",
+              "label": "Oświadczam, że przedsięwzięcie ma lokalny lub regionalny charakter, ograniczony krąg odbiorców lub ze względu na niską wartość komercyjną nie mogłoby się odbyć bez dofinansowania przez Instytut.",
               "name": "limitedAudienceSupportStatement",
               "dataBDD": "limitedAudienceSupportStatement",
               "value": false,
@@ -9467,7 +9769,7 @@
         },
         {
           "kind": "chapter",
-          "title": "5. Szczegółowy wykaz kin studyjnych,w których prowadzone będą zajęcia",
+          "title": "5. Szczegółowy wykaz kin, w których prowadzone będą zajęcia",
           "components": [
             {
               "kind": "component",

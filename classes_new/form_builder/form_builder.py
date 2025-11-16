@@ -2,7 +2,7 @@ from classes_new.additional.form_helpers import FormHelpers
 from classes_new.form_components.section.section import Section
 from classes_new.form_factory.form_factory import FormFactory
 from classes_new.pisf_structure import Priority, Session
-from classes_new.types import Form, Part
+from classes_new.types import Form, Part, Chapter, Component
 from typing import Literal
 from pathlib import Path
 import json
@@ -41,7 +41,7 @@ class FormBuilder(FormFactory):
         self._output_file_path: Path = None
 
         self.helpers = FormHelpers()
-        self.section = Section()
+        self.section = Section(names=self.names)
 
     @property
     def output_file_name(self) -> str:
@@ -99,6 +99,8 @@ class FormBuilder(FormFactory):
         for index, part in enumerate(self.parts, start=1):
             part(number=index)
 
+        # self.validate_form()
+
         self.save_output()
 
     def create_base(self):
@@ -118,6 +120,33 @@ class FormBuilder(FormFactory):
 
     def save_part(self, part: Part):
         self.output_json["parts"].append(part)
+
+    def validate_form(self):
+        def validate_chapter_visibility_rules(chapter: Chapter):
+            visibility_rules = chapter.get("visibilityRules", [])
+            for rule in visibility_rules:
+                field_name = rule.get("kwargs", {}).get("fieldName", None)
+                if field_name is not None and field_name not in self.names:
+                    raise ValueError(f"Użyto nieznany name w VisibilityRule: {field_name}")
+
+        def validate_chapter(chapter: Chapter):
+            validate_chapter_visibility_rules(chapter=chapter)
+
+            components = chapter.get("components", [])
+            for component in components:
+                kind = component.get("kind")
+                if kind == "chapter":
+                    validate_chapter(chapter=component)
+                elif kind == "component":
+                    pass
+                else:
+                    raise ValueError(f"Nieznany typ componenta: {kind}")
+
+        parts = self.output_json.get("parts", [])
+        for part in parts:
+            chapters = part.get("chapters", [])
+            for chapter in chapters:
+                validate_chapter(chapter=chapter)
 
 
 class ApplicationFormBuilder(FormBuilder):
