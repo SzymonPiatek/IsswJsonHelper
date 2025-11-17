@@ -224,7 +224,7 @@ class CalculationRule:
         return {
             "name": "sumInvoiceCosts",
             "kwargs": {
-                "sumField": sum_field,
+                "sum_field": sum_field,
                 "condition": condition
             }
         }

@@ -7262,7 +7262,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             components=[
                                                 {
                                                     "kind": "chapter",
-                                                    "title": "Koproducent",
+                                                    "title": "Pozycja",
                                                     "components": [
                                                         {
                                                             "kind": "chapter",
@@ -7671,18 +7671,16 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                                         ]
                                                     },
                                                     "components": [
-                                                        {
-                                                            "kind": "component",
-                                                            "type": "text",
-                                                            "label": "Nazwa podmiotu",
-                                                            "name": "publicAidName",
-                                                            "dataBDD": "publicAidName",
-                                                            "value": "",
-                                                            "classList": [
+                                                        self.create_component(
+                                                            component_type="text",
+                                                            label="Nazwa podmiotu",
+                                                            name="publicAidName",
+                                                            class_list=[
                                                                 "no-label",
                                                                 "col-span-2"
-                                                            ]
-                                                        },
+                                                            ],
+                                                            required=True
+                                                        ),
                                                         self.create_component(
                                                             component_type="country",
                                                             name="publicAidCountry",
@@ -7883,191 +7881,31 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                 },
                             ]
                         ),
-                        {
-                            "kind": "chapter",
-                            "title": "ŁĄCZNIE",
-                            "classList": [
-                                "no-title"
+                        self.create_chapter(
+                            class_list=[
+                                "displayNoneFrontend",
                             ],
-                            "components": [
-                                {
-                                    "kind": "chapter",
-                                    "title": "",
-                                    "classList": {
-                                        "main": [
-                                            "table-1-3-narrow",
-                                            "grid",
-                                            "grid-cols-5",
-                                            "no-title"
-                                        ],
-                                        "sub": [
-                                            "table-1-3__col"
-                                        ]
-                                    },
-                                    "components": [
-                                        {
-                                            "kind": "component",
-                                            "type": "header",
-                                            "label": "Label",
-                                            "name": "headerComponent-allTotal",
-                                            "value": "Łącznie",
-                                            "dataBDD": "header-component-allTotal",
-                                            "classList": [
-                                                "col-span-2",
-                                                "displayNoneFrontend"
-                                            ]
-                                        },
-                                        {
-                                            "kind": "component",
-                                            "type": "text",
-                                            "mask": "fund",
-                                            "label": "Zgodnie z umową",
-                                            "name": "actualContributionAgreementTotalAll",
-                                            "value": 0,
-                                            "unit": "PLN",
-                                            "validators": [
-                                                {
-                                                    "name": "RangeValidator",
-                                                    "kwargs": {
-                                                        "min": 0
-                                                    },
-                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                },
-                                                {
-                                                    "name": "RelatedSumValidator",
-                                                    "kwargs": {
-                                                        "field_names": [
-                                                            "actualContributionAgreementTotalLeadProducer",
-                                                            "actualContributionAgreementTotalCoproducerTotal",
-                                                            *[f"actualContributionAgreementTotal{name['name'][0].title()}{name['name'][1:]}" for name in world_wide_sale_list],
-                                                            "actualContributionAgreementPublicAid",
-                                                            "actualContributionAgreementTotalPisfCashRebate"
-                                                        ]
-                                                    }
-                                                }
-                                            ],
-                                            "dataBDD": "actualContributionAgreementAll",
-                                            "classList": [
-                                                "no-label"
-                                            ],
-                                            "readOnly": True,
-                                            "calculationRules": [
-                                                {
-                                                    "name": "sumInputs",
-                                                    "kwargs": {
-                                                        "fields": [
-                                                            "actualContributionAgreementTotalLeadProducer",
-                                                            "actualContributionAgreementTotalCoproducerTotal",
-                                                            *[f"actualContributionAgreementTotal{name['name'][0].title()}{name['name'][1:]}" for name in world_wide_sale_list],
-                                                            "actualContributionAgreementPublicAid",
-                                                            "actualContributionAgreementTotalPisfCashRebate"
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "kind": "component",
-                                            "type": "text",
-                                            "mask": "fund",
-                                            "label": "Zgodnie z aneksem do umowy",
-                                            "name": "actualContributionAgreementAnnexTotalAll",
-                                            "value": 0,
-                                            "unit": "PLN",
-                                            "validators": [
-                                                {
-                                                    "name": "RangeValidator",
-                                                    "kwargs": {
-                                                        "min": 0
-                                                    },
-                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                },
-                                                {
-                                                    "name": "RelatedSumValidator",
-                                                    "kwargs": {
-                                                        "field_names": [
-                                                            "actualContributionAgreementAnnexTotalLeadProducer",
-                                                            "actualContributionAgreementAnnexTotalCoproducerTotal",
-                                                            *[f"actualContributionAgreementAnnexTotal{name['name'][0].title()}{name['name'][1:]}" for name in world_wide_sale_list],
-                                                            "actualContributionAgreementAnnexPublicAid",
-                                                            "actualContributionAgreementAnnexTotalPisfCashRebate"
-                                                        ]
-                                                    }
-                                                }
-                                            ],
-                                            "dataBDD": "actualContributionAgreementAnnexTotalAll",
-                                            "classList": [
-                                                "no-label"
-                                            ],
-                                            "readOnly": True,
-                                            "calculationRules": [
-                                                {
-                                                    "name": "sumInputs",
-                                                    "kwargs": {
-                                                        "fields": [
-                                                            "actualContributionAgreementAnnexTotalLeadProducer",
-                                                            "actualContributionAgreementAnnexTotalCoproducerTotal",
-                                                            *[f"actualContributionAgreementAnnexTotal{name['name'][0].title()}{name['name'][1:]}" for name in world_wide_sale_list],
-                                                            "actualContributionAgreementAnnexPublicAid",
-                                                            "actualContributionAgreementAnnexTotalPisfCashRebate"
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "kind": "component",
-                                            "type": "text",
-                                            "mask": "fund",
-                                            "label": "Wynikowa struktura finansowania w PLN",
-                                            "name": "resultingFinancialStructurePLNTotalAll",
-                                            "value": 0,
-                                            "unit": "PLN",
-                                            "validators": [
-                                                {
-                                                    "name": "RangeValidator",
-                                                    "kwargs": {
-                                                        "min": 0
-                                                    },
-                                                    "validationMsg": "Wartość musi być większa lub równa zero."
-                                                },
-                                                {
-                                                    "name": "RelatedSumValidator",
-                                                    "kwargs": {
-                                                        "field_names": [
-                                                            "resultingFinancialStructurePLNTotalLeadProducer",
-                                                            "resultingFinancialStructurePLNTotalCoproducerTotal",
-                                                            *[f"resultingFinancialStructurePLNTotal{name['name'][0].title()}{name['name'][1:]}" for name in world_wide_sale_list],
-                                                            "resultingFinancialStructurePLNPublicAid",
-                                                            "resultingFinancialStructurePLNTotalPisfCashRebate"
-                                                        ]
-                                                    }
-                                                }
-                                            ],
-                                            "dataBDD": "resultingFinancialStructurePLNTotalAll",
-                                            "classList": [
-                                                "no-label"
-                                            ],
-                                            "readOnly": True,
-                                            "calculationRules": [
-                                                {
-                                                    "name": "sumInputs",
-                                                    "kwargs": {
-                                                        "fields": [
-                                                            "resultingFinancialStructurePLNTotalLeadProducer",
-                                                            "resultingFinancialStructurePLNTotalCoproducerTotal",
-                                                            *[f"resultingFinancialStructurePLNTotal{name['name'][0].title()}{name['name'][1:]}" for name in world_wide_sale_list],
-                                                            "resultingFinancialStructurePLNPublicAid",
-                                                            "resultingFinancialStructurePLNTotalPisfCashRebate"
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        }
+                            components=[
+                                self.create_component(
+                                    component_type="text",
+                                    mask="fund",
+                                    name="resultingFinancialStructurePLNPublicAidUeEfta",
+                                    read_only=True,
+                                    calculation_rules=[
+                                        self.calculation_rule.sum_invoice_costs(
+                                            sum_field="resultingFinancialStructurePLNPublicAid",
+                                            condition={
+                                                "field": "isPublicAidNameUeEfta",
+                                                "equal": "Tak"
+                                            }
+                                        )
+                                    ],
+                                    class_list=[
+                                        "displayNonePDF"
                                     ]
-                                }
+                                )
                             ]
-                        },
+                        ),
                         {
                             "kind": "chapter",
                             "title": "PODSUMOWANIE",
@@ -8115,7 +7953,12 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             "name": "RelatedSumValidator",
                                             "kwargs": {
                                                 "field_names": [
-                                                    "productionBudgetTotal"
+                                                    "productionBudgetTotal",
+                                                    "resultingFinancialStructurePLNTotalLeadProducer",
+                                                    "resultingFinancialStructurePLNTotalCoproducerTotal",
+                                                    *[f"resultingFinancialStructurePLNTotal{name['name'][0].title()}{name['name'][1:]}" for name in world_wide_sale_list],
+                                                    "resultingFinancialStructurePLNPublicAid",
+                                                    "resultingFinancialStructurePLNTotalPisfCashRebate"
                                                 ]
                                             },
                                             "validationMsg": "Wyliczona kwota jest niezgodna z punktem pierwszym zakładki \"V. Wyliczenie kwoty wsparcia\". Zweryfikuj poprawność przedstawionych danych."
@@ -8127,10 +7970,16 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                     ],
                                     "readOnly": True,
                                     "calculationRules": [
-                                        {
-                                            "name": "copyValue",
-                                            "from": "resultingFinancialStructurePLNTotalAll"
-                                        }
+                                        self.calculation_rule.dynamic_sum_inputs(
+                                            fields=[
+                                                "productionBudgetTotal",
+                                                "resultingFinancialStructurePLNTotalLeadProducer",
+                                                "resultingFinancialStructurePLNTotalCoproducerTotal",
+                                                *[f"resultingFinancialStructurePLNTotal{name['name'][0].title()}{name['name'][1:]}" for name in world_wide_sale_list],
+                                                "resultingFinancialStructurePLNPublicAid",
+                                                "resultingFinancialStructurePLNTotalPisfCashRebate"
+                                            ]
+                                        )
                                     ]
                                 },
                                 {
@@ -8181,7 +8030,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                     "type": "header",
                                     "label": "Label",
                                     "name": "headerComponent-publicAidUeEftaSupport",
-                                    "value": "Pomoc publiczna UE i krajów EFTA wraz z kwotą wsparcia",
+                                    "value": "Pomoc publiczna wraz z kwotą wsparcia",
                                     "dataBDD": "header-component-publicAidUeEftaSupport",
                                     "classList": [
                                         "col-span-3",
@@ -8192,7 +8041,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                     "kind": "component",
                                     "type": "text",
                                     "mask": "fund",
-                                    "label": "Pomoc publiczna UE i krajów EFTA wraz z kwotą wsparcia",
+                                    "label": "Pomoc publiczna wraz z kwotą wsparcia",
                                     "name": "publicAidUeEftaSupport",
                                     "value": 0,
                                     "validators": [
@@ -8207,7 +8056,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             "name": "RelatedSumValidator",
                                             "kwargs": {
                                                 "field_names": [
-                                                    # "resultingFinancialStructurePLNTotalPublicAidUeEfta",
+                                                    "resultingFinancialStructurePLNPublicAidUeEfta",
                                                     "resultingFinancialStructurePLNTotalPisfCashRebate"
                                                 ]
                                             }
@@ -8223,7 +8072,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             "name": "sumInputs",
                                             "kwargs": {
                                                 "fields": [
-                                                    # "resultingFinancialStructurePLNTotalPublicAidUeEfta",
+                                                    "resultingFinancialStructurePLNPublicAidUeEfta",
                                                     "resultingFinancialStructurePLNTotalPisfCashRebate"
                                                 ]
                                             }
@@ -8235,7 +8084,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                     "type": "header",
                                     "label": "Label",
                                     "name": "headerComponent-publicAidUeEftaSupportShare",
-                                    "value": "Udział pomocy publicznej UE i krajów EFTA wraz z kwotą wsparcia w całkowitym budżecie utworu",
+                                    "value": "Udział pomocy publicznej wraz z kwotą wsparcia w całkowitym budżecie utworu",
                                     "dataBDD": "header-component-publicAidUeEftaSupportShare",
                                     "classList": [
                                         "col-span-3",
@@ -8246,7 +8095,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                     "kind": "component",
                                     "type": "text",
                                     "mask": "fund",
-                                    "label": "Udział pomocy publicznej UE i krajów EFTA wraz z kwotą wsparcia w całkowitym budżecie utworu",
+                                    "label": "Udział pomocy publicznej wraz z kwotą wsparcia w całkowitym budżecie utworu",
                                     "name": "publicAidUeEftaSupportShare",
                                     "value": 0,
                                     "validators": [
@@ -8274,7 +8123,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                     "type": "header",
                                     "label": "Label",
                                     "name": "headerComponent-publicAidWorldSupport",
-                                    "value": "Środki publiczne (Świat) wraz z kwotą wsparcia",
+                                    "value": "Środki publiczne wraz z kwotą wsparcia",
                                     "dataBDD": "header-component-publicAidWorldSupport",
                                     "classList": [
                                         "col-span-3",
@@ -8285,7 +8134,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                     "kind": "component",
                                     "type": "text",
                                     "mask": "fund",
-                                    "label": "Środki publiczne (Świat) wraz z kwotą wsparcia",
+                                    "label": "Środki publiczne wraz z kwotą wsparcia",
                                     "name": "publicAidWorldSupport",
                                     "value": 0,
                                     "validators": [
@@ -8300,9 +8149,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             "name": "RelatedSumValidator",
                                             "kwargs": {
                                                 "field_names": [
-                                                    "resultingFinancialStructurePLNTotalPublicAidUeEfta",
+                                                    "resultingFinancialStructurePLNPublicAid",
                                                     "resultingFinancialStructurePLNTotalPisfCashRebate",
-                                                    "resultingFinancialStructurePLNTotalPublicAidNoUeEfta"
                                                 ]
                                             }
                                         }
@@ -8317,9 +8165,8 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                             "name": "sumInputs",
                                             "kwargs": {
                                                 "fields": [
-                                                    "resultingFinancialStructurePLNTotalPublicAidUeEfta",
+                                                    "resultingFinancialStructurePLNPublicAid",
                                                     "resultingFinancialStructurePLNTotalPisfCashRebate",
-                                                    "resultingFinancialStructurePLNTotalPublicAidNoUeEfta"
                                                 ]
                                             }
                                         }
@@ -8330,7 +8177,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                     "type": "header",
                                     "label": "Label",
                                     "name": "headerComponent-publicAidWorldSupportShare",
-                                    "value": "Udział środków publicznych (Świat) wraz z kwotą wsparcia w całkowitym budżecie utworu",
+                                    "value": "Udział środków publicznych wraz z kwotą wsparcia w całkowitym budżecie utworu",
                                     "dataBDD": "header-component-publicAidWorldSupportShare",
                                     "classList": [
                                         "col-span-3",
@@ -8341,7 +8188,7 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                                     "kind": "component",
                                     "type": "text",
                                     "mask": "fund",
-                                    "label": "Udział środków publicznych (Świat) wraz z kwotą wsparcia w całkowitym budżecie utworu",
+                                    "label": "Udział środków publicznych wraz z kwotą wsparcia w całkowitym budżecie utworu",
                                     "name": "publicAidWorldSupportShare",
                                     "value": 0,
                                     "validators": [
