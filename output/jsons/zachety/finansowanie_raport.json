@@ -20766,29 +20766,18 @@
             {
               "kind": "chapter",
               "title": "<p align=\"left\">1. Reżyser</p>",
-              "classList": {
-                "main": [
-                  "grid-span-4",
-                  "grid-3-1"
-                ]
-              },
               "components": [
                 {
                   "kind": "chapter",
                   "title": "",
-                  "classList": [
-                    "grid",
-                    "grid-cols-4",
-                    "no-title"
-                  ],
                   "components": [
                     {
                       "kind": "component",
                       "type": "header",
-                      "label": "Label",
+                      "label": "",
                       "name": "headerComponent-pointsPartIii1",
+                      "dataBDD": "headerComponent-pointsPartIii1",
                       "value": "Punkty",
-                      "dataBDD": "header-component-pointsPartIii1",
                       "classList": [
                         "displayNoneFrontend"
                       ]
@@ -20821,18 +20810,24 @@
                         "text-left"
                       ]
                     }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-4",
+                    "no-title"
                   ]
                 }
-              ]
+              ],
+              "classList": {
+                "main": [
+                  "grid-span-4",
+                  "grid-3-1"
+                ]
+              }
             },
             {
               "kind": "chapter",
               "title": "",
-              "isMultipleForms": true,
-              "multipleFormsRules": {
-                "minCount": 1,
-                "maxCount": 10
-              },
               "components": [
                 {
                   "kind": "chapter",
@@ -20841,16 +20836,6 @@
                     {
                       "kind": "chapter",
                       "title": "",
-                      "classList": {
-                        "main": [
-                          "table-1-2",
-                          "grid",
-                          "grid-cols-6"
-                        ],
-                        "sub": [
-                          "table-1-2__col"
-                        ]
-                      },
                       "components": [
                         {
                           "kind": "component",
@@ -20861,7 +20846,8 @@
                           "dataBDD": "header-component-qtDirectorFirstName",
                           "classList": [
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Imię"
                         },
                         {
                           "kind": "component",
@@ -20869,12 +20855,13 @@
                           "label": "Imię",
                           "name": "qtDirectorFirstName",
                           "value": "",
-                          "dataBDD": "qt-director-first-name",
+                          "dataBDD": "qt-Director-first-name",
                           "classList": [
                             "no-label",
                             "col-span-2",
                             "text-left"
-                          ]
+                          ],
+                          "defaultValue": ""
                         },
                         {
                           "kind": "component",
@@ -20885,7 +20872,8 @@
                           "dataBDD": "header-component-qtDirectorLastName",
                           "classList": [
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Nazwisko"
                         },
                         {
                           "kind": "component",
@@ -20893,22 +20881,29 @@
                           "label": "Nazwisko",
                           "name": "qtDirectorLastName",
                           "value": "",
-                          "dataBDD": "qt-director-last-name",
+                          "dataBDD": "qt-Director-last-name",
                           "classList": [
                             "no-label",
                             "col-span-2",
                             "text-left"
-                          ]
+                          ],
+                          "defaultValue": ""
                         }
-                      ]
+                      ],
+                      "classList": {
+                        "main": [
+                          "table-1-2",
+                          "grid",
+                          "grid-cols-6"
+                        ],
+                        "sub": [
+                          "table-1-2__col"
+                        ]
+                      }
                     },
                     {
                       "kind": "chapter",
                       "title": "",
-                      "classList": [
-                        "grid",
-                        "grid-cols-10"
-                      ],
                       "components": [
                         {
                           "kind": "component",
@@ -20928,11 +20923,12 @@
                               }
                             }
                           ],
-                          "dataBDD": "qt-director-is-polish-citizen",
+                          "dataBDD": "qtDirectorIsPolishCitizen",
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
@@ -20945,7 +20941,8 @@
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Obywatelstwo polskie"
                         },
                         {
                           "kind": "component",
@@ -20965,11 +20962,12 @@
                               }
                             }
                           ],
-                          "dataBDD": "qt-director-is-eu-efta-citizen",
+                          "dataBDD": "qtDirectorIsEuEftaCitizen",
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
@@ -20982,7 +20980,8 @@
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym"
                         },
                         {
                           "kind": "component",
@@ -21002,11 +21001,12 @@
                               }
                             }
                           ],
-                          "dataBDD": "qt-director-is-award-laureate",
+                          "dataBDD": "qt-Director-is-award-laureate",
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
@@ -21019,7 +21019,8 @@
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej"
                         },
                         {
                           "kind": "component",
@@ -21039,11 +21040,12 @@
                               }
                             }
                           ],
-                          "dataBDD": "qt-director-none-above",
+                          "dataBDD": "qt-Director-none-above",
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
@@ -21056,13 +21058,24 @@
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Żadne z powyższych"
                         }
+                      ],
+                      "classList": [
+                        "grid",
+                        "grid-cols-10"
                       ]
                     }
                   ]
                 }
-              ]
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 10
+              },
+              "isPaginated": false
             }
           ]
         },
@@ -21073,29 +21086,18 @@
             {
               "kind": "chapter",
               "title": "<p align=\"left\">2. Scenarzysta</p>",
-              "classList": {
-                "main": [
-                  "grid-span-4",
-                  "grid-3-1"
-                ]
-              },
               "components": [
                 {
                   "kind": "chapter",
                   "title": "",
-                  "classList": [
-                    "grid",
-                    "grid-cols-4",
-                    "no-title"
-                  ],
                   "components": [
                     {
                       "kind": "component",
                       "type": "header",
-                      "label": "Label",
+                      "label": "",
                       "name": "headerComponent-pointsPartIii2",
+                      "dataBDD": "headerComponent-pointsPartIii2",
                       "value": "Punkty",
-                      "dataBDD": "header-component-pointsPartIii2",
                       "classList": [
                         "displayNoneFrontend"
                       ]
@@ -21128,18 +21130,24 @@
                         "text-left"
                       ]
                     }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-4",
+                    "no-title"
                   ]
                 }
-              ]
+              ],
+              "classList": {
+                "main": [
+                  "grid-span-4",
+                  "grid-3-1"
+                ]
+              }
             },
             {
               "kind": "chapter",
               "title": "",
-              "isMultipleForms": true,
-              "multipleFormsRules": {
-                "minCount": 1,
-                "maxCount": 10
-              },
               "components": [
                 {
                   "kind": "chapter",
@@ -21148,16 +21156,6 @@
                     {
                       "kind": "chapter",
                       "title": "",
-                      "classList": {
-                        "main": [
-                          "table-1-2",
-                          "grid",
-                          "grid-cols-6"
-                        ],
-                        "sub": [
-                          "table-1-2__col"
-                        ]
-                      },
                       "components": [
                         {
                           "kind": "component",
@@ -21168,7 +21166,8 @@
                           "dataBDD": "header-component-qtScreenwriterFirstName",
                           "classList": [
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Imię"
                         },
                         {
                           "kind": "component",
@@ -21181,7 +21180,8 @@
                             "no-label",
                             "col-span-2",
                             "text-left"
-                          ]
+                          ],
+                          "defaultValue": ""
                         },
                         {
                           "kind": "component",
@@ -21192,7 +21192,8 @@
                           "dataBDD": "header-component-qtScreenwriterLastName",
                           "classList": [
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Nazwisko"
                         },
                         {
                           "kind": "component",
@@ -21205,17 +21206,24 @@
                             "no-label",
                             "col-span-2",
                             "text-left"
-                          ]
+                          ],
+                          "defaultValue": ""
                         }
-                      ]
+                      ],
+                      "classList": {
+                        "main": [
+                          "table-1-2",
+                          "grid",
+                          "grid-cols-6"
+                        ],
+                        "sub": [
+                          "table-1-2__col"
+                        ]
+                      }
                     },
                     {
                       "kind": "chapter",
                       "title": "",
-                      "classList": [
-                        "grid",
-                        "grid-cols-10"
-                      ],
                       "components": [
                         {
                           "kind": "component",
@@ -21235,11 +21243,12 @@
                               }
                             }
                           ],
-                          "dataBDD": "qt-Screenwriter-is-polish-citizen",
+                          "dataBDD": "qtScreenwriterIsPolishCitizen",
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
@@ -21252,7 +21261,8 @@
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Obywatelstwo polskie"
                         },
                         {
                           "kind": "component",
@@ -21272,11 +21282,12 @@
                               }
                             }
                           ],
-                          "dataBDD": "qt-Screenwriter-is-eu-efta-citizen",
+                          "dataBDD": "qtScreenwriterIsEuEftaCitizen",
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
@@ -21289,7 +21300,8 @@
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym"
                         },
                         {
                           "kind": "component",
@@ -21313,7 +21325,8 @@
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
@@ -21326,7 +21339,8 @@
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej"
                         },
                         {
                           "kind": "component",
@@ -21350,7 +21364,8 @@
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
@@ -21363,13 +21378,24 @@
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Żadne z powyższych"
                         }
+                      ],
+                      "classList": [
+                        "grid",
+                        "grid-cols-10"
                       ]
                     }
                   ]
                 }
-              ]
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 10
+              },
+              "isPaginated": false
             }
           ]
         },
@@ -21380,29 +21406,18 @@
             {
               "kind": "chapter",
               "title": "<p align=\"left\">3. Operator obrazu</p>",
-              "classList": {
-                "main": [
-                  "grid-span-4",
-                  "grid-3-1"
-                ]
-              },
               "components": [
                 {
                   "kind": "chapter",
                   "title": "",
-                  "classList": [
-                    "grid",
-                    "grid-cols-4",
-                    "no-title"
-                  ],
                   "components": [
                     {
                       "kind": "component",
                       "type": "header",
-                      "label": "Label",
+                      "label": "",
                       "name": "headerComponent-pointsPartIii3",
+                      "dataBDD": "headerComponent-pointsPartIii3",
                       "value": "Punkty",
-                      "dataBDD": "header-component-pointsPartIii3",
                       "classList": [
                         "displayNoneFrontend"
                       ]
@@ -21435,18 +21450,59 @@
                         "text-left"
                       ]
                     }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-4",
+                    "no-title"
                   ]
                 }
+              ],
+              "classList": {
+                "main": [
+                  "grid-span-4",
+                  "grid-3-1"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Operator obrazu nie występuje",
+                  "name": "qtDirectorofphotographyNotPresent",
+                  "value": false,
+                  "dataBDD": "qt-Directorofphotography-not-present",
+                  "classList": [
+                    "no-label",
+                    "text-center"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "Label",
+                  "name": "headerComponent-qtDirectorofphotographyNotPresent",
+                  "value": "Operator obrazu nie występuje",
+                  "dataBDD": "header-component-qtDirectorofphotographyNotPresent",
+                  "classList": [
+                    "col-span-9",
+                    "text-left",
+                    "displayNoneFrontend"
+                  ]
+                }
+              ],
+              "classList": [
+                "grid",
+                "grid-cols-10"
               ]
             },
             {
               "kind": "chapter",
               "title": "",
-              "isMultipleForms": true,
-              "multipleFormsRules": {
-                "minCount": 1,
-                "maxCount": 10
-              },
               "components": [
                 {
                   "kind": "chapter",
@@ -21455,6 +21511,60 @@
                     {
                       "kind": "chapter",
                       "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "header",
+                          "label": "Label",
+                          "name": "headerComponent-qtDirectorofphotographyFirstName",
+                          "value": "Imię",
+                          "dataBDD": "header-component-qtDirectorofphotographyFirstName",
+                          "classList": [
+                            "displayNoneFrontend"
+                          ],
+                          "defaultValue": "Imię"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Imię",
+                          "name": "qtDirectorofphotographyFirstName",
+                          "value": "",
+                          "dataBDD": "qt-Directorofphotography-first-name",
+                          "classList": [
+                            "no-label",
+                            "col-span-2",
+                            "text-left"
+                          ],
+                          "defaultValue": ""
+                        },
+                        {
+                          "kind": "component",
+                          "type": "header",
+                          "label": "Label",
+                          "name": "headerComponent-qtDirectorofphotographyLastName",
+                          "value": "Nazwisko",
+                          "dataBDD": "header-component-qtDirectorofphotographyLastName",
+                          "classList": [
+                            "displayNoneFrontend"
+                          ],
+                          "defaultValue": "Nazwisko"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Nazwisko",
+                          "name": "qtDirectorofphotographyLastName",
+                          "value": "",
+                          "dataBDD": "qt-Directorofphotography-last-name",
+                          "classList": [
+                            "no-label",
+                            "col-span-2",
+                            "text-left"
+                          ],
+                          "defaultValue": ""
+                        }
+                      ],
                       "classList": {
                         "main": [
                           "table-1-2",
@@ -21464,219 +21574,194 @@
                         "sub": [
                           "table-1-2__col"
                         ]
-                      },
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "header",
-                          "label": "Label",
-                          "name": "headerComponent-qtDirectorOfPhotographyFirstName",
-                          "value": "Imię",
-                          "dataBDD": "header-component-qtDirectorOfPhotographyFirstName",
-                          "classList": [
-                            "displayNoneFrontend"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Imię",
-                          "name": "qtDirectorOfPhotographyFirstName",
-                          "value": "",
-                          "dataBDD": "qt-DirectorOfPhotography-first-name",
-                          "classList": [
-                            "no-label",
-                            "col-span-2",
-                            "text-left"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "header",
-                          "label": "Label",
-                          "name": "headerComponent-qtDirectorOfPhotographyLastName",
-                          "value": "Nazwisko",
-                          "dataBDD": "header-component-qtDirectorOfPhotographyLastName",
-                          "classList": [
-                            "displayNoneFrontend"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Nazwisko",
-                          "name": "qtDirectorOfPhotographyLastName",
-                          "value": "",
-                          "dataBDD": "qt-DirectorOfPhotography-last-name",
-                          "classList": [
-                            "no-label",
-                            "col-span-2",
-                            "text-left"
-                          ]
-                        }
-                      ]
+                      }
                     },
                     {
                       "kind": "chapter",
                       "title": "",
-                      "classList": [
-                        "grid",
-                        "grid-cols-10"
-                      ],
                       "components": [
                         {
                           "kind": "component",
                           "type": "checkbox",
                           "label": "Obywatelstwo polskie",
-                          "name": "qtDirectorOfPhotographyIsPolishCitizen",
+                          "name": "qtDirectorofphotographyIsPolishCitizen",
                           "value": false,
                           "validators": [
                             {
                               "name": "RelatedAnyOfValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "qtDirectorOfPhotographyNoneAbove",
-                                  "qtDirectorOfPhotographyIsEuEftaCitizen",
-                                  "qtDirectorOfPhotographyIsAwardLaureate"
+                                  "qtDirectorofphotographyNoneAbove",
+                                  "qtDirectorofphotographyIsEuEftaCitizen",
+                                  "qtDirectorofphotographyIsAwardLaureate"
                                 ]
                               }
                             }
                           ],
-                          "dataBDD": "qt-DirectorOfPhotography-is-polish-citizen",
+                          "dataBDD": "qtDirectorofphotographyIsPolishCitizen",
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
                           "type": "header",
                           "label": "Label",
-                          "name": "headerComponent-qtDirectorOfPhotographyIsPolishCitizen",
+                          "name": "headerComponent-qtDirectorofphotographyIsPolishCitizen",
                           "value": "Obywatelstwo polskie",
-                          "dataBDD": "header-component-qtDirectorOfPhotographyIsPolishCitizen",
+                          "dataBDD": "header-component-qtDirectorofphotographyIsPolishCitizen",
                           "classList": [
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Obywatelstwo polskie"
                         },
                         {
                           "kind": "component",
                           "type": "checkbox",
                           "label": "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym",
-                          "name": "qtDirectorOfPhotographyIsEuEftaCitizen",
+                          "name": "qtDirectorofphotographyIsEuEftaCitizen",
                           "value": false,
                           "validators": [
                             {
                               "name": "RelatedAnyOfValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "qtDirectorOfPhotographyIsPolishCitizen",
-                                  "qtDirectorOfPhotographyNoneAbove",
-                                  "qtDirectorOfPhotographyIsAwardLaureate"
+                                  "qtDirectorofphotographyIsPolishCitizen",
+                                  "qtDirectorofphotographyNoneAbove",
+                                  "qtDirectorofphotographyIsAwardLaureate"
                                 ]
                               }
                             }
                           ],
-                          "dataBDD": "qt-DirectorOfPhotography-is-eu-efta-citizen",
+                          "dataBDD": "qtDirectorofphotographyIsEuEftaCitizen",
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
                           "type": "header",
                           "label": "Label",
-                          "name": "headerComponent-qtDirectorOfPhotographyIsEuEftaCitizen",
+                          "name": "headerComponent-qtDirectorofphotographyIsEuEftaCitizen",
                           "value": "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym",
-                          "dataBDD": "header-component-qtDirectorOfPhotographyIsEuEftaCitizen",
+                          "dataBDD": "header-component-qtDirectorofphotographyIsEuEftaCitizen",
                           "classList": [
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym"
                         },
                         {
                           "kind": "component",
                           "type": "checkbox",
                           "label": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej",
-                          "name": "qtDirectorOfPhotographyIsAwardLaureate",
+                          "name": "qtDirectorofphotographyIsAwardLaureate",
                           "value": false,
                           "validators": [
                             {
                               "name": "RelatedAnyOfValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "qtDirectorOfPhotographyIsPolishCitizen",
-                                  "qtDirectorOfPhotographyIsEuEftaCitizen",
-                                  "qtDirectorOfPhotographyNoneAbove"
+                                  "qtDirectorofphotographyIsPolishCitizen",
+                                  "qtDirectorofphotographyIsEuEftaCitizen",
+                                  "qtDirectorofphotographyNoneAbove"
                                 ]
                               }
                             }
                           ],
-                          "dataBDD": "qt-DirectorOfPhotography-is-award-laureate",
+                          "dataBDD": "qt-Directorofphotography-is-award-laureate",
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
                           "type": "header",
                           "label": "Label",
-                          "name": "headerComponent-qtDirectorOfPhotographyIsAwardLaureate",
+                          "name": "headerComponent-qtDirectorofphotographyIsAwardLaureate",
                           "value": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej",
-                          "dataBDD": "header-component-qtDirectorOfPhotographyIsAwardLaureate",
+                          "dataBDD": "header-component-qtDirectorofphotographyIsAwardLaureate",
                           "classList": [
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej"
                         },
                         {
                           "kind": "component",
                           "type": "checkbox",
                           "label": "Żadne z powyższych",
-                          "name": "qtDirectorOfPhotographyNoneAbove",
+                          "name": "qtDirectorofphotographyNoneAbove",
                           "value": false,
                           "validators": [
                             {
                               "name": "RelatedAnyOfValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "qtDirectorOfPhotographyIsPolishCitizen",
-                                  "qtDirectorOfPhotographyIsEuEftaCitizen",
-                                  "qtDirectorOfPhotographyIsAwardLaureate"
+                                  "qtDirectorofphotographyIsPolishCitizen",
+                                  "qtDirectorofphotographyIsEuEftaCitizen",
+                                  "qtDirectorofphotographyIsAwardLaureate"
                                 ]
                               }
                             }
                           ],
-                          "dataBDD": "qt-DirectorOfPhotography-none-above",
+                          "dataBDD": "qt-Directorofphotography-none-above",
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
                           "type": "header",
                           "label": "Label",
-                          "name": "headerComponent-qtDirectorOfPhotographyNoneAbove",
+                          "name": "headerComponent-qtDirectorofphotographyNoneAbove",
                           "value": "Żadne z powyższych",
-                          "dataBDD": "header-component-qtDirectorOfPhotographyNoneAbove",
+                          "dataBDD": "header-component-qtDirectorofphotographyNoneAbove",
                           "classList": [
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Żadne z powyższych"
                         }
+                      ],
+                      "classList": [
+                        "grid",
+                        "grid-cols-10"
                       ]
                     }
                   ]
                 }
-              ]
+              ],
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "qtDirectorofphotographyNotPresent",
+                    "values": [
+                      false
+                    ]
+                  }
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 10
+              },
+              "isPaginated": false
             }
           ]
         },
@@ -21687,29 +21772,18 @@
             {
               "kind": "chapter",
               "title": "<p align=\"left\">4. Główny animator</p>",
-              "classList": {
-                "main": [
-                  "grid-span-4",
-                  "grid-3-1"
-                ]
-              },
               "components": [
                 {
                   "kind": "chapter",
                   "title": "",
-                  "classList": [
-                    "grid",
-                    "grid-cols-4",
-                    "no-title"
-                  ],
                   "components": [
                     {
                       "kind": "component",
                       "type": "header",
-                      "label": "Label",
+                      "label": "",
                       "name": "headerComponent-pointsPartIii4",
+                      "dataBDD": "headerComponent-pointsPartIii4",
                       "value": "Punkty",
-                      "dataBDD": "header-component-pointsPartIii4",
                       "classList": [
                         "displayNoneFrontend"
                       ]
@@ -21742,18 +21816,59 @@
                         "text-left"
                       ]
                     }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-4",
+                    "no-title"
                   ]
                 }
+              ],
+              "classList": {
+                "main": [
+                  "grid-span-4",
+                  "grid-3-1"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Główny animator nie występuje",
+                  "name": "qtLeadanimatorNotPresent",
+                  "value": false,
+                  "dataBDD": "qt-Leadanimator-not-present",
+                  "classList": [
+                    "no-label",
+                    "text-center"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "Label",
+                  "name": "headerComponent-qtLeadanimatorNotPresent",
+                  "value": "Główny animator nie występuje",
+                  "dataBDD": "header-component-qtLeadanimatorNotPresent",
+                  "classList": [
+                    "col-span-9",
+                    "text-left",
+                    "displayNoneFrontend"
+                  ]
+                }
+              ],
+              "classList": [
+                "grid",
+                "grid-cols-10"
               ]
             },
             {
               "kind": "chapter",
               "title": "",
-              "isMultipleForms": true,
-              "multipleFormsRules": {
-                "minCount": 1,
-                "maxCount": 10
-              },
               "components": [
                 {
                   "kind": "chapter",
@@ -21762,6 +21877,60 @@
                     {
                       "kind": "chapter",
                       "title": "",
+                      "components": [
+                        {
+                          "kind": "component",
+                          "type": "header",
+                          "label": "Label",
+                          "name": "headerComponent-qtLeadanimatorFirstName",
+                          "value": "Imię",
+                          "dataBDD": "header-component-qtLeadanimatorFirstName",
+                          "classList": [
+                            "displayNoneFrontend"
+                          ],
+                          "defaultValue": "Imię"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Imię",
+                          "name": "qtLeadanimatorFirstName",
+                          "value": "",
+                          "dataBDD": "qt-Leadanimator-first-name",
+                          "classList": [
+                            "no-label",
+                            "col-span-2",
+                            "text-left"
+                          ],
+                          "defaultValue": ""
+                        },
+                        {
+                          "kind": "component",
+                          "type": "header",
+                          "label": "Label",
+                          "name": "headerComponent-qtLeadanimatorLastName",
+                          "value": "Nazwisko",
+                          "dataBDD": "header-component-qtLeadanimatorLastName",
+                          "classList": [
+                            "displayNoneFrontend"
+                          ],
+                          "defaultValue": "Nazwisko"
+                        },
+                        {
+                          "kind": "component",
+                          "type": "text",
+                          "label": "Nazwisko",
+                          "name": "qtLeadanimatorLastName",
+                          "value": "",
+                          "dataBDD": "qt-Leadanimator-last-name",
+                          "classList": [
+                            "no-label",
+                            "col-span-2",
+                            "text-left"
+                          ],
+                          "defaultValue": ""
+                        }
+                      ],
                       "classList": {
                         "main": [
                           "table-1-2",
@@ -21771,219 +21940,194 @@
                         "sub": [
                           "table-1-2__col"
                         ]
-                      },
-                      "components": [
-                        {
-                          "kind": "component",
-                          "type": "header",
-                          "label": "Label",
-                          "name": "headerComponent-qtLeadAnimatorFirstName",
-                          "value": "Imię",
-                          "dataBDD": "header-component-qtLeadAnimatorFirstName",
-                          "classList": [
-                            "displayNoneFrontend"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Imię",
-                          "name": "qtLeadAnimatorFirstName",
-                          "value": "",
-                          "dataBDD": "qt-LeadAnimator-first-name",
-                          "classList": [
-                            "no-label",
-                            "col-span-2",
-                            "text-left"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "header",
-                          "label": "Label",
-                          "name": "headerComponent-qtLeadAnimatorLastName",
-                          "value": "Nazwisko",
-                          "dataBDD": "header-component-qtLeadAnimatorLastName",
-                          "classList": [
-                            "displayNoneFrontend"
-                          ]
-                        },
-                        {
-                          "kind": "component",
-                          "type": "text",
-                          "label": "Nazwisko",
-                          "name": "qtLeadAnimatorLastName",
-                          "value": "",
-                          "dataBDD": "qt-LeadAnimator-last-name",
-                          "classList": [
-                            "no-label",
-                            "col-span-2",
-                            "text-left"
-                          ]
-                        }
-                      ]
+                      }
                     },
                     {
                       "kind": "chapter",
                       "title": "",
-                      "classList": [
-                        "grid",
-                        "grid-cols-10"
-                      ],
                       "components": [
                         {
                           "kind": "component",
                           "type": "checkbox",
                           "label": "Obywatelstwo polskie",
-                          "name": "qtLeadAnimatorIsPolishCitizen",
+                          "name": "qtLeadanimatorIsPolishCitizen",
                           "value": false,
                           "validators": [
                             {
                               "name": "RelatedAnyOfValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "qtLeadAnimatorNoneAbove",
-                                  "qtLeadAnimatorIsEuEftaCitizen",
-                                  "qtLeadAnimatorIsAwardLaureate"
+                                  "qtLeadanimatorNoneAbove",
+                                  "qtLeadanimatorIsEuEftaCitizen",
+                                  "qtLeadanimatorIsAwardLaureate"
                                 ]
                               }
                             }
                           ],
-                          "dataBDD": "qt-LeadAnimator-is-polish-citizen",
+                          "dataBDD": "qtLeadanimatorIsPolishCitizen",
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
                           "type": "header",
                           "label": "Label",
-                          "name": "headerComponent-qtLeadAnimatorIsPolishCitizen",
+                          "name": "headerComponent-qtLeadanimatorIsPolishCitizen",
                           "value": "Obywatelstwo polskie",
-                          "dataBDD": "header-component-qtLeadAnimatorIsPolishCitizen",
+                          "dataBDD": "header-component-qtLeadanimatorIsPolishCitizen",
                           "classList": [
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Obywatelstwo polskie"
                         },
                         {
                           "kind": "component",
                           "type": "checkbox",
                           "label": "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym",
-                          "name": "qtLeadAnimatorIsEuEftaCitizen",
+                          "name": "qtLeadanimatorIsEuEftaCitizen",
                           "value": false,
                           "validators": [
                             {
                               "name": "RelatedAnyOfValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "qtLeadAnimatorIsPolishCitizen",
-                                  "qtLeadAnimatorNoneAbove",
-                                  "qtLeadAnimatorIsAwardLaureate"
+                                  "qtLeadanimatorIsPolishCitizen",
+                                  "qtLeadanimatorNoneAbove",
+                                  "qtLeadanimatorIsAwardLaureate"
                                 ]
                               }
                             }
                           ],
-                          "dataBDD": "qt-LeadAnimator-is-eu-efta-citizen",
+                          "dataBDD": "qtLeadanimatorIsEuEftaCitizen",
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
                           "type": "header",
                           "label": "Label",
-                          "name": "headerComponent-qtLeadAnimatorIsEuEftaCitizen",
+                          "name": "headerComponent-qtLeadanimatorIsEuEftaCitizen",
                           "value": "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym",
-                          "dataBDD": "header-component-qtLeadAnimatorIsEuEftaCitizen",
+                          "dataBDD": "header-component-qtLeadanimatorIsEuEftaCitizen",
                           "classList": [
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym"
                         },
                         {
                           "kind": "component",
                           "type": "checkbox",
                           "label": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej",
-                          "name": "qtLeadAnimatorIsAwardLaureate",
+                          "name": "qtLeadanimatorIsAwardLaureate",
                           "value": false,
                           "validators": [
                             {
                               "name": "RelatedAnyOfValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "qtLeadAnimatorIsPolishCitizen",
-                                  "qtLeadAnimatorIsEuEftaCitizen",
-                                  "qtLeadAnimatorNoneAbove"
+                                  "qtLeadanimatorIsPolishCitizen",
+                                  "qtLeadanimatorIsEuEftaCitizen",
+                                  "qtLeadanimatorNoneAbove"
                                 ]
                               }
                             }
                           ],
-                          "dataBDD": "qt-LeadAnimator-is-award-laureate",
+                          "dataBDD": "qt-Leadanimator-is-award-laureate",
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
                           "type": "header",
                           "label": "Label",
-                          "name": "headerComponent-qtLeadAnimatorIsAwardLaureate",
+                          "name": "headerComponent-qtLeadanimatorIsAwardLaureate",
                           "value": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej",
-                          "dataBDD": "header-component-qtLeadAnimatorIsAwardLaureate",
+                          "dataBDD": "header-component-qtLeadanimatorIsAwardLaureate",
                           "classList": [
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej"
                         },
                         {
                           "kind": "component",
                           "type": "checkbox",
                           "label": "Żadne z powyższych",
-                          "name": "qtLeadAnimatorNoneAbove",
+                          "name": "qtLeadanimatorNoneAbove",
                           "value": false,
                           "validators": [
                             {
                               "name": "RelatedAnyOfValidator",
                               "kwargs": {
                                 "field_names": [
-                                  "qtLeadAnimatorIsPolishCitizen",
-                                  "qtLeadAnimatorIsEuEftaCitizen",
-                                  "qtLeadAnimatorIsAwardLaureate"
+                                  "qtLeadanimatorIsPolishCitizen",
+                                  "qtLeadanimatorIsEuEftaCitizen",
+                                  "qtLeadanimatorIsAwardLaureate"
                                 ]
                               }
                             }
                           ],
-                          "dataBDD": "qt-LeadAnimator-none-above",
+                          "dataBDD": "qt-Leadanimator-none-above",
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
                           "type": "header",
                           "label": "Label",
-                          "name": "headerComponent-qtLeadAnimatorNoneAbove",
+                          "name": "headerComponent-qtLeadanimatorNoneAbove",
                           "value": "Żadne z powyższych",
-                          "dataBDD": "header-component-qtLeadAnimatorNoneAbove",
+                          "dataBDD": "header-component-qtLeadanimatorNoneAbove",
                           "classList": [
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Żadne z powyższych"
                         }
+                      ],
+                      "classList": [
+                        "grid",
+                        "grid-cols-10"
                       ]
                     }
                   ]
                 }
-              ]
+              ],
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "qtLeadanimatorNotPresent",
+                    "values": [
+                      false
+                    ]
+                  }
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 10
+              },
+              "isPaginated": false
             }
           ]
         },
@@ -21994,29 +22138,18 @@
             {
               "kind": "chapter",
               "title": "<p align=\"left\">5. Kompozytor muzyki skomponowanej do utworu audiowizualnego</p>",
-              "classList": {
-                "main": [
-                  "grid-span-4",
-                  "grid-3-1"
-                ]
-              },
               "components": [
                 {
                   "kind": "chapter",
                   "title": "",
-                  "classList": [
-                    "grid",
-                    "grid-cols-4",
-                    "no-title"
-                  ],
                   "components": [
                     {
                       "kind": "component",
                       "type": "header",
-                      "label": "Label",
+                      "label": "",
                       "name": "headerComponent-pointsPartIii5",
+                      "dataBDD": "headerComponent-pointsPartIii5",
                       "value": "Punkty",
-                      "dataBDD": "header-component-pointsPartIii5",
                       "classList": [
                         "displayNoneFrontend"
                       ]
@@ -22049,18 +22182,59 @@
                         "text-left"
                       ]
                     }
+                  ],
+                  "classList": [
+                    "grid",
+                    "grid-cols-4",
+                    "no-title"
                   ]
                 }
+              ],
+              "classList": {
+                "main": [
+                  "grid-span-4",
+                  "grid-3-1"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Kompozytor muzyki skomponowanej do utworu audiowizualnego nie występuje",
+                  "name": "qtComposerNotPresent",
+                  "value": false,
+                  "dataBDD": "qt-Composer-not-present",
+                  "classList": [
+                    "no-label",
+                    "text-center"
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "header",
+                  "label": "Label",
+                  "name": "headerComponent-qtComposerNotPresent",
+                  "value": "Kompozytor muzyki skomponowanej do utworu audiowizualnego nie występuje",
+                  "dataBDD": "header-component-qtComposerNotPresent",
+                  "classList": [
+                    "col-span-9",
+                    "text-left",
+                    "displayNoneFrontend"
+                  ]
+                }
+              ],
+              "classList": [
+                "grid",
+                "grid-cols-10"
               ]
             },
             {
               "kind": "chapter",
               "title": "",
-              "isMultipleForms": true,
-              "multipleFormsRules": {
-                "minCount": 1,
-                "maxCount": 10
-              },
               "components": [
                 {
                   "kind": "chapter",
@@ -22069,16 +22243,6 @@
                     {
                       "kind": "chapter",
                       "title": "",
-                      "classList": {
-                        "main": [
-                          "table-1-2",
-                          "grid",
-                          "grid-cols-6"
-                        ],
-                        "sub": [
-                          "table-1-2__col"
-                        ]
-                      },
                       "components": [
                         {
                           "kind": "component",
@@ -22089,7 +22253,8 @@
                           "dataBDD": "header-component-qtComposerFirstName",
                           "classList": [
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Imię"
                         },
                         {
                           "kind": "component",
@@ -22102,7 +22267,8 @@
                             "no-label",
                             "col-span-2",
                             "text-left"
-                          ]
+                          ],
+                          "defaultValue": ""
                         },
                         {
                           "kind": "component",
@@ -22113,7 +22279,8 @@
                           "dataBDD": "header-component-qtComposerLastName",
                           "classList": [
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Nazwisko"
                         },
                         {
                           "kind": "component",
@@ -22126,17 +22293,24 @@
                             "no-label",
                             "col-span-2",
                             "text-left"
-                          ]
+                          ],
+                          "defaultValue": ""
                         }
-                      ]
+                      ],
+                      "classList": {
+                        "main": [
+                          "table-1-2",
+                          "grid",
+                          "grid-cols-6"
+                        ],
+                        "sub": [
+                          "table-1-2__col"
+                        ]
+                      }
                     },
                     {
                       "kind": "chapter",
                       "title": "",
-                      "classList": [
-                        "grid",
-                        "grid-cols-10"
-                      ],
                       "components": [
                         {
                           "kind": "component",
@@ -22156,11 +22330,12 @@
                               }
                             }
                           ],
-                          "dataBDD": "qt-Composer-is-polish-citizen",
+                          "dataBDD": "qtComposerIsPolishCitizen",
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
@@ -22173,7 +22348,8 @@
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Obywatelstwo polskie"
                         },
                         {
                           "kind": "component",
@@ -22193,11 +22369,12 @@
                               }
                             }
                           ],
-                          "dataBDD": "qt-Composer-is-eu-efta-citizen",
+                          "dataBDD": "qtComposerIsEuEftaCitizen",
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
@@ -22210,7 +22387,8 @@
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym"
                         },
                         {
                           "kind": "component",
@@ -22234,7 +22412,8 @@
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
@@ -22247,7 +22426,8 @@
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej"
                         },
                         {
                           "kind": "component",
@@ -22271,7 +22451,8 @@
                           "classList": [
                             "no-label",
                             "text-center"
-                          ]
+                          ],
+                          "defaultValue": false
                         },
                         {
                           "kind": "component",
@@ -22284,13 +22465,35 @@
                             "col-span-9",
                             "text-left",
                             "displayNoneFrontend"
-                          ]
+                          ],
+                          "defaultValue": "Żadne z powyższych"
                         }
+                      ],
+                      "classList": [
+                        "grid",
+                        "grid-cols-10"
                       ]
                     }
                   ]
                 }
-              ]
+              ],
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "qtComposerNotPresent",
+                    "values": [
+                      false
+                    ]
+                  }
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 10
+              },
+              "isPaginated": false
             }
           ]
         },

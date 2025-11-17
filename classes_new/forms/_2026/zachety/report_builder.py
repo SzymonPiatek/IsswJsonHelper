@@ -10245,6 +10245,437 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
         self.save_part(part)
 
     def create_report_qualification_test(self, number: int):
+        part_three_poeple_part_one = [
+            {
+                "number": 1,
+                "title": "Reżyser",
+                "name": "director",
+                "points": True
+            },
+            {
+                "number": 2,
+                "title": "Scenarzysta",
+                "name": "screenwriter",
+                "points": True
+            },
+            {
+                "number": 3,
+                "title": "Operator obrazu",
+                "name": "directorOfPhotography",
+                "canNotExist": True,
+                "points": True
+            },
+            {
+                "number": 4,
+                "title": "Główny animator",
+                "name": "leadAnimator",
+                "canNotExist": True,
+                "points": True
+            },
+            {
+                "number": 5,
+                "title": "Kompozytor muzyki skomponowanej do utworu audiowizualnego",
+                "name": "composer",
+                "canNotExist": True,
+                "points": True
+            }
+        ]
+
+        part_three_poeple_part_two = [
+            {
+                "title": "Montażysta",
+                "name": "editor",
+                "canNotExist": True,
+            },
+            {
+                "title": "Scenograf",
+                "name": "sceneDesigner",
+                "canNotExist": True,
+            },
+            {
+                "title": "Kostiumograf",
+                "name": "costumeDesigner",
+                "canNotExist": True,
+            },
+            {
+                "title": "Charakteryzator",
+                "name": "makeupArtist",
+                "canNotExist": True,
+            },
+            {
+                "title": "Producent wykonawczy",
+                "name": "executiveProducer",
+                "canNotExist": True,
+            },
+            {
+                "title": "Producent postprodukcji lub koordynator efektów specjalnych VFX",
+                "name": "postproductionProducer",
+                "canNotExist": True,
+            },
+            {
+                "title": "Producent postprodukcji lub koordynator efektów specjalnych VFX",
+                "name": "postproductionProducer",
+                "canNotExist": True,
+            },
+            {
+                "title": "Operator dźwięku",
+                "name": "recordingSupervisor",
+                "canNotExist": True,
+            },
+            {
+                "title": "Reżyser dźwięku",
+                "name": "soundDirector",
+                "canNotExist": True,
+            },
+            {
+                "title": "Animator (inny niż główny)",
+                "name": "secondaryAnimator",
+                "canNotExist": True,
+            },
+            {
+                "title": "Autor storyboardu",
+                "name": "storyboardCreator",
+                "canNotExist": True,
+            },
+            {
+                "title": "Autor opracowania plastycznego animacji",
+                "name": "animationDesigner",
+                "canNotExist": True,
+            },
+            {
+                "title": "Twórca layoutów animacji",
+                "name": "animationLayoutDesigner",
+                "canNotExist": True,
+            }
+        ]
+
+        def create_people_part(title, name, can_not_exist, points, number=None):
+            new_title = f"{number}. {title}" if number else title
+            formatted_name = f"{name[0].upper()}{name[1:].lower()}"
+
+            title_chapter = self.create_chapter(
+                title=f"<p align=\"left\">{new_title}</p>",
+                class_list={
+                    "main": [
+                        "grid-span-4",
+                        "grid-3-1"
+                    ]
+                },
+                components=[
+                    self.create_chapter(
+                        class_list=[
+                            "grid",
+                            "grid-cols-4",
+                            "no-title"
+                        ] if points else [],
+                        components=[
+                            self.create_component(
+                                component_type="header",
+                                name=f"pointsPartIii{number}",
+                                value="Punkty",
+                                class_list=[
+                                    "displayNoneFrontend"
+                                ]
+                            ),
+                            self.create_component(
+                                component_type="select",
+                                name=f"pointsPartIii{number}",
+                                label="0 lub 1 punkt",
+                                class_list=[
+                                    "no-label",
+                                    "col-span-3",
+                                    "text-left"
+                                ],
+                                options=["0", "1"]
+                            )
+                        ] if points else []
+                    )
+                ]
+            )
+
+            visibility_chapter = self.create_chapter(
+                class_list=[
+                    "grid",
+                    "grid-cols-10"
+                ],
+                components=[
+                    {
+                        "kind": "component",
+                        "type": "checkbox",
+                        "label": f"{title} nie występuje",
+                        "name": f"qt{formatted_name}NotPresent",
+                        "value": False,
+                        "dataBDD": f"qt-{formatted_name}-not-present",
+                        "classList": [
+                            "no-label",
+                            "text-center"
+                        ]
+                    },
+                    {
+                        "kind": "component",
+                        "type": "header",
+                        "label": "Label",
+                        "name": f"headerComponent-qt{formatted_name}NotPresent",
+                        "value": f"{title} nie występuje",
+                        "dataBDD": f"header-component-qt{formatted_name}NotPresent",
+                        "classList": [
+                            "col-span-9",
+                            "text-left",
+                            "displayNoneFrontend"
+                        ]
+                    }
+                ]
+            )
+
+            multi_chapter = self.create_chapter(
+                multiple_forms_rules={
+                    "minCount": 1,
+                    "maxCount": 10
+                },
+                visibility_rules=[
+                    self.visibility_rule.depends_on_value(
+                        field_name=f"qt{formatted_name}NotPresent",
+                        values=[False]
+                    )
+                ] if can_not_exist else [],
+                components=[
+                    self.create_chapter(
+                        components=[
+                            self.create_chapter(
+                                class_list={
+                                    "main": [
+                                        "table-1-2",
+                                        "grid",
+                                        "grid-cols-6"
+                                    ],
+                                    "sub": [
+                                        "table-1-2__col"
+                                    ]
+                                },
+                                components=[
+                                    {
+                                        "kind": "component",
+                                        "type": "header",
+                                        "label": "Label",
+                                        "name": f"headerComponent-qt{formatted_name}FirstName",
+                                        "value": "Imię",
+                                        "dataBDD": f"header-component-qt{formatted_name}FirstName",
+                                        "classList": [
+                                            "displayNoneFrontend"
+                                        ]
+                                    },
+                                    {
+                                        "kind": "component",
+                                        "type": "text",
+                                        "label": "Imię",
+                                        "name": f"qt{formatted_name}FirstName",
+                                        "value": "",
+                                        "dataBDD": f"qt-{formatted_name}-first-name",
+                                        "classList": [
+                                            "no-label",
+                                            "col-span-2",
+                                            "text-left"
+                                        ]
+                                    },
+                                    {
+                                        "kind": "component",
+                                        "type": "header",
+                                        "label": "Label",
+                                        "name": f"headerComponent-qt{formatted_name}LastName",
+                                        "value": "Nazwisko",
+                                        "dataBDD": f"header-component-qt{formatted_name}LastName",
+                                        "classList": [
+                                            "displayNoneFrontend"
+                                        ]
+                                    },
+                                    {
+                                        "kind": "component",
+                                        "type": "text",
+                                        "label": "Nazwisko",
+                                        "name": f"qt{formatted_name}LastName",
+                                        "value": "",
+                                        "dataBDD": f"qt-{formatted_name}-last-name",
+                                        "classList": [
+                                            "no-label",
+                                            "col-span-2",
+                                            "text-left"
+                                        ]
+                                    }
+                                ]
+                            ),
+                            self.create_chapter(
+                                class_list=[
+                                    "grid",
+                                    "grid-cols-10"
+                                ],
+                                components=[
+                                    {
+                                        "kind": "component",
+                                        "type": "checkbox",
+                                        "label": "Obywatelstwo polskie",
+                                        "name": f"qt{formatted_name}IsPolishCitizen",
+                                        "value": False,
+                                        "validators": [
+                                            {
+                                                "name": "RelatedAnyOfValidator",
+                                                "kwargs": {
+                                                    "field_names": [
+                                                        f"qt{formatted_name}NoneAbove",
+                                                        f"qt{formatted_name}IsEuEftaCitizen",
+                                                        f"qt{formatted_name}IsAwardLaureate"
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "dataBDD": f"qt{formatted_name}IsPolishCitizen",
+                                        "classList": [
+                                            "no-label",
+                                            "text-center"
+                                        ]
+                                    },
+                                    {
+                                        "kind": "component",
+                                        "type": "header",
+                                        "label": "Label",
+                                        "name": f"headerComponent-qt{formatted_name}IsPolishCitizen",
+                                        "value": "Obywatelstwo polskie",
+                                        "dataBDD": f"header-component-qt{formatted_name}IsPolishCitizen",
+                                        "classList": [
+                                            "col-span-9",
+                                            "text-left",
+                                            "displayNoneFrontend"
+                                        ]
+                                    },
+                                    {
+                                        "kind": "component",
+                                        "type": "checkbox",
+                                        "label": "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym",
+                                        "name": f"qt{formatted_name}IsEuEftaCitizen",
+                                        "value": False,
+                                        "validators": [
+                                            {
+                                                "name": "RelatedAnyOfValidator",
+                                                "kwargs": {
+                                                    "field_names": [
+                                                        f"qt{formatted_name}IsPolishCitizen",
+                                                        f"qt{formatted_name}NoneAbove",
+                                                        f"qt{formatted_name}IsAwardLaureate"
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "dataBDD": f"qt{formatted_name}IsEuEftaCitizen",
+                                        "classList": [
+                                            "no-label",
+                                            "text-center"
+                                        ]
+                                    },
+                                    {
+                                        "kind": "component",
+                                        "type": "header",
+                                        "label": "Label",
+                                        "name": f"headerComponent-qt{formatted_name}IsEuEftaCitizen",
+                                        "value":  "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym",
+                                        "dataBDD": f"header-component-qt{formatted_name}IsEuEftaCitizen",
+                                        "classList": [
+                                            "col-span-9",
+                                            "text-left",
+                                            "displayNoneFrontend"
+                                        ]
+                                    },
+                                    {
+                                        "kind": "component",
+                                        "type": "checkbox",
+                                        "label": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej",
+                                        "name": f"qt{formatted_name}IsAwardLaureate",
+                                        "value": False,
+                                        "validators": [
+                                            {
+                                                "name": "RelatedAnyOfValidator",
+                                                "kwargs": {
+                                                    "field_names": [
+                                                        f"qt{formatted_name}IsPolishCitizen",
+                                                        f"qt{formatted_name}IsEuEftaCitizen",
+                                                        f"qt{formatted_name}NoneAbove"
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "dataBDD": f"qt-{formatted_name}-is-award-laureate",
+                                        "classList": [
+                                            "no-label",
+                                            "text-center"
+                                        ]
+                                    },
+                                    {
+                                        "kind": "component",
+                                        "type": "header",
+                                        "label": "Label",
+                                        "name": f"headerComponent-qt{formatted_name}IsAwardLaureate",
+                                        "value": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej",
+                                        "dataBDD": f"header-component-qt{formatted_name}IsAwardLaureate",
+                                        "classList": [
+                                            "col-span-9",
+                                            "text-left",
+                                            "displayNoneFrontend"
+                                        ]
+                                    },
+                                    {
+                                        "kind": "component",
+                                        "type": "checkbox",
+                                        "label": "Żadne z powyższych",
+                                        "name": f"qt{formatted_name}NoneAbove",
+                                        "value": False,
+                                        "validators": [
+                                            {
+                                                "name": "RelatedAnyOfValidator",
+                                                "kwargs": {
+                                                    "field_names": [
+                                                        f"qt{formatted_name}IsPolishCitizen",
+                                                        f"qt{formatted_name}IsEuEftaCitizen",
+                                                        f"qt{formatted_name}IsAwardLaureate"
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "dataBDD": f"qt-{formatted_name}-none-above",
+                                        "classList": [
+                                            "no-label",
+                                            "text-center"
+                                        ]
+                                    },
+                                    {
+                                        "kind": "component",
+                                        "type": "header",
+                                        "label": "Label",
+                                        "name": f"headerComponent-qt{formatted_name}NoneAbove",
+                                        "value": "Żadne z powyższych",
+                                        "dataBDD": f"header-component-qt{formatted_name}NoneAbove",
+                                        "classList": [
+                                            "col-span-9",
+                                            "text-left",
+                                            "displayNoneFrontend"
+                                        ]
+                                    }
+                                ]
+                            )
+                        ]
+                    )
+                ]
+            )
+
+            return self.create_chapter(
+                components=[
+                    title_chapter,
+                    visibility_chapter,
+                    multi_chapter
+                ] if can_not_exist else [
+                    title_chapter,
+                    multi_chapter
+                ]
+            )
+
+
         part = self.create_part(
             title=f"{self.helpers.int_to_roman(number)}. Test kwalifikacyjny",
             chapters=[
@@ -12647,1456 +13078,13 @@ class FinancingPriorityReportFormBuilder(ReportFormBuilder):
                         }
                     ]
                 },
-                {
-                    "kind": "chapter",
-                    "title": "",
-                    "components": [
-                        {
-                            "kind": "chapter",
-                            "title": "<p align=\"left\">1. Reżyser</p>",
-                            "classList": {
-                                "main": [
-                                    "grid-span-4",
-                                    "grid-3-1"
-                                ]
-                            },
-                            "components": [
-                                {
-                                    "kind": "chapter",
-                                    "title": "",
-                                    "classList": [
-                                        "grid",
-                                        "grid-cols-4",
-                                        "no-title"
-                                    ],
-                                    "components": [
-                                        {
-                                            "kind": "component",
-                                            "type": "header",
-                                            "label": "Label",
-                                            "name": "headerComponent-pointsPartIii1",
-                                            "value": "Punkty",
-                                            "dataBDD": "header-component-pointsPartIii1",
-                                            "classList": [
-                                                "displayNoneFrontend"
-                                            ]
-                                        },
-                                        self.create_component(
-                                            component_type="select",
-                                            label="0 lub 1 punkt",
-                                            name="pointsPartIii1",
-                                            class_list=[
-                                                "no-label",
-                                                "col-span-3",
-                                                "text-left"
-                                            ],
-                                            options=["0", "1"]
-                                        )
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "kind": "chapter",
-                            "title": "",
-                            "isMultipleForms": True,
-                            "multipleFormsRules": {
-                                "minCount": 1,
-                                "maxCount": 10
-                            },
-                            "components": [
-                                {
-                                    "kind": "chapter",
-                                    "title": "",
-                                    "components": [
-                                        {
-                                            "kind": "chapter",
-                                            "title": "",
-                                            "classList": {
-                                                "main": [
-                                                    "table-1-2",
-                                                    "grid",
-                                                    "grid-cols-6"
-                                                ],
-                                                "sub": [
-                                                    "table-1-2__col"
-                                                ]
-                                            },
-                                            "components": [
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtDirectorFirstName",
-                                                    "value": "Imię",
-                                                    "dataBDD": "header-component-qtDirectorFirstName",
-                                                    "classList": [
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "label": "Imię",
-                                                    "name": "qtDirectorFirstName",
-                                                    "value": "",
-                                                    "dataBDD": "qt-director-first-name",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "col-span-2",
-                                                        "text-left"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtDirectorLastName",
-                                                    "value": "Nazwisko",
-                                                    "dataBDD": "header-component-qtDirectorLastName",
-                                                    "classList": [
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "label": "Nazwisko",
-                                                    "name": "qtDirectorLastName",
-                                                    "value": "",
-                                                    "dataBDD": "qt-director-last-name",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "col-span-2",
-                                                        "text-left"
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "kind": "chapter",
-                                            "title": "",
-                                            "classList": [
-                                                "grid",
-                                                "grid-cols-10"
-                                            ],
-                                            "components": [
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Obywatelstwo polskie",
-                                                    "name": "qtDirectorIsPolishCitizen",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtDirectorNoneAbove",
-                                                                    "qtDirectorIsEuEftaCitizen",
-                                                                    "qtDirectorIsAwardLaureate"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-director-is-polish-citizen",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtDirectorIsPolishCitizen",
-                                                    "value": "Obywatelstwo polskie",
-                                                    "dataBDD": "header-component-qtDirectorIsPolishCitizen",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym",
-                                                    "name": "qtDirectorIsEuEftaCitizen",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtDirectorIsPolishCitizen",
-                                                                    "qtDirectorNoneAbove",
-                                                                    "qtDirectorIsAwardLaureate"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-director-is-eu-efta-citizen",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtDirectorIsEuEftaCitizen",
-                                                    "value":  "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym",
-                                                    "dataBDD": "header-component-qtDirectorIsEuEftaCitizen",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej",
-                                                    "name": "qtDirectorIsAwardLaureate",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtDirectorIsPolishCitizen",
-                                                                    "qtDirectorIsEuEftaCitizen",
-                                                                    "qtDirectorNoneAbove"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-director-is-award-laureate",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtDirectorIsAwardLaureate",
-                                                    "value": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej",
-                                                    "dataBDD": "header-component-qtDirectorIsAwardLaureate",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Żadne z powyższych",
-                                                    "name": "qtDirectorNoneAbove",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtDirectorIsPolishCitizen",
-                                                                    "qtDirectorIsEuEftaCitizen",
-                                                                    "qtDirectorIsAwardLaureate"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-director-none-above",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtDirectorNoneAbove",
-                                                    "value": "Żadne z powyższych",
-                                                    "dataBDD": "header-component-qtDirectorNoneAbove",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "kind": "chapter",
-                    "title": "",
-                    "components": [
-                        {
-                            "kind": "chapter",
-                            "title": "<p align=\"left\">2. Scenarzysta</p>",
-                            "classList": {
-                                "main": [
-                                    "grid-span-4",
-                                    "grid-3-1"
-                                ]
-                            },
-                            "components": [
-                                {
-                                    "kind": "chapter",
-                                    "title": "",
-                                    "classList": [
-                                        "grid",
-                                        "grid-cols-4",
-                                        "no-title"
-                                    ],
-                                    "components": [
-                                        {
-                                            "kind": "component",
-                                            "type": "header",
-                                            "label": "Label",
-                                            "name": "headerComponent-pointsPartIii2",
-                                            "value": "Punkty",
-                                            "dataBDD": "header-component-pointsPartIii2",
-                                            "classList": [
-                                                "displayNoneFrontend"
-                                            ]
-                                        },
-                                        self.create_component(
-                                            component_type="select",
-                                            label="0 lub 1 punkt",
-                                            name="pointsPartIii2",
-                                            class_list=[
-                                                "no-label",
-                                                "col-span-3",
-                                                "text-left"
-                                            ],
-                                            options=["0", "1"]
-                                        )
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "kind": "chapter",
-                            "title": "",
-                            "isMultipleForms": True,
-                            "multipleFormsRules": {
-                                "minCount": 1,
-                                "maxCount": 10
-                            },
-                            "components": [
-                                {
-                                    "kind": "chapter",
-                                    "title": "",
-                                    "components": [
-                                        {
-                                            "kind": "chapter",
-                                            "title": "",
-                                            "classList": {
-                                                "main": [
-                                                    "table-1-2",
-                                                    "grid",
-                                                    "grid-cols-6"
-                                                ],
-                                                "sub": [
-                                                    "table-1-2__col"
-                                                ]
-                                            },
-                                            "components": [
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtScreenwriterFirstName",
-                                                    "value": "Imię",
-                                                    "dataBDD": "header-component-qtScreenwriterFirstName",
-                                                    "classList": [
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "label": "Imię",
-                                                    "name": "qtScreenwriterFirstName",
-                                                    "value": "",
-                                                    "dataBDD": "qt-Screenwriter-first-name",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "col-span-2",
-                                                        "text-left"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtScreenwriterLastName",
-                                                    "value": "Nazwisko",
-                                                    "dataBDD": "header-component-qtScreenwriterLastName",
-                                                    "classList": [
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "label": "Nazwisko",
-                                                    "name": "qtScreenwriterLastName",
-                                                    "value": "",
-                                                    "dataBDD": "qt-Screenwriter-last-name",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "col-span-2",
-                                                        "text-left"
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "kind": "chapter",
-                                            "title": "",
-                                            "classList": [
-                                                "grid",
-                                                "grid-cols-10"
-                                            ],
-                                            "components": [
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Obywatelstwo polskie",
-                                                    "name": "qtScreenwriterIsPolishCitizen",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtScreenwriterNoneAbove",
-                                                                    "qtScreenwriterIsEuEftaCitizen",
-                                                                    "qtScreenwriterIsAwardLaureate"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-Screenwriter-is-polish-citizen",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtScreenwriterIsPolishCitizen",
-                                                    "value": "Obywatelstwo polskie",
-                                                    "dataBDD": "header-component-qtScreenwriterIsPolishCitizen",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym",
-                                                    "name": "qtScreenwriterIsEuEftaCitizen",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtScreenwriterIsPolishCitizen",
-                                                                    "qtScreenwriterNoneAbove",
-                                                                    "qtScreenwriterIsAwardLaureate"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-Screenwriter-is-eu-efta-citizen",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtScreenwriterIsEuEftaCitizen",
-                                                    "value":  "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym",
-                                                    "dataBDD": "header-component-qtScreenwriterIsEuEftaCitizen",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej",
-                                                    "name": "qtScreenwriterIsAwardLaureate",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtScreenwriterIsPolishCitizen",
-                                                                    "qtScreenwriterIsEuEftaCitizen",
-                                                                    "qtScreenwriterNoneAbove"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-Screenwriter-is-award-laureate",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtScreenwriterIsAwardLaureate",
-                                                    "value": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej",
-                                                    "dataBDD": "header-component-qtScreenwriterIsAwardLaureate",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Żadne z powyższych",
-                                                    "name": "qtScreenwriterNoneAbove",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtScreenwriterIsPolishCitizen",
-                                                                    "qtScreenwriterIsEuEftaCitizen",
-                                                                    "qtScreenwriterIsAwardLaureate"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-Screenwriter-none-above",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtScreenwriterNoneAbove",
-                                                    "value": "Żadne z powyższych",
-                                                    "dataBDD": "header-component-qtScreenwriterNoneAbove",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "kind": "chapter",
-                    "title": "",
-                    "components": [
-                        {
-                            "kind": "chapter",
-                            "title": "<p align=\"left\">3. Operator obrazu</p>",
-                            "classList": {
-                                "main": [
-                                    "grid-span-4",
-                                    "grid-3-1"
-                                ]
-                            },
-                            "components": [
-                                {
-                                    "kind": "chapter",
-                                    "title": "",
-                                    "classList": [
-                                        "grid",
-                                        "grid-cols-4",
-                                        "no-title"
-                                    ],
-                                    "components": [
-                                        {
-                                            "kind": "component",
-                                            "type": "header",
-                                            "label": "Label",
-                                            "name": "headerComponent-pointsPartIii3",
-                                            "value": "Punkty",
-                                            "dataBDD": "header-component-pointsPartIii3",
-                                            "classList": [
-                                                "displayNoneFrontend"
-                                            ]
-                                        },
-                                        self.create_component(
-                                            component_type="select",
-                                            label="0 lub 1 punkt",
-                                            name="pointsPartIii3",
-                                            class_list=[
-                                                "no-label",
-                                                "col-span-3",
-                                                "text-left"
-                                            ],
-                                            options=["0", "1"]
-                                        )
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "kind": "chapter",
-                            "title": "",
-                            "isMultipleForms": True,
-                            "multipleFormsRules": {
-                                "minCount": 1,
-                                "maxCount": 10
-                            },
-                            "components": [
-                                {
-                                    "kind": "chapter",
-                                    "title": "",
-                                    "components": [
-                                        {
-                                            "kind": "chapter",
-                                            "title": "",
-                                            "classList": {
-                                                "main": [
-                                                    "table-1-2",
-                                                    "grid",
-                                                    "grid-cols-6"
-                                                ],
-                                                "sub": [
-                                                    "table-1-2__col"
-                                                ]
-                                            },
-                                            "components": [
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtDirectorOfPhotographyFirstName",
-                                                    "value": "Imię",
-                                                    "dataBDD": "header-component-qtDirectorOfPhotographyFirstName",
-                                                    "classList": [
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "label": "Imię",
-                                                    "name": "qtDirectorOfPhotographyFirstName",
-                                                    "value": "",
-                                                    "dataBDD": "qt-DirectorOfPhotography-first-name",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "col-span-2",
-                                                        "text-left"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtDirectorOfPhotographyLastName",
-                                                    "value": "Nazwisko",
-                                                    "dataBDD": "header-component-qtDirectorOfPhotographyLastName",
-                                                    "classList": [
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "label": "Nazwisko",
-                                                    "name": "qtDirectorOfPhotographyLastName",
-                                                    "value": "",
-                                                    "dataBDD": "qt-DirectorOfPhotography-last-name",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "col-span-2",
-                                                        "text-left"
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "kind": "chapter",
-                                            "title": "",
-                                            "classList": [
-                                                "grid",
-                                                "grid-cols-10"
-                                            ],
-                                            "components": [
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Obywatelstwo polskie",
-                                                    "name": "qtDirectorOfPhotographyIsPolishCitizen",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtDirectorOfPhotographyNoneAbove",
-                                                                    "qtDirectorOfPhotographyIsEuEftaCitizen",
-                                                                    "qtDirectorOfPhotographyIsAwardLaureate"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-DirectorOfPhotography-is-polish-citizen",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtDirectorOfPhotographyIsPolishCitizen",
-                                                    "value": "Obywatelstwo polskie",
-                                                    "dataBDD": "header-component-qtDirectorOfPhotographyIsPolishCitizen",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym",
-                                                    "name": "qtDirectorOfPhotographyIsEuEftaCitizen",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtDirectorOfPhotographyIsPolishCitizen",
-                                                                    "qtDirectorOfPhotographyNoneAbove",
-                                                                    "qtDirectorOfPhotographyIsAwardLaureate"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-DirectorOfPhotography-is-eu-efta-citizen",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtDirectorOfPhotographyIsEuEftaCitizen",
-                                                    "value":  "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym",
-                                                    "dataBDD": "header-component-qtDirectorOfPhotographyIsEuEftaCitizen",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej",
-                                                    "name": "qtDirectorOfPhotographyIsAwardLaureate",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtDirectorOfPhotographyIsPolishCitizen",
-                                                                    "qtDirectorOfPhotographyIsEuEftaCitizen",
-                                                                    "qtDirectorOfPhotographyNoneAbove"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-DirectorOfPhotography-is-award-laureate",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtDirectorOfPhotographyIsAwardLaureate",
-                                                    "value": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej",
-                                                    "dataBDD": "header-component-qtDirectorOfPhotographyIsAwardLaureate",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Żadne z powyższych",
-                                                    "name": "qtDirectorOfPhotographyNoneAbove",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtDirectorOfPhotographyIsPolishCitizen",
-                                                                    "qtDirectorOfPhotographyIsEuEftaCitizen",
-                                                                    "qtDirectorOfPhotographyIsAwardLaureate"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-DirectorOfPhotography-none-above",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtDirectorOfPhotographyNoneAbove",
-                                                    "value": "Żadne z powyższych",
-                                                    "dataBDD": "header-component-qtDirectorOfPhotographyNoneAbove",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "kind": "chapter",
-                    "title": "",
-                    "components": [
-                        {
-                            "kind": "chapter",
-                            "title": "<p align=\"left\">4. Główny animator</p>",
-                            "classList": {
-                                "main": [
-                                    "grid-span-4",
-                                    "grid-3-1"
-                                ]
-                            },
-                            "components": [
-                                {
-                                    "kind": "chapter",
-                                    "title": "",
-                                    "classList": [
-                                        "grid",
-                                        "grid-cols-4",
-                                        "no-title"
-                                    ],
-                                    "components": [
-                                        {
-                                            "kind": "component",
-                                            "type": "header",
-                                            "label": "Label",
-                                            "name": "headerComponent-pointsPartIii4",
-                                            "value": "Punkty",
-                                            "dataBDD": "header-component-pointsPartIii4",
-                                            "classList": [
-                                                "displayNoneFrontend"
-                                            ]
-                                        },
-                                        self.create_component(
-                                            component_type="select",
-                                            label="0 lub 1 punkt",
-                                            name="pointsPartIii4",
-                                            class_list=[
-                                                "no-label",
-                                                "col-span-3",
-                                                "text-left"
-                                            ],
-                                            options=["0", "1"]
-                                        )
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "kind": "chapter",
-                            "title": "",
-                            "isMultipleForms": True,
-                            "multipleFormsRules": {
-                                "minCount": 1,
-                                "maxCount": 10
-                            },
-                            "components": [
-                                {
-                                    "kind": "chapter",
-                                    "title": "",
-                                    "components": [
-                                        {
-                                            "kind": "chapter",
-                                            "title": "",
-                                            "classList": {
-                                                "main": [
-                                                    "table-1-2",
-                                                    "grid",
-                                                    "grid-cols-6"
-                                                ],
-                                                "sub": [
-                                                    "table-1-2__col"
-                                                ]
-                                            },
-                                            "components": [
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtLeadAnimatorFirstName",
-                                                    "value": "Imię",
-                                                    "dataBDD": "header-component-qtLeadAnimatorFirstName",
-                                                    "classList": [
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "label": "Imię",
-                                                    "name": "qtLeadAnimatorFirstName",
-                                                    "value": "",
-                                                    "dataBDD": "qt-LeadAnimator-first-name",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "col-span-2",
-                                                        "text-left"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtLeadAnimatorLastName",
-                                                    "value": "Nazwisko",
-                                                    "dataBDD": "header-component-qtLeadAnimatorLastName",
-                                                    "classList": [
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "label": "Nazwisko",
-                                                    "name": "qtLeadAnimatorLastName",
-                                                    "value": "",
-                                                    "dataBDD": "qt-LeadAnimator-last-name",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "col-span-2",
-                                                        "text-left"
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "kind": "chapter",
-                                            "title": "",
-                                            "classList": [
-                                                "grid",
-                                                "grid-cols-10"
-                                            ],
-                                            "components": [
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Obywatelstwo polskie",
-                                                    "name": "qtLeadAnimatorIsPolishCitizen",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtLeadAnimatorNoneAbove",
-                                                                    "qtLeadAnimatorIsEuEftaCitizen",
-                                                                    "qtLeadAnimatorIsAwardLaureate"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-LeadAnimator-is-polish-citizen",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtLeadAnimatorIsPolishCitizen",
-                                                    "value": "Obywatelstwo polskie",
-                                                    "dataBDD": "header-component-qtLeadAnimatorIsPolishCitizen",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym",
-                                                    "name": "qtLeadAnimatorIsEuEftaCitizen",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtLeadAnimatorIsPolishCitizen",
-                                                                    "qtLeadAnimatorNoneAbove",
-                                                                    "qtLeadAnimatorIsAwardLaureate"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-LeadAnimator-is-eu-efta-citizen",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtLeadAnimatorIsEuEftaCitizen",
-                                                    "value":  "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym",
-                                                    "dataBDD": "header-component-qtLeadAnimatorIsEuEftaCitizen",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej",
-                                                    "name": "qtLeadAnimatorIsAwardLaureate",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtLeadAnimatorIsPolishCitizen",
-                                                                    "qtLeadAnimatorIsEuEftaCitizen",
-                                                                    "qtLeadAnimatorNoneAbove"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-LeadAnimator-is-award-laureate",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtLeadAnimatorIsAwardLaureate",
-                                                    "value": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej",
-                                                    "dataBDD": "header-component-qtLeadAnimatorIsAwardLaureate",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Żadne z powyższych",
-                                                    "name": "qtLeadAnimatorNoneAbove",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtLeadAnimatorIsPolishCitizen",
-                                                                    "qtLeadAnimatorIsEuEftaCitizen",
-                                                                    "qtLeadAnimatorIsAwardLaureate"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-LeadAnimator-none-above",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtLeadAnimatorNoneAbove",
-                                                    "value": "Żadne z powyższych",
-                                                    "dataBDD": "header-component-qtLeadAnimatorNoneAbove",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "kind": "chapter",
-                    "title": "",
-                    "components": [
-                        {
-                            "kind": "chapter",
-                            "title": "<p align=\"left\">5. Kompozytor muzyki skomponowanej do utworu audiowizualnego</p>",
-                            "classList": {
-                                "main": [
-                                    "grid-span-4",
-                                    "grid-3-1"
-                                ]
-                            },
-                            "components": [
-                                {
-                                    "kind": "chapter",
-                                    "title": "",
-                                    "classList": [
-                                        "grid",
-                                        "grid-cols-4",
-                                        "no-title"
-                                    ],
-                                    "components": [
-                                        {
-                                            "kind": "component",
-                                            "type": "header",
-                                            "label": "Label",
-                                            "name": "headerComponent-pointsPartIii5",
-                                            "value": "Punkty",
-                                            "dataBDD": "header-component-pointsPartIii5",
-                                            "classList": [
-                                                "displayNoneFrontend"
-                                            ]
-                                        },
-                                        self.create_component(
-                                            component_type="select",
-                                            label="0 lub 1 punkt",
-                                            name="pointsPartIii5",
-                                            class_list=[
-                                                "no-label",
-                                                "col-span-3",
-                                                "text-left"
-                                            ],
-                                            options=["0", "1"]
-                                        )
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "kind": "chapter",
-                            "title": "",
-                            "isMultipleForms": True,
-                            "multipleFormsRules": {
-                                "minCount": 1,
-                                "maxCount": 10
-                            },
-                            "components": [
-                                {
-                                    "kind": "chapter",
-                                    "title": "",
-                                    "components": [
-                                        {
-                                            "kind": "chapter",
-                                            "title": "",
-                                            "classList": {
-                                                "main": [
-                                                    "table-1-2",
-                                                    "grid",
-                                                    "grid-cols-6"
-                                                ],
-                                                "sub": [
-                                                    "table-1-2__col"
-                                                ]
-                                            },
-                                            "components": [
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtComposerFirstName",
-                                                    "value": "Imię",
-                                                    "dataBDD": "header-component-qtComposerFirstName",
-                                                    "classList": [
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "label": "Imię",
-                                                    "name": "qtComposerFirstName",
-                                                    "value": "",
-                                                    "dataBDD": "qt-Composer-first-name",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "col-span-2",
-                                                        "text-left"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtComposerLastName",
-                                                    "value": "Nazwisko",
-                                                    "dataBDD": "header-component-qtComposerLastName",
-                                                    "classList": [
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "text",
-                                                    "label": "Nazwisko",
-                                                    "name": "qtComposerLastName",
-                                                    "value": "",
-                                                    "dataBDD": "qt-Composer-last-name",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "col-span-2",
-                                                        "text-left"
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "kind": "chapter",
-                                            "title": "",
-                                            "classList": [
-                                                "grid",
-                                                "grid-cols-10"
-                                            ],
-                                            "components": [
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Obywatelstwo polskie",
-                                                    "name": "qtComposerIsPolishCitizen",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtComposerNoneAbove",
-                                                                    "qtComposerIsEuEftaCitizen",
-                                                                    "qtComposerIsAwardLaureate"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-Composer-is-polish-citizen",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtComposerIsPolishCitizen",
-                                                    "value": "Obywatelstwo polskie",
-                                                    "dataBDD": "header-component-qtComposerIsPolishCitizen",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym",
-                                                    "name": "qtComposerIsEuEftaCitizen",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtComposerIsPolishCitizen",
-                                                                    "qtComposerNoneAbove",
-                                                                    "qtComposerIsAwardLaureate"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-Composer-is-eu-efta-citizen",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtComposerIsEuEftaCitizen",
-                                                    "value":  "Obywatelstwo innego kraju UE lub EFTA - strony umowy o Europejskim Obszarze Gospodarczym",
-                                                    "dataBDD": "header-component-qtComposerIsEuEftaCitizen",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej",
-                                                    "name": "qtComposerIsAwardLaureate",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtComposerIsPolishCitizen",
-                                                                    "qtComposerIsEuEftaCitizen",
-                                                                    "qtComposerNoneAbove"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-Composer-is-award-laureate",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtComposerIsAwardLaureate",
-                                                    "value": "Laureat nagrody na międzynarodowym festiwalu filmowym akredytowanym przez FIAPF w ciągu ostatnich 10 lat lub nagrody równoważnej",
-                                                    "dataBDD": "header-component-qtComposerIsAwardLaureate",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "checkbox",
-                                                    "label": "Żadne z powyższych",
-                                                    "name": "qtComposerNoneAbove",
-                                                    "value": False,
-                                                    "validators": [
-                                                        {
-                                                            "name": "RelatedAnyOfValidator",
-                                                            "kwargs": {
-                                                                "field_names": [
-                                                                    "qtComposerIsPolishCitizen",
-                                                                    "qtComposerIsEuEftaCitizen",
-                                                                    "qtComposerIsAwardLaureate"
-                                                                ]
-                                                            }
-                                                        }
-                                                    ],
-                                                    "dataBDD": "qt-Composer-none-above",
-                                                    "classList": [
-                                                        "no-label",
-                                                        "text-center"
-                                                    ]
-                                                },
-                                                {
-                                                    "kind": "component",
-                                                    "type": "header",
-                                                    "label": "Label",
-                                                    "name": "headerComponent-qtComposerNoneAbove",
-                                                    "value": "Żadne z powyższych",
-                                                    "dataBDD": "header-component-qtComposerNoneAbove",
-                                                    "classList": [
-                                                        "col-span-9",
-                                                        "text-left",
-                                                        "displayNoneFrontend"
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
+                *[create_people_part(
+                    title=person["title"],
+                    name=person["name"],
+                    can_not_exist=person.get("canNotExist", False),
+                    points=person.get("points", False),
+                    number=person.get("number", None),
+                ) for person in part_three_poeple_part_one],
                 {
                     "kind": "chapter",
                     "title": "",
