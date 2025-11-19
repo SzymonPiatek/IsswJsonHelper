@@ -123,14 +123,6 @@
             },
             {
               "kind": "component",
-              "type": "country",
-              "label": "Country",
-              "name": "visualityCountrySelect2",
-              "dataBDD": "visualityCountrySelect2",
-              "value": ""
-            },
-            {
-              "kind": "component",
               "type": "currency",
               "label": "Currency",
               "name": "visualityCurrencySelect",
@@ -144,22 +136,14 @@
               "name": "visualityCountryMultiSelect",
               "dataBDD": "visualityCountryMultiSelect",
               "value": ""
-            },
-            {
-              "kind": "component",
-              "type": "countryMulti",
-              "label": "CountryMulti",
-              "name": "visualityCountryMultiSelect2",
-              "dataBDD": "visualityCountryMultiSelect2",
-              "value": ""
             }
           ],
           "classList": {
             "main": [
-              "table-1-3-narrow"
+              "table-1-2"
             ],
             "sub": [
-              "table-1-3__col"
+              "table-1-2__col"
             ]
           }
         },

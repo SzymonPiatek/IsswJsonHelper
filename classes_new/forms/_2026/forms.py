@@ -29,8 +29,18 @@ from classes_new.forms._2026.dwm.promotion.foreign_scholarships.application_buil
 from classes_new.forms._2026.dwm.promotion.foreign_scholarships.report_builder import ForeignScholarshipsPriorityReportFormBuilder
 # DPF - Production
 from classes_new.forms._2026.dpf.production.screenplay_scholarship.application_builder import ScreenplayScholarshipPriorityApplicationFormBuilder
-from classes_new.forms._2026.test.test.application_builder import TestApplicationFormBuilder
+from classes_new.forms._2026.dpf.production.animated_film_production.application_builder import AnimatedFilmProductionPriorityApplicationFormBuilder
+from classes_new.forms._2026.dpf.production.debuts_featured_film_production.application_builder import DebutsFeaturedFilmProductionPriorityApplicationFormBuilder
+from classes_new.forms._2026.dpf.production.featured_film_production.application_builder import FeaturedFilmProductionPriorityApplicationFormBuilder
+from classes_new.forms._2026.dpf.production.documentary_film_production.application_builder import DocumentaryFilmProductionPriorityApplicationFormBuilder
+from classes_new.forms._2026.dpf.production.family_film_production.application_builder import FamilyFilmProductionPriorityApplicationFormBuilder
+from classes_new.forms._2026.dpf.production.intent_letter_film_production.application_builder import IntentLetterFilmProductionPriorityApplicationFormBuilder
+from classes_new.forms._2026.dpf.production.international_minority_co_production.application_builder import InternationalMinorityCoProductionPriorityApplicationFormBuilder
+from classes_new.forms._2026.dpf.production.international_minority_co_postproduction.application_builder import InternationalMinorityCoPostproductionPriorityApplicationFormBuilder
+from classes_new.forms._2026.dpf.production.polish_german_film_fund.application_builder import PolishGermanFilmFundPriorityApplicationFormBuilder
+from classes_new.forms._2026.dpf.production.film_project_development.application_builder import FilmProjectDevelopmentPriorityApplicationFormBuilder
 # TEST
+from classes_new.forms._2026.test.test.application_builder import TestApplicationFormBuilder
 from classes_new.forms._2026.test.visuality_test.application_builder import VisualityTestApplicationFormBuilder
 from classes_new.forms._2026.test.calculation_rules.application_builder import CalculationRulesApplicationFormBuilder
 from classes_new.forms._2026.test.related_validators.application_builder import RelatedValidatorsApplicationFormBuilder
@@ -49,13 +59,23 @@ class Forms2026(Forms):
         self.builder_map = {
             "application": {
                 "dpf": {
-                    "skip": True,
+                    "skip": False,
                     "po1": {
-                        "pr1": ScreenplayScholarshipPriorityApplicationFormBuilder
+                        "pr1": FilmProjectDevelopmentPriorityApplicationFormBuilder,
+                        "pr2": FeaturedFilmProductionPriorityApplicationFormBuilder,
+                        "pr3": DebutsFeaturedFilmProductionPriorityApplicationFormBuilder,
+                        "pr4": DocumentaryFilmProductionPriorityApplicationFormBuilder,
+                        "pr5": AnimatedFilmProductionPriorityApplicationFormBuilder,
+                        "pr6": FamilyFilmProductionPriorityApplicationFormBuilder,
+                        "pr7": InternationalMinorityCoProductionPriorityApplicationFormBuilder,
+                        "pr8": InternationalMinorityCoPostproductionPriorityApplicationFormBuilder,
+                        "pr9": PolishGermanFilmFundPriorityApplicationFormBuilder,
+                        "pr10": ScreenplayScholarshipPriorityApplicationFormBuilder,
+                        "pr11": IntentLetterFilmProductionPriorityApplicationFormBuilder,
                     }
                 },
                 "duk": {
-                    "skip": False,
+                    "skip": True,
                     "po2": {
                         "pr1": HigherSchoolsPriorityApplicationFormBuilder,
                         "pr2": SecondarySchoolsPriorityApplicationFormBuilder,

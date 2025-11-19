@@ -64,7 +64,7 @@
               "label": "",
               "name": "priorityName",
               "dataBDD": "priorityName",
-              "value": "I. Rozwój projektów filmowych",
+              "value": "X. Stypendia scenariuszowe",
               "readOnly": true
             }
           ]
@@ -79,7 +79,7 @@
               "label": "",
               "name": "taskType",
               "dataBDD": "taskType",
-              "value": "",
+              "value": "Stypendium scenariuszowe",
               "readOnly": true
             }
           ]
