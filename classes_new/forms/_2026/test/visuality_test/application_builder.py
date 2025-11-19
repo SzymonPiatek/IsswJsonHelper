@@ -66,8 +66,8 @@ class VisualityTestApplicationFormBuilder(ApplicationFormBuilder):
                 self.create_chapter(
                     title="Select",
                     class_list={
-                        "main": ["table-1-3-narrow"],
-                        "sub": ["table-1-3__col"],
+                        "main": ["table-1-2"],
+                        "sub": ["table-1-2__col"],
                     },
                     components=[
                         self.create_component(
@@ -85,11 +85,6 @@ class VisualityTestApplicationFormBuilder(ApplicationFormBuilder):
                             label="Country"
                         ),
                         self.create_component(
-                            component_type="country",
-                            name="visualityCountrySelect2",
-                            label="Country"
-                        ),
-                        self.create_component(
                             component_type="currency",
                             name="visualityCurrencySelect",
                             label="Currency"
@@ -97,11 +92,6 @@ class VisualityTestApplicationFormBuilder(ApplicationFormBuilder):
                         self.create_component(
                             component_type="countryMulti",
                             name="visualityCountryMultiSelect",
-                            label="CountryMulti"
-                        ),
-                        self.create_component(
-                            component_type="countryMulti",
-                            name="visualityCountryMultiSelect2",
                             label="CountryMulti"
                         ),
                     ]

@@ -163,7 +163,7 @@ class CalculationRule:
         }
 
     @staticmethod
-    def assign_value(options: dict):
+    def assign_value(options: list[dict]):
         return {
             "name": "assignValue",
             "kwargs": {
@@ -224,7 +224,7 @@ class CalculationRule:
         return {
             "name": "sumInvoiceCosts",
             "kwargs": {
-                "sumField": sum_field,
+                "sum_field": sum_field,
                 "condition": condition
             }
         }

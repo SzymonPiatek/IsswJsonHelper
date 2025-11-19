@@ -7531,7 +7531,7 @@
                           ]
                         }
                       ],
-                      "helpText": "Wykonanie napisów SDH, tłumaczenia PJM.",
+                      "helpText": "Wykonanie audiodeskrypcji, napisów SDH, tłumaczenia PJM.",
                       "classList": {
                         "main": [
                           "table-1-3-narrow",

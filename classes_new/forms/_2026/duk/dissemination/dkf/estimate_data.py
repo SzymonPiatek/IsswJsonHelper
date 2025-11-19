@@ -137,7 +137,7 @@ estimate_sections = [
             CostItem(
                 title="Dostępność informacyjno–komunikacyjna",
                 name="infoAccessibility",
-                helpText="Wykonanie napisów SDH, tłumaczenia PJM.",
+                helpText="Wykonanie audiodeskrypcji, napisów SDH, tłumaczenia PJM.",
             ),
         ],
     ),
