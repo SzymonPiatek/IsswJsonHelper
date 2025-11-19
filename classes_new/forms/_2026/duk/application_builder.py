@@ -851,65 +851,61 @@ class DUKDepartmentApplicationFormBuilder(ApplicationFormBuilder):
                     ]
                 ),
                 self.create_chapter(
+                    title="2. Adres wnioskodawcy",
                     components=[
                         self.create_chapter(
-                            title="2. Adres wnioskodawcy",
+                            title="Siedziba",
                             components=[
-                                self.create_chapter(
-                                    title="Siedziba",
-                                    components=[
-                                        self.create_chapter(
-                                            components=[
-                                                self.create_component(
-                                                    component_type="radio",
-                                                    name=f"applicantResidence",
-                                                    options=["w Polsce", "za granicą"],
-                                                    required=True
-                                                )
-                                            ]
-                                        ),
-                                        *self.section.application_applicant_data.create_address_base(
-                                            start_name="applicant",
-                                            poland=True,
-                                            foreign=True
-                                        )
-                                    ]
-                                ),
                                 self.create_chapter(
                                     components=[
                                         self.create_component(
-                                            component_type="checkbox",
-                                            label="Należy zaznaczyć jeśli adres korespondencyjny jest inny",
-                                            name=f"applicantHasDifferentContactAddress"
+                                            component_type="radio",
+                                            name=f"applicantResidence",
+                                            options=["w Polsce", "za granicą"],
+                                            required=True
                                         )
                                     ]
                                 ),
+                                *self.section.application_applicant_data.create_address_base(
+                                    start_name="applicant",
+                                    poland=True,
+                                    foreign=True
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            components=[
+                                self.create_component(
+                                    component_type="checkbox",
+                                    label="Należy zaznaczyć jeśli adres korespondencyjny jest inny",
+                                    name=f"applicantHasDifferentContactAddress"
+                                )
+                            ]
+                        ),
+                        self.create_chapter(
+                            title="Adres korespondencyjny",
+                            visibility_rules=[
+                                self.visibility_rule.depends_on_value(
+                                    field_name="applicantHasDifferentContactAddress",
+                                    values=[True]
+                                )
+                            ],
+                            components=[
                                 self.create_chapter(
-                                    title="Adres korespondencyjny",
-                                    visibility_rules=[
-                                        self.visibility_rule.depends_on_value(
-                                            field_name="applicantHasDifferentContactAddress",
-                                            values=[True]
-                                        )
-                                    ],
                                     components=[
-                                        self.create_chapter(
-                                            components=[
-                                                self.create_component(
-                                                    component_type="radio",
-                                                    name=f"applicantContactResidence",
-                                                    options=["w Polsce", "za granicą"],
-                                                    required=True
-                                                )
-                                            ]
-                                        ),
-                                        *self.section.application_applicant_data.create_address_base(
-                                            start_name="applicant",
-                                            build_name="Contact",
-                                            poland=True,
-                                            foreign=True
+                                        self.create_component(
+                                            component_type="radio",
+                                            name=f"applicantContactResidence",
+                                            options=["w Polsce", "za granicą"],
+                                            required=True
                                         )
                                     ]
+                                ),
+                                *self.section.application_applicant_data.create_address_base(
+                                    start_name="applicant",
+                                    build_name="Contact",
+                                    poland=True,
+                                    foreign=True
                                 )
                             ]
                         )

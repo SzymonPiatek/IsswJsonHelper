@@ -79,8 +79,2890 @@
               "label": "",
               "name": "taskType",
               "dataBDD": "taskType",
-              "value": "",
+              "value": "Przygotowanie projektów filmowych",
               "readOnly": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "II. Dane podstawowe",
+      "shortName": "II. Dane podstawowe",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "1. Rodzaj przedsięwzięcia",
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "Rodzaj przedsiewzięcia",
+              "name": "scopeOfProject",
+              "dataBDD": "scopeOfProject",
+              "value": "Rozwój projektu",
+              "options": [
+                "Rozwój projektu"
+              ],
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "Rozwój projektu"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "2.1 Rodzaj filmowy",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Rodzaj filmowy",
+                  "name": "movieKind",
+                  "dataBDD": "movieKind",
+                  "value": "",
+                  "options": [
+                    "fabularny",
+                    "dokumentalny",
+                    "animowany",
+                    "seria animowana"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "fabularny",
+                          "dokumentalny",
+                          "animowany",
+                          "seria animowana"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "2.2. Przedsięwzięcie to",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Przedsięwzięcie to",
+                  "name": "typeOfProject",
+                  "dataBDD": "typeOfProject",
+                  "value": "",
+                  "required": true,
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "calculationRules": [
+                    {
+                      "name": "assignValue",
+                      "kwargs": {
+                        "options": [
+                          {
+                            "fieldName": "movieKind",
+                            "value": "fabularny",
+                            "inputValue": "Rozwój projektu"
+                          },
+                          {
+                            "fieldName": "movieKind",
+                            "value": "dokumentalny",
+                            "inputValue": "Rozwój projektu"
+                          },
+                          {
+                            "fieldName": "movieKind",
+                            "value": "animowany",
+                            "inputValue": "Rozwój projektu"
+                          },
+                          {
+                            "fieldName": "movieKind",
+                            "value": "seria animowana",
+                            "inputValue": "Seria animowana"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "3. Tematyka",
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "Tematyka",
+              "name": "movieSubject",
+              "dataBDD": "movieSubject",
+              "value": "",
+              "options": [
+                "film autorski",
+                "film o tematyce historycznej",
+                "film dla młodego widza lub widowni familijnej"
+              ],
+              "required": true,
+              "validators": [
+                {
+                  "name": "RelatedAllowedOptionsValidator",
+                  "kwargs": {
+                    "field_name": "movieKind",
+                    "mapping": {
+                      "fabularny": [
+                        "film autorski",
+                        "film o tematyce historycznej",
+                        "film dla młodego widza i widowni familijnej"
+                      ],
+                      "animowany": [
+                        "film autorski",
+                        "film o tematyce historycznej",
+                        "film dla młodego widza i widowni familijnej"
+                      ],
+                      "dokumentalny": [
+                        "film autorski",
+                        "film o tematyce historycznej",
+                        "film dla młodego widza i widowni familijnej"
+                      ],
+                      "seria animowana": [
+                        "film dla młodego widza i widowni familijnej"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "film autorski",
+                      "film o tematyce historycznej",
+                      "film dla młodego widza lub widowni familijnej"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "4. Tytuł utworu audiowizualnego",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Tytuł utworu audiowizualnego",
+              "name": "pieceTitle",
+              "dataBDD": "pieceTitle",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 200
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "5. Krótki opis",
+          "components": [
+            {
+              "kind": "component",
+              "type": "textarea",
+              "label": "Krótki opis filmu",
+              "name": "shortMovieDescription",
+              "dataBDD": "shortMovieDescription",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "max": 5400
+                  }
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "6. Kategoria przedsięwzięcia",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Kategoria przedsięwzięcia",
+                  "name": "categoryOfProject",
+                  "dataBDD": "categoryOfProject",
+                  "value": "",
+                  "options": [
+                    "produkcja krajowa",
+                    "koprodukcja międzynarodowa większościowa"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "produkcja krajowa",
+                          "koprodukcja międzynarodowa większościowa"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Wyłączne prawa wnioskodawcy na terytorium Polski",
+                  "name": "movieRights",
+                  "dataBDD": "movieRights",
+                  "value": "Tak",
+                  "options": [
+                    "Tak"
+                  ],
+                  "required": true,
+                  "readOnly": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Tak"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ],
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "categoryOfProject",
+                    "values": [
+                      "koprodukcja międzynarodowa większościowa"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "countryMulti",
+                  "label": "Kraje koprodukcji",
+                  "name": "coproductionCountries",
+                  "dataBDD": "coproductionCountries",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "new_table_2__2-2"
+                ]
+              },
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "categoryOfProject",
+                    "values": [
+                      "koprodukcja międzynarodowa większościowa"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "new_table",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "new_table_2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "7. Wniosek dotyczy",
+          "components": [
+            {
+              "kind": "component",
+              "type": "select",
+              "label": "Wniosek dotyczy",
+              "name": "applicationRelates",
+              "dataBDD": "applicationRelates",
+              "value": "umowa",
+              "options": [
+                "umowa"
+              ],
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "ExactValidator",
+                  "kwargs": {
+                    "values": [
+                      "umowa"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "8. Rodzaj pomocy",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Rodzaj pomocy",
+                  "name": "typeOfSupport",
+                  "dataBDD": "typeOfSupport",
+                  "value": "",
+                  "options": [
+                    "dotacja",
+                    "pożyczka",
+                    "poręczenie"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "dotacja",
+                          "pożyczka",
+                          "poręczenie"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "8.1. Sposób zabezpieczenia pożyczki",
+                  "name": "methodOfSecuringTheLoan",
+                  "dataBDD": "methodOfSecuringTheLoan",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 900
+                      }
+                    },
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "8.2. Proponowane raty spłaty pożyczki",
+                  "name": "proposedLoanPaymentInstallments",
+                  "dataBDD": "proposedLoanPaymentInstallments",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 900
+                      }
+                    },
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ]
+                }
+              ],
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "typeOfSupport",
+                    "values": [
+                      "pożyczka"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "8.1. Przedmiot zobowiązania",
+                  "name": "subjectOfObligation",
+                  "dataBDD": "subjectOfObligation",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 900
+                      }
+                    },
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "8.2. Wysokość i okres poręczenia",
+                  "name": "amountAndPeriodOfGuarantee",
+                  "dataBDD": "amountAndPeriodOfGuarantee",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 900
+                      }
+                    },
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "textarea",
+                  "label": "8.3. Zabezpieczenie poręczenia",
+                  "name": "securityOfGuarantee",
+                  "dataBDD": "securityOfGuarantee",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "max": 900
+                      }
+                    },
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ]
+                }
+              ],
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "typeOfSupport",
+                    "values": [
+                      "poręczenie"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "9. Wybór lidera komisji eksperckiej",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "9.1. Komisja jednoetapowa",
+              "components": [],
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "movieKind",
+                    "values": [
+                      "animowany",
+                      "seria animowana"
+                    ]
+                  }
+                },
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "movieSubject",
+                    "values": [
+                      "film autorski",
+                      "film o tematyce historycznej"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "9.1. Komisja jednoetapowa",
+              "components": [],
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "movieSubject",
+                    "values": [
+                      "film dla młodego widza lub widowni familijnej"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "9.1. Komisja dwuetapowa",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "9.1.1. Lista pierwszego wyboru",
+                      "name": "firstChoiceCommitteeFab",
+                      "dataBDD": "firstChoiceCommitteeFab",
+                      "value": "",
+                      "options": [
+                        "Lider: Beata Pisula",
+                        "Lider: Joanna Kos Krauze",
+                        "Lider: Anna Kazejak"
+                      ],
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "Lider: Beata Pisula",
+                              "Lider: Joanna Kos Krauze",
+                              "Lider: Anna Kazejak"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "9.1.2. Lista drugiego wyboru",
+                      "name": "secondChoiceCommitteeFab",
+                      "dataBDD": "secondChoiceCommitteeFab",
+                      "value": "",
+                      "options": [
+                        "Lider: Beata Pisula",
+                        "Lider: Joanna Kos Krauze",
+                        "Lider: Anna Kazejak"
+                      ],
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "Lider: Beata Pisula",
+                              "Lider: Joanna Kos Krauze",
+                              "Lider: Anna Kazejak"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "9.1.3. W przypadku niedostępności wybranej komisji",
+                      "name": "noCommitteeAvailableFab",
+                      "dataBDD": "noCommitteeAvailableFab",
+                      "value": "",
+                      "options": [
+                        "w przypadku niedostępności żadnej z dwóch wybranych komisji składam wniosek do następnej wolnej komisji",
+                        "w przypadku niedostępności żadnej z dwóch wybranych komisji wycofuję wniosek z oceny"
+                      ],
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "w przypadku niedostępności żadnej z dwóch wybranych komisji składam wniosek do następnej wolnej komisji",
+                              "w przypadku niedostępności żadnej z dwóch wybranych komisji wycofuję wniosek z oceny"
+                            ]
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "table-full",
+                        "col-span-2"
+                      ]
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2",
+                      "grid",
+                      "grid-cols-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  },
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "movieKind",
+                        "values": [
+                          "fabularny"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "9.1.1. Lista pierwszego wyboru",
+                      "name": "firstChoiceCommitteeDoc",
+                      "dataBDD": "firstChoiceCommitteeDoc",
+                      "value": "",
+                      "options": [
+                        "Lider: Małgorzata Prociak",
+                        "Lider: Jakub Mikurda",
+                        "Lider: Bartosz Paduch"
+                      ],
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "Lider: Małgorzata Prociak",
+                              "Lider: Jakub Mikurda",
+                              "Lider: Bartosz Paduch"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "9.1.2. Lista drugiego wyboru",
+                      "name": "secondChoiceCommitteeDoc",
+                      "dataBDD": "secondChoiceCommitteeDoc",
+                      "value": "",
+                      "options": [
+                        "Lider: Małgorzata Prociak",
+                        "Lider: Jakub Mikurda",
+                        "Lider: Bartosz Paduch"
+                      ],
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "Lider: Małgorzata Prociak",
+                              "Lider: Jakub Mikurda",
+                              "Lider: Bartosz Paduch"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "9.1.3. W przypadku niedostępności wybranej komisji",
+                      "name": "noCommitteeAvailableDoc",
+                      "dataBDD": "noCommitteeAvailableDoc",
+                      "value": "",
+                      "options": [
+                        "w przypadku niedostępności żadnej z dwóch wybranych komisji składam wniosek do następnej wolnej komisji",
+                        "w przypadku niedostępności żadnej z dwóch wybranych komisji wycofuję wniosek z oceny"
+                      ],
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "w przypadku niedostępności żadnej z dwóch wybranych komisji składam wniosek do następnej wolnej komisji",
+                              "w przypadku niedostępności żadnej z dwóch wybranych komisji wycofuję wniosek z oceny"
+                            ]
+                          }
+                        }
+                      ],
+                      "classList": [
+                        "table-full",
+                        "col-span-2"
+                      ]
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2",
+                      "grid",
+                      "grid-cols-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  },
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "movieKind",
+                        "values": [
+                          "dokumentalny"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ],
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "movieKind",
+                    "values": [
+                      "fabularny",
+                      "dokumentalny"
+                    ]
+                  }
+                },
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "movieSubject",
+                    "values": [
+                      "film autorski",
+                      "film o tematyce historycznej"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "part",
+      "title": "III. Dane wnioskodawcy",
+      "shortName": "III. Dane wnioskodawcy",
+      "classList": [
+        "full-width-grid"
+      ],
+      "chapters": [
+        {
+          "kind": "chapter",
+          "title": "1. Pełna nazwa Wnioskodawcy",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Pełna nazwa Wnioskodawcy",
+              "name": "applicantName",
+              "dataBDD": "applicantName",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ],
+              "classList": [
+                "table-full",
+                "col-span-2"
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Rodzaj Wnioskodawcy",
+              "name": "applicantType",
+              "dataBDD": "applicantType",
+              "value": "Producent",
+              "required": true,
+              "readOnly": true,
+              "validators": [
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "2. Osoby upoważnione do reprezentowania wnioskodawcy, składania oświadczeń woli i zaciągania w jego imieniu zobowiązań finansowych",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "Osoba upoważniona do reprezentowania Wnioskodawcy",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Imię",
+                      "name": "eligiblePersonFirstName",
+                      "dataBDD": "eligiblePersonFirstName",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "defaultValue": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Nazwisko",
+                      "name": "eligiblePersonLastName",
+                      "dataBDD": "eligiblePersonLastName",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "defaultValue": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Email",
+                      "name": "eligiblePersonEmail",
+                      "dataBDD": "eligiblePersonEmail",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "EmailValidator"
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "defaultValue": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer telefonu",
+                      "name": "eligiblePersonPhoneNum",
+                      "dataBDD": "eligiblePersonPhoneNum",
+                      "value": "",
+                      "mask": "phoneNumber",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "PhoneNumberValidator"
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "defaultValue": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Stanowisko zgodnie z reprezentacją/ załączonym upoważnieniem",
+                      "name": "eligiblePersonPosition",
+                      "dataBDD": "eligiblePersonPosition",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ],
+                      "classList": [
+                        "table-full"
+                      ],
+                      "defaultValue": ""
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2",
+                      "grid",
+                      "grid-cols-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  }
+                }
+              ],
+              "classList": {
+                "sub": [
+                  "table-1-2-top"
+                ]
+              },
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 8
+              },
+              "isPaginated": false
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "2.1. Pełnomocnictwo",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "file",
+                      "label": "",
+                      "name": "eligiblePersonAttachments",
+                      "dataBDD": "eligiblePersonAttachments",
+                      "value": "",
+                      "helpText": "Należy dołączyć pełnomocnictwo w przypadku, gdy wniosek podpisuje osoba inna niż wykazana w KRS lub CEIDG. Maksymalny rozmiar pliku to 50 MB",
+                      "defaultValue": ""
+                    }
+                  ]
+                }
+              ],
+              "isMultipleForms": true,
+              "multipleFormsRules": {
+                "minCount": 1,
+                "maxCount": 10
+              },
+              "isPaginated": false
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "3. Osoba odpowiedzialna za przygotowanie wniosku i kontakty z PISF",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Imię",
+                  "name": "authPersonFirstName",
+                  "dataBDD": "authPersonFirstName",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Nazwisko",
+                  "name": "authPersonLastName",
+                  "dataBDD": "authPersonLastName",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Numer telefonu stacjonarnego",
+                  "name": "authPersonPhoneNum",
+                  "dataBDD": "authPersonPhoneNum",
+                  "value": "",
+                  "mask": "landline",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Numer telefonu komórkowego",
+                  "name": "authPersonMobileNum",
+                  "dataBDD": "authPersonMobileNum",
+                  "value": "",
+                  "mask": "phoneNumber",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "PhoneNumberValidator"
+                    },
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Email kontaktowy",
+                  "name": "authPersonEmail",
+                  "dataBDD": "authPersonEmail",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "EmailValidator"
+                    },
+                    {
+                      "name": "RequiredValidator"
+                    }
+                  ],
+                  "classList": [
+                    "col-span-2"
+                  ]
+                }
+              ],
+              "classList": {
+                "main": [
+                  "table-1-2",
+                  "grid",
+                  "grid-cols-2"
+                ],
+                "sub": [
+                  "table-1-2__col"
+                ]
+              }
+            }
+          ],
+          "classList": {
+            "sub": [
+              "table-1-2-top"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "4. Adres Wnioskodawcy",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "Siedziba",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "radio",
+                      "label": "",
+                      "name": "applicantResidence",
+                      "dataBDD": "applicantResidence",
+                      "value": "",
+                      "options": [
+                        "w Polsce",
+                        "za granicą"
+                      ],
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "w Polsce",
+                              "za granicą"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "Województwo",
+                      "name": "applicantVoivodeship",
+                      "dataBDD": "applicantVoivodeship",
+                      "value": "",
+                      "options": [
+                        "dolnośląskie",
+                        "kujawsko-pomorskie",
+                        "lubelskie",
+                        "lubuskie",
+                        "łódzkie",
+                        "małopolskie",
+                        "mazowieckie",
+                        "opolskie",
+                        "podkarpackie",
+                        "podlaskie",
+                        "pomorskie",
+                        "śląskie",
+                        "świętokrzyskie",
+                        "warmińsko-mazurskie",
+                        "wielkopolskie",
+                        "zachodniopomorskie"
+                      ],
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "dolnośląskie",
+                              "kujawsko-pomorskie",
+                              "lubelskie",
+                              "lubuskie",
+                              "łódzkie",
+                              "małopolskie",
+                              "mazowieckie",
+                              "opolskie",
+                              "podkarpackie",
+                              "podlaskie",
+                              "pomorskie",
+                              "śląskie",
+                              "świętokrzyskie",
+                              "warmińsko-mazurskie",
+                              "wielkopolskie",
+                              "zachodniopomorskie"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Powiat",
+                      "name": "applicantCounty",
+                      "dataBDD": "applicantCounty",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Gmina",
+                      "name": "applicantMunicipality",
+                      "dataBDD": "applicantMunicipality",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Identyfikator gminy (Kod JST)",
+                      "name": "applicantJst",
+                      "dataBDD": "applicantJst",
+                      "value": "",
+                      "mask": "jst",
+                      "required": true,
+                      "helpText": "Kod JST gminy można znaleźć w wyszukiwarce pod adresem https://eteryt.stat.gov.pl",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Miejscowość",
+                      "name": "applicantLocation",
+                      "dataBDD": "applicantLocation",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Ulica",
+                      "name": "applicantStreet",
+                      "dataBDD": "applicantStreet",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer domu",
+                      "name": "applicantHouseNum",
+                      "dataBDD": "applicantHouseNum",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer lokalu",
+                      "name": "applicantApartmentNum",
+                      "dataBDD": "applicantApartmentNum",
+                      "value": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Kod pocztowy",
+                      "name": "applicantZipCode",
+                      "dataBDD": "applicantZipCode",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "ZipCodeValidator"
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Poczta",
+                      "name": "applicantPostOffice",
+                      "dataBDD": "applicantPostOffice",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer telefonu",
+                      "name": "applicantPhoneNum",
+                      "dataBDD": "applicantPhoneNum",
+                      "value": "",
+                      "mask": "phoneNumber",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "PhoneNumberValidator"
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Email kontaktowy",
+                      "name": "applicantEmail",
+                      "dataBDD": "applicantEmail",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "EmailValidator"
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2",
+                      "grid",
+                      "grid-cols-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  },
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "applicantResidence",
+                        "values": [
+                          "w Polsce"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "country",
+                      "label": "Kraj",
+                      "name": "applicantCountry",
+                      "dataBDD": "applicantCountry",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Miejscowość",
+                      "name": "applicantForeignLocation",
+                      "dataBDD": "applicantForeignLocation",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Ulica",
+                      "name": "applicantForeignStreet",
+                      "dataBDD": "applicantForeignStreet",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer domu",
+                      "name": "applicantForeignHouseNum",
+                      "dataBDD": "applicantForeignHouseNum",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer lokalu",
+                      "name": "applicantForeignApartmentNum",
+                      "dataBDD": "applicantForeignApartmentNum",
+                      "value": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Kod pocztowy",
+                      "name": "applicantForeignZipCode",
+                      "dataBDD": "applicantForeignZipCode",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Poczta",
+                      "name": "applicantForeignPostOffice",
+                      "dataBDD": "applicantForeignPostOffice",
+                      "value": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer telefonu",
+                      "name": "applicantForeignPhoneNum",
+                      "dataBDD": "applicantForeignPhoneNum",
+                      "value": "",
+                      "mask": "phoneNumber",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "PhoneNumberValidator"
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Email kontaktowy",
+                      "name": "applicantForeignEmail",
+                      "dataBDD": "applicantForeignEmail",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "EmailValidator"
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2",
+                      "grid",
+                      "grid-cols-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  },
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "applicantResidence",
+                        "values": [
+                          "za granicą"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "checkbox",
+                  "label": "Należy zaznaczyć jeśli adres korespondencyjny jest inny",
+                  "name": "applicantHasDifferentContactAddress",
+                  "dataBDD": "applicantHasDifferentContactAddress",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "Adres korespondencyjny",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "radio",
+                      "label": "",
+                      "name": "applicantContactResidence",
+                      "dataBDD": "applicantContactResidence",
+                      "value": "",
+                      "options": [
+                        "w Polsce",
+                        "za granicą"
+                      ],
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "w Polsce",
+                              "za granicą"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "Województwo",
+                      "name": "applicantContactVoivodeship",
+                      "dataBDD": "applicantContactVoivodeship",
+                      "value": "",
+                      "options": [
+                        "dolnośląskie",
+                        "kujawsko-pomorskie",
+                        "lubelskie",
+                        "lubuskie",
+                        "łódzkie",
+                        "małopolskie",
+                        "mazowieckie",
+                        "opolskie",
+                        "podkarpackie",
+                        "podlaskie",
+                        "pomorskie",
+                        "śląskie",
+                        "świętokrzyskie",
+                        "warmińsko-mazurskie",
+                        "wielkopolskie",
+                        "zachodniopomorskie"
+                      ],
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "dolnośląskie",
+                              "kujawsko-pomorskie",
+                              "lubelskie",
+                              "lubuskie",
+                              "łódzkie",
+                              "małopolskie",
+                              "mazowieckie",
+                              "opolskie",
+                              "podkarpackie",
+                              "podlaskie",
+                              "pomorskie",
+                              "śląskie",
+                              "świętokrzyskie",
+                              "warmińsko-mazurskie",
+                              "wielkopolskie",
+                              "zachodniopomorskie"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Powiat",
+                      "name": "applicantContactCounty",
+                      "dataBDD": "applicantContactCounty",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Gmina",
+                      "name": "applicantContactMunicipality",
+                      "dataBDD": "applicantContactMunicipality",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Identyfikator gminy (Kod JST)",
+                      "name": "applicantContactJst",
+                      "dataBDD": "applicantContactJst",
+                      "value": "",
+                      "mask": "jst",
+                      "required": true,
+                      "helpText": "Kod JST gminy można znaleźć w wyszukiwarce pod adresem https://eteryt.stat.gov.pl",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Miejscowość",
+                      "name": "applicantContactLocation",
+                      "dataBDD": "applicantContactLocation",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Ulica",
+                      "name": "applicantContactStreet",
+                      "dataBDD": "applicantContactStreet",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer domu",
+                      "name": "applicantContactHouseNum",
+                      "dataBDD": "applicantContactHouseNum",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer lokalu",
+                      "name": "applicantContactApartmentNum",
+                      "dataBDD": "applicantContactApartmentNum",
+                      "value": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Kod pocztowy",
+                      "name": "applicantContactZipCode",
+                      "dataBDD": "applicantContactZipCode",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "ZipCodeValidator"
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Poczta",
+                      "name": "applicantContactPostOffice",
+                      "dataBDD": "applicantContactPostOffice",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer telefonu",
+                      "name": "applicantContactPhoneNum",
+                      "dataBDD": "applicantContactPhoneNum",
+                      "value": "",
+                      "mask": "phoneNumber",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "PhoneNumberValidator"
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Email kontaktowy",
+                      "name": "applicantContactEmail",
+                      "dataBDD": "applicantContactEmail",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "EmailValidator"
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2",
+                      "grid",
+                      "grid-cols-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  },
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "applicantContactResidence",
+                        "values": [
+                          "w Polsce"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "country",
+                      "label": "Kraj",
+                      "name": "applicantContactCountry",
+                      "dataBDD": "applicantContactCountry",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Miejscowość",
+                      "name": "applicantContactForeignLocation",
+                      "dataBDD": "applicantContactForeignLocation",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Ulica",
+                      "name": "applicantContactForeignStreet",
+                      "dataBDD": "applicantContactForeignStreet",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer domu",
+                      "name": "applicantContactForeignHouseNum",
+                      "dataBDD": "applicantContactForeignHouseNum",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer lokalu",
+                      "name": "applicantContactForeignApartmentNum",
+                      "dataBDD": "applicantContactForeignApartmentNum",
+                      "value": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Kod pocztowy",
+                      "name": "applicantContactForeignZipCode",
+                      "dataBDD": "applicantContactForeignZipCode",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Poczta",
+                      "name": "applicantContactForeignPostOffice",
+                      "dataBDD": "applicantContactForeignPostOffice",
+                      "value": ""
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer telefonu",
+                      "name": "applicantContactForeignPhoneNum",
+                      "dataBDD": "applicantContactForeignPhoneNum",
+                      "value": "",
+                      "mask": "phoneNumber",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "PhoneNumberValidator"
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Email kontaktowy",
+                      "name": "applicantContactForeignEmail",
+                      "dataBDD": "applicantContactForeignEmail",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "EmailValidator"
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    }
+                  ],
+                  "classList": {
+                    "main": [
+                      "table-1-2",
+                      "grid",
+                      "grid-cols-2"
+                    ],
+                    "sub": [
+                      "table-1-2__col"
+                    ]
+                  },
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "applicantContactResidence",
+                        "values": [
+                          "za granicą"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ],
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "applicantHasDifferentContactAddress",
+                    "values": [
+                      true
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "5. Dane identyfikacyjne podmiotu",
+          "components": [
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Numer NIP",
+              "name": "applicantNip",
+              "dataBDD": "applicantNip",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "LengthValidator",
+                  "kwargs": {
+                    "min": 10,
+                    "max": 10
+                  },
+                  "validationMsg": "Niepoprawny numer NIP."
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            },
+            {
+              "kind": "component",
+              "type": "text",
+              "label": "Numer REGON",
+              "name": "applicant REGON",
+              "dataBDD": "applicant REGON",
+              "value": "",
+              "required": true,
+              "validators": [
+                {
+                  "name": "RegonValidator"
+                },
+                {
+                  "name": "RequiredValidator"
+                }
+              ]
+            }
+          ],
+          "classList": {
+            "main": [
+              "table-1-2",
+              "grid",
+              "grid-cols-2"
+            ],
+            "sub": [
+              "table-1-2__col"
+            ]
+          }
+        },
+        {
+          "kind": "chapter",
+          "title": "6. Nazwa i numer rachunku bankowego",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Nazwa banku",
+                  "name": "applicantBank",
+                  "dataBDD": "applicantBank",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Numer konta bankowego",
+                  "name": "applicantBankAccountNum",
+                  "dataBDD": "applicantBankAccountNum",
+                  "value": "",
+                  "mask": "bankAccount",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "LengthValidator",
+                      "kwargs": {
+                        "min": 26,
+                        "max": 26
+                      }
+                    },
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "w Polsce"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "applicantResidence",
+                    "values": [
+                      "w Polsce"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Nazwa banku",
+                  "name": "applicantForeignBank",
+                  "dataBDD": "applicantForeignBank",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "za granicą"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Międzynarodowy Numer Rachunku Bankowego (IBAN)",
+                  "name": "applicantIban",
+                  "dataBDD": "applicantIban",
+                  "value": "",
+                  "mask": "ibanAccount",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "IBANValidator"
+                    },
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "za granicą"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Kod SWIFT banku",
+                  "name": "applicantForeignBankSwift",
+                  "dataBDD": "applicantForeignBankSwift",
+                  "value": "",
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "SwiftValidator"
+                    },
+                    {
+                      "name": "RelatedRequiredIfEqualValidator",
+                      "kwargs": {
+                        "field_name": "applicantResidence",
+                        "value": "za granicą"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "visibilityRules": [
+                {
+                  "name": "dependsOnValue",
+                  "kwargs": {
+                    "fieldName": "applicantResidence",
+                    "values": [
+                      "za granicą"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "7. Informacje prawne",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "Forma organizacyjno-prawna",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "",
+                  "name": "orgAndLegalStructure",
+                  "dataBDD": "orgAndLegalStructure",
+                  "value": "",
+                  "options": [
+                    "Spółka z ograniczoną odpowiedzialnością",
+                    "Spółka akcyjna",
+                    "Spółka jawna",
+                    "Spółka komandytowa",
+                    "Spółka komandytowo-akcyjna",
+                    "Osoba fizyczna prowadząca działalność gospodarczą",
+                    "Spółka cywilna",
+                    "Fundacja",
+                    "Stowarzyszenie",
+                    "Instytucja kultury",
+                    "Instytucja filmowa",
+                    "Publiczna szkoła lub uczelnia artystyczna",
+                    "Niepubliczna szkoła lub uczelnia artystyczna",
+                    "Kościół lub związek wyznaniowy",
+                    "Jednostka samorządu terytorialnego",
+                    "Placówka dyplomatyczna",
+                    "Instytut Polski",
+                    "Inna (np. spółka w organizacji)"
+                  ],
+                  "required": true,
+                  "helpText": "Wybierz formę organizacyjno-prawną wnioskodawcy.",
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "Spółka z ograniczoną odpowiedzialnością",
+                          "Spółka akcyjna",
+                          "Spółka jawna",
+                          "Spółka komandytowa",
+                          "Spółka komandytowo-akcyjna",
+                          "Osoba fizyczna prowadząca działalność gospodarczą",
+                          "Spółka cywilna",
+                          "Fundacja",
+                          "Stowarzyszenie",
+                          "Instytucja kultury",
+                          "Instytucja filmowa",
+                          "Publiczna szkoła lub uczelnia artystyczna",
+                          "Niepubliczna szkoła lub uczelnia artystyczna",
+                          "Kościół lub związek wyznaniowy",
+                          "Jednostka samorządu terytorialnego",
+                          "Placówka dyplomatyczna",
+                          "Instytut Polski",
+                          "Inna (np. spółka w organizacji)"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "Kod PKD",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "",
+                  "name": "applicantPkd",
+                  "dataBDD": "applicantPkd",
+                  "value": "",
+                  "options": [
+                    "59.11 – Działalność związana z produkcją filmów, nagrań wideo i programów telewizyjnych",
+                    "59.12 - Działalność postprodukcyjna związana z filmami, nagraniami wideo i programami telewizyjnymi",
+                    "59.13 - Działalność związana z dystrybucją filmów, nagrań wideo i programów telewizyjnych",
+                    "59.14 - Działalność związana z projekcją filmów",
+                    "59.20 - Działalność w zakresie nagrań dźwiękowych i muzycznych"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "59.11 – Działalność związana z produkcją filmów, nagrań wideo i programów telewizyjnych",
+                          "59.12 - Działalność postprodukcyjna związana z filmami, nagraniami wideo i programami telewizyjnymi",
+                          "59.13 - Działalność związana z dystrybucją filmów, nagrań wideo i programów telewizyjnych",
+                          "59.14 - Działalność związana z projekcją filmów",
+                          "59.20 - Działalność w zakresie nagrań dźwiękowych i muzycznych"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "Numer właściwego rejestru",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "Typ rejestru",
+                      "name": "registrationType",
+                      "dataBDD": "registrationType",
+                      "value": "",
+                      "options": [
+                        "KRS",
+                        "Ewidencja działalności gospodarczej",
+                        "Rejestr Instytucji Filmowych",
+                        "Rejestr Instytucji Kultury",
+                        "Inny"
+                      ],
+                      "required": true,
+                      "helpText": "Wskaż rejestr, w którym Wnioskodawca został zarejestrowany.",
+                      "validators": [
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "KRS",
+                              "Ewidencja działalności gospodarczej",
+                              "Rejestr Instytucji Filmowych",
+                              "Rejestr Instytucji Kultury",
+                              "Inny"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer rejestru",
+                      "name": "registrationNumber",
+                      "dataBDD": "registrationNumber",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    }
+                  ],
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "registrationType",
+                        "values": [
+                          "KRS",
+                          "Rejestr Instytucji Filmowych",
+                          "Rejestr Instytucji Kultury",
+                          "Inny"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Nazwa rejestru",
+                      "name": "registrationName",
+                      "dataBDD": "registrationName",
+                      "value": "",
+                      "required": true,
+                      "helpText": "Podaj nazwę rejestru, w którym Wnioskodawca został zarejestrowany.",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    }
+                  ],
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "registrationType",
+                        "values": [
+                          "Inny"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Prowadzony przez",
+                      "name": "registrationAuthority",
+                      "dataBDD": "registrationAuthority",
+                      "value": "",
+                      "required": true,
+                      "helpText": "Podaj nazwę podmiotu, który odpowiada za prowadzenie wskazanego rejestru.",
+                      "validators": [
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    }
+                  ],
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "registrationType",
+                        "values": [
+                          "Rejestr Instytucji Filmowych",
+                          "Rejestr Instytucji Kultury",
+                          "Inny"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "text",
+                      "label": "Numer PESEL",
+                      "name": "applicantPeselNum",
+                      "dataBDD": "applicantPeselNum",
+                      "value": "",
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "PeselValidator"
+                        },
+                        {
+                          "name": "RequiredValidator"
+                        }
+                      ]
+                    }
+                  ],
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "registrationType",
+                        "values": [
+                          "Ewidencja działalności gospodarczej"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "chapter",
+          "title": "8. Dane statystyczne",
+          "components": [
+            {
+              "kind": "chapter",
+              "title": "Przypisanie formy prawnej Wnioskodawcy dla potrzeb statystycznych PUP",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "radio",
+                  "label": "Forma prawna",
+                  "name": "legalFormStats",
+                  "dataBDD": "legalFormStats",
+                  "value": "",
+                  "options": [
+                    "przedsiębiorstwo państwowe",
+                    "jednoosobowa spółka Skarbu Państwa",
+                    "jednoosobowa spółka jednostki samorządu terytorialnego, w rozumieniu przepisów o gospodarce komunalnej",
+                    "spółka akcyjna albo spółka z o.o., jeżeli Skarb Państwa albo jednostka samorządu terytorialnego albo przedsiębiorstwo państwowe albo jednoosobowa spółka Skarbu Państwa mają wobec nich uprawnienia jak przedsiębiorca dominujący w rozumieniu przepisów o ochronie konkurencji i konsumentów",
+                    "jednostka sektora finansów publicznych w rozumieniu przepisów ustawy z dnia 27 sierpnia 2009 r. o finansach publicznych (Dz. U. z 2013 r. poz. 885, z późn. zm.)",
+                    "pozostali, którzy nie mieszczą się w klasyfikacji 1.A, 1.B, 1.C ani 1.D"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "przedsiębiorstwo państwowe",
+                          "jednoosobowa spółka Skarbu Państwa",
+                          "jednoosobowa spółka jednostki samorządu terytorialnego, w rozumieniu przepisów o gospodarce komunalnej",
+                          "spółka akcyjna albo spółka z o.o., jeżeli Skarb Państwa albo jednostka samorządu terytorialnego albo przedsiębiorstwo państwowe albo jednoosobowa spółka Skarbu Państwa mają wobec nich uprawnienia jak przedsiębiorca dominujący w rozumieniu przepisów o ochronie konkurencji i konsumentów",
+                          "jednostka sektora finansów publicznych w rozumieniu przepisów ustawy z dnia 27 sierpnia 2009 r. o finansach publicznych (Dz. U. z 2013 r. poz. 885, z późn. zm.)",
+                          "pozostali, którzy nie mieszczą się w klasyfikacji 1.A, 1.B, 1.C ani 1.D"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Kod formy prawnej",
+                  "name": "legalFormCode",
+                  "dataBDD": "legalFormCode",
+                  "value": "",
+                  "readOnly": true,
+                  "calculationRules": [
+                    {
+                      "name": "assignValue",
+                      "kwargs": {
+                        "options": [
+                          {
+                            "fieldName": "legalFormStats",
+                            "value": "przedsiębiorstwo państwowe",
+                            "inputValue": "1.A"
+                          },
+                          {
+                            "fieldName": "legalFormStats",
+                            "value": "jednoosobowa spółka Skarbu Państwa",
+                            "inputValue": "1.B"
+                          },
+                          {
+                            "fieldName": "legalFormStats",
+                            "value": "jednoosobowa spółka jednostki samorządu terytorialnego, w rozumieniu przepisów o gospodarce komunalnej",
+                            "inputValue": "1.C"
+                          },
+                          {
+                            "fieldName": "legalFormStats",
+                            "value": "spółka akcyjna albo spółka z o.o., jeżeli Skarb Państwa albo jednostka samorządu terytorialnego albo przedsiębiorstwo państwowe albo jednoosobowa spółka Skarbu Państwa mają wobec nich uprawnienia jak przedsiębiorca dominujący w rozumieniu przepisów o ochronie konkurencji i konsumentów",
+                            "inputValue": "1.D"
+                          },
+                          {
+                            "fieldName": "legalFormStats",
+                            "value": "jednostka sektora finansów publicznych w rozumieniu przepisów ustawy z dnia 27 sierpnia 2009 r. o finansach publicznych (Dz. U. z 2013 r. poz. 885, z późn. zm.)",
+                            "inputValue": "1.E"
+                          },
+                          {
+                            "fieldName": "legalFormStats",
+                            "value": "pozostali, którzy nie mieszczą się w klasyfikacji 1.A, 1.B, 1.C ani 1.D",
+                            "inputValue": "2"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "Określenie wielkości Wnioskodawcy dla potrzeb statystycznych PUP",
+              "components": [
+                {
+                  "kind": "component",
+                  "type": "select",
+                  "label": "Wielkość Wnioskodawcy",
+                  "name": "applicantSize",
+                  "dataBDD": "applicantSize",
+                  "value": "",
+                  "options": [
+                    "mikroprzedsiębiorca (zatrudnia mniej niż 10 pracowników, a roczny obrót i/lub całkowity bilans roczny nie przekracza 2 milionów EUR)",
+                    "mały przedsiębiorca (zatrudnia mniej niż 50 pracowników, a roczny obrót i/lub całkowity bilans roczny nie przekracza 10 milionów EUR)",
+                    "średni przedsiębiorca (zatrudnia mniej niż 250 pracowników, a roczny obrót i/lub całkowity bilans roczny nie przekracza 50 milionów EUR)",
+                    "inny przedsiębiorca"
+                  ],
+                  "required": true,
+                  "validators": [
+                    {
+                      "name": "ExactValidator",
+                      "kwargs": {
+                        "values": [
+                          "mikroprzedsiębiorca (zatrudnia mniej niż 10 pracowników, a roczny obrót i/lub całkowity bilans roczny nie przekracza 2 milionów EUR)",
+                          "mały przedsiębiorca (zatrudnia mniej niż 50 pracowników, a roczny obrót i/lub całkowity bilans roczny nie przekracza 10 milionów EUR)",
+                          "średni przedsiębiorca (zatrudnia mniej niż 250 pracowników, a roczny obrót i/lub całkowity bilans roczny nie przekracza 50 milionów EUR)",
+                          "inny przedsiębiorca"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "component",
+                  "type": "text",
+                  "label": "Kod wielkości Wnioskodawcy",
+                  "name": "applicantSizeCode",
+                  "dataBDD": "applicantSizeCode",
+                  "value": "",
+                  "readOnly": true,
+                  "calculationRules": [
+                    {
+                      "name": "assignValue",
+                      "kwargs": {
+                        "options": [
+                          {
+                            "fieldName": "applicantSize",
+                            "value": "mikroprzedsiębiorca (zatrudnia mniej niż 10 pracowników, a roczny obrót i/lub całkowity bilans roczny nie przekracza 2 milionów EUR)",
+                            "inputValue": "0"
+                          },
+                          {
+                            "fieldName": "applicantSize",
+                            "value": "mały przedsiębiorca (zatrudnia mniej niż 50 pracowników, a roczny obrót i/lub całkowity bilans roczny nie przekracza 10 milionów EUR)",
+                            "inputValue": "1"
+                          },
+                          {
+                            "fieldName": "applicantSize",
+                            "value": "średni przedsiębiorca (zatrudnia mniej niż 250 pracowników, a roczny obrót i/lub całkowity bilans roczny nie przekracza 50 milionów EUR)",
+                            "inputValue": "2"
+                          },
+                          {
+                            "fieldName": "applicantSize",
+                            "value": "inny przedsiębiorca",
+                            "inputValue": "3"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "chapter",
+              "title": "Sposób wykorzystania dofinansowania oraz rodzaj jednostki, której przekazywane są środki",
+              "components": [
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "Cel dofinansowania",
+                      "name": "applicationGrantUsage",
+                      "dataBDD": "applicationGrantUsage",
+                      "value": "",
+                      "options": [
+                        "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących",
+                        "Wnioskowane dofinansowanie zostanie wykorzystane na finansowanie lub dofinansowanie kosztów realizacji inwestycji i zakupów inwestycyjnych"
+                      ],
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "Wnioskowane dofinansowanie zostanie wykorzystane na realizację przedsięwzięć bieżących",
+                              "Wnioskowane dofinansowanie zostanie wykorzystane na finansowanie lub dofinansowanie kosztów realizacji inwestycji i zakupów inwestycyjnych"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "Rodzaj jednostki",
+                      "name": "applicationGrantUsageTargetEntity",
+                      "dataBDD": "applicationGrantUsageTargetEntity",
+                      "value": "",
+                      "options": [
+                        "Dla jednostek zaliczanych do sektora finansów publicznych wymienionych w art. 9 Ustawy o finansach publicznych",
+                        "Dla jednostek niezaliczanych do sektora finansów publicznych"
+                      ],
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "Dla jednostek zaliczanych do sektora finansów publicznych wymienionych w art. 9 Ustawy o finansach publicznych",
+                              "Dla jednostek niezaliczanych do sektora finansów publicznych"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "chapter",
+                  "title": "",
+                  "components": [
+                    {
+                      "kind": "component",
+                      "type": "select",
+                      "label": "Rodzaj podmiotu",
+                      "name": "applicationGrantUsageTargetEntityType",
+                      "dataBDD": "applicationGrantUsageTargetEntityType",
+                      "value": "",
+                      "options": [
+                        "Organy władzy publicznej, w tym organy administracji rządowej, organy kontroli państwowej i ochrony prawa oraz sądy i trybunały",
+                        "Jednostki samorządu terytorialnego oraz ich związki",
+                        "Jednostki budżetowe",
+                        "Samorządowe zakłady budżetowe",
+                        "Agencje wykonawcze",
+                        "Instytucja gospodarki budżetowej",
+                        "Państwowe fundusze celowe",
+                        "Zakład Ubezpieczeń Społecznych i zarządzane przez niego fundusze oraz Kasa Rolniczego Ubezpieczenia społecznego i fundusze zarządzane przez Prezesa Kasy Rolniczego Ubezpieczenia Społecznego",
+                        "Narodowy Fundusz Zdrowia",
+                        "Samodzielna publiczne zakłady opieki zdrowotnej",
+                        "Uczelnie publiczne",
+                        "Polska Akademia Nauk i tworzone przez nią jednostki organizacyjne",
+                        "Państwowe samorządowe instytucje kultury oraz państwowe instytucje filmowe",
+                        "Inne państwowe lub samorządowe osoby prawne utworzone na podstawie odrębnych ustaw w celu wykonywania przedsięwzięć publicznych, z wyłączeniem przedsiębiorstw, instytutów badawczych, banku w I spółek prawa handlowego"
+                      ],
+                      "required": true,
+                      "validators": [
+                        {
+                          "name": "ExactValidator",
+                          "kwargs": {
+                            "values": [
+                              "Organy władzy publicznej, w tym organy administracji rządowej, organy kontroli państwowej i ochrony prawa oraz sądy i trybunały",
+                              "Jednostki samorządu terytorialnego oraz ich związki",
+                              "Jednostki budżetowe",
+                              "Samorządowe zakłady budżetowe",
+                              "Agencje wykonawcze",
+                              "Instytucja gospodarki budżetowej",
+                              "Państwowe fundusze celowe",
+                              "Zakład Ubezpieczeń Społecznych i zarządzane przez niego fundusze oraz Kasa Rolniczego Ubezpieczenia społecznego i fundusze zarządzane przez Prezesa Kasy Rolniczego Ubezpieczenia Społecznego",
+                              "Narodowy Fundusz Zdrowia",
+                              "Samodzielna publiczne zakłady opieki zdrowotnej",
+                              "Uczelnie publiczne",
+                              "Polska Akademia Nauk i tworzone przez nią jednostki organizacyjne",
+                              "Państwowe samorządowe instytucje kultury oraz państwowe instytucje filmowe",
+                              "Inne państwowe lub samorządowe osoby prawne utworzone na podstawie odrębnych ustaw w celu wykonywania przedsięwzięć publicznych, z wyłączeniem przedsiębiorstw, instytutów badawczych, banku w I spółek prawa handlowego"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "visibilityRules": [
+                    {
+                      "name": "dependsOnValue",
+                      "kwargs": {
+                        "fieldName": "applicationGrantUsageTargetEntity",
+                        "values": [
+                          "Dla jednostek zaliczanych do sektora finansów publicznych wymienionych w art. 9 Ustawy o finansach publicznych"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
